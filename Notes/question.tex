@@ -1,0 +1,145 @@
+\documentclass[reqno,10pt,a4paper,oneside]{amsart}
+\usepackage{amssymb,amsmath,amsthm,stmaryrd,enumerate,geometry}
+\usepackage[all]{xy} 
+
+\SelectTips{cm}{}
+\newdir{ >}{{}*!/-7pt/@{>}}
+\newdir{m}{->}
+%\newdir{m}{{}*!/-1pt/@{o}}
+\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
+%%% Pullback symbols
+\newcommand{\ulpullback}[1][ul]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\dlpullback}[1][dl]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\urpullback}[1][ur]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\drpullback}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\newcommand{\ie}{\text{i.e.\ }}
+\newcommand{\eg}{\text{e.g.}}
+\newcommand{\resp}{\text{resp.\ }}
+\newcommand{\myemph}{\textit} 
+\newcommand{\changed}{\todo[noline]{Changed}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{corollary}[theorem]{Corollary}  
+\newtheorem{apptheorem}{Theorem}
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}	
+\newtheorem*{definition*}{Definition}	
+
+
+
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remark*}{Remark} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem*{example*}{Example}
+\newtheorem*{examples*}{Examples}
+
+
+
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\co}{\colon}
+\newcommand{\iso}{\cong} 
+\newcommand{\rev}{\mathit{\vee}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\catequiv}{\simeq} 
+\newcommand{\cateq}{\simeq} 
+\newcommand{\coend}{\int}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3ex}
+
+
+\newcommand{\cat}[1]{\mathbb{#1}}
+\newcommand{\catA}{\cat{A}}
+\newcommand{\catB}{\cat{B}}
+\newcommand{\catC}{\cat{C}}
+\newcommand{\catD}{\cat{D}}
+\newcommand{\catK}{\cat{K}}
+\newcommand{\catM}{\cat{M}}
+
+
+\newcommand{\SSet}{\mathbf{SSet}}
+\newcommand{\UU}{\overline{\mathsf{W}}}
+\newcommand{\U}{\mathsf{W}}
+\newcommand{\Weq}{\mathrm{Eq}}
+\newcommand{\Set}{\mathbf{Set}}
+
+\date{March 25th, 2015}
+
+
+
+\begin{document}
+
+We assume to have a fixed infinite regular cardinal $\kappa$. Recall that $\U \in \SSet$ is defined by letting~$\U_n$ be the set of functors
+\[
+F \co (\Delta/[n])^\op \to \Set
+\]
+whose values have cardinality $\leq \kappa$.  We define $\UU  \SSet$ by letting $\UU_n$ be the set of pairs of the form $(F, s)$, where $F \in \U_n$ and $s \in F(1_n)$.
+
+Now suppose we have pullback squares
+\begin{equation}
+\label{equ:pbk1}
+\xycenter{
+X \ar[r]^{\alpha} \ar[d]_{p} \drpullback & Y \ar[d]^{q} \\
+A \ar[r]_{\phi} & B } 
+\end{equation}
+and
+\begin{equation}
+\label{equ:pbk2}
+\xycenter{
+X \ar[d]_p \ar[r]^{\beta} \drpullback & \UU \ar[d]^{\pi} \\
+A \ar[r]_{\chi} & \U }
+\end{equation}
+and assume that $\phi \co A \to B$ is a monomorphism and that $q$ has $\kappa$-small fibers. 
+
+{\bf Claim 1.} There exists $\psi \co B \to \U$ such that the composite
+\[
+\xymatrix{ A\ar[r]^\phi & B \ar[r]^\psi & \U }
+\]
+equals $\chi \co A \to \U$.
+
+Let $[n] \in \Delta$. Let $b \in B_n$. We need to define $\psi_n(b) \in \U_n$. By definition of $\U_n$, $\psi_n(b)$
+has to be a presheaf on $\Delta/[n]$ with values of cardinality $\leq \kappa$. So, we define it as follows:
+\begin{equation}
+\label{equ:psi}
+\begin{array}{cccl}
+\psi_n(b) \co & (\Delta/[n])^\op & \longrightarrow & \Set \\[2ex]
+ & ([m], u \co [m] \to [n])  & \longmapsto & \{ y \in Y_m \ | \ q_m(y) = b \cdot u \}
+ \end{array}
+ \end{equation}
+ Thus, to establish Claim 1, we try to prove the following.
+ 
+ {\bf Claim 2. } For all $[n] \in \Delta$, for all $a \in A_n$, we have
+ \[
+  (\psi_n \circ \phi_n)(a) = \chi_n(a)
+  \]
+  
+  
+  
+  Unfortunately, I can only prove that we have an isomorphism, rather than an equality. Indeed, for $u \co [m] \to [n]$ in $\Delta$, we have
+ \begin{alignat*}{2}
+ \psi_n( \phi_n(a)) (u) & =    \{ y \in Y_m \ | \ q_m(y) = \phi_n(a)  \cdot u \} & \qquad &   \\
+ & =  \{ y \in Y_m \ | \  q_m(y) = \phi_m(a \cdot u) \} & \qquad &   \text{(by naturality of $\phi$)} \\
+  & =  \{ \alpha_m(x) \ | \ x \in X_m  \text{ such  that } p_m(x) = a \cdot u \}& \qquad & \text{(since~\eqref{equ:pbk1} is a pullback)}  \\
+  & \iso  \{ x \in X_m \ | \ p_m(x) = a \cdot u \} & & \text{(since $\alpha$ is a monomorphism)}  \\
+  & \iso  \{ (F, s) \in \UU_m \ | \ F = \chi_m(a \cdot u) \} &  &\text{(since~\eqref{equ:pbk2} is a pullback)}   \\
+  & \iso  \chi_m(a \cdot u)(1_m) & & \text{(by definition of $\UU$)}  \\ 
+  & =  \chi_n(a)(u) & & \text{(by naturality of $\chi$)}
+    \end{alignat*}
+
+One possible way to fix this would be to define $\psi_n(b) \co (\Delta/[n])^\op \to \Set$ by cases, depending on whether
+$b = \phi_n(a)$ for some (necessarily unique) $a \in A_n$ or not. In the first case, we would set the value of $\psi_n(b)$
+at $u \in \Delta( [m], [n])$ to be $\chi_n(a)(u)$, so as to make Claim 2 trivially true. In the second case, we would
+use the definition in~\eqref{equ:psi}. There is a question of naturality that arises. Before doing this, I wanted to check if you had an alternative solution. 
+
+
+
+\end{document}

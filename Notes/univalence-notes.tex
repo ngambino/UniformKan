@@ -1,0 +1,596 @@
+\documentclass[reqno,10pt,a4paper,oneside]{amsart}
+\usepackage{amssymb,amsmath,amsthm,stmaryrd,enumerate,geometry}
+\usepackage[all]{xy} 
+
+\SelectTips{cm}{}
+\newdir{ >}{{}*!/-7pt/@{>}}
+\newdir{m}{->}
+%\newdir{m}{{}*!/-1pt/@{o}}
+\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
+%%% Pullback symbols
+\newcommand{\ulpullback}[1][ul]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\dlpullback}[1][dl]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\urpullback}[1][ur]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\drpullback}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\newcommand{\ie}{\text{i.e.\ }}
+\newcommand{\eg}{\text{e.g.}}
+\newcommand{\resp}{\text{resp.\ }}
+\newcommand{\myemph}{\textit} 
+\newcommand{\changed}{\todo[noline]{Changed}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{corollary}[theorem]{Corollary}  
+\newtheorem{apptheorem}{Theorem}
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}	
+\newtheorem*{definition*}{Definition}	
+
+
+
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remark*}{Remark} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem*{example*}{Example}
+\newtheorem*{examples*}{Examples}
+
+
+
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\co}{\colon}
+\newcommand{\iso}{\cong} 
+\newcommand{\rev}{\mathit{\vee}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\catequiv}{\simeq} 
+\newcommand{\cateq}{\simeq} 
+\newcommand{\coend}{\int}
+
+
+
+
+\newcommand{\cat}[1]{\mathbb{#1}}
+\newcommand{\catA}{\cat{A}}
+\newcommand{\catB}{\cat{B}}
+\newcommand{\catC}{\cat{C}}
+\newcommand{\catD}{\cat{D}}
+\newcommand{\catK}{\cat{K}}
+\newcommand{\catM}{\cat{M}}
+
+
+\newcommand{\SSet}{\mathbf{SSet}}
+\newcommand{\UU}{\overline{\mathsf{U}}}
+\newcommand{\U}{\mathsf{U}}
+\newcommand{\Weq}{\mathrm{Eq}}
+
+\author[]{Nicola Gambino}
+\address{School of Mathematics, University of Leeds, Leeds LS2 9JT, United Kingdom}
+
+\email{n.gambino@leeds.ac.uk}
+
+
+
+\title[Simplicial univalence]{Notes on simplicial univalence \\ (After Voevodsky, Streicher, Joyal and Cisinski)}
+
+\date{March 12th, 2015}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+We work with the category $\SSet$ of simplicial sets. We consider $\SSet$ as equipped with the Quillen model structure $(\mathcal{W},
+\mathcal{F}, \mathcal{C})$ in which the class of weak equivalences  $\mathcal{W}$ consists of the weak homotopy equivalences, the class of fibrations $\mathcal{F}$ consists of the Kan
+fibrations and the class of cofibrations $\mathcal{C}$ consists of the monomorphisms. We refer to
+elements of $\mathcal{W} \cap \mathcal{F}$ as trivial fibrations and $\mathcal{W} \cap \mathcal{C}$
+as trivial cofibrations. Recall that the model structure is right proper, \ie that weak equivalences are
+preserved by pullback along fibrations.
+
+
+\section{Preliminaries}
+
+
+\begin{lemma} \label{thm:minfib} \hfill 
+\begin{enumerate}[$(i)$]
+\item Every fibration can be factored as a trivial fibration followed by a minimal fibration, \ie 
+for every fibration $p \co X \to A$ there exists a factorisation of the form
+\[
+\xymatrix{
+X \ar[rr]^{t} \ar[dr]_p & & X' \ar[dl]^{m} \\
+ & A & }
+ \]
+ where $t$ is a trivial fibration and $m$ is a minimal fibration.
+ \item Minimal fibrations are closed under pullback, i.e. for every pullback diagram of the
+ form
+ \[
+ \xymatrix{
+ X \ar[r]^j \ar[d]_{m} & X' \ar[d]^{m'} \\
+ A \ar[r]_i  & A' }
+ \]
+ if $m'$ is a minimal fibration, so is $m$.
+ \item Weak equivalences between minimal fibrations are isomorphisms, \ie for every 
+ commutative diagram of the form
+ \[
+\xymatrix{
+X \ar[rr]^{w} \ar[dr]_m & & X' \ar[dl]^{m'} \\
+ & A & }
+ \]
+if $m$ and $m'$ are minimal fibrations and $w$ is a weak equivalence, then $w$ 
+is an isomorphism.
+\end{enumerate}
+\end{lemma}
+
+By a \emph{minimal resolution} of a fibration $p \co X \to A$ we mean a minimal fibration $m \co Y
+\to A$ equipped with a trivial cofibration $i \co Y \to X$ making the following diagram commute:
+\[
+\xymatrix{
+Y \ar[rr]^{i} \ar[dr]_{m} & & X \ar[dl]^{p} \\
+ & A & }
+ \]
+ 
+
+\begin{lemma} \label{thm:minres} Let $p \co X \to A$ be a fibration and let
+\[
+\xymatrix{
+Y \ar[rr]^{i} \ar[dr]_{m} & & X \ar[dl]^{p} \\
+ & A & }
+ \]
+ be a minimal resolution of $p$. Every retraction of the trivial cofibration $i$, \ie every map $r \co X \to Y$ such that
+\[
+\xymatrix{
+Y \ar[r]^{i} \ar@/_1pc/[dr]_{1_M} & X \ar[d]^r \\
+ & Y }
+ \]
+commutes, is a trivial fibration.
+ \end{lemma}
+
+Note that, given a minimal resolution of a fibration, a retraction $r$  as in Lemma~\ref{thm:minres} exists always, since it can be obtained as
+a diagonal filler of the diagram
+\[
+\xymatrix{
+Y \ar@{=}[r] \ar[d]_{i} & Y \ar[d]^{m} \\
+X \ar[r]_{p} & A }
+\]
+since $i$ is a trivial cofibration and $m$ is a fibration. 
+
+
+\begin{proposition}[Minimal fibrations can be extended along trivial cofibrations]
+\label{thm:minfibalongtrivcof}
+ For every
+minimal fibration $m \co Y \to A$ and trivial cofibration $i \co A \to A'$, there exists a pullback
+square
+\[
+\xymatrix{
+Y \ar[r]^{j} \ar[d]_m & Y' \ar[d]^{m'} \\
+A \ar[r]_{i} & A'}
+\]
+where $m'$ is a minimal fibration. 
+\end{proposition}
+
+\begin{proof} By the model category axioms, we can factor the composite $i \circ m \co Y \to A'$ as
+a trivial cofibration followed by a fibration, \ie there exists a diagram
+\[
+\xymatrix{
+Y \ar[d]_{m} \ar[r]^{u}  & Z \ar[d]^{p} \\
+A \ar[r]_{i} & A'}
+\]
+where $u$ is a trivial cofibration and $p$ is a fibration. By Lemma~\ref{thm:minfib}, we can factor the 
+fibration~$p \co Z \to A'$
+as a trivial fibration followed by a minimal fibration, \ie there exists a diagram
+\[
+\xymatrix{
+Z \ar[rr]^t \ar[dr]_{p}  & &  Y' \ar[dl]^{m'} \\
+  & A' & }
+  \]
+  where $t$ is a trivial fibration and $m'$ is a minimal fibration. Thus, we get the following diagram:
+  \begin{equation}
+  \label{equ:cart}
+\xycenter{
+Y \ar[r]^{u} \ar[d]_m & Z \ar[r]^{t} & Y' \ar[d]^{m'} \\
+A \ar[rr]_{i} & & A'}
+\end{equation}
+We claim that this gives us the required diagram (by letting $j = t \circ u$). For this, we only need to
+ show that the diagram is pullback. For this, take the pullback of $m'$ along $i$, we have the diagram
+\[
+\xymatrix{
+Y \ar@/^1pc/[drr]^{t \circ u} \ar@/_1pc/[ddr]_m  \ar@{.>}[dr]^{w} &  & \\
+ & Y'' \ar[r]^(.5){d} \ar[d]^-{m''}  & Y' \ar[d]^{m'}  \\
+  & A \ar[r]_{i} & A'}
+  \]
+  Since $m'' \co Y'' \to A$ is the pullback of a minimal fibration, it is a minimal fibration by Lemma~\ref{thm:minfib}.   
+ Next, note $t \circ u$ is a weak equivalence (since it is the composite of the trivial cofibration $u$ and the trivial fibration $t$). Since $i$, being a trivial cofibration, is a weak equivalence and the model structure is right proper, $d \co Y'' \to Y'$ (being the pullback of the weak equivalence $i$ along the fibration $m'$) is a weak equivalence. Therefore, by 
+ the 3-for-2 property of weak equivalences, the canonical map $w \co Y \to Y''$ is a weak equivalence. Thus, we have a diagram
+\[
+\xymatrix{
+Y \ar[rr]^{w} \ar[dr]_m & & Y'' \ar[dl]^{m''} \\
+ & A & }
+ \]
+where $m$ and $m''$ are minimal fibrations and $w$ is a weak equivalence. Hence, by Lemma~\ref{thm:minfib}, $w$ is an
+isomorphism and hence the square in~\eqref{equ:cart} is a pullback square, as required.
+\end{proof}
+
+
+\begin{lemma} \label{thm:trick} Let $i \co A \to A'$ be a map of simplicial sets.
+\begin{enumerate}[(i)]
+\item The functor $i_* \co \SSet/A \to \SSet/A'$ preserves trivial fibrations.
+\item If $i$ is a cofibration, then the counit of the adjunction $i^* \dashv i_*$, 
+\[
+\varepsilon \co i^* i_* \Rightarrow 1_{\SSet/A'}
+\]
+is a natural isomorphism.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof} \hfill
+\begin{enumerate}[(i)]
+\item By adjointness, since $i^*$ preserves cofibrations.
+\item If $i$ is a cofibration, $i_{!} \co \SSet/A \to \SSet/A'$ is fully faithful, so 
+$i^* \circ i_{!} \iso 1_{\SSet/A}$. By adjointness, $i^* i_* \iso 1_{\SSet/A'}$. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}[Trivial fibrations can be extended along cofibrations]
+ \label{thm:trivfibalongcof}
+For every
+trivial fibration $t \co X \to Y$ and every cofibration $j \co Y \to Y'$ there exists a pullback
+square
+\[
+\xymatrix{
+X \ar[r]^k  \ar[d]_t & X' \ar[d]^{t'} \\
+Y \ar[r]_{j} & Y'}
+\]
+where $t' \co X' \to Y'$ is a trivial fibration. 
+\end{proposition}
+
+\begin{proof} Define $t' = j_*(t)$. Since $t$ is a assumed to be a trivial fibration, 
+by part (i) of Lemma~\ref{thm:trick}, also $t'$ is a trivial fibration. The required pullback square 
+exists since 
+\[
+j^*(t') = j^* j_* (t) \iso t 
+\]
+where the last isomorphism is given by part (ii) of Lemma~\ref{thm:trick}.
+\end{proof}
+
+\begin{proposition}[Fibrations can be extended along trivial cofibrations] \label{thm:joyal}  For every
+fibration $p \co X \to A$ and trivial cofibration $i  \co A \to A'$ there exists a a pullback
+square
+\[
+\xymatrix{
+X \ar[r]^k \ar[d]_p & X' \ar[d]^{p'} \\
+A \ar[r]_i & A'}
+\]
+where $p' \co X' \to A'$ is a fibration.
+\end{proposition}
+
+\begin{proof} By Lemma~\ref{thm:minfib}, we can factor $p \co X \to A$ as a trivial fibration followed by a minimal
+fibration, \ie there exists a diagram
+\begin{equation*}
+\xycenter{
+X \ar[rr]^{t} \ar[dr]_p & & Y \ar[dl]^{m} \\
+ & A & }
+ \end{equation*}
+ where $t$ is a trivial fibration and $m$ is a minimal fibration. By Proposition~\ref{thm:minfibalongtrivcof}, we can extend the minimal fibration
+ $m$ along the trivial cofibration $u$, so as to get a pullback diagram
+ \begin{equation}
+ \label{equ:cart1}
+ \xycenter{
+ Y \ar[d]_{m} \ar[r]^{j} & Y' \ar[d]^{m'} \\
+ A \ar[r]_i & A'}
+ \end{equation}
+ where $m'$ is a trivial fibration. Note that $j$ is a cofibration since cofibrations (being the 
+ monomorphisms) are closed under pullback.  By Proposition~\ref{thm:trivfibalongcof}, we can  extend the trivial fibration $t$ along the cofibration $j$,
+ so as to get a pullback diagram
+ \begin{equation}
+  \label{equ:cart2}
+ \xycenter{
+ X \ar[r]^k \ar[d]_t & X' \ar[d]^{t'} \\
+ Y \ar[r]_{j} & Y'}
+ \end{equation}
+ By pasting the diagrams in~\eqref{equ:cart1} and~\eqref{equ:cart2}, we obtain the 
+ required diagram:
+ \[
+ \xymatrix{
+ X \ar[r]^k \ar[d]_t & X' \ar[d]^{t'} \\
+ Y \ar[r]_{j} \ar[d]_{m} & Y' \ar[d]^{m'} \\ 
+ A \ar[r]_i & A'}
+ \]
+since $p = m \circ t$. Note that $m' \circ t' \co Y \to A'$ is a fibration since it is the composite of
+the trivial fibration $t'$ and the minimal fibration $m'$.
+\end{proof}
+
+
+\begin{proposition}[Weak equivalences between fibrations can be extended along cofibrations]
+\label{thm:weakalongcof}
+For every diagram
+ \[
+ \xymatrix{
+ X_1 \ar[ddr]_{p_1}  \ar[drr]^{w}  &  & &  & & \\
+  & & X_2 \ar[dl]^{p_2} \ar[rrr]^(.35){u_2} & & &  X_2' \ar[dl]^(.35){p'_2} \\
+  & A \ar[rrr]_{i}  & & &A' & & }
+  \]
+  where $p_1$ and $p_2$ are fibrations, $w$ is a weak equivalence and $i \co A \to A'$ is a cofibration,  
+  there exists a diagram
+   \[
+ \xymatrix{
+ X_1 \ar[ddr]_{p_1}  \ar[drr]^{w} \ar[rrr]^{u_1} &  & & X_1' \ar[drr]^{w'}  \ar@{.>}[ddr]^(.7){p_1'}  & & \\
+  & & X_2 \ar[dl]^{p_2} \ar[rrr]^(.35){u_2} & & &  X_2' \ar[dl]^(.35){p'_2} \\
+  & A \ar[rrr]_{i}  & & &A' & & }
+  \]
+where $p'_1$ is a fibration, $w'$ is weak equivalence and all squares are pullbacks.
+\end{proposition}
+
+\begin{proof} Let us consider the pullback diagram
+\begin{equation}
+\label{equ:frontface}
+{\vcenter{\hbox{\xymatrix@C=2cm{
+X_2 \ar[r]^{u_2} \ar[d]_{p_2} & X'_2 \ar[d]^{p'_2} \\
+A \ar[r]_{i} & A'}}}}
+\end{equation}
+ In order to construct the required diagram, we begin by 
+ factoring the fibration $p_2' \co X_2' \to A'$ as  a trivial fibration followed by a minimal fibration, so that we have
+a diagram
+\[
+\xymatrix{
+X_2' \ar[rr]^{t_2'} \ar[dr]_{p_2'} & & Y' \ar[dl]^{m'} \\
+ & A' & }
+ \]
+ where $t_2'$ is a trivial fibration and $m_2'$ is a minimal fibration. Then, we form the pullback square
+ \[
+ \xymatrix@C=2cm{
+ Y \ar[r]^j \ar[d]_{m} & Y'  \ar[d]^{m'} \\
+  A \ar[r]_{i} & A'}
+ \]
+Since $m'$ is a minimal fibration, by Lemma~\ref{thm:minfib}, also $m$ is a minimal fibration. We can then decompose the pullback  in~\eqref{equ:frontface} as follows:
+ \[
+ \xymatrix@C=2cm@R=0.8cm{
+ X_2 \ar[r]^{u_2} \ar[d]_{t_2} & X'_2 \ar[d]^{t'_2} \\
+  Y \ar[r]^{j} \ar[d]_{m} & Y' \ar[d]^{m'} \\ 
+  A \ar[r]_{i} & A'}
+ \]
+Note that $t_2 \co X_2 \to Y$ is a trivial fibration, since it is the pullback of the trivial fibration $t'_2$. Now define
+$t_1 \co X_1 \to Y$ as the composite of $t_2 \co X_2 \to Y$ and the weak equivalence $w \co X_1 \to X_2$  
+that is part of the given data:
+\[
+t_1 = w \circ t_2 \, .
+\]
+
+ \medskip
+
+We claim that $t_1 \co X_1 \to Y$ is a trivial fibration. 
+Assuming that this is the case, the proof can be completed as follows. First, we apply Proposition~\ref{thm:trivfibalongcof}, to extend the trivial fibration $t_1$ along the cofibration $j$ and obtain a pullback diagram
+\[
+\xymatrix@C=2cm{
+X_1 \ar[r]^{u_1} \ar[d]_{t_1} & X_1' \ar[d]^{t'_1} \\
+Y \ar[r]_j & Y'}
+\]
+where $t_1'$ is a trivial fibration. Secondly, we obtain $w'$ as the diagonal filler of the following diagram
+\[
+\xymatrix{
+X_1 \ar[r]^{w} \ar[d]_{u_1} & X_2 \ar[r]^{u_2} & X_2' \ar[d]^{t'_2} \\ 
+X'_1 \ar[rr]_{t'_1} \ar@{.>}[urr]^(.42){w'} & & Y'} 
+ \]
+ Here, $u_1$ is a cofibration since it is a pullback of the cofibration  $j$, while $t'_2$ is a trivial fibration by
+ construction. Observe that $w'$ is a weak equivalence by the 3-for-2 property since $t'_1$ and $t'_2$ are
+ weak equivalences (since they are trivial fibrations). Putting all this data together, we obtain the required
+ diagram as
+ \[
+ \xymatrix{
+ X_1 \ar[ddr]_{t_1}  \ar[drr]^{w} \ar[rrr]^{u_1} &  & & X_1' \ar[drr]^{w'}  \ar@{.>}[ddr]^(.7){t_1'}  & & \\
+  & & X_2 \ar[dl]^{t_2} \ar[rrr]^(.35){u_2} & & &  X_2' \ar[dl]^(.35){t'_2} \\
+  & Y \ar[rrr]_j  \ar[d]_m  & & & Y' \ar[d]^{m'} & & \\
+  & A \ar[rrr]_{i}  & & &A' & & }
+  \]
+  
+  \medskip
+ 
+ It remains to prove that $t_1 \co X_1 \to Y$ is a trivial fibration. For this, let 
+ \[
+ \xymatrix{
+ M \ar[dr]_{m''} \ar[rr]^{u} & & X_1 \ar[dl]^{p_1} \\
+  & A & }
+  \]
+  be a minimal resolution of $p_1$.      If we consider the diagram
+  \[
+  \xymatrix{
+  M \ar[dr]_{m''} \ar[r]^{u} & X_1 \ar[r]^{t_1} \ar[d]^{p_1} & Y \ar[dl]^{m} \\
+   & A &   }
+   \]
+   we have that $t_1 \circ u$ is a weak equivalence between minimal fibrations and so it is
+   an isomorphism by Lemma~\ref{thm:minfib}. If $v \co Y \to M$ is the inverse of $t_1  \circ u$,
+   we have the diagram
+   \[
+   \xymatrix{
+   M \ar[r]^u \ar@/_1pc/[ddr]_{1_M} & X_1 \ar[d]^{t_1} \\
+     & Y \ar[d]^{v} \\
+     & M}
+     \]
+which shows that $v \circ t_1$ is a retraction of $u$. Since $u \co M \to X_1$ 
+is a minimal resolution, by Lemma~\ref{thm:minres} we have that $v \circ t_1$ is
+a trivial fibration. But now the diagram 
+ \[
+ \xymatrix{
+ X_1 \ar@{=}[r] \ar[dd]_{t_1} & X_1 \ar[d]^{t_1} \\
+  & Y \ar[d]^{v} \\
+  Y \ar[r]_v & M }
+  \]
+shows that $t_1$ is isomorphic a trivial
+fibration, and hence so is $t_1$.
+\end{proof}
+
+
+\section{Universal fibrations and univalence}
+
+% \newcommand{\catC}{\mathbb{C}}
+\newcommand{\pshC}{\widehat{\catC}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\yon}{\operatorname{y}}
+
+We review the construction of a classifier for small fibrations, exploiting 
+work of Hoffmann and Streicher. 
+Recall that for every simplicial set $X$ we have an equivalence of categories
+\[
+\textstyle
+\SSet/X \simeq \widehat{\int X} \, ,
+\]
+where $\SSet/X$ denotes the slice category of $\SSet$ over $X$ and 
+$\int X$ is  the category of elements of $X$. When $X = \Delta[n]$,
+we have and equivalence of categories $\int \Delta[n] \simeq \Delta /[n]$ and therefore we have
+\begin{equation}
+\label{equ:equivslice}
+\SSet/ \Delta[n] \simeq \widehat{\Delta/[n]} \, .
+\end{equation}
+Let us now fix a cardinal $\kappa$. We say that a map of simplicial sets is \emph{small} if and only if all its
+fibers have cardinality less or equal to $\kappa$. We wish to construct a classifier for small maps,
+i.e. a map of  simplicial sets $\overline{\mathsf{V}} \to \mathsf{V}$ such that for every small map $p \co Y \to X$ there 
+exists a pullback diagram of the form
+\[
+\xymatrix{
+B \ar[r] \ar[d]_{f} \drpullback & \overline{\mathsf{V}} \ar[d]^{v} \\
+A \ar[r]_{\chi} & \mathsf{V}}
+\]
+A first attempt would be to define $\mathsf{V}$ by mapping $[n] \in \Delta$ to the set of presheaves over $\Delta[n]$
+with fibers of cardinality less or equal to $\kappa$, with restriction given by pullbacks. This idea suffers
+from the problem that it is not strictly functorial. To remedy this, we exploit the equivalence in~\eqref{equ:equivslice}
+and define
+\[
+\mathsf{V}_n  \defeq [ (\Delta/[n])^\op \, ,  \; \Set_\kappa] \, ,
+\]
+where $\Set_\kappa$ is the full subcategory of $\Set$ spanned by sets of cardinality less or equal to $\kappa$. We then let $\overline{\mathsf{V}}_n$ to be the set of pairs $(F, x)$ consisting of an element $F \in \mathsf{V}_n$ and an
+element~$x \in F(\mathrm{id}_{[n]})$. We write $\U$ 
+for the simplicial subset  of $\mathsf{V}$ whose value at $[n]$ consists of all the presheaves $F \co  (\Delta/[n])^\op \to \Set_\kappa$ such that the map~$p \co X \to \Delta[n]$ corresponding to $F$ under the equivalence in~\eqref{equ:equivslice} is a Kan fibration. We then define the map $u \co \UU \to \U$ via the 
+pullback diagram
+\[
+\xymatrix{
+\UU \ar[r] \ar[d]_{\pi} &  \overline{\mathsf{V}} \ar[d]^{v}  \\
+\U \ar[r]_{i}  & \mathsf{V} }
+\]
+where $i$ is the inclusion.
+
+
+
+
+\begin{theorem} The map $\pi \co \UU \to \U$ is a fibration.
+\end{theorem}
+
+\begin{proof} This follows immediately by Proposition~\ref{thm:classifier}, but we 
+spell out the details by means of illustration. We need to find a diagonal filler for the square
+\begin{equation}
+\label{equ:given}
+\xycenter{
+\Lambda^k[n] \ar[r] \ar[d]_i & \UU \ar[d]^\sigma \\
+\Delta[n] \ar[r]_f & \UU }
+\end{equation}
+We can factor this diagram via the pullback of $e$ along $f$, as follows:
+\[
+\xymatrix{
+\Lambda^k[n] \ar[r] \ar[d] & X \ar[r] \ar[d]^p &  \UU \ar[d]^\sigma \\ 
+\Delta[n] \ar@{=}[r] & \Delta[n] \ar[r]_f & U }
+\]
+By the very definition of $\sigma \co \UU \to U$, the map $p \co X \to \Delta[n]$ is a fibration. 
+Since  $i  \co \Lambda^k[n] \to \Delta[n]$ is a trivial cofibration, by
+the model category axioms, we can find a diagonal filler 
+\[
+\xymatrix{
+  \Lambda^k[n]   \ar[r] \ar[d]_i &  X \ar[d]^e \\ 
+ \Delta[n]  \ar@{=}[r] \ar@{.>}[ur] & \Delta[n] }
+\]
+This diagonal filler can be used in an evident way to define a diagonal filler for the diagram in~\eqref{equ:given}.
+\end{proof}
+
+
+\begin{proposition} \label{thm:classifier} \hfill
+\begin{enumerate}[(i)]
+\item For every small fibration $p \co Y \to X$, there exists a pullback
+\[
+\xymatrix{
+X \ar[r] \ar[d]_p  \drpullback & \UU \ar[d]^{u} \\
+A \ar[r]_{\chi} & \U}
+\]
+\item (Composition)
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{theorem} The simplicial set $U$ is a Kan complex.
+\end{theorem}
+
+\begin{proof} We need to find a filler
+\[
+\xymatrix{
+\Lambda^k[n] \ar[r] \ar[d]_{i} & U \\
+\Delta[n] \ar@/_1pc/@{.>}[ur] & }
+\]
+By the definition of $U$, this is equivalent to extending a fibration $p \co X \to \Lambda^k[n]$ 
+along the inclusion $i \co \Lambda^k[n] \to \Delta[n]$, \ie to construct a diagram of the form
+\[
+\xymatrix{
+X \ar[r] \ar[d]_{p} & X' \ar[d]^{p'} \\ 
+\Lambda^k[n] \ar[r]_{i} & \Delta[n] }
+\]
+But this follows by Proposition~\ref{thm:joyal}, since $i  \co \Lambda^k[n] \to \Delta[n]$ is a trivial cofibration.
+\end{proof}
+
+
+
+
+\begin{theorem} The fibration  $p \co \UU \to U$ is univalent.
+\end{theorem}
+
+\begin{proof} We need to show that the map $w$ in the diagram
+\[
+\xymatrix{
+U \ar[rr]^w \ar[dr]_{\Delta} & & \Weq(\UU) \ar[dl]^{(s,t)} \\
+ & U \times U }
+ \]
+ is a weak equivalence.  By composing with the second projection $\pi_2 \co U \times U \to U$, this diagram
+ becomes 
+ \[
+\xymatrix{
+U \ar[rr]^w \ar[dr]_{1_U} & & \Weq(\UU) \ar[dl]^{t} \\
+ & U  }
+ \]
+ Hence, by the 3-for-2 property of weak equivalences, it suffices to show that $t \co \Weq(\UU) \to U$ is
+ a weak equivalence. Since $t$ is a fibration, we show that it is a trivial fibration. So, we need to prove
+ the existence of a diagonal filler in a diagram of the form
+ \begin{equation*}
+ \xymatrix@C=2cm{
+ A \ar[d]_i \ar[r]^-{w}  & \Weq(\UU) \ar[d]^t \\
+ A' \ar[r]_{f} & U }
+ \end{equation*}
+where $i$ is a cofibration. By the definition of $t \co \Weq(\UU) \to U$, this amounts to a diagram
+ \[
+ \xymatrix{
+ X_1 \ar[ddr]_{p_1}  \ar[drr]^{w}  &  & &  & & \\
+  & & X_2 \ar[dl]^{p_2} \ar[rrr]^(.35){u_2} & & &  X_2' \ar[dl]^(.35){p'_2} \\
+  & A \ar[rrr]_{i}  & & &A' & & }
+  \]
+  where $p_1$ and $p_2$ are fibrations, $w$ is a weak equivalence and $i \co A \to A'$ is a cofibration,  
+  while the diagonal filler amounts to having a diagram of the form
+ \[
+ \xymatrix{
+ X_1 \ar[ddr]_{p_1}  \ar[drr]^{w} \ar[rrr]^{u_1} &  & & X_1' \ar[drr]^{w'}  \ar@{.>}[ddr]^(.7){p_1'}  & & \\
+  & & X_2 \ar[dl]^{p_2} \ar[rrr]^(.35){u_2} & & &  X_2' \ar[dl]^(.35){p'_2} \\
+  & A \ar[rrr]_{i}  & & &A' & & }
+  \]
+where $p'_1$ is a fibration, $w'$ is weak equivalence and all squares are pullbacks. The claim then
+follows by Proposition~\ref{thm:weakalongcof}.
+ \end{proof} 
+
+
+
+
+
+\end{document}
+
