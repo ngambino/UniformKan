@@ -1,7 +1,7 @@
 ## Compilation
 
 The file `common/uniform-kan-prelude.sty` contains the usually duplicate preample stuff, including macro definitions.
-TeX files such as `Notes/conds-on-fibrations.tex` include it using `\usepackage{conds-on-fibrations}`.
+TeX files such as `Notes/conds-on-fibrations.tex` include it using `\usepackage{uniform-kan-prelude}`.
 In order for this to work, LaTeX needs to know to look for inputs in the directory `common`.
 This can usually be achieved in several different ways:
 
