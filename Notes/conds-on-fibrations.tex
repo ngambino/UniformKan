@@ -123,12 +123,12 @@ Now continue as before, exploiting the adjunction between Leibniz product and ex
 \section{Basic simplicial notions}
 
 Let $\Delta$ denote the simplex category and $\Delta_+$ the augmented simplex category.
-Recall that the restriction $\Set^{\Delta_+} \to \Set^{\Delta}$ has a left adjoint, given by augmenting over the set of connected components, and a right adjoint, given by augmenting over a singleton set.
-Consider the the canonical morphism from the initial to the terminal object in $\Set^{\Delta}$.
+Recall that the restriction $\Set^{\Delta_+^{\op}} \to \Set^{\Delta^{\op}}$ has a left adjoint, given by augmenting over the set of connected components, and a right adjoint, given by augmenting over a singleton set.
+Consider the the canonical morphism from the initial to the terminal object in $\Set^{\Delta^{\op}}$.
 We denote its value under the left adjoint by $h_0^0 : \Lambda_0^0 \to \Delta^0$ and under the right adjoint by $i^0 : \partial \Delta^0 \to \Delta^0$.
 
 Recall the monoidal structure of $\Delta_+$ given by ordinal addition.
-This structure gives rise to a Day convolution on augmented simplicial sets called the join and denoted $\arghole \star \arghole : \Set^{\Delta_+} \times \Set^{\Delta_+} \to \Set^{\Delta_+}$.
+This structure gives rise to a Day convolution on augmented simplicial sets called the join and denoted $\arghole \star \arghole : \Set^{\Delta_+^{\op}} \times \Set^{\Delta_+^{\op}} \to \Set^{\Delta_+^{\op}}$.
 
 Let us now define the boundary inclusion $i^n : \partial \Delta^n \to \Delta^n$ of dimension $n$ as the ($n+1$)-fold Leibniz join $i^n = (\hatjoin)^{n+1}(i^0$) for $n \geq 0$.
 By associativity of the join, it follows that $i^a \hatjoin i^b = i^{a+1+b}$ for $a, b \geq 0$.
