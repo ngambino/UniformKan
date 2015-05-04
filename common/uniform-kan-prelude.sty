@@ -1,0 +1,129 @@
+\ProvidesPackage{uniform-kan-prelude}
+
+%% Math packages
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+\usepackage[all]{xy}
+
+%% General packages
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Adapted from the HoTT book sources.
+
+%% Theorem environments
+\def\defthm#1#2#3#4{
+  \newtheorem{#1}[theorem]{#3}
+  \newtheorem*{#1*}{#3}
+  \newtheorem{#2}[theorem]{#4}
+  \newtheorem*{#2*}{#4}
+  \crefname{#1}{#3}{#4}
+  \crefname{#2}{#4}{#4}  
+}
+
+% Now define a bunch of theorem-type environments.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\crefname{theorem}{Theorem}{Theorems}
+
+\defthm{corollary}{corollaries}{Corollary}{Corollaries}
+\defthm{lemma}{lemmata}{Lemma}{Lemmata}
+\defthm{proposition}{propositions}{Proposition}{Propositions}
+
+\theoremstyle{definition}
+\defthm{definition}{definitions}{Definition}{Definitions}
+
+\theoremstyle{remark}
+\defthm{remark}{remarks}{Remark}{Remarks}
+\defthm{example}{examples}{Example}{Examples}
+\defthm{note}{notes}{Note}{Notes}
+
+%%% Lambda abstractions.
+% Each variable being abstracted over is a separate argument.  If
+% there is more than one such argument, they *must* be enclosed in
+% braces.  Arguments can be untyped, as in \lam{x}{y}, or typed with a
+% colon, as in \lam{x:A}{y:B}. In the latter case, the colons are
+% automatically noticed and (with current implementation) the space
+% around the colon is reduced.  You can even give more than one variable
+% the same type, as in \lam{x,y:A}.
+\def\lam#1{{\lambda}\@lamarg#1:\@endlamarg\@ifnextchar\bgroup{.\,\lam}{.\,}}
+\def\@lamarg#1:#2\@endlamarg{\if\relax\detokenize{#2}\relax #1\else\@lamvar{\@lameatcolon#2},#1\@endlamvar\fi}
+\def\@lamvar#1,#2\@endlamvar{(#2\,{:}\,#1)}
+% \def\@lamvar#1,#2{{#2}^{#1}\@ifnextchar,{.\,{\lambda}\@lamvar{#1}}{\let\@endlamvar\relax}}
+\def\@lameatcolon#1:{#1}
+\let\lamt\lam
+% This version silently eats any typing annotation.
+\def\lamu#1{{\lambda}\@lamuarg#1:\@endlamuarg\@ifnextchar\bgroup{.\,\lamu}{.\,}}
+\def\@lamuarg#1:#2\@endlamuarg{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nicola's stuff
+
+\SelectTips{cm}{}
+\newdir{ >}{{}*!/-7pt/@{>}}
+\newdir{m}{->}
+%\newdir{m}{{}*!/-1pt/@{o}}
+\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
+%%% Pullback symbols
+\newcommand{\ulpullback}[1][ul]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\dlpullback}[1][dl]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\urpullback}[1][ur]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\drpullback}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\newcommand{\ie}{\text{i.e.\ }}
+\newcommand{\eg}{\text{e.g.\ }}
+\newcommand{\resp}{\text{resp.\ }}
+\newcommand{\myemph}{\textit} 
+\newcommand{\changed}{\todo[noline]{Changed}}
+
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\co}{\colon}
+\newcommand{\iso}{\cong} 
+\newcommand{\rev}{\mathit{\vee}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\catequiv}{\simeq} 
+\newcommand{\cateq}{\simeq} 
+\newcommand{\coend}{\int}
+
+\newcommand{\cat}[1]{\mathbb{#1}}
+\newcommand{\catA}{\cat{A}}
+\newcommand{\catB}{\cat{B}}
+\newcommand{\catC}{\cat{C}}
+\newcommand{\catD}{\cat{D}}
+\newcommand{\catE}{\cat{E}}
+\newcommand{\catK}{\cat{K}}
+\newcommand{\catM}{\cat{M}}
+
+\newcommand{\SSet}{\mathbf{SSet}}
+\newcommand{\UU}{\overline{\mathsf{W}}}
+\newcommand{\U}{\mathsf{W}}
+\newcommand{\Weq}{\mathrm{Eq}}
+\newcommand{\Set}{\mathbf{Set}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% My stuff
+
+\DeclarePairedDelimiter\parens\lparen\rparen
+\DeclarePairedDelimiter\floors\lfloor\rfloor
+\DeclarePairedDelimiter\ceils\lceil\rceil
+\DeclarePairedDelimiter\bracks\lbrack\rbrack
+\DeclarePairedDelimiter\brackss\llbrack\rrbrack
+\DeclarePairedDelimiter\verts\lvert\rvert
+\DeclarePairedDelimiter\angles\langle\rangle
+\DeclarePairedDelimiter\braces\lbrace\rbrace
+
+\newcommand{\join}{\mathbin{\star}}
+\newcommand{\hatjoin}{\mathbin{\hat{\star}}}
+\newcommand{\hattimes}{\mathbin{\hat{\times}}}
+\newcommand{\hatexp}{\operatorname{\widehat{exp}}}
+\newcommand{\arghole}{\mathop{\cdot}}
+\newcommand{\ptA}{\mathbf{a}}
+\newcommand{\ptB}{\mathbf{b}}
+\newcommand{\cc}{\mathbin{\circ}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\const}{\operatorname{const}}
+\newcommand{\canonical}{\mathord{!}}
