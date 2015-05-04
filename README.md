@@ -5,7 +5,7 @@ TeX files such as `Notes/conds-on-fibrations.tex` include it using `\usepackage{
 In order for this to work, LaTeX needs to know to look for inputs in the directory `common`.
 This can usually be achieved in several different ways:
 
-### Environment varianle
+#### Environment variable
 
 On Linux with TexLive, you can set an environment variable:
 
@@ -13,7 +13,7 @@ On Linux with TexLive, you can set an environment variable:
 TEXTINPUTS=.:<path to repository>/UniformKan/common:
 ```
 
-### Local installation
+#### Local installation
 
 Find the local TeX tree.
 This depends on your operating system and TeX installation.
