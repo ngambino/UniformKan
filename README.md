@@ -5,6 +5,13 @@ TeX files such as `Notes/conds-on-fibrations.tex` include it using `\usepackage{
 In order for this to work, LaTeX needs to know to look for inputs in the directory `common`.
 This can usually be achieved in several different ways:
 
+#### Specific instructions for Nicola
+
+```
+mkdir -p ~/Library/texmf/tex/latex
+ln -s ~/Desktop/UniformKan/common ~/Library/texmf/tex/latex/uniform-kan-common
+```
+
 #### Environment variable
 
 On Linux with TexLive, you can set an environment variable:
