@@ -4,9 +4,25 @@
 
 \begin{document}
 
+\section{Introduction}
+
 The purpose of this file is to examine the appropriate constructive rephrasing of the notion of Kan fibration.
 We work in a constructive setting.
 In classical logic, all presented enhanced notions of Kan fibrations will be equivalent to the usual one. 
+
+The results so far can be read as abstractly (and thus constructively) proving the following:
+
+\begin{theorem}
+\label{abstract-homotopical-tribe}
+Fix a finitely complete and cocomplete category $\catC$ with exponentials such that monomorphisms are closed under Leibniz product.
+Consider a monomorphism $2 \to I$, which we will view as a bipointed object $\bot, \top : 1 \to I$.
+Assume $!_{I \to 1} : I \to 1$ is a strong homotopy equivalence.
+Let the diagonal $I +_2 I \to I$ factor into a monomorphism followed by a strong homotopy equivalence that is a retraction.
+
+Let $\classleft$ be a class of morphisms at least including $\bot$ and $\top$ and closed under Leibniz exponential with monomorphisms.
+Call fibrations those maps with the right lifting property with respect to $\classleft$.
+This turns the full the subcategory of fibrant objects of $\catC$ into homotopical tribe.
+\end{theorem}
 
 \section{Abstract Leibniz Nonsense}
 
@@ -21,44 +37,65 @@ I do not know what names to use on this abstract level.
 Let $\catC$ be a category with finite products and $(I, \bot, \top)$ be a bipointed object in $\catC$.
 
 \begin{definition}
-\label{def:homotopy-equivalence}
-A \emph{homotopy equivalence} consists of maps $f : A \to B$ and $g : B \to A$ together with maps $h : I \times A \to A$ and $k : I \times B \to B$ such that
-\begin{itemize}
-\item[(1)] $h \cc \angles{\bot \cc \canonical_{A \to 1}, \id_A} = \id_A$,
-\item[(2)] $k \cc \angles{\bot \cc \canonical_{B \to 1}, \id_B} = \id_B$,
-\item[(3)] $h \cc \angles{\top \cc \canonical_{A \to 1}, \id_A} = g \cc f$,
-\item[(4)] $k \cc \angles{\top \cc \canonical_{B \to 1}, \id_B} = f \cc g$.
-\end{itemize}
-We call it \emph{strong} or \emph{co-strong} if in addition we have $f \cc h = h \cc (I \times f)$ or $g \cc k = k \cc (I \times g)$, respectively.
+\label{def:homotopy}
+A \emph{homotopy} $h : f_1 \simeq f_2$ between $f_1, f_2 : A \to B$ consists of a map $h : I \times A \to B$ such that
+\begin{align*}
+h \cc \angles{\bot \cc \canonical_{A \to 1}, \id_A} &= f_1
+,\\
+h \cc \angles{\top \cc \canonical_{A \to 1}, \id_A} &= f_2
+.\end{align*}
 
-Such a homotopy equivalence is called a \emph{deformation retract} if $h = \pi_2$ (note that his makes $f$ and $g$ into a section-retraction pair and conditions (1) and (3) hold vacuously).\footnote{really needed?}
+Given $f : A \to B$, there is a \emph{trivial homotopy} $h : f \sim f$ given by $h = \pi_2$. 
 \end{definition}
 
-When we speak below of a map $f : A \to B$ being a homotopy equivalence, what we always mean is that further data $g, h, k$ is present so as to comprise a proper homotopy equivalence as per \cref{def:homotopy-equivalence}.
-Be aware that under this convention a deformation retract $f : A \to B$ has $f$ a section.
+\begin{definition}
+\label{def:homotopy-equivalence}
+A map $f : A \to B$ is called a \emph{homotopy equivalence} if it comes with $g : B \to A$ together with homotopies $h : \id_A \sim g \cc f$ and $k : \id_B \sim f \cc g$.
+This notion is symmetric, admitting an obvious duality.
+Such a homotopy equivalence is \emph{strong} if $f \cc h = k \cc (I \times f)$ and \emph{co-strong} if its dual is co-strong, \ie if $g \cc k = h \cc (I \times g)$.
 
-The notion of homotopy equivalence admits an obvious notion of duality under which the properties of strength and co-strength are interchanged.
+A \emph{deformation retract} is a homotopy equivalence as above where the homotopy $h$ is trivial (note that this makes $f$ and $g$ into a section-retraction pair).
+Dually, a \emph{co-deformation retract} has the homotopy $k$ trivial (with $g$ and $f$ a section-retraction pair).
+\end{definition}
+
+We say that $I$ has \emph{disjunction} if it comes with an associative binary operation with unit $\bot$ and annihilator $\top$.
 
 \begin{example}
-\label{de-morgan-deformation-retract}
-Let $I$ be a De Morgan algebra in $\catC$.
-The maps $\bot, \top : 1 \to I$ are each part of a strong and co-strong deformation retract.
+\label{disjunction-deformation-retract}
+If $I$ has disjunction, the map $\top : 1 \to I$ is a strong and co-strong deformation retract.
 \end{example}
 
 \begin{proof}
-By duality, it suffices to examine the map $\top : 1 \to I$.
-Clearly, this is a section to the canonical map $\canonical_{I \to 1}$.
+Clearly, the map $\top$ is a section to the canonical map $\canonical_{I \to 1}$.
 The remaining data is given by disjunction, noting that it has $\bot$ as left unit and $\top$ as left and right annihilator.
 \end{proof}
 
+\begin{remark}
+\label{h-equiv-exponent}
+For an object $A$ and $f : X \to Y$ a (strong, co-strong) homotopy equivalence (deformation retract, co-deformation retract), we have $A^f : A^Y \to A^X$ is a (strong, co-strong) homotopy equivalence (co-deformation retract, deformation retract).
+\end{remark}
+
+\begin{comment}
+\begin{example}
+\label{de-morgan-exp-deformation-retract}
+Let $I$ have the structure of a De Morgan algebra in $\catC$.
+For any object $A$, the section-retraction pair $A^{\canonical_{I \to 1}} : A^1 \to A^I$ and $A^{\top} : A^I \to A^1$ forms a strong and co-strong deformation retract.
+The same holds with $\top$ replaced by $\bot$.
+\end{example}
+
+\begin{proof}
+Combine \cref{de-morgan-deformation-retract} with \cref{h-equiv-exponent}.
+\end{proof}
+\end{comment}
+
 Now let $\catC$ also have finite colimits.
-Consider the following diagram (note the underlying symmetry!):
+Consider the following diagram:
 \[
 \xymatrix@C+2em{
   0
   \ar[r]^{\canonical_{0 \to 1}}
   \ar[d]_{\canonical_{0 \to 1}}
-  \ar[dr]^{\canonical_{0 \to A}}
+  %\ar[dr]^{\canonical_{0 \to A}}
 &
   1
   \ar[d]^{\top}
@@ -67,60 +104,440 @@ Consider the following diagram (note the underlying symmetry!):
   \ar[r]^{\bot}
 &
   I
+\\
+  \canonical_{0 \to 1}
+  \ar[r]^{\theta}
+&
+  \top
 }
 \]
-Let $\theta_1 : \canonical_{0 \to 1} \to \canonical_{0 \to I}$ and $\theta_2 : \canonical_{0 \to I} \to \top$ denote the individual triangles and $\theta = \theta_2 \cc \theta_1 : \canonical_{0 \to 1} \to \top$ denote the composite square, all in the arrow category $\catC^{\to}$.
-
-Recall that $\canonical_{0 \to 1}$ is a unit for the Leibniz product, and that Leibniz product with $\canonical_{0 \to I}$ corresponds to the objectwise product with $I$. 
+Here, $\theta$ denotes the square as a morphism in the arrow category $\catC^{\to}$.
+Recall that $\canonical_{0 \to 1}$ is a unit for the Leibniz product. 
 
 \begin{lemma}
-\label{strong-h-equiv-same-as-retraction}
-Strong homotopy equivalences $f : A \to B$ are in bijective correspondence with retractions to the map of arrows $\theta \hattimes f$ from $\canonical_{0 \to 1} \hattimes f$ to $\top \hattimes f$.\footnote{
-A strong deformation (or co-deformation) retract under this correspondence is a retraction $r$ such that the square $r \cc (\theta_2 \hattimes f) : I \times f \to f$ has the second projection as top (or bottom, respectively) morphism.
+\label{strong-h-equiv-as-retraction}
+Strong homotopy equivalences $f : A \to B$ are given by retractions $r$ to $\theta \hattimes f$:
+\[
+\xymatrix@C+2em{
+  \canonical_{0 \to 1} \hattimes f
+  \ar[r]_{\theta \hattimes f}
+  \ar@/^2em/[rr]^{\id}
+&
+  \top \hattimes f
+  \ar@{.>}[r]_{r}
+&
+  \canonical_{0 \to 1} \hattimes f
 }
+\]
+Furthermore, strong co-deformation retracts correspond to this being a lift of
+
+\[
+\xymatrix@C+2em{
+  1 \times B
+  \ar[r]_{\bot \times B}
+  \ar@/^2em/[rr]^{\id}
+&
+  I \times B
+  \ar[r]_{\canonical_{I \to 1} \times B}
+&
+  1 \times B
+}
+\]
+with respect to the codomain fibration.
 \end{lemma}
 
 \begin{proof}
-To give a map from $\top \hattimes i$ to $\canonical_{0 \to 1} \hattimes i$ is to give maps $\alpha : I \times A \to 1 \times A$, $\beta : 1 \times B \to 1 \times A$, and $\gamma : I \times B \to 1 \times B$ such that $\alpha \cc (\top \times A) = \beta \cc (1 \times f)$, $(1 \times f) \cc \alpha = \gamma \cc (I \times f)$, and $(1 \times f) \cc \beta = \gamma \cc (\top \times B)$.
-Constituting a section to $\theta \hattimes f$ means $\alpha \cc (\bot \times A) = \id_{1 \times A}$ and $\gamma \cc (\bot \times B) = \id_{1 \times B}$.
+To give $r$ from $\top \hattimes i$ to $\canonical_{0 \to 1} \hattimes i$ is to give maps $\alpha : I \times A \to 1 \times A$, $\beta : 1 \times B \to 1 \times A$, and $\gamma : I \times B \to 1 \times B$ such that $\alpha \cc (\top \times A) = \beta \cc (1 \times f)$, $(1 \times f) \cc \alpha = \gamma \cc (I \times f)$, and $(1 \times f) \cc \beta = \gamma \cc (\top \times B)$.
+The map $r$ constituting a section to $\theta \hattimes f$ means $\alpha \cc (\bot \times A) = \id_{1 \times A}$ and $\gamma \cc (\bot \times B) = \id_{1 \times B}$.
+\[
+\xymatrix@C+1em{
+  0 \times A
+  \ar[dr]
+  \ar[dd]
+&&&
+  1 \times A
+  \ar[dr]^{\top \times A}
+  \ar[dd]^(0.7){1 \times f}
+\\&
+  1 \times A
+  \ar[dd]^{1 \times f}
+  \ar[rrr]_(0.4){\bot \times A}
+&&&
+  I \times A
+  \ar[dd]^{I \times f}
+  \ar@{.>}@/_2em/[lll]_{\alpha}
+\\
+  0 \times A
+  \ar[dr]
+&&&
+  1 \times B
+  \ar[dr]^{\top \times B}
+  \ar@{.>}@/^1em/[llu]^{\beta}
+\\&
+  1 \times B
+  \ar[rrr]_{\bot \times B}
+&&&
+  I \times B
+  \ar@{.>}@/_2em/[lll]^{\gamma}
+}
+\]
 
 Let us replace $1 \times A$ and $1 \times B$ by the respective isomorphic object $A$ and $B$ in the above type signatures.
-We write $h : I \times A \to A$, $g : B \to A$, and $k : I \times B \to B$ for the respective image of $\alpha$, $\beta$, and $\gamma$ under this bijective transformation.
-The first three equations turn into condition (3), strength, and condition (4) of \cref{def:homotopy-equivalence}, while the two equations for the section constraint turn into conditions (1) and (2).\footnote{
-For the addendum on strong deformation and co-deformation retracts, simply note that the top and bottom morphisms in the square $r \cc (\theta_2 \hattimes f)$ are given by $h$ and $k$.
-}
+Write $h : I \times A \to A$, $g : B \to A$, and $k : I \times B \to B$ for the respective image of $\alpha$, $\beta$, and $\gamma$ under this bijective transformation.
+With respect to the requirements of \cref{def:homotopy-equivalence}, the first three equations turn into endpoint $\top$ for $h$, co-strength, and endpoint $\top$ for $k$, while the two equations for the section constraint turn into endpoint $\bot$ for $h$ and $k$.
+
+For the statement about strong co-deformation retracts, note that $\cod_{\catC}(r) = \gamma$ in the above picture, and $\gamma = \canonical_{I \to 1} \times B$ corresponds to $k = \pi_2$.
 \end{proof}
 
-If $\catC$ furthermore has pullbacks and is cartesian-closed, we can dualize the statement of \cref{strong-h-equiv-same-as-retraction} as follows:
+Let us furthermore assume that $\catC$ has pullbacks and exponentials.
+We can then add a dual property to \cref{strong-h-equiv-as-retraction}:
 
 \begin{corollary}
-\label{strong-h-equiv-same-as-section}
-Strong homotopy equivalences $f : A \to B$ are in bijective correspondence with sections to the map $\hatexp(\theta, f)$ of arrows from $\hatexp(\top, f)$ to $\hatexp(\canonical_{0 \to 1}, f)$.\footnote{
-A strong deformation (or co-deformation) retract under this correspondence is a section $s$ such that the square $\hatexp(\theta_2, f) \cc s : f \to f^I$ has the constant map as top (or bottom, respectively) morphism.
-}
+\label{strong-h-equiv-slick}
+Given any map $f$ in $\catC$, the following are equivalent:
+\begin{itemize}
+\item The map $f$ is a strong homotopy equivalence.
+\item The map $\theta \hattimes f$ is a section.
+\item The map $\hatexp(\theta, f)$ is a retraction.
+\end{itemize}
 \end{corollary}
 
-Purely formaly, this yields the following closure property of Leibniz exponentials:
+The following closure properties are purely formal, working entirely on the level of arrow categories.
 
 \begin{proposition}
-\label{strong-h-equiv-closed-under-exp}
-If one of the maps $f$ and $u$ is a strong homotopy equivalence, then so is $\hatexp(f, u)$.
+\label{strong-h-equiv-closed-under-prod}
+If one of the maps $f$ and $g$ is a strong homotopy equivalence, then so is $f \hattimes g$.
 \end{proposition}
 
 \begin{proof}
-Assume first that $f$ is a strong homotopy equivalence.
-By \cref{strong-h-equiv-same-as-retraction}, we know that $\theta \hattimes f$ has a retraction.
-By contravariance of $\hatexp$ in its first argument, this means $\hatexp(\theta \hattimes f, u)$ has a section.
-Exploiting the adjunction between Leibniz product and exponential, this is equivalent to $\hatexp(\theta, \hatexp(f, u))$ having a section.
-By \cref{strong-h-equiv-same-as-section}, this means $\hatexp(f, u)$ is a strong homotopy equivalence.
-
-Assume now that $u$ is a strong homotopy equivalence.
-By \cref{strong-h-equiv-same-as-section}, we know that $\hatexp(\theta, u)$ has a section.
-By covariance of $\hatexp$ in its second argument, this means $\hatexp(f, \hatexp(\theta, u))$ has a section.
-Now continue as before, exploiting the adjunction between Leibniz product and exponential.
+By \cref{strong-h-equiv-slick}, this is equivalent to showing that if $\theta \hattimes f$ or $\theta \hattimes g$ is a section, then so is $\theta \hattimes f \hattimes g$.
+But sections are preserved by functors, in this case the Leibniz product in one variable.
 \end{proof}
 
-\section{Basic simplicial notions}
+\begin{proposition}
+\label{strong-h-equiv-closed-under-exp}
+If one of the maps $f$ and $g$ is a strong homotopy equivalence, then so is $\hatexp(f, g)$.
+\end{proposition}
+
+\begin{proof}
+Let us show that if $f$ is a co-strong homotopy equivalence, then so is $\hatexp(f, g)$.
+By \cref{strong-h-equiv-slick}, this is equivalent to showing that if $\theta \hattimes f$ is a section, then $\hatexp(\theta, \hatexp(f, g)) = \hatexp(\theta \hattimes f, g)$ is a retraction.
+But the functor $\hatexp$ is contravariant in its first argument, mapping sections to retractions.
+
+Let us show that if $g$ is a co-strong homotopy equivalence, then so is $\hatexp(f, g)$.
+By \cref{strong-h-equiv-slick}, this is equivalent to showing that if $\hatexp(\theta, g)$ is a retraction, then so is $\hatexp(\theta, \hatexp(f, g)) = \hatexp(f, \hatexp(\theta, g))$ is a retraction.
+But the functor $\hatexp$ is covariant in its first argument, mapping retractions to retractions.
+\end{proof}
+
+\begin{proposition}
+\label{strong-h-equiv-closed-under-retract}
+Strong homotopy equivalences and strong co-deformation retracts are closed under retracts.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{strong-h-equiv-slick} and use that functors preserve and sections are closed under retracts.
+\end{proof}
+
+\begin{lemma}
+\label{strong-h-equiv-base-change-along-fibration}
+Strong homotopy equivalences are stable under base change along morphisms having the right lifting property with respect to $\bot \hattimes \canonical_{0 \to X}$ for $X : \catC$.
+Strong co-deformation retracts are stable under arbitrary base change.
+\end{lemma}
+
+\begin{proof}
+Let us start with the first statement.
+Let $f : A \to B$ be a strong homotopy equivalence and $v : B' \to B$ be a map having the lifting property mentioned in the statement.
+We consider the following pullback square:
+\[
+\xymatrix{
+  A'
+  \ar[r]^{u}
+  \ar[d]^{f'}
+&
+  A
+  \ar[d]^{f}
+\\
+  B'
+  \ar[r]^{v}
+&
+  B
+}
+\]
+The goal is to show that $f'$ is a co-strong homotopy equivalence.
+
+According to \cref{strong-h-equiv-as-retraction}, we must construct $(s', t')$ from $(s, t)$ in the following commutative diagram in the arrow category $\catC^{\to}$:
+\[
+\xymatrix@C+3em{
+  \canonical_{0 \to 1} \hattimes f'
+  \ar[r]_{\theta \hattimes f'}
+  \ar[d]_{\canonical_{0 \to 1} \hattimes (u, v)}
+  \ar@/^2em/[rr]^{\id}
+&
+  \top \hattimes f'
+  \ar@{.>}[r]_{(s', t')}
+  \ar[d]^{\top \hattimes (u, v)}
+&
+  \canonical_{0 \to 1} \hattimes f'
+  \ar[d]^{\canonical_{0 \to 1} \hattimes (u, v)}
+\\
+  \canonical_{0 \to 1} \hattimes f
+  \ar[r]^{\theta \hattimes f}
+  \ar@/_2em/[rr]_{\id}
+&
+  \top \hattimes f
+  \ar[r]^{(s, t)}
+&
+  \canonical_{0 \to 1} \hattimes f'
+}
+\]
+Since the codomain fibration has $(u, v)$ as cartesian morphism, it will suffice to solve this problem when projected to its base $\catC$:
+\[
+\xymatrix@C+2em{
+  1 \times B'
+  \ar[r]_{\bot \times B'}
+  \ar[d]_{1 \times v}
+  \ar@/^2em/[rr]^{\id}
+&
+  I \times B'
+  \ar@{.>}[r]_{t'}
+  \ar[d]^{I \times v}
+&
+  1 \times B'
+  \ar[d]^{1 \times v}
+\\
+  1 \times B
+  \ar[r]^{\bot \times f}
+  \ar@/_2em/[rr]_{\id}
+&
+  I \times B
+  \ar[r]^{t}
+&
+  1 \times B
+}
+\]
+This is a lifting problem of the form $\bot \hattimes \canonical_{0 \to B'} \pitchfork v$, which is solvable by assumption.
+
+To verify the second statement, relaxing the lifting property assumption for $v$, note that the second diagram in the statement of \cref{strong-h-equiv-as-retraction} is natural in $B$.
+\end{proof}
+
+\section{Proof of \cref{abstract-homotopical-tribe}}
+
+Fix a category $\catC$ together with the structure listed in the assumptions of \cref{abstract-homotopical-tribe}.
+Recall this includes a class $\classleft$ of morphisms at least including $\bot$ and $\top$ and closed under Leibniz exponential with monomorphisms.
+
+\begin{definition}
+\label{def:constructive-kan}
+We define:
+\begin{itemize}
+\item
+A \emph{fibration} is a map with the right lifting property with respect to $\classleft$.
+\item
+A \emph{trivial cofibration} is a map with the left lifting property with respect to fibrations.
+\end{itemize}
+\end{definition}
+
+Since $\classleft$ is closed under Leibniz product with monomorphisms, it follows by adjointness that fibrations are closed under Leibniz exponential with monomorphisms.
+Again by adjointness, trivial cofibrations are closed under Leibniz product with monomorphisms.
+
+\begin{lemma}
+\label{strong-h-equiv-mono-is-anodyne}
+Any strong homotopy equivalence that is a monomorphism is a trivial cofibration.
+\end{lemma}
+
+\begin{proof}
+Let $i : A \to B$ be the given morphism.
+Recall that $\top$ is a trivial cofibration.
+By closure under Leibniz product with monomorphisms, we know $\top \hattimes i$ is a trivial cofibration.
+But $i$ is a retract of $\top \hattimes i$ by \cref{strong-h-equiv-slick}, making it a trivial cofibration.
+\end{proof}
+
+\begin{lemma}[Following~\cite{joyal-tierney:simplicial-homotopy-theory}]
+\label{anodyne-between-fibrant-is-strong-def-retract}
+Any trivial cofibration between fibrant object is a strong deformation retract.
+\end{lemma}
+
+\begin{proof}
+Let $j : A \to B$ be the given map.
+Since $\canonical_{A \to 1}$ is a fibration, we can construct a retraction $r$ to $j$ as a lift in the following diagram:
+\[
+\xymatrix{
+  A
+  \ar[r]^{\id}
+  \ar[d]_{j}
+&
+  A
+  \ar[d]^{\canonical_{A \to 1}}
+\\
+  B
+  \ar[r]
+  \ar@{.>}[ur]^{r}
+&
+  1
+}
+\]
+Now let $i : 2 \to I$ denote the canonical monomorphism $i = [\bot, \top]$.
+Since $\canonical_{B \to 1}$ is a fibration, so is $\hatexp(i, \canonical_{B \to 1})$.
+Thus, we may construct the remaining data of a strong deformation retract as a lift in the following diagram:
+\[
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{j}
+&
+  A^I
+  \ar[r]^{j^I}
+&
+  B^I
+  \ar[d]^{\hatexp(i, \canonical_{B \to 1})}
+\\
+  B
+  \ar[rr]_{B \times (r \cc j)}
+  \ar@{.>}[urr]
+&&
+  B^2
+}
+\]
+\end{proof}
+
+\begin{corollary}
+\label{anodyne-between-fibrant-characterization}
+In the full subcategory of fibrant objects, the following classes of maps are identical:
+\begin{itemize}
+\item
+trivial cofibrations,
+\item
+strong homotopy equivalences that are monomorphisms,
+\item
+strong deformation retracts.
+\end{itemize}
+\end{corollary}
+
+\begin{lemma}
+\label{fibration-base-change-of-anodyne-between-fibrant}
+Trivial cofibrations between fibrant objects are stable under base change along fibrations.
+\end{lemma}
+
+\begin{proof}
+First note that pullback takes places entirely in the full subcategory of fibrant objects.
+In there, we work with the characterization of trivial cofibrations maps as strong homotopy equivalences that are monomorphisms.
+The proof is now a combination of two ingredients:
+\begin{itemize}
+\item
+By \cref{strong-h-equiv-base-change-along-fibration}, strong homotopy equivalences are stable under base change along fibrations.
+\item
+Monomorphisms are always stable under base change.
+\end{itemize}
+\end{proof}
+
+\begin{lemma}
+\label{exp-factorization}
+Let $f : A \to B$ be a morphism and $X$ be a fibrant object.
+Assume that $f$ factors into a monomorphism followed by a strong homotopy equivalence that is also a retraction.
+Then exponentiating with base $X$ turns this into a factorization of $X^f : X^B \to X^A$ into a trivial cofibration followed by a fibration.
+\end{lemma}
+
+\begin{proof}
+Let $A \to K \to B$ be the given factorization.
+Exponentiating with base $X$ turns this into $X^B \to X^K \to X^A$.
+Note that all objects here are fibrant: the Leibiz exponential of the fibration $\canonical_{X \to 1}$ and any map from the initial object (these being monomorphisms) is a fibration.
+
+The map $X^B \to X^K$ is a strong homotopy equivalence by \cref{h-equiv-exponent} and a monomorphism since the map $K \to B$ was assumed a retraction.
+By \cref{anodyne-between-fibrant-characterization}, it is a trivial cofibration.
+
+The map $X^K \to X^A$ is the Leibniz exponential of the fibration $\canonical_{X \to 1}$ and the monomorphism $A \to K$, and thus a fibration.
+\end{proof}
+
+\begin{proof}[Proof of \cref{abstract-homotopical-tribe}]
+Let $\catC_f$ denote the full subcategory of fibrant objects of $\catC$.
+Recall that pullbacks in $\catC_f$ are inherited from $\catC$.
+Fibrations are stable under base change as they were defined via a right lifting property.
+This makes $\catC$ into a tribe.
+
+The result now follows as an application of \cref{wfs-from-path-objects} to $\catC_f$.
+First note that base change along fibrations preserves trivial fibrations by \cref{fibration-base-change-of-anodyne-between-fibrant}.
+It remains to construct the path objects listed in \cref{wfs-from-path-objects}.
+
+Fix a fibrant object $X$.
+By assumption, we have a factorization $2 \to I \to 1$ of $\canonical_{2 \to 1}$ into a monomorphism followed by a strong homotopy equivalence.
+Note that $\canonical_{I \to 1}$ is also a retraction, being a section of \eg $\top$.
+Using \cref{exp-factorization}, this turns into factorization $X \to X^I \to X \times X$ of the diagonal.
+
+By assumption, we furthermore have a factorization $I +_2 I \to H \to I$ of $\bracks{\id_I, \id_I}$ into a monomorphism followed by a strong homotopy equivalence that is a retraction.
+Using \cref{exp-factorization}, this turns into a path object $X^I \to X^H \to X^I \times_{X \times X} X^I$ for $X^I \to X \times X$.
+\end{proof}
+
+\subsection{Further abstract results}
+
+\begin{lemma}
+Any strong homotopy equivalence that is a constructive Kan fibration has the right lifting property with respect to monomorphisms.
+\end{lemma}
+
+\begin{proof}
+\label{strong-h-equiv-kan-is-trivial}
+Let $p : X \to Y$ be the given morphism and fix any monomorphism $i$.
+Our goal is to show that $i \pitchfork p$.
+
+Recall that $\top$ is constructive trivial cofibration.
+By closure under Leibniz product with monomorphisms, we know $\top \hattimes i$ is constructive trivial cofibration.
+It follows that $\top \hattimes i \pitchfork p$.
+By adjointness, we have $i \pitchfork \hatexp(\top, p)$.
+But $p$ is a retract of $\hatexp(\top, p)$ by \cref{strong-h-equiv-slick}, implying $i \pitchfork p$.
+\end{proof}
+
+\begin{lemma}[Following~\cite{joyal-tierney:simplicial-homotopy-theory}]
+Any constructive Kan fibration that has the right lifting property with respect to monomorphisms if a strong co-deformation retract.
+\end{lemma}
+
+\begin{proof}
+Completely dual to \cref{anodyne-between-fibrant-is-strong-def-retract}.
+
+Let $p : X \to Y$ be the given morphism.
+Since $!_{0 \to Y}$ is a monomorphism, we can construct a section $s$ to $p$ as a lift in the following diagram:
+\[
+\xymatrix{
+  0
+  \ar[r]
+  \ar[d]_{\canonical_{0 \to Y}}
+&
+  X
+  \ar[d]^{\id}
+\\
+  Y
+  \ar[r]_{p}
+  \ar@{.>}[ur]^{s}
+&
+  Y
+}
+\]
+Again, let $i : 2 \to I$ denote the canonical monomorphism $i = [\bot, \top]$.
+Since $\canonical_{0 \to X}$ is a monomorphism, so is $i \hattimes \canonical_{0 \to X}$.
+Thus, we may construct the remaining data of a strong co-deformation retract as a lift in the following diagram:
+\[
+\xymatrix{
+  2 \times X
+  \ar[rr]^{Y + (p \cc s)}
+  \ar[d]_{i \hattimes \canonical_{0 \to X}}
+&&
+  X
+  \ar[d]^{p}
+\\
+  I \times X
+  \ar[r]_{\pi_2}
+  \ar@{.>}[urr]
+&
+  X
+  \ar[r]_{p}
+&
+  Y
+}
+\]
+\end{proof}
+
+\begin{corollary}
+A constructive Kan fibration has the right lifting property with respect to monomorphisms precisely if it is a strong co-deformation retract.
+\end{corollary}
+
+\section{The simplicial setting}
 
 Let $\Delta$ denote the simplex category and $\Delta_+$ the augmented simplex category.
 Recall that the restriction $\Set^{\Delta_+^{\op}} \to \Set^{\Delta^{\op}}$ has a left adjoint, given by augmenting over the set of connected components, and a right adjoint, given by augmenting over a singleton set.
@@ -140,20 +557,21 @@ The join operation on augmented simplicial sets induces an associative operation
 Observing that the only simplicial set in the preceeding paragraphs not terminally augmented is $\Lambda_0^0$, all identities not involving $h_0^0$ still hold in simplicial sets.
 
 \begin{definition}
-The class of \emph{constructively generating anodyne maps} is given by closing $\braces{h_0^1, h_1^1}$ under Leibniz product with monomorphisms.
-A \emph{constructive Kan fibration} is a map that has the right lifting property with respect to constructively generating anodyne maps.
-Finally, a \emph{constructive anodyne maps} is one that has the left lifting property with respect to constructive Kan fibrations.
+\label{def:constructive-kan}
+The class of \emph{constructively generating trivial cofibrations} is given by closing $\braces{h_0^1, h_1^1}$ under Leibniz product with monomorphisms.
+A \emph{constructive Kan fibration} is a map that has the right lifting property with respect to constructively generating trivial cofibrations.
+Finally, a \emph{constructive trivial cofibration} is one that has the left lifting property with respect to constructive Kan fibrations.
 \end{definition}
 
 Recall that $i \hattimes i'$ is a monomorphism whenever $i$ and $i'$ are.
-By associativity of the Leibniz product, it follows that the above closure of $\braces{h_0^1, h_1^1}$ is reached after a single iteration, \ie the constructively generating anodyne maps are precisely those of the form $h_k^1 \hattimes i$ where $k = 0, 1$ and $i$ is a monomorphism.
+By associativity of the Leibniz product, it follows that the above closure of $\braces{h_0^1, h_1^1}$ is reached after a single iteration, \ie the constructively generating trivial cofibrations are precisely those of the form $h_k^1 \hattimes i$ where $k = 0, 1$ and $i$ is a monomorphism.
 
-Since constructively generating anodyne maps are closed under Leibniz product with monomorphisms, it follows by adjointness that constructive Kan fibrations are closed under Leibniz exponential with monomorphisms.
-Again by adjointness, constructive anodyne maps are closed under Leibniz product with monomorphisms.
+Since constructively generating trivial cofibrations are closed under Leibniz product with monomorphisms, it follows by adjointness that constructive Kan fibrations are closed under Leibniz exponential with monomorphisms.
+Again by adjointness, constructive trivial cofibrations are closed under Leibniz product with monomorphisms.
 
 \begin{lemma}
 \label{horn-constructive-anodyne}
-The horn inclusion $h_k^n$ is constructive anodyne where $0 \leq k \leq n$ with $n \geq 1$.
+The horn inclusion $h_k^n$ is a constructive trivial cofibration where $0 \leq k \leq n$ with $n \geq 1$.
 \end{lemma}
 
 \begin{proof}
@@ -163,18 +581,68 @@ Note that $h_k^n$ is a monomorphism.
 \end{proof}
 
 \begin{proposition}
-A map $p$ is a constructive Kan fibration if and only if it has the right lifting property with respect to $h_k^n \hattimes i$ for $0 \leq k \leq n$ with $n \geq 1$ and $i$ a monomorphism.
+\label{constructive-kan-alternative}
+A map $p$ is a constructive Kan fibration precisely if it has the right lifting property with respect to $h_k^n \hattimes i$ for $0 \leq k \leq n$ with $n \geq 1$ and $i$ a monomorphism.
 \end{proposition}
 
 \begin{proof}
 The non-trivial direction of the equivalence follows from \cref{horn-constructive-anodyne} and the comments preceeding it.
 \end{proof}
 
+Classically, monomorphisms are the saturated class of boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$.
+Recall that the Leibniz product of a horn inclusion with a boundary inclusion lies in the saturated class of horn inclusions~\cite[Proposition~2.1.2.6]{lurie:htt}.
+Using \cref{constructive-kan-alternative}, it thus follows that the notions of \cref{def:constructive-kan} classically coincide with the usual ones.
+
 Awodey's notion of uniformity for Kan fibrations corresponds --- in the simplicial setting --- to the right lifting property with respect to $h_k^n \hattimes i$ for only those monomorphisms $i$ with domain the initial object.
 Our reason for stipulating this property for arbitrary monomorphisms is twofold.
 First, it seems to lead to a smoother development.
 Second, and more important, it also captures --- in the simplicial setting --- Coquand's notion of regularity for Kan fibrations.
+
+It can be checked that simplicial sets together with $\classleft$ the class of constructively generating trivial cofibrations and $I = \Delta^1$ satisfy the assumptions of \cref{abstract-homotopical-tribe}.
+The factorization of $\Delta_1 +_{\braces{0, 1}} \Delta^1 \to \Delta^1$ into a monomorphism followed by a strong deformation retract has as middle object the pushout of $d_0 : \Delta^1 \to \Delta^2$ and $s_0 : \Delta^1 \to \Delta^0$. 
+Thus we have proved constructively:
+
+\begin{corollary}
+Simplicial sets with constructive Kan fibrations form a homotopical tribe.
+\end{corollary}
+
+%With the last lemma, this would give a constructive account of the simplicial set model (without universes) as a type-theoretic fibration category in Shulman's sense.
+
+
 \section{Interval object}
+
+
+Let $I$ abbreviate $\Delta^1$.
+We set $\bot = d_1$ and $\top = d_0$.
+Note that $\Delta^1$ has disjunction in the sense of the first section.
+By \cref{disjunction-deformation-retract}, this makes $\top$ into a strong and co-strong deformation retract.
+
+Let $A = \Delta^1$ and $B$ be the following pushout:
+\[
+\xymatrix{
+  \Delta^1
+  \ar[r]^{s_0}
+  \ar[d]_{d_0}
+&
+  \Delta^0
+  \ar[d]^{v}
+\\
+  \Delta^2
+  \ar[r]_{u}
+&
+  B
+}
+\]
+We will make $f = u \cc d_1 : A \to B$ into a strong and co-strong deformation retract.
+For the inverse map $g : B \to A$, we set $g = \bracks{s_1, d_0}$, noting that $s_1 d_0 = d_0 s_0$.
+We have $g \cc f = \bracks{s_1, d_0} \cc u \cc d_1 = s_1 \cc d_1 = \id_{\Delta^1}$.
+
+%A -> A^I -> A^2
+
+%A^I -> ?? -> A^I x_{A^2} A^I
+
+%A^I x_{A^2} A^I = A^{I +_2 I}
+
 
 Let $I$ denote the cofree simplicial set on two points $\ptA$ and $\ptB$.
 The $n$-simplices of $I$ consist of lists $v_0 \ldots v_n$ of length $n+1$ where each entry is either $\ptA$ or $\ptB$.
@@ -189,7 +657,7 @@ Specifically, it admits nullary operations $\bot, \top : 1 \to I$ given by $\bot
 
 \begin{proof}
 The cofree functor from sets to simplicial sets preserves products since it is a right adjoint.
-Since the theory of Boolean algebras is algebraic, Boolean algebra in sets are mapped to Boolean algebras in simplicial sets.
+Since the theory of Boolean algebras is algebraic, Boolean algebras in sets are mapped to Boolean algebras in simplicial sets.
 Now simply observe that $I$ was defined as the cofree simplicial set on two points $I_0 = \braces{\ptA, \ptB}$, and that this is the underlying set of the standard example of a Boolean algebra in sets.
 \end{proof}
 
@@ -197,133 +665,195 @@ For $n \geq 0$, let $I_n$ denote the simplicial subset of $I$ consisting of the 
 We can characterize the simplices $v_0 \ldots v_k$ in $I_n$ as those for which the list $\ptA v_0 \ldots v_k$ contains at most $n$ alternations between $\ptA$ and $\ptB$.
 With this description, it is easily verified that the only non-degenerate simplices in $I_{n+1}$ not contained in $I_n$ are the list $\ptA \ptB \ptA \ldots$ of length $n+2$ and the list $\ptB \ptA \ptB \ldots$ of length $n+1$.
 Observing that the latter is the $0$-th face of the former, it follows that the monomorphism $I_n \to I_{n+1}$ is a cobase change of the horn filling $h_{0}^{n+1} : \Lambda_0^{n+1} \to \Delta^{n+1}$.
-Taking the $\omega$-colimit $\braces{\ptA} = I_0 \to I_1 \to \ldots$, it follows that $\braces{\ptA} \to I$ is constructive anodyne.
+Taking the $\omega$-colimit $\braces{\ptA} = I_0 \to I_1 \to \ldots$, it follows that $\braces{\ptA} \to I$ is a constructive trivial cofibration.
 Dually, the same holds for $\braces{\ptB} \to I$.
 
-\section{Results}
+\section{Appendix}
 
-Let us now eat the fruits of our abstract Leibniz nonsense.
-All homotopy equivalences will be with respect to the Boolean algebra $I$ in simplicial sets.
+% Stolen from Mike Shulman.
+\newcommand{\fib}{\twoheadrightarrow}
+\newcommand{\acof}{\mathrel{\mathrlap{\hspace{3pt}\raisebox{4pt}{$\scriptscriptstyle\sim$}}\mathord{\rightarrowtail}}}
 
-\begin{lemma}
-\label{strong-h-equiv-mono-is-anodyne}
-Any strong homotopy equivalence that is a monomorphism is constructive anodyne.
-\end{lemma}
+Recall that a \emph{tribe} is a category $\catC$ with a subcategory of morphisms called \emph{fibrations} denoted by $X \fib Y$ satisfying the following:
+\begin{itemize}
+\item
+There exists a terminal object $1$.
+The canonical map $\canonical_{X \to 1}$ is a fibration for any $X$.
+\item
+Base changes of fibrations exist and are fibrations.
+\end{itemize}
 
-\begin{proof}
-Let $i : A \to B$ be the given morphism.
-Recall that $\top$ is constructive anodyne.
-By closure under Leibniz product with monomorphisms, we know $\top \hattimes i$ is constructive anodyne.
-But $i$ is a retract of $\top \hattimes i$ by \cref{strong-h-equiv-same-as-retraction}, making it constructive anodyne as well.
-\end{proof}
+Morphisms that have the left lifting property with respect to fibrations are called \emph{trivial cofibrations} and are denoted $A \acof B$.
+A tribe $\catC$ is called \emph{homotopical} (or an \emph{h-tribe}) if:
+\begin{itemize}
+\item
+Base change along fibrations preserves trivial cofibrations.
+\item
+Any map factors as a fibration followed by a trivial cofibration.
+\end{itemize}
 
-\begin{lemma}
-Any strong homotopy equivalence that is a constructive Kan fibration has the right lifting property with respect to monomorphisms.
-\end{lemma}
+A \emph{path object} for a fibration $A \fib B$ is a factorization $A \acof P_B A \fib A \times_B A$ of the diagonal $\angles{\id_A, \id_A}$ as in the above definition.
+A path object for an object $A$ is a path object for $\canonical_{A \to 1}$.
 
-\begin{proof}
-Let $p : X \to Y$ be the given morphism and fix any monomorphism $i$.
-Our goal is to show that $i \pitchfork p$.
+The following theorem was first proved by Gambino and Garner~\cite{gambino-garner:idtypewfs} in a type-theorical phrasing.
+Shulman~\cite{shulman:inverse-diagrams} gave a categorical transcription.
 
-Recall that $\top$ is constructive anodyne.
-By closure under Leibniz product with monomorphisms, we know $\top \hattimes i$ is constructive anodyne.
-It follows that $\top \hattimes i \pitchfork p$.
-By adjointness, we have $i \pitchfork \hatexp(\top, p)$.
-But $p$ is a retract of $\hatexp(\top, p)$ by \cref{strong-h-equiv-same-as-section}, implying $i \pitchfork p$.
-\end{proof}
+\begin{theorem}[Gambino and Garner, Shulman]
+\label{wfs-from-path-objects}
+Let $\catC$ be a tribe such that base change along fibrations preserves trivial cofibrations.
+The following conditions are equivalent:
+\begin{itemize}
+\item
+Any map factors as a fibration followed by a trivial cofibration.
+\item
+Any object $X$ has a path object $X \acof P X \fib X \times X$ such that $P X \fib X \times X$ has itself a path object.
+\end{itemize}
+Both conditions make $\catC$ homotopical.
+\end{theorem}
 
-\begin{corollary}
-\label{strong-deformation-retract-is-anodyne}
-Any strong deformation retract is constructive anodyne.
-\end{corollary}
+Clearly, path objects are special cases of the general factorization.
+For the converse, we trace the proof in Shulman~\cite[Lemma~2.4]{shulman:inverse-diagrams}, switching to that notation.
 
-\begin{corollary}
-\label{refl-is-anodyne}
-Given any simplicial set $A$, the constant map $A \to A^I$ is constructive anodyne.
-\end{corollary}
+We are given a map $f : A \to B$ to be factored (we only need the case $C = 1$).
+The only path objects needed are $B \acof P B \fib B \times B$ for $B$ and $P_{B \times B} (P B)$ for $P B \fib B \times B$.
+The mapping space $P f$ for $f$ and a further path object $P_{A \times B} (P f)$ for $P f \fib A \times B$ are constructed from these by pullback.
 
-\begin{proof}
-By \cref{de-morgan-deformation-retract}, the pair of maps $\bot : 1 \to I$ and $\canonical_{I \to 1} : I \to 1$ forms a co-strong deformation retract.
-By \cref{strong-h-equiv-closed-under-exp}, the constant map $A \to A^I$ --- represented as the Leibniz exponential $\hatexp(\canonical_{1 \to I}, \canonical_{A \to 1})$ --- is a strong homotopy equivalence.
-Since it is also a section, we can conclude by \cref{strong-h-equiv-mono-is-anodyne}.
-\end{proof}
+Condition~(6') plays no role in the proof of the condition~(5) (the factorization).
+Furthermore, the concept of a type-theoretic fibration category without conditions~(5) and~(6) is identical to that of a tribe together with a partial right adjoint to pullback along fibrations, defined on and valued in fibrations.
+However, this property is not used in this proof, only its adjoint implication that base change along fibrations preserves trivial cofibrations.
 
-\begin{corollary}
-\label{path-object}
-Given a constructive Kan complex $A$, the chain of maps $A \to A^I \to A \times A$ factors the cartesian diagonal into a constructive anodyne map followed by a constructive Kan fibration.
-\end{corollary}
-
-\begin{proof}
-A consequence of \cref{refl-is-anodyne} and the fact that $\hatexp(i, \canonical_{A \to 1})$ is constructive Kan where $i : 2 \to I$ is the obvious inclusion.
-\end{proof}
-
-\begin{lemma}
-\label{2-out-of-3}
-Strong homotopy equivalences between constructive Kan complexes satisfy 2-out-of-3. 
-\end{lemma}
-
-\begin{proof}
-[TODO: do the Graduate lemma] 
-\end{proof}
+% Copied from Mike Shulman
+\begin{comment}
+\let\xto\xrightarrow
+\newcommand{\too}[1][]{\ensuremath{\overset{#1}{\longrightarrow}}}
 
 \begin{proposition}
-\label{fibrant-cod-factorization}
-Any map between constructive Kan complexes can be factored into a constructive anodyne map followed by a constructive Kan fibration.
+Assume that any map $A \to 1$ has a path object $P(A)$ such that the map $P(A) \to A \times A$ has itself a path object.
+Then any morphism factors as a trivial cofibration followed by a fibration.
 \end{proposition}
 
 \begin{proof}
-The usual argument.
-
-Fix $f : A \to B$ with $A$ and $B$ constructive Kan complexes.
-Construct $P$ as a pullback as indicated:
+Let $f : A \to B$ be any morphism.
+Define $P f$ as the pullback in the following diagram:
 \[
 \xymatrix{
   A
-  \ar[r]
-  \ar[d]^{f}
+  \ar[r]^{f}
+  \ar[ddr]
+  \ar@(d,ul)[dddr]_{f}
+  \ar@{.>}[dr]
 &
-  P
-  \ar[r]
-  \ar[d]
-&
-  A \times B
-  \ar[r]^-{\pi_1}
-  \ar[d]^{f \times B}
-&
-  A
-  \ar[d]^{f}
-\\
   B
-  \ar[r]
+  \ar[dr]
+\\&
+  P f
+  \ar[r]^{q}
+  \ar@{->>}[d]
+  \drpullback
 &
-  B^I
-  \ar[r]
+  P B\ar@{->>}[d]
+\\&
+  A\times B
+  \ar[r]_{f\times 1_B}
+  \ar@{->>}[d]
 &
-  B \times B
-  \ar[r]^-{\pi_1}
-&
+  B\times B
+\\&
   B
 }
 \]
-The remaining squares also form pullbacks and the top and bottom composite rows are identities.
-The map $P \to A$ is constructive Kan because it is a base change of $B^I \to B$, which is constructive Kan by \cref{path-object}.
-The map $A \to P$ is a strong homotopy equivalence by \cref{2-out-of-3} and mono because it is a base change of $B \to B^I$, thus it is construcive anodyne by \cref{strong-h-equiv-mono-is-anodyne}.
+We claim that $A \to Pf \fib B$ is a factorization of $f$ as desired.
+For this, it remains to be checked that $i : A \to Pf$ is a trivial cofibration.
+
+  First, we need some basic operations on paths.
+  Let $B \xto{r} P B \fib B\times B$ be a path object for $B$.
+  Consider the following square of solid arrows:
+  \begin{equation}
+  \vcenter{\xymatrix@C=3pc{
+      P B\ar@{=}[r]\ar[d]_{(1,r)} &
+      P B\ar@{->>}[d]\\
+      P B \times_B P B\ar[r]_-{\pi_1 \times\pi_3} \ar@{.>}[ur]^c &
+      B\times B
+    }}\label{eq:cdef}
+  \end{equation}
+  where the pullback $P B \times_B P B$ is over the ``middle'' copies of $B$.
+  Then the left-hand map is the pullback of $r$ along the fibration $P B\fib B$, hence is an acyclic cofibration.
+  Thus there exists a lift which we have called $c$; we think of it as a ``concatenation'' operation on paths.
+  The commutativity of the upper triangle in~\eqref{eq:cdef} means that $c(1,r) = 1_{P B}$, i.e.\ post-concatenating with a constant path is the identity.
+  Pulling~\eqref{eq:cdef} back along $f\times 1: A\times B \to B\times B$, we obtain
+  \[\vcenter{\xymatrix@C=3pc{
+      P f\ar@{=}[r]\ar[d]_{(1,r)} &
+      P f\ar@{->>}[d]\\
+      P f \times_B P B\ar[r]_-{\pi_1 \times\pi_3} \ar@{.>}[ur]^c &
+      A\times B.
+    }}\]
+  Now the following square of solid arrows commutes:
+  \begin{equation}
+  \vcenter{\xymatrix{
+      B \ar[r]^-r \ar[d]_r &
+      P B\ar[r] &
+      P_{(B\times B)} (P B)\ar@{->>}[d]\\
+      P B\ar[rr]_-{(c(r,1),1)} \ar@{.>}[urr]^(.4)\psi &&
+      P B \times_{(B\times B)} P B
+    }}\label{eq:psidef}
+  \end{equation}
+  (where we have chosen a particular path object for $P B$ over $B\times B$).
+  Of course, $r$ is an acyclic cofibration, so there exists a lift which we have called $\psi$.
+  Commutativity of the lower triangle in~\eqref{eq:psidef} means that $\psi$ is a path from $c(r,1)$ to $1_{P B}$, i.e.\ pre-concatenating with a constant path is homotopic to the identity.
+  Pulling~\eqref{eq:psidef} back along $f\times 1$, we obtain
+  \begin{equation}
+  \vcenter{\xymatrix{
+      A \ar[r]^-i \ar[d]_i &
+      P f\ar[r] &
+      P_{(A\times B)} (P f)\ar@{->>}[d]\\
+      P f\ar[rr]_-{(c(r,1),1)} \ar@{.>}[urr]^(.4)\psi &&
+      P f \times_{(A\times B)} P f.
+    }}\label{eq:psipb}
+  \end{equation}
+  Note that by~\ref{item:cat8p}, the pullback of $P_{(B\times B)} (P B)$ along $f\times 1$ is a valid path object for $P f$, so we have denoted it $P_{(A\times B)} (P f)$.
+
+  To show that $i$ is an acyclic cofibration, we must show that it has the left lifting property with respect to fibrations.
+  However, since fibrations are stable under pullback, in fact it suffices to find a lift in any commutative square
+  \begin{equation}
+  \vcenter{\xymatrix{
+      A\ar[r]^d\ar[d]_i &
+      D\ar@{->>}[d]\\
+      P f\ar@{=}[r] &
+      P f
+    }}\label{eq:desired}
+  \end{equation}
+  with an identity arrow on the bottom.
+  In this case, the composite $D \fib P f \fib B$ is a fibration, so in the following commutative square of solid arrows:
+  \[\vcenter{\xymatrix{
+      D\ar@{=}[rr]\ar[d]_{(1,r)} &&
+      D\ar@{->>}[d]\\
+      D\times_B P B\ar[r] \ar@{.>}[urr]^m &
+      P f \times_B P B \ar[r]_-c &
+      P f
+    }}\]
+  the left-hand map $(1,r)$ is an acyclic cofibration; thus there exists a lift which we have called $m$.
+  Therefore, the following diagram commutes:
+  \[\vcenter{\xymatrix@C=3pc{
+      A \ar[r]^d\ar[d]_i &
+      D\ar@{->>}[d]\\
+      P f\ar[r]_-{c(r,1)} \ar[ur]|{m(d,q)} &
+      P f
+    }}\]
+  (recall that $q: P f \to P B$ is the map induced by $f$).
+  Finally, since $D\fib P f$ is a fibration, the left-hand map in the following square is an acyclic cofibration:
+  \[\vcenter{\xymatrix@C=3pc{
+      D\ar@{=}[r]\ar[d] &
+      D\ar@{->>}[d]\\
+      D\times_{P f} P_{(A\times B)}(P f)\ar[r]_-{\pi_2} \ar@{.>}[ur]^\tau &
+      P f
+    }}\]
+  so we have a lift $\tau$.
+  Now the composite
+  \[ P f \xto{(m(d,q),\psi)} D\times_{P f} P_{(A\times B)}(P f) \too[\tau] D \]
+  is a lift in~\eqref{eq:desired}.
+  This proves~\ref{item:cat7}.
 \end{proof}
-
-\begin{corollary}
-\label{wfs-anodyne-fibration}
-The full subcategory of constructive Kan complexes admits a weak factorization system where the left class consists of constructive anodyne maps and the right class consists of constructive Kan fibrations.
-\end{corollary}
-
-\begin{lemma}
-Constructive anodyne maps between Kan complexes are stable under pullback by constructive Kan fibrations.
-\end{lemma}
-
-\begin{proof}
-??
-\end{proof}
-
-With the last lemma, this would give a constructive account of the simplicial set model (without universes) as a type-theoretic fibration category in Shulman's sense.
+\end{comment}
 
 \bibliographystyle{plain}
 \bibliography{../common/uniform-kan-bibliography}
