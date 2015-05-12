@@ -21,8 +21,15 @@ Let the diagonal $I +_2 I \to I$ factor into a monomorphism followed by a strong
 
 Let $\classleft$ be a class of morphisms at least including $\bot$ and $\top$ and closed under Leibniz exponential with monomorphisms.
 Call fibrations those maps with the right lifting property with respect to $\classleft$.
-This turns the full the subcategory of fibrant objects of $\catC$ into homotopical tribe.
+This turns the full the subcategory of fibrant objects of $\catC$ into a homotopical tribe.
 \end{theorem}
+
+\textbf{Warning:
+The above is currently flawed.
+It makes implicit use of the fact that given any map $f : A \to B$, the very good path object $B^I \acof B^H \fib B^I \times_{B \times B} B^I$ for $B^I \to B \times B$ can be pulled back along $A \times B \to B \times B$ to a very good path object for $P_f \to A \times B$.
+Can we show this constructively in the simplicial setting?
+If so, what assumptions do we need to add above?
+}
 
 \section{Abstract Leibniz Nonsense}
 
@@ -670,10 +677,6 @@ Dually, the same holds for $\braces{\ptB} \to I$.
 
 \section{Appendix}
 
-% Stolen from Mike Shulman.
-\newcommand{\fib}{\twoheadrightarrow}
-\newcommand{\acof}{\mathrel{\mathrlap{\hspace{3pt}\raisebox{4pt}{$\scriptscriptstyle\sim$}}\mathord{\rightarrowtail}}}
-
 Recall that a \emph{tribe} is a category $\catC$ with a subcategory of morphisms called \emph{fibrations} denoted by $X \fib Y$ satisfying the following:
 \begin{itemize}
 \item
@@ -718,7 +721,7 @@ We are given a map $f : A \to B$ to be factored (we only need the case $C = 1$).
 The only path objects needed are $B \acof P B \fib B \times B$ for $B$ and $P_{B \times B} (P B)$ for $P B \fib B \times B$.
 The mapping space $P f$ for $f$ and a further path object $P_{A \times B} (P f)$ for $P f \fib A \times B$ are constructed from these by pullback.
 
-Condition~(6') plays no role in the proof of the condition~(5) (the factorization).
+Condition~(6') plays no role in the proof of the condition~(5) (the factorization) (\textbf{Wrong! See earlier warning!}).
 Furthermore, the concept of a type-theoretic fibration category without conditions~(5) and~(6) is identical to that of a tribe together with a partial right adjoint to pullback along fibrations, defined on and valued in fibrations.
 However, this property is not used in this proof, only its adjoint implication that base change along fibrations preserves trivial cofibrations.
 
