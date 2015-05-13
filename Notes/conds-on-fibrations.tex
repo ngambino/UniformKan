@@ -17,19 +17,11 @@ The results so far can be read as abstractly (and thus constructively) proving t
 Fix a finitely complete and cocomplete category $\catC$ with exponentials such that monomorphisms are closed under Leibniz product.
 Consider a monomorphism $2 \to I$, which we will view as a bipointed object $\bot, \top : 1 \to I$.
 Assume $!_{I \to 1} : I \to 1$ is a strong homotopy equivalence.
-Let the diagonal $I +_2 I \to I$ factor into a monomorphism followed by a strong homotopy equivalence that is a retraction.
 
 Let $\classleft$ be a class of morphisms at least including $\bot$ and $\top$ and closed under Leibniz exponential with monomorphisms.
 Call fibrations those maps with the right lifting property with respect to $\classleft$.
-This turns the full the subcategory of fibrant objects of $\catC$ into a homotopical tribe.
+This turns the full subcategory of fibrant objects of $\catC$ into a homotopical tribe.
 \end{theorem}
-
-\textbf{Warning:
-The above is currently flawed.
-It makes implicit use of the fact that given any map $f : A \to B$, the very good path object $B^I \acof B^H \fib B^I \times_{B \times B} B^I$ for $B^I \to B \times B$ can be pulled back along $A \times B \to B \times B$ to a very good path object for $P_f \to A \times B$.
-Can we show this constructively in the simplicial setting?
-If so, what assumptions do we need to add above?
-}
 
 \section{Abstract Leibniz Nonsense}
 
@@ -260,6 +252,7 @@ We consider the following pullback square:
   A'
   \ar[r]^{u}
   \ar[d]^{f'}
+  \pullback{dr}
 &
   A
   \ar[d]^{f}
@@ -333,7 +326,7 @@ Fix a category $\catC$ together with the structure listed in the assumptions of 
 Recall this includes a class $\classleft$ of morphisms at least including $\bot$ and $\top$ and closed under Leibniz exponential with monomorphisms.
 
 \begin{definition}
-\label{def:constructive-kan}
+\label{def:fibration}
 We define:
 \begin{itemize}
 \item
@@ -436,22 +429,121 @@ Monomorphisms are always stable under base change.
 \end{itemize}
 \end{proof}
 
+A \emph{path object} for a fibration $X \to Y$ is a factorization of the diagonal $X \to X \times_Y X$ into a trivial cofibration followed by a fibration.
+A path object for a fibrant object $X$ is a path object for the fibration $\canonical_{X \to 1}$.
+
 \begin{lemma}
-\label{exp-factorization}
-Let $f : A \to B$ be a morphism and $X$ be a fibrant object.
-Assume that $f$ factors into a monomorphism followed by a strong homotopy equivalence that is also a retraction.
-Then exponentiating with base $X$ turns this into a factorization of $X^f : X^B \to X^A$ into a trivial cofibration followed by a fibration.
+\label{leibniz-exp-factorization}
+Let $f : A \to B$ be a morphism and $p : X \to Y$ be a fibration.
+Assume we are given a factorization $A \xto{i} K \xto{r} B$ of $f$ into a monomorphism $i$ followed by a strong homotopy equivalence $r$ that is also a retraction.
+Then the Leibniz exponential $\hatexp(f, p)$ factors into a trivial cofibration followed by fibration as follows:
+\[
+\xymatrix{
+  X^B
+  \ar@{>->}[r]^-{\sim}
+&
+  X^K \times_{Y^K} Y^B
+  \ar@{->>}[r]
+&
+  X^A \times_{Y^A} Y^B
+}
+\]
+Furthermore, this factorization is functorial in $p$ as an object of the arrow category.
 \end{lemma}
 
 \begin{proof}
-Let $A \to K \to B$ be the given factorization.
-Exponentiating with base $X$ turns this into $X^B \to X^K \to X^A$.
-Note that all objects here are fibrant: the Leibiz exponential of the fibration $\canonical_{X \to 1}$ and any map from the initial object (these being monomorphisms) is a fibration.
+Recall that the Leibniz construction acts on composition in one of its argument by ``skewed'' composition of individual Leibniz constructions.
+In this case, the Leibniz exponential $\hatexp(f, p)$ is given by $\hatexp(r, p)$ followed by a base change of $\hatexp(i, p)$.
 
-The map $X^B \to X^K$ is a strong homotopy equivalence by \cref{h-equiv-exponent} and a monomorphism since the map $K \to B$ was assumed a retraction.
-By \cref{anodyne-between-fibrant-characterization}, it is a trivial cofibration.
+The map $\hatexp(r, p)$ is a strong homotopy equivalence by \cref{strong-h-equiv-closed-under-exp}.
+It is also a section since $r$ is a retraction.
+By \cref{strong-h-equiv-mono-is-anodyne}, it follows that it is a trivial cofibration.
+The map $\hatexp(i, p)$ is a fibration because $i$ is a monomorphism and $p$ a fibration.
+Since fibrations are defined by a right lifting property, any base change of it is a fibration as well.
 
-The map $X^K \to X^A$ is the Leibniz exponential of the fibration $\canonical_{X \to 1}$ and the monomorphism $A \to K$, and thus a fibration.
+This provides the desired factorization of $\hatexp(f, p)$.
+Functoriality in $p$ follows from functoriality of the Leibniz construction.
+\end{proof}
+
+\begin{proposition}
+\label{path-objects}
+Any fibration $p : X \to Y$ admits a path object functorially in $p$ as an object of the arrow category.
+In detail, we have the following factorization:
+\[
+\xymatrix@C+4em{
+  X
+  \ar@{>->}[r]_-{\sim}^-{\angles{X^{\canonical_{I \to 1}}, p}}
+&
+  X^I \times_{Y^I} Y
+  \ar@{->>}[r]^-{\angles{X^{\bot}, X^{\top}} \cc \pi_1}
+&
+  X \times_Y X
+}
+\]
+\end{proposition}
+
+\begin{proof}
+Let $p : X \to Y$ be a fibration.
+Our goal is to factor the diagonal $\angles{\id_X, \id_X} : X \to X \times_Y X$ as a trivial cofibration followed by a fibration.
+Note that the diagonal $X \to X \times_Y X$ is equivalently obtained as the Leibniz exponential $\hatexp(\canonical_{2 \to 1}, p)$.
+
+Now $\canonical_{2 \to 1}$ factors as $i = \bracks{\bot, \top} : 2 \to I$ followed by $!_{I \to 1}$.
+By assumption, we have $i$ a monomorphism and $\canonical_{I \to 1}$ a strong homotopy equivalence that is a retraction (\eg to $\bot$).
+We thus conclude with an application of \cref{leibniz-exp-factorization}.
+\end{proof}
+
+\begin{lemma}
+\label{path-objects-stable}
+The factorizations provided by \cref{path-objects} are stable (up to isomorphism) under pullback.
+In detail, consider a base change of fibrations as follows:
+\[
+\xymatrix{
+  U
+  \ar[r]
+  \ar@{->>}[d]^{p}
+  \pullback{dr}
+&
+  X
+  \ar@{->>}[d]^{q}
+\\
+  V
+  \ar[r]
+&
+  Y
+}
+\]
+Then the induced morphism of factorizations has pullback squares as indicated:
+\[
+\xymatrix{
+  U
+  \ar[r]
+  \ar@{>->}[d]_{\sim}
+  \pullback{dr}
+&
+  X
+  \ar[d]
+  \ar@{>->}[d]_{\sim}
+\\
+  U^I \times_{V^I} V
+  \ar[r]
+  \ar@{->>}[d]
+  \pullback{dr}
+&
+  X^I \times_{Y^I} Y
+  \ar@{->>}[d]
+\\
+  U \times_V U
+  \ar[r]
+&
+  X \times_Y X  
+}
+\]
+
+\end{lemma}
+
+\begin{proof}
+The Leibniz construction commutes with base change.
+Given a pullback square written as a cartesian morphism $s : p \to q$ in the arrow category, the action of the Leibniz exponential $\hatexp(s, f)$ on $s$ is again a cartesian morphism (\ie a pullback square) for any morphism $f$.
 \end{proof}
 
 \begin{proof}[Proof of \cref{abstract-homotopical-tribe}]
@@ -462,15 +554,7 @@ This makes $\catC$ into a tribe.
 
 The result now follows as an application of \cref{wfs-from-path-objects} to $\catC_f$.
 First note that base change along fibrations preserves trivial fibrations by \cref{fibration-base-change-of-anodyne-between-fibrant}.
-It remains to construct the path objects listed in \cref{wfs-from-path-objects}.
-
-Fix a fibrant object $X$.
-By assumption, we have a factorization $2 \to I \to 1$ of $\canonical_{2 \to 1}$ into a monomorphism followed by a strong homotopy equivalence.
-Note that $\canonical_{I \to 1}$ is also a retraction, being a section of \eg $\top$.
-Using \cref{exp-factorization}, this turns into factorization $X \to X^I \to X \times X$ of the diagonal.
-
-By assumption, we furthermore have a factorization $I +_2 I \to H \to I$ of $\bracks{\id_I, \id_I}$ into a monomorphism followed by a strong homotopy equivalence that is a retraction.
-Using \cref{exp-factorization}, this turns into a path object $X^I \to X^H \to X^I \times_{X \times X} X^I$ for $X^I \to X \times X$.
+Path objects are provided by \cref{path-objects}, and they are stable under base change by \cref{path-objects-stable}.
 \end{proof}
 
 \subsection{Further abstract results}
@@ -492,7 +576,7 @@ But $p$ is a retract of $\hatexp(\top, p)$ by \cref{strong-h-equiv-slick}, imply
 \end{proof}
 
 \begin{lemma}[Following~\cite{joyal-tierney:simplicial-homotopy-theory}]
-Any constructive Kan fibration that has the right lifting property with respect to monomorphisms if a strong co-deformation retract.
+Any constructive Kan fibration that has the right lifting property with respect to monomorphisms is a strong co-deformation retract.
 \end{lemma}
 
 \begin{proof}
@@ -564,7 +648,7 @@ The join operation on augmented simplicial sets induces an associative operation
 Observing that the only simplicial set in the preceeding paragraphs not terminally augmented is $\Lambda_0^0$, all identities not involving $h_0^0$ still hold in simplicial sets.
 
 \begin{definition}
-\label{def:constructive-kan}
+\label{def:constructive-kan-simplicial}
 The class of \emph{constructively generating trivial cofibrations} is given by closing $\braces{h_0^1, h_1^1}$ under Leibniz product with monomorphisms.
 A \emph{constructive Kan fibration} is a map that has the right lifting property with respect to constructively generating trivial cofibrations.
 Finally, a \emph{constructive trivial cofibration} is one that has the left lifting property with respect to constructive Kan fibrations.
@@ -598,7 +682,7 @@ The non-trivial direction of the equivalence follows from \cref{horn-constructiv
 
 Classically, monomorphisms are the saturated class of boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$.
 Recall that the Leibniz product of a horn inclusion with a boundary inclusion lies in the saturated class of horn inclusions~\cite[Proposition~2.1.2.6]{lurie:htt}.
-Using \cref{constructive-kan-alternative}, it thus follows that the notions of \cref{def:constructive-kan} classically coincide with the usual ones.
+Using \cref{constructive-kan-alternative}, it thus follows that the notions of \cref{def:constructive-kan-simplicial} classically coincide with the usual ones.
 
 Awodey's notion of uniformity for Kan fibrations corresponds --- in the simplicial setting --- to the right lifting property with respect to $h_k^n \hattimes i$ for only those monomorphisms $i$ with domain the initial object.
 Our reason for stipulating this property for arbitrary monomorphisms is twofold.
@@ -613,43 +697,7 @@ Thus we have proved constructively:
 Simplicial sets with constructive Kan fibrations form a homotopical tribe.
 \end{corollary}
 
-%With the last lemma, this would give a constructive account of the simplicial set model (without universes) as a type-theoretic fibration category in Shulman's sense.
-
-
 \section{Interval object}
-
-
-Let $I$ abbreviate $\Delta^1$.
-We set $\bot = d_1$ and $\top = d_0$.
-Note that $\Delta^1$ has disjunction in the sense of the first section.
-By \cref{disjunction-deformation-retract}, this makes $\top$ into a strong and co-strong deformation retract.
-
-Let $A = \Delta^1$ and $B$ be the following pushout:
-\[
-\xymatrix{
-  \Delta^1
-  \ar[r]^{s_0}
-  \ar[d]_{d_0}
-&
-  \Delta^0
-  \ar[d]^{v}
-\\
-  \Delta^2
-  \ar[r]_{u}
-&
-  B
-}
-\]
-We will make $f = u \cc d_1 : A \to B$ into a strong and co-strong deformation retract.
-For the inverse map $g : B \to A$, we set $g = \bracks{s_1, d_0}$, noting that $s_1 d_0 = d_0 s_0$.
-We have $g \cc f = \bracks{s_1, d_0} \cc u \cc d_1 = s_1 \cc d_1 = \id_{\Delta^1}$.
-
-%A -> A^I -> A^2
-
-%A^I -> ?? -> A^I x_{A^2} A^I
-
-%A^I x_{A^2} A^I = A^{I +_2 I}
-
 
 Let $I$ denote the cofree simplicial set on two points $\ptA$ and $\ptB$.
 The $n$-simplices of $I$ consist of lists $v_0 \ldots v_n$ of length $n+1$ where each entry is either $\ptA$ or $\ptB$.
@@ -695,39 +743,42 @@ Base change along fibrations preserves trivial cofibrations.
 Any map factors as a fibration followed by a trivial cofibration.
 \end{itemize}
 
-A \emph{path object} for a fibration $A \fib B$ is a factorization $A \acof P_B A \fib A \times_B A$ of the diagonal $\angles{\id_A, \id_A}$ as in the above definition.
+Recall that a \emph{path object} for a fibration $A \fib B$ is a factorization $A \acof P_B A \fib A \times_B A$ of the diagonal $\angles{\id_A, \id_A}$ as in the above definition.
 A path object for an object $A$ is a path object for $\canonical_{A \to 1}$.
 
-The following theorem was first proved by Gambino and Garner~\cite{gambino-garner:idtypewfs} in a type-theorical phrasing.
-Shulman~\cite{shulman:inverse-diagrams} gave a categorical transcription.
+Something like the following theorem was first proved by Gambino and Garner~\cite{gambino-garner:idtypewfs} in a type-theorical phrasing.
+A categorical transcription was given by Shulman~\cite[Lemma~2.4]{shulman:inverse-diagrams} 
+Emmenegger~\cite{emmenegger:stable-path-objects-wfs} gave a slightly generalized categorical account.
 
-\begin{theorem}[Gambino and Garner, Shulman]
+We only need the following corollary to the above efforts:
+
+\begin{theorem}[Gambino and Garner, Shulman, Emmenegger]
 \label{wfs-from-path-objects}
 Let $\catC$ be a tribe such that base change along fibrations preserves trivial cofibrations.
-The following conditions are equivalent:
-\begin{itemize}
-\item
-Any map factors as a fibration followed by a trivial cofibration.
-\item
-Any object $X$ has a path object $X \acof P X \fib X \times X$ such that $P X \fib X \times X$ has itself a path object.
-\end{itemize}
-Both conditions make $\catC$ homotopical.
+Assume that any fibration $p$ in $\catC$ admits a path object $P$ such that for any base change $q$ of $p$, the associated base change of $P$ is a path object for $q$.
+Then any map in $\catC$ factors as a fibration followed by a trivial cofibration.
 \end{theorem}
 
-Clearly, path objects are special cases of the general factorization.
-For the converse, we trace the proof in Shulman~\cite[Lemma~2.4]{shulman:inverse-diagrams}, switching to that notation.
+\begin{proof}
+By inspection of Lemma~2.4 in Shulman~\cite{shulman:inverse-diagrams}.
+Let us switch to that notation.
+It is shown that condition~(5') together with a certain instance of condition~(6') implies condition (5).
 
 We are given a map $f : A \to B$ to be factored (we only need the case $C = 1$).
 The only path objects needed are $B \acof P B \fib B \times B$ for $B$ and $P_{B \times B} (P B)$ for $P B \fib B \times B$.
-The mapping space $P f$ for $f$ and a further path object $P_{A \times B} (P f)$ for $P f \fib A \times B$ are constructed from these by pullback.
+The mapping space $P f$ for $f$ and a further path object $P_{A \times B} (P f)$ for $P f \fib A \times B$ are constructed from these by pullback (the only use of condition~(6') is taken care of by stability of our path objects by pullback).
 
-Condition~(6') plays no role in the proof of the condition~(5) (the factorization) (\textbf{Wrong! See earlier warning!}).
 Furthermore, the concept of a type-theoretic fibration category without conditions~(5) and~(6) is identical to that of a tribe together with a partial right adjoint to pullback along fibrations, defined on and valued in fibrations.
 However, this property is not used in this proof, only its adjoint implication that base change along fibrations preserves trivial cofibrations.
+\end{proof}
+
+\begin{proof}[Alternative proof]
+This is Theorem~2.8 in Emmenegger~\cite{emmenegger:stable-path-objects-wfs}.
+As mentioned there, their notion of stability for path objects is a strictly weaker notion than our stability under base change.
+\end{proof}
 
 % Copied from Mike Shulman
 \begin{comment}
-\let\xto\xrightarrow
 \newcommand{\too}[1][]{\ensuremath{\overset{#1}{\longrightarrow}}}
 
 \begin{proposition}
