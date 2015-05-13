@@ -1,80 +1,10 @@
 \documentclass[reqno,10pt,a4paper,oneside]{amsart}
-\usepackage{amssymb,amsmath,amsthm,stmaryrd,enumerate,geometry}
-\usepackage[all]{xy} 
 
-\SelectTips{cm}{}
-\newdir{ >}{{}*!/-7pt/@{>}}
-\newdir{m}{->}
-%\newdir{m}{{}*!/-1pt/@{o}}
-\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
-%%% Pullback symbols
-\newcommand{\ulpullback}[1][ul]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
-\newcommand{\dlpullback}[1][dl]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
-\newcommand{\urpullback}[1][ur]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
-\newcommand{\drpullback}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
-
-\newcommand{\ie}{\text{i.e.\ }}
-\newcommand{\eg}{\text{e.g.}}
-\newcommand{\resp}{\text{resp.\ }}
-\newcommand{\myemph}{\textit} 
-\newcommand{\changed}{\todo[noline]{Changed}}
-
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma} 
-\newtheorem{proposition}[theorem]{Proposition} 
-\newtheorem{corollary}[theorem]{Corollary}  
-\newtheorem{apptheorem}{Theorem}
-
-
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}	
-\newtheorem*{definition*}{Definition}	
-
-
-
-\newtheorem{remark}[theorem]{Remark} 
-\newtheorem*{remark*}{Remark} 
-\newtheorem{example}[theorem]{Example}
-\newtheorem{examples}[theorem]{Examples}
-\newtheorem*{example*}{Example}
-\newtheorem*{examples*}{Examples}
-
-
-
-\newcommand{\defeq}{=_{\mathrm{def}}}
-\newcommand{\co}{\colon}
-\newcommand{\iso}{\cong} 
-\newcommand{\rev}{\mathit{\vee}}
-\newcommand{\op}{\mathrm{op}}
-\newcommand{\catequiv}{\simeq} 
-\newcommand{\cateq}{\simeq} 
-\newcommand{\coend}{\int}
-
-
-
-
-\newcommand{\cat}[1]{\mathbb{#1}}
-\newcommand{\catA}{\cat{A}}
-\newcommand{\catB}{\cat{B}}
-\newcommand{\catC}{\cat{C}}
-\newcommand{\catD}{\cat{D}}
-\newcommand{\catK}{\cat{K}}
-\newcommand{\catM}{\cat{M}}
-
-
-\newcommand{\SSet}{\mathbf{SSet}}
-\newcommand{\UU}{\overline{\mathsf{U}}}
-\newcommand{\U}{\mathsf{U}}
-\newcommand{\Weq}{\mathrm{Eq}}
+\usepackage{uniform-kan-prelude}
 
 \author[N. Gambino]{Nicola Gambino}
 \address{School of Mathematics, University of Leeds, Leeds LS2 9JT, United Kingdom}
 \email{n.gambino@leeds.ac.uk}
-
-
 
 \author[C. Sattler]{Christian Sattler}
 \address{School of Mathematics, University of Leeds, Leeds LS2 9JT, United Kingdom}
