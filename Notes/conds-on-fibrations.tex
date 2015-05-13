@@ -482,6 +482,8 @@ In detail, we have the following factorization:
 \]
 \end{proposition}
 
+Note that this factorization already appears in Warren~\cite{warren:thesis} and Awodey and Warren~\cite{awodey-warren:homotopy-idtype} in the context of simplicial model categories where $I = \Delta^1$ and the exponential takes the form of a power.
+
 \begin{proof}
 Let $p : X \to Y$ be a fibration.
 Our goal is to factor the diagonal $\angles{\id_X, \id_X} : X \to X \times_Y X$ as a trivial cofibration followed by a fibration.
@@ -538,7 +540,6 @@ Then the induced morphism of factorizations has pullback squares as indicated:
   X \times_Y X  
 }
 \]
-
 \end{lemma}
 
 \begin{proof}
@@ -546,7 +547,11 @@ The Leibniz construction commutes with base change.
 Given a pullback square written as a cartesian morphism $s : p \to q$ in the arrow category, the action of the Leibniz exponential $\hatexp(s, f)$ on $s$ is again a cartesian morphism (\ie a pullback square) for any morphism $f$.
 \end{proof}
 
+This means our path objects are stable in the sense of Warren~\cite{warren:thesis} and Awodey and Warren~\cite{awodey-warren:homotopy-idtype}.
+
 \begin{proof}[Proof of \cref{abstract-homotopical-tribe}]
+This is now merely an exercise in relating different notions of models of type theory.
+
 Let $\catC_f$ denote the full subcategory of fibrant objects of $\catC$.
 Recall that pullbacks in $\catC_f$ are inherited from $\catC$.
 Fibrations are stable under base change as they were defined via a right lifting property.
@@ -556,6 +561,14 @@ The result now follows as an application of \cref{wfs-from-path-objects} to $\ca
 First note that base change along fibrations preserves trivial fibrations by \cref{fibration-base-change-of-anodyne-between-fibrant}.
 Path objects are provided by \cref{path-objects}, and they are stable under base change by \cref{path-objects-stable}.
 \end{proof}
+
+We also have:
+
+\begin{theorem}
+If $\catC$ in addition has right adjoints to base change along fibrations, then it is a type-theoretic fibration category in the sense of Shulman~\cite{shulman:inverse-diagrams}.
+\end{theorem}
+
+For this, note that Shulman~\cite{shulman:inverse-diagrams} claims their conditions~(5') and~(6') are weaker than the stable path objects of Warren~\cite{warren:thesis} and Awodey and Warren~\cite{awodey-warren:homotopy-idtype}.
 
 \subsection{Further abstract results}
 
@@ -690,11 +703,16 @@ First, it seems to lead to a smoother development.
 Second, and more important, it also captures --- in the simplicial setting --- Coquand's notion of regularity for Kan fibrations.
 
 It can be checked that simplicial sets together with $\classleft$ the class of constructively generating trivial cofibrations and $I = \Delta^1$ satisfy the assumptions of \cref{abstract-homotopical-tribe}.
-The factorization of $\Delta_1 +_{\braces{0, 1}} \Delta^1 \to \Delta^1$ into a monomorphism followed by a strong deformation retract has as middle object the pushout of $d_0 : \Delta^1 \to \Delta^2$ and $s_0 : \Delta^1 \to \Delta^0$. 
 Thus we have proved constructively:
 
 \begin{corollary}
 Simplicial sets with constructive Kan fibrations form a homotopical tribe.
+\end{corollary}
+
+Since they also admit right adjoints to base change, we furthermore have:
+
+\begin{corollary}
+Simplicial sets with constructive Kan fibrations form a homotopical $\Pi$-tribe and a type-theoretic fibration category.
 \end{corollary}
 
 \section{Interval object}
