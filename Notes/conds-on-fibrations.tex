@@ -6,15 +6,6 @@
 
 \section{Introduction}
 
-\[
-\xymatrix{
-  A
-  \ar@{m>}[r]
-&
-  B
-}
-\]
-
 The purpose of this file is to examine the appropriate constructive rephrasing of the notion of Kan fibration.
 We work in a constructive setting.
 In classical logic, all presented enhanced notions of Kan fibrations will be equivalent to the usual one. 
@@ -228,11 +219,11 @@ If one of the maps $f$ and $g$ is a strong homotopy equivalence, then so is $\ha
 \end{proposition}
 
 \begin{proof}
-Let us show that if $f$ is a co-strong homotopy equivalence, then so is $\hatexp(f, g)$.
+Let us show that if $f$ is a strong homotopy equivalence, then so is $\hatexp(f, g)$.
 By \cref{strong-h-equiv-slick}, this is equivalent to showing that if $\theta \hattimes f$ is a section, then $\hatexp(\theta, \hatexp(f, g)) = \hatexp(\theta \hattimes f, g)$ is a retraction.
 But the functor $\hatexp$ is contravariant in its first argument, mapping sections to retractions.
 
-Let us show that if $g$ is a co-strong homotopy equivalence, then so is $\hatexp(f, g)$.
+Let us show that if $g$ is a strong homotopy equivalence, then so is $\hatexp(f, g)$.
 By \cref{strong-h-equiv-slick}, this is equivalent to showing that if $\hatexp(\theta, g)$ is a retraction, then so is $\hatexp(\theta, \hatexp(f, g)) = \hatexp(f, \hatexp(\theta, g))$ is a retraction.
 But the functor $\hatexp$ is covariant in its first argument, mapping retractions to retractions.
 \end{proof}
