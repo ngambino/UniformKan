@@ -263,7 +263,7 @@ We write $\mathbf{J}$ for the category of parametrized horn inclusions and morph
  \medskip
  
   \noindent
- {\itshape First step.} We form the so-called density comonad $(M, \delta, \varepsilon)  \co \SSet^2 \to \SSet^2$ 
+ {\itshape First step.} We form the so-called density comonad $M \co \SSet^2 \to \SSet^2$ 
  associated to the functor $I \co \mathbf{J} \to \SSet$.  This is done by taking the left Kan extension of $I$ along itself, 
  \[
  \xymatrix{
@@ -281,86 +281,109 @@ Here, note that $\SSet^2( j_{k,m,n}, f )$ is  the set of squares of the form
  \Lambda_{k,n} \times \Delta_m \ar[r]^-u \ar[d]_{i_{k,m,n}} & X \ar[d]^f \\
  \Delta_{n} \times \Delta_m \ar[r]_-v   &  Y \, .}
  \]
- The counit $\varepsilon$ of the comonad has component at $f$ given by a diagram of the form
+ For $f \co X \to Y$, the component $\varepsilon_f$ of the counit is given by a diagram of the form
  \[
  \xymatrix@C=1.2cm{
-  \bar{X} \ar[r]  \ar[d]_{M(f)} & X \ar[d]^f \\
-  \bar{Y} \ar[r]  & Y }
+  \bullet \ar[r]  \ar[d]_{M(f)} & X \ar[d]^f \\
+  \bullet \ar[r]  & Y }
   \]
  
  
  \medskip
  
  \noindent
- {\itshape Second step.} We define functors $L \co
- \SSet^2 \to \SSet^2$ and $R_0 \co \SSet^2 \to \SSet^2$    via the following pushout diagram:
+ {\itshape Second step.} We define functors $F \co
+ \SSet \to \SSet$ and $\rho \co \SSet^2 \to \SSet^2$    via the following pushout diagram:
 \[
    \xymatrix@C=1.2cm{
-  \bar{X} \ar[r] \ar[d]_{M(f)} & X \ar[d]^{L_0(f)} \ar@/^1.5pc/[ddr]^{f} \\
-  \bar{Y} \ar[r] \ar@/_1.5pc/[drr]  & P_0(f) \ar@{.>}[dr]_-(.3){R_0(f)}  \\ 
+  \bar{X} \ar[r] \ar[d]_{M(f)} & X \ar[d]^{\eta_f} \ar@/^1.5pc/[ddr]^{f} \\
+  \bar{Y} \ar[r] \ar@/_1.5pc/[drr]  & FX \ar@{.>}[dr]^-(.3){\rho_f}  \\ 
    & & Y  }
  \]
-The functor $L_0 \co  \SSet^2 \to \SSet^2$ inherits a comonad structure from the 
- comonad~$(M, \delta, \varepsilon)$, but we do not spell  the details out.  Also note that the endofunctor
- $R_0 \co \SSet^2 \to \SSet^2$ acquires the structure of a pointed endofunctor by considering the natural
- transformation~$\lambda_0 \co 1  \Rightarrow R_0$ with components:
+The functor $\eta \co  \SSet^2 \to \SSet^2$ inherits a comonad structure from the 
+ comonad~$M$, but we do not spell  the details out.  Also note that the endofunctor
+ $\rho \co \SSet  \to \SSet$ acquires the structure of a pointed endofunctor by considering the natural
+ transformation with components
  \[
  \xymatrix@C=1.4cm{
- X \ar[d]_f \ar[r]^{L_0(f)} \ar[d] & P_0(f) \ar[d]^{R_0(f)} \\
+ X \ar[d]_f \ar[r]^{\eta_f} \ar[d] & FX \ar[d]^{\rho_f} \\
  Y \ar@{=}[r]  & Y \, .}
  \]
- 
+ The third step constructs the free monad on this pointed endofunctor. 
  
  \medskip
 
 \noindent 
- {\itshape Third step.} We now form the free monad $(R,  \ldots, \lambda)$ on the pointed endofunctor $(R_0, \lambda_0)$. In this case, we start by forming a diagram in $\SSet^2$ of the form
+ {\itshape Third step.}  For an arrow $f \co X \rightarrow Y$, we wish to define a diagram $X \co  \omega \to \SSet$
+ and  maps 
+ \[
+ f_n \co X_n \to Y \, , \quad a_{n} \co FX_n \to X_{n+1} \, ,
+ \] 
+ for $n \in \omega$, such that the diagrams
  \[
  \xymatrix{
- X_0 \ar[r]^{\sigma_1}  \ar[d]^{f_0} & X_1 \ar[r]^{\sigma_2} \ar[d]^{f_1} & \ldots \ar[r] & X_n \ar[r] \ar[d]^{f_n} 
- & X_{n+1} \ar[r] \ar[d]^{f_{n+1}} & \ldots & & P(f) \ar[d]^{\rho_f} \\
- Y \ar[r] & Y \ar[r] & \ldots \ar[r] & Y \ar[r] & Y \ar[r] & \ldots & & Y }
-\] 
-We then define $P_f$ as the colimit 
- \[
- \xymatrix{
- X_0 \ar[r]^{\sigma_1} \ar@/_1pc/[drrr]_{\lambda_0} & X_1 \ar@/_0.5pc/[drr]^{\lambda_1} \ar[r]^{\sigma_2}  & \ldots \ar[r] & X_n \ar[r]  \ar[d]^{\lambda_n} & X_{n+1} \ar[r] \ar@/^1pc/[dl]_{\lambda_{n+1}} & \ldots  \\
-  & & & P(f) & & }
-  \]
-Since we will define $f_0 = f$, the required map $\lambda_f \co X \to P(f)$ is defined as $\lambda_0 
-\co X_0 \to P(f)$. The map $\rho_f \co P(f) \to Y$ is then obtained by the universal property of $P(f)$.
-
-
-\medskip
- 
-  For every $n \in \omega$, we define maps $f_n \co X_n \to Y$, $f_{n+1} \co X_{n+1} \to Y$, and $a_{n} \co R_0(f_n) \to f_{n+1}$. This
-  allows us to define $\sigma_{n}$ as the composite below:
-  \[
+  X_n   \ar@/_1pc/[dr]_-{f_n}  \ar[rr]^{\sigma_n} &   & X_{n+1} \ar@/^1pc/[dl]^-{f_{n+1}}   \\
+   &  Y &  } \qquad \qquad 
   \xymatrix@C=1.5cm{
-  f_n \ar[r]^{\eta f_n}  \ar@/_1pc/[dr]_{\sigma_n} & R_0(f_n) \ar[d]^{a_{n}} \\ 
-   & f_{n+1} }
+  X_n \ar[r]^{\eta_{f_n}}  \ar@/_1pc/[dr]_{\sigma_n} & FX_n \ar[d]^{a_{n}} \\ 
+   & X_{n+1} }
    \]
-   Note that this diagram dictates how to define $\sigma_n$. We proceed recursively as follows:
+   commute. 
+Note that the second diagram dictates how to define $\sigma_n$. We proceed recursively, as follows.
  
  \begin{itemize}
- \item Base case: Let $f_0 = f$, $f_1 = R_0(f)$ and $a_0 = 1_{R(f)}$.
- \item Successor step: assuming that we have defined $f_n$, $f_{n+1}$ and $a_{n}$,  recall that the arrow $R_0(f_{n+1})$ is given by the pushout
+ \item Base case. Let $X_0 \defeq X$, $X_1 \defeq FX$ and $a_0 \defeq 1_{FX}$.
+ \item Successor step. Let us assume that we have defined the objects $X_n$, $X_{n+1}$, and maps
+ $\sigma_n$, $f_n$, $f_{n+1}$ and  $a_{n}$ with the appropriate 
+ properties. We consider the pushout
  \[
-   \xymatrix@C=1.2cm{
- \bar{X}_{n+1} \ar[r]  \ar[d]_{M(f_{n+1})} & X_n \ar[d]^{L(f_{n+1})} \ar@/^1.8pc/[ddr]^{f_{n+1}} \\
-\bar{Y} \ar[r] \ar@/_1.5pc/[drr]  & P(f_{n+1}) \ar@{.>}[dr]_-(.3){R_0(f_{n+1})} \\ 
+   \xymatrix@C=1.5cm@R=1.5cm{
+ \bullet \ar[r]  \ar[d]_{M(f_{n+1})} & X_{n+1} \ar[d]^{\eta_{f_{n+1}}} \ar@/^1.8pc/[ddr]^{f_{n+1}} \\
+\bullet \ar[r] \ar@/_1.5pc/[drr]  & FX_{n+1}\ar@{.>}[dr]^-(.3){\rho_{n+1}} \\ 
    & & Y  }
  \]
-We then define $f_{n+2}$ and $a_{n+1}$ via  the coequalizer diagram
+We then define $X_{n+2}$ and $a_{n+1}$ via  the coequalizer diagram
  \[
- \xymatrix@=2cm{
- R_0(f_n) \ar@<1ex>[r]^{R_0 (a_n) \cdot \eta_{R_0(f_n)}}  \ar@<-1ex>[r]_{ R_0(a_n) \cdot R_0(\eta_{f_n})}& R(f_{n+1}) 
- \ar[r]^{a_{n+1}} & f_{n+2} }
+ \xymatrix@=3cm{
+ FX_n \ar@<1ex>[r]^{a_n \cdot \eta_{f_{n+1}}}  \ar@<-1ex>[r]_{ F(a_n) \cdot F(\eta_{X_n})} & 
+ F X_{n+1}   \ar[r]^{a_{n+1}} & X_{n+2} }
  \]
+ The map $f_{n+2} \co X_{n+2} \to Y$ is then defined via the universal property of $X_{n+2}$,
+ so that the following diagram commutes:
+ \[
+ \xymatrix@C=3cm{
+ FX_n \ar@<1ex>[r]^{a_n \cdot \eta_{f_{n+1}}}  \ar@<-1ex>[r]_{ F(a_n) \cdot F(\eta_{f_n})} & 
+ F X_{n+1}   \ar[r]^{a_{n+1}} \ar@/_1pc/[dr]_{\rho_{n+1}} & X_{n+2}  \ar[d]^{f_{n+2}}  \\ 
+  & & Y }
+ \] 
  \end{itemize}
  
- The free algebraic weak factorisation system associated to $I \co \mathbf{J} \to \SSet^2$ is then
- given by the pair $(L, R)$. A further application of Garner's results, we get the following.
+ \medskip
+ 
+ \noindent
+ \emph{Fourth step.}  We obtain the required factorisation
+\[
+\xymatrix{
+X \ar[dr]_{f} \ar[rr]^{\eta_f} & & TX \ar[dl]^{\rho_f} \\
+ & Y & }
+ \]
+as follows. The object $TX$ is defined to be the colimit of the diagram $X \co \omega \to \SSet$. We write~$\tau$
+for its colimiting cone, that has components of the form
+ \[
+ \xymatrix{
+  X_n   \ar@/_1pc/[dr]_-{\tau_n}  \ar[rr]^{\sigma_n} &   & X_{n+1} \ar@/^1pc/[dl]^-{\tau_{n+1}}   \\
+   &  TX &  }
+  \]
+Since $f_0 = f$, we define $\lambda_f \co X \to TX$  to be $\tau_0$. The map $\rho_f \co TX \to Y$ is then defined
+exploiting the universal property of $TX$, as the unique arrow making the following diagram commutes:
+\[
+ \xymatrix{
+  X_n   \ar@/_1pc/[dr]^-{\tau_n}  \ar[rr]^{\sigma_n} \ar@/_1pc/[ddr]_{f_n} &   & X_{n+1} \ar@/^1pc/[dl]_-{\tau_{n+1}}  \ar@/^1pc/[ddl]^{f_{n+1}}  \\
+   &  TX \ar[d]_{\rho_f}  &  \\
+    & Y & }
+  \]
+The free algebraic weak factorisation system associated to $I \co \mathbf{J} \to \SSet^2$ is then
+ given by the pair $(\lambda, \rho)$. A further application of Garner's results, we get the following.
  
  \begin{theorem} The algebraic weak factorisation system $(L, R)$ is algebraically-free, in 
  the sense that the functor
