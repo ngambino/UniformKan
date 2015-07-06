@@ -2,6 +2,8 @@
 
 \usepackage{uniform-kan-prelude}
 
+\newcommand{\Id}{\operatorname{Id}}
+
 \begin{document}
 
 \section*{Potential Generating Left Classes}
@@ -108,4 +110,323 @@ as well.
 
 If $B \to D$ is a monomorphism, it is usually part of a section-retraction pair (for example, if $B$ and $D$ are both representable).
 Given \emph{any} solution $d'$ to the above lifting problem $j \pitchfork p$, this can be used to define a factoring of $j \to p$ through $j \to k$ as above, using $d'$ to define the map $C \to X$.
+This forces the algebraically generated lift $d$ to agree with the arbitrary lift $d'$ not just when restricted to $A$, but also when restricted to $C'$.
+By transitivity, \emph{all} solutions $d'$ agree when restricted to $C'$.
+
+This seems very unlikely.
+For many non-cartesian choices of $\cal{I}$, we can even arrange in $D$ for the image of $B$ to lie in the image of $C$.
+The base change $k'$ then becomes the identity, implying lifting problems $j \pitchfork p$ have \emph{unique} solutions.
+
+\subsection*{Uniform with respect to cartesian product}
+
+Let $\cal{I}$ be given as the product of $\cal{I'}$ with $\Delta$ where the objects of $\cal{I'}$ are the horn inclusions $h_i^n : \Lambda_i^n \to \Delta^n$ and we have three obvious options for the morphisms.
+
+\paragraph{Option One}
+
+We can have $\cal{I'}$ discrete.
+
+\paragraph{Option Two}
+
+We can let $\cal{I'}$ be a full subcategory of $\SSet_{\text{cart}}^{\to}$.
+But a morphism
+\[
+\xymatrix{
+  \Lambda_i^n
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \Lambda_{i'}^{n'}
+  \ar[d]
+\\
+  \Delta^n
+  \ar[r]
+&
+  \Delta^{n'}
+}
+\]
+being cartesian is equivalent to the bottom being an isomorphism.
+We thus recover the first option.
+
+\paragraph{Option Three}
+
+We can let $\cal{I'}$ be a full subcategory of $\SSet^{\to}$.
+Note that the bottom map $t : [n] \to [n']$ in
+\[
+\xymatrix{
+  \Lambda_i^n
+  \ar@{.>}[r]
+  \ar[d]
+&
+  \Lambda_{i'}^{n'}
+  \ar[d]
+\\
+  \Delta^n
+  \ar[r]
+&
+  \Delta^{n'}
+}
+\]
+extends to the top precisely in the following disjoint cases:
+\begin{itemize}
+\item
+we have $(n, i) = (n', i')$ and $t = \id$,
+\item
+we have $n' = n + 1$ and $t = d_{i'}^{n'}$,
+\item
+there is $a' \neq i'$ not in the image of $t$.
+\end{itemize}
+
+Note that in the third case, the image of $t$ lies in the image of the right vertical map.
+Since every object of $\cal{I'}$ occurs as the left vertical map of a situation as in case three with the bottom map furthermore a mono
+morphism, the reasoning from the previous section will force the class of right maps to have \emph{unique} lifting solutions.
+This makes this case undesirable.
+
+Every object of $\cal{I'}$ furthermore occurs as the left vertical map of a situation as in case two.
+Since the bottom map is a monomorphism, we can again apply the reasoning from the previous section.
+Note that the base change of $\Lambda_{i'}^{n'}$ along $d_{i'}^{n'}$ is the boundary inclusion $\partial \Delta^n \to \Delta^n$.
+Thus, the right class of maps will have \emph{unique opposite face filling}.
+This makes this case undesirable as well.
+
+\paragraph{Conclusion}
+
+The only sensible (and also intuitively most natural option) is to have $\cal{I} = \cal{I'} \times \Delta$ where $\cal{I'}$ is the \emph{set} of horn inclusion.
+
+\subsection*{Uniform with respect to join, first try}
+
+Let $\cal{I}$ be the full subcategory of $\SSet_{\text{cart}}^{\to}$ on objects generalized horn inclusions $h_A^n : \Lambda_A^n \to \Delta^n$ with $\emptyset \neq A \subsetneq [n]$.
+A morphism
+\[
+\xymatrix{
+  \Lambda_A^n
+  \ar[r]
+  \ar[d]_{h_A^n}
+  \pullback{dr}
+&
+  \Lambda_{A'}^{n'}
+  \ar[d]^{h_{A'}^{n'}}
+\\
+  \Delta^{n}
+  \ar[r]
+&
+  \Delta^{n'}
+}
+\] 
+is given by a map $t : [n] \to [n']$ such that $t^{-1}(A') = A$ and $t|_{[n] - A} : [n] - A \to [n'] - A'$ is bijective.
+
+%Note that in principle we could disallow the case $A = \emptyset$.
+%Since $\cal{I}$ is discrete on horn inclusions of the form $h_{\emptyset}^n : \Delta^n \to \Delta^n$, \ie $\cal{I} = \cal{I'} + \braces{h_{\emptyset}^n \mid n \geq 0}$ for some category $\cal{I}$, and all simplicial maps trivially have right lifting with respect to these maps, this would not make any difference.
+%% WRONG: the type of $h_{\emptyset}^n$ is $\partial \Delta^n \to \Delta^n$ according to the iterated Leibniz join decomposition!
+
+Note that the objects are equivalently given by iterated Leibniz joins in augmented simplicial sets of the zero dimensional horn inclusion $h_0^0$ and boundary inclusion $i^0$ with at least one occurrence of each.
+Under this representation, the morphisms are induced by cartesian maps
+\begin{mathpar}
+\xymatrix{
+  0
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  0
+  \ar[d]^{h_0^0}
+\\
+  \Delta^{-1}
+  \ar[r]
+&
+  \Delta^0
+}
+\and
+\xymatrix{
+  0
+  \ar[r]
+  \ar[d]_{h_0^0 \hatjoin h_0^0}
+  \pullback{dr}
+&
+  0
+  \ar[d]^{h_0^0}
+\\
+  \Delta^{1}
+  \ar[r]
+&
+  \Delta^0
+}
+\end{mathpar}
+from the Leibniz join of zero and two copies of $h_0^0$ to $h_0^0$.
+
+This class is problematic for a new reason.
+We will show that all right maps with non-empty fibers are trivial Kan fibration.
+Fix a right map $p : X \to Y$ and consider a lifting problem with $n \geq 1$ as follows:
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]_{i^n}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^n
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+We are going to factor this lifting problem as follows:
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]_{i^n}
+  \pullback{dr}
+&
+  \Lambda_{n+1}^{n+1}
+  \ar[r]
+  \ar[d]
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^n
+  \ar[r]_{d_{n+1}^{n+1}}
+  \ar@{.>}[urr]
+&
+  \Delta^{n+1}
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+The middle vertical map belongs to the left class, and any lift in the right square will induce a lift for the outer square.
+
+The map $\Delta^{n+1} \to Y$ is constructed from the retraction $s_n^n$ to $d_{n+1}^{n+1}$.
+This leaves the map $t : \Lambda_{n+1}^{n+1} \to X$, which has to yield the map $\partial \Delta^n \to X$ when precomposed with $\partial \Delta^n \to \Lambda_{n+1}^{n+1}$ and needs to satisfy commutativity of the right square.
+For $\emptyset \neq A \subsetneq [n]$, let $t_A$ denote the algebraically given filler below:
+\[
+\xymatrix{
+  \Delta^{[n] - A}
+  \ar[rr]
+  \ar[d]_{h_{[n] - A}^{[n+1] - A}}
+&&
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]^{i^n}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^{[n+1] - A}
+  \ar[r]
+  \ar@{.>}[urrr]^{t_A}
+&
+  \Delta^{n+1}
+  \ar[r]_{s_n^n}
+&
+  \Delta^n
+  \ar[r]
+&
+  Y
+}
+\]
+Note that the left vertical here is a generalized horn inclusion with all faces but one missing.
+For $B \subseteq A$, the lifts $t_A$ and $t_B$ will be coherent as show
+n below:
+\[
+\xymatrix{
+  \Delta^{[n] - A}
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \Delta^{[n] - B}
+  \ar[r]
+  \ar[d]
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^{[n+1] - A}
+  \ar[r]
+  \ar@{.>}[urr]^(0.4){t_A}
+&
+  \Delta^{[n+1] - B}
+  \ar[r]
+  \ar@{.>}[ur]_{t_B}
+&
+  Y
+}
+\]
+Taking the colimit over the poset of those $A \subsetneq [n]$ with $1 \leq |A| \leq 2$, we derive a lift $t$
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[rr]^{\id}
+  \ar[d]
+  &&
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]^{i^n}
+  &
+  X
+  \ar[d]^{p}
+  \\
+  \Lambda_{n+1}^{n+1}
+  \ar[r]
+  \ar@{.>}[urrr]^{t}
+  &
+  \Delta^{n+1}
+  \ar[r]_{s_n^n}
+  &
+  \Delta^n
+  \ar[r]
+  &
+  Y
+}
+\]
+fulfilling all required commutativity constraints as indicated.
+
+\subsection*{Uniform with respect to join, second try}
+
+Note that the problems in the previous attempt were caused by the morphisms
+\[
+\xymatrix{
+  \Lambda_A^n
+  \ar[r]
+  \ar[d]_{h_A^n}
+  \pullback{dr}
+&
+  \Lambda_{A'}^{n'}
+  \ar[d]^{h_{A'}^{n'}}
+\\
+  \Delta^{n}
+  \ar[r]
+&
+  \Delta^{n'}
+}
+\] 
+in $\cal{I}$ with $[n] \to [n']$ injective.
+We could instead restrict $\cal{I}$ to only include the morphisms with $[n] \to [n']$ surjective.
+But this does not seem to buy us much.
+
+\subsection*{Uniform with respect to join, third try}
+
+Instead of generalizing filling of horns from one missing face to a set of missing faces, we can generalize to horn-like inclusions that still have a distinguished vertex in the direction of which the filling is going to be, but can possibly have other vertices degenerated.
+
+In detail, for any $n \geq 2$ and $0 \leq k \leq n$, let $C_k^n$ be the full subcategory of $\Delta/[n]$ consisting of surjective maps $t : [m] \to [n]$ under which $k$ has exactly one preimage.
+We have a faithful functor $I_k^n : C_k^n \to \SSet_{\text{cart}}^{\to}$ injective on objects given by pulling back $h_k^n : \Lambda_k^n \to \Delta^n$.
+Let us identify $I_k^n$ with its image.
+Note that the objects of $I_k^n$ and $I_{k'}^{n'}$ are disjoint for $(n, k) \neq (n', k')$.
+Finally, let $\cal{I}$ be the disjoint union of the subcategories $I_k^n$.
+
+Note that we could in principle extend $C_k^n$ to non-surjective maps $t : [m] \to [n]$: we would have $I_k^n(t) = \id_{\Delta^m}$.
+This would not make any difference except for the technical inconvenience of not having $\cal{I}_k^n$ as subcategories.
+Nonetheless, the proper treatment consists of having a functor $\cal{I} \to \SSet_{\text{cart}}^{\to}$ instead of a subcategory.
+
+It appears this does not solve the problem of the first try.
+The subcategory $\cal{I}_0^1$ is all that is needed to replay the same argument.
+
+\subsection*{\ldots}
+
 \end{document}
+
