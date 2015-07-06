@@ -1,0 +1,398 @@
+\documentclass[reqno,10pt,a4paper,oneside]{amsart}
+\usepackage{amssymb,amsmath,amsthm,stmaryrd,enumerate,geometry}
+\usepackage[all]{xy} 
+
+\SelectTips{cm}{}
+\newdir{ >}{{}*!/-7pt/@{>}}
+\newdir{m}{->}
+%\newdir{m}{{}*!/-1pt/@{o}}
+\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
+%%% Pullback symbols
+\newcommand{\ulpullback}[1][ul]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\dlpullback}[1][dl]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\urpullback}[1][ur]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\drpullback}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\newcommand{\catE}{\mathcal{E}}
+
+\newcommand{\RAlg}{R\text{-}\mathrm{Alg}}
+\newcommand{\Ralg}{\R\text{-}\mathrm{alg}}
+\newcommand{\LAlg}{L\text{-}\mathrm{Alg}}
+\newcommand{\Lalg}{\L\text{-}\mathrm{alg}}
+\newcommand{\LLAlg}{L'\text{-}\mathrm{Alg}}
+\newcommand{\LLalg}{\L'\text{-}\mathrm{alg}}
+
+
+\newcommand{\ie}{\text{i.e.\ }}
+\newcommand{\eg}{\text{e.g.}}
+\newcommand{\resp}{\text{resp.\ }}
+\newcommand{\myemph}{\textit} 
+\newcommand{\changed}{\todo[noline]{Changed}}
+
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{corollary}[theorem]{Corollary}  
+\newtheorem{apptheorem}{Theorem}
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}	
+\newtheorem*{definition*}{Definition}	
+
+
+
+\newtheorem{remark}[theorem]{Remark} 
+\newtheorem*{remark*}{Remark} 
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem*{example*}{Example}
+\newtheorem*{examples*}{Examples}
+
+
+
+\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\co}{\colon}
+\newcommand{\iso}{\cong} 
+\newcommand{\rev}{\mathit{\vee}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\catequiv}{\simeq} 
+\newcommand{\cateq}{\simeq} 
+\newcommand{\coend}{\int}
+
+
+
+
+\newcommand{\cat}[1]{\mathbb{#1}}
+\newcommand{\catA}{\cat{A}}
+\newcommand{\catB}{\cat{B}}
+\newcommand{\catC}{\cat{C}}
+\newcommand{\catD}{\cat{D}}
+\newcommand{\catK}{\cat{K}}
+\newcommand{\catM}{\cat{M}}
+
+
+\newcommand{\SSet}{\mathbf{SSet}}
+\newcommand{\UU}{\overline{\mathsf{U}}}
+\newcommand{\U}{\mathsf{U}}
+\newcommand{\Weq}{\mathrm{Eq}}
+
+\author[]{Nicola Gambino}
+
+\address{School of Mathematics, University of Leeds, Leeds LS2 9JT, United Kingdom}
+\email{n.gambino@leeds.ac.uk}
+
+
+\author{Christian Sattler}
+\address{School of Mathematics, University of Leeds, Leeds LS2 9JT, United Kingdom}
+\email{c.sattler@leeds.ac.uk}
+
+
+
+
+\title[]{Draft Notes on Uniform Kan fibrations}
+
+
+
+\date{June 30th, 2015}
+
+
+
+\begin{document}
+
+\begin{abstract}
+The aim of this short note is to show how Garner's small object argument can be applied to
+obtain a weak factorisation system in which the right class of maps are what we
+call uniform strong Kan fibrations, i.e.\,Kan fibrations that can be equipped with a choice of lifts for horn
+inclusions which satisfy a uniformily condition. 
+\end{abstract}
+
+
+\maketitle
+ 
+
+ 
+ 
+ 
+\section{Uniform Kan fibrations}
+
+For $k, n$ we write $i_{k,n} \co \Lambda^k_n \to \Delta_n$ for the corresponding horn inclusion. Given 
+$m$, we write 
+\[
+j_{k,n,m} \co \Lambda_{k,n} \times \Delta_m \to \Delta_n \times \Delta_m
+\] 
+for the 
+product of the horn inclusion $i_{k,n}$ with the identity map on $\Delta_m$. We call these maps the
+\emph{parametrized horn inclusions}. A morphism of parametrized horn inclusions is a diagram
+ \[
+\xymatrix@C=1.8cm@R=1.5cm{
+ \Lambda_{k',n'} \times \Delta_{m'} \ar[r] \ar[d] &  \Lambda_{k,n} \times \Delta_m \ar[d] \ar[r]^-u & X \ar[d]^{f}  \\
+\Delta_{k',n'} \times \Delta_{m'} \ar[r]  \ar@{.>}[urr]^{\phi_{u',v'}} &   \Delta_{n} \times \Delta_{m}  \ar[r]_-v \
+ \ar@{.>}[ur]_{\phi_{u,v}}
+ & Y \, .}
+ \]
+ We write $\mathbf{J}$ for the category of parametrized horn inclusions and their morphism.
+
+
+ 
+ \begin{definition} A \emph{uniform Kan fibration} is a map of simplicial sets $f \co X \to Y$ 
+for which there exists  a function $J$ that provides a filler for every diagram of the form
+ \[
+\xymatrix@C=1.8cm@R=1.5cm{
+ \Lambda_{k,n} \times \Delta_m \ar[r]^-u \ar[d]_{i_{k,n,m}} & X \ar[d]^f \\
+ \Delta_{n} \times \Delta_m \ar[r]_-v  \ar@{.>}[ur]^{J_{u,v}}&  Y}
+ \]
+ such that the uniformity condition  expressed by the following diagram holds:
+ \[
+\xymatrix@C=1.8cm@R=1.5cm{
+ \Lambda_{k',n'} \times \Delta_{m'} \ar[r] \ar[d] &  \Lambda_{k,n} \times \Delta_m \ar[d] \ar[r]^-u & X \ar[d]^{f}  \\
+\Delta_{k',n'} \times \Delta_{m'} \ar[r]  \ar@{.>}[urr]^{J_{u',v'}} &   \Delta_{n} \times \Delta_{m}  \ar[r]_-v \
+ \ar@{.>}[ur]_{J_{u,v}}
+ & Y \, .}
+ \]
+ \end{definition}
+
+ 
+ 
+ 
+ We wish obtain a weak factorisation system
+ in which the right class of maps are exactly the maps of simplicial sets that admit the structure of  a uniform 
+ Kan fibrations. In order to do so, we use Garner's small object argument. Thanks to his work, all we have
+ to show is the following fact. 
+ 
+ \begin{proposition} The inclusion functor $I \co \mathbf{J} \to \SSet^2$ preserves $\omega$-filtered 
+ colimits.
+ \end{proposition} 
+ 
+ 
+\begin{proof} TO BE ADDED.
+\end{proof}
+ 
+ The main theorem in Garner's paper then gives us the following result.
+ 
+ \begin{corollary} The category $\SSet$ admits a weak factorisation system whose
+ right class consists exactly of the  uniform Kan fibration. 
+ \end{corollary}
+ 
+ We brielfy illustrate how the construction of the weak factorisation system $(\mathcal{L},\mathcal{R})$
+ works. First of all, we define a functorial factorization on $\SSet$. This is done in four steps. 
+ 
+ \medskip
+ 
+  \noindent
+ {\itshape First step.} We form the so-called density comonad $M \co \SSet^2 \to \SSet^2$ 
+ associated to the functor $I \co \mathbf{J} \to \SSet$.  This is done by taking the left Kan extension of $I$ along itself, 
+ \[
+ \xymatrix{
+ \mathbf{J} \ar@/_1pc/[dr]_I \ar[r]^I  \ar@{}[dr]|{\quad \Rightarrow}  & \SSet^2 \ar[d]^{M} \\
+  & \SSet^2 \, . }
+  \]
+ For $f \co X \to Y$, we have the coend formula
+\[
+M(f) = 
+\int^{(k,n,m)} \SSet^2( j_{k,m,n}, f )  \cdot j_{k,m,n} \, .
+\] 
+Here, note that $\SSet^2( j_{k,m,n}, f )$ is  the set of squares of the form
+\[
+\xymatrix@C=1.2cm@R=1.2cm{
+ \Lambda_{k,n} \times \Delta_m \ar[r]^-u \ar[d]_{i_{k,m,n}} & X \ar[d]^f \\
+ \Delta_{n} \times \Delta_m \ar[r]_-v   &  Y \, .}
+ \]
+ For $f \co X \to Y$, the component $\varepsilon_f$ of the counit is given by a diagram of the form
+ \[
+ \xymatrix@C=1.2cm{
+  \bullet \ar[r]  \ar[d]_{M(f)} & X \ar[d]^f \\
+  \bullet \ar[r]  & Y }
+  \]
+ 
+ 
+ \medskip
+ 
+ \noindent
+ {\itshape Second step.} We define functors $\phi \co
+ \SSet \to \SSet$ and $\psi \co \SSet^2 \to \SSet^2$    via the following pushout diagram:
+\[
+   \xymatrix@C=1.2cm{
+ \bullet \ar[r] \ar[d]_{M(f)} & X \ar[d]^{\phi_f} \ar@/^1.5pc/[ddr]^{f} \\
+  \bullet \ar[r] \ar@/_1.5pc/[drr]  & FX \ar@{.>}[dr]^-(.3){\psi_f}  \\ 
+   & & Y  }
+ \]
+Here, we used a slight abuse of language and written $FX$ for the common value of $d_1 \phi f$ 
+and~$d_0 \psi_f$.
+The functor $\phi \co  \SSet^2 \to \SSet^2$ inherits a comonad structure from the 
+ comonad~$M$, but we do not spell  the details out.  Also note that the endofunctor
+ $\psi \co \SSet  \to \SSet$ acquires the structure of a pointed endofunctor by considering the natural
+ transformation with components
+ \[
+ \xymatrix@C=1.4cm{
+ X \ar[d]_f \ar[r]^{\phi_f} \ar[d] & FX \ar[d]^{\psi_f} \\
+ Y \ar@{=}[r]  & Y \, .}
+ \]
+ The third step constructs the free monad on this pointed endofunctor. 
+ 
+ \medskip
+
+\noindent 
+ {\itshape Third step.}  For an arrow $f \co X \rightarrow Y$, we wish to define a diagram $X \co  \omega \to \SSet$
+ and  maps 
+ \[
+ f_n \co X_n \to Y \, , \quad a_{n} \co FX_n \to X_{n+1} \, ,
+ \] 
+ for $n \in \omega$, such that the diagrams
+ \[
+ \xymatrix{
+  X_n   \ar@/_1pc/[dr]_-{f_n}  \ar[rr]^{\sigma_n} &   & X_{n+1} \ar@/^1pc/[dl]^-{f_{n+1}}   \\
+   &  Y &  } \qquad  
+  \xymatrix@C=1.5cm{
+  X_n \ar[r]^{\phi_n}  \ar@/_1pc/[dr]_{\sigma_n} & FX_n \ar[d]^{a_{n}} \\ 
+   & X_{n+1} } \qquad 
+  \xymatrix@C=1.5cm{
+  FX_n \ar[r]^{a_n}  \ar@/_1pc/[dr]_{\psi_n} & FX_n \ar[d]^{f_{n+1}} \\ 
+   & Y}    
+   \]
+   commute, where we write $\phi_n$ instead of $\phi_{f_n}$ for brevity.
+Note that the second diagram dictates how to define $\sigma_n$. We proceed recursively, as follows.
+ 
+ \begin{itemize}
+ \item Base case. Let $X_0 \defeq X$, $X_1 \defeq FX$ and $a_0 \defeq 1_{FX}$.
+ \item Successor step. Let us assume that we have defined the objects $X_n$, $X_{n+1}$, and maps
+ $\sigma_n$, $f_n$, $f_{n+1}$ and  $a_{n}$ with the appropriate 
+ properties. We consider the pushout
+ \[
+   \xymatrix@C=1.5cm@R=1.5cm{
+ \bullet \ar[r]  \ar[d]_{M(f_{n+1})} & X_{n+1} \ar[d]^{\phi_{n+1}} \ar@/^1.8pc/[ddr]^{f_{n+1}} \\
+\bullet \ar[r] \ar@/_1.5pc/[drr]  & FX_{n+1}\ar@{.>}[dr]^-(.3){\psi_{n+1}} \\ 
+   & & Y  }
+ \]
+We then define $X_{n+2}$ and $a_{n+1}$ via  the coequalizer diagram
+ \[
+ \xymatrix@=3cm{
+ FX_n \ar@<1ex>[r]^{\phi_{n+1}  \cdot a_n}  \ar@<-1ex>[r]_{ F(a_n \cdot \phi_n)} & 
+ F X_{n+1}   \ar[r]^{a_{n+1}} & X_{n+2} }
+ \]
+ where we have written $F(\phi_n \cdot a_n)$ for the result of applying the
+ functor $F \co \SSet^2 \to \SSet$ to the square
+ \[
+  \xymatrix{
+ X_n \ar[r]^{\phi_n} \ar[d]_{f_n} & FX_n \ar[d]^{\psi_n}  \ar[r]^{a_n} & X_{n+1} \ar[d]^{f_{n+1}}  \\ 
+ Y \ar@{=}[r] & Y \ar@{=}[r] & Y }
+ \]
+ The map $f_{n+2} \co X_{n+2} \to Y$ is then defined via the universal property of $X_{n+2}$,
+ so that the following diagram commutes:
+ \[
+ \xymatrix@C=3cm{
+ FX_n \ar@<1ex>[r]^{\phi_{n+1}  \cdot a_n}  \ar@<-1ex>[r]_{ F(a_n \cdot \phi_{n})} & 
+ F X_{n+1}   \ar[r]^{a_{n+1}} \ar@/_1pc/[dr]_{\psi_{n+1}} & X_{n+2}  \ar[d]^{f_{n+2}}  \\ 
+  & & Y }
+ \] 
+ \end{itemize}
+ 
+ \medskip
+ 
+ \noindent
+ \emph{Fourth step.}  We obtain the required factorisation
+\[
+\xymatrix{
+X \ar[dr]_{f} \ar[rr]^{\lambda_f} & & K_f \ar[dl]^{\rho_f} \\
+ & Y & }
+ \]
+as follows. The object $K_f$ is defined to be the colimit of the diagram $X \co \omega \to \SSet$. We write~$\tau$
+for its colimiting cone, that has components of the form
+ \[
+ \xymatrix{
+  X_n   \ar@/_1pc/[dr]_-{\tau_n}  \ar[rr]^{\sigma_n} &   & X_{n+1} \ar@/^1pc/[dl]^-{\tau_{n+1}}   \\
+   &  K_f &  }
+  \]
+Since $f_0 = f$, we define $\lambda_f \co X \to K_f$  to be $\tau_0$.
+Exploiting the universal property of $K_f$, the map $\rho_f \co K_f \to Y$ is then defined as 
+the unique arrow making the following diagram commutes:
+\[
+ \xymatrix@=1.5cm{
+  X_n   \ar@/_1pc/[dr]^-{\tau_n}  \ar[rr]^{\sigma_n} \ar@/_1pc/[ddr]_{f_n} &   & X_{n+1} \ar@/^1pc/[dl]_-{\tau_{n+1}}  \ar@/^1pc/[ddl]^{f_{n+1}}  \\
+   &  K_f \ar[d]_{R_f}  &  \\
+    & Y & }
+  \]
+  This completes the construction of the required factorisation. 
+   
+
+
+\medskip
+
+By Garner's results, the functor mapping $f \co A \to B$ to $\lambda_f \co A \to K_f$ is the underlying
+functor of a comonad, whose counit has components given by the 
+commutative squares
+ \[
+ \xymatrix{
+ A \ar@{=}[r] \ar[d]_{\lambda_f} & A \ar[d]^f \\
+ K_f \ar[r]_{\rho_f} & B \, . }
+ \] 
+Dually, the functor mapping $f \co A \to B$ to $\rho_f \co K_f \to B$ is part of monad, whose
+unit has components given by the commutative squares
+ \[
+ \xycenter{
+ A  \ar[d]_f \ar[r]^{\lambda_f}  & K_f \ar[d]^{\rho_f} \\
+ B \ar@{=}[r] & B \, . }
+ \]
+ We write  $\LAlg$ for the category of coalgebras for the comonad $L$, and $\RAlg$ for the category of algebras for the monad $R$.   We write $\mathcal{L}$ and $\mathcal{R}$ for the
+ closures under retracts of the classes of maps admitting an $L$-algebra 
+ or an $R$-algebra structure, respectively. Then, $(\mathcal{L}, \mathcal{R})$ is a weak factorisation system. 
+ 
+ \medskip
+ 
+ The presence of algebraic structure provides a canonical way of filling diagrams, as we now recall. 
+  Let us consider a commutative square of the form
+ \[
+ \xymatrix{
+ A \ar[r]^u \ar[d]_i & X \ar[d]^f \\
+ B \ar[r]_v & Y}
+ \]
+where $i \in \mathcal{L}$ and $f \in \mathcal{R}$. Without loss of generality, we may assume that
+ $i$ is equipped with a structure of $L$-coalgebra and $f$ is equipped with the structure of an
+ $R$-algebra. Observe that 
+ to give an $L$-coalgebra structure on $i \co A \to B$ amounts
+ to giving a diagonal filler in the square
+ \[
+ \xymatrix{
+ A \ar[r]^{\lambda_i}  \ar[d]_{i} & K_i \ar[d]^{\rho_i} \\
+ B \ar@{=}[r]  \ar@{.>}[ur]^s & B }
+ \]
+ Dually, to give an $R$-algebra structure on  $f \co X \to Y$ is to give
+ a diagonal filler in the square
+ \[
+ \xymatrix{
+ X  \ar@{=}[r]    \ar[d]_{\lambda_f} & X \ar[d]^f \\
+ K_f \ar[r]_{\rho_f}  \ar@{.>}[ur]^t & Y }
+ \]
+The required diagonal filler  can then be defined as the composite
+ \[
+ \xymatrix{ B \ar[r]^{s} & K_i \ar[r]^{K_{u,v}} & K_f \ar[r]^{t} & X}
+ \]
+ where $K_{u,v}$ is obtained by the functoriality of the factorization. 
+ 
+\medskip
+
+Garner's results imply also that the algebraic weak factorisation system
+ $(L, R)$  comes equipped with a functor $\eta \co \mathbf{J} \to \LAlg$
+ over $\SSet^2$, such that the functor
+ \[
+ \xymatrix@C=1cm{
+  \RAlg \ar[r]^-{\textup{lift}} &
+    \big( \LAlg \big)^\pitchfork \ar[r]^-{\eta^\pitchfork} &
+   \mathbf{J}^\pitchfork}
+  \]
+  is an isomorphism. In particular, uniform Kan fibrations are precisely
+  the maps for which there exists a $R$-algebra structure. 
+ 
+  
+
+\vfill
+ 
+
+
+\end{document}
+
