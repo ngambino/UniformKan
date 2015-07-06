@@ -1,0 +1,111 @@
+\documentclass[reqno,10pt,a4paper,oneside]{amsart}
+
+\usepackage{uniform-kan-prelude}
+
+\begin{document}
+
+\section*{Potential Generating Left Classes}
+
+In the following, we will examine different choices for the subcategory of generating left maps $\cal{I} \subseteq \SSet^{\to}$.
+Objects in $\cal{I}$ will always at least be classical trivial cofibration, and hence also monomorphisms.
+Most of the time, we will actually choose $\cal{I}$ as a subcategory of $\SSet_{\text{cart}}^{\to}$ consisting of arrows and \emph{cartesian} commutative squares for reasons now explained.
+
+\subsection*{The problem with non-cartesian choices of $\cal{I}$}
+
+Consider a non-cartesian morphism $j \to k$ in $\cal{I}$
+\[
+\xymatrix{
+  A
+  \ar[rrr]
+  \ar[dd]_{j}
+  \ar[dr]
+&&&
+  C
+  \ar[dd]^{k}
+\\&
+  C'
+  \ar[urr]
+  \ar[dl]_{k'}
+  \pullback{dr}
+\\
+  B
+  \ar[rrr]
+&&&
+  D
+}
+\]
+where we have drawn in the pullback for comparison.
+Note that $A \to C'$ and $C' \to B$ are all monomorphisms, and that $A \to C'$ will not be invertible.
+
+Fix a lifting problem
+\[
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{j}
+&
+  X
+  \ar[d]^{p}
+\\
+  B
+  \ar[r]
+  \ar@{.>}[ur]^{d}
+&
+  Y
+}
+\]
+for a generating left map $j : A \to B$ and a right map $p : X \to Y$.
+The algebraically generated solution is denoted $d$.
+For any factoring
+\[
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{j}
+&
+  C
+  \ar[r]
+  \ar[d]_(0.35){k}
+&
+  X
+  \ar[d]^{p}
+\\
+  B
+  \ar[r]
+  \ar@{.>}[urr]^(0.3){d}
+&
+  D
+  \ar[r]
+  \ar@{.>}[ur]_{e}
+&
+  Y
+}
+\]
+through $j \to k$ of this lifting problem, we have coherence of the algebraically generated lifts $d$ and $e$ as indicated.
+It follows that $d$ is a lift for the inner square in
+\[
+\xymatrix{
+  A
+  \ar[rrr]
+  \ar[dd]_{j}
+  \ar[dr]
+&&&
+  X
+  \ar[dd]^{p}
+\\&
+  C'
+  \ar[urr]
+  \ar[dl]_{k'}
+\\
+  B
+  \ar[rrr]
+  \ar@{.>}@/_2em/[uurrr]_{d}
+&&&
+  Y
+}
+\]
+as well.
+
+If $B \to D$ is a monomorphism, it is usually part of a section-retraction pair (for example, if $B$ and $D$ are both representable).
+Given \emph{any} solution $d'$ to the above lifting problem $j \pitchfork p$, this can be used to define a factoring of $j \to p$ through $j \to k$ as above, using $d'$ to define the map $C \to X$.
+\end{document}
