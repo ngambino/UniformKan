@@ -8,7 +8,7 @@
 
 \section*{Potential Generating Left Classes}
 
-In the following, we will examine different choices for the subcategory of generating left maps $\cal{I} \subseteq \SSet^{\to}$.
+In the following, we will examine different choices for the category of generating left maps $\cal{I}$ (and its embedding in $\SSet^{\to}$ via a functor $\cal{I} \to \SSet^{\to}$, which we often will leave implicit, especially if it is faithful and injective on objects).
 Objects in $\cal{I}$ will always at least be classical trivial cofibration, and hence also monomorphisms.
 Most of the time, we will actually choose $\cal{I}$ as a subcategory of $\SSet_{\text{cart}}^{\to}$ consisting of arrows and \emph{cartesian} commutative squares for reasons now explained.
 
@@ -124,6 +124,9 @@ Let $\cal{I}$ be given as the product of $\cal{I'}$ with $\Delta$ where the obje
 \paragraph{Option One}
 
 We can have $\cal{I'}$ discrete.
+We have tried $\Pi$, but even though uniformity buys us the degeneracy laws, we cannot get the face laws right.
+The underlying reason seems to be that surjective maps $\Delta^n \to \Delta^k$ arise uniquely as a retract of some $\pi_1 : \Delta^k \times \Delta^{n-k} \to \Delta^k$, whereas in the cubical model we can get an actual isomorphism instead of a section-retraction pair.
+Fibrancy of the universe seems to go through (modulo Cisinski transposition).
 
 \paragraph{Option Two}
 
@@ -252,7 +255,10 @@ Under this representation, the morphisms are induced by cartesian maps
 \end{mathpar}
 from the Leibniz join of zero and two copies of $h_0^0$ to $h_0^0$.
 
-This class is problematic for a new reason.
+Pi now seems to go through.
+Universe seems to go through as well (modulo Cisinski transposition).
+
+Unfortunately, this class is problematic for a new reason.
 We will show that all right maps with non-empty fibers are trivial Kan fibration.
 Fix a right map $p : X \to Y$ and consider a lifting problem with $n \geq 1$ as follows:
 \[
@@ -411,7 +417,7 @@ But this does not seem to buy us much.
 
 Instead of generalizing filling of horns from one missing face to a set of missing faces, we can generalize to horn-like inclusions that still have a distinguished vertex in the direction of which the filling is going to be, but can possibly have other vertices degenerated.
 
-In detail, for any $n \geq 2$ and $0 \leq k \leq n$, let $C_k^n$ be the full subcategory of $\Delta/[n]$ consisting of surjective maps $t : [m] \to [n]$ under which $k$ has exactly one preimage.
+In detail, for any $n \geq 1$ and $0 \leq k \leq n$, let $C_k^n$ be the full subcategory of $\Delta/[n]$ consisting of surjective maps $t : [m] \to [n]$ under which $k$ has exactly one preimage.
 We have a faithful functor $I_k^n : C_k^n \to \SSet_{\text{cart}}^{\to}$ injective on objects given by pulling back $h_k^n : \Lambda_k^n \to \Delta^n$.
 Let us identify $I_k^n$ with its image.
 Note that the objects of $I_k^n$ and $I_{k'}^{n'}$ are disjoint for $(n, k) \neq (n', k')$.
@@ -424,7 +430,421 @@ Nonetheless, the proper treatment consists of having a functor $\cal{I} \to \SSe
 It appears this does not solve the problem of the first try.
 The subcategory $\cal{I}_0^1$ is all that is needed to replay the same argument.
 
-\subsection*{\ldots}
+\subsection*{Leibniz-style uniformity wrt.\ cartesian product of one dimensional horns}
+
+Let $\cal{I}$ be a full subcategory of $\SSet_{\text{cart}}^{\to}$ such that every object of $\cal{I}$ is a decidable monomorphism $i : A \to B$ (\ie every $i_n : A_n \to B_n$ has a decidable image) with decidable codomain $B$ (\ie degeneracies in $B$ are decidable).
+We suppose that $\cal{I}$ contains at least all boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$.
+Taking $\cal{I}$ as generating left category, the right maps will be called \emph{uniform trivial Kan fibrations}.
+We have functors $h_0^1 \hattimes \arghole$ and $h_1^1 \hattimes \arghole$ of signature $\cal{I} \to \SSet_{\text{cart}}^{\to}$.
+Let $\cal{J}$ be the disjoint sum of these functors.
+Taking $\cal{J}$ as left generating functor, the right maps will be called \emph{uniform Kan fibrations}.
+\footnote{The rationale for omitting higher dimensional horns is that those (at least in bare form) are indirectly included as retracts of one dimensional horns by Leibniz product with certain subobjects of representables.}
+
+After our experiences with other potential left classes, we start with some sanity checks:
+
+\begin{lemma}
+Classically, every ordinary trivial Kan fibration is a uniform trivial Kan fibration.
+\end{lemma}
+
+\begin{proof}
+For the rest of the proof, fix an ordinary trivial Kan fibration $p : X \to Y$.
+Without loss of generality, we can assume that $\cal{I}$ is actually the full subcategory of $\SSet_{\text{cart}}^{\to}$ of \emph{all} decidable monomorphisms with decidable codomain as the notion of uniform trivial Kan fibration is strongest in this case.
+
+First, we define diagonal fillers $d$ for squares $i^n \to p$.
+Using excluded middle, we distinguish on whether the square $i^n \to p$ factors through some degeneracy $s_k^{n-1}$ as shown below (this applies only to $n \geq 1$):
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]^{i^n}
+&
+  \Delta^{n-1}
+  \ar[r]
+  \ar[d]^{\id}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^n
+  \ar[r]_{s_k^{n-1}}
+  \ar@{.>}[urr]^(0.3){d}
+&
+  \Delta^{n-1}
+  \ar[r]
+&
+  Y
+}
+\]
+If that is the case, we define $d$ using the canonical diagonal filler in the right square.
+Otherwise, we use the axiom of choice to choose an arbitrary filler, utilizing that $p$ is an ordinary trivial Kan fibration.
+
+Now consider an arbitrary object $c$ of $\cal{I}$ and a square $c \to p$.
+We define a diagonal filler by decomposing $c$ into a transfinite composition of cobase changes of boundary inclusions, again using the axiom of choice\footnote{This instance of the axiom of choice can be eliminated if the actual category $\cal{I}$ only includes monomorphisms with finite codomain}, filling each of these according to the previous paragraph.
+Crucially, this process is independent of the actual order of the boundary fillings (note that this is not true for the analogous situation of horn fillings).
+For each morphism in $\cal{I}$ and commuting triangle of squares
+\[
+\xymatrix{
+  A'
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  A
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[d]
+\\
+  B'
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+we need to exhibit coherence of fillers as indicated.
+By ``vertical'' induction and the remark on order invariance of boundary fillings, it will suffice to study the case where the middle vertical map is a boundary inclusion.
+By ``horizontal'' induction, it will suffice to study the case where the left bottom map is either a face or degeneracy operation as the morphisms of $\cal{I}$ are generated by these.
+
+Let us first examine the case of a face operation.
+\[
+\xymatrix{
+  \Delta^n
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \partial \Delta^{n+1}
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[d]
+\\
+  \Delta^n
+  \ar[r]_{d_k^{n+1}}
+  \ar@{.>}[urr]
+&
+  \Delta^{n+1}
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+Since the left vertical map is necessarily the identity, the filler for the composite square is uniquely determined, so there is no coherence to be verified.
+
+Let us now examine the case of a degeneracy operation.
+\[
+\xymatrix{
+  2 \times \partial \Delta^n
+  \ar[r]
+  \ar[d]
+  \ar@/^2em/[rr]^(0.3){\pi_2}
+  \pullback{dr}
+&
+  \bigcup_{i \neq k, k+1} \Delta^{[n+1] - i}
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \partial \Delta^n
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[dd]
+\\
+  2 \times \Delta^n
+  \ar[r]
+  \ar@/_2em/[rr]_(0.3){\pi_2}
+&
+  \partial \Delta^{n+1}
+  \ar[r]
+  \ar[d]
+  \ar@{.>}[urr]
+  \pullback{ul}
+&
+  \Delta^n
+  \ar[d]
+  \ar@{.>}[ur]
+\\&
+  \Delta^{n+1}
+  \ar[r]_{s_k^n}
+  \ar@{.>}[uurr]
+&
+  \Delta^n
+  \ar[r]
+  \ar@{.>}[uur]
+&
+  Y
+}
+\]
+The pullback of the boundary inclusion $\partial \Delta^n \to \Delta^n$ along $s_k^n$ decomposes as a cobase change of two parallel boundary inclusions of dimension $n$ followed by a boundary inclusion of dimension $n+1$ as indicated.
+The two parallel boundary fillings are identical copies of the original right square boundary filling, so they cohere as indicated.
+Finally, the filling for the boundary inclusion $\partial \Delta^{n+1} \to \Delta^{n+1}$ coheres as indicated by how boundary filling was originally defined for degenerate squares.
+\end{proof}
+
+\begin{lemma}
+Classically, every ordinary Kan fibration is a uniform Kan fibration.
+\end{lemma}
+
+\begin{proof}
+Let $p : X \to Y$ be an ordinary Kan fibration.
+Then $\hatexp(h_k^1, p)$ is an ordinary trivial Kan fibration for $k = 0, 1$.
+By the previous lemma, classically $\hatexp(h_k^1, p)$ is also a uniform trivial Kan fibration.
+But that means $p$ is a uniform Kan fibration.
+\end{proof}
+
+\begin{definition}
+For the purpose of this definition, fix a direction $k \in \braces{0, 1}$ of filling.
+Consider a simplicial map $i : A \to B$ and a square $h_k^1 \hattimes a \to p$:
+\[
+\xymatrix{
+  \braces{1-k} \times B +_{\braces{1-k} \times B} \Delta^1 \times A
+  \ar[r]
+  \ar[d]_{h_k^1 \hattimes i}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^1 \times B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+A \emph{filling} for this square is a diagonal map as indicated.
+The simple, though underutilized map of arrows $\theta : \canonical_{0 \to \braces{k}} \to h_k^1$ induces a second square $i \to p$ via precomposition:
+\[
+\xymatrix{
+  i
+  \ar[rr]
+  \ar[dr]_{\theta \hattimes i}
+&&
+  p
+\\&
+  h_k^1 \hattimes i
+  \ar[ur]
+}
+\]
+A \emph{composition} for the original square $h_k^1 \hattimes i \to p$ is a diagonal map for the square $i \to p$ as indicated below:
+\[
+\xymatrix{
+  \braces{k} \times A
+  \ar[r]
+  \ar[d]_{i}
+&
+  X
+  \ar[d]^{p}
+\\
+  \braces{k} \times B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+A filling \emph{extends} a given composition if the diagonal maps for $h_k^1 \hattimes i \to p$ and $i \to p$ commute in the obvious way.
+\end{definition}
+
+\begin{definition}
+\emph{Coherent filling} (respectively, \emph{coherent composition)} for a simplicial map $p$ consists of a choice natural in $c : \cal{I}$ of fillings (compositions) for squares of the form $h_k^1 \hattimes c \to p$.
+\end{definition}
+
+Observe that having coherent fillings is the definition of a uniform Kan fibration.
+
+\begin{lemma}
+Assume $\cal{I}$ is closed under Leibniz product with $h_k^1$ for $k = 0, 1$ (in the sense of $h_k^1 \hattimes \arghole$ restricting to an endofunctor on $\cal{I}$).
+Then any map $p : X \to Y$ with coherent composition has coherent filling.
+Furthermore, the coherent filling can be made to extend the coherent composition.
+\end{lemma}
+
+\begin{proof}
+The crucial ingredient (``connections") is the fact that $h_k^1$ is a strong deformation retract.
+Recalling our previous characterization of strong homotopy equivalences, this implies that $\theta \hattimes h_k^1$ is a section in the arrow category.
+
+Suppose we are given a square $v : h_k^1 \hattimes c \to p$ to fill.
+Since $\theta \hattimes h_k^1$ is a section, so is $(\theta \hattimes h_k^1) \hattimes c \simeq \theta \hattimes (h_k^1 \hattimes c)$.
+We thus may factor the given square as follows:
+\[
+\xymatrix{
+  h_k^1 \hattimes c
+  \ar[rr]^{v}
+  \ar[dr]_{\theta \hattimes (h_k^1 \hattimes c)}
+&&
+  p
+\\&
+  h_k^1 \hattimes (h_k^1 \hattimes c)
+  \ar[ur]
+}
+\]
+So a filling for the square $v : h_k^1 \hattimes c \to p$ is nothing more than a composition for the derived square $h_k^1 \hattimes (h_k^1 \hattimes c) \to p$!
+By assumption, the map $h_k^1 \hattimes c$ is again an object of $\cal{I}$ and has such a composition available.
+Observe that this argument is entirely natural in $c : \cal{I}$.
+Thus, coherent composition induces coherent filling.
+
+Let us now show that the defined filling extends the given composition.
+For this, consider the below situation:
+\[
+\xymatrix{
+  c
+  \ar[dr]^{\theta \hattimes h_k^1}
+  \ar[dd]_{\theta \hattimes h_k^1}
+\\&
+  h_k^1 \hattimes c
+  \ar[dd]_(0.25){h_k^1 \hattimes (\theta \hattimes c)}
+  \ar[dr]^{w}
+\\
+  h_k^1 \hattimes c
+  \ar[rr]_(0.35){v}
+  \ar[dr]_{\theta \hattimes (h_k^1 \hattimes c)}
+&&
+  p
+\\&
+  h_k^1 \hattimes (h_k^1 \hattimes c)
+  \ar[ur]
+}
+\]
+Recall that the square $h_k^1 \hattimes (h_k^1 \hattimes c) \to p$ was defined in terms of $v$ via a retraction $r : h_k^1 \hattimes h_k^1 \to h_k^1$ to $\theta \hattimes h_k^1$.
+Crucially, note that $r$ is automatically also a retraction to $h_k^1 \hattimes \theta$.
+It follows that $w = v$ in the above diagram.
+We need to show that the diagonal map for the square $c \to p$ induced by the filling of $v$ (the new composition) coincides with the given composition of $v$.
+As seen in the diagram, this is now just coherence of the given coherent composition with respect to $\theta \hattimes c$.
+\end{proof}
+
+\begin{comment}
+\begin{lemma}
+Uniform Kan fibrations are closed under dependent product along uniform Kan fibrations.
+\end{lemma}
+
+\begin{proof}
+Let $p : Y \to X$ be a uniform Kan fibration.
+For any uniform Kan fibration $q : Z \to Y$, our goal is to show that the dependent product $\Pi_p q : \Pi_p Z \to X$ is a uniform Kan fibration as well.
+By the previous lemma, it will suffice to define coherent filling for $\Pi_q p$.
+Without loss of generality, we will omit treating $h_0^1$.
+
+Let $i : A \to B$ be an object of $\cal{I}$ and consider a square $h_1^1 \hattimes i \to \Pi_q p$.
+\[
+\xymatrix{
+  \braces{1} \times A
+  \ar[r]
+  \ar[d]
+&
+  T
+  \ar[r]
+  \ar[d]
+&
+  \Pi_p Z
+  \ar[d]
+\\
+  \braces{1} \times B
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  \Delta^1 \times B
+  \ar[r]
+&
+  X
+}
+\]
+Here, we have abbreviated $T = \braces{0} \times B +_{\braces{0} \times A} \Delta^1 \times A$.
+We want to define a composition as indicated.
+By adjointness, this is equivalent to the following:
+\[
+\xymatrix{
+  (\braces{1} \times A) \times_X Y
+  \ar[r]
+  \ar[d]
+&
+  T \times_X Y
+  \ar[d]
+  \ar[r]
+&
+  Z
+  \ar[d]
+\\
+  (\braces{1} \times B) \times_X Y
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  (\Delta^1 \times B) \times_X Y
+  \ar[r]
+&
+  Y
+}
+\]
+
+Let $s$ be an $n$-simplex in the bottom left corner.
+This consists of an $n$-simplex $u$ in $B$ and an $n$-simplex $v$ in $Y$ such that the projection to $X$ agrees.
+We extend it to $\Delta^1 \times \Delta^n \to B$ and $\Delta^1 \times \Delta^n \to Y$ using the fact that $p : Y \to X$ is a fibration.
+
+\[
+\xymatrix{
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  Y
+  \ar[d]
+\\
+  T
+  \ar[r]
+  \ar[d]
+&
+  \Delta^1 \times B
+  \ar[r]
+  \ar[d]
+&
+  X
+  \ar[dd]
+\\
+  B
+  \ar[r]
+&
+  B
+  \ar[d]
+\\&
+  \Delta^1 \times B
+  \ar[r]
+&
+  X
+}
+\]
+
+
+\begin{align*}
+B \times_X Y
+=
+(B \to \Delta^1 \times B \to X)^* (Y \to X)
+\\
+B \times_{X^{\Delta^1}} Y^{\Delta^1}
+=
+(B \to X^{\Delta^1})^* (Y^{\Delta^1} \to X^{\Delta^1})
+=^?
+\Pi_{\Delta^1 \times B \to B} (\Delta^1 \times B \to X)^* (Y \to X)
+\\
+\Pi_{T \to \Delta^1 \times B \to B} (T \to \Delta^1 \times B \to X)^* (Y \to X)
+\\
+\Pi_{T \to \Delta^1 \times B \to B} (T \to \Delta^1 \times B \to X)^* (Z \to X)
+\\
+\Pi_{\Delta^1 \times B \to B} (\Delta^1 \times B \to X)^* (Z \to X)
+\\
+\Pi_{B \to \Delta^1 \times B \to B} (B \to \Delta^1 \times B \to X)^* (Z \to X)
+=
+(B \to \Delta^1 \times B \to X)^* (Z \to X)
+\end{align*}
+\end{proof}
+\end{comment}
 
 \end{document}
-
