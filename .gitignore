@@ -10,3 +10,10 @@
 
 *.bbl
 *.blg
+
+# Emacs autosave and preview
+*~
+_region_.tex
+_region_.prv
+auto
+prv_*
