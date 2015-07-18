@@ -341,74 +341,6 @@ What is the relationship between $\cal{I_2}$-trivial fibrations and regular fibr
 
 After the preceeding lemma, we will freely intermingle $\cal{I}_2$ to $\cal{I}_5$, using whatever is most suitable to the situation at hand.
 
-\begin{lemma}
-Dependent product $\Pi_u$ along any map $u : Y \to X$ preserves $\cal{I}_5$-trivial fibrations.
-Furthermore $\Pi_u$ extends to a functor $\cod^{-1}(X) \to \cod^{-1}(Y)$ between fibers of the algebra category for $\cal{I}_5$ and is preserves by base change.
-\end{lemma}
-
-\begin{proof}[Proof (sketch)]
-This boils down by adjointness to maps in $\cal{I}_5$ being stable under base change.
-Coherence with respect to cartesian squares is easy to verify.
-\begin{comment}
-Fix an arbitrary map $u : Y \to X$ and let $q : Z \to Y$ be a uniform trivial fibration.
-We want to show that $\Pi_u q : \Pi_u Z \to Y$ is a uniform trivial fibration.
-Coherently solving a lifting problem $(s, t) : i \to \Pi_u q$ with $i : \cal{I}$ is equivalent to coherently solving $u^*(i) \pitchfork q$ where $u^*(i) : u^* A \to u^* B$.
-
-\[
-\xymatrix{
-  A'''
-  \ar[rr]
-  \ar[dd]
-  \ar[dr]
-&&
-  A''
-  \ar[rr]
-  \ar[dd]
-  \ar[dr]
-&&
-  Z
-  \ar[dd]
-\\&
-  A'
-  \ar[rr]
-  \ar[dd]
-  \pullback{dr}
-&&
-  A
-  \ar[rr]
-  \ar[dd]
-&&
-  \Pi_u Z
-  \ar[dd]
-\\
-  B'''
-  \ar[rr]
-  \ar[dr]
-&&
-  B''
-  \ar[rr]
-  \ar[dr]
-&&
-  Y
-  \ar[dr]
-\\&
-  \Delta^{n'}
-  \ar[rr]
-&&
-  \Delta^n
-  \ar[rr]
-&&
-  X
-}
-\]
-\end{comment}
-\end{proof}
-
-\begin{question}
-Does the adjunction of base change and dependent product transfer from fibers of the arrow category to fibers of the algebra categories?
-If so, then preservation of dependent products under base change would mean Beck-Chevalley.
-\end{question}
-
 \section*{Fibrations}
 
 Fix a class $\cal{I}$ as in the previous section.
@@ -548,6 +480,76 @@ We need to show that the diagonal map for the square $c \to p$ induced by the fi
 As seen in the diagram, this is now just coherence of the given coherent composition with respect to $\theta \hattimes c$.
 \end{proof}
 
+\section*{Dependent Product}
+
+\begin{lemma}
+Dependent product $\Pi_u$ along any map $u : Y \to X$ preserves $\cal{I}_5$-trivial fibrations.
+Furthermore $\Pi_u$ extends to a functor $\cod^{-1}(X) \to \cod^{-1}(Y)$ between fibers of the algebra category for $\cal{I}_5$ and is preserves by base change.
+\end{lemma}
+
+\begin{proof}[Proof (sketch)]
+This boils down by adjointness to maps in $\cal{I}_5$ being stable under base change.
+Coherence with respect to cartesian squares is easy to verify.
+\begin{comment}
+Fix an arbitrary map $u : Y \to X$ and let $q : Z \to Y$ be a uniform trivial fibration.
+We want to show that $\Pi_u q : \Pi_u Z \to Y$ is a uniform trivial fibration.
+Coherently solving a lifting problem $(s, t) : i \to \Pi_u q$ with $i : \cal{I}$ is equivalent to coherently solving $u^*(i) \pitchfork q$ where $u^*(i) : u^* A \to u^* B$.
+
+\[
+\xymatrix{
+  A'''
+  \ar[rr]
+  \ar[dd]
+  \ar[dr]
+&&
+  A''
+  \ar[rr]
+  \ar[dd]
+  \ar[dr]
+&&
+  Z
+  \ar[dd]
+\\&
+  A'
+  \ar[rr]
+  \ar[dd]
+  \pullback{dr}
+&&
+  A
+  \ar[rr]
+  \ar[dd]
+&&
+  \Pi_u Z
+  \ar[dd]
+\\
+  B'''
+  \ar[rr]
+  \ar[dr]
+&&
+  B''
+  \ar[rr]
+  \ar[dr]
+&&
+  Y
+  \ar[dr]
+\\&
+  \Delta^{n'}
+  \ar[rr]
+&&
+  \Delta^n
+  \ar[rr]
+&&
+  X
+}
+\]
+\end{comment}
+\end{proof}
+
+\begin{question}
+Does the adjunction of base change and dependent product transfer from fibers of the arrow category to fibers of the algebra categories?
+If so, then preservation of dependent products under base change would mean Beck-Chevalley.
+\end{question}
+
 \begin{lemma}
 Dependent product $\Pi_u$ along $\cal{I}_5$-fibrations $p : Y \to X$ preserves $\cal{I}_5$-fibrations.
 Furthermore $\Pi_u$ extends to a functor $\cod^{-1}(X) \to \cod^{-1}(Y)$ between fibers of the algebra category for $\cal{J}_5 = \braces{h_k^1 \hattimes i \mid k = 0, 1, i : \cal{I}_5}$ and is preserved by base change.
@@ -669,7 +671,7 @@ We have added a certain dependent product for later use.
 By adjointness, the problem of defining composition becomes as follows: given a section to $q'' : Z'' \to Y''$ over $T$, find a section to $q''' : Z''' \to Y'''$ over $\braces{1} \times B$, pulling back to the same section to $q'''' : Z'''' \to Y''''$ over $\braces{1} \times A$.
 Furthermore, the defined section needs to be stable under pullback of the whole situation given a cartesian square from $A' \to B'$ to $A \to B$ in $\cal{I}$.
 
-For comparison, the problem of defining filling is as follows: given a section to $q''$, find a section to $q'''$ pulling back to it.
+For comparison, the problem of defining filling is as follows: given a section to $q''$, find a section to $q'$ pulling back to it.
 For oblique reason, we are unable to solve this directly.
 Instead, we decompose this problem into two parts.
 Suppose we are given a section to $q''$ (over $T$):
