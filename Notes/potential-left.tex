@@ -2,8 +2,6 @@
 
 \usepackage{uniform-kan-prelude}
 
-\newcommand{\MyId}{\operatorname{Id}}
-
 \begin{document}
 
 \section*{Potential Generating Left Classes}
@@ -14,8 +12,29 @@ Most of the time, we will actually choose $\cal{I}$ as a subcategory of $\SSet_{
 
 \subsection*{The problem with non-cartesian choices of $\cal{I}$}
 
-Consider a non-cartesian morphism $j \to k$ in $\cal{I}$
-\[
+Consider a morphism in $\cal{I}$, comprising arrows $j : A \to B$ and $k : C \to D$ and a commutative square as follows:
+\begin{equation}
+\label{eq:problem-non-cartesian-0}
+\begin{gathered}
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{j}
+&
+  C
+  \ar[d]^{k}
+\\
+  B
+  \ar[r]
+&
+  D
+}
+\end{gathered}
+\end{equation}
+We will be interested in how much this square diverges from being a pullback diagram, so let us draw in the true pullback for comparison:
+\begin{equation}
+\label{eq:problem-non-cartesian-1}
+\begin{gathered}
 \xymatrix{
   A
   \ar[rrr]
@@ -35,11 +54,13 @@ Consider a non-cartesian morphism $j \to k$ in $\cal{I}$
 &&&
   D
 }
-\]
-where we have drawn in the pullback for comparison.
-Note that $A \to C'$ and $C' \to B$ are all monomorphisms, and that $A \to C'$ will not be invertible.
+\end{gathered}
+\end{equation}
+Note that $A \to C'$ is mono because $j$ is, and $k$ is mono because it is a base change of the monomorphism $k$.
+The induced map $A \to C'$ to the pullback measures how much the original square $j \to k$ diverges from being cartesian.
 
-Fix a lifting problem
+We will now consider the algebraic weak factorization system cofibrantly generared by $\cal{I}$.
+Let us fix a right map $p : X \to Y$ and a lifting problem as follows:
 \[
 \xymatrix{
   A
@@ -56,10 +77,12 @@ Fix a lifting problem
   Y
 }
 \]
-for a generating left map $j : A \to B$ and a right map $p : X \to Y$.
 The algebraically generated solution is denoted $d$.
-For any factoring
-\[
+
+For any factoring of this lifting problem
+\begin{equation}
+\label{eq:problem-non-cartesian-2}
+\begin{gathered}
 \xymatrix{
   A
   \ar[r]
@@ -82,40 +105,137 @@ For any factoring
 &
   Y
 }
-\]
-through $j \to k$ of this lifting problem, we have coherence of the algebraically generated lifts $d$ and $e$ as indicated.
-It follows that $d$ is a lift for the inner square in
-\[
+\end{gathered}
+\end{equation}
+through the map $j \to k$ from diagram~\eqref{eq:problem-non-cartesian-0}, we have coherence of the algebraically generated lifts $d$ and $e$ as indicated.
+Let us put diagrams~\eqref{eq:problem-non-cartesian-1} and \eqref{eq:problem-non-cartesian-2} together:
+\begin{equation}
+\label{eq:problem-non-cartesian-3}
+\begin{gathered}
 \xymatrix{
   A
   \ar[rrr]
   \ar[dd]_{j}
   \ar[dr]
 &&&
+  C
+  \ar[r]
+  \ar[dd]_(0.6){k}
+&
   X
   \ar[dd]^{p}
 \\&
   C'
   \ar[urr]
   \ar[dl]_{k'}
+  \pullback{dr}
 \\
   B
   \ar[rrr]
-  \ar@{.>}@/_2em/[uurrr]_{d}
+  \ar@{.>}@/_1em/[uurrrr]_(0.4){d}
 &&&
+  D
+  \ar[r]
+  \ar@{.>}[uur]_{e}
+&
+  Y
+}
+\end{gathered}
+\end{equation}
+Pasting together the pullback square, the upper triangle for the filler $e$, and the coherence triangle of $d$ and $e$, we see that the two ways of going from $C'$ to $X$ (via $B$ or via $C$) coincide.
+It follows that $d$ is not just a filler for $j \to p$, but also for $k' \to p$.
+
+If $B \to D$ is a monomorphism, it quite often has a retraction $B \to D$, for example if $B$ and $D$ are both representable.
+Let us assume now this is the case.
+Then \emph{any} filler $d'$ for the square $j \to p$ can be used to factor $j \to p$ through $j \to k$ as in diagram~\eqref{eq:problem-non-cartesian-2}:
+\[
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{j}
+&
+  C
+  \ar[r]^{k}
+  \ar[d]_{k}
+&
+  D
+  \ar[r]
+  \ar[d]^{\id}
+&
+  B
+  \ar[r]^{d'}
+  \ar[d]^{\id}
+&
+  X
+  \ar[d]^{p}
+\\
+  B
+  \ar[r]
+&
+  D
+  \ar[r]^{\id}
+&
+  D
+  \ar[r]
+&
+  B
+  \ar[r]
+&
   Y
 }
 \]
-as well.
+Let us use this factorization with the previous paragraph.
+Let us zoom into the top triangle of $d$ as a filler for $k' \to p$:
+\[
+\xymatrix{
+  C'
+  \ar[r]
+  \ar[d]_{k'}
+&
+  C
+  \ar[r]^{k}
+&
+  D
+  \ar[r]
+&
+  B
+  \ar[r]^{d'}
+&
+  X
+\\
+  B
+  \ar[urr]
+  \ar@/_1em/[urrr]^{\id}
+  \ar@/_2em/[urrrr]^{d}
+}
+\]
+In addition to the composite triangle, the left and middle shapes commute.
+Therefore $d$ and $d'$ agree on $k'$.
+Since $d'$ was chosen arbitrary, it follows that \emph{all} fillers for $j \to p$ agree on $k'$.
 
-If $B \to D$ is a monomorphism, it is usually part of a section-retraction pair (for example, if $B$ and $D$ are both representable).
-Given \emph{any} solution $d'$ to the above lifting problem $j \pitchfork p$, this can be used to define a factoring of $j \to p$ through $j \to k$ as above, using $d'$ to define the map $C \to X$.
-This forces the algebraically generated lift $d$ to agree with the arbitrary lift $d'$ not just when restricted to $A$, but also when restricted to $C'$.
-By transitivity, \emph{all} solutions $d'$ agree when restricted to $C'$.
+Observe that this statement no longer mentions any of the fillers for $p$ provided by the algebraic weak factorization system.
+This seems very suspicious.
+For many non-cartesian choices of $\cal{I}$, we can even arrange in $D$ for the image of $B \to D$ to lie in the image of $C \to D$.
+The base change $k'$ of $k : B \to D$ along $C \to D$ then becomes the identity, implying lifting problems $j \pitchfork p$ have \emph{unique} solutions.
 
-This seems very unlikely.
-For many non-cartesian choices of $\cal{I}$, we can even arrange in $D$ for the image of $B$ to lie in the image of $C$.
-The base change $k'$ then becomes the identity, implying lifting problems $j \pitchfork p$ have \emph{unique} solutions.
+This happens for example for the following type of non-cartesian morphism of horn inclusions:
+\[
+\xymatrix{
+  \Lambda_i^n
+  \ar[r]
+  \ar[d]_{h_i^n}
+&
+  \Lambda_i^{n+1}
+  \ar[d]^{h_i^{n+1}}
+\\
+  \Delta^n
+  \ar[r]^{d_{n+1}^{n+1}}
+&
+  \Delta^{n+1}
+}
+\]
+Including these morphisms in $\cal{I}$ would imply that every horn has a unique filler.
+By induction on dimension, it is easily seen that this forces fibrant simplicial sets to be discrete.
 
 \subsection*{Uniform with respect to cartesian product}
 
