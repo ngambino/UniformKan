@@ -1,0 +1,467 @@
+\documentclass[reqno,10pt,a4paper,oneside]{amsart}
+
+\usepackage{uniform-kan-prelude}
+
+\title{Remarks on Algebraic Weak Factorization Systems}
+
+\begin{document}
+
+\begin{abstract}
+We collect some general remarks concerning algebraic weak factorization systems in view of later applications.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+Recall the notion of \emph{algebraic weak factorization system} from~\cite{garner:small-object-argument} (there called \emph{natural weak factorization system}).
+
+\section{Identifying Isomorphic Algebraic Weak Factorization Systems}
+
+The motivation for this section is \cref{monos-into-representables,decidable-monos-into-representables}, providing a partial justification for choosing (decidable) monomorphisms into representables (and cartesian squares as morphisms) as generating left category for algebraic fibrations in simplicial sets.
+
+\subsection{An Easy Criterion}
+
+Fix a cocomplete category $\cat{E}$. 
+We prove an easy sufficient criterion for when a category over $\cat{E}^{\to}$ has the same free algebraic weak factorization system as a full subcategory of it.
+
+\begin{proposition}
+\label{criterion-for-cats-generating-same-awfs}
+Consider a functor of categories over $\cat{E}^{\to}$ as follows:
+\[
+\xymatrix{
+  \cat{C}
+  \ar[rr]^{F}
+  \ar[dr]_{I}
+&&
+  \cat{D}
+  \ar[dl]^{J}
+\\&
+  \cat{E}^{\to}
+}
+\]
+Suppose that $F$ is fully faithful and that $J$ is the left Kan extension of $I$ along $F$.
+Then $I$ admits a free algebraic weak factorization system precisely if $J$ does, and the morphism between them induced by $F$ is an isomorphism.
+\end{proposition}
+
+\begin{proof}
+Let $U$ denote the functor from algebraic weak factorization systems for $\cat{E}$ to categories over $\cat{E}^{\to}$ mapping $(L, R)$ to $\Coalg(L)$.
+Recall that $(L, R)$ is free on $A : \CAT/\cat{E}^{\to}$ precisely if we have a map $\eta : A \to \Coalg(L)$ such that $((L, R), \eta)$ is initial in $A \downarrow U$.
+
+Composition with $F$ induces a faithful functor from $J \downarrow U$ to $I \downarrow U$.
+Let us show that this is an isomorphism, hence relates initial objects.
+It will be enough to verify that for an algebraic weak factorization system $(L, R)$, any map $P : \cat{C} \to \Coalg(L)$ over $\cat{E}^{\to}$ factors uniquely through $F$ as indicated below:
+\[
+\xymatrix{
+  \cat{C}
+  \ar[rr]^{P}
+  \ar[dr]^{F}
+  \ar[ddr]_{I}
+&&
+  \Coalg(L)
+  \ar[ddl]
+\\&
+  \cat{D}
+  \ar@{.>}[ur]^{\exists !}
+  \ar[d]^(0.3){J}
+\\&
+  \cat{E}^{\to}
+}
+\]
+This follows by applying \cref{ugly-outsourced-lemma} below.
+For this, note that $\cat{E}^{\to}$ and $\Coalg(L)$ are cocomplete with $\cat{E}$ and that the functor $\Coalg(L) \to \cat{E}^{\to}$ is strictly comonadic, hence cocontinuous and an amnestic isofibration.
+\end{proof}
+
+\begin{lemma}
+\label{ugly-outsourced-lemma}
+Consider categories and functors strictly commuting as indicated by solid lines below:
+\[
+\xymatrix{
+  \cat{C}
+  \ar[rr]^{P}
+  \ar[dr]^{F}
+%  \ar[ddr]_{I}
+&&
+  \cat{X}
+  \ar[ddl]^{K}
+\\&
+  \cat{D}
+  \ar@{.>}[ur]^{H}
+  \ar[d]^(0.3){J}
+\\&
+  \cat{E}
+}
+\]
+Assume that
+\begin{itemize}
+\item
+$F$ is fully faithful,
+\item
+$J$ is the left Kan extension of some functor $I : \cat{C} \to \cat{E}$ along $F$,
+\item
+$\cat{X}$ and $\cat{E}$ are cocomplete and $K : \cat{X} \to \cat{E}$ creates colimits,
+\item
+$K$ is an amnestic isofibration.%
+\footnote{
+  A functor is \emph{amnestic} if any isomorphism mapping to an identity is itself an identity.
+  An amnestic isofibration is characterized by unique lifts of isomorphisms given a lift of either its domain or codomain.
+  This non-invariant assumption is necessary here because we are working with strict equality of functors.
+}
+\end{itemize}
+Then there is a unique functor $H$ strictly cohering as indicated by the dotted line.
+\end{lemma}
+
+\begin{proof}
+First of all, observe that given a diagram in $\cat{X}$ and a colimiting cone for it in $\cat{E}$, there is a strictly unique lift of this cone through the amnestic isofibration $K$ (lifting up to isomorphism uses cocompleteness and creation of colimits, existence of a strict lift uses the isofibration, and strict uniqueness uses amnesticity).
+
+We define the desired functor $H : \cat{D} \to \cat{X}$ as follows.
+All of the following will be functorial in $Y : \cat{D}$.
+We consider the canonical cocone $Z$ of the diagram $F \downarrow Y \to \cat{C} \to \cat{D}$ with cotip $Y$.
+Since $J = \Lan_F I$, the cocone $JZ$ is colimiting in $\cat{E}$.
+By the constraint $HF = P$, the diagram part of $HZ$ needs to be $F \downarrow Y \to \cat{C} \to \cat{X}$.
+By the constraint $KH = J$, the image of $HZ$ under $K$ needs to be the colimiting cocone $JZ$.
+This determines $HZ$ uniquely according to the first paragraph, hence also its cotip $H(Y)$.
+
+Note that for $Y = F(X)$ with $X : \cat{C}$, there is a canonical cocone over $F \downarrow F(X) \to \cat{C} \to \cat{X}$ with cotip $P(X)$ using full faithfulness of $F$.
+This cocone satisfies the constraints of the previous paragraph (using $KP = JF$ for the second one), hence we have $HF = P$.
+The other constraint $KH = J$ holds by construction.
+\end{proof}
+
+\subsection{Application to Presheaf Categories}
+
+We now consider presheafs on a category $\cat{B}$.
+Our intention is to apply \cref{criterion-for-cats-generating-same-awfs} to full subcategories of $(\Set^{\cat{B}})_{\cart}^{\to}$, the arrow category of presheafs on $\cat{B}$ with cartesian squares as morphisms:
+
+\begin{proposition}
+\label{awfs-on-arrows-into-representables}
+Let $\cat{J}$ be a full subcategory of $(\Set^{\cat{B}})_{\cart}^{\to}$ closed under base change to representables.
+Let $\cat{I}$ denote its restriction to arrows into representables.
+\[
+\xymatrix{
+  \cat{I}
+  \ar[rr]
+  \ar[dr]
+&&
+  \cat{J}
+  \ar[dl]
+\\&
+  (\Set^{\cat{B}})^{\to}
+}
+\]
+Suppose that $\cat{I}$ is a small, so that it generates an algebraic weak factorization system $(L, R)$ (algebraically) free on $\cat{I}$.
+Then $(L, R)$ is also free on $\cat{J}$, with the universal maps related by $\cat{I} \to \cat{J}$.
+It $\cat{J}$ is small, then $(L, R)$ will be algebraically free on $\cat{J}$.%
+\footnote{
+  Not being able to always show $(L, R)$ algebraically free on $\cat{J}$ is currently the drawback of arguing from the left instead of the right.
+  The left side relates better to freeness, while the right side related better to algebraic freeness.
+  But arguing from the right always starts with quantifying over a generic algebra never playing any role in the argument beside being lifted against from the left --- the real reasoning takes place entirely on the left in the form of colimit closure properties.
+  So the left approach followed here is preferable from an asthetic point to the right approach previously written out.
+  Algebraic freeness for non-small categories, if relevant, should follow as a technical corollary by set theoretic reasoning (Garner would know a nice way).
+}
+\end{proposition}
+
+\begin{proof}
+Garner's small object argument~\cite{garner:small-object-argument} generates an algebraic weak factorization system $(L, R)$ algebraically free on $\cat{I}$. 
+It is also shown in~\cite{garner:small-object-argument} that algebraic freeness implies freeness.
+For the first claim, we apply \cref{criterion-for-cats-generating-same-awfs}, offloading its proof obligations to the below \cref{left-kan-extension-of-representables}.
+Finally, if $\cat{J}$ is also small, it will generate an algebraically free (hence free) algebraic weak factorization system itself.
+By universality of freeness, it must coincide $(L, R)$, which must henceforth be algebraically free on $\cat{J}$.
+\end{proof}
+
+\begin{lemma}
+\label{left-kan-extension-of-representables}
+In the situation of \cref{awfs-on-arrows-into-representables}, the inclusion $\cat{J} \to (\Set^{\cat{B}})^{\to}$ is the left Kan extension of $\cat{I} \to (\Set^{\cat{B}})^{\to}$ along $\cat{I} \to \cat{J}$.
+\end{lemma}
+
+\begin{question}
+There should be an abstract argument here cleverly combining the codomain fibration and the corresponding left Kan extension claim for the codomain part
+\[
+\xymatrix{
+  \cat{B}
+  \ar[rr]^{y}
+  \ar[dr]_{y}
+&&
+  \Set^{\cat{B}}
+  \ar[dl]^{\id}
+\\&
+  \Set^{\cat{B}}
+}
+\]
+which holds by the co-Yoneda lemma.
+How does it go?
+\end{question}
+
+\begin{proof}
+Since $(\Set^{\cat{B}})^{\to}$ is cocomplete, we can use the colimit formula for left Kan extensions to verify the claim.
+All of the following will be functorial in an object $f : X \to Y$ of $\cat{J}$.
+We consider the diagram indexed by cartesian squares
+\[
+\xymatrix{
+  U
+  \ar[r]
+  \ar[d]_{h}
+  \pullback{dr}
+&
+  X
+  \ar[d]^{f}
+\\
+  \hom(\arghole, M)
+  \ar[r]
+&
+  Y
+}
+\]
+with $h : \cat{I}$ and valued $h$.
+Our goal is to show that its colimit in $(\Set^{\cat{B}})^{\to}$ is $f$.
+Using the assumption that $\cat{J}$ is closed under base change to representables, this is equivalently the diagram indexed by representables $s : \hom(\arghole, M) \to Y$ and valued $s^* i$.
+Generalized to this level, the statement $\colim_{s : \hom(\arghole, M) \to Y} s^* f \simeq f$ holds since base change commutes with colimits and $\colim_{s : \hom(\arghole, M) \to Y} \hom(\arghole, M) \simeq Y$.
+\end{proof}
+
+\subsection{Application to Algebraic Cofibrations in Simplicial Sets}
+
+The class of decidable monomorphisms is closed under base change.
+We thus obtain as immediate consequences of \cref{awfs-on-arrows-into-representables}:
+
+\begin{corollary}
+\label{monos-into-representables}
+The algebraically free algebraic weak factorization system generated by
+\[\cat{I} = \braces{A \to \Delta^n\ \text{\normalfont{mono}}}\]
+is also (algebraically) free on any (small) full subcategory of $\SSetCart$ of monomorphisms containing $\cat{I}$.
+\end{corollary}
+
+\begin{corollary}
+\label{decidable-monos-into-representables}
+The algebraically free algebraic weak factorization system generated by
+\[\cat{I}' = \braces{A \to \Delta^n\ \text{\normalfont{decidable mono}}}\]
+is also (algebraically) free on any (small) full subcategory of $\SSetCart$ of decidable monomorphisms containing $\cat{I}'$.
+\end{corollary}
+
+\section{Base Change for Algebras in an Algebraic Weak Factorization System}
+
+\subsection{Preservation Results for Algebra Category Formation}
+
+Consider a monad $S$ on a category $\cat{C}$ and a monad $T$ on a category $\cat{E}$ such that $T$ lies over $S$ with respect to a functor $P : \cat{E} \to \cat{C}$.
+This gives rise to a functor $Q : \Alg(T) \to \Alg(S)$ strictly commuting as follows:
+\begin{equation}
+\label{relative-monad-situation}
+\begin{gathered}
+\xymatrix{
+  \Alg(T)
+  \ar[r]^-{U_T}
+  \ar[d]^{Q}
+&
+  \cat{E}
+  \ar[d]^{P}
+\\
+  \Alg(S)
+  \ar[r]^-{U_S}
+&
+  \cat{C}
+}
+\end{gathered}
+\end{equation}
+
+\begin{lemma}
+\label{Alg-preserves-cartesian-fib}
+If $P$ is a cartesian fibration, then $Q$ is a cartesian fibration.
+The top map $U_T$ in~\eqref{relative-monad-situation} creates cartesian morphisms.
+\end{lemma}
+
+\begin{remark}
+This is entirely analogous to a certain lemma about inserter formation preserving cartesian fibrations from an unrelated write-up.
+In fact, a corresponding generalization to quasi-categories in terms of almost-marked simplicial sets applies, which would also makes the proof far less redundant.
+\end{remark}
+
+\begin{proof}
+Let us first show that $U_T$ reflects cartesian morphisms.
+Consider the below situation of solid lines:
+\[
+\xymatrix{
+  (X, \rho)
+  \ar@{.>}[dr]_{f}
+  \ar[drr]^{g}
+\\&
+  (Y, \sigma)
+  \ar[r]_{h}
+&
+  (Z, \tau)
+&
+  \Alg(T)
+  \ar[dd]^{Q}
+\\
+  (A, \alpha)
+  \ar[dr]_{a}
+  \ar[drr]^{b}
+\\&
+  (B, \beta)
+  \ar[r]_{c}
+&
+  (C, \gamma)
+&
+  \Alg(S)
+}
+\]
+With $h$ assumed $P$-cartesian, our goal is show unique existence of $f$ as indicated by the dotted line.
+By assumption, we get a unique candidate $f$ after applying $U_S$ and $U_T$ to the situation.
+We only need to verify that $f$ is an algebra map, \ie that the maps $f \cc \rho$ and $\sigma \cc T(f)$ over $a \cc \alpha = \beta \cc S(a)$ are identical.
+Since $h$ is $P$-cartesian, this reduces to showing $h \cc f \cc \rho$ and $h \cc \sigma \cc T(f)$ identical, but this follows from $g$ and $h$ being algebra maps.
+
+Let us now show that $Q$ has cartesian lifts.
+Consider the below situation of solid lines:
+\[
+\xymatrix{
+  (Y, \sigma)
+  \ar@{.>}[r]_{\text{cart}}^{h}
+&
+  (Z, \tau)
+&
+  \Alg(T)
+  \ar[d]^{Q}
+\\
+  (B, \beta)
+  \ar[r]^{c}
+&
+  (C, \gamma)
+&
+  \Alg(S)
+}
+\]
+We want to find $(Y, \sigma)$ and $h : (Y, \sigma) \to (Z, \tau)$ cartesian lifting as indicated.
+We start be constructing a $P$-cartesian lift $h : Y \to Z$ after applying $U_S$ and $U_T$ to the situation.
+Applying the previous paragraph, it remains to construct $\sigma : T(Y) \to Y$ over $\beta$ such that $h \cc \sigma = \tau \cc T(h)$.
+But there is a unique such $\sigma$ since $h$ is $P$-cartesian and $c \cc \beta = \gamma \cc S(c)$ in the base $\cat{C}$.
+Similary, we can deduce the algebra laws for $\sigma$ from those for $\tau$ by left composing with $h$.
+
+By construction, the chosen cartesian lifts for $Q$ are preserved by $U_T$.
+Since every cartesian morphism is suitably isomorphic to such a chosen lift, we deduce $U_T$ preserves cartesian morphisms.
+\end{proof}
+
+\begin{lemma}
+\label{Alg-preserves-cocartesian-fib}
+If $P$ is a cocartesian fibration and $T$ a cocartesian functor over $S$, then $Q$ is a cocartesian fibration.
+The top map $U_T$ in~\eqref{relative-monad-situation} creates cocartesian morphisms.
+\end{lemma}
+
+\begin{remark}
+This is almost dual to \cref{Alg-preserves-cartesian-fib}.
+In fact, in the write-up for inserters mentioned earlier, it is exactly dual.
+\end{remark}
+
+\begin{proof}
+Let us first show that $U_T$ reflects cocartesian morphisms.
+Consider the below situation of solid lines:
+\[
+\xymatrix{
+&&
+  (Z, \tau)
+\\
+  (X, \rho)
+  \ar[r]_{f}
+  \ar[urr]^{g}
+&
+  (Y, \sigma)
+  \ar@{.>}[ur]_{h}
+&&
+  \Alg(T)
+  \ar[dd]^{Q}
+\\&&
+  (C, \gamma)
+\\
+  (A, \alpha)
+  \ar[r]_{a}
+  \ar[urr]^{b}
+&
+  (B, \beta)
+  \ar[ur]_{c}
+&&
+  \Alg(S)
+}
+\]
+With $f$ assumed $P$-cocartesian, our goal is show unique existence of $h$ as indicated by the dotted line.
+By assumption, we get a unique candidate $h$ after applying $U_S$ and $U_T$ to the situation.
+We only need to verify that $h$ is an algebra map, \ie that the maps $h \cc \sigma$ and $\tau \cc T(h)$ over $c \cc \beta = \gamma \cc S(c)$ are identical.
+By assumption, also $T(f)$ is $P$-cocartesian.
+With this, the goal reduces to showing $h \cc \sigma \cc T(f)$ and $\tau \cc T(h) \cc T(f)$ identical, but this follows from $f$ and $g$ being algebra maps.
+
+Let us now show that $Q$ has cocartesian lifts.
+Consider the below situation of solid lines:
+\[
+\xymatrix{
+  (X, \rho)
+  \ar@{.>}[r]_{\text{cocart}}^{f}
+&
+  (Y, \sigma)
+&
+  \Alg(T)
+  \ar[d]^{Q}
+\\
+  (A, \alpha)
+  \ar[r]^{a}
+&
+  (B, \beta)
+&
+  \Alg(S)
+}
+\]
+We want to find $(Y, \sigma)$ and $f : (X, \rho) \to (Y, \sigma)$ cocartesian lifting as indicated.
+We start be constructing a $P$-cocartesian lift $h : X \to Y$ after applying $U_S$ and $U_T$ to the situation.
+Applying the previous paragraph, it remains to construct a structure map $\sigma : T(Y) \to Y$ over $\beta$ such that $f \cc \rho = \sigma \cc T(f)$.
+But there is a unique such $\sigma$ since $T(f)$ is $P$-cocartesian and $a \cc \alpha = \beta \cc S(a)$ in the base $\cat{C}$.
+Similarly, we can deduce the unit and multiplication laws for $\sigma$ from those for $\rho$ by right composing with $f$ and $T^2(f)$, respectively, using that these maps are $P$-cocartesian.
+
+By construction, the chosen cocartesian lifts for $Q$ are preserved by $U_T$.
+Since every cocartesian morphism is suitably isomorphic to such a chosen lift, we deduce $U_T$ preserves cocartesian morphisms.
+\end{proof}
+
+\subsection{Application to (Right Parts of) Algebraic Weak Factorization Systems}
+
+Let $\cat{E}$ be a complete category.
+We consider a codomain-preserving monad $R$ on $\cat{E}^{\to}$ (this is equivalent to the ``right part'' of an algebraic weak factorization system as explained in~\cite{garner:small-object-argument}).
+This means that $R$ lies over the identity monad with respect to $\cod : \cat{E}^{\to} \to \cat{E}$.
+We write $\Alg(R)$ for the category of algebras over $R$.
+It comes with a strictly monadic functor $U : \Alg(R) \to \cat{E}^{\to}$.
+
+\begin{corollary}
+\label{Alg-over-cod-pres-monad-is-cartesian-fib}
+The composition $\cod \cc U$ is a cartesian fibration.
+\[
+\xymatrix{
+  \Alg(R)
+  \ar[rr]^{U}
+  \ar[dr]_{Q}
+&&
+  \cat{E}^{\to}
+  \ar[dl]^{\cod}
+\\&
+  \cat{E}
+}
+\]
+The functor $U$ creates cartesian lifts.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{Alg-preserves-cartesian-fib} to $R$ over $\Id_{\cat{E}}$ and note that $\Alg(\Id_{\cat{E}}) \simeq \cat{E}$.
+\end{proof}
+
+
+In particular, the action of base change for the cartesian fibration $\Alg(R) \to \calE$ on the underlying map agrees with pullback; given a map $f : A \to B$ in the base $\calE$, the corresponding base change functors as per the cleavage defined in \cref{Alg-preserves-cartesian-fib} commute strictly:
+\[
+\xymatrix{
+  Q^{-1}(B)
+  \ar[r]^{U}
+  \ar[d]^{f^*}
+&
+  \cod^{-1}(B)
+  \ar[d]^{f^*}
+\\
+  Q^{-1}(A)
+  \ar[r]^{U}
+&
+  \cod^{-1}(A)
+}
+\]
+
+\bibliographystyle{plain}
+\bibliography{../../common/uniform-kan-bibliography}
+
+\end{document}

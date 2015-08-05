@@ -14,6 +14,7 @@
 %\usepackage{hyperref}
 \usepackage{url}
 \usepackage{cleveref}
+\usepackage[utf8]{inputenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Adapted from the HoTT book sources.
@@ -81,19 +82,21 @@
 \newcommand{\ie}{\text{i.e.\ }}
 \newcommand{\eg}{\text{e.g.\ }}
 \newcommand{\resp}{\text{resp.\ }}
+\newcommand{\etal}{\text{et al.\ }}
+\newcommand{\etals}{\text{et al.'s\ }}
 \newcommand{\myemph}{\textit} 
 \newcommand{\changed}{\todo[noline]{Changed}}
 
-\newcommand{\defeq}{=_{\mathrm{def}}}
+\newcommand{\defeq}{=_{\operatorname{def}}}
 \newcommand{\co}{\colon}
 \newcommand{\iso}{\cong} 
 \newcommand{\rev}{\mathit{\vee}}
-\newcommand{\op}{\mathrm{op}}
+\newcommand{\op}{\operatorname{op}}
 \newcommand{\catequiv}{\simeq} 
 \newcommand{\cateq}{\simeq} 
 \newcommand{\coend}{\int}
 
-\newcommand{\cat}[1]{\mathbb{#1}}
+\newcommand{\cat}[1]{\mathbf{#1}}
 \newcommand{\catA}{\cat{A}}
 \newcommand{\catB}{\cat{B}}
 \newcommand{\catC}{\cat{C}}
@@ -102,11 +105,11 @@
 \newcommand{\catK}{\cat{K}}
 \newcommand{\catM}{\cat{M}}
 
-\newcommand{\SSet}{\mathbf{SSet}}
+\newcommand{\SSet}{\operatorname{\mathbf{SSet}}}
 \newcommand{\UU}{\overline{\mathsf{W}}}
 \newcommand{\U}{\mathsf{W}}
-\newcommand{\Weq}{\mathrm{Eq}}
-\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Weq}{\operatorname{Eq}}
+\newcommand{\Set}{\operatorname{\mathbf{Set}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% My stuff
@@ -131,6 +134,15 @@
 \newcommand{\cod}{\operatorname{cod}}
 \newcommand{\colim}{\operatorname{colim}}
 \newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Lan}{\operatorname{Lan}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\Alg}{\operatorname{Alg}}
+\newcommand{\Coalg}{\operatorname{Coalg}}
+\newcommand{\Cat}{\operatorname{\mathbf{Cat}}}
+\newcommand{\CAT}{\operatorname{\mathbf{CAT}}}
+\newcommand{\Presheaf}{\operatorname{Presheaf}}
+\newcommand{\SSetCart}{\SSet_{\text{cart}}^{\to}}
+\newcommand{\cart}{\text{\normalfont{cart}}}
 
 \newcommand{\join}{\mathbin{\star}}
 \newcommand{\hatjoin}{\mathbin{\hat{\star}}}
