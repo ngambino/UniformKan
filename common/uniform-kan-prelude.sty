@@ -5,7 +5,7 @@
 \usepackage{mathtools}
 \usepackage{stmaryrd}
 \usepackage{enumerate}
-\usepackage[all,cmtip]{xy} % cmtip gives arrow heads like in Shulman's papers
+\usepackage[all,cmtip,2cell]{xy} % cmtip gives arrow heads like in Shulman's papers
 \usepackage{mathpartir}
 
 %% General packages
@@ -114,6 +114,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% My stuff
 
+\UseAllTwocells
+
 \DeclarePairedDelimiter\parens\lparen\rparen
 \DeclarePairedDelimiter\floors\lfloor\rfloor
 \DeclarePairedDelimiter\ceils\lceil\rceil
@@ -143,6 +145,8 @@
 \newcommand{\Presheaf}{\operatorname{Presheaf}}
 \newcommand{\SSetCart}{\SSet_{\text{cart}}^{\to}}
 \newcommand{\cart}{\text{\normalfont{cart}}}
+\newcommand{\Mnd}{\operatorname{\mathbf{Mnd}}}
+
 
 \newcommand{\join}{\mathbin{\star}}
 \newcommand{\hatjoin}{\mathbin{\hat{\star}}}

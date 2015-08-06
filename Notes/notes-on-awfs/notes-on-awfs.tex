@@ -413,6 +413,268 @@ By construction, the chosen cocartesian lifts for $Q$ are preserved by $U_T$.
 Since every cocartesian morphism is suitably isomorphic to such a chosen lift, we deduce $U_T$ preserves cocartesian morphisms.
 \end{proof}
 
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+  \Alg(T)
+  \ar[r]^-{U_T}
+  \ar[d]^{Q}
+&
+  \cat{E}
+  \ar[d]^{P}
+\\
+  \Alg(S)
+  \ar[r]^-{U_S}
+&
+  \cat{C}
+}
+\end{gathered}
+\end{equation}
+
+
+Let $d : (A, \alpha) \to (B, \beta)$ be a map in $\Alg(S)$.
+We are going to define a tentative right adjoint $R$ to $d^* : Q^{-1}(B, \beta) \to Q^{-1}(A, \alpha)$.
+Suppose we are given $(Y, \sigma)$ over $(B, \beta)$.
+Let $R(Y, \sigma) = (d_* Y, \rho)$ where $\rho : T(d_* Y) \to d_* Y$ is defined as follows.
+
+
+
+%Q^{-1}(A, \alpha) = (X : P^{-1}(A)) x (T(X) --> X  over  \alpha : S(A) --> A)
+
+%T : P^{-1}(A) --> P^{-1}(SA)
+
+%\alpha^* : P^{-1}(SA) --> P^{-1}(A)
+
+
+\begin{lemma}
+\label{right-adjoints-in-2-cat-of-monads}
+Consider a 1-cell $(L, \phi) : (A, S) \to (B, T)$ in the 2-category $\Mnd(\cat{C})$ of monads on some 2-category $\cat{C}$.
+If $L : A \to B$ has a right adjoint $R : B \to A$ and $\phi$ is invertible, then $(L, \phi)$ has a right adjoint in $\Mnd(\cat{C})$.
+\end{lemma}
+
+\begin{proof}
+This is routine verification.
+Let $R : B \to A$ be the right adjoint to $L$.
+Since in $\cat{C}$ the 2-cell
+\[
+\xymatrix{
+  A
+  \ar[r]^{L}
+  \ar[d]_{S}
+  \drtwocell<\omit>{\phi}
+&
+  B
+  \ar[d]^{T}
+\\
+  A
+  \ar[r]_{L}
+&
+  B
+}
+\]
+is invertible, we can look at the mate of its inverse:
+\[
+\xymatrix{
+  A
+  \ar[d]_{S}
+&
+  B
+  \ar[l]_{R}
+  \ar[d]^{T}
+  \dltwocell<\omit>{^\psi}
+\\
+  A
+&
+  B
+  \ar[l]^{R}
+}
+\]
+Using the calculus of mates, we verify that $(R, \psi) : (B, T) \to (A, S)$ is indeed a 1-cell in $\Mnd(\cat{C})$.
+
+It remains to construct 2-cells $\epsilon : (L, \phi) \cc (R, \psi) \to \Id_{(A, S)}$ and $\eta : \Id_{(B, T)} \to (R, \psi) \cc (L, \phi)$ satisfying the triangle identifies.
+Recall that a 2-cell in $\Mnd(\cat{C})$ is simply a 2-cell in $\cat{C}$ between the underlying 1-cells satisfying coherence with respect to the 2-cell parts of source and target.
+We simply take the counit and unit 2-cells of the adjunction $L \dashv R$.
+The coherence conditions will be tautologically satisfied by how $\psi$ was defined as a mate using the adjunction $L \dashv R$.
+
+Finally, the triangle identities hold because they hold for the underlying adjunction $L \dashv R$, equality of 2-cells in $\Mnd(\cat{C})$ just being equality of the underlying 2-cells.
+\end{proof}
+
+\begin{lemma}
+\label{Alg-preserves-right-adjoint-to-base-change}
+Assume that
+\begin{itemize}
+\item
+$P$ is a cartesian fibration,
+\item
+$P$ has cocartesian lifts over structure maps of $S$-algebras and $U_T$ preserves these,
+\item
+the Beck-Chevalley condition holds between the above cartesian and cocartesian lifts,%
+\footnote{
+  The last two conditions are likely not needed, but it helps with the presentation since it allows us to meld the fiberwise action of $T$ into a monad on the fiber.
+  In the corresponding result for inserters, these conditions were not needed.
+}
+\item
+$P$ has right adjoints to base change.
+\end{itemize}
+Let $d : (A, \alpha) \to (B, \beta)$ be a map of $S$-algebras
+\[
+\xymatrix{
+  S(A)
+  \ar[r]^{S(d)}
+  \ar[d]^{\alpha}
+&
+  S(B)
+  \ar[d]^{\beta}
+\\
+  A
+  \ar[r]^{d}
+&
+  B
+}
+\]
+such that $T$ maps cartesian lifts of $d$ to cartesian lifts of $S(d)$.
+Then $Q$ has a right adjoint to base change along $d$.
+\end{lemma}
+
+\begin{question}
+What about Beck-Chevalley for right adjoints to base change in $Q$?
+\end{question}
+
+\begin{proof}
+Let $\gamma : S(C) \to C$ be an $S$-algebra.
+By assumption, we have a cobase change $\gamma_! : P^{-1}(S(C)) \to P^{-1}(C)$.
+This can be used to define a monad on $M_{(C, \gamma)}$ on $P^{-1}(C)$ as the following composition:
+\[
+\xymatrix{
+  P^{-1}(C)
+  \ar[r]^{T}
+&
+  P^{-1}(S(C))
+  \ar[r]^-{\gamma_!}
+&
+  P^{-1}(C)
+}
+\]
+Unit and multiplication of $T$ over $S$ carry over to $M_{(C, \gamma)}$ using that $T$ preserves $P$-cocartesian lifts of $S$-algebras.
+With this, note that $Q^{-1}(C, \gamma)$ can equivalently be described as algebras over $M_{(C, \gamma)}$.
+
+Returning to the map $d : (A, \alpha) \to (B, \beta)$ of $S$-algebras, note that $d^* : P^{-1}(B) \to P^{-1}(A)$ lifts to a morphism of monads $\phi : M_{(B, \beta)} \to M_{(A, \alpha)}$:
+\begin{equation}
+\label{Alg-preserves-right-adjoint-to-base-change:0}
+\begin{gathered}
+\xymatrix{
+  P^{-1}(A)
+  \ar[d]^{T}
+&
+  P^{-1}(B)
+  \ar[l]^{d^*}
+  \ar[d]^{T}
+  \dltwocell<\omit>{^}
+\\
+  P^{-1}(S(A))
+  \ar[d]^{\alpha_!}
+&
+  P^{-1}(S(B))
+  \ar[l]^{S(d)^*}
+  \ar[d]^{\beta_!}
+  \dltwocell<\omit>{^}
+\\
+  P^{-1}(A)
+&
+  P^{-1}(B)
+  \ar[l]^{d^*}
+}
+\end{gathered}
+\end{equation}
+Under the identifications $Q^{-1}(A, \alpha) \simeq \Alg(M_{(A, \alpha)})$ and $Q^{-1}(B, \beta) \simeq \Alg(M_{(B, \beta)})$, the functor of base change along $d$ in $Q$ corresponds to $\Alg(\phi)$.
+To show that $\Alg(\phi)$ has a right adjoint, it will suffice to show that $\phi$ has a right adjoint in the 2-category of monads.
+By \cref{right-adjoints-in-2-cat-of-monads}, this will be the case if $d^*$ has a right adjoint and the composite 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible.
+
+But $d^*$ has a right adjoint by assumption.
+The upper 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible because $T$ preserves $P$-cartesian lifts of $d$.
+The lower 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible because of Beck-Chevalley.
+\end{proof}
+
+% An unfinished minimalistic ad-hoc attempt working with base change instead of cobase change
+\begin{comment}
+A $T$-algebra over $\alpha : S(A) \to A$ consists of $X$ over $A$ and $\rho : T(X) \to X$ over $\alpha$ such that $(X, \rho)$ is a $T$-algebra.
+Equivalently, it consists of $X$ over $A$ and $\rho : T(X) \to \alpha^*(X)$ over $S(A)$ such that a modified unit law
+\[
+\xymatrix{
+  X
+  \ar[d]^{\mu_{T, X}'}
+  \ar@{=}[r]
+&
+  X
+  \ar@{=}[d]
+\\
+  \mu_{S, A}^* T(X)
+  \ar[r]^{\eta_{S, A}^* \rho}
+&
+  (\alpha \cc \eta_{S, A})^* X
+}
+\]
+and modified multiplication law
+\[
+\xymatrix@C+1em{
+  T^2(X)
+  \ar[r]^-{T(\rho)}
+  \ar[d]^{\mu_{T, A}'}
+&
+  T(\alpha^* X) = \alpha^* T(X)
+  \ar[r]^-{\alpha^* (\rho)}
+&
+  (S(\alpha) \cc \alpha)^* X
+  \ar@{=}[d]
+\\
+  \mu_{S, A}^* T(X)
+  \ar[rr]^-{\mu_{S, A}^* \rho}
+&&
+  (\alpha \cc \mu_{S, A})^* X
+}
+\]
+over $A$ hold.
+
+modified unit:
+%  X --> T(X) over A --> S(A)
+%  X --> (\eta_A^S)^* T(X) over A
+
+modified multiplication:
+%  T^2(X) -> T(X) over S^2(A) -> S(A)
+%  T^*(X) -> (\mu_A^S)^* T(X) over S^2(A)
+
+We define a functor $R$ from $Q^{-1}(A, \alpha)$ to $Q^{-1}(B, \beta)$ as follows.
+Let $\rho : T(X) \to X$ be a $T$-algebra over $(A, \alpha)$.
+Since $X : P^{-1}(A)$, we have $d_* X : P^{-1}(B)$.
+Let us define a map $\sigma : T (d_* X) \to d_* X$ over $\beta$.
+This is equivalent to defining $\sigma' : T (d_* X) \to \beta^* d_* X$.
+By Beck-Chevalley, we have $\beta^* d_* \simeq S(d)_* \alpha^* X$ over $S(B)$.
+So it is equivalent to defining $\sigma'' : T (d_* X) \to S(d)_* \alpha^* X$ over $S(B)$.
+Using $S(d)^* \dashv S(d)_*$, it is equivalent to defining $\sigma''' : S(d)^* T(d_* X) \to \alpha^* X$ over $S(A)$.
+This is the same as defining $\sigma'''' : S(d)^* T(d_* X) \to X$ over $\alpha$.
+Using left composition with $\rho$, this follows from defining $\sigma''''' : S(d)^* T(d_* X) \to T(X)$ over $S(A)$.
+
+%S(d)^* T(Y) --> T(d^* Y)
+
+Let $\gamma : S(C) \to C$ be an $S$-algebra.
+By assumption, we have cobase change functor $\gamma_! : P^{-1}(S(C)) \to P^{-1}(C)$.
+The fiberwise functor $T : P^{-1}(C) \to P^{-1}(S(C))$ is not a monad on the fiber $P^{-1}(C)$, but we can rectify this deficit by instead working with $\gamma_! \cc T$, which has a monad structure induced by $T$.
+
+We use it to define an endofunctor $M$ on $P^{-1}(C)$ as follows:
+\[
+\xymatrix{
+  P^{-1}(C)
+  \ar[r]^{T}
+&
+  P^{-1}(S(C))
+  \ar[r]^{\gamma_!}
+&
+  P^{-1}(C)
+}
+\]
+We can endow $M$ with a unit 
+\end{comment}
+
 \subsection{Application to (Right Parts of) Algebraic Weak Factorization Systems}
 
 Let $\cat{E}$ be a complete category.
@@ -459,6 +721,16 @@ In particular, the action of base change for the cartesian fibration $\Alg(R) \t
   \cod^{-1}(A)
 }
 \]
+
+\begin{corollary}
+Let $d : A \to B$ be a map in $\cat{E}$ such that $R$ preserves cartesian squares with bottom map $d$.
+Then the cartesian fibration $Q$ in \cref{Alg-over-cod-pres-monad-is-cartesian-fib} has right adjoints to base change along $d$.
+\end{corollary}
+
+\begin{proof}
+Apply \cref{Alg-preserves-right-adjoint-to-base-change} to $R$ over $\Id_{\cat{E}}$.
+Note that structure maps of algebras over $\Id_{\cat{E}}$ are necessarily identities, hence the second and third conditions of \cref{Alg-preserves-right-adjoint-to-base-change} are vacuously satisfied.
+\end{proof}
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
