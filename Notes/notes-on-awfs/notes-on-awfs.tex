@@ -790,7 +790,7 @@ In particular, the action of base change for the cartesian fibration $\Alg(R) \t
 \]
 
 \begin{corollary}
-The cartesian fibration $Q$ in \cref{Alg-over-cod-pres-monad-is-cartesian-fib} has a right adjoint to base change along any map $d : A \to B$ in $\cat{E}$ such that $R$ preserves cartesian squares with bottom map $d$.
+The cartesian fibration $Q$ in \cref{Alg-over-cod-pres-monad-is-cartesian-fib} has a right adjoint to base change along any map $f : A \to B$ in $\cat{E}$ such that $R$ preserves cartesian squares with bottom map $f$.
 Furthermore, these right adjoints satisfy Beck-Chevalley with respect to pullback squares in the base.
 \end{corollary}
 
@@ -798,6 +798,8 @@ Furthermore, these right adjoints satisfy Beck-Chevalley with respect to pullbac
 Apply \cref{Alg-preserves-right-adjoint-to-base-change} and \cref{Alg-preserves-right-adjoint-to-base-change-BC} to $R$ over $\Id_{\cat{E}}$.
 Note that structure maps of algebras over $\Id_{\cat{E}}$ are necessarily identities, hence the second and third conditions of \cref{Alg-preserves-right-adjoint-to-base-change} are vacuously satisfied.
 \end{proof}
+
+Note that this is analogous to the stable path objects condition of Warren, and also (by pullback pasting) the condition that left maps be preserved by pullback along right maps of Shulman, Joyal, and many others.
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
