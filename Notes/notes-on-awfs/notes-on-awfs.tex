@@ -744,7 +744,7 @@ We can endow $M$ with a unit
 
 \subsection{Application to (Right Parts of) Algebraic Weak Factorization Systems}
 
-Let $\cat{E}$ be a complete category.
+Let $\cat{E}$ be a locally cartesian-closed category.
 We consider a codomain-preserving monad $R$ on $\cat{E}^{\to}$ (this is equivalent to the ``right part'' of an algebraic weak factorization system as explained in~\cite{garner:small-object-argument}).
 This means that $R$ lies over the identity monad with respect to $\cod : \cat{E}^{\to} \to \cat{E}$.
 We write $\Alg(R)$ for the category of algebras over $R$.
@@ -790,12 +790,12 @@ In particular, the action of base change for the cartesian fibration $\Alg(R) \t
 \]
 
 \begin{corollary}
-Let $d : A \to B$ be a map in $\cat{E}$ such that $R$ preserves cartesian squares with bottom map $d$.
-Then the cartesian fibration $Q$ in \cref{Alg-over-cod-pres-monad-is-cartesian-fib} has right adjoints to base change along $d$.
+The cartesian fibration $Q$ in \cref{Alg-over-cod-pres-monad-is-cartesian-fib} has a right adjoint to base change along any map $d : A \to B$ in $\cat{E}$ such that $R$ preserves cartesian squares with bottom map $d$.
+Furthermore, these right adjoints satisfy Beck-Chevalley with respect to pullback squares in the base.
 \end{corollary}
 
 \begin{proof}
-Apply \cref{Alg-preserves-right-adjoint-to-base-change} to $R$ over $\Id_{\cat{E}}$.
+Apply \cref{Alg-preserves-right-adjoint-to-base-change} and \cref{Alg-preserves-right-adjoint-to-base-change-BC} to $R$ over $\Id_{\cat{E}}$.
 Note that structure maps of algebras over $\Id_{\cat{E}}$ are necessarily identities, hence the second and third conditions of \cref{Alg-preserves-right-adjoint-to-base-change} are vacuously satisfied.
 \end{proof}
 
