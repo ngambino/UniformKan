@@ -525,7 +525,7 @@ This can be used to define a monad on $M_{(C, \gamma)}$ on $P^{-1}(C)$ as the fo
 Unit and multiplication of $T$ over $S$ carry over to $M_{(C, \gamma)}$ using that $T$ preserves $P$-cocartesian lifts of $S$-algebras.
 With this, note that $Q^{-1}(C, \gamma)$ can equivalently be described as algebras over $M_{(C, \gamma)}$.
 
-Returning to the map $d : (A, \alpha) \to (B, \beta)$ of $S$-algebras, note that $d^* : P^{-1}(B) \to P^{-1}(A)$ lifts to a morphism of monads $\phi : M_{(B, \beta)} \to M_{(A, \alpha)}$:
+Returning to the map $d : (A, \alpha) \to (B, \beta)$ of $S$-algebras, note that $d^* : P^{-1}(B) \to P^{-1}(A)$ lifts to a morphism of monads $\phi_d : M_{(B, \beta)} \to M_{(A, \alpha)}$:
 \begin{equation}
 \label{Alg-preserves-right-adjoint-to-base-change:0}
 \begin{gathered}
@@ -553,13 +553,113 @@ Returning to the map $d : (A, \alpha) \to (B, \beta)$ of $S$-algebras, note that
 }
 \end{gathered}
 \end{equation}
-Under the identifications $Q^{-1}(A, \alpha) \simeq \Alg(M_{(A, \alpha)})$ and $Q^{-1}(B, \beta) \simeq \Alg(M_{(B, \beta)})$, the functor of base change along $d$ in $Q$ corresponds to $\Alg(\phi)$.
-To show that $\Alg(\phi)$ has a right adjoint, it will suffice to show that $\phi$ has a right adjoint in the 2-category of monads.
+We will use \cref{right-adjoints-in-2-cat-of-monads} to show that $\phi_d$ has a right adjoint $\psi_d$ in the 2-category of monads.
 By \cref{right-adjoints-in-2-cat-of-monads}, this will be the case if $d^*$ has a right adjoint and the composite 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible.
-
 But $d^*$ has a right adjoint by assumption.
 The upper 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible because $T$ preserves $P$-cartesian lifts of $d$.
 The lower 2-cell in~\eqref{Alg-preserves-right-adjoint-to-base-change:0} is invertible because of Beck-Chevalley.
+
+Under the identifications $Q^{-1}(A, \alpha) \simeq \Alg(M_{(A, \alpha)})$ and $Q^{-1}(B, \beta) \simeq \Alg(M_{(B, \beta)})$, base change along $d$ in $Q$ corresponds to $\Alg(\phi_d)$.
+The desired right adjoint to base change can thus be derived from $\phi_d \dashv \psi_d$ since the 2-functor $\Alg$ preserves adjunctions.
+\end{proof}
+
+\begin{corollary}
+\label{Alg-preserves-right-adjoint-to-base-change-BC}
+In the setting of \cref{Alg-preserves-right-adjoint-to-base-change}, consider a commutative square of $S$-algebras as follows:
+\begin{equation}
+\label{Alg-preserves-right-adjoint-to-base-change-BC:0}
+\begin{gathered}
+\xymatrix{
+  (A, \alpha)
+  \ar[r]^{d}
+  \ar[d]^{a}
+&
+  (B, \beta)
+  \ar[d]^{b}
+\\
+  (A', \alpha')
+  \ar[r]^{d'}
+&
+  (B', \beta')
+}
+\end{gathered}
+\end{equation}
+Assume that $T$ preserves cartesianness of lifts of $d$ and $d'$ so that the respective right adjoints $R$ and $R'$ to base change in $Q$ along $d$ and $d'$ exist as per \cref{Alg-preserves-right-adjoint-to-base-change}.
+If the right adjoints $d_*$ and $d_*'$ to base change in $P$ satisfy Beck-Chevalley with respect to the square
+\[
+\xymatrix{
+  A
+  \ar[r]^{d}
+  \ar[d]^{a}
+&
+  B
+  \ar[d]^{b}
+\\
+  A'
+  \ar[r]^{d'}
+&
+  B'
+}
+\]
+then $R$ and $R'$ satisfy Beck-Chevalley with respect to~\eqref{Alg-preserves-right-adjoint-to-base-change-BC:0} in $Q$.
+\end{corollary}
+
+\begin{proof}
+We will continue to use the notation and identifications of the proof of \cref{Alg-preserves-right-adjoint-to-base-change}.
+Our goal is to show that the mate
+\[
+\xymatrix{
+  \Alg(M_{(A, \alpha)})
+  \ar[r]^{\Alg(\psi_d)}
+&
+  \Alg(M_{(B, \beta)})
+\\
+  \Alg(M_{(A', \alpha')})
+  \ar[r]^{\Alg(\psi_d)}
+  \ar[u]^{\Alg(\phi_a)}
+  \urtwocell<\omit>{^}
+&
+  \Alg(M_{(B', \beta')})
+  \ar[u]^{\Alg(\phi_b)}
+}
+\]
+is invertible.
+By 2-functoriality, this will follow if we can show the mate
+\[
+\xymatrix{
+  M_{(A, \alpha)}
+  \ar[r]^{\psi_d}
+&
+  M_{(B, \beta)}
+\\
+  M_{(A', \alpha')}
+  \ar[r]^{\psi_d}
+  \ar[u]^{\phi_a}
+  \urtwocell<\omit>{^}
+&
+  M_{(B', \beta')}
+  \ar[u]^{\phi_b}
+}
+\]
+invertible in the 2-category of monads.
+But this holds since the underlying natural transformation
+\[
+\xymatrix{
+  P^{-1}(A)
+  \ar[r]^{d_*}
+&
+  P^{-1}(B)
+\\
+  P^{-1}(A')
+  \ar[r]^{d_*}
+  \ar[u]^{a^*}
+  \urtwocell<\omit>{^}
+&
+  P^{-1}(B')
+  \ar[u]^{b^*}
+}
+\]
+is invertible by the Beck-Chevalley assumption for $P$.
 \end{proof}
 
 % An unfinished minimalistic ad-hoc attempt working with base change instead of cobase change
