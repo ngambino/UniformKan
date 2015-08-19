@@ -801,6 +801,380 @@ Note that structure maps of algebras over $\Id_{\cat{E}}$ are necessarily identi
 
 Note that this is analogous to the stable path objects condition of Warren, and also (by pullback pasting) the condition that left maps be preserved by pullback along right maps of Shulman, Joyal, and many others.
 
+\section{Generalizing Filling to Composition}
+
+\subsection{Filling}
+
+For this section, fix a cocomplete category $\cat{E}$.
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $^{\pitchfork}(\arghole) \dashv (\arghole)^{\pitchfork}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+\begin{equation}
+\label{garner-adjunction}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+}
+\end{gathered}
+\end{equation}
+
+\subsection{Retract closure for filling}
+
+Let $U : \cat{A} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
+We define its retract-closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ as follows.
+An object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{E}^{\to}$, \ie an object $e : \cat{E}^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+&
+  U(a)
+  \ar[r]_{r}
+&
+  e
+}
+\]
+The action of $\overline{U}$ on this object is $\overline{U}(a, e, s, t) = e$.
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\to}$ such that the evident squares commute:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+  \ar[d]_{h}
+&
+  U(a)
+  \ar[r]_{r}
+  \ar[d]^{U(f)}
+&
+  e
+  \ar[d]^{h}
+\\
+  e'
+  \ar[r]^{s'}
+  \ar@/_1em/[rr]_{\id}
+&
+  U(a')
+  \ar[r]^{r'}
+&
+  e'
+}
+\]
+The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
+
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\to}$ mapping $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
+
+\begin{lemma}
+\label{retract-closure}
+Recall the adjunction~\eqref{garner-adjunction}.
+The inclusion $\overline{\cat{A}} \to \cat{A}$ induces functors $^{\pitchfork}\overline{\cat{A}} \to{} ^{\pitchfork}\cat{A}$ and $\overline{\cat{A}}^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\to}$.
+These functors are isomorphisms.
+\end{lemma}
+
+\begin{proof}
+Easy to check by purely formal reasoning.
+\end{proof}
+
+\subsection{Composition}
+
+Recall the arrow category $\cat{E}^{\to}$.
+The \emph{square category} $\cat{E}^{\Box}$ is the double arrow category $(\cat{E}^{\to})^{\to}$.
+We have evident inclusions $\squl, \squr, \sqdl, \sqdr$ of the walking object and $\sql, \sqr, \squ, \sqd$ of the walking arrow into the walking square:
+\[
+\xymatrix{
+  \squl
+  \ar[r]^{\squ}
+  \ar[d]_{\sql}
+  \ar@{}[dr]
+&
+  \squr
+  \ar[d]^{\sqr}
+\\
+  \sqdl
+  \ar[r]_{\sqd}
+&
+  \sqdr
+}
+\]
+We also have projections $\sqhori$ and $\sqvert$ from the walking square to the walking arrow that are sections to $\sql, \sqr$ and $\squ, \sqd$, respectively.
+
+Given a square $X : \cat{E}^{\Box}$, its corners and sides are thus given by functor precomposition as $X\squl, X\squr, X\sqdl, X\sqdr : \cat{E}$ and $X\sql, X\sqr, X\squ, X\sqd : \cat{E}^{\to}$, respectively.
+Similarly, given a line $f : \cat{E}^{\to}$, then $f\sqhori$ and $f\sqvert$ are the squares that have identities as horizontal and vertical sides, respectively, with the other sides being given by $f$.
+Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to Y\sql$ will denote the induced morphism between the left sides, and analogously for the other operations as indicated by the suggestive functor precomposition notation.
+
+Given a square $X : \cat{E}^{\Box}$, we will sometimes equivalently view it as a morphism in $\cat{E}^{\to}$ from $X\sql$ to $X\sqr$.
+
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $^{\pitchfork}(\arghole) \dashv (\arghole)^{\pitchfork}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+\begin{equation}
+\label{garner-adjunction}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+}
+\end{gathered}
+\end{equation}
+
+\begin{lemma}
+\label{garner-adjunction-extended}
+The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction as follows:
+\begin{equation}
+\label{garner-adjunction-extended}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+}
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+\begin{proof}[Proof (adapted from \cite{garner:small-object-argument})]
+Let us first define the functor $(\arghole)^{\pitchfork}$.
+It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\cat{A}^{\pitchfork}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
+For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\phi(A, M)$ is a lift in the composite square indicated below:
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){T}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+Coherence of composition means that for a morphism $f : X \to X'$ in $\cat{A}$ and a square $M' : U(X)\sqr \to T\sql$, we have $\phi(X, M \cc U(f)\sqr) = \phi(X', M') \cc U(f)\sqdl$.
+A morphism in $\cat{A}^{\pitchfork}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
+We have an evident forgetful functor from $\cat{A}^{\pitchfork} \to \cat{E}^{\Box}$.
+
+This concludes the construction of the action of $(\arghole)^{\pitchfork}$ on objects.
+The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\cat{B}^{\pitchfork} \to \cat{A}^{\pitchfork}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
+
+The functor $^{\pitchfork}(\arghole)$ is defined analogously, but with directions and order of composition swapped.
+To see that $^\pitchfork(\arghole) \pitchfork (\arghole)^{\pitchfork}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to {}^{\pitchfork}\cat{B}$ and $\cat{B} \to \cat{A}^{\pitchfork}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){V(Y)}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+that is natural in the evident manner in both $X$ and $Y$.
+\end{proof}
+
+\begin{remark}
+\label{extended-adjunction-gives-normal-one}
+Recall the inclusion $E\sqhori : \cat{E}^{\to} \to \cat{E}^{\Box}$ that sends a line $f$ to the square with left and right sides $f$ and up and bottom sides identities.
+It related categories over $\cat{E}^{\Box}$ and $\cat{E}^{\to}$ by an adjunction:
+\begin{equation}
+\label{adjunction-between-E-square-and-E-to}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{E\sqhori_!}
+  \ar@{}[r]|{\bot}
+&
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[l]^{(E\sqhori)^*}
+}
+\end{gathered}
+\end{equation}
+In fact, as can be confirmed from inspection of the constructions, the adjunction~\eqref{garner-adjunction} arises from the extended adjunction~\eqref{garner-adjunction-extended} by pre- and postcomposition with the adjunction~\eqref{adjunction-between-E-square-and-E-to} and its opposite:
+\begin{equation*}
+\begin{gathered}
+\xymatrix@R+1em@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[d]^{(E\sqhori)^*}
+  \ar@{}[d]|{\dashv}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[d]^{((E\sqhori)^*)^{\op}}
+  \ar@{}[d]|{\vdash}
+\\
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[u]^{E\sqhori_!}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[u]^{(E\sqhori_!)^{\op}}
+}
+\end{gathered}
+\end{equation*}
+If we only choose to either pre- or postcompose, we end up with ``mixed'' versions of the adjunction that we are still going to denote using the same symbols:
+\begin{equation}
+\label{garner-adjunction-extended-mixed}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+}
+\end{gathered}
+\end{equation}
+or:
+\begin{equation}
+\label{garner-adjunction-extended-mixed'}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+}
+\end{gathered}
+\end{equation}
+\end{remark}
+
+\subsection{Retract closure for composition}
+
+We are now going to define the analogue of retract closure for composition.
+
+Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+We define its left retract-closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
+An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \cat{E}^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\cat{E}^{\to}$:
+\[
+\xymatrix{
+  e\sql
+  \ar[r]^{e}
+  \ar[d]^{s}
+  \ar@/_2em/[dd]_{\id}
+&
+  e\sqr
+  \ar@/^2em/[dd]^{\id}
+\\
+  U(a)\sql
+  \ar[r]^{U(a)}
+&
+  U(a)\sqr
+  \ar[d]_{t}
+\\
+  e\sql
+  \ar[r]^{e}
+&
+  e\sqr
+}
+\]
+The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, t) = e$.
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+  \ar[d]_{h}
+&
+  U(a)
+  \ar[r]_{r}
+  \ar[d]^{U(f)}
+&
+  e
+  \ar[d]^{h}
+\\
+  e'
+  \ar[r]^{s'}
+  \ar@/_1em/[rr]_{\id}
+&
+  U(a')
+  \ar[r]^{r'}
+&
+  e'
+}
+\]
+The action of $\overline{U}_L$ on this morphism is $\overline{U}_L(f, h) = h$.
+
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
+
+\begin{lemma}
+\label{retract-closure-extended-left}
+Recall the adjunction~\eqref{garner-adjunction-extended}.
+The inclusion $\overline{\cat{A}} \to \cat{A}$ induces a functor $\overline{\cat{A}}^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\Box}$.
+This functor is an isomorphisms.
+\end{lemma}
+
+\begin{proof}
+Easy to check by purely formal reasoning.
+\end{proof}
+
+\begin{remark}
+\label{retract-closure-extended-right}
+We have a dual construction $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ with an inclusion $\cat{A} \to \overline{\cat{A}}_R$ of categories over $\cat{E}^{\Box}$.
+Analogously to \cref{retract-closure-extended-left}, the induced functor $^{\pitchfork}\overline{\cat{A}} \to{} ^{\pitchfork}\cat{A}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
+\end{remark}
+
+
+
+%For the rest of this section, we will only use version~\eqref{garner-adjunction-extended-mixed} of the adjunctions.
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
 
