@@ -820,6 +820,92 @@ Recall from~\cite{garner:small-object-argument} that the Gallois connection $^{\
 }
 \end{gathered}
 \end{equation}
+The following duality lemma also carries over from the non-algebraic setting:
+
+\begin{lemma}
+\label{lift-of-adjunction}
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ be categories over $\cat{D}^{\to}$ and $\cat{E}^{\to}$, respectively.
+Lifts of $L^{\to}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \cat{A}^{\pitchfork}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  ^{\pitchfork}\cat{B}
+  \ar[d]^{^{\pitchfork}V}
+\\
+  \cat{D}^{\to}
+  \ar[r]^{L^{\to}}
+&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \cat{A}^{\pitchfork}
+  \ar[d]_{U^{\pitchfork}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\to}
+&
+  \cat{E}^{\to}
+  \ar[l]^{R^{\to}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\to} \cc U$ to $^{\pitchfork}V$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\to} \cc V$ to $U^{\pitchfork}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\subsection{Slicing for filling}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we may pull it back to a category $\Slice_X(U) : \Slice_X(\cat{A}) \to (\cat{E}/X)^{\to}$ over $(\cat{E}/X)^{\to}$:
+\[
+\xymatrix{
+  \Slice_X(\cat{A})
+  \ar[r]
+  \ar[d]_{\Slice_X(U)}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}/X)^{\to}
+  \ar[r]^{p_!^{\to}}
+&
+  \cat{E}^{\to}
+}
+\]
+Explicitly, the category $\Slice_X(\cat{A})$ consists of pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the codomain of $U(Y)$ to $X$.
+We call this operation \emph{slicing} along $X$.
+Dually, pulling back along $(\cat{E} \backslash X)^{\to} \to \cat{E}^{\to}$ gives us a \emph{coslicing} operation along $X$.
+
+\begin{lemma}
+\label{pitchfork-slicing}
+The functor $(\arghole)^{\pitchfork}$ and $^{\pitchfork}(\arghole)$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{lemma}
+
+\begin{proof}
+Easy to see.
+\end{proof}
 
 \subsection{Retract closure for filling}
 
@@ -881,7 +967,60 @@ Easy to check by purely formal reasoning.
 
 \subsection{Dependent product for filling}
 
+\begin{corollary}
+\label{lift-dependent-product}
+Let $p : Y \to X$ be a map in $\cat{E}$ admitting pullback and pushforward:
+\[
+\xymatrix@C+1em{
+  \cat{E}/X
+  \ar@<5pt>[r]^{p^*}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}/Y
+  \ar@<5pt>[l]^{p_*}
+}
+\]
+Let $W : \cat{C} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
+Then lifts of pushforward
+\[
+\xymatrix{
+  \Slice_X(\cat{C}^{\pitchfork})
+  \ar@{.>}[r]
+  \ar[d]_{\Slice_X(W)}
+&
+  \Slice_Y(\cat{C}^{\pitchfork})
+  \ar[d]^{\Slice_Y(U^{\pitchfork})}
+\\
+  (\cat{E}/X)^{\to}
+&
+  (\cat{E}/Y)^{\to}
+  \ar[l]^{(p_*)^{\to}}
+}
+\]
+are in natural correspondence with lifts of pullback
+\[
+\xymatrix{
+  \Slice_X(\cat{C})
+  \ar@{.>}[r]
+  \ar[d]_{\Slice_X(W)}
+&
+  {}^{\pitchfork}(\Slice_Y(\cat{C}^{\pitchfork}))
+  \ar[d]^{^{\pitchfork}\Slice_Y(U^{\pitchfork})}
+\\
+  (\cat{E}/X)^{\to}
+  \ar[r]^{(p^*)^{\to}}
+&
+  (\cat{E}/Y)^{\to},
+}
+\]
+which in turn correspond to maps from $\Slice_Y(W)^{\pitchfork}$ to $((p^*)^{\to} \cc \Slice_Y(W))^{\pitchfork}$ over $(\cat{E}/Y)^{\to}$.
+\end{corollary}
 
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with $(\arghole)^{\pitchfork}$.
+For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $U = W$ and $V = W^{\pitchfork}$.
+The last statement is simply the adjunction~\eqref{garner-adjunction}.
+\end{proof}
 
 \subsection{Composition}
 
@@ -1100,6 +1239,98 @@ or:
 \end{equation}
 \end{remark}
 
+We have a straightforward analogue of \cref{lift-of-adjunction}:
+
+\begin{lemma}
+\label{lift-of-adjunction}
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\cat{E}^{\Box}$, respectively.
+Lifts of $L^{\Box}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natural correspondence with lifts of $R^{\Box}$ to a functor $\cat{B} \to \cat{A}^{\pitchfork}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  ^{\pitchfork}\cat{B}
+  \ar[d]^{^{\pitchfork}V}
+\\
+  \cat{D}^{\Box}
+  \ar[r]^{L^{\Box}}
+&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \cat{A}^{\pitchfork}
+  \ar[d]_{U^{\pitchfork}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\Box}
+&
+  \cat{E}^{\Box}
+  \ar[l]^{R^{\Box}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\Box} \cc U$ to $^{\pitchfork}V$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\Box} \cc V$ to $U^{\pitchfork}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\subsection{Slicing for composition}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, we may pull it back to a category $\Slice_X(U) : \Slice_X(\cat{A}) \to (\cat{E}/X)^{\Box}$ over $(\cat{E}/X)^{\Box}$:
+\[
+\xymatrix{
+  \Slice_X(\cat{A})
+  \ar[r]
+  \ar[d]_{\Slice_X(U)}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}/X)^{\Box}
+  \ar[r]^{p_!^{\Box}}
+&
+  \cat{E}^{\Box}
+}
+\]
+Explicitly, the category $\Slice_X(\cat{A})$ consists of pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from $U(Y)\sqdr$ to $X$.
+We call this operation \emph{slicing} along $X$.
+Dually, pulling back along $(\cat{E} \backslash X)^{\Box} \to \cat{E}^{\Box}$ gives us a \emph{coslicing} operation along $X$.
+
+\begin{lemma}
+\label{pitchfork-slicing-composition}
+The functor $(\arghole)^{\pitchfork}$ and $^{\pitchfork}(\arghole)$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{lemma}
+
+\begin{proof}
+Easy to see.
+\end{proof}
+
+\subsection{Dependent product for composition}
+
+We have straightforward analogues of \cref{lift-dependent-product} for the four variations of the pitchfork adjunction with arrows or boxes on the left or the right side.
+For our purposes, the basic filling variant will suffice, so we will not make the other variants explicit.
+
 \subsection{Retract closure for composition}
 
 We are now going to define the analogue of retract closure for composition.
@@ -1162,7 +1393,7 @@ We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories ov
 \begin{lemma}
 \label{retract-closure-extended-left}
 Recall the adjunction~\eqref{garner-adjunction-extended}.
-The inclusion $\overline{\cat{A}} \to \cat{A}$ induces a functor $\overline{\cat{A}}_L^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\Box}$.
+The inclusion $\cat{A} \to \overline{\cat{A}}_L$ induces a functor $\overline{\cat{A}}_L^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\Box}$.
 This functor is an isomorphisms.
 \end{lemma}
 
@@ -1176,7 +1407,15 @@ We have a dual construction $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{
 Analogously to \cref{retract-closure-extended-left}, the induced functor $^{\pitchfork}\overline{\cat{A}}_L \to{} ^{\pitchfork}\cat{A}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
 \end{remark}
 
+\subsection{Application}
 
+[$\ldots$]
+
+%We now restrict our attention to simplicial sets.
+%Let $U : \cat{I} \to \cat{E}^{\to}$ be (decidable) subobjects of representables.
+%Let $V = (h_1^1 \hattimes \arghole) \cc U : \cat{I} \to \cat{E}^{\to}$ and $W = (\theta \hattimes \arghole) \cc U : \cat{I} \to \cat{E}^{\Box}$.
+%Note that $V = \arghole\sqr \cc W$.
+%This gives a map from $W$ to $\cat{E}\sqhori \cc V$ over $\cat{E}^{\Box}$. 
 
 %For the rest of this section, we will only use version~\eqref{garner-adjunction-extended-mixed} of the adjunctions.
 \bibliographystyle{plain}
