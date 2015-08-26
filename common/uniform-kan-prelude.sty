@@ -7,6 +7,7 @@
 \usepackage{enumerate}
 \usepackage[all,cmtip,2cell]{xy} % cmtip gives arrow heads like in Shulman's papers
 \usepackage{mathpartir}
+\usepackage{fouridx}
 
 %% General packages
 \usepackage{geometry}
@@ -126,6 +127,9 @@
 \DeclarePairedDelimiter\braces\lbrace\rbrace
 
 \newcommand{\arghole}{\mathop{\cdot}}
+\newcommand{\brarghole}{({}\mathop{\cdot}{})}
+
+
 \newcommand{\cc}{\mathbin{\circ}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\const}{\operatorname{const}}
@@ -191,3 +195,8 @@
 \newcommand{\sqvert}{{}^{V}}
 
 \newcommand{\Slice}{\operatorname{Slice}}
+
+\newcommand{\liftl}[1]{\fourIdx{\pitchfork}{}{}{}{#1}}
+\newcommand{\liftr}[1]{\fourIdx{}{}{\pitchfork}{}{#1}}
+\newcommand{\gliftl}[1]{\fourIdx{\pitchfork}{}{}{}{#1}}
+\newcommand{\gliftr}[1]{\fourIdx{}{}{\pitchfork}{}{#1}}

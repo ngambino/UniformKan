@@ -806,17 +806,17 @@ Note that this is analogous to the stable path objects condition of Warren, and 
 \subsection{Filling}
 
 For this section, fix a cocomplete category $\cat{E}$.
-Recall from~\cite{garner:small-object-argument} that the Gallois connection $^{\pitchfork}(\arghole) \dashv (\arghole)^{\pitchfork}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+1em{
   \CAT/\cat{E}^{\to}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
   (\CAT/\cat{E}^{\to})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
@@ -836,15 +836,15 @@ Consider an adjunction as follows:
 }
 \]
 Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ be categories over $\cat{D}^{\to}$ and $\cat{E}^{\to}$, respectively.
-Lifts of $L^{\to}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \cat{A}^{\pitchfork}$:
+Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
 \begin{mathpar}
 \xymatrix{
   \cat{A}
   \ar@{.>}[r]
   \ar[d]_{U}
 &
-  ^{\pitchfork}\cat{B}
-  \ar[d]^{^{\pitchfork}V}
+  \liftl{\cat{B}}
+  \ar[d]^{\liftl{V}}
 \\
   \cat{D}^{\to}
   \ar[r]^{L^{\to}}
@@ -853,8 +853,8 @@ Lifts of $L^{\to}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natura
 }
 \and
 \xymatrix{
-  \cat{A}^{\pitchfork}
-  \ar[d]_{U^{\pitchfork}}
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
 &
   \cat{B}
   \ar@{.>}[l]
@@ -869,8 +869,8 @@ Lifts of $L^{\to}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natura
 \end{lemma}
 
 \begin{proof}
-Maps from $L^{\to} \cc U$ to $^{\pitchfork}V$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
-Similarly, maps from $R^{\to} \cc V$ to $U^{\pitchfork}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\to} \cc V$ to $\liftr{U}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Since $L \dashv R$, these situations coincide.
 \end{proof}
 
@@ -898,19 +898,15 @@ Explicitly, the category $\Slice_X(\cat{A})$ consists of pairs $(Y, h)$ where $Y
 We call this operation \emph{slicing} along $X$.
 Dually, pulling back along $(\cat{E} \backslash X)^{\to} \to \cat{E}^{\to}$ gives us a \emph{coslicing} operation along $X$.
 
-\begin{lemma}
+\begin{remark}
 \label{pitchfork-slicing}
-The functor $(\arghole)^{\pitchfork}$ and $^{\pitchfork}(\arghole)$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
-\end{lemma}
-
-\begin{proof}
-Easy to see.
-\end{proof}
+The functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{remark}
 
 \subsection{Retract closure for filling}
 
 Let $U : \cat{A} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
-We define its retract-closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ as follows.
+We define its retract closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ as follows.
 An object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{E}^{\to}$, \ie an object $e : \cat{E}^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
 \[
 \xymatrix{
@@ -957,13 +953,18 @@ We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over
 \begin{lemma}
 \label{retract-closure}
 Recall the adjunction~\eqref{garner-adjunction}.
-The inclusion $\overline{\cat{A}} \to \cat{A}$ induces functors $^{\pitchfork}\overline{\cat{A}} \to{} ^{\pitchfork}\cat{A}$ and $\overline{\cat{A}}^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\to}$.
+The inclusion $\overline{\cat{A}} \to \cat{A}$ induces functors $\liftl{\overline{\cat{A}}} \to \liftl{\cat{A}}$ and $\liftr{\overline{\cat{A}}} \to \liftr{\cat{A}}$ of categories over $\cat{E}^{\to}$.
 These functors are isomorphisms.
 \end{lemma}
 
 \begin{proof}
 Easy to check by purely formal reasoning.
 \end{proof}
+
+\begin{remark}
+\label{retract-closure-slicing}
+Taking the retract closure commutes (up to natural isomorphism) with slicing and coslicing.
+\end{remark}
 
 \subsection{Dependent product for filling}
 
@@ -984,12 +985,12 @@ Let $W : \cat{C} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
 Then lifts of pushforward
 \[
 \xymatrix{
-  \Slice_X(\cat{C}^{\pitchfork})
+  \Slice_X(\liftr{\cat{C}})
   \ar@{.>}[r]
   \ar[d]_{\Slice_X(W)}
 &
-  \Slice_Y(\cat{C}^{\pitchfork})
-  \ar[d]^{\Slice_Y(U^{\pitchfork})}
+  \Slice_Y(\liftr{\cat{C}})
+  \ar[d]^{\Slice_Y(\liftr{U})}
 \\
   (\cat{E}/X)^{\to}
 &
@@ -1004,8 +1005,8 @@ are in natural correspondence with lifts of pullback
   \ar@{.>}[r]
   \ar[d]_{\Slice_X(W)}
 &
-  {}^{\pitchfork}(\Slice_Y(\cat{C}^{\pitchfork}))
-  \ar[d]^{^{\pitchfork}\Slice_Y(U^{\pitchfork})}
+  \liftl{\Slice_Y(\liftr{\cat{C}})}
+  \ar[d]^{\liftl{\Slice_Y(\liftr{U})}}
 \\
   (\cat{E}/X)^{\to}
   \ar[r]^{(p^*)^{\to}}
@@ -1013,12 +1014,12 @@ are in natural correspondence with lifts of pullback
   (\cat{E}/Y)^{\to},
 }
 \]
-which in turn correspond to maps from $\Slice_Y(W)^{\pitchfork}$ to $((p^*)^{\to} \cc \Slice_Y(W))^{\pitchfork}$ over $(\cat{E}/Y)^{\to}$.
+which in turn correspond to maps from $\liftr{\Slice_Y(W)}$ to $\liftr{((p^*)^{\to} \cc \Slice_Y(W))}$ over $(\cat{E}/Y)^{\to}$.
 \end{corollary}
 
 \begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with $(\arghole)^{\pitchfork}$.
-For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $U = W$ and $V = W^{\pitchfork}$.
+Recall from \cref{pitchfork-slicing} that slicing commutes with $\liftr{\brarghole}$.
+For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $U = W$ and $V = \liftr{W}$.
 The last statement is simply the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
@@ -1051,17 +1052,17 @@ Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to
 
 Given a square $X : \cat{E}^{\Box}$, we will sometimes equivalently view it as a morphism in $\cat{E}^{\to}$ from $X\sql$ to $X\sqr$.
 
-Recall from~\cite{garner:small-object-argument} that the Gallois connection $^{\pitchfork}(\arghole) \dashv (\arghole)^{\pitchfork}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+1em{
   \CAT/\cat{E}^{\to}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
   (\CAT/\cat{E}^{\to})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
@@ -1074,19 +1075,19 @@ The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction 
 \begin{gathered}
 \xymatrix@C+1em{
   \CAT/\cat{E}^{\Box}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
   (\CAT/\cat{E}^{\Box})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
 \end{lemma}
 
 \begin{proof}[Proof (adapted from \cite{garner:small-object-argument})]
-Let us first define the functor $(\arghole)^{\pitchfork}$.
-It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\cat{A}^{\pitchfork}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
+Let us first define the functor $\liftr{\brarghole}$.
+It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\liftr{\cat{A}}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
 For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\phi(A, M)$ is a lift in the composite square indicated below:
 \[
 \xymatrix{
@@ -1122,14 +1123,14 @@ For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\ph
 }
 \]
 Coherence of composition means that for a morphism $f : X \to X'$ in $\cat{A}$ and a square $M' : U(X)\sqr \to T\sql$, we have $\phi(X, M \cc U(f)\sqr) = \phi(X', M') \cc U(f)\sqdl$.
-A morphism in $\cat{A}^{\pitchfork}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
-We have an evident forgetful functor from $\cat{A}^{\pitchfork} \to \cat{E}^{\Box}$.
+A morphism in $\liftr{\cat{A}}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
+We have an evident forgetful functor from $\liftr{\cat{A}} \to \cat{E}^{\Box}$.
 
-This concludes the construction of the action of $(\arghole)^{\pitchfork}$ on objects.
-The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\cat{B}^{\pitchfork} \to \cat{A}^{\pitchfork}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
+This concludes the construction of the action of $\liftr{\brarghole}$ on objects.
+The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
 
-The functor $^{\pitchfork}(\arghole)$ is defined analogously, but with directions and order of composition swapped.
-To see that $^\pitchfork(\arghole) \pitchfork (\arghole)^{\pitchfork}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to {}^{\pitchfork}\cat{B}$ and $\cat{B} \to \cat{A}^{\pitchfork}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
+The functor $\liftl{\brarghole}$ is defined analogously, but with directions and order of composition swapped.
+To see that $\liftl{\brarghole} \dashv \liftr{\brarghole}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to \liftl{\cat{B}}$ and $\cat{B} \to \liftr{\cat{A}}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
 \[
 \xymatrix{
   \bullet
@@ -1188,23 +1189,23 @@ In fact, as can be confirmed from inspection of the constructions, the adjunctio
 \begin{gathered}
 \xymatrix@R+1em@C+1em{
   \CAT/\cat{E}^{\to}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
   \ar@<5pt>[d]^{(E\sqhori)^*}
   \ar@{}[d]|{\dashv}
 &
   (\CAT/\cat{E}^{\to})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
   \ar@<5pt>[d]^{((E\sqhori)^*)^{\op}}
   \ar@{}[d]|{\vdash}
 \\
   \CAT/\cat{E}^{\Box}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
   \ar@<5pt>[u]^{E\sqhori_!}
 &
   (\CAT/\cat{E}^{\Box})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
   \ar@<5pt>[u]^{(E\sqhori_!)^{\op}}
 }
 \end{gathered}
@@ -1215,11 +1216,11 @@ If we only choose to either pre- or postcompose, we end up with ``mixed'' versio
 \begin{gathered}
 \xymatrix@C+1em{
   \CAT/\cat{E}^{\Box}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
   (\CAT/\cat{E}^{\to})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
@@ -1229,11 +1230,11 @@ or:
 \begin{gathered}
 \xymatrix@C+1em{
   \CAT/\cat{E}^{\to}
-  \ar@<5pt>[r]^{^{\pitchfork}(\arghole)}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
   (\CAT/\cat{E}^{\Box})^{\op}
-  \ar@<5pt>[l]^{(\arghole)^{\pitchfork}}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
@@ -1255,14 +1256,14 @@ Consider an adjunction as follows:
 }
 \]
 Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\cat{E}^{\Box}$, respectively.
-Lifts of $L^{\Box}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natural correspondence with lifts of $R^{\Box}$ to a functor $\cat{B} \to \cat{A}^{\pitchfork}$:
+Lifts of $L^{\Box}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\Box}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
 \begin{mathpar}
 \xymatrix{
   \cat{A}
   \ar@{.>}[r]
   \ar[d]_{U}
 &
-  ^{\pitchfork}\cat{B}
+  \liftl{\cat{B}}
   \ar[d]^{^{\pitchfork}V}
 \\
   \cat{D}^{\Box}
@@ -1272,8 +1273,8 @@ Lifts of $L^{\Box}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natur
 }
 \and
 \xymatrix{
-  \cat{A}^{\pitchfork}
-  \ar[d]_{U^{\pitchfork}}
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
 &
   \cat{B}
   \ar@{.>}[l]
@@ -1288,8 +1289,8 @@ Lifts of $L^{\Box}$ to a functor $\cat{A} \to {}^\pitchfork\cat{B}$ are in natur
 \end{lemma}
 
 \begin{proof}
-Maps from $L^{\Box} \cc U$ to $^{\pitchfork}V$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
-Similarly, maps from $R^{\Box} \cc V$ to $U^{\pitchfork}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Maps from $L^{\Box} \cc U$ to $\liftl{V}$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\Box} \cc V$ to $\liftr{U}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Since $L \dashv R$, these situations coincide.
 \end{proof}
 
@@ -1318,8 +1319,8 @@ We call this operation \emph{slicing} along $X$.
 Dually, pulling back along $(\cat{E} \backslash X)^{\Box} \to \cat{E}^{\Box}$ gives us a \emph{coslicing} operation along $X$.
 
 \begin{lemma}
-\label{pitchfork-slicing-composition}
-The functor $(\arghole)^{\pitchfork}$ and $^{\pitchfork}(\arghole)$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\label{pitchfork-slicing-extended}
+The functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
 \end{lemma}
 
 \begin{proof}
@@ -1336,7 +1337,7 @@ For our purposes, the basic filling variant will suffice, so we will not make th
 We are now going to define the analogue of retract closure for composition.
 
 Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
-We define its left retract-closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
+We define its left retract closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
 An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \cat{E}^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\cat{E}^{\to}$:
 \[
 \xymatrix{
@@ -1393,7 +1394,7 @@ We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories ov
 \begin{lemma}
 \label{retract-closure-extended-left}
 Recall the adjunction~\eqref{garner-adjunction-extended}.
-The inclusion $\cat{A} \to \overline{\cat{A}}_L$ induces a functor $\overline{\cat{A}}_L^{\pitchfork} \to \cat{A}^{\pitchfork}$ of categories over $\cat{E}^{\Box}$.
+The inclusion $\cat{A} \to \overline{\cat{A}}_L$ induces a functor $\liftr{\overline{\cat{A}}_L} \to \liftr{\cat{A}}$ of categories over $\cat{E}^{\Box}$.
 This functor is an isomorphisms.
 \end{lemma}
 
@@ -1404,7 +1405,12 @@ Easy to check by purely formal reasoning.
 \begin{remark}
 \label{retract-closure-extended-right}
 We have a dual construction $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ with an inclusion $\cat{A} \to \overline{\cat{A}}_R$ of categories over $\cat{E}^{\Box}$.
-Analogously to \cref{retract-closure-extended-left}, the induced functor $^{\pitchfork}\overline{\cat{A}}_L \to{} ^{\pitchfork}\cat{A}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
+Analogously to \cref{retract-closure-extended-left}, the induced functor $\liftl{\overline{\cat{A}}_L} \to{} \liftl{\cat{A}}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
+\end{remark}
+
+\begin{remark}
+\label{retract-closure-extended-slicing}
+Taking the left or right retract closure commutes (up to natural isomorphism) with slicing and coslicing.
 \end{remark}
 
 \subsection{Application}
