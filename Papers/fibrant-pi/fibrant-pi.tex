@@ -15,11 +15,9 @@ This generalizes work by Coquand \etal.
 
 \tableofcontents
 
-\section{Algebraic Weak Factorization Systems}
+\section{Lifting against Arrows}
 
-\subsection{Review}
-
-Fix a category $\cat{E}$ for this section.
+For this section, fix a category $\cat{E}$.
 There is a well known Gallois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\cat{E}$ and its opposite.
 Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunction between categories of arrows:
 \begin{equation}
@@ -36,17 +34,111 @@ Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunc
 \end{gathered}
 \end{equation}
 
-\subsection{Elementary Properties}
-
-\paragraph{Slicing}
-
-Let $X$ be an object of $\cat{E}$.
-Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we construct its \emph{slice} over $X$, a category $\Slice_X(U) : \Slice_X(\cat{A}) \to (\cat{E}/X)^{\to}$ over $(\cat{E}/X)^{\to}$ using (strict) pullback:
+\begin{lemma}
+Consider a natural transformation between categories over $\cat{E}^{\to}$:
 \[
 \xymatrix{
-  \Slice_X(\cat{A})
+  \cat{A}
+  \rrtwocell_G^F{\sigma}
+ \ar[dr]_{U}
+&&
+  \cat{B}
+  \ar[dl]^{V}
+\\&
+  \cat{E}^{\to}
+}
+\]
+Note that this includes the condition $V \sigma = \id_U$.
+Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \lltwocell_{\liftr{F}}^{\liftr{G}}{=}
+  \ar[dl]^{\liftr{V}}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \lltwocell_{\liftl{F}}^{\liftl{G}}{=}
+  \ar[dl]^{\liftl{V}}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+\end{lemma}
+
+\subsection{Lifts of adjoint functors}
+
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ be categories over $\cat{D}^{\to}$ and $\cat{E}^{\to}$, respectively.
+
+\begin{lemma}
+\label{lift-of-adjunction}
+Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  \liftl{\cat{B}}
+  \ar[d]^{\liftl{V}}
+\\
+  \cat{D}^{\to}
+  \ar[r]^{L^{\to}}
+&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\to}
+&
+  \cat{E}^{\to}
+  \ar[l]^{R^{\to}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\to} \cc V$ to $\liftr{U}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\subsection{Slicing}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+\[
+\xymatrix{
+  \cat{A}_{/X}
   \ar[r]
-  \ar[d]_{\Slice_X(U)}
+  \ar[d]_{U_{/X}}
   \pullback{dr}
 &
   \cat{A}
@@ -58,22 +150,40 @@ Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we constr
   \cat{E}^{\to}
 }
 \]
-Here, the bottom map is induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information.
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the codomain of $U(Y)$ to $X$.
 
-Explicitly, the category $\Slice_X(\cat{A})$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the codomain of $U(Y)$ to $X$.
-Dually, (strictly) pulling back along $(\cat{E} \backslash X)^{\to} \to \cat{E}^{\to}$ constructs the \emph{coslice} over $X$.
+Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+\[
+\xymatrix{
+  \cat{A}_{\backslash X}
+  \ar[r]
+  \ar[d]_{U_{\backslash X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E} \backslash X)^{\to}
+  \ar[r]
+&
+  \cat{E}^{\to}
+}
+\]
 
 \begin{remark}
 \label{pitchfork-slicing}
 Just as in the non-algebraic setting, the functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
 \end{remark}
 
-\paragraph{Retract closure}
+\subsection{Retract closure}
 
-For this paragraph, let $\cat{X}$ abbreviate the arrow category of $\cat{E}$.
-Let further $\cat{R}$ denote the \emph{walking retract}, \ie the category with objects $0, 1$ and morphisms generated by $s : 0 \to 1$ and $r : 1 \to 0$ under the relation $r \cc s = \id_0$.
+\newcommand{\ret}{\mathbbm{R}}
+\newcommand{\retA}{\mathbbm{a}}
+\newcommand{\retB}{\mathbbm{b}}
 
-Given a category $U : \cat{A} \to \cat{X}$ over $\cat{X}^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \cat{X}$ using (strict) pullback and left composition:
+Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s : \retA \to \retB$ and $r : \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$.
+
+Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ using (strict) pullback and left composition:
 \[
 \xymatrix@C+1em{
   \overline{\cat{A}}
@@ -85,16 +195,16 @@ Given a category $U : \cat{A} \to \cat{X}$ over $\cat{X}^{\to}$, we define its r
   \cat{A}
   \ar[d]^{U}
 \\
-  \cat{X}^{\cat{R}}
-  \ar[r]^-{\cat{X}^1}
-  \ar[d]^{\cat{X}^0}
+  (\cat{E}^{\to})^{\ret}
+  \ar[r]^-{(\cat{E}^{\to})^{\retB}}
+  \ar[d]^{(\cat{E}^{\to})^{\retA}}
 &
-  \cat{X}
+  \cat{E}^{\to}
 \\
-  \cat{X}
+  \cat{E}^{\to}
 }
 \]
-Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{X}$, \ie an object $e : \cat{X}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
+Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{E}^{\to}$, \ie an arrow $e : \cat{E}^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
 \[
 \xymatrix{
   e
@@ -108,7 +218,7 @@ Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a re
 }
 \]
 The action of $\overline{U}$ on this object is $\overline{U}(a, e, s, t) = e$.
-A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{X}$ such that the evident squares commute:
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\to}$ such that the evident squares commute:
 \[
 \xymatrix{
   e
@@ -135,7 +245,7 @@ A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists o
 \]
 The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
 
-We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{X}^{\to}$ formally induced by $\cat{X}^{\canonical} : \cat{X} \to \cat{X}^{\cat{R}}$ being a section to $\cat{X}^1$.
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\to}$ formally induced by $(\cat{E}^{\to})^{\canonical} : \cat{E}^{\to} \to (\cat{E}^{\to})^{\ret}$ being a section to $(\cat{E}^{\to})^{\retB}$.
 With the explicit description of objects, it maps $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
 
 \begin{remark}
@@ -150,43 +260,538 @@ The inclusion $\overline{\cat{A}} \to \cat{A}$ induces functors $\liftl{\overlin
 These functors are isomorphisms.
 \end{lemma}
 
-\begin{proof}
-Easy to check.
-\end{proof}
-
-\paragraph{Closure under left Kan extension}
+\subsection{Kan extension}
 
 Let $U : \cat{A} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
-Let $F : \cat{A} \to \cat{B}$ be a functor.
-Assume the pointwise left Kan extension $\Lan_F U : \cat{B} \to \cat{E}^{\to}$ of $U$ along $F$ exists.
-Explicitly, we have $(\Lan_F U)(Y) = \colim_{F(X) \to Y} U(X)$.
-\begin{enumerate}
-\item
-We can construct a functor $\liftr{\cat{A}} \to \liftr{\cat{B}}$.
-\item
-If $F$ is fully faithful, then $F$ extends to a functor $(\cat{A}, U) \to (\cat{B}, \Lan_F U)$ of categories over $\cat{E}^{\to}$.
-By functoriality of $\liftr{\brarghole}$, this induces a functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$.
-It is inverse to the functor from the previous point, making it an isomorphism.
+Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
+Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Lan_F U}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Ran_F U}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+Note the triangles will be (strictly) commuting since $F$ is fully faithful.
 
-\paragraph{Lifts of adjoint functors}
+\begin{lemma}
+\label{kan-extension-closure}
+The following functors induced by the adjunction~\eqref{garner-adjunction} are isomorphisms:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \ar[ll]_{\liftr{F}}^{\simeq}
+  \ar[dl]^{\liftr{(\Lan_F U)}}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \ar[ll]_{\liftl{F}}^{\simeq}
+  \ar[dl]^{\liftl{(\Ran_F U)}}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+\end{lemma}
 
-\section{Generalizing to Restricted Lifting Problems}
+\section{Lifting against Squares}
 
-\subsection{Definitions}
+For this section, fix again a category $\cat{E}$.
+The \emph{square category} $\cat{E}^{\Box}$ is the double arrow category $(\cat{E}^{\to})^{\to}$.
+We have evident inclusions $\squl, \squr, \sqdl, \sqdr$ of the walking object and $\sql, \sqr, \squ, \sqd$ of the walking arrow into the walking square:
+\[
+\xymatrix{
+  \squl
+  \ar[r]^{\squ}
+  \ar[d]_{\sql}
+  \ar@{}[dr]
+&
+  \squr
+  \ar[d]^{\sqr}
+\\
+  \sqdl
+  \ar[r]_{\sqd}
+&
+  \sqdr
+}
+\]
+We also have projections $\sqhori$ and $\sqvert$ from the walking square to the walking arrow that are sections to $\sql, \sqr$ and $\squ, \sqd$, respectively.
 
-\paragraph{Box category}
+Given a square $X : \cat{E}^{\Box}$, its corners and sides are thus respectively given by functor precomposition as $X\squl, X\squr, X\sqdl, X\sqdr : \cat{E}$ and $X\sql, X\sqr, X\squ, X\sqd : \cat{E}^{\to}$.
+Similarly, given a line $f : \cat{E}^{\to}$, then $f\sqhori$ and $f\sqvert$ are the squares that have identities as horizontal and vertical sides, respectively, with the other sides being given by $f$.
+Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to Y\sql$ will denote the induced morphism between the left sides, and analogously for the other operations as indicated by the suggestive functor precomposition notation.
 
-\paragraph{Extended Pitchfork Adjunction}
+Given a square $X : \cat{E}^{\Box}$, we will sometimes equivalently view it as a morphism in $\cat{E}^{\to}$ from $X\sql$ to $X\sqr$.
 
-\subsection{Elementary Properties}
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+\begin{equation}
+\label{garner-adjunction}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
 
-\paragraph{Slicing}
+\begin{lemma}
+\label{garner-adjunction-extended}
+The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction as follows:
+\begin{equation}
+\label{garner-adjunction-extended}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+\end{lemma}
 
-\paragraph{Left Retract closure}
+\begin{proof}[Proof (adapted from \cite{garner:small-object-argument})]
+Let us first define the functor $\liftr{\brarghole}$.
+It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\liftr{\cat{A}}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
+For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\phi(A, M)$ is a lift in the composite square indicated below:
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){T}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+Coherence of composition means that for a morphism $f : X \to X'$ in $\cat{A}$ and a square $M' : U(X)\sqr \to T\sql$, we have $\phi(X, M \cc U(f)\sqr) = \phi(X', M') \cc U(f)\sqdl$.
+A morphism in $\liftr{\cat{A}}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
+We have an evident forgetful functor from $\liftr{\cat{A}} \to \cat{E}^{\Box}$.
 
-\paragraph{Closure under left Kan extension}
+This concludes the construction of the action of $\liftr{\brarghole}$ on objects.
+The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
 
-\paragraph{Lifts of adjoint functors}
+The functor $\liftl{\brarghole}$ is defined analogously, but with directions and order of composition swapped.
+To see that $\liftl{\brarghole} \dashv \liftr{\brarghole}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to \liftl{\cat{B}}$ and $\cat{B} \to \liftr{\cat{A}}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){V(Y)}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+that is natural in the evident manner in both $X$ and $Y$.
+\end{proof}
+
+\begin{remark}
+\label{extended-adjunction-gives-normal-one}
+Recall the inclusion $E\sqhori : \cat{E}^{\to} \to \cat{E}^{\Box}$ that sends a line $f$ to the square with left and right sides $f$ and up and bottom sides identities.
+It related categories over $\cat{E}^{\Box}$ and $\cat{E}^{\to}$ by an adjunction:
+\begin{equation}
+\label{adjunction-between-E-square-and-E-to}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{E\sqhori_!}
+  \ar@{}[r]|{\bot}
+&
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[l]^{(E\sqhori)^*}
+}
+\end{gathered}
+\end{equation}
+In fact, as can be confirmed from inspection of the constructions, the adjunction~\eqref{garner-adjunction} arises from the extended adjunction~\eqref{garner-adjunction-extended} by pre- and postcomposition with the adjunction~\eqref{adjunction-between-E-square-and-E-to} and its opposite:
+\begin{equation*}
+\begin{gathered}
+\xymatrix@R+1em@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[d]^{(E\sqhori)^*}
+  \ar@{}[d]|{\dashv}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+  \ar@<5pt>[d]^{((E\sqhori)^*)^{\op}}
+  \ar@{}[d]|{\vdash}
+\\
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[u]^{E\sqhori_!}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+  \ar@<5pt>[u]^{(E\sqhori_!)^{\op}}
+}
+\end{gathered}
+\end{equation*}
+If we only choose to either pre- or postcompose, we end up with ``mixed'' versions of the adjunction that we are still going to denote using the same symbols:
+\begin{equation}
+\label{garner-adjunction-extended-mixed}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+or:
+\begin{equation}
+\label{garner-adjunction-extended-mixed'}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+\end{remark}
+
+\subsection{Lifts of adjoint functors}
+
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\cat{E}^{\Box}$, respectively.
+We have a straightforward analogue of \cref{lift-of-adjunction}:
+
+\begin{lemma}
+\label{lift-of-adjunction-extended}
+Lifts of $L^{\Box}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\Box}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  \liftl{\cat{B}}
+  \ar[d]^{^{\pitchfork}V}
+\\
+  \cat{D}^{\Box}
+  \ar[r]^{L^{\Box}}
+&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\Box}
+&
+  \cat{E}^{\Box}
+  \ar[l]^{R^{\Box}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\Box} \cc U$ to $\liftl{V}$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\Box} \cc V$ to $\liftr{U}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\begin{remark}
+\label{lift-of-adjunction-mixed}
+\cref{lift-of-adjunction} can be viewed as a special case of \cref{lift-of-adjunction-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Slicing}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+\[
+\xymatrix{
+  \cat{A}_{/X}
+  \ar[r]
+  \ar[d]_{U_{/X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}/X)^{\Box}
+  \ar[r]
+&
+  \cat{E}^{\Box}
+}
+\]
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the bottom right corner of $U(Y)$ to $X$.
+
+Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+\[
+\xymatrix{
+  \cat{A}_{\backslash X}
+  \ar[r]
+  \ar[d]_{U_{\backslash X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E} \backslash X)^{\Box}
+  \ar[r]
+&
+  \cat{E}^{\Box}
+}
+\]
+
+\begin{lemma}
+\label{pitchfork-slicing-extended}
+The functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{lemma}
+
+\begin{remark}
+\label{slicing-mixed}
+The slicing construction for arrows and \cref{pitchfork-slicing} can be viewed as a special case of the slicing construction for squares and \cref{pitchfork-slicing-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous constructions and statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Retract closure}
+
+Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+We define its left retract closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
+An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \cat{E}^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\cat{E}^{\to}$:
+\[
+\xymatrix{
+  e\sql
+  \ar[r]^{e}
+  \ar[d]^{s}
+  \ar@/_2em/[dd]_{\id}
+&
+  e\sqr
+  \ar@/^2em/[dd]^{\id}
+\\
+  U(a)\sql
+  \ar[r]^{U(a)}
+&
+  U(a)\sqr
+  \ar[d]_{t}
+\\
+  e\sql
+  \ar[r]^{e}
+&
+  e\sqr
+}
+\]
+The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, t) = e$.
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+  \ar[d]_{h}
+&
+  U(a)
+  \ar[r]_{r}
+  \ar[d]^{U(f)}
+&
+  e
+  \ar[d]^{h}
+\\
+  e'
+  \ar[r]^{s'}
+  \ar@/_1em/[rr]_{\id}
+&
+  U(a')
+  \ar[r]^{r'}
+&
+  e'
+}
+\]
+The action of $\overline{U}_L$ on this morphism is $\overline{U}_L(f, h) = h$.
+
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
+
+\begin{lemma}
+\label{retract-closure-extended-left}
+Recall the adjunction~\eqref{garner-adjunction-extended}.
+The inclusion $\cat{A} \to \overline{\cat{A}}_L$ induces a functor $\liftr{\overline{\cat{A}}_L} \to \liftr{\cat{A}}$ of categories over $\cat{E}^{\Box}$.
+This functor is an isomorphisms.
+\end{lemma}
+
+\begin{remark}
+\label{retract-closure-extended-right}
+We have a dual construction $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ with an inclusion $\cat{A} \to \overline{\cat{A}}_R$ of categories over $\cat{E}^{\Box}$.
+Analogously to \cref{retract-closure-extended-left}, the induced functor $\liftl{\overline{\cat{A}}_L} \to{} \liftl{\cat{A}}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
+\end{remark}
+
+\begin{remark}
+\label{retract-closure-extended-slicing}
+Taking the left or right retract closure commutes (up to natural isomorphism) with slicing and coslicing.
+\end{remark}
+
+\begin{remark}
+\label{slicing-mixed}
+Retract closure for arrows can be viewed as a special case of left and right retract closure for squares using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous constructions and statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Kan extension}
+
+Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
+Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Lan_F U}
+\\&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Ran_F U}
+\\&
+  \cat{E}^{\Box}
+}
+\end{mathpar}
+Note the triangles will be (strictly) commuting since $F$ is fully faithful.
+
+\begin{lemma}
+\label{kan-extension-closure-extended}
+The following functors induced by the adjunction~\eqref{garner-adjunction-extended} are isomorphisms:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \ar[ll]_{\liftr{F}}^{\simeq}
+  \ar[dl]^{\liftr{(\Lan_F U)}}
+\\&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \ar[ll]_{\liftl{F}}^{\simeq}
+  \ar[dl]^{\liftl{(\Ran_F U)}}
+\\&
+  \cat{E}^{\Box}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{remark}
+\label{kan-extension-closure-mixed}
+\cref{lift-of-adjunction} can be viewed as a special case of \cref{lift-of-adjunction-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
 
 \section{General Facts about Dependent Product}
 
@@ -230,6 +835,14 @@ Also right map for any presheaf times interval endpoint inclusions.
 Show that base change along pseudo-fibrations functorially maps theta squares to left retract closures of theta squares.
 By earlier elementary lemmata and previous subsection, it follows that Pi along pseudo-fibrations lifts to functor between right categories.
 Verify BC.
+
+\section{Test}
+
+Let $U$ be left arrows for filling.
+Let $V$ be left squares for composition.
+
+We have an inclusion $U \to \overline{V}$.
+
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
