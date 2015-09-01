@@ -247,18 +247,19 @@ The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
 
 We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\to}$ formally induced by $(\cat{E}^{\to})^{\canonical} : \cat{E}^{\to} \to (\cat{E}^{\to})^{\ret}$ being a section to $(\cat{E}^{\to})^{\retB}$.
 With the explicit description of objects, it maps $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
+We also have a map $\overline{\overline{\cat{A}}} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+This makes retract closure into a monad.
+
+\begin{lemma}
+\label{retract-closure}
+Recall the adjunction~\eqref{garner-adjunction}.
+The functors $\liftr{\brarghole}$ and $\liftl{\brarghole}$ maps unit and multiplication of retract closure to natural isomorphisms.
+\end{lemma}
 
 \begin{remark}
 \label{retract-closure-slicing}
 Taking the retract closure commutes (up to natural isomorphism) with slicing and coslicing.
 \end{remark}
-
-\begin{lemma}
-\label{retract-closure}
-Recall the adjunction~\eqref{garner-adjunction}.
-The inclusion $\overline{\cat{A}} \to \cat{A}$ induces functors $\liftl{\overline{\cat{A}}} \to \liftl{\cat{A}}$ and $\liftr{\overline{\cat{A}}} \to \liftr{\cat{A}}$ of categories over $\cat{E}^{\to}$.
-These functors are isomorphisms.
-\end{lemma}
 
 \subsection{Kan extension}
 
@@ -667,7 +668,7 @@ An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$
   \ar[r]^{U(a)}
 &
   U(a)\sqr
-  \ar[d]_{t}
+  \ar[d]_{r}
 \\
   e\sql
   \ar[r]^{e}
@@ -675,8 +676,8 @@ An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$
   e\sqr
 }
 \]
-The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, t) = e$.
-A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
+The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, r) = e$.
+A morphism between such objects $(a, e, s, r)$ and $(a', e', s', r')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
 \[
 \xymatrix{
   e
@@ -704,18 +705,19 @@ A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists o
 The action of $\overline{U}_L$ on this morphism is $\overline{U}_L(f, h) = h$.
 
 We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
+We also have a map $\overline{\overline{\cat{A}}_L}_L \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+This makes left retract closure into a monad.
 
 \begin{lemma}
 \label{retract-closure-extended-left}
 Recall the adjunction~\eqref{garner-adjunction-extended}.
-The inclusion $\cat{A} \to \overline{\cat{A}}_L$ induces a functor $\liftr{\overline{\cat{A}}_L} \to \liftr{\cat{A}}$ of categories over $\cat{E}^{\Box}$.
-This functor is an isomorphisms.
+The functor $\liftr{\brarghole}$ maps unit and multiplication of left retract closure to natural isomorphisms.
 \end{lemma}
 
 \begin{remark}
 \label{retract-closure-extended-right}
-We have a dual construction $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ with an inclusion $\cat{A} \to \overline{\cat{A}}_R$ of categories over $\cat{E}^{\Box}$.
-Analogously to \cref{retract-closure-extended-left}, the induced functor $\liftl{\overline{\cat{A}}_L} \to{} \liftl{\cat{A}}$ of categories over $\cat{E}^{\Box}$ is an isomorphism.
+Dually, we have a right retract closure $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ for a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$.
+Right retract closure forms a monad, with the functor $\liftl{\brarghole}$ mapping unit and comultiplication to natural isomorphisms.
 \end{remark}
 
 \begin{remark}
@@ -793,15 +795,169 @@ The following functors induced by the adjunction~\eqref{garner-adjunction-extend
 In fact, we have analogous statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
 \end{remark}
 
-\section{General Facts about Dependent Product}
-
-\subsection{For Lifting Problems}
-
-\subsection{For Restricted Lifting Problems}
 
 \section{Dependent Product for Algebraic Fibrations}
 
-\subsection{The Setting}
+\subsection{The setting}
+
+Let $(\cat{E}, \unit, \otimes)$ be a symmetric monoidal category.
+Fix an \emph{interval} object $\interval : \cat{E}$ with a map $\intervalc : \interval \to \unit$ and sections $\intervall, \intervalr : \unit \to \interval$ to $\intervalc$.
+
+\begin{definition}
+\label{def:homotopy}
+Given maps $f, g : A \to B$ in $\cat{E}$, a \emph{homotopy} $h$ from $f$ to $g$, denoted $h : f \sim g$, is a map $h : \interval \otimes A \to B$ such that $h \cc (\intervall \otimes A) = f$ and $h \cc (\intervalr \otimes A) = g$:
+\[
+\xymatrix{
+  A
+  \ar[dr]^{f}
+  \ar[d]_{\intervall \otimes A}
+\\
+  \interval \otimes A
+  \ar@{.>}[r]^{h}
+&
+  B
+\\
+  A
+  \ar[u]^{\intervalr \otimes A}
+  \ar[ur]_{g}
+}
+\]
+\end{definition}
+
+Recall the Leibniz construction and its properties \cite[Section 4]{riehl-verity:reedy}.
+For a bifunctor $H : \catC \times \catD \to \catE$, we will denote its associated Leibniz construction by $\hat{H} : \catC^{\to} \times \catD^{\to} \to \catE^{\to}$.
+Assuming now in addition that $\cat{E}$ is finitely cocomplete, this turns the arrow category of $\cat{E}$ into a symmetric monoidal category $(\cat{E}^{\to}, \hatunit, \hatotimes)$ with unit the canonical map $\hatunit : 0 \to \unit$.
+
+\begin{definition}
+\label{def:homotopy-equivalence}
+A map $f : A \to B$ is called a \emph{left (right) homotopy equivalence} if it comes with $g : B \to A$ together with homotopies $h : \id_A \sim g \cc f$ and $k : \id_B \sim f \cc g$ (respectively $h : g \cc f \sim \id_A$ and $k : f \cc g \sim \id_B$).
+This notion is symmetric, admitting an obvious duality.
+Such a left (right) homotopy equivalence is \emph{strong} if $f \cc h = k \cc (\interval \otimes f)$ and \emph{co-strong} if its dual is co-strong, \ie if $g \cc k = h \cc (\interval \otimes g)$.
+%
+%A \emph{deformation retract} is a homotopy equivalence as above where the homotopy $h$ is trivial (note that this makes $f$ and $g$ into a section-retraction pair).
+%Dually, a \emph{co-deformation retract} has the homotopy $k$ trivial (with $g$ and $f$ a section-retraction pair).
+\end{definition}
+
+The notion of a left or right strong homotopy equivalence is an obvious generalization of the notion of strong deformation retract, in which in addition the homotopy $h$ is trivial.
+
+Of special importance will be the following ``trivial'' square:
+\begin{equation}
+\label{trivial-square}
+\begin{gathered}
+\xymatrix@C+2em{
+  0
+  \ar[r]^{\hatunit}
+  \ar[d]_{\hatunit}
+&
+  \unit
+  \ar[d]^{\intervalr}
+\\
+  \unit
+  \ar[r]_{\intervall}
+&
+  \interval
+}
+\end{gathered}
+\end{equation}
+Read horizontally, it is a map $\thetal : \hatunit \to \intervalr$ in the arrow category.
+Read vertically, it is a map $\thetar : \hatunit \to \intervall$ in the arrow category.
+The reason for the importance of~\eqref{trivial-square} is the following rather neat characterization of strong homotopy equivalences:
+\begin{lemma}
+\label{strong-h-equiv-as-section}
+Let $f : A \to B$ be a map in $\cat{E}$.
+Making $f$ into a strong left homotopy equivalence is equivalent to making $\thetal \hatotimes f : f \to \intervalr \hatotimes f$ into a section.
+Dually, making $f$ into a strong right homotopy equivalence is equivalent to making $\thetar \hatotimes f : f \to \intervall \hatotimes f$ into a section.
+\end{lemma}
+
+\begin{proof}
+By duality, it will suffice to exhibit the first equivalence.
+
+Making $\thetal \hatotimes f : f \to \intervalr \hatotimes f$ into a section means to give a retraction $r$ as follows:
+\[
+\xymatrix@C+1em{
+  f
+  \ar[r]^-{\thetal \hatotimes f}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervalr \hattimes f
+  \ar@{.>}[r]^{r}
+&
+  f
+}
+\]
+To give $r$ from $\intervalr \hattimes f$ to $f$ is to give maps $h : \interval \otimes A \to A$, $g : B \to A$, and $k : \interval \otimes B \to B$ such that $h \cc (\intervalr \otimes A) = g \cc f$, $f \cc h = k \cc (\interval \otimes f)$, and $f \cc g = k \cc (\intervalr \otimes B)$.
+The map $r$ constituting a section to $\theta \hattimes f$ means $h \cc (\intervall \otimes A) = \id_A$ and $k \cc (\intervall \otimes B) = \id_B$.
+\[
+\xymatrix@C+1em{
+&&&
+  A
+  \ar[dr]^{\intervalr \otimes A}
+  \ar[dd]^(0.7){f}
+\\&
+  A
+  \ar[dd]^{f}
+  \ar[rrr]_(0.4){\intervall \otimes A}
+&&&
+  \interval \otimes A
+  \ar[dd]^{\interval \otimes f}
+  \ar@{.>}@/_2em/[lll]_(0.6){h}
+\\&&&
+  B
+  \ar[dr]^{\intervalr \otimes B}
+  \ar@{.>}@/^1em/[llu]^{g}
+\\&
+  B
+  \ar[rrr]_{\intervall \otimes B}
+&&&
+  \interval \otimes B
+  \ar@{.>}@/_2em/[lll]^{k}
+}
+\]
+With respect to the requirements of \cref{def:homotopy-equivalence}, the first three equations turn into right endpoint for $h$, co-strength, and right endpoint for $k$, while the two equations for the section constraint turn into left endpoints for $h$ and $k$.
+\end{proof}
+
+The utility of \cref{strong-h-equiv-as-section} can immediately be seen in proving the following closure properties, working entirely on the level of arrow categories.
+
+\begin{proposition}
+\label{strong-h-equiv-closed-under-monoidal-prod}
+If one of the maps $f$ and $g$ is a (left or right) strong homotopy equivalence, then so is $f \hatotimes g$.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{strong-h-equiv-as-section} and use that functors --- in this case the Leibniz monoidal product in one variable --- preserve sections.
+\end{proof}
+
+\begin{proposition}
+\label{strong-h-equiv-closed-under-retract}
+(Left or right) strong homotopy equivalences are closed under retracts.
+\end{proposition}
+
+\begin{proof}
+Apply \cref{strong-h-equiv-as-section} and use that functors preserve and sections are closed under retracts.
+\end{proof}
+
+\subsection{Trivial Algebraic Fibrations}
+
+Recall the notion of adhesive morphisms~\cite{garner-lack:adhesive}.
+Let $\cal{I} : \cat{I} \to \cat{E}$ be a subcategory of adhesive morphisms in $\cat{E}$ with morphisms given by cartesian squares.
+Assume the subcategory $\cal{I}$ is closed under the monoidal operations of $\cat{E}^{\to}$, \ie that $(\cat{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $\cal{I}$ preserves the monoidal structure on the nose.
+
+A \emph{trivial algebraic fibration} is a lift of a map in $\cat{E}$ to $\liftr{\cal{I}}$.
+
+\subsection{Algebraic Fibrations}
+
+An \emph{algebraic fibration} is a lift of a map in $\cat{E}$ to $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})}$.
+Here, we have used shorthand notation as follows.
+The expression $\braces{l, r}$ denotes the inclusion $1 + 1 \to \cat{E}^{\to}$ valued in $l$ and $r$.
+The box product $U \boxtimes V$ of categories $U : \cat{A} \to \cat{E}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$ is given by $(\arghole \otimes \arghole) \cc (U \times V) : \cat{A} \times \cat{B} \to \cat{E}^{\to}$.
+
+Note that $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})} \simeq \liftr{(l \otimes \cal{I}\brarghole)} \times \liftr{(r \otimes \cal{I}\brarghole)}$.
+
+
+ $\braces{l, r} \otimes \cal{I}\brarghole$ for $l \otimes \cal{I}$
+
+
+\section{Dependent Product for Algebraic Fibrations}
 
 \subsection{Trivial Algebraic Fibrations}
 
@@ -816,6 +972,54 @@ Awfs generated by Leibniz construction of (decidable) subobjects of representabl
 Also algebraically free on Leibniz construction of (decidable) monomorphisms with interval endpoint inclusions.
 
 \subsection{Algebraic Fibrations via Composition}
+
+Since $\intervall$ is the right side of $\thetal$, we have a map $F : \thetar \to \overline{\intervall}_L$ of categories over $\cat{E}^{\to}$.
+
+\begin{lemma}
+Assume that $\intervall$ a right strong homotopy equivalence and that $\cal{I}$ is closed under Leibniz monoidal product with $\intervall$.
+Then $\liftr{F} : \liftr{\overline{\intervall}_L} \to \liftr{\thetar}$ is an isomorphism.
+\end{lemma}
+
+\begin{proof}
+By \cref{strong-h-equiv-as-section}, we have $\thetar \otimes \intervall$ a section.
+This gives us a map $G : \intervall \to \overline{\thetar \otimes \intervall}_L$ of categories over $\cat{E}^{\to}$.
+We have $\cal{I}$ closed under Leibniz monoidal product with $\intervall$, meaning we have an inclusion $H : \intervall \otimes \cal{I} \to \cal{I}$.
+Altogether, we have the following (not necessarily commuting) maps of categories over $\cat{E}^{\to}$:
+\[
+\xymatrix{
+  \thetar \otimes \cal{I}
+  \ar[d]
+  \ar[dr]^{F \otimes \cal{I}}
+&
+  \intervall \otimes \cal{I}
+  \ar[d]
+  \ar[dr]^{G \otimes \cal{I}}
+&
+  \thetar \otimes \intervall \otimes \cal{I}
+  \ar[d]
+  \ar[dr]^{F \otimes \interval \otimes \cal{I}}
+  \ar@/_2em/[ll]_{\thetar \otimes H}
+&
+  \intervall \otimes \intervall \otimes \cal{I}
+  \ar[d]
+  \ar@/_2em/[ll]_{\intervall \otimes H}
+\\
+  \overline{\thetar \otimes \cal{I}}
+&
+  \overline{\intervall \otimes \cal{I}}_L
+&
+  \overline{\thetar \otimes \intervall \otimes \cal{I}}_L
+  \ar@/^2em/[ll]^{\overline{\thetar \otimes H}_L}
+&
+  \overline{\intervall \otimes \intervall \otimes \cal{I}}_L
+  \ar@/^2em/[ll]^{\overline{\intervall \otimes H}_L}
+}
+\]
+This gives two ways to go from $\intervall \otimes \overline{ \otimes \cal{I}}_L$ to $
+
+\end{proof}
+
+
 
 \paragraph{Composition as restricted lifting problem}
 
