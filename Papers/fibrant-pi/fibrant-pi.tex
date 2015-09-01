@@ -1,8 +1,10 @@
 \documentclass[reqno,10pt,a4paper,oneside]{amsart}
 
+\setcounter{tocdepth}{1}
+
 \usepackage{uniform-kan-prelude}
 
-\title{Dependent Product for Algebraic Fibrations}
+\title{On uniform Kan fibrations}
 
 \begin{document}
 
@@ -15,80 +17,1646 @@ This generalizes work by Coquand \etal.
 
 \tableofcontents
 
-\section{Algebraic Weak Factorization Systems}
 
-\subsection{Review}
+\section{Elements of abstract homotopy theory} 
 
-Recall the notion of \emph{algebraic weak factorization system} from~\cite{garner:small-object-argument} (there called \emph{natural weak factorization system}). [TO BE ADDED, IF WE WISH - MAY NOT BE NECESSARY] 
+Let $(\cat{E}, \unit, \otimes)$ be a symmetric monoidal category.
+Fix an \emph{interval} object $\interval : \cat{E}$ with a map $\intervalc : \interval \to \unit$ and sections $\intervall, \intervalr : \unit \to \interval$ to $\intervalc$.
 
-\subsection{Elementary Properties}
+\begin{definition}
+\label{def:homotopy}
+Given maps $f, g : A \to B$ in $\cat{E}$, a \emph{homotopy} $h$ from $f$ to $g$, denoted $h : f \sim g$, is a map $h : \interval \otimes A \to B$ such that $h \cc (\intervall \otimes A) = f$ and $h \cc (\intervalr \otimes A) = g$:
+\[
+\xymatrix{
+  A
+  \ar[dr]^{f}
+  \ar[d]_{\intervall \otimes A}
+\\
+  \interval \otimes A
+  \ar@{.>}[r]^{h}
+&
+  B
+\\
+  A
+  \ar[u]^{\intervalr \otimes A}
+  \ar[ur]_{g}
+}
+\]
+\end{definition}
 
-\paragraph{Slicing}
+Recall the Leibniz construction and its properties \cite[Section 4]{riehl-verity:reedy}.
+For a bifunctor $H : \catC \times \catD \to \catE$, we will denote its associated Leibniz construction by $\hat{H} : \catC^{\to} \times \catD^{\to} \to \catE^{\to}$.
+Assuming now in addition that $\cat{E}$ is finitely cocomplete, this turns the arrow category of $\cat{E}$ into a symmetric monoidal category $(\cat{E}^{\to}, \hatunit, \hatotimes)$ with unit the canonical map $\hatunit : 0 \to \unit$.
 
-\paragraph{Closure under left Kan extension} 
+\begin{definition}
+\label{def:homotopy-equivalence}
+A map $f : A \to B$ is called a \emph{left (right) homotopy equivalence} if it comes with $g : B \to A$ together with homotopies $h : \id_A \sim g \cc f$ and $k : \id_B \sim f \cc g$ (respectively $h : g \cc f \sim \id_A$ and $k : f \cc g \sim \id_B$).
+This notion is symmetric, admitting an obvious duality.
+Such a left (right) homotopy equivalence is \emph{strong} if $f \cc h = k \cc (\interval \otimes f)$ and \emph{co-strong} if its dual is co-strong, \ie if $g \cc k = h \cc (\interval \otimes g)$.
+%
+%A \emph{deformation retract} is a homotopy equivalence as above where the homotopy $h$ is trivial (note that this makes $f$ and $g$ into a section-retraction pair).
+%Dually, a \emph{co-deformation retract} has the homotopy $k$ trivial (with $g$ and $f$ a section-retraction pair).
+\end{definition}
 
-\paragraph{Lifts of adjoint functors}
+The notion of a left or right strong homotopy equivalence is an obvious generalization of the notion of strong deformation retract, in which in addition the homotopy $h$ is trivial.
 
-\section{Generalizing to Restricted Lifting Problems}
+Of special importance will be the following ``trivial'' square:
+\begin{equation}
+\label{trivial-square}
+\begin{gathered}
+\xymatrix@C+2em{
+  0
+  \ar[r]^{\hatunit}
+  \ar[d]_{\hatunit}
+&
+  \unit
+  \ar[d]^{\intervalr}
+\\
+  \unit
+  \ar[r]_{\intervall}
+&
+  \interval
+}
+\end{gathered}
+\end{equation}
+Read horizontally, it is a map $\thetal : \hatunit \to \intervalr$ in the arrow category.
+Read vertically, it is a map $\thetar : \hatunit \to \intervall$ in the arrow category.
+The reason for the importance of~\eqref{trivial-square} is the following rather neat characterization of strong homotopy equivalences:
+\begin{lemma}
+\label{strong-h-equiv-as-section}
+Let $f : A \to B$ be a map in $\cat{E}$.
+Making $f$ into a strong left homotopy equivalence is equivalent to making $\thetal \hatotimes f : f \to \intervalr \hatotimes f$ into a section.
+Dually, making $f$ into a strong right homotopy equivalence is equivalent to making $\thetar \hatotimes f : f \to \intervall \hatotimes f$ into a section.
+\end{lemma}
 
-\subsection{Definitions}
+\begin{proof}
+By duality, it will suffice to exhibit the first equivalence.
 
-\paragraph{Box category}
+Making $\thetal \hatotimes f : f \to \intervalr \hatotimes f$ into a section means to give a retraction $r$ as follows:
+\[
+\xymatrix@C+1em{
+  f
+  \ar[r]^-{\thetal \hatotimes f}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervalr \hattimes f
+  \ar@{.>}[r]^{r}
+&
+  f
+}
+\]
+To give $r$ from $\intervalr \hattimes f$ to $f$ is to give maps $h : \interval \otimes A \to A$, $g : B \to A$, and $k : \interval \otimes B \to B$ such that $h \cc (\intervalr \otimes A) = g \cc f$, $f \cc h = k \cc (\interval \otimes f)$, and $f \cc g = k \cc (\intervalr \otimes B)$.
+The map $r$ constituting a section to $\theta \hattimes f$ means $h \cc (\intervall \otimes A) = \id_A$ and $k \cc (\intervall \otimes B) = \id_B$.
+\[
+\xymatrix@C+1em{
+&&&
+  A
+  \ar[dr]^{\intervalr \otimes A}
+  \ar[dd]^(0.7){f}
+\\&
+  A
+  \ar[dd]^{f}
+  \ar[rrr]_(0.4){\intervall \otimes A}
+&&&
+  \interval \otimes A
+  \ar[dd]^{\interval \otimes f}
+  \ar@{.>}@/_2em/[lll]_(0.6){h}
+\\&&&
+  B
+  \ar[dr]^{\intervalr \otimes B}
+  \ar@{.>}@/^1em/[llu]^{g}
+\\&
+  B
+  \ar[rrr]_{\intervall \otimes B}
+&&&
+  \interval \otimes B
+  \ar@{.>}@/_2em/[lll]^{k}
+}
+\]
+With respect to the requirements of \cref{def:homotopy-equivalence}, the first three equations turn into right endpoint for $h$, co-strength, and right endpoint for $k$, while the two equations for the section constraint turn into left endpoints for $h$ and $k$.
+\end{proof}
 
-\paragraph{Extended Pitchfork Adjunction}
+The utility of \cref{strong-h-equiv-as-section} can immediately be seen in proving the following closure properties, working entirely on the level of arrow categories.
 
-\subsection{Elementary Properties}
+\begin{proposition}
+\label{strong-h-equiv-closed-under-monoidal-prod}
+If one of the maps $f$ and $g$ is a (left or right) strong homotopy equivalence, then so is $f \hatotimes g$.
+\end{proposition}
 
-\paragraph{Slicing}
+\begin{proof}
+Apply \cref{strong-h-equiv-as-section} and use that functors --- in this case the Leibniz monoidal product in one variable --- preserve sections.
+\end{proof}
 
-\paragraph{Left Retract closure}
+\begin{proposition}
+\label{strong-h-equiv-closed-under-retract}
+(Left or right) strong homotopy equivalences are closed under retracts.
+\end{proposition}
 
-\paragraph{Closure under left Kan extension}
+\begin{proof}
+Apply \cref{strong-h-equiv-as-section} and use that functors preserve and sections are closed under retracts.
+\end{proof}
 
-\paragraph{Lifts of adjoint functors}
 
-\section{General Facts about Dependent Product}
+\section{Uniform trivial Kan fibrations} 
 
-\subsection{For Lifting Problems}
+ORTHOGONALITY, AWFS, ...
 
-\subsection{For Restricted Lifting Problems}
+Recall the notion of adhesive morphisms~\cite{garner-lack:adhesive}.
+Let $\cal{I} : \cat{I} \to \cat{E}$ be a subcategory of adhesive morphisms in $\cat{E}$ with morphisms given by cartesian squares.
+Assume the subcategory $\cal{I}$ is closed under the monoidal operations of $\cat{E}^{\to}$, \ie that $(\cat{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $\cal{I}$ preserves the monoidal structure on the nose.
 
-\section{Dependent Product for Algebraic Fibrations}
+\begin{definition} A \emph{trivial algebraic fibration} is a lift of a map in $\cat{E}$ to $\liftr{\cal{I}}$.
+\end{definition} 
 
-\subsection{The Setting}
 
-\subsection{Trivial Algebraic Fibrations}
+We now study the question of when different $\cal{I}$ determine the same class of trivial fibrations. Fo this, we restrict our
+attention to  presheaves on a category $\cat{B}$.
+Our intention is to apply \cref{kan-extension-closure} to full subcategories of $(\Set^{\cat{B}})_{\cart}^{\to}$, the arrow category of presheafs on $\cat{B}$ with cartesian squares as morphisms:
 
-Awfs generated by (decidable) subobjects of representables.
-Also algebraically free on (decidable) monomorphisms.
-TODO: Terminology implies we have a model structure.
-Haven't talked about that yet.
+\begin{proposition}
+\label{awfs-on-arrows-into-representables}
+Let $\cat{J}$ be a full subcategory of $(\Set^{\cat{B}})_{\cart}^{\to}$ closed under base change to representables.
+Let $\cat{I}$ denote its restriction to arrows into representables.
+\[
+\xymatrix{
+  \cat{I}
+  \ar[rr]
+  \ar[dr]
+&&
+  \cat{J}
+  \ar[dl]
+\\&
+  (\Set^{\cat{B}})^{\to}
+}
+\]
+Suppose that $\cat{I}$ is small, so that it generates an algebraic weak factorization system $(L, R)$ (algebraically) free on $\cat{I}$.
+Then $(L, R)$ is also free on $\cat{J}$, with the universal maps related by $\cat{I} \to \cat{J}$.
+It $\cat{J}$ is small, then $(L, R)$ will be algebraically free on $\cat{J}$.%
+\footnote{
+  Not being able to always show $(L, R)$ algebraically free on $\cat{J}$ is currently the drawback of arguing from the left instead of the right.
+  The left side relates better to freeness, while the right side related better to algebraic freeness.
+  But arguing from the right always starts with quantifying over a generic algebra never playing any role in the argument beside being lifted against from the left --- the real reasoning takes place entirely on the left in the form of colimit closure properties.
+  So the left approach followed here is preferable from an asthetic point to the right approach previously written out.
+  Algebraic freeness for non-small categories, if relevant, should follow as a technical corollary by set theoretic reasoning (Garner would know a nice way).
+}
+\end{proposition}
 
-\subsection{Algebraic Fibrations}
+\begin{proof}
+Garner's small object argument~\cite{garner:small-object-argument} generates an algebraic weak factorization system $(L, R)$ algebraically free on $\cat{I}$. 
+It is also shown in~\cite{garner:small-object-argument} that algebraic freeness implies freeness.
+For the first claim, we apply \cref{criterion-for-cats-generating-same-awfs}, offloading its proof obligations to the below \cref{left-kan-extension-of-representables}.
+Finally, if $\cat{J}$ is also small, it will generate an algebraically free (hence free) algebraic weak factorization system itself.
+By universality of freeness, it is isomorphic to $(L, R)$, which henceforth must be algebraically free on $\cat{J}$.
+\end{proof}
 
-Awfs generated by Leibniz construction of (decidable) subobjects of representables with interval endpoint inclusions.
-Also algebraically free on Leibniz construction of (decidable) monomorphisms with interval endpoint inclusions.
+\begin{lemma}
+\label{left-kan-extension-of-representables}
+In the situation of \cref{awfs-on-arrows-into-representables}, the inclusion $\cat{J} \to (\Set^{\cat{B}})^{\to}$ is the left Kan extension of $\cat{I} \to (\Set^{\cat{B}})^{\to}$ along $\cat{I} \to \cat{J}$.
+\end{lemma}
 
-\subsection{Algebraic Fibrations via Composition}
+\begin{question}
+There should be an abstract argument here cleverly combining the codomain fibration and the corresponding left Kan extension claim for the codomain part
+\[
+\xymatrix{
+  \cat{B}
+  \ar[rr]^{y}
+  \ar[dr]_{y}
+&&
+  \Set^{\cat{B}}
+  \ar[dl]^{\id}
+\\&
+  \Set^{\cat{B}}
+}
+\]
+which holds by the co-Yoneda lemma.
+How does it go?
+\end{question}
 
-\paragraph{Composition as restricted lifting problem}
+\begin{proof}
+Since $(\Set^{\cat{B}})^{\to}$ is cocomplete, we can use the colimit formula for left Kan extensions to verify the claim.
+All of the following will be functorial in an object $f : X \to Y$ of $\cat{J}$.
+We consider the diagram indexed by cartesian squares
+\[
+\xymatrix{
+  U
+  \ar[r]
+  \ar[d]_{h}
+  \pullback{dr}
+&
+  X
+  \ar[d]^{f}
+\\
+  \hom(\arghole, M)
+  \ar[r]
+&
+  Y
+}
+\]
+with $h : \cat{I}$ and valued $h$.
+Our goal is to show that its colimit in $(\Set^{\cat{B}})^{\to}$ is $f$.
+Using the assumption that $\cat{J}$ is closed under base change to representables, this is equivalently the diagram indexed by representables $s : \hom(\arghole, M) \to Y$ and valued $s^* i$.
+Generalized to this level, the statement $\colim_{s : \hom(\arghole, M) \to Y} s^* f \simeq f$ holds since base change commutes with colimits and $\colim_{s : \hom(\arghole, M) \to Y} \hom(\arghole, M) \simeq Y$.
+\end{proof}
 
-Awfs generated by Leibniz construction of (decidable) subobjects of representables with theta squares.
-Also algebraically free on Leibniz construction of (decidable) monomorphisms with theta squares.
 
-\paragraph{Connections induce isomorphism of right categories}
+EXAMPLES
 
-Use characterization of connection in terms of interval endpoint inclusions being strong homotopy equivalences.
-This implies theta squares are sections in the arrow category.
-Use retract closure from first section.
 
-\subsection{Dependent Product for Algebraic Fibrations}
 
-Let pseudo-fibrations be right maps for representables times interval endpoint inclusions.
-Also right map for any presheaf times interval endpoint inclusions.
-Show that base change along pseudo-fibrations functorially maps theta squares to left retract closures of theta squares.
-By earlier elementary lemmata and previous subsection, it follows that Pi along pseudo-fibrations lifts to functor between right categories.
-Verify BC.
+
+
+
+
+The class of decidable monomorphisms is closed under base change.
+We thus obtain as immediate consequences of \cref{awfs-on-arrows-into-representables}:
+
+\begin{corollary}
+\label{monos-into-representables}
+The algebraically free algebraic weak factorization system generated by the full subcategory
+\[\cat{I} = \braces{A \to \Delta^n\ \text{\normalfont{mono}}}\]
+of $\SSetCart$ is also (algebraically) free on any other (small) full subcategory of monomorphisms containing $\cat{I}$.
+\end{corollary}
+
+\begin{corollary}
+\label{decidable-monos-into-representables}
+The algebraically free algebraic weak factorization system generated by the full subcategory
+\[\cat{I}' = \braces{A \to \Delta^n\ \text{\normalfont{decidable mono}}}\]
+of $\SSetCart$ is also (algebraically) free on any other (small) full subcategory of decidable monomorphisms containing $\cat{I}'$.
+\end{corollary}
+
+
+THE FOLLOWING (UNTIL THE COMPARISON WITH CLASSICAL NOTIONS) MAY BE CUT
+
+Let $\cal{I}$ be a full subcategory of $\SSetCart$ consisting only of monomorphisms.
+For example, we might consider the following increasing sequence of choices:
+\begin{itemize}
+\item
+Boundary inclusions: $\cal{I}_1 = \braces{i^n : \partial \Delta^n \to \Delta^n}$.
+Note that this category is discrete.
+It is also the only class of monomorphisms considered here not defined entirely in terms of the allowed codomains.
+\item
+Subobjects of representables: $\cal{I}_2 = \braces{A \hookrightarrow \Delta^n}$.
+Other than the previous option, this seems like the most natural small choice.
+\item
+Subobjects of products of representables: $\cal{I}_3 = \braces{A \hookrightarrow \Delta^{n_1} \times \ldots \times \Delta^{n_k}}$.
+\item
+Subobjects of finite simplicial sets: $\cal{I}_4 = \braces{A \hookrightarrow B \mid \text{$B$ finite and finite-dim.}}$.
+\item
+All monomorphisms $\cal{I}_5$.
+Note that this is not a small class.
+In addition, all other classes contain only decidable monomorphisms $i : A \to B$ (\ie every $i_n : A_n \to B_n$ has a decidable image) with decidable codomain (\ie degeneracies in $B$ are decidable).
+\end{itemize}
+
+Taking $\cal{I}$ as generating left category, we get an algebraic weak factorization system --- except in case of $\cal{I}_5$, which is not small; however, the notion of category of algebras over a virtual right pointed endofunctor can still be interpreted in this case, although it will not be locally small.
+
+
+
+\begin{lemma}
+Consider a class $\cal{I}_2 \subseteq \cal{I} \subseteq \cal{I}_5$.
+The first inclusion induces a restriction functor of categories of algebras over (virtual) pointed endofunctors from $\cal{I}$ to $\cal{I}_2$.
+This functor is an isomorphism.
+In particular, the classes $\cal{I}_2$ to $\cal{I}_4$ generate the same algebraic weak factorization systems.
+\end{lemma}
+
+\begin{proof}
+We will show that the restriction functor is bijective on objects and morphisms.
+
+Let us first look only at the objects.
+Fix an algebra over the right pointed endofunctor for $\cal{I}_2$.
+This consists of a map $p : X \to Y$ and coherent fillers for every square $i \to p$ with $i : \cal{I}_2$.
+Let us show that there is a unique $\cal{I}$-algebra restricting to it.
+
+For this, consider a square $i \to p$ with $i : \cal{I}$:
+\[
+\xymatrix{
+  A
+  \ar[r]^{u}
+  \ar[d]^{i}
+&
+  X
+  \ar[d]^{p}
+\\
+  B
+  \ar[r]^{v}
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+Write $B$ as a colimit of representables:
+\[
+\xymatrix{
+  \colim_{\Delta^n \to B} \Delta^n \times_B A
+  \ar[r]^-{\simeq}
+  \ar[d]
+&
+  A
+  \ar[r]
+  \ar[d]^{i}
+&
+  X
+  \ar[d]^{p}
+\\
+  \colim_{\Delta^n \to B} \Delta^n
+  \ar[r]^-{\simeq}
+  \ar@{.>}[urr]
+&
+  B
+  \ar[r]
+&
+  Y
+}
+\]
+For each representable, we are forced by $\cal{I}$-coherence to solve the lifting problem using the algebra structure for $\cal{I}_2$.
+Since these solutions are stable under pullback, they coherently extend to a unique global solution to the lifting problem $\colim_{s : \Delta^n \to B} s^* i \to p$.
+
+Let us verify that the fillers for $i \to p$ with $i : \cal{I}$ are themselves stable under pullback.
+Consider the following situation with $i', i : \cal{I}$:
+\[
+\xymatrix{
+  A'
+  \ar[r]^{a}
+  \ar[d]_{i'}
+  \pullback{dr}
+&
+  A
+  \ar[r]^{u}
+  \ar[d]_(0.3){i}
+&
+  X
+  \ar[d]^{p}
+\\
+  B'
+  \ar[r]_{b}
+  \ar@{.>}[urr]
+&
+  B
+  \ar[r]_{v}
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+Again writing $B$ and $B'$ as colimits of representables and exploiting that $i' = b^* i$, this becomes the following diagram in the arrow category:
+
+\[
+\xymatrix{
+  \colim_{s' : \Delta^n \to B'} (bs')^* i
+  \ar[rr]
+  \ar[dr]
+&&
+  p
+\\&
+  \colim_{s : \Delta^n \to B} s^* i
+  \ar[ur]
+}
+\]
+Here, the map between the colimits is induced by the functor $y \downarrow B' \to y \downarrow B$ given by composition with $b$ translating between the shape categories: for each fixed representable $s' : \Delta^n \to B'$, the lifting problems coming from $i'$ via $s'$ and $i$ via $bs'$ are identical.
+This proves the desired coherence.
+
+The argument for bijectivity on morphisms of algebras is similar.
+Note that injectivity is trivial since the restriction functor leaves the carrier part of the algebras untouched.
+So let us verify that every morphism $w : p \to p'$ of $\cal{I}_2$-algebras is also a morphism $p \to p'$ of $\cal{I}$-algebras as constructed above.
+Fix a lifting problem $i \to p$ with $i : A \to B$ in $\cal{I}$.
+We need to show that the constructed fillers for $i \to p$ and $i \to p'$ coincide when mediated by $w$:
+\[
+\xymatrix{
+&
+  p
+  \ar[dr]^{w}
+\\
+  \colim_{s : \Delta^n \to B} s^* i
+  \ar[ur]
+  \ar[rr]
+&&
+  p'
+}
+\]
+By $w : p \to p'$ being a morphism of $\cal{I}_2$-algebras, this holds for each representable separately.
+Hence, it also holds globally.
+\end{proof}
+
+COMPARISON WITH CLASSICAL NOTIONS
+
+We compare with the classical notions. For this, we introduce an auxiliary definition.
+
+\begin{definition}
+A \emph{regular trivial fibration} is a map $p : X \to Y$ with designated fillers $d$ for squares $i^n \to p$ such that whenever the square factors as shown below,
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]^{i^n}
+&
+  \Delta^{n-1}
+  \ar[r]
+  \ar[d]^{\id}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^n
+  \ar[r]_{s_k^{n-1}}
+  \ar@{.>}[urr]^(0.3){d}
+&
+  \Delta^{n-1}
+  \ar[r]
+&
+  Y
+}
+\]
+the composite filler is coherent with respect to the trivial filler in the right square.
+\end{definition}
+
+Regular trivial fibrations are the right class for the algebraic weak factorization system with generating left category having objects $\cal{I}_1 \cup \braces{\id : \Delta^n \to \Delta^n}$ and non-trivial morphisms as above:
+\[
+\xymatrix{
+  \partial \Delta^n
+  \ar[r]
+  \ar[d]^{i^n}
+&
+  \Delta^{n-1}
+  \ar[d]^{\id}
+\\
+  \Delta^n
+  \ar[r]_{s_k^{n-1}}
+&
+  \Delta^{n-1}
+}
+\]
+
+Classically, every ordinary trivial fibration is a regular trivial fibration, simply because we can choose (using the axiom of choice) designated fillers for $i^n \to p$ based on (using excluded middle) whether that square factors through some $s_k^{n-1} : i^n \to \id$.
+Note that it does not matter which degeneracy we choose if multiple are available --- the resulting diagonal filler will cohere with all possible choices.
+
+\begin{lemma}
+Every regular trivial fibration is an $\cal{I}_2$-trivial fibration.
+\end{lemma}
+
+\begin{proof}
+For the rest of the proof, fix a regular trivial fibration $p : X \to Y$.
+Consider a square $i \to p$ with $i : \cal{I}_2$.
+We define a diagonal filler by decomposing $i$ into a finite composition of cobase changes of boundary inclusions, filling each of these according to the previous paragraph.
+Crucially, this process is independent of the actual order of the boundary fillings (note that this is not true for the analogous situation of horn fillings).
+For each morphism in $\cal{I}_2$ and commuting triangle of squares
+\[
+\xymatrix{
+  A'
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  A
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[d]
+\\
+  \Delta^{n'}
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  \Delta^n
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+we need to exhibit coherence of fillers as indicated.
+By ``vertical'' induction and the remark on order invariance of boundary fillings, it will suffice to study the case where the middle vertical map is a boundary inclusion $i^n : \partial \Delta^n \to \Delta^n$.
+Working ``horizontally'', it suffices to study the situation where the map $\Delta^{n'} \to \Delta^n$ is a face or degeneracy map as $\Delta$ is generated by these.
+
+Let us first examine the case of a face operation.
+\[
+\xymatrix{
+  \Delta^n
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \partial \Delta^{n+1}
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[d]
+\\
+  \Delta^n
+  \ar[r]_{d_k^{n+1}}
+  \ar@{.>}[urr]
+&
+  \Delta^{n+1}
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+Since the left vertical map is necessarily the identity, the filler for the composite square is uniquely determined, so there is no coherence to be verified.
+
+Let us now examine the case of a degeneracy operation.
+\[
+\xymatrix{
+  2 \times \partial \Delta^n
+  \ar[r]
+  \ar[d]
+  \ar@/^2em/[rr]^(0.3){\pi_2}
+  \pullback{dr}
+&
+  \bigcup_{i \neq k, k+1} \Delta^{[n+1] - i}
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \partial \Delta^n
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[dd]
+\\
+  2 \times \Delta^n
+  \ar[r]
+  \ar@/_2em/[rr]_(0.3){\pi_2}
+&
+  \partial \Delta^{n+1}
+  \ar[r]
+  \ar[d]
+  \ar@{.>}[urr]
+  \pullback{ul}
+&
+  \Delta^n
+  \ar[d]
+  \ar@{.>}[ur]
+\\&
+  \Delta^{n+1}
+  \ar[r]_{s_k^n}
+  \ar@{.>}[uurr]
+&
+  \Delta^n
+  \ar[r]
+  \ar@{.>}[uur]
+&
+  Y
+}
+\]
+The pullback of the boundary inclusion $\partial \Delta^n \to \Delta^n$ along $s_k^n$ decomposes as a cobase change of two parallel boundary inclusions of dimension $n$ followed by a boundary inclusion of dimension $n+1$ as indicated.
+The two parallel boundary fillings are identical copies of the original right square boundary filling, so they cohere as indicated.
+Finally, the filling for the boundary inclusion $\partial \Delta^{n+1} \to \Delta^{n+1}$ coheres as indicated by how boundary filling was originally defined for degenerate squares.
+\end{proof}
+
+
+
+\section{Uniform Kan fibrations}
+
+REVIEW OF CLASSICAL SET-UP
+
+REVIEW OF LEIBNIZ PRODUCT
+
+
+We now return to consider the general setting of $\cat{E}$ and $\cal{I}$.
+
+Below, we use shorthand notation as follows.
+The expression $\braces{l, r}$ denotes the inclusion $1 + 1 \to \cat{E}^{\to}$ valued in $l$ and $r$.
+The box product $U \boxtimes V$ of categories $U : \cat{A} \to \cat{E}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$ is given by $(\arghole \otimes \arghole) \cc (U \times V) : \cat{A} \times \cat{B} \to \cat{E}^{\to}$.
+
+
+Note that $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})} \simeq \liftr{(l \otimes \cal{I}\brarghole)} \times \liftr{(r \otimes \cal{I}\brarghole)}$.
+
+
+ $\braces{l, r} \otimes \cal{I}\brarghole$ for $l \otimes \cal{I}$
+
+
+\begin{definition} 
+An \emph{uniform Kan fibration} is a lift of a map in $\cat{E}$ to $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})}$.
+\end{definition} 
+
+
+
+
+
+
+COINCIDENCE OF $\mathcal{J}_2, \ldots, \cal{J}_5$.
+
+
+
+Fix a class $\cal{I}$ as in the previous section.
+Recall the endofunctors $h_0^1 \hattimes \arghole$ and $h_1^1 \hattimes \arghole$ on $\SSetCart$.
+Let $\cal{J}$ be the disjoint sum of these functors restricted to $\cal{I}$.
+Taking $\cal{J}$ as left generating functor, the right maps will be called \emph{$\cal{I}$-fibrations}.
+\footnote{The rationale for omitting higher dimensional horns is that those (at least in bare form) are indirectly included as retracts of one dimensional horns by Leibniz product with certain subobjects of representables.}
+Note that a $\cal{J}$-algebra structure on a map $p$ corresponds precisely to $\cal{I}$-algebra structures on $\hatexp(h_0^1, p)$ and $\hatexp(h_1^1, p)$.
+Thus, by definition, a map $p$ is an $\cal{I}$-fibration exactly if $\hatexp(h_0^1, p)$ and $\hatexp(h_1^1, p)$ are $\cal{I}$-trivial fibrations.
+
+
+CLASSICALLY, EVERY KAN FIBRATION IS A UNIFORM KAN FIBRATION.
+
+\begin{lemma}
+Classically, every ordinary fibration is an $\cal{I}_5$-fibration.
+\end{lemma}
+
+\begin{proof}
+Let $p : X \to Y$ be an ordinary fibration.
+Then $\hatexp(h_k^1, p)$ is an ordinary trivial fibration for $k = 0, 1$.
+Classically, it can be made into regular trivial fibration.
+By previous lemmata, we then have $\hatexp(h_k^1, p)$ an $\cal{I}_2$-trivial and $\cal{I}_5$-trivial fibration.
+But that means $p$ is an $\cal{I}_5$-fibration.
+\end{proof}
+
+
+
+\section{Composition operations} 
+
+For this section, fix a category $\cat{E}$.
+There is a well known Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\cat{E}$ and its opposite.
+Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunction between categories of arrows:
+\begin{equation}
+\label{garner-adjunction}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+
+
+For this section, fix again a category $\cat{E}$.
+The \emph{square category} $\cat{E}^{\Box}$ is the double arrow category $(\cat{E}^{\to})^{\to}$.
+We have evident inclusions $\squl, \squr, \sqdl, \sqdr$ of the walking object and $\sql, \sqr, \squ, \sqd$ of the walking arrow into the walking square:
+\[
+\xymatrix{
+  \squl
+  \ar[r]^{\squ}
+  \ar[d]_{\sql}
+  \ar@{}[dr]
+&
+  \squr
+  \ar[d]^{\sqr}
+\\
+  \sqdl
+  \ar[r]_{\sqd}
+&
+  \sqdr
+}
+\]
+We also have projections $\sqhori$ and $\sqvert$ from the walking square to the walking arrow that are sections to $\sql, \sqr$ and $\squ, \sqd$, respectively.
+
+Given a square $X : \cat{E}^{\Box}$, its corners and sides are thus respectively given by functor precomposition as $X\squl, X\squr, X\sqdl, X\sqdr : \cat{E}$ and $X\sql, X\sqr, X\squ, X\sqd : \cat{E}^{\to}$.
+Similarly, given a line $f : \cat{E}^{\to}$, then $f\sqhori$ and $f\sqvert$ are the squares that have identities as horizontal and vertical sides, respectively, with the other sides being given by $f$.
+Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to Y\sql$ will denote the induced morphism between the left sides, and analogously for the other operations as indicated by the suggestive functor precomposition notation.
+
+Given a square $X : \cat{E}^{\Box}$, we will sometimes equivalently view it as a morphism in $\cat{E}^{\to}$ from $X\sql$ to $X\sqr$.
+
+Recall from~\cite{garner:small-object-argument} that the Galois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+\begin{equation}
+\label{garner-adjunction}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+
+\begin{lemma}
+ \label{garner-adjunction-extended}
+The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction as follows:
+\begin{equation}
+\label{garner-adjunction-extended}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+\begin{theorem}
+Assume $\cal{I}$ is closed under Leibniz product with $h_k^1$ for $k = 0, 1$ (in the sense of $h_k^1 \hattimes \arghole$ restricting to an endofunctor on $\cal{I}$).
+Then any map $p : X \to Y$ with coherent composition has coherent filling.
+Furthermore, the coherent filling can be made to extend the coherent composition.
+\end{theorem}
+
+\begin{proof}
+The crucial ingredient (``connections'') is the fact that $h_k^1$ is a strong deformation retract.
+Recalling our previous characterization of strong homotopy equivalences, this implies that $\theta \hattimes h_k^1$ is a section in the arrow category.
+
+Suppose we are given a square $v : h_k^1 \hattimes c \to p$ to fill.
+Since $\theta \hattimes h_k^1$ is a section, so is $(\theta \hattimes h_k^1) \hattimes c \simeq \theta \hattimes (h_k^1 \hattimes c)$.
+We thus may factor the given square as follows:
+\[
+\xymatrix{
+  h_k^1 \hattimes c
+  \ar[rr]^{v}
+  \ar[dr]_{\theta \hattimes (h_k^1 \hattimes c)}
+&&
+  p
+\\&
+  h_k^1 \hattimes (h_k^1 \hattimes c)
+  \ar[ur]
+}
+\]
+So a filling for the square $v : h_k^1 \hattimes c \to p$ is nothing more than a composition for the derived square $h_k^1 \hattimes (h_k^1 \hattimes c) \to p$!
+By assumption, the map $h_k^1 \hattimes c$ is again an object of $\cal{I}$ and has such a composition available.
+Observe that this argument is entirely natural in $c : \cal{I}$.
+Thus, coherent composition induces coherent filling.
+
+Let us now show that the defined filling extends the given composition.
+For this, consider the below situation:
+\[
+\xymatrix{
+  c
+  \ar[dr]^{\theta \hattimes h_k^1}
+  \ar[dd]_{\theta \hattimes h_k^1}
+\\&
+  h_k^1 \hattimes c
+  \ar[dd]_(0.25){h_k^1 \hattimes (\theta \hattimes c)}
+  \ar[dr]^{w}
+\\
+  h_k^1 \hattimes c
+  \ar[rr]_(0.35){v}
+  \ar[dr]_{\theta \hattimes (h_k^1 \hattimes c)}
+&&
+  p
+\\&
+  h_k^1 \hattimes (h_k^1 \hattimes c)
+  \ar[ur]
+}
+\]
+Recall that the square $h_k^1 \hattimes (h_k^1 \hattimes c) \to p$ was defined in terms of $v$ via a retraction $r : h_k^1 \hattimes h_k^1 \to h_k^1$ to $\theta \hattimes h_k^1$.
+Note that $r$ is automatically also a retraction to $h_k^1 \hattimes \theta$.
+It follows that $w = v$ in the above diagram.
+We need to show that the diagonal map for the square $c \to p$ induced by the filling of $v$ (the new composition) coincides with the given composition of $v$.
+As seen in the diagram, this is now just coherence of the given coherent composition with respect to $\theta \hattimes c$.
+\end{proof}
+
+
+EXAMPLE IN SIMPLICIAL SETS
+
+\begin{definition}
+For the purpose of this definition, fix a direction $k \in \braces{0, 1}$ of filling.
+Consider a simplicial map $i : A \to B$ and a square $h_k^1 \hattimes a \to p$:
+\[
+\xymatrix{
+  \braces{1-k} \times B +_{\braces{1-k} \times B} \Delta^1 \times A
+  \ar[r]
+  \ar[d]_{h_k^1 \hattimes i}
+&
+  X
+  \ar[d]^{p}
+\\
+  \Delta^1 \times B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+A \emph{filling} for this square is a diagonal map as indicated.
+The simple, though underutilized map of arrows $\theta : \canonical_{0 \to \braces{k}} \to h_k^1$ induces a second square $i \to p$ via precomposition:
+\[
+\xymatrix{
+  \canonical_{0 \to \braces{k}} \hattimes i
+  \ar[rr]
+  \ar[dr]_{\theta \hattimes i}
+&&
+  p
+\\&
+  h_k^1 \hattimes i
+  \ar[ur]
+}
+\]
+A \emph{composition} for the original square $h_k^1 \hattimes i \to p$ is a diagonal map for the square $i \to p$ as indicated below:
+\[
+\xymatrix{
+  \braces{k} \times A
+  \ar[r]
+  \ar[d]_{i}
+&
+  X
+  \ar[d]^{p}
+\\
+  \braces{k} \times B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+}
+\]
+A filling \emph{extends} a given composition if the diagonal maps for $h_k^1 \hattimes i \to p$ and $i \to p$ commute in the obvious way.
+\end{definition}
+
+\begin{definition}
+\emph{Coherent filling} (respectively, \emph{coherent composition)} for a simplicial map $p$ consists of a choice natural in $i : \cal{I}$ of fillings (compositions) for squares of the form $h_k^1 \hattimes i \to p$.
+\end{definition}
+
+
+
+
+\section{Stability under pushforward}
+
+\begin{lemma}
+\label{lift-dependent-product}
+Let $p : Y \to X$ be a map in $\cat{E}$ admitting pullback and pushforward:
+\[
+\xymatrix@C+1em{
+  \cat{E}/X
+  \ar@<5pt>[r]^{p^*}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}/Y
+  \ar@<5pt>[l]^{p_*}
+}
+\]
+Let $W : \cat{C} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
+Then lifts of pushforward
+\[
+\xymatrix{
+  \Slice_X(\liftr{\cat{C}})
+  \ar@{.>}[r]
+  \ar[d]_{\Slice_X(W)}
+&
+  \Slice_Y(\liftr{\cat{C}})
+  \ar[d]^{\Slice_Y(\liftr{U})}
+\\
+  (\cat{E}/X)^{\to}
+&
+  (\cat{E}/Y)^{\to}
+  \ar[l]^{(p_*)^{\to}}
+}
+\]
+are in natural correspondence with lifts of pullback
+\[
+\xymatrix{
+  \Slice_X(\cat{C})
+  \ar@{.>}[r]
+  \ar[d]_{\Slice_X(W)}
+&
+  \liftl{\Slice_Y(\liftr{\cat{C}})}
+  \ar[d]^{\liftl{\Slice_Y(\liftr{U})}}
+\\
+  (\cat{E}/X)^{\to}
+  \ar[r]^{(p^*)^{\to}}
+&
+  (\cat{E}/Y)^{\to},
+}
+\]
+which in turn correspond to maps from $\liftr{\Slice_Y(W)}$ to $\liftr{((p^*)^{\to} \cc \Slice_Y(W))}$ over $(\cat{E}/Y)^{\to}$.
+\end{lemma}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with $\liftr{\brarghole}$.
+For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $U = W$ and $V = \liftr{W}$.
+The last statement is simply the adjunction~\eqref{garner-adjunction}.
+\end{proof}
+
+\newpage
+
+\appendix
+
+\section{Liftings against arrows} 
+
+\begin{lemma}
+Consider a natural transformation between categories over $\cat{E}^{\to}$:
+\[
+\xymatrix{
+  \cat{A}
+  \rrtwocell_G^F{\sigma}
+ \ar[dr]_{U}
+&&
+  \cat{B}
+  \ar[dl]^{V}
+\\&
+  \cat{E}^{\to}
+}
+\]
+Note that this includes the condition $V \sigma = \id_U$.
+Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \lltwocell_{\liftr{F}}^{\liftr{G}}{=}
+  \ar[dl]^{\liftr{V}}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \lltwocell_{\liftl{F}}^{\liftl{G}}{=}
+  \ar[dl]^{\liftl{V}}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+\end{lemma}
+
+\subsection{Lifts of adjoint functors}
+
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ be categories over $\cat{D}^{\to}$ and $\cat{E}^{\to}$, respectively.
+
+\begin{lemma}
+\label{lift-of-adjunction}
+Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  \liftl{\cat{B}}
+  \ar[d]^{\liftl{V}}
+\\
+  \cat{D}^{\to}
+  \ar[r]^{L^{\to}}
+&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\to}
+&
+  \cat{E}^{\to}
+  \ar[l]^{R^{\to}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\to} \cc V$ to $\liftr{U}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\subsection{Slicing}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+\[
+\xymatrix{
+  \cat{A}_{/X}
+  \ar[r]
+  \ar[d]_{U_{/X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}/X)^{\to}
+  \ar[r]
+&
+  \cat{E}^{\to}
+}
+\]
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the codomain of $U(Y)$ to $X$.
+
+Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+\[
+\xymatrix{
+  \cat{A}_{\backslash X}
+  \ar[r]
+  \ar[d]_{U_{\backslash X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E} \backslash X)^{\to}
+  \ar[r]
+&
+  \cat{E}^{\to}
+}
+\]
+
+\begin{remark}
+\label{pitchfork-slicing}
+Just as in the non-algebraic setting, the functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{remark}
+
+\subsection{Retract closure}
+
+\newcommand{\ret}{\mathbbm{R}}
+\newcommand{\retA}{\mathbbm{a}}
+\newcommand{\retB}{\mathbbm{b}}
+
+Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s : \retA \to \retB$ and $r : \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$.
+
+Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ using (strict) pullback and left composition:
+\[
+\xymatrix@C+1em{
+  \overline{\cat{A}}
+  \ar[r]
+  \ar[d]
+  \ar@/_2em/[dd]_{\overline{U}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}^{\to})^{\ret}
+  \ar[r]^-{(\cat{E}^{\to})^{\retB}}
+  \ar[d]^{(\cat{E}^{\to})^{\retA}}
+&
+  \cat{E}^{\to}
+\\
+  \cat{E}^{\to}
+}
+\]
+Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{E}^{\to}$, \ie an arrow $e : \cat{E}^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+&
+  U(a)
+  \ar[r]_{r}
+&
+  e
+}
+\]
+The action of $\overline{U}$ on this object is $\overline{U}(a, e, s, t) = e$.
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\to}$ such that the evident squares commute:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+  \ar[d]_{h}
+&
+  U(a)
+  \ar[r]_{r}
+  \ar[d]^{U(f)}
+&
+  e
+  \ar[d]^{h}
+\\
+  e'
+  \ar[r]^{s'}
+  \ar@/_1em/[rr]_{\id}
+&
+  U(a')
+  \ar[r]^{r'}
+&
+  e'
+}
+\]
+The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
+
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\to}$ formally induced by $(\cat{E}^{\to})^{\canonical} : \cat{E}^{\to} \to (\cat{E}^{\to})^{\ret}$ being a section to $(\cat{E}^{\to})^{\retB}$.
+With the explicit description of objects, it maps $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
+We also have a map $\overline{\overline{\cat{A}}} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+This makes retract closure into a monad.
+
+\begin{lemma}
+\label{retract-closure}
+Recall the adjunction~\eqref{garner-adjunction}.
+The functors $\liftr{\brarghole}$ and $\liftl{\brarghole}$ maps unit and multiplication of retract closure to natural isomorphisms.
+\end{lemma}
+
+\begin{remark}
+\label{retract-closure-slicing}
+Taking the retract closure commutes (up to natural isomorphism) with slicing and coslicing.
+\end{remark}
+
+\subsection{Kan extension}
+
+Let $U : \cat{A} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
+Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
+Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Lan_F U}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Ran_F U}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+Note the triangles will be (strictly) commuting since $F$ is fully faithful.
+
+\begin{lemma}
+\label{kan-extension-closure}
+The following functors induced by the adjunction~\eqref{garner-adjunction} are isomorphisms:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \ar[ll]_{\liftr{F}}^{\simeq}
+  \ar[dl]^{\liftr{(\Lan_F U)}}
+\\&
+  \cat{E}^{\to}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \ar[ll]_{\liftl{F}}^{\simeq}
+  \ar[dl]^{\liftl{(\Ran_F U)}}
+\\&
+  \cat{E}^{\to}
+}
+\end{mathpar}
+\end{lemma}
+
+
+
+
+
+\section{Lifting against Squares}
+
+
+\begin{lemma}
+% \label{garner-adjunction-extended}
+The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction as follows:
+\begin{equation}
+\label{garner-adjunction-extended}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+\begin{proof}[Proof (adapted from \cite{garner:small-object-argument})]
+Let us first define the functor $\liftr{\brarghole}$.
+It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\liftr{\cat{A}}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
+For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\phi(A, M)$ is a lift in the composite square indicated below:
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){T}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+Coherence of composition means that for a morphism $f : X \to X'$ in $\cat{A}$ and a square $M' : U(X)\sqr \to T\sql$, we have $\phi(X, M \cc U(f)\sqr) = \phi(X', M') \cc U(f)\sqdl$.
+A morphism in $\liftr{\cat{A}}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
+We have an evident forgetful functor from $\liftr{\cat{A}} \to \cat{E}^{\Box}$.
+
+This concludes the construction of the action of $\liftr{\brarghole}$ on objects.
+The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
+
+The functor $\liftl{\brarghole}$ is defined analogously, but with directions and order of composition swapped.
+To see that $\liftl{\brarghole} \dashv \liftr{\brarghole}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to \liftl{\cat{B}}$ and $\cat{B} \to \liftr{\cat{A}}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.4){U(X)}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.3){M}
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|(0.6){V(Y)}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+}
+\]
+that is natural in the evident manner in both $X$ and $Y$.
+\end{proof}
+
+\begin{remark}
+\label{extended-adjunction-gives-normal-one}
+Recall the inclusion $E\sqhori : \cat{E}^{\to} \to \cat{E}^{\Box}$ that sends a line $f$ to the square with left and right sides $f$ and up and bottom sides identities.
+It related categories over $\cat{E}^{\Box}$ and $\cat{E}^{\to}$ by an adjunction:
+\begin{equation}
+\label{adjunction-between-E-square-and-E-to}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{E\sqhori_!}
+  \ar@{}[r]|{\bot}
+&
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[l]^{(E\sqhori)^*}
+}
+\end{gathered}
+\end{equation}
+In fact, as can be confirmed from inspection of the constructions, the adjunction~\eqref{garner-adjunction} arises from the extended adjunction~\eqref{garner-adjunction-extended} by pre- and postcomposition with the adjunction~\eqref{adjunction-between-E-square-and-E-to} and its opposite:
+\begin{equation*}
+\begin{gathered}
+\xymatrix@R+1em@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[d]^{(E\sqhori)^*}
+  \ar@{}[d]|{\dashv}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+  \ar@<5pt>[d]^{((E\sqhori)^*)^{\op}}
+  \ar@{}[d]|{\vdash}
+\\
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+  \ar@<5pt>[u]^{E\sqhori_!}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+  \ar@<5pt>[u]^{(E\sqhori_!)^{\op}}
+}
+\end{gathered}
+\end{equation*}
+If we only choose to either pre- or postcompose, we end up with ``mixed'' versions of the adjunction that we are still going to denote using the same symbols:
+\begin{equation}
+\label{garner-adjunction-extended-mixed}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\Box}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\to})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+or:
+\begin{equation}
+\label{garner-adjunction-extended-mixed'}
+\begin{gathered}
+\xymatrix@C+1em{
+  \CAT/\cat{E}^{\to}
+  \ar@<5pt>[r]^{\liftl{\brarghole}}
+  \ar@{}[r]|{\bot}
+&
+  (\CAT/\cat{E}^{\Box})^{\op}
+  \ar@<5pt>[l]^{\liftr{\brarghole}}
+}
+\end{gathered}
+\end{equation}
+\end{remark}
+
+\subsection{Lifts of adjoint functors}
+
+Consider an adjunction as follows:
+\[
+\xymatrix@C+1em{
+  \cat{D}
+  \ar@<5pt>[r]^{L}
+  \ar@{}[r]|{\bot}
+&
+  \cat{E}
+  \ar@<5pt>[l]^{R}
+}
+\]
+Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\cat{E}^{\Box}$, respectively.
+We have a straightforward analogue of \cref{lift-of-adjunction}:
+
+\begin{lemma}
+\label{lift-of-adjunction-extended}
+Lifts of $L^{\Box}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\Box}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar@{.>}[r]
+  \ar[d]_{U}
+&
+  \liftl{\cat{B}}
+  \ar[d]^{^{\pitchfork}V}
+\\
+  \cat{D}^{\Box}
+  \ar[r]^{L^{\Box}}
+&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[d]_{\liftr{U}}
+&
+  \cat{B}
+  \ar@{.>}[l]
+  \ar[d]^{V}
+\\
+  \cat{D}^{\Box}
+&
+  \cat{E}^{\Box}
+  \ar[l]^{R^{\Box}}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{proof}
+Maps from $L^{\Box} \cc U$ to $\liftl{V}$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Similarly, maps from $R^{\Box} \cc V$ to $\liftr{U}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Since $L \dashv R$, these situations coincide.
+\end{proof}
+
+\begin{remark}
+\label{lift-of-adjunction-mixed}
+\cref{lift-of-adjunction} can be viewed as a special case of \cref{lift-of-adjunction-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Slicing}
+
+Let $X$ be an object of $\cat{E}$.
+Given a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+\[
+\xymatrix{
+  \cat{A}_{/X}
+  \ar[r]
+  \ar[d]_{U_{/X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E}/X)^{\Box}
+  \ar[r]
+&
+  \cat{E}^{\Box}
+}
+\]
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the bottom right corner of $U(Y)$ to $X$.
+
+Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+\[
+\xymatrix{
+  \cat{A}_{\backslash X}
+  \ar[r]
+  \ar[d]_{U_{\backslash X}}
+  \pullback{dr}
+&
+  \cat{A}
+  \ar[d]^{U}
+\\
+  (\cat{E} \backslash X)^{\Box}
+  \ar[r]
+&
+  \cat{E}^{\Box}
+}
+\]
+
+\begin{lemma}
+\label{pitchfork-slicing-extended}
+The functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
+\end{lemma}
+
+\begin{remark}
+\label{slicing-mixed}
+The slicing construction for arrows and \cref{pitchfork-slicing} can be viewed as a special case of the slicing construction for squares and \cref{pitchfork-slicing-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous constructions and statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Retract closure}
+
+Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+We define its left retract closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
+An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \cat{E}^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\cat{E}^{\to}$:
+\[
+\xymatrix{
+  e\sql
+  \ar[r]^{e}
+  \ar[d]^{s}
+  \ar@/_2em/[dd]_{\id}
+&
+  e\sqr
+  \ar@/^2em/[dd]^{\id}
+\\
+  U(a)\sql
+  \ar[r]^{U(a)}
+&
+  U(a)\sqr
+  \ar[d]_{r}
+\\
+  e\sql
+  \ar[r]^{e}
+&
+  e\sqr
+}
+\]
+The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, r) = e$.
+A morphism between such objects $(a, e, s, r)$ and $(a', e', s', r')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
+\[
+\xymatrix{
+  e
+  \ar[r]_{s}
+  \ar@/^1em/[rr]^{\id}
+  \ar[d]_{h}
+&
+  U(a)
+  \ar[r]_{r}
+  \ar[d]^{U(f)}
+&
+  e
+  \ar[d]^{h}
+\\
+  e'
+  \ar[r]^{s'}
+  \ar@/_1em/[rr]_{\id}
+&
+  U(a')
+  \ar[r]^{r'}
+&
+  e'
+}
+\]
+The action of $\overline{U}_L$ on this morphism is $\overline{U}_L(f, h) = h$.
+
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
+We also have a map $\overline{\overline{\cat{A}}_L}_L \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+This makes left retract closure into a monad.
+
+\begin{lemma}
+\label{retract-closure-extended-left}
+Recall the adjunction~\eqref{garner-adjunction-extended}.
+The functor $\liftr{\brarghole}$ maps unit and multiplication of left retract closure to natural isomorphisms.
+\end{lemma}
+
+\begin{remark}
+\label{retract-closure-extended-right}
+Dually, we have a right retract closure $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ for a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$.
+Right retract closure forms a monad, with the functor $\liftl{\brarghole}$ mapping unit and comultiplication to natural isomorphisms.
+\end{remark}
+
+\begin{remark}
+\label{retract-closure-extended-slicing}
+Taking the left or right retract closure commutes (up to natural isomorphism) with slicing and coslicing.
+\end{remark}
+
+\begin{remark}
+\label{slicing-mixed}
+Retract closure for arrows can be viewed as a special case of left and right retract closure for squares using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous constructions and statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+\subsection{Kan extension}
+
+Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
+Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
+\begin{mathpar}
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Lan_F U}
+\\&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \cat{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cat{B}
+  \ar[dl]^{\Ran_F U}
+\\&
+  \cat{E}^{\Box}
+}
+\end{mathpar}
+Note the triangles will be (strictly) commuting since $F$ is fully faithful.
+
+\begin{lemma}
+\label{kan-extension-closure-extended}
+The following functors induced by the adjunction~\eqref{garner-adjunction-extended} are isomorphisms:
+\begin{mathpar}
+\xymatrix{
+  \liftr{\cat{A}}
+  \ar[dr]_{\liftr{U}}
+&&
+  \liftr{\cat{B}}
+  \ar[ll]_{\liftr{F}}^{\simeq}
+  \ar[dl]^{\liftr{(\Lan_F U)}}
+\\&
+  \cat{E}^{\Box}
+}
+\and
+\xymatrix{
+  \liftl{\cat{A}}
+  \ar[dr]_{\liftl{U}}
+&&
+  \liftl{\cat{B}}
+  \ar[ll]_{\liftl{F}}^{\simeq}
+  \ar[dl]^{\liftl{(\Ran_F U)}}
+\\&
+  \cat{E}^{\Box}
+}
+\end{mathpar}
+\end{lemma}
+
+\begin{remark}
+\label{kan-extension-closure-mixed}
+\cref{lift-of-adjunction} can be viewed as a special case of \cref{lift-of-adjunction-extended} using the adjunction~\eqref{adjunction-between-E-square-and-E-to}.
+In fact, we have analogous statements for the ``mixed'' versions of the lifting adjunction of \cref{extended-adjunction-gives-normal-one}.
+\end{remark}
+
+
+
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
