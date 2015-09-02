@@ -182,10 +182,14 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 
 \section{Uniform liftings}
 
-For this section, fix a category $\catE$. Given a set of morphisms $I$ in $\catE$, we define $\liftr{I}$ to be the class of morphisms of $\catE$ that have 
-the right lifting property with respect to all the morphisms in~$I$. Dually, we write $\liftl{I}$ for the class of morphisms of $\catE$ that have the left lifting
-property with respect to all the morphisms of $I$. These operations determine a Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite. Furthermore, these operations enjoy several properties that are useful in developing homotopical algebra.
-Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunction between categories of arrows:
+For this section, fix a category $\catE$. Given a set of morphisms $\cal{A} \subseteq \catE^\to$, we 
+write $\liftr{\cal{A}}$ to be the class of morphisms of $\catE$ that have 
+the right lifting property with respect to all the morphisms in~$\cal{A}$. Dually, we write $\liftl{\cal{A}}$ for the class of morphisms of $\catE$ that have the left lifting
+property with respect to all the morphisms of $\cal{A}$. These operations determine a Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite. Furthermore, these operations enjoy several properties that are useful in developing homotopical algebra.
+
+\medskip
+
+In~\cite{garner:small-object-argument} Richard Garner has shown how to extend this to an adjunction between categories of arrows:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
@@ -199,10 +203,11 @@ Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunc
 }
 \end{gathered}
 \end{equation}
-Here, instead of starting from a subset of $\catE^\to$, we consider a category $\cat{A}$, to be thought of an indexing category, and a functor $U \co \cat{A} \to \catE^\to$, which assigns an arrow $U a$ in $\catE$ to each index $a \in \cat{A}$. After reviewing this adjunction, we establish some analogues of well-known properties of the orthogonality relation in the extended setting, which will be useful in the following.
+Here, instead of starting from a subset of $\catE^\to$, we consider a category $\cal{A}$, to be thought of an indexing category, and a functor $U \co \cal{A} \to \catE^\to$, which assigns an arrow $U a$ in $\catE$ to each index $a \in \cal{A}$. After reviewing this adjunction, we establish some analogues of well-known properties of the orthogonality relation in the extended setting, which will be useful in the following.
  
  
- \begin{definition} Let $U \co \cat{A} \to \catE^\to$ be a functor. A \emph{right lifting structure} on a map $g \co C \to D$ with respect to $U$ is 
+ \begin{definition} Let $U \co \cal{A} \to \catE^\to$ be a functor and $g \co C \to D$ a map in $\catE$. 
+ A \emph{right lifting structure} on $g \co C \to D$ with respect to $U$ is 
  a function  $\phi$ that assigns to each $a \in \cat{A}$ and commuting square
 \[
 \xymatrix@C=2cm{
@@ -210,7 +215,7 @@ A \ar[r]^{h}   \ar[d]_{U a} & C \ar[d]^g \\
 B \ar[r]_{k} & D}
 \]
 a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\catA$, 
-with image under $U$ 
+with image under $U$ given by
 \[
 \xymatrix{
 A \ar[r]^s \ar[d]_a & A' \ar[d]^{a'}  \\
