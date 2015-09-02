@@ -182,26 +182,58 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 
 \section{Uniform liftings}
 
-
-For this section, fix a category $\catE$.
-There is a well known Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite.
+For this section, fix a category $\catE$. Given a set of morphisms $I$ in $\catE$, we define $\liftr{I}$ to be the class of morphisms of $\catE$ that have 
+the right lifting property with respect to all the morphisms in~$I$. Dually, we write $\liftl{I}$ for the class of morphisms of $\catE$ that have the left lifting
+property with respect to all the morphisms of $I$. These operations determine a Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite. Furthermore, these operations enjoy several properties that are useful in developing homotopical algebra.
 Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunction between categories of arrows:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
-\xymatrix@C+1em{
+\xymatrix@C+2em{
   \CAT/\catE^{\to}
-  \ar@<5pt>[r]^{\liftl{\brarghole}}
-  \ar@{}[r]|{\bot}
+  \ar@<5pt>[r]^-{\liftl{\brarghole}}
+  \ar@{}[r]|-{\bot}
 &
   (\CAT/\catE^{\to})^{\op}
-  \ar@<5pt>[l]^{\liftr{\brarghole}}
+  \ar@<5pt>[l]^-{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
+Here, instead of starting from a subset of $\catE^\to$, we consider a category $\cat{A}$, to be thought of an indexing category, and a functor $U \co \cat{A} \to \catE^\to$, which assigns an arrow $U a$ in $\catE$ to each index $a \in \cat{A}$. After reviewing this adjunction, we establish some analogues of well-known properties of the orthogonality relation in the extended setting, which will be useful in the following.
+ 
+ 
+ \begin{definition} Let $U \co \cat{A} \to \catE^\to$ be a functor. A \emph{right lifting structure} on a map $g \co C \to D$ with respect to $U$ is 
+ a function  $\phi$ that assigns to each $a \in \cat{A}$ and commuting square
+\[
+\xymatrix@C=2cm{
+A \ar[r]^{h}   \ar[d]_{U a} & C \ar[d]^g \\
+B \ar[r]_{k} & D}
+\]
+a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\catA$, 
+with image under $U$ 
+\[
+\xymatrix{
+A \ar[r]^s \ar[d]_a & A' \ar[d]^{a'}  \\
+B \ar[r]_{t} & B'}
+\]
+the diagram
+\[
+\xymatrix@C=2cm@R=1.5cm{
+A \ar[r]^s \ar[d]_a & A' \ar[r]^{h}  & C \ar[d]   \\
+B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, kt)} & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & D }
+\]
+commutes. 
+ \end{definition}
+ 
+ Using this notion, we recall the definition of the action of the right adjoint in~\eqref{garner-adjunction}. 
+ Given $U \co \cal{A} \to \catE^\to$, we define $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
+$ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a left lifting structure for $g$.
+Arrows $(g, \phi) \to (g', \phi')$ are squares $g \Rightarrow g'$ satisfying an appropriate compatibility condition
+with respect to the right lifting structures. The functor $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ in then given by
+the evident forgetful functor. The left adjoint in~\eqref{garner-adjunction} is defined analogously, using the
+notion of a left lifting structure.
 
 
-REVIEW OF THE NON-ALGEBRAIC AND ALGEBRAIC NOTIONS OF LIFTINGS
 
 
 
