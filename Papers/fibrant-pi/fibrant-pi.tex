@@ -218,22 +218,22 @@ a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following conditio
 with image under $U$ given by
 \[
 \xymatrix{
-A \ar[r]^s \ar[d]_a & A' \ar[d]^{a'}  \\
+A \ar[r]^s \ar[d]_{Ua} & A' \ar[d]^{U a'}  \\
 B \ar[r]_{t} & B'}
 \]
-the diagram
+we have that $\phi(a', h, k) \cc t = \phi(a, hs, kt)$, \ie the inner triangle in the diagram
 \[
 \xymatrix@C=2cm@R=1.5cm{
 A \ar[r]^s \ar[d]_a & A' \ar[r]^{h}  & C \ar[d]   \\
-B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, kt)} & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & D }
+B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, k t) \quad } & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & D }
 \]
 commutes. 
- \end{definition}
+\end{definition}
  
- Using this notion, we recall the definition of the action of the right adjoint in~\eqref{garner-adjunction}. 
+ Using this notion, we recall the definition of the action on objects of the right adjoint in~\eqref{garner-adjunction}. 
  Given $U \co \cal{A} \to \catE^\to$, we define the category $\liftr{\cal{A}}$ and the functor 
   $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
-$ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a left lifting structure for $g$.
+$ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a right lifting structure for $g$.
 The arrows $\alpha \co (g, \phi) \to (g', \phi')$ are squares $\alpha \co g \Rightarrow g'$ in $\cal{A}$ satisfying an appropriate compatibility condition
 with respect to the right lifting structures. The functor $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ in then given by
 the evident forgetful functor. The left adjoint in~\eqref{garner-adjunction} is defined analogously, using the
@@ -241,7 +241,7 @@ notion of a left lifting structure.
 
 \medskip
 
-In the remainder of this section, we extend some useful facts about the usual notion of orthogonality to its algebraic counterpart. 
+In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors.
 
 
 \begin{lemma}
@@ -262,10 +262,10 @@ Note that this includes the condition $V \sigma = \id_U$.
 Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$, 
 \begin{mathpar}
 \xymatrix{
-  \liftr{\cat{A}}
+  \liftr{\cal{A}}
   \ar[dr]_{\liftr{U}}
 &&
-  \liftr{\cat{B}}
+  \liftr{\cal{B}}
   \lltwocell_{\liftr{F}}^{\liftr{G}}{=}
   \ar[dl]^{\liftr{V}}
 \\&
@@ -273,10 +273,10 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
 }
 \and
 \xymatrix{
-  \liftl{\cat{A}}
+  \liftl{\cal{A}}
   \ar[dr]_{\liftl{U}}
 &&
-  \liftl{\cat{B}}
+  \liftl{\cal{B}}
   \lltwocell_{\liftl{F}}^{\liftl{G}}{=}
   \ar[dl]^{\liftl{V}}
 \\&
@@ -285,15 +285,35 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
 \end{mathpar}
 \end{lemma}
 
-\begin{proof} Immediate.
+\begin{proof} The image of $(g, \psi) \in \liftr{\cal{B}}$ under $\liftr{F}$ is $(g, \psi_F)$ and its
+image under $\liftr{G}$ is~$(g, \psi_G)$. But the functions $\psi_F$ and $\psi_G$ coincide since, for
+every $a \in \cal{A}$, we have that $\sigma_a \co VFa \Rightarrow VGa$ is the identity square on $Ua$. 
+By the naturality condition for $\psi$, applied to the diagram 
+\[
+\xymatrix{
+A \ar[r]^{\id_A} \ar[d]_{VFa}  & A \ar[d]^{VGa} \ar[r]^{h}  & C \ar[d]^g \\
+B \ar[r]_{\id_B} & B \ar[r]_{k} & D \, ,}
+\]
+we have  that $\psi_F(a, h, k) = \psi_G(a, h, k)$, as required.
 \end{proof} 
 
 \medskip
 
-We now consider the effect of adjoint functors on orthogonality. In the standard setting, it is well known that 
+We now consider the effect of adjoint functors on orthogonality. In the standard setting, it is well known that if 
+we have classes of maps $\cal{A} \subseteq \cal{E}^\to$ and $\cal{B} \subseteq \cal{F}^\to$ and an adjunction
+\[
+\xymatrix@C+1em{
+  \cal{E}
+  \ar@<5pt>[r]^{F}
+  \ar@{}[r]|{\bot}
+&
+  \cal{F}
+  \ar@<5pt>[l]^{G}
+}
+\]
+then $F(\cal{A}) \subseteq \liftl{\cal{B}}$ if and only if $\cal{A} \subseteq G(\cal{B})$. Our next lemma provides the counterpart of this fact in our setting.
 
 
-Co
 
 
 \begin{lemma} \label{lift-of-adjunction} 
@@ -363,8 +383,8 @@ B \ar[r] & GD }
 \medskip
 
 
-We now consider slicing. In the classical setting it is well-known that slicing and taking orthogonality classes commute with each other. In order to provide a counterpart of this fact, we need some auxiliary definitions. Given a functor $U : \cat{A} \to \catE^{\to}$ and $X \in \catE$.  we define the category $\cal{A}/X$
-and a functor $U/X \co \cal{A}/X \to (\cal{E}/X)^\to$ as follows. The category $\cat{A}/X$ has as objects pairs consisting of an object $a \in \cal{A}$ and a commutative triangle of the form
+We now consider slicing. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $U : \cal{A} \to \catE^{\to}$ and $X \in \catE$.  we define the category $\cal{A}/X$
+and a functor $U/X \co \cal{A}/X \to (\cal{E}/X)^\to$ as follows. The category $\cal{A}/X$ has as objects pairs consisting of an object $a \in \cal{A}$ and a commutative triangle of the form
 \[
 \xymatrix{
 A \ar[dr] \ar[rr]^{Ua} & & B  \ar[dl] \\
@@ -405,35 +425,115 @@ where we used the functor on arrow categories induced by $\catE/X \to \catE$ for
   \catE^{\to}
 }
 \]
-which also admits an explicit description dual to the one given above for $\catA_{/X}$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
+which also admits an explicit description dual to the one given above for $\cal{A}/X$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
 
 
 
 \begin{lemma} \hfill 
 \label{pitchfork-slicing}
 \begin{enumerate}[(i)]
-\item The functor $\liftr{\brarghole}$ commutes (up to natural isomorphism) with slicing.
-\item The functor $\liftl{\brarghole}$ commutes (up to natural isomorphism) with coslicing.
+\item The right orthogonality functor commutes with slicing, \ie for every $U \co \cal{A} \to \cal{E}$, we have
+\[
+  (\liftr{\cal{A}})/X = \liftr{(\cal{A}/X)}
+\]
+as categories over $\cal{E}^\to$.
+\item The left orthogonality functor commutes with coslicing, \ie for every $U \co \cal{A} \to \cal{E}$, we have
+\[
+ \liftl{\cal{A}} \backslash X = \liftl{\cal{A} \backslash X}
+\]
+as categories over $\cal{E}^\to$.
 \end{enumerate}
 \end{lemma}
 
+\begin{proof} We only consider (i). The claim follows by unfolding definitions, but we describe the objects of the category explicitly for clarity. They are given by 
+tuples consisting of an arrow in~$\cal{E}/X$, 
+\[
+\xymatrix{
+C \ar[dr] \ar[rr]^g  &  & D \ar[dl] \\
+ & X & }
+ \]
+and a function $\phi$ that assigns a diagonal filler to every diagram in $\cal{E}$ of the form
+\[
+\xymatrix{
+A \ar[r] \ar[d]_{Ua} & C \ar[d]^g \\
+B \ar[r] & D}
+\]
+where $a \in \cal{A}$, subject to a uniformity condition. 
+\end{proof}
+
 \medskip
 
-We now consider closure under retracts in our setting.
+Next, we consider the interaction between the orthogonality functors and closure under retracts. In the ordinary setting, it is well-known that
+applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure. 
+In order to establish a counterpart of this fact, we need again some definitions. 
+Given a  functor $U : \cal{A} \to \catE^{\to}$, we define its retract closure $\overline{U} : \overline{\cal{A}} \to \catE^{\to}$ as follows. 
+An object of $\overline{\cal{A}}$ is a tuple~$(a, e, \sigma, \tau)$ consisting of an object $a \in \cal{A}$, an arrow $e \in \cal{E}^\to$ together with squares $\sigma \co e \Rightarrow Ua$ and $\rho \co Ua \Rightarrow e$,
+which exhibit $e$ as a retract of $U a$ in  $\catE^{\to}$,  \ie such that $\sigma \cc \rho = \id_e$. 
+A morphism $(f, \kappa) \co (a, e, \sigma, \tau) \to (a', e', \sigma', \tau')$ of $\overline{\cal{A}}$  consists of a morphism $f \co a \to a'$ in $\cal{A}$ and a square $\kappa \co e \Rightarrow e'$  such that the following diagram in $\cal{E}^\to$ commutes:
+\[
+\xymatrix{
+  e
+  \ar[r]^{\sigma}
+    \ar[d]_{\kappa}
+&
+  U a
+  \ar[r]^{\rho}
+  \ar[d]^{U f}
+&
+  e
+  \ar[d]^{\kappa}
+\\
+  e'
+  \ar[r]_{\sigma'}
+&
+  Ua'
+  \ar[r]_{\rho'}
+&
+  e' \, .
+}
+\]
+The functor $\overline{U} \co \overline{\cal{A}} \to \catE^\to$ is then defined  on objects  by letting $\overline{U}(a, e, \sigma, \tau) \defeq e$,
+and on morphisms by letting $\overline{U}(f, \kappa) \defeq \kappa$. The operation of retract closure gives a monad: for $U : \cal{A} \to \catE^{\to}$,
+the components of the multiplication and the unit, 
+\[
+\mu_\cal{A} \co \overline{\overline{\cal{A}}} \to \overline{\cal{A}} \, , \quad
+\eta_\cal{A} \co \cal{A} \to \overline{\cal{A}} \, ,
+\]
+are defined by letting
+\[
+\mu_\cal{A}((a, e, \sigma,  \rho), e', \sigma', \rho') \defeq (a, e', \sigma \cc \sigma', \rho' \cc \rho) \, , \quad
+\eta_\cal{A}(a) \defeq (a, Ua, \id_{Ua}, \id_{Ua}) \, .
+\]
 
 
-Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s : \retA \to \retB$ and $r : \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$.
 
-Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \catE^{\to}$ using (strict) pullback and left composition:
+
+\begin{lemma}
+\label{retract-closure}
+The orthogonality functors send the components of the unit and multiplication of the retract closure monad into natural
+isomorphisms, and so for every $U \co \cal{A} \to \catE^\to$, we have isomorphisms of categories
+\begin{gather*} 
+ \liftr{(\overline{\cal{A}})} \iso \liftr{\cal{A}} \, , \quad
+ \liftr{(\overline{\overline{\cal{A}}})} \iso \liftr{\overline{\cal{A}}}  \qquad
+ \liftl{(\overline{\cal{A}})} \iso \liftl{\cal{A}} \, , \quad
+ \liftl{(\overline{\overline{\cal{A}}})} \iso \liftl{\overline{\cal{A}}}
+\end{gather*} 
+over $\catE^\to$. \qed
+\end{lemma}
+
+
+
+
+\begin{remark} Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s : \retA \to \retB$ and $r : \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$. The retract closure of $U \co \cal{A} \to \catE^\to$ fits into the following diagram, involving strict pullback and left composition:
 \[
 \xymatrix@C+1em{
-  \overline{\cat{A}}
+  \overline{\cal{A}}
   \ar[r]
   \ar[d]
   \ar@/_2em/[dd]_{\overline{U}}
   \pullback{dr}
 &
-  \cat{A}
+  \cal{A}
   \ar[d]^{U}
 \\
   (\catE^{\to})^{\ret}
@@ -445,122 +545,84 @@ Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we define its
   \catE^{\to}
 }
 \]
-Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\catE^{\to}$, \ie an arrow $e : \catE^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
-\[
-\xymatrix{
-  e
-  \ar[r]_{s}
-  \ar@/^1em/[rr]^{\id}
-&
-  U(a)
-  \ar[r]_{r}
-&
-  e
-}
-\]
-The action of $\overline{U}$ on this object is $\overline{U}(a, e, s, t) = e$.
-A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\catE^{\to}$ such that the evident squares commute:
-\[
-\xymatrix{
-  e
-  \ar[r]_{s}
-  \ar@/^1em/[rr]^{\id}
-  \ar[d]_{h}
-&
-  U(a)
-  \ar[r]_{r}
-  \ar[d]^{U(f)}
-&
-  e
-  \ar[d]^{h}
-\\
-  e'
-  \ar[r]^{s'}
-  \ar@/_1em/[rr]_{\id}
-&
-  U(a')
-  \ar[r]^{r'}
-&
-  e'
-}
-\]
-The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
+The unit of the monad is formally induced by $(\catE^{\to})^{\canonical} : \catE^{\to} \to (\catE^{\to})^{\ret}$ being a section to $(\catE^{\to})^{\retB}$.
+\end{remark}
 
-We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\catE^{\to}$ formally induced by $(\catE^{\to})^{\canonical} : \catE^{\to} \to (\catE^{\to})^{\ret}$ being a section to $(\catE^{\to})^{\retB}$.
-With the explicit description of objects, it maps $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
-We also have a map $\overline{\overline{\cat{A}}} \to \overline{\cat{A}}$ of categories over $\catE^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
-This makes retract closure into a monad.
-
-\begin{lemma}
-\label{retract-closure}
-Recall the adjunction~\eqref{garner-adjunction}.
-The functors $\liftr{\brarghole}$ and $\liftl{\brarghole}$ maps unit and multiplication of retract closure to natural isomorphisms.
-\end{lemma}
 
 \begin{remark}
 \label{retract-closure-slicing}
-Taking the retract closure commutes (up to natural isomorphism) with slicing and coslicing.
+Taking the retract closure commutes with slicing and coslicing.
 \end{remark}
 
 \medskip
 
-We will also need to consider the action of left Kan extensions on orthogonality classes.
+We conclude this section by considering the interaction between the orthogonality functors and  Kan extensions.
 
-Let $U : \cat{A} \to \catE^{\to}$ be a category over $\catE^{\to}$.
-Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
-Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
-\begin{mathpar}
+
+
+
+\begin{lemma} Let $F \co \cal{A} \to \cal{B}$ be a fully faithful functor. 
+\label{kan-extension-closure}
+\begin{enumerate}[(i)]
+\item Assuming that the pointwise left Kan extension of 
+$U \co \cal{A} \to \catE^{\to}$ along $F$ exists
+\[
 \xymatrix{
-  \cat{A}
+  \cal{A}
   \ar[dr]_{U}
   \ar[rr]^{F}
 &&
-  \cat{B}
+  \cal{B}
   \ar[dl]^{\Lan_F U}
 \\&
   \catE^{\to}
 }
-\and
+\]
+then the functor $\liftr{F} \co \liftr{\cal{B}} \to \liftr{\cal{A}}$,  fitting in the diagram
+\[
 \xymatrix{
-  \cat{A}
-  \ar[dr]_{U}
-  \ar[rr]^{F}
-&&
-  \cat{B}
-  \ar[dl]^{\Ran_F U}
-\\&
-  \catE^{\to}
-}
-\end{mathpar}
-Note the triangles will be (strictly) commuting since $F$ is fully faithful.
-
-\begin{lemma}
-\label{kan-extension-closure}
-The following functors induced by the adjunction~\eqref{garner-adjunction} are isomorphisms:
-\begin{mathpar}
-\xymatrix{
-  \liftr{\cat{A}}
+  \liftr{\cal{A}}
   \ar[dr]_{\liftr{U}}
 &&
-  \liftr{\cat{B}}
-  \ar[ll]_{\liftr{F}}^{\simeq}
+  \liftr{\cal{B}}
+  \ar[ll]_{\liftr{F}}
   \ar[dl]^{\liftr{(\Lan_F U)}}
 \\&
   \catE^{\to}
 }
-\and
+\]
+is an isomorphism.
+\item Assuming that the pointwise right Kan extension of 
+$U \co \cal{A} \to \catE^{\to}$ along $F$ exists
+\[
 \xymatrix{
-  \liftl{\cat{A}}
+  \cal{A}
+  \ar[dr]_{U}
+  \ar[rr]^{F}
+&&
+  \cal{B}
+  \ar[dl]^{\Ran_F U}
+\\&
+  \catE^{\to}
+}
+\]
+then the functor $\liftl{F} \co \liftl{\cal{B}} \to \liftl{\cal{A}}$, fitting in the diagram
+\[
+\xymatrix{
+  \liftl{\cal{A}}
   \ar[dr]_{\liftl{U}}
 &&
-  \liftl{\cat{B}}
-  \ar[ll]_{\liftl{F}}^{\simeq}
+  \liftl{\cal{B}}
+  \ar[ll]_{\liftl{F}}
   \ar[dl]^{\liftl{(\Ran_F U)}}
 \\&
   \catE^{\to}
 }
-\end{mathpar}
+\]
+is an isomorphism. \qed
+\end{enumerate}
 \end{lemma}
+
 
 
 
@@ -1112,20 +1174,7 @@ Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to
 
 Given a square $X : \catE^{\Box}$, we will sometimes equivalently view it as a morphism in $\catE^{\to}$ from $X\sql$ to $X\sqr$.
 
-Recall from~\cite{garner:small-object-argument} that the Galois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\catE$ may be lifted to an adjunction of categories over $\catE^{\to}$:
-\begin{equation}
-\label{garner-adjunction}
-\begin{gathered}
-\xymatrix@C+1em{
-  \CAT/\catE^{\to}
-  \ar@<5pt>[r]^{\liftl{\brarghole}}
-  \ar@{}[r]|{\bot}
-&
-  (\CAT/\catE^{\to})^{\op}
-  \ar@<5pt>[l]^{\liftr{\brarghole}}
-}
-\end{gathered}
-\end{equation}
+Recall from~\cite{garner:small-object-argument} that the Galois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\catE$ may be lifted to an adjunction of categories over $\catE^{\to}$, as in~\eqref{garner-adjunction}. 
 
 \begin{lemma}
  \label{garner-adjunction-extended}
