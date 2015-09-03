@@ -26,7 +26,7 @@ Let $(\catE, \otimes, \unit)$ be a symmetric monoidal category, which we conside
 and morphisms $\intervall, \intervalr : \unit \to \interval$ and $\intervalc : \interval \to \unit$,   such that the following diagrams commute:
 \[
 \xymatrix{
-\unit \ar[r]^\intervall \ar[dr]_{1_\unit} & \interval \ar[d]^{c} & \unit \ar[dl]^{1_\unit} \ar[l]_{\intervalr}  \\
+\unit \ar[r]^\intervall \ar[dr]_{\id_\unit} & \interval \ar[d]^-{c} & \unit \ar[dl]^{\id_\unit} \ar[l]_{\intervalr}  \\
  & \unit & }
  \]
 \end{definition}
@@ -208,13 +208,13 @@ Here, instead of starting from a subset of $\catE^\to$, we consider a category $
  
  \begin{definition} Let $U \co \cal{A} \to \catE^\to$ be a functor and $g \co C \to D$ a map in $\catE$. 
  A \emph{right lifting structure} on $g \co C \to D$ with respect to $U$ is 
- a function  $\phi$ that assigns to each $a \in \cat{A}$ and commuting square
+ a function  $\phi$ that assigns to each $a \in \cal{A}$ and commuting square
 \[
 \xymatrix@C=2cm{
 A \ar[r]^{h}   \ar[d]_{U a} & C \ar[d]^g \\
 B \ar[r]_{k} & D}
 \]
-a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\catA$, 
+a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\cal{A}$, 
 with image under $U$ given by
 \[
 \xymatrix{
@@ -231,33 +231,35 @@ commutes.
  \end{definition}
  
  Using this notion, we recall the definition of the action of the right adjoint in~\eqref{garner-adjunction}. 
- Given $U \co \cal{A} \to \catE^\to$, we define $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
+ Given $U \co \cal{A} \to \catE^\to$, we define the category $\liftr{\cal{A}}$ and the functor 
+  $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
 $ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a left lifting structure for $g$.
-Arrows $(g, \phi) \to (g', \phi')$ are squares $g \Rightarrow g'$ satisfying an appropriate compatibility condition
+The arrows $\alpha \co (g, \phi) \to (g', \phi')$ are squares $\alpha \co g \Rightarrow g'$ in $\cal{A}$ satisfying an appropriate compatibility condition
 with respect to the right lifting structures. The functor $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ in then given by
 the evident forgetful functor. The left adjoint in~\eqref{garner-adjunction} is defined analogously, using the
 notion of a left lifting structure.
 
+\medskip
 
-
+In the remainder of this section, we extend some useful facts about the usual notion of orthogonality to its algebraic counterpart. 
 
 
 \begin{lemma}
 Consider a natural transformation between categories over $\catE^{\to}$:
 \[
 \xymatrix{
-  \cat{A}
+  \cal{A}
   \rrtwocell_G^F{\sigma}
  \ar[dr]_{U}
 &&
-  \cat{B}
+  \cal{B}
   \ar[dl]^{V}
 \\&
   \catE^{\to}
 }
 \]
 Note that this includes the condition $V \sigma = \id_U$.
-Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
+Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$, 
 \begin{mathpar}
 \xymatrix{
   \liftr{\cat{A}}
@@ -283,78 +285,101 @@ Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
 \end{mathpar}
 \end{lemma}
 
+\begin{proof} Immediate.
+\end{proof} 
+
 \medskip
 
-We now consider the effect of adjoint functors on orthogonal classes.
+We now consider the effect of adjoint functors on orthogonality. In the standard setting, it is well known that 
 
-Consider an adjunction as follows:
+
+Co
+
+
+\begin{lemma} \label{lift-of-adjunction} 
+Let $U : \cal{A} \to \cal{E}^{\to}$ and $V : \cal{B} \to \cal{F}^{\to}$ be functors and consider an adjunction
 \[
 \xymatrix@C+1em{
-  \cat{D}
-  \ar@<5pt>[r]^{L}
+  \cal{E}
+  \ar@<5pt>[r]^{F}
   \ar@{}[r]|{\bot}
 &
-  \catE
-  \ar@<5pt>[l]^{R}
+  \cal{F}
+  \ar@<5pt>[l]^{G}
 }
 \]
-Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \catE^{\to}$ be categories over $\cat{D}^{\to}$ and $\catE^{\to}$, respectively.
-
-\begin{lemma}
-\label{lift-of-adjunction}
-Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural correspondence with lifts of $R^{\to}$ to a functor $\cat{B} \to \liftr{\cat{A}}$:
-\begin{mathpar}
-\xymatrix{
-  \cat{A}
-  \ar@{.>}[r]
+Then, the following are equivalent:
+\begin{enumerate}[(i)] 
+\item the  functor $F \co \cal{E}^\to \to \cal{F}^\to$ extends to a functor $F' \co \cal{A} \to \liftl{\cal{B}}$ making the following diagram commute:
+\[
+\xymatrix@C=1.2cm{
+  \cal{A}
+  \ar[r]^{F'}
   \ar[d]_{U}
 &
-  \liftl{\cat{B}}
+  \liftl{\cal{B}}
   \ar[d]^{\liftl{V}}
 \\
-  \cat{D}^{\to}
-  \ar[r]^{L^{\to}}
+  \cal{E}^{\to}
+  \ar[r]_-{F}
 &
-  \catE^{\to}
-}
-\and
+  \cal{F}^{\to}\, ,}
+\]
+\item the functor $G \co \cal{F}^\to \to \cal{E}^\to$ extends to a functor $G' \co \cal{B} \to \liftr{\cal{A}}$, making the following diagram commute:
+\[
 \xymatrix{
-  \liftr{\cat{A}}
+  \liftr{\cal{A}}
   \ar[d]_{\liftr{U}}
 &
-  \cat{B}
-  \ar@{.>}[l]
+  \cal{B}
+  \ar[l]_{G'} 
   \ar[d]^{V}
 \\
-  \cat{D}^{\to}
+  \cal{E}^{\to}
 &
-  \catE^{\to}
-  \ar[l]^{R^{\to}}
+  \cal{F}^{\to}
+  \ar[l]^{G}
 }
-\end{mathpar}
+\]
+\end{enumerate}
 \end{lemma}
 
-\begin{proof}
-Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\catE^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
-Similarly, maps from $R^{\to} \cc V$ to $\liftr{U}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
-Since $L \dashv R$, these situations coincide.
+\begin{proof} Giving a functor $F' \co \cal{A} \to \liftl{\cal{B}}$ as above is the same thing as giving fillers for squares of the form
+\[
+\xymatrix{
+FA \ar[d]_{FUa} \ar[r] & C \ar[d]^{Vb} \\
+FB \ar[r] & D }
+\]
+natural in $a  \in \cal{A}$ and $b \in \cal{B}$. Similarly, giving a functor $G' \co \cal{B} \to \liftl{\cal{A}}$ as above is the same thing as giving fillers for squares 
+of the form
+\[
+\xymatrix{
+A \ar[d]_{Ua} \ar[r] & GC \ar[d]^{GVb} \\
+B \ar[r] & GD }
+\]
+ natural in $a \in \cal{A}$ and $b \in \cal{B}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
 \medskip
 
 
-We now consider slicing.
-
-Let $X$ be an object of $\catE$.
-Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\catE/X \to \catE$ forgetting the slicing information:
+We now consider slicing. In the classical setting it is well-known that slicing and taking orthogonality classes commute with each other. In order to provide a counterpart of this fact, we need some auxiliary definitions. Given a functor $U : \cat{A} \to \catE^{\to}$ and $X \in \catE$.  we define the category $\cal{A}/X$
+and a functor $U/X \co \cal{A}/X \to (\cal{E}/X)^\to$ as follows. The category $\cat{A}/X$ has as objects pairs consisting of an object $a \in \cal{A}$ and a commutative triangle of the form
 \[
 \xymatrix{
-  \cat{A}_{/X}
+A \ar[dr] \ar[rr]^{Ua} & & B  \ar[dl] \\
+ & X }
+ \]
+The functor $U/X$ sends such a pair to $Ua \co A \to B$, viewed as a morphism in $\cal{E}/X$. This category fits into the
+following pullback diagram:
+\[
+\xymatrix{
+  \cal{A}/X
   \ar[r]
-  \ar[d]_{U_{/X}}
+  \ar[d]_{U/X}
   \pullback{dr}
 &
-  \cat{A}
+  \cal{A}
   \ar[d]^{U}
 \\
   (\catE/X)^{\to}
@@ -363,30 +388,34 @@ Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we construct 
   \catE^{\to}
 }
 \]
-Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\catE$ from the codomain of $U(Y)$ to $X$.
-
-Dually, (strictly) pulling back along the map on arrows induced by $\catE \backslash X \to \catE$ constructs the \emph{coslice} over $X$:
+where we used the functor on arrow categories induced by $\catE/X \to \catE$ forgetting the slicing information.  Dually, taking the strict pullback along the map on arrows induced by the forgetful functor $X/\cal{E} \to \catE$ constructs the \emph{coslice} over $X$:
 \[
 \xymatrix{
-  \cat{A}_{\backslash X}
+  X/\cal{A}
   \ar[r]
-  \ar[d]_{U_{\backslash X}}
+  \ar[d]_{X/U}
   \pullback{dr}
 &
-  \cat{A}
+  \cal{A}
   \ar[d]^{U}
 \\
-  (\catE \backslash X)^{\to}
+  (X/\catE)^{\to}
   \ar[r]
 &
   \catE^{\to}
 }
 \]
+which also admits an explicit description dual to the one given above for $\catA_{/X}$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
 
-\begin{remark}
+
+
+\begin{lemma} \hfill 
 \label{pitchfork-slicing}
-Just as in the non-algebraic setting, the functor $\liftr{\brarghole}$ and $\liftl{\brarghole}$ commute (up to natural isomorphism) with slicing and coslicing, respectively.
-\end{remark}
+\begin{enumerate}[(i)]
+\item The functor $\liftr{\brarghole}$ commutes (up to natural isomorphism) with slicing.
+\item The functor $\liftl{\brarghole}$ commutes (up to natural isomorphism) with coslicing.
+\end{enumerate}
+\end{lemma}
 
 \medskip
 
