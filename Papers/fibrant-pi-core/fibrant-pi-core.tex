@@ -17,25 +17,25 @@ This generalizes work by Coquand \etal.
 
 \section{Lifting against Arrows}
 
-For this section, fix a category $\cat{E}$.
-There is a well known Gallois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\cat{E}$ and its opposite.
+For this section, fix a category $\catE$.
+There is a well known Gallois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite.
 Garner~\cite{garner:small-object-argument} shows how to extend this to an adjunction between categories of arrows:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\to}
+  \CAT/\catE^{\to}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
-  (\CAT/\cat{E}^{\to})^{\op}
+  (\CAT/\catE^{\to})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
 \end{equation}
 
 \begin{lemma}
-Consider a natural transformation between categories over $\cat{E}^{\to}$:
+Consider a natural transformation between categories over $\catE^{\to}$:
 \[
 \xymatrix{
   \cat{A}
@@ -45,7 +45,7 @@ Consider a natural transformation between categories over $\cat{E}^{\to}$:
   \cat{B}
   \ar[dl]^{V}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \]
 Note that this includes the condition $V \sigma = \id_U$.
@@ -59,7 +59,7 @@ Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
   \lltwocell_{\liftr{F}}^{\liftr{G}}{=}
   \ar[dl]^{\liftr{V}}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \and
 \xymatrix{
@@ -70,7 +70,7 @@ Then $\liftr{F}$ and $\liftr{G}$ as well as $\liftl{F}$ and $\liftl{G}$ agree:
   \lltwocell_{\liftl{F}}^{\liftl{G}}{=}
   \ar[dl]^{\liftl{V}}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \end{mathpar}
 \end{lemma}
@@ -84,11 +84,11 @@ Consider an adjunction as follows:
   \ar@<5pt>[r]^{L}
   \ar@{}[r]|{\bot}
 &
-  \cat{E}
+  \catE
   \ar@<5pt>[l]^{R}
 }
 \]
-Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ be categories over $\cat{D}^{\to}$ and $\cat{E}^{\to}$, respectively.
+Let $U : \cat{A} \to \cat{D}^{\to}$ and $V : \cat{B} \to \catE^{\to}$ be categories over $\cat{D}^{\to}$ and $\catE^{\to}$, respectively.
 
 \begin{lemma}
 \label{lift-of-adjunction}
@@ -105,7 +105,7 @@ Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural cor
   \cat{D}^{\to}
   \ar[r]^{L^{\to}}
 &
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \and
 \xymatrix{
@@ -118,22 +118,22 @@ Lifts of $L^{\to}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural cor
 \\
   \cat{D}^{\to}
 &
-  \cat{E}^{\to}
+  \catE^{\to}
   \ar[l]^{R^{\to}}
 }
 \end{mathpar}
 \end{lemma}
 
 \begin{proof}
-Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\cat{E}^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Maps from $L^{\to} \cc U$ to $\liftl{V}$ over $\catE^{\to}$ consist of fillers for squares $L^{\to}(U(X)) \to V(Y)$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Similarly, maps from $R^{\to} \cc V$ to $\liftr{U}$ over $\cat{D}^{\to}$ consist of fillers for squares $U(X) \to R^{\to}(V(Y))$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Since $L \dashv R$, these situations coincide.
 \end{proof}
 
 \subsection{Slicing}
 
-Let $X$ be an object of $\cat{E}$.
-Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+Let $X$ be an object of $\catE$.
+Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\catE/X \to \catE$ forgetting the slicing information:
 \[
 \xymatrix{
   \cat{A}_{/X}
@@ -144,15 +144,15 @@ Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we constr
   \cat{A}
   \ar[d]^{U}
 \\
-  (\cat{E}/X)^{\to}
+  (\catE/X)^{\to}
   \ar[r]
 &
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \]
-Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the codomain of $U(Y)$ to $X$.
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\catE$ from the codomain of $U(Y)$ to $X$.
 
-Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+Dually, (strictly) pulling back along the map on arrows induced by $\catE \backslash X \to \catE$ constructs the \emph{coslice} over $X$:
 \[
 \xymatrix{
   \cat{A}_{\backslash X}
@@ -163,10 +163,10 @@ Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \bac
   \cat{A}
   \ar[d]^{U}
 \\
-  (\cat{E} \backslash X)^{\to}
+  (\catE \backslash X)^{\to}
   \ar[r]
 &
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \]
 
@@ -183,7 +183,7 @@ Just as in the non-algebraic setting, the functor $\liftr{\brarghole}$ and $\lif
 
 Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s : \retA \to \retB$ and $r : \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$.
 
-Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \cat{E}^{\to}$ using (strict) pullback and left composition:
+Given a category $U : \cat{A} \to \catE^{\to}$ over $\catE^{\to}$, we define its retract closure $\overline{U} : \overline{\cat{A}} \to \catE^{\to}$ using (strict) pullback and left composition:
 \[
 \xymatrix@C+1em{
   \overline{\cat{A}}
@@ -195,16 +195,16 @@ Given a category $U : \cat{A} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$, we define
   \cat{A}
   \ar[d]^{U}
 \\
-  (\cat{E}^{\to})^{\ret}
-  \ar[r]^-{(\cat{E}^{\to})^{\retB}}
-  \ar[d]^{(\cat{E}^{\to})^{\retA}}
+  (\catE^{\to})^{\ret}
+  \ar[r]^-{(\catE^{\to})^{\retB}}
+  \ar[d]^{(\catE^{\to})^{\retA}}
 &
-  \cat{E}^{\to}
+  \catE^{\to}
 \\
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \]
-Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\cat{E}^{\to}$, \ie an arrow $e : \cat{E}^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
+Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a retract of $U(a)$ in $\catE^{\to}$, \ie an arrow $e : \catE^{\to}$ together with maps $s : e \to U(a)$ and $r : U(a) \to e$ such that $r \cc s = \id_e$:
 \[
 \xymatrix{
   e
@@ -218,7 +218,7 @@ Explicitly, an object of $\overline{\cat{A}}$ consists of $a : \cat{A}$ and a re
 }
 \]
 The action of $\overline{U}$ on this object is $\overline{U}(a, e, s, t) = e$.
-A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\to}$ such that the evident squares commute:
+A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\catE^{\to}$ such that the evident squares commute:
 \[
 \xymatrix{
   e
@@ -245,9 +245,9 @@ A morphism between such objects $(a, e, s, t)$ and $(a', e', s', t')$ consists o
 \]
 The action of $\overline{U}$ on this morphism is $\overline{U}(f, h) = h$.
 
-We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\to}$ formally induced by $(\cat{E}^{\to})^{\canonical} : \cat{E}^{\to} \to (\cat{E}^{\to})^{\ret}$ being a section to $(\cat{E}^{\to})^{\retB}$.
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}$ of categories over $\catE^{\to}$ formally induced by $(\catE^{\to})^{\canonical} : \catE^{\to} \to (\catE^{\to})^{\ret}$ being a section to $(\catE^{\to})^{\retB}$.
 With the explicit description of objects, it maps $a$ to $(a, U(a), \id_{U(a)}, \id_{U(a)})$.
-We also have a map $\overline{\overline{\cat{A}}} \to \overline{\cat{A}}$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+We also have a map $\overline{\overline{\cat{A}}} \to \overline{\cat{A}}$ of categories over $\catE^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
 This makes retract closure into a monad.
 
 \begin{lemma}
@@ -263,7 +263,7 @@ Taking the retract closure commutes (up to natural isomorphism) with slicing and
 
 \subsection{Kan extension}
 
-Let $U : \cat{A} \to \cat{E}^{\to}$ be a category over $\cat{E}^{\to}$.
+Let $U : \cat{A} \to \catE^{\to}$ be a category over $\catE^{\to}$.
 Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
 Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
 \begin{mathpar}
@@ -275,7 +275,7 @@ Assume respectively that the pointwise left and right Kan extension of $U$ along
   \cat{B}
   \ar[dl]^{\Lan_F U}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \and
 \xymatrix{
@@ -286,7 +286,7 @@ Assume respectively that the pointwise left and right Kan extension of $U$ along
   \cat{B}
   \ar[dl]^{\Ran_F U}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \end{mathpar}
 Note the triangles will be (strictly) commuting since $F$ is fully faithful.
@@ -303,7 +303,7 @@ The following functors induced by the adjunction~\eqref{garner-adjunction} are i
   \ar[ll]_{\liftr{F}}^{\simeq}
   \ar[dl]^{\liftr{(\Lan_F U)}}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \and
 \xymatrix{
@@ -314,15 +314,15 @@ The following functors induced by the adjunction~\eqref{garner-adjunction} are i
   \ar[ll]_{\liftl{F}}^{\simeq}
   \ar[dl]^{\liftl{(\Ran_F U)}}
 \\&
-  \cat{E}^{\to}
+  \catE^{\to}
 }
 \end{mathpar}
 \end{lemma}
 
 \section{Lifting against Squares}
 
-For this section, fix again a category $\cat{E}$.
-The \emph{square category} $\cat{E}^{\Box}$ is the double arrow category $(\cat{E}^{\to})^{\to}$.
+For this section, fix again a category $\catE$.
+The \emph{square category} $\catE^{\Box}$ is the double arrow category $(\catE^{\to})^{\to}$.
 We have evident inclusions $\squl, \squr, \sqdl, \sqdr$ of the walking object and $\sql, \sqr, \squ, \sqd$ of the walking arrow into the walking square:
 \[
 \xymatrix{
@@ -342,22 +342,22 @@ We have evident inclusions $\squl, \squr, \sqdl, \sqdr$ of the walking object an
 \]
 We also have projections $\sqhori$ and $\sqvert$ from the walking square to the walking arrow that are sections to $\sql, \sqr$ and $\squ, \sqd$, respectively.
 
-Given a square $X : \cat{E}^{\Box}$, its corners and sides are thus respectively given by functor precomposition as $X\squl, X\squr, X\sqdl, X\sqdr : \cat{E}$ and $X\sql, X\sqr, X\squ, X\sqd : \cat{E}^{\to}$.
-Similarly, given a line $f : \cat{E}^{\to}$, then $f\sqhori$ and $f\sqvert$ are the squares that have identities as horizontal and vertical sides, respectively, with the other sides being given by $f$.
+Given a square $X : \catE^{\Box}$, its corners and sides are thus respectively given by functor precomposition as $X\squl, X\squr, X\sqdl, X\sqdr : \catE$ and $X\sql, X\sqr, X\squ, X\sqd : \catE^{\to}$.
+Similarly, given a line $f : \catE^{\to}$, then $f\sqhori$ and $f\sqvert$ are the squares that have identities as horizontal and vertical sides, respectively, with the other sides being given by $f$.
 Note that if $h : X \to Y$ is a morphism of squares, then \eg $h\sql : X\sql \to Y\sql$ will denote the induced morphism between the left sides, and analogously for the other operations as indicated by the suggestive functor precomposition notation.
 
-Given a square $X : \cat{E}^{\Box}$, we will sometimes equivalently view it as a morphism in $\cat{E}^{\to}$ from $X\sql$ to $X\sqr$.
+Given a square $X : \catE^{\Box}$, we will sometimes equivalently view it as a morphism in $\catE^{\to}$ from $X\sql$ to $X\sqr$.
 
-Recall from~\cite{garner:small-object-argument} that the Gallois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\cat{E}$ may be lifted to an adjunction of categories over $\cat{E}^{\to}$:
+Recall from~\cite{garner:small-object-argument} that the Gallois connection $\liftl{\brarghole} \dashv \liftr{\brarghole}$ on the class of arrows of $\catE$ may be lifted to an adjunction of categories over $\catE^{\to}$:
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\to}
+  \CAT/\catE^{\to}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
-  (\CAT/\cat{E}^{\to})^{\op}
+  (\CAT/\catE^{\to})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
@@ -370,11 +370,11 @@ The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction 
 \label{garner-adjunction-extended}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\Box}
+  \CAT/\catE^{\Box}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
-  (\CAT/\cat{E}^{\Box})^{\op}
+  (\CAT/\catE^{\Box})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
@@ -383,7 +383,7 @@ The adjunction~\eqref{garner-adjunction} can be lifted further to an adjunction 
 
 \begin{proof}[Proof (adapted from \cite{garner:small-object-argument})]
 Let us first define the functor $\liftr{\brarghole}$.
-It sends $U : \cat{A} \to \cat{E}^{\Box}$ to the category $\liftr{\cat{A}}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \cat{E}^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
+It sends $U : \cat{A} \to \catE^{\Box}$ to the category $\liftr{\cat{A}}$ that has as objects pairs $(T, \phi)$ consisting of a square $T : \catE^{\Box}$ with a coherent choice $\phi$ of \emph{compositions}.
 For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\phi(A, M)$ is a lift in the composite square indicated below:
 \[
 \xymatrix{
@@ -420,13 +420,13 @@ For $X : A$ and a ``middle square'' $M : U(X)\sqr \to T\sql$, a composition $\ph
 \]
 Coherence of composition means that for a morphism $f : X \to X'$ in $\cat{A}$ and a square $M' : U(X)\sqr \to T\sql$, we have $\phi(X, M \cc U(f)\sqr) = \phi(X', M') \cc U(f)\sqdl$.
 A morphism in $\liftr{\cat{A}}$ from $(T, \phi)$ to $(T', \phi')$ is a morphism $t : T \to T'$ of squares respecting the choice of liftings $\phi$ and $\phi'$: for $X : A$ and $M : U(X)\sqr \to T$, we must have $t\squr \cc \phi(X, M) = \phi'(X, t\sql \cc M)$.
-We have an evident forgetful functor from $\liftr{\cat{A}} \to \cat{E}^{\Box}$.
+We have an evident forgetful functor from $\liftr{\cat{A}} \to \catE^{\Box}$.
 
 This concludes the construction of the action of $\liftr{\brarghole}$ on objects.
-The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$ over $\cat{E}^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
+The action on a morphism $F : \cat{A} \to \cat{B}$ is given by the functor $\liftr{\cat{B}} \to \liftr{\cat{A}}$ over $\catE^{\Box}$ sending $(T, \psi)$ to $(T, \phi)$ where $\phi(X, M) = \psi(F(X), M)$.
 
 The functor $\liftl{\brarghole}$ is defined analogously, but with directions and order of composition swapped.
-To see that $\liftl{\brarghole} \dashv \liftr{\brarghole}$, note that given categories $U : \cat{A} \to \cat{E}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, both functors $\cat{A} \to \liftl{\cat{B}}$ and $\cat{B} \to \liftr{\cat{A}}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
+To see that $\liftl{\brarghole} \dashv \liftr{\brarghole}$, note that given categories $U : \cat{A} \to \catE^{\Box}$ and $V : \cat{B} \to \catE^{\Box}$ over $\catE^{\Box}$, both functors $\cat{A} \to \liftl{\cat{B}}$ and $\cat{B} \to \liftr{\cat{A}}$ may be identified with ``$(\cat{A}, \cat{B})$-lifting operations'': a function $\psi$ that assigns to objects $X : \cat{A}$ and $Y : \cat{B}$ and a ``middle square'' $M : U(X)\sqr \to V(Y)\sql$ a lift for the composite square 
 \[
 \xymatrix{
   \bullet
@@ -465,17 +465,17 @@ that is natural in the evident manner in both $X$ and $Y$.
 
 \begin{remark}
 \label{extended-adjunction-gives-normal-one}
-Recall the inclusion $E\sqhori : \cat{E}^{\to} \to \cat{E}^{\Box}$ that sends a line $f$ to the square with left and right sides $f$ and up and bottom sides identities.
-It related categories over $\cat{E}^{\Box}$ and $\cat{E}^{\to}$ by an adjunction:
+Recall the inclusion $E\sqhori : \catE^{\to} \to \catE^{\Box}$ that sends a line $f$ to the square with left and right sides $f$ and up and bottom sides identities.
+It related categories over $\catE^{\Box}$ and $\catE^{\to}$ by an adjunction:
 \begin{equation}
 \label{adjunction-between-E-square-and-E-to}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\Box}
+  \CAT/\catE^{\Box}
   \ar@<5pt>[r]^{E\sqhori_!}
   \ar@{}[r]|{\bot}
 &
-  \CAT/\cat{E}^{\to}
+  \CAT/\catE^{\to}
   \ar@<5pt>[l]^{(E\sqhori)^*}
 }
 \end{gathered}
@@ -484,23 +484,23 @@ In fact, as can be confirmed from inspection of the constructions, the adjunctio
 \begin{equation*}
 \begin{gathered}
 \xymatrix@R+1em@C+1em{
-  \CAT/\cat{E}^{\to}
+  \CAT/\catE^{\to}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
   \ar@<5pt>[d]^{(E\sqhori)^*}
   \ar@{}[d]|{\dashv}
 &
-  (\CAT/\cat{E}^{\to})^{\op}
+  (\CAT/\catE^{\to})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
   \ar@<5pt>[d]^{((E\sqhori)^*)^{\op}}
   \ar@{}[d]|{\vdash}
 \\
-  \CAT/\cat{E}^{\Box}
+  \CAT/\catE^{\Box}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
   \ar@<5pt>[u]^{E\sqhori_!}
 &
-  (\CAT/\cat{E}^{\Box})^{\op}
+  (\CAT/\catE^{\Box})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
   \ar@<5pt>[u]^{(E\sqhori_!)^{\op}}
 }
@@ -511,11 +511,11 @@ If we only choose to either pre- or postcompose, we end up with ``mixed'' versio
 \label{garner-adjunction-extended-mixed}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\Box}
+  \CAT/\catE^{\Box}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
-  (\CAT/\cat{E}^{\to})^{\op}
+  (\CAT/\catE^{\to})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
@@ -525,11 +525,11 @@ or:
 \label{garner-adjunction-extended-mixed'}
 \begin{gathered}
 \xymatrix@C+1em{
-  \CAT/\cat{E}^{\to}
+  \CAT/\catE^{\to}
   \ar@<5pt>[r]^{\liftl{\brarghole}}
   \ar@{}[r]|{\bot}
 &
-  (\CAT/\cat{E}^{\Box})^{\op}
+  (\CAT/\catE^{\Box})^{\op}
   \ar@<5pt>[l]^{\liftr{\brarghole}}
 }
 \end{gathered}
@@ -545,11 +545,11 @@ Consider an adjunction as follows:
   \ar@<5pt>[r]^{L}
   \ar@{}[r]|{\bot}
 &
-  \cat{E}
+  \catE
   \ar@<5pt>[l]^{R}
 }
 \]
-Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \cat{E}^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\cat{E}^{\Box}$, respectively.
+Let $U : \cat{A} \to \cat{D}^{\Box}$ and $V : \cat{B} \to \catE^{\Box}$ be categories over $\cat{D}^{\Box}$ and $\catE^{\Box}$, respectively.
 We have a straightforward analogue of \cref{lift-of-adjunction}:
 
 \begin{lemma}
@@ -567,7 +567,7 @@ Lifts of $L^{\Box}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural co
   \cat{D}^{\Box}
   \ar[r]^{L^{\Box}}
 &
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \and
 \xymatrix{
@@ -580,14 +580,14 @@ Lifts of $L^{\Box}$ to a functor $\cat{A} \to \liftl{\cat{B}}$ are in natural co
 \\
   \cat{D}^{\Box}
 &
-  \cat{E}^{\Box}
+  \catE^{\Box}
   \ar[l]^{R^{\Box}}
 }
 \end{mathpar}
 \end{lemma}
 
 \begin{proof}
-Maps from $L^{\Box} \cc U$ to $\liftl{V}$ over $\cat{E}^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
+Maps from $L^{\Box} \cc U$ to $\liftl{V}$ over $\catE^{\Box}$ consist of composition for squares $L^{\Box}(U(X))\sqr \to V(Y)\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Similarly, maps from $R^{\Box} \cc V$ to $\liftr{U}$ over $\cat{D}^{\Box}$ consist of composition for squares $U(X)\sqr \to R^{\Box}(V(Y))\sql$ natural in $X : \cat{A}$ and $Y : \cat{B}$.
 Since $L \dashv R$, these situations coincide.
 \end{proof}
@@ -600,8 +600,8 @@ In fact, we have analogous statements for the ``mixed'' versions of the lifting 
 
 \subsection{Slicing}
 
-Let $X$ be an object of $\cat{E}$.
-Given a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\cat{E}/X \to \cat{E}$ forgetting the slicing information:
+Let $X$ be an object of $\catE$.
+Given a category $U : \cat{A} \to \catE^{\Box}$ over $\catE^{\Box}$, we construct its \emph{slice} over $X$ using (strict) pullback along the map on arrows induced by $\catE/X \to \catE$ forgetting the slicing information:
 \[
 \xymatrix{
   \cat{A}_{/X}
@@ -612,15 +612,15 @@ Given a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$, we cons
   \cat{A}
   \ar[d]^{U}
 \\
-  (\cat{E}/X)^{\Box}
+  (\catE/X)^{\Box}
   \ar[r]
 &
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \]
-Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\cat{E}$ from the bottom right corner of $U(Y)$ to $X$.
+Explicitly, the category $\cat{A}_{/X}$ has as objects pairs $(Y, h)$ where $Y : \cat{A}$ and $h$ is a map in $\catE$ from the bottom right corner of $U(Y)$ to $X$.
 
-Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \backslash X \to \cat{E}$ constructs the \emph{coslice} over $X$:
+Dually, (strictly) pulling back along the map on arrows induced by $\catE \backslash X \to \catE$ constructs the \emph{coslice} over $X$:
 \[
 \xymatrix{
   \cat{A}_{\backslash X}
@@ -631,10 +631,10 @@ Dually, (strictly) pulling back along the map on arrows induced by $\cat{E} \bac
   \cat{A}
   \ar[d]^{U}
 \\
-  (\cat{E} \backslash X)^{\Box}
+  (\catE \backslash X)^{\Box}
   \ar[r]
 &
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \]
 
@@ -651,9 +651,9 @@ In fact, we have analogous constructions and statements for the ``mixed'' versio
 
 \subsection{Retract closure}
 
-Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
-We define its left retract closure $\overline{U}_L : \overline{\cat{A}}_L \to \cat{E}^{\Box}$ as follows.
-An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \cat{E}^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\cat{E}^{\to}$:
+Let $U : \cat{A} \to \catE^{\Box}$ be a category over $\catE^{\Box}$.
+We define its left retract closure $\overline{U}_L : \overline{\cat{A}}_L \to \catE^{\Box}$ as follows.
+An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$ and $e : \catE^{\Box}$ together with morphisms $s : U(a)\sql \to e\sql$ and $r : e\sqr \to U(a)\sqr$ such that $r \cc U(a) \cc s = e$ where we $U(a)$ and $e$ as morphisms in $\catE^{\to}$:
 \[
 \xymatrix{
   e\sql
@@ -677,7 +677,7 @@ An object of $\overline{\cat{A}}_L$ is a tuple $(a, e, s, r)$ with $a : \cat{A}$
 }
 \]
 The action of $\overline{U}_L$ on this object is $\overline{U}_L(a, e, s, r) = e$.
-A morphism between such objects $(a, e, s, r)$ and $(a', e', s', r')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\cat{E}^{\Box}$ such that the evident squares commute:
+A morphism between such objects $(a, e, s, r)$ and $(a', e', s', r')$ consists of a morphism $f : a \to a'$ in $\cat{A}$ and a morphism $h : e \to e'$ in $\catE^{\Box}$ such that the evident squares commute:
 \[
 \xymatrix{
   e
@@ -704,8 +704,8 @@ A morphism between such objects $(a, e, s, r)$ and $(a', e', s', r')$ consists o
 \]
 The action of $\overline{U}_L$ on this morphism is $\overline{U}_L(f, h) = h$.
 
-We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
-We also have a map $\overline{\overline{\cat{A}}_L}_L \to \overline{\cat{A}}_L$ of categories over $\cat{E}^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
+We have an evident inclusion $\cat{A} \to \overline{\cat{A}}_L$ of categories over $\catE^{\Box}$ mapping $a$ to $(a, U(a), \id_{U(a)\sql}, \id_{U(a)\sqr})$.
+We also have a map $\overline{\overline{\cat{A}}_L}_L \to \overline{\cat{A}}_L$ of categories over $\catE^{\Box}$ mapping $((a, e, s, r), e', s', r')$ to $(a, e', s \cc s', r' \cc r)$.
 This makes left retract closure into a monad.
 
 \begin{lemma}
@@ -716,7 +716,7 @@ The functor $\liftr{\brarghole}$ maps unit and multiplication of left retract cl
 
 \begin{remark}
 \label{retract-closure-extended-right}
-Dually, we have a right retract closure $\overline{U}_R : \overline{\cat{A}}_R \to \cat{E}^{\Box}$ for a category $U : \cat{A} \to \cat{E}^{\Box}$ over $\cat{E}^{\Box}$.
+Dually, we have a right retract closure $\overline{U}_R : \overline{\cat{A}}_R \to \catE^{\Box}$ for a category $U : \cat{A} \to \catE^{\Box}$ over $\catE^{\Box}$.
 Right retract closure forms a monad, with the functor $\liftl{\brarghole}$ mapping unit and comultiplication to natural isomorphisms.
 \end{remark}
 
@@ -733,7 +733,7 @@ In fact, we have analogous constructions and statements for the ``mixed'' versio
 
 \subsection{Kan extension}
 
-Let $U : \cat{A} \to \cat{E}^{\Box}$ be a category over $\cat{E}^{\Box}$.
+Let $U : \cat{A} \to \catE^{\Box}$ be a category over $\catE^{\Box}$.
 Consider a fully faithful functor $F : \cat{A} \to \cat{B}$.
 Assume respectively that the pointwise left and right Kan extension of $U$ along $F$ exist.
 \begin{mathpar}
@@ -745,7 +745,7 @@ Assume respectively that the pointwise left and right Kan extension of $U$ along
   \cat{B}
   \ar[dl]^{\Lan_F U}
 \\&
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \and
 \xymatrix{
@@ -756,7 +756,7 @@ Assume respectively that the pointwise left and right Kan extension of $U$ along
   \cat{B}
   \ar[dl]^{\Ran_F U}
 \\&
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \end{mathpar}
 Note the triangles will be (strictly) commuting since $F$ is fully faithful.
@@ -773,7 +773,7 @@ The following functors induced by the adjunction~\eqref{garner-adjunction-extend
   \ar[ll]_{\liftr{F}}^{\simeq}
   \ar[dl]^{\liftr{(\Lan_F U)}}
 \\&
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \and
 \xymatrix{
@@ -784,7 +784,7 @@ The following functors induced by the adjunction~\eqref{garner-adjunction-extend
   \ar[ll]_{\liftl{F}}^{\simeq}
   \ar[dl]^{\liftl{(\Ran_F U)}}
 \\&
-  \cat{E}^{\Box}
+  \catE^{\Box}
 }
 \end{mathpar}
 \end{lemma}
@@ -800,12 +800,12 @@ In fact, we have analogous statements for the ``mixed'' versions of the lifting 
 
 \subsection{The setting}
 
-Let $(\cat{E}, \unit, \otimes)$ be a symmetric monoidal category.
-Fix an \emph{interval} object $\interval : \cat{E}$ with a map $\intervalc : \interval \to \unit$ and sections $\intervall, \intervalr : \unit \to \interval$ to $\intervalc$.
+Let $(\catE, \unit, \otimes)$ be a symmetric monoidal category.
+Fix an \emph{interval} object $\interval : \catE$ with a map $\intervalc : \interval \to \unit$ and sections $\intervall, \intervalr : \unit \to \interval$ to $\intervalc$.
 
 \begin{definition}
 \label{def:homotopy}
-Given maps $f, g : A \to B$ in $\cat{E}$, a \emph{homotopy} $h$ from $f$ to $g$, denoted $h : f \sim g$, is a map $h : \interval \otimes A \to B$ such that $h \cc (\intervall \otimes A) = f$ and $h \cc (\intervalr \otimes A) = g$:
+Given maps $f, g : A \to B$ in $\catE$, a \emph{homotopy} $h$ from $f$ to $g$, denoted $h : f \sim g$, is a map $h : \interval \otimes A \to B$ such that $h \cc (\intervall \otimes A) = f$ and $h \cc (\intervalr \otimes A) = g$:
 \[
 \xymatrix{
   A
@@ -826,7 +826,7 @@ Given maps $f, g : A \to B$ in $\cat{E}$, a \emph{homotopy} $h$ from $f$ to $g$,
 
 Recall the Leibniz construction and its properties \cite[Section 4]{riehl-verity:reedy}.
 For a bifunctor $H : \catC \times \catD \to \catE$, we will denote its associated Leibniz construction by $\hat{H} : \catC^{\to} \times \catD^{\to} \to \catE^{\to}$.
-Assuming now in addition that $\cat{E}$ is finitely cocomplete, this turns the arrow category of $\cat{E}$ into a symmetric monoidal category $(\cat{E}^{\to}, \hatunit, \hatotimes)$ with unit the canonical map $\hatunit : 0 \to \unit$.
+Assuming now in addition that $\catE$ is finitely cocomplete, this turns the arrow category of $\catE$ into a symmetric monoidal category $(\catE^{\to}, \hatunit, \hatotimes)$ with unit the canonical map $\hatunit : 0 \to \unit$.
 
 \begin{definition}
 \label{def:homotopy-equivalence}
@@ -864,7 +864,7 @@ Read vertically, it is a map $\thetar : \hatunit \to \intervall$ in the arrow ca
 The reason for the importance of~\eqref{trivial-square} is the following rather neat characterization of strong homotopy equivalences:
 \begin{lemma}
 \label{strong-h-equiv-as-section}
-Let $f : A \to B$ be a map in $\cat{E}$.
+Let $f : A \to B$ be a map in $\catE$.
 Making $f$ into a strong left homotopy equivalence is equivalent to making $\thetal \hatotimes f : f \to \intervalr \hatotimes f$ into a section.
 Dually, making $f$ into a strong right homotopy equivalence is equivalent to making $\thetar \hatotimes f : f \to \intervall \hatotimes f$ into a section.
 \end{lemma}
@@ -939,25 +939,25 @@ Apply \cref{strong-h-equiv-as-section} and use that functors preserve and sectio
 \subsection{Trivial Algebraic Fibrations}
 
 Recall the notion of adhesive morphisms~\cite{garner-lack:adhesive}.
-Let $\cal{I} : \cat{I} \to \cat{E}$ be a subcategory of adhesive morphisms in $\cat{E}$ with morphisms given by cartesian squares.
-Assume the subcategory $\cal{I}$ is closed under the monoidal operations of $\cat{E}^{\to}$, \ie that $(\cat{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $\cal{I}$ preserves the monoidal structure on the nose.
+Let $\cal{I} : \cat{I} \to \catE$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares.
+Assume the subcategory $\cal{I}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cat{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $\cal{I}$ preserves the monoidal structure on the nose.
 
-A \emph{trivial algebraic fibration} is a lift of a map in $\cat{E}$ to $\liftr{\cal{I}}$.
+A \emph{trivial algebraic fibration} is a lift of a map in $\catE$ to $\liftr{\cal{I}}$.
 
 \subsection{Algebraic Fibrations}
 
-An \emph{algebraic fibration} is a lift of a map in $\cat{E}$ to $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})}$.
+An \emph{algebraic fibration} is a lift of a map in $\catE$ to $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})}$.
 Here, we have used shorthand notation as follows.
-The expression $\braces{l, r}$ denotes the inclusion $1 + 1 \to \cat{E}^{\to}$ valued in $l$ and $r$.
-The box product $U \boxtimes V$ of categories $U : \cat{A} \to \cat{E}^{\to}$ and $V : \cat{B} \to \cat{E}^{\to}$ over $\cat{E}^{\to}$ is given by $(\arghole \otimes \arghole) \cc (U \times V) : \cat{A} \times \cat{B} \to \cat{E}^{\to}$.
+The expression $\braces{l, r}$ denotes the inclusion $1 + 1 \to \catE^{\to}$ valued in $l$ and $r$.
+The box product $U \boxtimes V$ of categories $U : \cat{A} \to \catE^{\to}$ and $V : \cat{B} \to \catE^{\to}$ over $\catE^{\to}$ is given by $(\arghole \otimes \arghole) \cc (U \times V) : \cat{A} \times \cat{B} \to \catE^{\to}$.
 
 Note that $\liftr{(\braces{\intervall, \intervalr} \boxtimes \cal{I})} \simeq \liftr{(l \otimes \cal{I}\brarghole)} \times \liftr{(r \otimes \cal{I}\brarghole)}$.
 
 \subsection{Algebraic Fibrations via Composition}
 
-We will write $\intervall$ and $\thetar$ also for the respective corresponding discrete subcategories of $\cat{E}^{\to}$ and $\cat{E}^{\Box}$ on a single object; the same convention applies to other arrows and squares.
+We will write $\intervall$ and $\thetar$ also for the respective corresponding discrete subcategories of $\catE^{\to}$ and $\catE^{\Box}$ on a single object; the same convention applies to other arrows and squares.
 
-Since $\intervall$ is the right side of $\thetar$, we have a functor $F : \thetar \to \overline{\intervall}_L$ of categories over $\cat{E}^{\to}$.
+Since $\intervall$ is the right side of $\thetar$, we have a functor $F : \thetar \to \overline{\intervall}_L$ of categories over $\catE^{\to}$.
 This induces a functor $F \hatotimes \cal{I} : \thetar \hatotimes \cal{I} \to \overline{\intervall}_L \hatotimes \cal{I}$.
 Under certain conditions, which we will now examine, the square pitchfork adjunction turns this left functor into an isomorphism.
 
@@ -977,12 +977,12 @@ In particular, arrows $\intervall \hatotimes \cal{I}$ and $\thetar \hatotimes \c
 \end{lemma}
 
 \begin{proof}
-By the third assumption and \cref{strong-h-equiv-as-section}, we know that $\thetar \hatotimes \intervall$ is a section in $\cat{E}^{\to}$.
-This exhibits the domain $\intervall$ of $\thetar \hatotimes \intervall$ as an element of the left retract closure of the latter, giving us a functor $G : \intervall \to \overline{\thetar \hatotimes \intervall}_L$ of categories over $\cat{E}^{\to}$.
+By the third assumption and \cref{strong-h-equiv-as-section}, we know that $\thetar \hatotimes \intervall$ is a section in $\catE^{\to}$.
+This exhibits the domain $\intervall$ of $\thetar \hatotimes \intervall$ as an element of the left retract closure of the latter, giving us a functor $G : \intervall \to \overline{\thetar \hatotimes \intervall}_L$ of categories over $\catE^{\to}$.
 
 By the first assumption and since $\cal{I}$ is closed under Leibniz monoidal product, we have an inclusion $H : \intervall \otimes \cal{I} \to \cal{I}$.
 
-Let us put together all variants of the maps $F, G, H$ that will be used in the following argument in one (not necessarily commuting) diagram of categories over $\cal{E}^{\to}$:
+Let us put together all variants of the maps $F, G, H$ that will be used in the following argument in one (not-commuting) diagram of categories over $\cal{E}^{\to}$:
 \begin{equation}
 \label{filling-vs-composition:0}
 \begin{gathered}
@@ -1004,7 +1004,19 @@ Let us put together all variants of the maps $F, G, H$ that will be used in the 
   \ar[d]
   \ar@/_2em/[ll]_{\intervall \hatotimes H}
 \\
-  \overline{\thetar \hatotimes \cal{I}}
+  \overline{\thetar}_L \hatotimes \cal{I}
+  \ar[d]
+&
+  \overline{\intervall}_L \hatotimes \cal{I}
+  \ar[d]
+&
+  \overline{\thetar \hatotimes \intervall}_L \hatotimes \cal{I}
+  \ar[d]
+&
+  \overline{\intervall}_L \hatotimes \intervall \hatotimes \cal{I}
+  \ar[d]
+\\
+  \overline{\thetar \hatotimes \cal{I}}_L
 &
   \overline{\intervall \hatotimes \cal{I}}_L
 &
@@ -1035,47 +1047,512 @@ Let us focus on one half of the diagram~\eqref{filling-vs-composition:0}:
   \ar@/^2em/[ll]^{\overline{\thetar \hatotimes H}_L}
 }
 \]
-Here, the diagonal map $d$ is given by the Kleisli composition of $F \hatotimes \cal{I}$ and $G \hatotimes \cal{I}$.
-The composition of $d$ with $\overline{\thetar \hatotimes H}_L$ maps $i : \cat{I}$ over the arrow $\thetar \hatotimes i$ to the left retract $(\thetar \hatotimes \intervall \hatotimes i, \thetar \hatotimes i, )$:
+
+T (A x B) 
+
+Here, the diagonal map $d$ is given by the Kleisli composition of $F$ and $G$ 
+
+The composition of $d$ with $\overline{\thetar \hatotimes H}_L$ maps $i : \cat{I}$ over the arrow $\thetar \hatotimes i$ to the left retract $(\thetar \hatotimes \intervall \hatotimes i, \intervall \hatotimes i, \thetar \hatotimes i, \mbox{--})$:
 \[
-\xymatrix{
+\xymatrix@C+1em{
   i
-  \ar[r]^{\thetar \hatotimes i}
-  \ar[d]^{s}
+  \ar[r]^-{\thetar \hatotimes i}
+  \ar[d]^{\thetar \hatotimes i}
   \ar@/_2em/[dd]_{\id}
 &
-  \intervall \h   atotimes i
+  \intervall \hatotimes i
   \ar@/^2em/[dd]^{\id}
 \\
-  
-  \ar[r]^{\theta \thetar \hatotimes \intervall \hatotimes i}
+  \intervall \hatotimes i
+  \ar[r]^-{\thetar \hatotimes \intervall \hatotimes i}
 &
-  \ar[d]_{r}
+  \intervall \hatotimes \intervall \hatotimes i
+  \ar[d]
 \\
   i
-  \ar[r]^{\thetar \hatotimes i}
-&
-  \intervall \hatotimes i
-
-
-  i
-  \ar[r]^{\thetar \hatotimes i}
-
-&
-  \intervall \hatotimes i
-\\
-  i
-  \ar[r]^{\thetar \hatotimes i}
+  \ar[r]^-{\thetar \hatotimes i}
 &
   \intervall \hatotimes i
 }
 \]
 
- $(\thetar \hatotimes \intervall \hatotimes i, \thetar \hatotimes i, )$
+
+\end{proof}
+
+
+\newcommand{\stronghe}{\cat{S}}
+
+\begin{definition}
+We define a category $\cat{S}_l(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to some category $\cal{I} : \cat{I} \to \catE^{\to}$ of arrows.
+The objects consist of objects $i : \cat{I}$ together with data $(g, h, k)$ making $\cal{I}(i)$ into a strong homotopy equivalence.
+A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ to $i' : \cat{I}$ with $\cal{I}(i') : A' \to B'$ with data $(g', h', k')$ consists of a map $m : i \to i'$ in $\cat{I}$ such that, writing $\cal{I}(m) = (u, v)$ with maps $u : A \to A'$ and $v : B \to B'$, the following diagrams commute:
+\begin{mathpar}
+\xymatrix{
+  B
+  \ar[r]^{g}
+  \ar[d]^{v}
+&
+  A
+  \ar[d]^{u}
+\\
+  B'
+  \ar[r]^{g'}
+&
+  A'
+}
+\and
+\xymatrix{
+  \interval \otimes A
+  \ar[r]^{h}
+  \ar[d]^{\interval \otimes u}
+&
+  A
+  \ar[d]^{\interval \otimes u}
+\\
+  \interval \otimes A'
+  \ar[r]^{h'}
+&
+  A'
+}
+\and
+\xymatrix{
+  \interval \otimes B
+  \ar[r]^{k}
+  \ar[d]^{\interval \otimes v}
+&
+  B
+  \ar[d]^{\interval \otimes v}
+\\
+  \interval \otimes B'
+  \ar[r]^{k'}
+&
+  B'
+}
+\end{mathpar}
+
+We have an obvious forgetful functor $\cat{S}_l(\cal{I}) \to \cat{I}$.
+Let $\cal{S}_l(\cal{I}) : \cat{S}_l(\cal{I}) \to \catE^{\to}$ be its composition with $\cal{I} : \cat{I} \to \catE^{\to}$.
+\end{definition}
+
+\begin{remark}
+\label{strong-h-equiv-as-section-algebraic}
+Following the proof of \cref{strong-h-equiv-as-section}, the category $\cat{S}_l(\cal{I})$ can isomorphicly be described at the level of the arrow category $\catE^{\to}$ as follows.
+An object consists of $i : \cal{I}$ together with a retraction $\rho$ to $\thetal \hatotimes \cal{I}(i)$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $m : i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
+\[
+\xymatrix{
+  \intervalr \hatotimes \cal{I}(i)
+  \ar[r]^-{\rho}
+  \ar[d]^{\intervalr \hatotimes \cal{I}(m)}
+&
+  f
+  \ar[d]^{\cal{I}(m)}
+\\
+  \intervalr \hatotimes \cal{I}(i')
+  \ar[r]^-{\rho'}
+&
+  \cal{I}(i')
+}
+\]
+With this description, the functor $\cal{S}_l(\cal{I})$ maps $(i, \rho)$ to $i$.
+\end{remark}
+
+\begin{lemma}
+\label{she-to-retract-closure}
+There is functor $\cal{S}_l(\cal{I}) \to \overline{\intervall \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
+\end{lemma}
+
+\begin{proof}
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervall \hatotimes \cal{I}$, so we could stop here.
+
+Continuing anyway, suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
+Observe that it already has the form of a retract $(i, \cal{I}(i), \thetar \hatotimes f, \rho)$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+
+Suppose we are given a morphism $m : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+Observe that it already has the required form of a morphism $(m, \cal{I}(m))$ between retracts:
+\[
+\xymatrix@C+2em{
+  \cal{I}(i)
+  \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
+  \ar[d]_{\cal{I}(m)}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes \cal{I}(i)
+  \ar[r]_-{\rho}
+  \ar[d]^{\intervall \hatotimes \cal{I}(m)}
+&
+  \cal{I}(i)
+  \ar[d]^{\cal{I}(m)}
+\\
+  \cal{I}(i')
+  \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes \cal{I}(i')
+  \ar[r]^-{\rho'}
+&
+  \cal{I}(i')
+}
+\]
+\end{proof}
+
+\begin{lemma}
+\label{horn-times-gen-to-she}
+Assume that $\intervall$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervall$.
+Then there is a functor $\intervall \hatotimes \cal{I} \to \cat{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
+\end{lemma}
+
+\begin{proof}
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+
+Since $\intervall$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
+\[
+\xymatrix@C+1em{
+  \intervall
+  \ar[r]^-{\thetal \hatotimes \intervall}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \intervall \ar[d]^{\rho}
+\\&
+  \intervall
+}
+\]
+
+Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervall \hatotimes \cal{I}(i)$.
+We construct its image $(l \hatotimes i, \rho \hatotimes i)$ by tensoring the previous diagram with $\cal{I}(i)$ and using closure property of $\cal{I}$ from the assumptions:
+\[
+\xymatrix@C+2em{
+  \cal{I}(\intervall \hatotimes i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervall \hatotimes i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(\intervall \hatotimes i \ar[d]^{\rho \hatotimes i})
+\\&
+  \cal{I}(\intervall \hatotimes i)
+}
+\]
+
+Suppose we are given a morphism $m : i \to i'$ in $\cat{I}$, lying over map $\intervall \hatotimes \cal{I}(m)$ of arrows.
+We send it to the morphism $\intervall \hatotimes m : (\intervall \hatotimes i, \rho \hatotimes i) \to (\intervall \hatotimes i', \rho \hatotimes i')$, again using the closure property of $\cal{I}$ from the assumptions: 
+\[
+\xymatrix@C+2em{
+  l \hatotimes i
+  \ar[r]_{\thetar \hatotimes l \hatotimes i}
+  \ar[d]_{l \hatotimes \tau}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes l \hatotimes i
+  \ar@{.>}[r]_{\rho \hatotimes i}
+  \ar[d]^{\intervall \hatotimes l \hatotimes \tau}
+&
+  l \hatotimes i
+  \ar[d]^{l \hatotimes \tau}
+\\
+  l \hatotimes i'
+  \ar[r]^{\thetar \hatotimes l \hatotimes i'}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes l \hatotimes i'
+  \ar[r]^{\rho' \hatotimes i}
+&
+  l \hatotimes i'
+}
+\]
+Note that the right square commutes by interchange.
+\end{proof}
+
+Let $U$ be the comonad given by $\cod$ and its left adjoint.
+Recall that $U$ sends an arrow $f : A \to B$ to $\canonical_{0 \to B}$.
+We use it to define $\cal{I}_0 : \cat{I} \to \catE^{\to}$ as $\cal{I}_0 = U \cc \cal{I}$.
+
+\begin{lemma}
+We consider the following functors over $\catE$:
+\[
+\xymatrix{
+  (\cat{S}_l)_{/ \arghole}
+  \ar[r]
+  \ar[dr]_{W}
+&
+  \cat{I}_{/ \arghole}
+  \ar[r]
+  \ar[d]_(0.4){V}
+&
+  (\catE/\arghole)^{\to}
+  \ar[dl]^{U}
+\\&
+  \catE 
+}
+\]
+Assume that $V$ is a cartesian fibration and the functor from $V$ to $U$ creates cartesian morphisms.
+Then $W$ is a cartesian fibration and the functor from $W$ to $V$ preserves cartesian morphisms.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+
+\begin{lemma}
+Let $p : Y \to X$ be a right map for $\intervalr \hatotimes \cal{I}_0$. 
+Assume that base change along $p$ lifts to a functor $F : \cat{I}_{/X} \to \cat{I}_{/Y}$.
+Then it lifts further to a functor $G : (\cat{S}_l)_{/X} \to (\cat{S}_l)_{/Y}$:
+\[
+\xymatrix{
+  (\cat{S}_l)_{/X}
+  \ar@{.>}[r]^{G}
+  \ar[d]_{(\cal{S}_l)_{/X}}
+&
+  (\cat{S}_l)_{/Y}
+  \ar[d]^{(\cal{S}_l)_{/Y}}
+\\
+  \cat{I}_{/X}
+  \ar@{-->}[r]^{F}
+  \ar[d]_{\cal{I}_{/X}}
+&
+  \cat{I}_{/Y}
+  \ar[d]^{\cal{I}_{/Y}}
+\\
+  (\catE / X)^{\to}
+  \ar[r]^{(p^*)^{\to}}
+&
+  (\catE / Y)^{\to}
+}
+\]
+
+\end{lemma}
+
+\begin{proof}
+Suppose we are given an object $(i, \rho) : (\cat{S}_l)_{/X}$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+Applying $F$ gives us $i' : \cat{I}_{/Y}$ and a cartesian square $m : \cal{I}(i') \to \cal{I}(i)$ that lies cartesian over $p$.
+We want to find a retraction $\rho'$ to $\thetar \hatotimes \cal{I}(i')$.
+\[
+\xymatrix@C+2em{
+  \cal{I}(i')
+  \ar[r]_-{\thetar \hatotimes \cal{I}(i')}
+  \ar[d]_{\cal{I}(m)}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes \cal{I}(i')
+  \ar@{.>}[r]_-{\rho'}
+  \ar[d]^{\intervall \hatotimes \cal{I}(m)}
+&
+  \cal{I}(i')
+  \ar[d]^{\cal{I}(m)}
+\\
+  \cal{I}(i)
+  \ar[r]^-{\thetar \hatotimes \cal{I}(i)}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes \cal{I}(i)
+  \ar[r]^-{\rho}
+&
+  \cal{I}(i)
+}
+\]
+
+\end{proof}
+
+Given a generating left category $\cal{A} : \cat{A} \to \catE^{\to}$, the right category $\liftr{\cal{A}} : \liftr{\cat{A}} \to \catE^{\to}$ can be made into a double category with horizontal edge category $\catE$ where vertical composition is given by composition of lifts.
+We denote its vertical edge category by $\catE_{\cal{A}}$.
+There is an obvious functor $\catE_{\cat{A}} \to \catE$ that forgets the lifting data.
+
+
+Recall the codomain fibration $\cod : \catE^{\to} \to \catE$.
+Pulling back $\cod^{\to}$ along the constant functor $\Delta : \catE \to \catE^{\to}$ results in a fibration $F : \cal{D} \to \catE$ with fibers the arrow categories of the fibers of $\cod$:
+\[
+\xymatrix{
+  \cal{D}
+  \ar[r]
+  \ar[d]_{F}
+  \pullback{dr}
+&
+  (\catE^{\to})^{\to}
+  \ar[d]^{\cod^{\to}}
+\\
+  \catE
+  \ar[r]^{\Delta}
+&
+  \catE^{\to}
+}
+\]
+Let $F' : \cal{S} \downarrow \catE_{\cal{I}_0} \to \catE_{\cal{I}_0}$ denote the obvious forgetful functor.
+Note that the functors $\cat{S} \to \catE^{\to}$ and $\catE_{\cat{I}_0} \to \catE$ extend to a commutative square of functors as follows:
+\begin{equation}
+\label{spam:0}
+\begin{gathered}
+\xymatrix{
+  \cal{S} \downarrow \catE_{\cat{I}_0}
+  \ar[r]^{U}
+  \ar[d]_{F'}
+&
+  \cal{D}
+  \ar[d]_{F}
+\\
+  \catE_{\cat{I}_0}
+  \ar[r]^{V}
+&
+  \catE
+}
+\end{gathered}
+\end{equation}
+
+\begin{lemma}
+The functor $F'$ is a cartesian fibration.
+The square~\eqref{spam:0} is a morphism of fibrations that creates cartesian morphisms.
+\end{lemma}
+
+\begin{proof}
+We work with the characterization of $\cal{S} : \cat{S} \to \catE^{\to}$ of \cref{strong-h-equiv-as-section-algebraic}.
+
+Let us first show that $U$ reflects cartesian morphisms.
+Fix a map $(p, \phi)$ in $\catE_{\cal{I}_0}$ where $p : X \to Y$ is a map in $\catE$ and $\phi$ is a coherent family of right lifts against $\cal{I}_0$.
+Let $\tau : (f, \rho) \to (g, \sigma)$ be a map in $\cal{S} \downarrow \catE_{\cal{I}_0}$ over $(p, \phi)$.
+Assume that $U(\tau)$ is cartesian.
+
+objects of $\cat{S}$ over $X$ and $Y$ respectively.
+
+
+Let us frst define the action of $p^*$ on an object $(f, \rho)$ where $f$ is a map over $X$.
+
+
+Consider an object $(f, \rho)$ with $f$ over $X$.
+We wish to construct an object $(f', \rho')$ with $f'$ over $Y$ the base change of $f$ along $p$.
+
+\[
+\xymatrix@C+2em{
+  f'
+  \ar[r]_{\thetar \hatotimes f'}
+  \ar[d]_{u}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes f'
+  \ar@{.>}[r]_{\rho'}
+  \ar[d]^{\intervall \hatotimes u}
+&
+  f'
+  \ar[d]^{u}
+\\
+  f
+  \ar[r]^{\thetar \hatotimes f}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes f
+  \ar[r]^{\rho}
+&
+  f
+}
+\]
+
+slice over X
+->
+slice over Y
 
 
 \end{proof}
 
+\begin{lemma}
+\begin{enumerate}
+Assume:
+\item
+that $\intervall$ is a strong right homotopy equivalence,
+\item
+that $\intervall$ is an object of $\cal{I}$.
+\end{enumerate}
+Let $p : Y \to X$ be a right map for $\cal{I}_0$.
+Then base change along $p$ lifts to a functor $(\intervall \hatotimes \cal{I})_{/X} \to \overline{\intervall \hatotimes \cal{I}}_{/Y}$.
+\end{lemma}
+
+\begin{proof}
+Since $\intervall$ is a strong right homotopy equivalence, we have a retraction $r$ to the map $\thetar \hatotimes \intervall$ in the arrow category.
+
+\end{proof}
+
+
+\[
+\xymatrix@C+2em{
+  f'
+  \ar[rr]_{\thetar \hatotimes f'}
+  \ar[dd]_{u}
+  \ar@/^2em/[rrrr]^{\id}
+  \ar[dr]
+&&
+  \intervall \hatotimes f'
+  \ar@{.>}[rr]_{s'}
+  \ar[dd]^{\intervall \hatotimes u}
+  \ar[dr]
+&&
+  f'
+  \ar[dd]^{u}
+  \ar[dr]
+\\&
+  g'
+  \ar[rr]_{\thetar \hatotimes g'}
+  \ar[dd]_{v}
+  \ar@/^2em/[rrrr]^{\id}
+&&
+  \intervall \hatotimes g'
+  \ar@{.>}[rr]_{t'}
+  \ar[dd]^{\intervall \hatotimes v}
+&&
+  g'
+  \ar[dd]^{v}
+\\
+  f
+  \ar[rr]^{\thetar \hatotimes f}
+  \ar@/_2em/[rrrr]_{\id}
+  \ar[dr]
+&&
+  \intervall \hatotimes f
+  \ar[rr]^{s}
+  \ar[dr]
+&&
+  f
+  \ar[dr]
+\\&
+  g
+  \ar[rr]^{\thetar \hatotimes g}
+  \ar@/_2em/[rrrr]_{\id}
+&&
+  \intervall \hatotimes g
+  \ar[rr]^{t}
+&&
+  g
+}
+\]
 
 
 \paragraph{Composition as restricted lifting problem}
@@ -1096,13 +1573,6 @@ Also right map for any presheaf times interval endpoint inclusions.
 Show that base change along pseudo-fibrations functorially maps theta squares to left retract closures of theta squares.
 By earlier elementary lemmata and previous subsection, it follows that Pi along pseudo-fibrations lifts to functor between right categories.
 Verify BC.
-
-\section{Test}
-
-Let $U$ be left arrows for filling.
-Let $V$ be left squares for composition.
-
-We have an inclusion $U \to \overline{V}$.
 
 
 \bibliographystyle{plain}
