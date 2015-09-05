@@ -4,7 +4,7 @@
 
 \usepackage{uniform-kan-prelude}
 
-\title{On uniform Kan fibrations}
+\title{On uniform Kan fibrations and pushforward}
 
 \begin{document}
 
@@ -16,6 +16,9 @@ This generalizes work by Coquand \etal.
 \maketitle
 
 \tableofcontents
+
+
+
 
 
 \section{Elements of abstract homotopy theory} 
@@ -32,7 +35,6 @@ and morphisms $\intervall, \intervalr : \unit \to \interval$ and $\intervalc : \
 \end{definition}
 
 Let us now fix an interval $\interval = (\interval, c, \intervall, \intervalr)$ in $\catE$. 
-
 
 
 \begin{definition}
@@ -180,7 +182,10 @@ Left or right strong homotopy equivalences are closed under retracts.
 Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that  sections are closed under retracts.
 \end{proof}
 
-\section{Uniform liftings}
+
+
+\section{Orthogonality functors}
+\label{sec:ortf}
 
 For this section, fix a category $\catE$. Given a set of morphisms $\cal{A} \subseteq \catE^\to$, we 
 write $\liftr{\cal{A}}$ to be the class of morphisms of $\catE$ that have 
@@ -224,7 +229,7 @@ B \ar[r]_{t} & B'}
 we have that $\phi(a', h, k) \cc t = \phi(a, hs, kt)$, \ie the inner triangle in the diagram
 \[
 \xymatrix@C=2cm@R=1.5cm{
-A \ar[r]^s \ar[d]_a & A' \ar[r]^{h}  & C \ar[d]   \\
+A \ar[r]^s \ar[d]_{Ua} & A' \ar[r]^{h}  & C \ar[d]^g   \\
 B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, k t) \quad } & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & D }
 \]
 commutes. 
@@ -241,10 +246,18 @@ notion of a left lifting structure.
 
 \medskip
 
+ 
+
+
+
+
+
+\medskip
+
 In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors.
 
 
-\begin{lemma}
+\begin{proposition}
 Consider a natural transformation between categories over $\catE^{\to}$:
 \[
 \xymatrix{
@@ -283,7 +296,7 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
   \catE^{\to}
 }
 \end{mathpar}
-\end{lemma}
+\end{proposition}
 
 \begin{proof} The image of $(g, \psi) \in \liftr{\cal{B}}$ under $\liftr{F}$ is $(g, \psi_F)$ and its
 image under $\liftr{G}$ is~$(g, \psi_G)$. But the functions $\psi_F$ and $\psi_G$ coincide since, for
@@ -316,7 +329,7 @@ then $F(\cal{A}) \subseteq \liftl{\cal{B}}$ if and only if $\cal{A} \subseteq G(
 
 
 
-\begin{lemma} \label{lift-of-adjunction} 
+\begin{proposition} \label{lift-of-adjunction} 
 Let $U : \cal{A} \to \cal{E}^{\to}$ and $V : \cal{B} \to \cal{F}^{\to}$ be functors and consider an adjunction
 \[
 \xymatrix@C+1em{
@@ -362,7 +375,7 @@ Then, the following are equivalent:
 }
 \]
 \end{enumerate}
-\end{lemma}
+\end{proposition}
 
 \begin{proof} Giving a functor $F' \co \cal{A} \to \liftl{\cal{B}}$ as above is the same thing as giving fillers for squares of the form
 \[
@@ -380,7 +393,6 @@ B \ar[r] & GD }
  natural in $a \in \cal{A}$ and $b \in \cal{B}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
-\medskip
 
 
 We now consider slicing. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $U : \cal{A} \to \catE^{\to}$ and $X \in \catE$.  we define the category $\cal{A}/X$
@@ -429,7 +441,7 @@ which also admits an explicit description dual to the one given above for $\cal{
 
 
 
-\begin{lemma} \hfill 
+\begin{proposition} \hfill 
 \label{pitchfork-slicing}
 \begin{enumerate}[(i)]
 \item The right orthogonality functor commutes with slicing, \ie for every $U \co \cal{A} \to \cal{E}$, we have
@@ -443,7 +455,7 @@ as categories over $\cal{E}^\to$.
 \]
 as categories over $\cal{E}^\to$.
 \end{enumerate}
-\end{lemma}
+\end{proposition}
 
 \begin{proof} We only consider (i). The claim follows by unfolding definitions, but we describe the objects of the category explicitly for clarity. They are given by 
 tuples consisting of an arrow in~$\cal{E}/X$, 
@@ -459,6 +471,68 @@ A \ar[r] \ar[d]_{Ua} & C \ar[d]^g \\
 B \ar[r] & D}
 \]
 where $a \in \cal{A}$, subject to a uniformity condition. 
+\end{proof}
+
+
+\begin{corollary}
+\label{lift-dependent-product}
+Let $p : Y \to X$ be a map in $\catE$ admitting pullback and pushforward:
+\[
+\xymatrix@C+1em{
+  \catE/Y
+  \ar@<5pt>[r]^{p_*}
+  \ar@{}[r]|{\top}
+&
+  \catE/X
+  \ar@<5pt>[l]^{p^*}
+}
+\]
+Let $U : \cal{A} \to \catE^{\to}$ be a category over $\catE^{\to}$. The following are
+equivalent:
+\begin{enumerate}[(i)]
+\item lifts of pushforward
+\[
+\xymatrix@C=1.5cm{
+\liftr{\cal{A}}/Y
+\ar[r]^{p_*}
+  \ar[d]_{U/Y}
+&
+  \liftr{\cal{A}}/X
+  \ar[d]^{U/X}
+\\
+  (\catE/Y)^{\to}
+   \ar[r]_{p_*}
+&
+  (\catE/X)^{\to}
+ }
+\]
+\item lifts of pullback
+\[
+\xymatrix@C=1.5cm{
+  \cal{A}/X
+   \ar[r]^{p^*}
+  \ar[d]_{U/X} 
+  &
+  \liftl{ ( \liftr{\cal{A}}/Y ) }
+  \ar[d]^{\liftl{(\liftr{U}/Y)}}
+     \\
+     (\catE/X)^{\to} \ar[r]_{p^*} &
+   (\catE/Y)^{\to} 
+}
+\]
+\item functors $F$ making the following diagram commute:
+\[
+\xymatrix@C=1.2cm@R=1.5cm{
+\liftr{\cal{A}}/Y \ar[rr]^F \ar[dr]_{\liftr{U}/Y} & &  \liftr{\cal{A}}/ X \ar[dl]^(.4){\ \liftr{( (U/X) \cc p^*)}}  \\
+ & (\cal{E}/Y)^\to & }
+\]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with right orthogonality functor.
+For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with  $V = \liftr{U}$.
+The last statement is simply the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
 \medskip
@@ -508,7 +582,7 @@ are defined by letting
 
 
 
-\begin{lemma}
+\begin{proposition}
 \label{retract-closure}
 The orthogonality functors send the components of the unit and multiplication of the retract closure monad into natural
 isomorphisms, and so for every $U \co \cal{A} \to \catE^\to$, we have isomorphisms of categories
@@ -519,7 +593,7 @@ isomorphisms, and so for every $U \co \cal{A} \to \catE^\to$, we have isomorphis
  \liftl{(\overline{\overline{\cal{A}}})} \iso \liftl{\overline{\cal{A}}}
 \end{gather*} 
 over $\catE^\to$. \qed
-\end{lemma}
+\end{proposition}
 
 
 
@@ -561,7 +635,7 @@ We conclude this section by considering the interaction between the orthogonalit
 
 
 
-\begin{lemma} Let $F \co \cal{A} \to \cal{B}$ be a fully faithful functor. 
+\begin{proposition} Let $F \co \cal{A} \to \cal{B}$ be a fully faithful functor. 
 \label{kan-extension-closure}
 \begin{enumerate}[(i)]
 \item Assuming that the pointwise left Kan extension of 
@@ -621,14 +695,37 @@ then the functor $\liftl{F} \co \liftl{\cal{B}} \to \liftl{\cal{A}}$, fitting in
 \]
 is an isomorphism. \qed
 \end{enumerate}
-\end{lemma}
+\end{proposition}
 
 
-\subsection*{Small generation of right orthogonality classes}
 
-We now study the question of when different $\cal{I}$ determine the same class of right maps. Fo this, we restrict our
-attention to  presheaves on a category and assume $\catE = \hat{\cat{C}}$, where $\catC$ is some small category.
-Our intention is to apply \cref{kan-extension-closure} to full subcategories of $\catE_{\cart}^{\to}$, the arrow category $\catE$ with cartesian squares as morphisms. We need a lemma.
+
+
+
+
+
+\section{Trivial Kan fibrations}
+
+Recall that classically a trivial Kan fibration, which is defined by right orthogonality with respect to arbitrary monomorphisms. We now introduce our counterpart of this notion. We say that a monomorphism 
+$i \co A \to B$ is  \emph{decidable} if for every $n$, the function $i_n : A_n \to B_n$ has a decidable image. 
+Note that the class of decidable monomorphisms is closed under base change. We define $\cal{M}$ as the full subcategory of $\SSet_\cart$ spanned by decidable monomorphisms. 
+
+\begin{definition} We say that a map $p \co X \to Y$ of simplicial sets is a \emph{uniform trivial Kan fibration}
+ if it can be equipped with a right lifting structure with respect to $\cal{M}$, \ie there exist a function that 
+ assigns a diagonal filler to every diagram of the form
+ \[
+ \xymatrix{
+ A \ar[r] \ar[d]_i & X \ar[d]^p \\
+ B \ar[r] & Y}
+ \]
+ where $i$ is a decidable monomorphism, satisfying the naturality condition. 
+ \end{definition} 
+ 
+ Classically, the class of trivial Kan fibrations can be characterized also as being the right orthogonal class to the
+set of boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$. Analogously, in our setting, the category of uniform trivial uniform
+Kan fibrations can also be characterized as the right orthogonal category of  a small category.
+In order to do this, we return to consider the setting of Section~\ref{sec:ortf}, but making the
+further assumption that $\catE$ is a presheaf category, \ie $\catE = \hat{\cat{C}}$, where $\catC$ is some small category. Our intention is to apply \cref{kan-extension-closure} to full subcategories of $\catE_{\cart}^{\to}$, the arrow category $\catE$ with cartesian squares as morphisms. For this, we need a lemma.
 
 \begin{lemma}
 \label{left-kan-extension-of-representables}
@@ -678,8 +775,8 @@ $\colim_{s : \hom(\arghole, M) \to Y} \hom(\arghole, M) \simeq Y$.
 \end{proof}
 
 
-\begin{question}
-There should be an abstract argument here cleverly combining the codomain fibration and the corresponding left Kan extension claim for the codomain part
+\begin{remark} It would be of interest to prove \cref{left-kan-extension-of-representables} combining 
+the codomain fibration and the corresponding left Kan extension claim for the codomain part
 \[
 \xymatrix{
   \cat{C}
@@ -693,12 +790,11 @@ There should be an abstract argument here cleverly combining the codomain fibrat
 }
 \]
 which holds by the co-Yoneda lemma.
-How does it go?
-\end{question}
+\end{remark}
 
 
 
-\begin{proposition}
+\begin{lemma}
 \label{awfs-on-arrows-into-representables}
 Let $\cal{B}$ be a full subcategory of $\catE_{\cart}^{\to}$ closed under base change to representables.
 Let $\cal{A}$ denote its restriction to arrows into representables.
@@ -715,86 +811,115 @@ Let $\cal{A}$ denote its restriction to arrows into representables.
 }
 \]
 Then $\liftr{\cal{A}} = \liftr{\cal{B}}$.
-\end{proposition}
+\end{lemma}
 
 \begin{proof} The result follows by combining \cref{left-kan-extension-of-representables} and part~(i) of \cref{kan-extension-closure}. 
 \end{proof}
 
 
+\begin{theorem} \label{small-gen-triv-kan}
+The category of uniform trivial Kan fibrations is isomorphic to the right orthogonality 
+category of the following full subcategories of $\cal{M}$, the category of decidable
+monomorphisms and cartesian squares:
+\begin{align*}
+\cal{M}_1 & = \braces{i \co A \rightarrow \Delta^{n} \ | \ i \text{ is a  decidable monomorphism} } \\ 
+\cal{M}_2  & = \braces{i \co A \rightarrow \Delta^{n_1} \times \ldots \times \Delta^{n_k} 
+\ | \ i \text{ is a  decidable monomorphism} }  \\
+\cal{M}_3  & = \braces{A \hookrightarrow B \mid \text{$B$ finite and finite-dim.}} \\
+\end{align*}
+\end{theorem}
 
-\begin{example}\label{monos-into-representables} \label{decidable-monos-into-representables}
-We apply the results above to simplicial sets. We say that a monomorphism $i \co A \to B$ is 
- \emph{decidable} if for every $n$, the function $i_n : A_n \to B_n$ has a decidable image. 
- The class of decidable monomorphisms is closed under base change. Define 
- \[
-\cal{B}  = \braces{ i \co A \rightarrow B \ | \ i  \text{ is  decidable monomorphism } }
-\]
-We call an object of  $\liftr{\cal{B}}$ a \emph{uniform trivial Kan fibration}. This will be our counterpart of the
- classical notion of a trivial Kan fibration, which is defined by right orthogonality with respect to arbitrary monomorphisms. 
-Classically, the class of trivial Kan fibrations can be characterized also as being the right orthogonal class to the
-set of boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$. Analogously, in our setting, the category of uniform trivial uniform
-Kan fibrations can also be characterized as the right orthogonal category of  a small category. Indeed, by  \cref{awfs-on-arrows-into-representables} we have that $\liftr{\cal{A}}  = \liftr{\cal{B}}$ where
- \[
- \cal{A} = \braces{i \co A \rightarrow \Delta^{n} \ | \ i \text{ is a  decidable monomorphism} } \, .
- \]
-In fact, for every full subcategory $\cal{S} \subseteq \calB$ containing $\cal{A}$ we have that $\liftr{\cal{B}} = \liftr{\cal{S}}$,
-since $\cal{A}$ is the restriction to maps into representables  of $\cal{B}$. For example, we might consider an increasing sequence of choices,
-$\cal{A} \subseteq \cal{A}_1 \subseteq \cal{A}_2 \subseteq \cal{B}$, 
-where 
-\[ 
-\cal{A}_1  = \braces{A \hookrightarrow \Delta^{n_1} \times \ldots \times \Delta^{n_k}} \,  \qquad  
-\cal{A}_2  = \braces{A \hookrightarrow B \mid \text{$B$ finite and finite-dim.}} \, . 
-\]
-and we have
-\[
-\cal{A} ... 
-\]
-One reason for considering these alternatives is that they have different closure properties. 
+\begin{proof}    \cref{awfs-on-arrows-into-representables} implies that we have that $\liftr{\cal{M}_1}  = \liftr{\cal{M}}$.
+For the other equalities, observe that for every full subcategory $\cal{S} \subseteq \cal{M}$ containing $\cal{M}_1$ we have that $\liftr{\cal{M}} = \liftr{\cal{S}}$, since $\cal{M}_1$ is the restriction to maps into representables  of $\cal{M}$. 
+\end{proof}
 
-In the next section, we will show that, classically, 
-a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform Kan fibration if and only if it is a trivial Kan fibration in the usual sense.
-Note that this cannot be proved using~\cref{awfs-on-arrows-into-representables}, as the class of boundary inclusions  is contained strictly 
-in~$\cal{A}$. 
-\end{example}
+The classes of maps considered in~\cref{small-gen-triv-kan} have different advantages. For example, 
+the class $\cal{A}_1$ is small, while other classes have better closure properties. 
+
+
+
+
+\begin{corollary} There exists an algebraic weak factorisation system $(\cal{L}, \cal{R})$ in which
+$\cal{R}$ is the category of uniform trivial Kan fibrations.
+\end{corollary}
+
+\begin{proof} Since the category $\cal{M}_1$ defined in~\cref{small-gen-triv-kan} is small,  
+it is possible to apply Garner's small object argument to
+obtain an algebraic weak factorisation system $(\cal{L}, \cal{R})$.
+The fact that $\cal{R}$ is the category of uniform trivial Kan fibrations
+ follows from \cref{small-gen-triv-kan}.
+ \end{proof} 
+
+Note that ~\cref{awfs-on-arrows-into-representables} cannot be used to show 
+a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivial Kan fibration if and only if it is a trivial Kan fibration in the usual sense since  the class of boundary inclusions  is contained strictly  in~$\cal{A}$. 
 
 
 
 
 \section{Uniform Kan fibrations}
 
-
-
-Recall the notion of adhesive morphisms~\cite{garner-lack:adhesive}. Fix now an interval $\interval = (\interval, \intervall, \intervalr)$. 
-The expression $\braces{\intervall, \intervalr}$ denotes the inclusion $1 + 1 \to \catE^{\to}$ valued in $\intervall$ and $\intervalr$.
-
-
-\medskip
-
-Let $U : \cal{A} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares.
-Assume the subcategory $\cal{A}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{A}, \hatunit, \hatotimes)$ is itself a monoidal category and $U$ preserves the monoidal structure on the nose. Recall that \emph{$\cal{A}$-map} is a map $f \co X \to Y$ equipped with a right lifting structure with respect to $\cal{A}$.
+Fix now an interval $\interval = (\interval, \intervall, \intervalr)$. 
 
 \medskip
 
 
-Define $\cal{A}_\interval \defeq \cal{A} + \cal{A}$ and the functor
+Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $U : \cal{A} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{A}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{A}, \hatunit, \hatotimes)$ is itself a monoidal category and $U$ preserves the monoidal structure on the nose. Recall that \emph{$\cal{A}$-map} is a map $f \co X \to Y$ equipped with a right lifting structure with respect to $\cal{A}$.
+
+\medskip
+
+Let $\cal{A}_\interval \defeq \cal{A} + \cal{A}$ and define functors $U_\intervall \co \cal{A} \to \catE^\to \, , \; U_\intervalr \co \cal{A} \to \catE^\to$  by letting 
 \[
-U_\interval \co \cal{A}_\interval \to \cal{E}^\to 
+U_\intervall(a) \defeq  \intervall \hatotimes U(a) \, , \quad
+U_\intervalr(a) \defeq  \intervalr \hatotimes U(a) \, , 
 \]
-as the copair of the functors mapping $a \in \cal{A}$ to $\intervall \hatotimes U(a)$ and $\intervalr \hatotimes U(a)$, respectively. 
+for $a \in \cal{A}$. We then have the coproduct diagram
+\[
+\xymatrix@C=1.2cm{
+\cal{A} \ar[r] \ar[dr]_-{U_\intervall} & \cal{A}_\interval \ar[d]^(.4){U_\interval} & \cal{A} \ar[dl]^-{U_\intervalr} \ar[l] \\ 
+ & \catE^\to }
+\]
+We define a \emph{uniform $\cal{A}$-fibration} to be an $\cal{A}_\interval$-injective map.
 
-\begin{definition} An \emph{uniform $\cal{A}$-fibration} is an $\cal{A}_\interval$-map.
+
+\begin{corollary} Let $p \co X \to Y$ be a map in $\cal{E}$. The following are equivalent: 
+\begin{enumerate}[(i)]
+\item the map $p$ admits a right $\cal{A}_I$-lifting structure. 
+\item the maps $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit $\cal{A}$-lifting structures.
+\end{enumerate} 
+Thus, a map $p$ is an $\cal{A}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are $\cal{A}$-trivial fibrations.
+\end{corollary}
+
+
+ In $\SSet$, for a horn inclusion $h^{k}_n \co 1 \to \Delta_1$ and  a monomorphism $i \co A \to B$
+their pushout product $h^k_n \hattimes i$ is given by the following pushout diagram
+\[
+\xymatrix{
+ A \ar[r]^{i}  \ar[d]_{h^k_n \times A} &  B \ar@/^1em/[ddr]^{h^k_1 \times B} \ar[d] & \\ 
+\Delta_1 \times A \ar@/_1em/[drr]_{\Delta_1 \times i} \ar[r] & \bullet \ar[dr]^-(.35){h^k_1 \hattimes i}  & \\ 
+ & & \Delta_1 \times B} 
+ \]
+ 
+ 
+
+\begin{definition} A map of simplicial sets $p \co X \to Y$ is said to be a \emph{uniform Kan fibration} if there exists
+a function that provides filles for all diagrams of the form
+\[
+\xymatrix{
+\bullet \ar[r] \ar[d]_{h^k_1 \hattimes i} & X \ar[d]^p \\
+\Delta_1 \times B \ar[r] & Y}
+\]
+where $i \co A \to B$ is a decidable monomorphism and $k \in \{0, 1\}$. 
+
 \end{definition} 
 
 
-We now illustrate what these notions are in simplicial sets and show that they are equivalent to the standard notions. The rationale for omitting higher dimensional horns is that those (at least in bare form) are indirectly included as retracts of one dimensional horns by Leibniz product with certain subobjects of representables. 
 
-\begin{lemma} Let $p \co X \to Y$ be a map in $\cal{E}$. The following are equivalent.
-\begin{enumerate}[(i)]
-\item $p$ admits a $\cal{J}$-algebra structure,
-\item $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit $\cal{I}$-algebra structures.
-\end{enumerate} 
-Thus, by definition, a map $p$ is an $\cal{I}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are $\cal{I}$-trivial fibrations.
-\end{lemma} 
+
+We now show that, working classically, a map $p \co X \to Y$ is a uniform (trivial) Kan fibration if and only
+if it is a (trivial) Kan fibration in the usual sense. 
+ The rationale for omitting higher dimensional horns is that those (at least in bare form) are indirectly included as retracts of one dimensional horns by Leibniz product with certain subobjects of representables. 
+
+
 
 
 
@@ -992,62 +1117,6 @@ But that means $p$ is an $\cal{I}_5$-fibration.
 
 
 
-\section{Stability under pushforward}
-
-\begin{lemma}
-\label{lift-dependent-product}
-Let $p : Y \to X$ be a map in $\catE$ admitting pullback and pushforward:
-\[
-\xymatrix@C+1em{
-  \catE/X
-  \ar@<5pt>[r]^{p^*}
-  \ar@{}[r]|{\bot}
-&
-  \catE/Y
-  \ar@<5pt>[l]^{p_*}
-}
-\]
-Let $W : \cat{C} \to \catE^{\to}$ be a category over $\catE^{\to}$.
-Then lifts of pushforward
-\[
-\xymatrix{
-  \Slice_X(\liftr{\cat{C}})
-  \ar@{.>}[r]
-  \ar[d]_{\Slice_X(W)}
-&
-  \Slice_Y(\liftr{\cat{C}})
-  \ar[d]^{\Slice_Y(\liftr{U})}
-\\
-  (\catE/X)^{\to}
-&
-  (\catE/Y)^{\to}
-  \ar[l]^{(p_*)^{\to}}
-}
-\]
-are in natural correspondence with lifts of pullback
-\[
-\xymatrix{
-  \Slice_X(\cat{C})
-  \ar@{.>}[r]
-  \ar[d]_{\Slice_X(W)}
-&
-  \liftl{\Slice_Y(\liftr{\cat{C}})}
-  \ar[d]^{\liftl{\Slice_Y(\liftr{U})}}
-\\
-  (\catE/X)^{\to}
-  \ar[r]^{(p^*)^{\to}}
-&
-  (\catE/Y)^{\to},
-}
-\]
-which in turn correspond to maps from $\liftr{\Slice_Y(W)}$ to $\liftr{((p^*)^{\to} \cc \Slice_Y(W))}$ over $(\catE/Y)^{\to}$.
-\end{lemma}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with $\liftr{\brarghole}$.
-For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $U = W$ and $V = \liftr{W}$.
-The last statement is simply the adjunction~\eqref{garner-adjunction}.
-\end{proof}
 
 
 
