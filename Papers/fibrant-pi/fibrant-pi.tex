@@ -189,12 +189,38 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 
 For this section, fix a category $\catE$. Given a set of morphisms $\cal{A} \subseteq \catE^\to$, we 
 write $\liftr{\cal{A}}$ to be the class of morphisms of $\catE$ that have 
-the right lifting property with respect to all the morphisms in~$\cal{A}$. Dually, we write $\liftl{\cal{A}}$ for the class of morphisms of $\catE$ that have the left lifting
-property with respect to all the morphisms of $\cal{A}$. These operations determine a Galois connection $\liftr{\brarghole} \dashv \liftl{\brarghole}$ between the poset of subsets of arrows in $\catE$ and its opposite. Furthermore, these operations enjoy several properties that are useful in developing homotopical algebra.
+the right lifting property with respect to all the morphisms in~$\cal{A}$. Dually, we write $\liftl{\cal{A}}$ for the class of morphisms of $\catE$ that have the left lifting property with respect to all the morphisms of $\cal{A}$. 
+Here, we shall be interested in algebraic counterparts of these notions. Instead of starting from a subset of $\catE^\to$, we consider a category $\cal{A}$, to be thought of an indexing category, and a functor $U \co \cal{A} \to \catE^\to$, which assigns an arrow $U a$ in $\catE$ to each index $a \in \cal{A}$.
 
-\medskip
 
-In~\cite{garner:small-object-argument} Richard Garner has shown how to extend this to an adjunction between categories of arrows:
+ \begin{definition} Let $U \co \cal{A} \to \catE^\to$ be a functor. An \emph{$\cal{A}$-injective map}
+ is a map $p \co X \to Y$ equipped with a right  $\cal{A}$-lifting structure, \ie 
+ a function  $\phi$ that assigns to each $a \in \cal{A}$ and commuting square
+\[
+\xymatrix@C=2cm{
+A \ar[r]^{h}   \ar[d]_{U a} & X \ar[d]^f \\
+B \ar[r]_{k} & Y}
+\]
+a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\cal{A}$, 
+with image under $U$ given by
+\[
+\xymatrix{
+A \ar[r]^s \ar[d]_{Ua} & A' \ar[d]^{U a'}  \\
+B \ar[r]_{t} & B'}
+\]
+we have that $\phi(a', h, k) \cc t = \phi(a, hs, kt)$, \ie the inner triangle in the diagram
+\[
+\xymatrix@C=2cm@R=1.5cm{
+A \ar[r]^s \ar[d]_{Ua} & A' \ar[r]^{h}  & X \ar[d]^f   \\
+B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, k t) \quad } & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & Y }
+\]
+commutes. 
+\end{definition}
+
+
+There is a dual notion of left lifting structure, which we do not spell out. Given $U \co \cal{A} \to \catE^\to$, we define the category $\liftr{\cal{A}}$ and the functor   $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
+$ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a right lifting structure for $g$.
+The arrows $\alpha \co (g, \phi) \to (g', \phi')$ are squares $\alpha \co g \Rightarrow g'$ in $\cal{A}$ satisfying an appropriate compatibility condition with respect to the right lifting structures. The functor $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ in then given by the evident forgetful functor.  Just as the standard orthogonality operations determine a Galois connection between the poset of subsets of arrows in $\catE$ and its opposite, the functors orthogonality functors form an adjunction 
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
@@ -208,53 +234,42 @@ In~\cite{garner:small-object-argument} Richard Garner has shown how to extend th
 }
 \end{gathered}
 \end{equation}
-Here, instead of starting from a subset of $\catE^\to$, we consider a category $\cal{A}$, to be thought of an indexing category, and a functor $U \co \cal{A} \to \catE^\to$, which assigns an arrow $U a$ in $\catE$ to each index $a \in \cal{A}$. After reviewing this adjunction, we establish some analogues of well-known properties of the orthogonality relation in the extended setting, which will be useful in the following.
- 
- 
- \begin{definition} Let $U \co \cal{A} \to \catE^\to$ be a functor and $g \co C \to D$ a map in $\catE$. 
- A \emph{right lifting structure} on $g \co C \to D$ with respect to $U$ is 
- a function  $\phi$ that assigns to each $a \in \cal{A}$ and commuting square
-\[
-\xymatrix@C=2cm{
-A \ar[r]^{h}   \ar[d]_{U a} & C \ar[d]^g \\
-B \ar[r]_{k} & D}
+
+The extra generality obtained by allowing $U \co \cal{A} \to \catE^\to$ to be a functor rather than merely the 
+inclusion of a  subcategory will be very important for our purposes, as the next construction and definitions
+show. Given an interval $\interval = (\interval, \intervall, \intervalr)$ and a functor $U \co \cal{A} \to \catE^\to$,
+we define a category~$\cal{A}_\interval$ and a functor $U_\interval \co \cal{A}_\interval \to \catE^\to$ as follows. First of all, we define $\cal{A}_\interval$ as the coproduct
+ \[
+ \cal{A}_\interval  \defeq \cal{A} + \cal{A} \, .
+ \] 
+ Next, let $U_\intervall \co \cal{A} \to \catE^\to \, , \; U_\intervalr \co \cal{A} \to \catE^\to$ be given by
+ \[
+U_\intervall(a) \defeq  \intervall \hatotimes U(a) \, , \quad
+U_\intervalr(a) \defeq  \intervalr \hatotimes U(a) \, , 
 \]
-a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\cal{A}$, 
-with image under $U$ given by
+for $a \in \cal{A}$, where we used the pushout product on $\catE^\to$. The functor $U_\interval \co \cal{A}_\interval \to \catE^\to$ is then given by the coproduct diagram
+\[
+\xymatrix@C=1.2cm{
+\cal{A} \ar[r] \ar[dr]_-{U_\intervall} & \cal{A}_\interval \ar[d]^(.4){U_\interval} & \cal{A} \ar[dl]^-{U_\intervalr} \ar[l] \\ 
+ & \catE^\to }
+\]
+Note that, even if $U \co \cal{A} \to \catE^\to$ is an inclusion, $U_\interval \co \cal{A}_\interval \to \catE^\to$ is not.
+
+
+\begin{definition} A \emph{uniform $\cal{A}$-fibration} is a map $p \co X \to Y$ equipped with a right $\cal{A}_\interval$-lifting structure, \ie a function that assigns diagonal fillers to all diagrams of the form
 \[
 \xymatrix{
-A \ar[r]^s \ar[d]_{Ua} & A' \ar[d]^{U a'}  \\
-B \ar[r]_{t} & B'}
+\bullet \ar[r] \ar[d]_{U(a) \otimes \intervall} & X \ar[d]^p \\
+B \otimes I \ar[r] & Y} \qquad \xymatrix{
+\bullet \ar[r] \ar[d]_{U(a) \otimes \intervalr} & X \ar[d]^p \\
+B \otimes I \ar[r] & Y}
 \]
-we have that $\phi(a', h, k) \cc t = \phi(a, hs, kt)$, \ie the inner triangle in the diagram
-\[
-\xymatrix@C=2cm@R=1.5cm{
-A \ar[r]^s \ar[d]_{Ua} & A' \ar[r]^{h}  & C \ar[d]^g   \\
-B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, k t) \quad } & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & D }
-\]
-commutes. 
+where $a \in \cal{A}$ is mapped to $Ua \co A \to B$, subject to the naturality condition.
 \end{definition}
- 
- Using this notion, we recall the definition of the action on objects of the right adjoint in~\eqref{garner-adjunction}. 
- Given $U \co \cal{A} \to \catE^\to$, we define the category $\liftr{\cal{A}}$ and the functor 
-  $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ as follows. The objects of
-$ \liftr{\cal{A}}$ are pairs $(g, \phi)$ consisting of an arrow $g \co C \to D$ and a right lifting structure for $g$.
-The arrows $\alpha \co (g, \phi) \to (g', \phi')$ are squares $\alpha \co g \Rightarrow g'$ in $\cal{A}$ satisfying an appropriate compatibility condition
-with respect to the right lifting structures. The functor $\liftr{U} \co \liftr{\cal{A}} \to \catE^\to$ in then given by
-the evident forgetful functor. The left adjoint in~\eqref{garner-adjunction} is defined analogously, using the
-notion of a left lifting structure.
 
-\medskip
-
- 
-
-
-
-
-
-\medskip
-
-In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors.
+The notion of a trivial Kan fibration and of a Kan fibrations will be defined as special cases of the notions of
+$\cal{A}$-injective map and $\cal{A}$-fibration, respectively. In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors. For this, we work with a fixed category $\catE$, without
+assuming the presence of an interval. 
 
 
 \begin{proposition}
@@ -393,6 +408,20 @@ B \ar[r] & GD }
  natural in $a \in \cal{A}$ and $b \in \cal{B}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
+The next corollary applies \cref{lift-of-adjunction} to the situation considered in \cref{interval-fibration}. 
+
+\begin{corollary} Let $\interval = (\interval, \intervall, \intervalr)$ be an interval in $\catE$ and
+ $U \co \cal{A} \to \catE^\to$ be a functor. For every map $p \co X \to Y$ in $\cal{E}$ 
+ the following are equivalent: 
+\begin{enumerate}[(i)]
+\item the map $p$ admits a right $\cal{A}_I$-lifting structure. 
+\item the maps $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit $\cal{A}$-lifting structures.
+\end{enumerate} 
+Thus, a map $p$ is an $\cal{A}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are $\cal{A}$-trivial fibrations.
+\end{corollary}
+
+
+\medskip
 
 
 We now consider slicing. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $U : \cal{A} \to \catE^{\to}$ and $X \in \catE$.  we define the category $\cal{A}/X$
@@ -858,36 +887,7 @@ a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivi
 
 \section{Uniform Kan fibrations}
 
-Fix now an interval $\interval = (\interval, \intervall, \intervalr)$. 
 
-\medskip
-
-
-Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $U : \cal{A} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{A}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{A}, \hatunit, \hatotimes)$ is itself a monoidal category and $U$ preserves the monoidal structure on the nose. Recall that \emph{$\cal{A}$-map} is a map $f \co X \to Y$ equipped with a right lifting structure with respect to $\cal{A}$.
-
-\medskip
-
-Let $\cal{A}_\interval \defeq \cal{A} + \cal{A}$ and define functors $U_\intervall \co \cal{A} \to \catE^\to \, , \; U_\intervalr \co \cal{A} \to \catE^\to$  by letting 
-\[
-U_\intervall(a) \defeq  \intervall \hatotimes U(a) \, , \quad
-U_\intervalr(a) \defeq  \intervalr \hatotimes U(a) \, , 
-\]
-for $a \in \cal{A}$. We then have the coproduct diagram
-\[
-\xymatrix@C=1.2cm{
-\cal{A} \ar[r] \ar[dr]_-{U_\intervall} & \cal{A}_\interval \ar[d]^(.4){U_\interval} & \cal{A} \ar[dl]^-{U_\intervalr} \ar[l] \\ 
- & \catE^\to }
-\]
-We define a \emph{uniform $\cal{A}$-fibration} to be an $\cal{A}_\interval$-injective map.
-
-
-\begin{corollary} Let $p \co X \to Y$ be a map in $\cal{E}$. The following are equivalent: 
-\begin{enumerate}[(i)]
-\item the map $p$ admits a right $\cal{A}_I$-lifting structure. 
-\item the maps $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit $\cal{A}$-lifting structures.
-\end{enumerate} 
-Thus, a map $p$ is an $\cal{A}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are $\cal{A}$-trivial fibrations.
-\end{corollary}
 
 
  In $\SSet$, for a horn inclusion $h^{k}_n \co 1 \to \Delta_1$ and  a monomorphism $i \co A \to B$
@@ -1109,6 +1109,11 @@ But that means $p$ is an $\cal{I}_5$-fibration.
 
 
 \section{Strong homotopy equivalences}
+
+\medskip
+
+
+Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $U : \cal{A} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{A}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{A}, \hatunit, \hatotimes)$ is itself a monoidal category and $U$ preserves the monoidal structure on the nose. 
 
 \newpage
 
