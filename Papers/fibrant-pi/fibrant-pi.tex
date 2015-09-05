@@ -4,7 +4,7 @@
 
 \usepackage{uniform-kan-prelude}
 
-\title{On uniform Kan fibrations and pushforward}
+\title{On uniform Kan fibrations and pushforward functors}
 
 \begin{document}
 
@@ -198,7 +198,7 @@ Here, we shall be interested in algebraic counterparts of these notions. Instead
  a function  $\phi$ that assigns to each $a \in \cal{A}$ and commuting square
 \[
 \xymatrix@C=2cm{
-A \ar[r]^{h}   \ar[d]_{U a} & X \ar[d]^f \\
+A \ar[r]^{h}   \ar[d]_{U a} & X \ar[d]^p \\
 B \ar[r]_{k} & Y}
 \]
 a diagonal filler $\phi(a, h, k) \co B \to D$, satisfying the following condition: for every $\sigma \co a \to a'$ in $\cal{A}$, 
@@ -211,7 +211,7 @@ B \ar[r]_{t} & B'}
 we have that $\phi(a', h, k) \cc t = \phi(a, hs, kt)$, \ie the inner triangle in the diagram
 \[
 \xymatrix@C=2cm@R=1.5cm{
-A \ar[r]^s \ar[d]_{Ua} & A' \ar[r]^{h}  & X \ar[d]^f   \\
+A \ar[r]^s \ar[d]_{Ua} & A' \ar[r]^{h}  & X \ar[d]^p   \\
 B \ar[r]_{t}  \ar[urr]^{\phi(a, hs, k t) \quad } & B'  \ar[r]_k  \ar[ur]_{\phi(a', h, k)} & Y }
 \]
 commutes. 
@@ -256,7 +256,9 @@ for $a \in \cal{A}$, where we used the pushout product on $\catE^\to$. The funct
 Note that, even if $U \co \cal{A} \to \catE^\to$ is an inclusion, $U_\interval \co \cal{A}_\interval \to \catE^\to$ is not.
 
 
-\begin{definition} A \emph{uniform $\cal{A}$-fibration} is a map $p \co X \to Y$ equipped with a right $\cal{A}_\interval$-lifting structure, \ie a function that assigns diagonal fillers to all diagrams of the form
+\begin{definition} \label{A-fibration} Let  $\interval = (\interval, \intervall, \intervalr)$ be an interval and
+ $U \co \cal{A} \to \catE^\to$ a functor.
+A \emph{uniform $\cal{A}$-fibration} is a map $p \co X \to Y$ equipped with a right $\cal{A}_\interval$-lifting structure, \ie a function that assigns diagonal fillers to all diagrams of the form
 \[
 \xymatrix{
 \bullet \ar[r] \ar[d]_{U(a) \otimes \intervall} & X \ar[d]^p \\
@@ -268,8 +270,9 @@ where $a \in \cal{A}$ is mapped to $Ua \co A \to B$, subject to the naturality c
 \end{definition}
 
 The notion of a trivial Kan fibration and of a Kan fibrations will be defined as special cases of the notions of
-$\cal{A}$-injective map and $\cal{A}$-fibration, respectively. In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors. For this, we work with a fixed category $\catE$, without
-assuming the presence of an interval. 
+$\cal{A}$-injective map and $\cal{A}$-fibration, respectively. Some of their properties can be established 
+simoultaneously, since $\cal{A}$-fibrations are defined as  $\cal{A}_\interval$-injective maps.
+In the remainder of this section, we extend some useful facts about orthogonality operations to orthogonality functors. For this, we work with a fixed category $\catE$, without assuming the presence of an interval. 
 
 
 \begin{proposition}
@@ -408,16 +411,19 @@ B \ar[r] & GD }
  natural in $a \in \cal{A}$ and $b \in \cal{B}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
-The next corollary applies \cref{lift-of-adjunction} to the situation considered in \cref{interval-fibration}. 
+The next corollary applies \cref{lift-of-adjunction} to the notion of an $\cal{A}$-fibration, introduced
+in \cref{A-fibration}.
+
 
 \begin{corollary} Let $\interval = (\interval, \intervall, \intervalr)$ be an interval in $\catE$ and
  $U \co \cal{A} \to \catE^\to$ be a functor. For every map $p \co X \to Y$ in $\cal{E}$ 
  the following are equivalent: 
 \begin{enumerate}[(i)]
 \item the map $p$ admits a right $\cal{A}_I$-lifting structure. 
-\item the maps $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit $\cal{A}$-lifting structures.
+\item the maps $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ admit right $\cal{A}$-lifting structures.
 \end{enumerate} 
-Thus, a map $p$ is an $\cal{A}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are $\cal{A}$-trivial fibrations.
+Thus, a map $p$ is an $\cal{A}$-fibration exactly if $\hatexp(\intervall, p)$ and $\hatexp(\intervalr, p)$ are 
+$\cal{A}$-injective maps.
 \end{corollary}
 
 
@@ -502,6 +508,9 @@ B \ar[r] & D}
 where $a \in \cal{A}$, subject to a uniformity condition. 
 \end{proof}
 
+The next corollary combines \cref{lift-of-adjunction} and \cref{pitchfork-slicing} to obtain 
+a fact about the interaction of orthogonality functors with the pullback and pushforward
+functors. This will be useful to establish our main result.
 
 \begin{corollary}
 \label{lift-dependent-product}
@@ -754,7 +763,7 @@ Note that the class of decidable monomorphisms is closed under base change. We d
 set of boundary inclusions $i^n : \partial \Delta^n \to \Delta^n$. Analogously, in our setting, the category of uniform trivial uniform
 Kan fibrations can also be characterized as the right orthogonal category of  a small category.
 In order to do this, we return to consider the setting of Section~\ref{sec:ortf}, but making the
-further assumption that $\catE$ is a presheaf category, \ie $\catE = \hat{\cat{C}}$, where $\catC$ is some small category. Our intention is to apply \cref{kan-extension-closure} to full subcategories of $\catE_{\cart}^{\to}$, the arrow category $\catE$ with cartesian squares as morphisms. For this, we need a lemma.
+further assumption that $\catE$ is a presheaf category, \ie $\catE = \hat{\cat{C}}$, where $\catC$ is some small category. Our intention is to apply \cref{kan-extension-closure} to full subcategories of $\catE_{\cart}^{\to}$, the arrow category $\catE$ with cartesian squares as morphisms. For this, we need two general lemmas.
 
 \begin{lemma}
 \label{left-kan-extension-of-representables}
