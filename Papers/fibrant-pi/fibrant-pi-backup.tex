@@ -78,16 +78,15 @@ Y \ar[r]_{g} & X \, .}
 %Dually, a \emph{co-deformation retract} has the homotopy $k$ trivial (with $g$ and $f$ a section-retraction pair).
 \end{definition}
 
-\begin{remark} \hfill 
-\begin{enumerate}[(i)]
-\item  The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if 
+\begin{remark} The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if 
 and only if its dual is co-strong. 
-\item The notion of a left or right strong homotopy equivalence is a generalization of the notion of a strong deformation retract, which is obtained by requiring also
-that the homotopy $h$ is trivial.
-\end{enumerate}
 \end{remark}
 
 
+\begin{remark}
+The notion of a left or right strong homotopy equivalence is a generalization of the notion of a strong deformation retract, which is obtained by requiring also
+that the homotopy $h$ is trivial.
+\end{remark} 
 
 
 We wish to give an alternative characterisation of strong homotopy equivalences, which will be useful to establish some of their closure properties. In order to do this,  let us assume also that $\catE$ is finitely cocomplete. Recall from~\cite[Section 4]{riehl-verity:reedy} that, given $f \co X \to Y$ and $g \co U \to V$, their \emph{pushout product} is the arrow $f \hatotimes g$ fitting in the following pushout diagram:
@@ -207,17 +206,17 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 \section{Orthogonality functors}
 \label{sec:ortf}
 
-For this section, fix a category $\catE$. Given a set of morphisms $\cal{C} \subseteq \catE^\to$, we 
-write $\liftr{\cal{C}}$ to be the class of morphisms of $\catE$ that have 
-the right lifting property with respect to all the morphisms in~$\cal{C}$. Dually, we write $\liftl{\cal{C}}$ for the class of morphisms of $\catE$ that have the left lifting property with respect to all the morphisms of $\cal{C}$. 
-Here, we shall be interested in algebraic counterparts of these notions. Instead of starting from a subset of $\catE^\to$, we consider a category $\cal{C}$, to be thought of an indexing category, and a functor $u \co \cal{C} \to \catE^\to$, which assigns an arrow $u_i \co A_i \to B_i$ in $\catE$ to each index $i \in \cal{C}$.
+For this section, fix a category $\catE$. Given a set of morphisms $\cal{I} \subseteq \catE^\to$, we 
+write $\liftr{\cal{I}}$ to be the class of morphisms of $\catE$ that have 
+the right lifting property with respect to all the morphisms in~$\cal{I}$. Dually, we write $\liftl{\cal{I}}$ for the class of morphisms of $\catE$ that have the left lifting property with respect to all the morphisms of $\cal{I}$. 
+Here, we shall be interested in algebraic counterparts of these notions. Instead of starting from a subset of $\catE^\to$, we consider a category $\cal{I}$, to be thought of an indexing category, and a functor $u \co \cal{I} \to \catE^\to$, which assigns an arrow $u_i \co A_i \to B_i$ in $\catE$ to each index $i \in \cal{I}$.
 
 
- \begin{definition} Let $u \co \cal{C} \to \catE^\to$ be a functor. 
+ \begin{definition} Let $u \co \cal{I} \to \catE^\to$ be a functor. 
  \begin{enumerate}[(i)] 
- \item  An \emph{$\cal{C}$-injective map}
- is a pair $(f, \phi)$ consisting of a map $f \co X \to Y$ equipped with a right  $\cal{C}$-lifting function, \ie 
- a function  $\phi$ that assigns to each $i \in \cal{C}$ and commuting square
+ \item  An \emph{$\cal{I}$-injective map}
+ is a pair $(f, \phi)$ consisting of a map $f \co X \to Y$ equipped with a right  $\cal{I}$-lifting function, \ie 
+ a function  $\phi$ that assigns to each $i \in \cal{I}$ and commuting square
 \[
 \xymatrix@C=2cm{
 A_i \ar[r]^{s}   \ar[d]_{u_i} & X \ar[d]^f \\
@@ -230,42 +229,48 @@ condition: for every diagram of the form
 A_i \ar[r]^a \ar[d]_{u_i} & A_j \ar[r]^{s}  \ar[d]_{u_j} & X \ar[d]^f   \\
 B_i \ar[r]_{b}  & B_j  \ar[r]_{t}  & Y }
 \]
-where the right-hand side square is the image of $\sigma \co i \to j$ in $\cal{C}$, 
+where the right-hand side square is the image of $\sigma \co i \to j$ in $\cal{I}$, 
 we have that 
 \[
 \phi(j, s, t) \, b = \phi(i, s  a, t  b) \, .
 \]
-\item A \emph{morphism} $\cal{C}$-injective maps $\alpha \co (f, \phi) \to (f', \phi')$ is a 
+\item A \emph{morphism} $\cal{I}$-injective maps $\alpha \co (f, \phi) \to (f', \phi')$ is a 
 square $\alpha \co f \Rightarrow f'$ in~$\catE$ satisfying an evident compatibility condition 
 with respect to the ifting functions, which we omit. 
 \end{enumerate}
 \end{definition}
 
-For a functor $u \co \cal{C} \to \catE^\to$, we write $\liftr{\cal{C}}$ for the category  of 
-$\cal{C}$-injective maps and their morphisms. There is a forgetful functor~$\liftr{u} \co \liftr{\cal{C}} \to \catE^\to$
-mapping $(f, \phi)$ to $f$. As we explain below, the extra generality obtained by allowing $u \co \cal{C} \to \catE^\to$ to be a functor rather than a mere inclusion of a  subcategory will be very useful.
+For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category  of 
+$\cal{I}$-injective maps and their morphisms. There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$
+mapping $(f, \phi)$ to $f$.
 
 \medskip
 
-We introduce a general construction that we will apply to define uniform Kan fibrations in \cref{section-uniform-Kan}.
-Ler us consider a fixed interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ and a functor $u \co \cal{C} \to \catE^\to$. We wish to define a category~$\cal{C}_\interval$ and a functor $u_\interval \co \cal{C}_\interval \to \catE^\to$. First of all, let $\cal{C}_\interval$ be the coproduct
+The extra generality obtained by allowing $u \co \cal{I} \to \catE^\to$ to be a functor rather than a mere 
+inclusion of a  subcategory will be very important for our purposes, as the next construction and definitions
+show. Given an interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ and a functor $u \co \cal{I} \to \catE^\to$,
+we define a category~$\cal{I}_\interval$ and a functor $u_\interval \co \cal{I}_\interval \to \catE^\to$ as follows. First of all, we define $\cal{I}_\interval$ as the coproduct
  \[
- \cal{C}_\interval  \defeq \cal{C} + \cal{C} \, .
+ \cal{I}_\interval  \defeq \cal{I} + \cal{I} \, .
  \] 
- Next, let $u_{\intervall} \co \cal{C} \to \catE^\to \, , \; u_{\intervalr} \co \cal{C} \to \catE^\to$ be given by
+ Next, let $u_{0} \co \cal{I} \to \catE^\to \, , \; u_{1} \co \cal{I} \to \catE^\to$ be given by
  \[
-u_{\intervall}(i) \defeq  \intervall \hatotimes u_i \; , \quad
-u_{\intervalr}(i) \defeq  \intervalr \hatotimes u_i \; , 
+u_{0}(i) \defeq  \intervall \hatotimes u_i \; , \quad
+u_{1}(i) \defeq  \intervalr \hatotimes u_i \; , 
 \]
-for $i \in \cal{C}$, where we used the pushout product on $\catE^\to$. The functor $u_\interval \co \cal{C}_\interval \to \catE^\to$ is then given by the coproduct diagram
+for $i \in \cal{I}$, where we used the pushout product on $\catE^\to$. The functor $u_\interval \co \cal{I}_\interval \to \catE^\to$ is then given by the coproduct diagram
 \begin{equation}
 \label{equ:u-interval}
 \vcenter{\hbox{\xymatrix@C=1.2cm{
-\cal{C} \ar[r] \ar[dr]_-{u_\intervall} & \cal{C}_\interval \ar[d]^(.4){u_\interval} & \cal{C} \ar[dl]^-{u_\intervalr} \ar[l] \\ 
+\cal{I} \ar[r] \ar[dr]_-{u_0} & \cal{I}_\interval \ar[d]^(.4){u_\interval} & \cal{I} \ar[dl]^-{u_1} \ar[l] \\ 
  & \catE^\to }}}
 \end{equation}
-Note that, even if $u \co \cal{C} \to \catE^\to$ is an inclusion, $u_\interval \co \cal{C}_\interval \to \catE^\to$ is not.
-By definition, a $\cal{C}_\interval$-injective map is a pair $(f, \phi)$ consisting of a map $f \co X \to Y$ and a function $\phi$ that assigns diagonal fillers to all diagrams of the form
+Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\interval \co \cal{I}_\interval \to \catE^\to$ is not.
+
+
+\begin{definition} \label{A-fibration} Let  $\interval = (\interval, \intervall, \intervalr,\varepsilon)$ be an interval and
+ $u \co \cal{I} \to \catE^\to$ a functor. A \emph{uniform $\cal{I}$-fibration} is a $\cal{I}_\interval$-injective map,
+ \ie a pair $(f, \phi)$ consisting of a map $f \co X \to Y$ and a function $\phi$ that assigns diagonal fillers to all diagrams of the form
 \[
 \xymatrix{
 \bullet \ar[r] \ar[d]_{\intervall \hatotimes u_i} & X \ar[d]^p \\
@@ -273,25 +278,26 @@ B_i \otimes \interval \ar[r] & Y} \qquad \xymatrix{
 \bullet \ar[r] \ar[d]_{\intervalr \hatotimes u_i} & X \ar[d]^p \\
 B_i \otimes \interval \ar[r] & Y}
 \]
-subject to the naturality condition. The notion of a uniform Kan fibration will be defined as
-a special case of the notions of $\cal{C}_\interval$-injective map. 
-  
-  \medskip
-  
-We now study categories of injective maps. For this, we work with a fixed category $\catE$, without assuming the presence of an interval. First of all, recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{C} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{C}} \to \cal{E}^\to$ defines the action on objects of the \emph{right orthogonality functor}
+subject to the naturality condition.
+\end{definition}
+
+The notion of a uniform Kan fibration will be defined as special cases of the notions of
+$\cal{I}$-fibration. However, since $\cal{I}$-fibrations are defined as $\cal{I}_\interval$-injective 
+maps, the study of categories of injective maps and of orthogonality functors allows us to
+establish also properties of $\cal{I}$-fibrations.  For this, we work with a fixed category $\catE$, without assuming the presence of an interval. First of all, recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \cal{E}^\to$ defines the action on objects of the \emph{right orthogonality functor}
 \[
 \liftr{\brarghole} \co  (\CAT/\catE^{\to})^{\op} \to \CAT/\catE^{\to} \, .
 \]
 The action  on arrows is defined as follows. Given a commutative triangle of the form
 \[
 \xymatrix{
-\cal{C} \ar[dr]_u \ar[rr]^F & & \cal{D} \ar[dl]^{v} \\
+\cal{I} \ar[dr]_u \ar[rr]^F & & \cal{J} \ar[dl]^{v} \\
  & \catE^\to }
  \]
 we define 
 \[
 \xymatrix{
-\liftr{\cal{D}} \ar[dr]_{\liftr{u}} \ar[rr]^{\liftr{F}} & & \liftr{\cal{D}} \ar[dl]^{\liftr{v}} \\
+\liftr{\cal{J}} \ar[dr]_{\liftr{u}} \ar[rr]^{\liftr{F}} & & \liftr{\cal{J}} \ar[dl]^{\liftr{v}} \\
  & \catE^\to }
 \]
 as follows: for $(f, \phi) \in \liftr{J}$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$, where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$. 
@@ -320,11 +326,11 @@ In the remainder of this section, we extend some useful facts about orthogonalit
 Consider a natural transformation between categories over $\catE^{\to}$:
 \[
 \xymatrix{
-  \cal{C}
+  \cal{I}
   \rrtwocell_G^F{\sigma}
  \ar[dr]_{u}
 &&
-  \cal{D}
+  \cal{J}
   \ar[dl]^{v}
 \\&
   \catE^{\to}
@@ -334,10 +340,10 @@ Note that this includes the condition $v \sigma = \id_u$.
 Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$, 
 \begin{mathpar}
 \xymatrix{
-  \liftr{\cal{C}}
+  \liftr{\cal{I}}
   \ar[dr]_{\liftr{u}}
 &&
-  \liftr{\cal{D}}
+  \liftr{\cal{J}}
   \lltwocell_{\liftr{F}}^{\liftr{G}}{=}
   \ar[dl]^{\liftr{v}}
 \\&
@@ -345,10 +351,10 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
 }
 \and
 \xymatrix{
-  \liftl{\cal{C}}
+  \liftl{\cal{I}}
   \ar[dr]_{\liftl{u}}
 &&
-  \liftl{\cal{D}}
+  \liftl{\cal{J}}
   \lltwocell_{\liftl{F}}^{\liftl{G}}{=}
   \ar[dl]^{\liftl{v}}
 \\&
@@ -357,9 +363,9 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
 \end{mathpar}
 \end{proposition}
 
-\begin{proof} For $(f, \phi) \in \liftr{\cal{D}}$, we have $\liftr{F}(f, \phi) = (f, \phi_F)$ and $\liftr{G}(f, \phi) = (f, \phi_G)$.
+\begin{proof} For $(f, \phi) \in \liftr{\cal{J}}$, we have $\liftr{F}(f, \phi) = (f, \phi_F)$ and $\liftr{G}(f, \phi) = (f, \phi_G)$.
 We claim that the functions $\phi_F$ and $\phi_G$ coincide. Observe that 
-for every $i \in \cal{C}$, we have that $\sigma_i \co v_{Fi}  \Rightarrow v_{Gi}$ is the identity square on $u_i
+for every $i \in \cal{I}$, we have that $\sigma_i \co v_{Fi}  \Rightarrow v_{Gi}$ is the identity square on $u_i
 \co A_i \to B_i$. Hence, by the naturality condition for $\phi$, applied to the diagram 
 \[
 \xymatrix{
@@ -372,7 +378,7 @@ we have  that $\phi_F(i, s, t) = \phi_G(i, s, t)$, as required.
 \medskip
 
 We now consider the effect of adjoint functors on orthogonality. In the standard setting, it is well known that if 
-we have classes of maps $\cal{C} \subseteq \cal{E}^\to$ and $\cal{D} \subseteq \cal{F}^\to$ and an adjunction
+we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$ and an adjunction
 \[
 \xymatrix@C+1em{
   \cal{E}
@@ -383,13 +389,13 @@ we have classes of maps $\cal{C} \subseteq \cal{E}^\to$ and $\cal{D} \subseteq \
   \ar@<5pt>[l]^{G}
 }
 \]
-then $F(\cal{C}) \subseteq \liftl{\cal{D}}$ if and only if $\cal{C} \subseteq G(\cal{D})$. Our next lemma provides the counterpart of this fact in our setting.
+then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\cal{I} \subseteq G(\cal{J})$. Our next lemma provides the counterpart of this fact in our setting.
 
 
 
 
 \begin{proposition} \label{lift-of-adjunction} 
-Let $u \co \cal{C} \to \cal{E}^{\to}$ and $v \co \cal{D} \to \cal{F}^{\to}$ be functors and consider an adjunction
+Let $u \co \cal{I} \to \cal{E}^{\to}$ and $v \co \cal{J} \to \cal{F}^{\to}$ be functors and consider an adjunction
 \[
 \xymatrix@C+1em{
   \cal{E}
@@ -402,14 +408,14 @@ Let $u \co \cal{C} \to \cal{E}^{\to}$ and $v \co \cal{D} \to \cal{F}^{\to}$ be f
 \]
 Then, the following are equivalent:
 \begin{enumerate}[(i)] 
-\item the  functor $F \co \cal{E}^\to \to \cal{F}^\to$ extends to a functor $F' \co \cal{C} \to \liftl{\cal{D}}$ making the following diagram commute:
+\item the  functor $F \co \cal{E}^\to \to \cal{F}^\to$ extends to a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ making the following diagram commute:
 \[
 \xymatrix@C=1.2cm{
-  \cal{C}
+  \cal{I}
   \ar[r]^{F'}
   \ar[d]_{u}
 &
-  \liftl{\cal{D}}
+  \liftl{\cal{J}}
   \ar[d]^{\liftl{v}}
 \\
   \cal{E}^{\to}
@@ -417,13 +423,13 @@ Then, the following are equivalent:
 &
   \cal{F}^{\to}\, ,}
 \]
-\item the functor $G \co \cal{F}^\to \to \cal{E}^\to$ extends to a functor $G' \co \cal{D} \to \liftr{\cal{C}}$, making the following diagram commute:
+\item the functor $G \co \cal{F}^\to \to \cal{E}^\to$ extends to a functor $G' \co \cal{J} \to \liftr{\cal{I}}$, making the following diagram commute:
 \[
 \xymatrix{
-  \liftr{\cal{C}}
+  \liftr{\cal{I}}
   \ar[d]_{\liftr{u}}
 &
-  \cal{D}
+  \cal{J}
   \ar[l]_{G'} 
   \ar[d]^{v}
 \\
@@ -436,33 +442,33 @@ Then, the following are equivalent:
 \end{enumerate}
 \end{proposition}
 
-\begin{proof} Giving a functor $F' \co \cal{C} \to \liftl{\cal{D}}$ as above is the same thing as giving fillers for squares of the form
+\begin{proof} Giving a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for squares of the form
 \[
 \xymatrix{
 FA \ar[d]_{F u_i} \ar[r] & C \ar[d]^{v_j} \\
 FB \ar[r] & D }
 \]
-natural in $i  \in \cal{C}$ and $j \in \cal{D}$. Similarly, giving a functor $G' \co \cal{D} \to \liftl{\cal{C}}$ as above is the same thing as giving fillers for squares 
+natural in $i  \in \cal{I}$ and $j \in \cal{J}$. Similarly, giving a functor $G' \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for squares 
 of the form
 \[
 \xymatrix{
 A \ar[d]_{u_i} \ar[r] & GC \ar[d]^{Gv_j} \\
 B \ar[r] & GD }
 \]
- natural in $i \in \cal{C}$ and $j \in \cal{D}$. Since $F \dashv G$, these situations coincide.
+ natural in $i \in \cal{I}$ and $j \in \cal{J}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
-We can apply \cref{lift-of-adjunction} to relate $\cal{C}$-injective maps and 
- $\cal{C}_\interval$-injective maps.
+We can apply \cref{lift-of-adjunction} to relate $\cal{I}$-injective maps and 
+ $\cal{I}_\interval$-fibrations, which were introduced in \cref{A-fibration}.
 
 
 \begin{corollary} \label{prod-exp-general}
 Let $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ be an interval in $\catE$ and
- $u \co \cal{C} \to \catE^\to$ be a functor. For every map $f \co X \to Y$ in $\cal{E}$ 
+ $u \co \cal{I} \to \catE^\to$ be a functor. For every map $f \co X \to Y$ in $\cal{E}$ 
  the following are equivalent: 
 \begin{enumerate}[(i)]
-\item $f$ admits the structure of a $\cal{C}_\interval$-injective map. 
-\item $\hatexp(\intervall, f)$ and $\hatexp(\intervalr, f)$ admit the structure of $\cal{C}$-injective maps.
+\item $f$ admits the structure of a $\cal{I}_\interval$-fibration. 
+\item $\hatexp(\intervall, f)$ and $\hatexp(\intervalr, f)$ admit the structure of $\cal{I}$-injective maps.
 \end{enumerate} 
 \end{corollary}
 
@@ -470,23 +476,23 @@ Let $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ be an interva
 \medskip
 
 
-We now consider the interaction between the orthogonality functors and the slicing operation. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $u \co \cal{C} \to \catE^{\to}$ and $X \in \catE$, we define the category $\cal{C}/X$
-and a functor $u/X \co \cal{C}/X \to (\cal{E}/X)^\to$ as follows. The category $\cal{C}/X$ has as objects pairs consisting of an object $a \in \cal{C}$ and a commutative triangle of the form
+We now consider the interaction between the orthogonality functors and the slicing operation. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $u \co \cal{I} \to \catE^{\to}$ and $X \in \catE$, we define the category $\cal{I}/X$
+and a functor $u/X \co \cal{I}/X \to (\cal{E}/X)^\to$ as follows. The category $\cal{I}/X$ has as objects pairs consisting of an object $a \in \cal{I}$ and a commutative triangle of the form
 \[
 \xymatrix{
 A_i \ar[dr] \ar[rr]^{u_i} & & B_i \ar[dl] \\
  & X }
  \]
-The functor $u/X \co \cal{C}/X \to (\cal{E}/X)^\to$ sends such a pair to $u_i \co A_i \to B_i$, viewed as a morphism in $\cal{E}/X$. This category fits into the
+The functor $u/X \co \cal{I}/X \to (\cal{E}/X)^\to$ sends such a pair to $u_i \co A_i \to B_i$, viewed as a morphism in $\cal{E}/X$. This category fits into the
 following pullback diagram:
 \[
 \xymatrix{
-  \cal{C}/X
+  \cal{I}/X
   \ar[r]
   \ar[d]_{u/X}
   \pullback{dr}
 &
-  \cal{C}
+  \cal{I}
   \ar[d]^{u}
 \\
   (\catE/X)^{\to}
@@ -499,12 +505,12 @@ where we used the functor on arrow categories induced by the forgetful functor $
 $\operatorname{cod} \co X/\cal{E} \to \catE$ constructs the \emph{coslice} over $X$:
 \[
 \xymatrix{
-  X/\cal{C}
+  X/\cal{I}
   \ar[r]
   \ar[d]_{X/u}
   \pullback{dr}
 &
-  \cal{C}
+  \cal{I}
   \ar[d]^{u}
 \\
   (X/\catE)^{\to}
@@ -513,21 +519,21 @@ $\operatorname{cod} \co X/\cal{E} \to \catE$ constructs the \emph{coslice} over 
   \catE^{\to}
 }
 \]
-which also admits an explicit description, dual to the one given above for $\cal{C}/X$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
+which also admits an explicit description, dual to the one given above for $\cal{I}/X$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
 
 
 
 \begin{proposition} \hfill 
 \label{pitchfork-slicing}
 \begin{enumerate}[(i)]
-\item The right orthogonality functor commutes with slicing, \ie for every $u \co \cal{C} \to \cal{E}$, we have
+\item The right orthogonality functor commutes with slicing, \ie for every $u \co \cal{I} \to \cal{E}$, we have
 \[
-  \liftr{\cal{C}}/X = \liftr{(\cal{C}/X)}
+  \liftr{\cal{I}}/X = \liftr{(\cal{I}/X)}
 \]
 as categories over $\cal{E}^\to$.
-\item The left orthogonality functor commutes with coslicing, \ie for every $u \co \cal{C} \to \cal{E}$, we have
+\item The left orthogonality functor commutes with coslicing, \ie for every $u \co \cal{I} \to \cal{E}$, we have
 \[
- \liftl{\cal{C}} \backslash X = \liftl{\cal{C} \backslash X}
+ \liftl{\cal{I}} \backslash X = \liftl{\cal{I} \backslash X}
 \]
 as categories over $\cal{E}^\to$.
 \end{enumerate}
@@ -546,7 +552,7 @@ and a function $\phi$ that assigns a diagonal filler to every diagram in $\cal{E
 A_i \ar[r] \ar[d]_{u_i} & X \ar[d]^{f} \\
 B_i \ar[r] & Y}
 \]
-where $i \in \cal{C}$, subject to a uniformity condition. 
+where $i \in \cal{I}$, subject to a uniformity condition. 
 \end{proof}
 
 The next corollary combines \cref{lift-of-adjunction} and \cref{pitchfork-slicing} to obtain 
@@ -566,17 +572,17 @@ Let $f \co X \to Y$ be a map in $\catE$ admitting pushforward and pullback:
   \ar@<5pt>[l]^{f^*}
 }
 \]
-Let $u \co \cal{C} \to \catE^{\to}$ be a functor. The following are
+Let $u \co \cal{I} \to \catE^{\to}$ be a functor. The following are
 equivalent:
 \begin{enumerate}[(i)]
 \item lifts of pushforward
 \[
 \xymatrix@C=1.5cm{
-\liftr{\cal{C}}/X
+\liftr{\cal{I}}/X
 \ar[r]^{f_*}
   \ar[d]_{u/X}
 &
-  \liftr{\cal{C}}/Y
+  \liftr{\cal{I}}/Y
   \ar[d]^{u/Y}
 \\
   (\catE/X)^{\to}
@@ -588,11 +594,11 @@ equivalent:
 \item lifts of pullback
 \[
 \xymatrix@C=1.5cm{
-  \cal{C}/Y
+  \cal{I}/Y
    \ar[r]^{f^*}
   \ar[d]_{u/Y} 
   &
-  \liftl{ ( \liftr{\cal{C}}/X ) }
+  \liftl{ ( \liftr{\cal{I}}/X ) }
   \ar[d]^{\liftl{(\liftr{u}/X)}}
      \\
      (\catE/Y)^{\to} \ar[r]_{f^*} &
@@ -602,7 +608,7 @@ equivalent:
 \item functors $F$ making the following diagram commute:
 \[
 \xymatrix@C=1.2cm@R=1.5cm{
-\liftr{\cal{C}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{C}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
+\liftr{\cal{I}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{I}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
  & (\cal{E}/X)^\to & }
 \]
 \end{enumerate}
@@ -619,10 +625,10 @@ The last statement is simply the adjunction~\eqref{garner-adjunction}.
 Next, we consider the interaction between the orthogonality functors and closure under retracts. In the ordinary setting, it is well-known that
 applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure. 
 In order to establish a counterpart of this fact, we need again some definitions. 
-Given a  functor $u \co \cal{C} \to \catE^{\to}$, we define its retract closure $\overline{u} \co \overline{\cal{C}} \to \catE^{\to}$ as follows. 
-An object of $\overline{\cal{C}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{C}$, an arrow $e \in \cal{E}^\to$ together with squares $\sigma \co e \Rightarrow u_i$ and $\rho \co u_i \Rightarrow e$,
+Given a  functor $u \co \cal{I} \to \catE^{\to}$, we define its retract closure $\overline{u} \co \overline{\cal{I}} \to \catE^{\to}$ as follows. 
+An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an arrow $e \in \cal{E}^\to$ together with squares $\sigma \co e \Rightarrow u_i$ and $\rho \co u_i \Rightarrow e$,
 which exhibit $e$ as a retract of $u_i$ in  $\catE^{\to}$,  \ie such that $\sigma \cc \rho = \id_e$. 
-A morphism $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ of $\overline{\cal{C}}$  consists of a morphism $f \co i \to i'$ in $\cal{C}$ and a square $\kappa \co e \Rightarrow e'$  such that the following diagram in $\cal{E}^\to$ commutes:
+A morphism $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ of $\overline{\cal{I}}$  consists of a morphism $f \co i \to i'$ in $\cal{I}$ and a square $\kappa \co e \Rightarrow e'$  such that the following diagram in $\cal{E}^\to$ commutes:
 \[
 \xymatrix{
   e
@@ -645,18 +651,18 @@ A morphism $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ o
   e' \, .
 }
 \]
-The functor $\overline{u} \co \overline{\cal{C}} \to \catE^\to$ is then defined  on objects  by letting 
+The functor $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ is then defined  on objects  by letting 
 $\overline{u}(i, e, \sigma, \tau) \defeq e$,
-and on morphisms by letting $\overline{u}(f, \kappa) \defeq \kappa$. The operation of retract closure gives a monad: for $u \co \cal{C} \to \catE^{\to}$,
+and on morphisms by letting $\overline{u}(f, \kappa) \defeq \kappa$. The operation of retract closure gives a monad: for $u \co \cal{I} \to \catE^{\to}$,
 the components of the multiplication and the unit, 
 \[
-\mu_\cal{C} \co \overline{\overline{\cal{C}}} \to \overline{\cal{C}} \, , \quad
-\eta_\cal{C} \co \cal{C} \to \overline{\cal{C}} \, ,
+\mu_\cal{I} \co \overline{\overline{\cal{I}}} \to \overline{\cal{I}} \, , \quad
+\eta_\cal{I} \co \cal{I} \to \overline{\cal{I}} \, ,
 \]
 are defined by letting
 \[
-\mu_\cal{C}((i, e, \sigma,  \rho), e', \sigma', \rho') \defeq (i, e', \sigma \cc \sigma', \rho' \cc \rho) \, , \quad
-\eta_\cal{C}(i) \defeq (i, u_i, \id_{u_i}, \id_{u_i}) \, .
+\mu_\cal{I}((i, e, \sigma,  \rho), e', \sigma', \rho') \defeq (i, e', \sigma \cc \sigma', \rho' \cc \rho) \, , \quad
+\eta_\cal{I}(i) \defeq (i, u_i, \id_{u_i}, \id_{u_i}) \, .
 \]
 
 
@@ -665,12 +671,12 @@ are defined by letting
 \begin{proposition}
 \label{retract-closure}
 The orthogonality functors send the components of the unit and multiplication of the retract closure monad into natural
-isomorphisms, and so for every $u \co \cal{C} \to \catE^\to$, we have isomorphisms of categories
+isomorphisms, and so for every $u \co \cal{I} \to \catE^\to$, we have isomorphisms of categories
 \begin{gather*} 
- \liftr{(\overline{\cal{C}})} \iso \liftr{\cal{C}} \, , \quad
- \liftr{(\overline{\overline{\cal{C}}})} \iso \liftr{\overline{\cal{C}}}  \qquad
- \liftl{(\overline{\cal{C}})} \iso \liftl{\cal{C}} \, , \quad
- \liftl{(\overline{\overline{\cal{C}}})} \iso \liftl{\overline{\cal{C}}}
+ \liftr{(\overline{\cal{I}})} \iso \liftr{\cal{I}} \, , \quad
+ \liftr{(\overline{\overline{\cal{I}}})} \iso \liftr{\overline{\cal{I}}}  \qquad
+ \liftl{(\overline{\cal{I}})} \iso \liftl{\cal{I}} \, , \quad
+ \liftl{(\overline{\overline{\cal{I}}})} \iso \liftl{\overline{\cal{I}}}
 \end{gather*} 
 over $\catE^\to$. \qed
 \end{proposition}
@@ -678,16 +684,16 @@ over $\catE^\to$. \qed
 
 
 
-\begin{remark} Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s \co \retA \to \retB$ and $r \co \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$. The retract closure of $u \co \cal{C} \to \catE^\to$ fits into the following diagram, involving strict pullback and left composition:
+\begin{remark} Let $\ret$ denote the \emph{walking retract}, \ie the category with objects $\retA, \retB$ and morphisms generated by $s \co \retA \to \retB$ and $r \co \retB \to \retA$ under the relation $r \cc s = \id_{\retA}$. The retract closure of $u \co \cal{I} \to \catE^\to$ fits into the following diagram, involving strict pullback and left composition:
 \[
 \xymatrix@C+1em{
-  \overline{\cal{C}}
+  \overline{\cal{I}}
   \ar[r]
   \ar[d]
   \ar@/_2em/[dd]_{\overline{u}}
   \pullback{dr}
 &
-  \cal{C}
+  \cal{I}
   \ar[d]^{u}
 \\
   (\catE^{\to})^{\ret}
@@ -715,30 +721,30 @@ We conclude this section by considering the interaction between the orthogonalit
 
 
 
-\begin{proposition} Let $F \co \cal{C} \to \cal{D}$ be a fully faithful functor. 
+\begin{proposition} Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor. 
 \label{kan-extension-closure}
 \begin{enumerate}[(i)]
 \item Assuming that the pointwise left Kan extension of 
-$u \co \cal{C} \to \catE^{\to}$ along $F$ exists
+$u \co \cal{I} \to \catE^{\to}$ along $F$ exists
 \[
 \xymatrix{
-  \cal{C}
+  \cal{I}
   \ar[dr]_{u}
   \ar[rr]^{F}
 &&
-  \cal{D}
+  \cal{J}
   \ar[dl]^{\Lan_F u}
 \\&
   \catE^{\to}
 }
 \]
-then the functor $\liftr{F} \co \liftr{\cal{D}} \to \liftr{\cal{C}}$,  fitting in the diagram
+then the functor $\liftr{F} \co \liftr{\cal{J}} \to \liftr{\cal{I}}$,  fitting in the diagram
 \[
 \xymatrix{
-  \liftr{\cal{C}}
+  \liftr{\cal{I}}
   \ar[dr]_{\liftr{u}}
 &&
-  \liftr{\cal{D}}
+  \liftr{\cal{J}}
   \ar[ll]_{\liftr{F}}
   \ar[dl]^{\liftr{(\Lan_F u)}}
 \\&
@@ -747,26 +753,26 @@ then the functor $\liftr{F} \co \liftr{\cal{D}} \to \liftr{\cal{C}}$,  fitting i
 \]
 is an isomorphism.
 \item Assuming that the pointwise right Kan extension of 
-$u \co \cal{C} \to \catE^{\to}$ along $F$ exists
+$u \co \cal{I} \to \catE^{\to}$ along $F$ exists
 \[
 \xymatrix{
-  \cal{C}
+  \cal{I}
   \ar[dr]_{u}
   \ar[rr]^{F}
 &&
-  \cal{D}
+  \cal{J}
   \ar[dl]^{\Ran_F u}
 \\&
   \catE^{\to}
 }
 \]
-then the functor $\liftl{F} \co \liftl{\cal{D}} \to \liftl{\cal{C}}$, fitting in the diagram
+then the functor $\liftl{F} \co \liftl{\cal{J}} \to \liftl{\cal{I}}$, fitting in the diagram
 \[
 \xymatrix{
-  \liftl{\cal{C}}
+  \liftl{\cal{I}}
   \ar[dr]_{\liftl{u}}
 &&
-  \liftl{\cal{D}}
+  \liftl{\cal{J}}
   \ar[ll]_{\liftl{F}}
   \ar[dl]^{\liftl{(\Ran_F u)}}
 \\&
@@ -790,13 +796,13 @@ Recall that classically a trivial Kan fibration, which is defined by right ortho
 $i \co A \to B$ is  \emph{decidable} if for every $n$, the function $i_n \co A_n \to B_n$ has a decidable image. 
 Note that the class of decidable monomorphisms is closed under base change. We define $\cal{M}$ as the full subcategory of $\SSet_\cart$ spanned by decidable monomorphisms. 
 
-\begin{definition} A \emph{uniform trivial Kan fibration}  is an $\cal{M}$-injective map,
+\begin{definition} A \emph{uniform trivial Kan fibration}  is a $\cal{M}$-injective map,
 \ie a map $f \co X \to Y$ of simplicial sets equipped with a function $\phi$
 that assigns to every decidable monomorphism $i \co A \to B$ and commuting square 
  \[
  \xymatrix{
- A \ar[r]^s \ar[d]_i & X \ar[d]^f \\
- B \ar[r]_t & Y}
+ A \ar[r] \ar[d]_i & X \ar[d]^f \\
+ B \ar[r] & Y}
  \]
 a diagonal filler $\phi(i, s, t) \co B \to X$, subject to the following naturality condition: for every 
 diagram 
@@ -814,7 +820,7 @@ where the left-hand side square is a pullback, we have that $\phi(j, s, t) \, k 
  
  
 Classically, a map is a  trivial Kan fibration if and only if it has the right lifting property with respect to the
-set of boundary inclusions $i_n \co \partial \Delta^n \to \Delta^n$. We wish to establish a counterpart of 
+set of boundary inclusions $i^n \co \partial \Delta^n \to \Delta^n$. We wish to establish a counterpart of 
 this fact in our setting, by showing that the category of uniform trivial Kan fibrations can also be 
 characterized as the right orthogonal category of  a small category.
 
@@ -832,28 +838,28 @@ for which we make the further assumption that $\catE$ is a presheaf category, \i
 
 \begin{lemma}
 \label{left-kan-extension-of-representables}
-Let $\cal{D}$ be a full subcategory of $\catE_{\cart}^{\to}$ closed under base change to representables.
-Let $\cal{C}$ denote its restriction to arrows into representables.
+Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^{\to}$ closed under base change to representables.
+Let $\cal{I}$ denote its restriction to arrows into representables.
 \[
 \xymatrix{
-  \cal{C}
+  \cal{I}
   \ar[rr]
   \ar[dr]
 &&
-  \cal{D}
+  \cal{J}
   \ar[dl]
 \\&
   \catE^{\to}
 }
 \]
-Then, the inclusion $\cal{D} \to \catE^{\to}$ is the left Kan extension of $\cal{C} \to \catE^{\to}$ along $\cal{C} \to \cal{D}$.
+Then, the inclusion $\cal{J} \to \catE^{\to}$ is the left Kan extension of $\cal{I} \to \catE^{\to}$ along $\cal{I} \to \cal{J}$.
 \end{lemma}
 
 
 
 \begin{proof}
 Since $\catE^{\to}$ is cocomplete, we can verify the claim using  the colimit formula for left Kan extensions.
-All of the following will be functorial in an object $j \co A \to B$ of $\cal{D}$.
+All of the following will be functorial in an object $j \co A \to B$ of $\cal{J}$.
 We consider the diagram indexed by cartesian squares of the form
 \[
 \xymatrix@C=1.2cm{
@@ -871,9 +877,9 @@ We consider the diagram indexed by cartesian squares of the form
   B
 }
 \]
-with $i \co A' \to \yon(c)$ in $\cal{C}$ and valued $i$.
+with $i \co A' \to \yon(c)$ in $\cal{I}$ and valued $i$.
 Our goal is to show that its colimit of this diagram in $\catE^{\to}$ is $j$.
-Using the assumption that $\cal{D}$ is closed under pullback to representables, the given diagram
+Using the assumption that $\cal{J}$ is closed under pullback to representables, the given diagram
 can be described equivalently as the the diagram indexed by maps $b \co \yon(c) \to B$ and valued $b^*(j)$. The claim can then be restated as  $\colim_{b : \yon(c) \to B} b^*(j) \iso j$, which 
 holds since pullback commutes with colimits in presheaf categories, and  $\colim_{b : \yon(c) \to B} \yon(c) \iso B$.
 \end{proof}
@@ -900,21 +906,21 @@ which holds by the co-Yoneda lemma.
 
 \begin{lemma}
 \label{awfs-on-arrows-into-representables}
-Let $\cal{D}$ be a full subcategory of $\catE_{\cart}^{\to}$ closed under base change to representables.
-Let $\cal{C}$ denote its restriction to arrows into representables.
+Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^{\to}$ closed under base change to representables.
+Let $\cal{I}$ denote its restriction to arrows into representables.
 \[
 \xymatrix{
-  \cal{C}
+  \cal{I}
   \ar[rr]
   \ar[dr]
 &&
-  \cal{D}
+  \cal{J}
   \ar[dl]
 \\&
   \catE^{\to}
 }
 \]
-Then $\liftr{\cal{C}} = \liftr{\cal{D}}$.
+Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
 \end{lemma}
 
 \begin{proof} The result follows by combining \cref{left-kan-extension-of-representables} and part~(i) of \cref{kan-extension-closure}. 
@@ -923,7 +929,7 @@ Then $\liftr{\cal{C}} = \liftr{\cal{D}}$.
 
 \begin{theorem} \label{small-gen-triv-kan}
 The category of uniform trivial Kan fibrations is isomorphic to the right orthogonality 
-category of the following full subcategories of  the category $\cal{M}$ of decidable
+category of the following full subcategories of $\cal{M}$, the category of decidable
 monomorphisms and cartesian squares:
 \begin{align*}
 \cal{M}_1 & = \braces{i \co A \rightarrow \Delta^{n} \ | \ i \text{ is a  decidable monomorphism} } \\ 
@@ -957,22 +963,21 @@ X \ar[rr]^f \ar[dr]_{i_f}  & & Y \\
  $i_f$ admits the structure of a $\mathsf{L}$-coalgebra.
 \end{proposition}
 
-\begin{proof} Since the category $\cal{M}_1$ defined in~\cref{small-gen-triv-kan} is small and
-the inclusion functor $\cal{M}_1 \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, 
+\begin{proof} Since the category $\cal{M}_1$ defined in~\cref{small-gen-triv-kan} is small,  
 it is possible to apply Garner's small object argument to
-obtain an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$.
-The fact that the category of $\mathsf{R}$-algebras is the category of uniform trivial Kan fibrations
+obtain an algebraic weak factorisation system $(\cal{L}, \cal{R})$.
+The fact that $\cal{R}$ is the category of uniform trivial Kan fibrations
  follows from \cref{small-gen-triv-kan}.
  \end{proof} 
 
 Note that ~\cref{awfs-on-arrows-into-representables} cannot be used to show 
-a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivial Kan fibration if and only if it is a trivial Kan fibration in the usual sense since  the class of boundary inclusions  is contained strictly  in~$\cal{C}$. 
+a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivial Kan fibration if and only if it is a trivial Kan fibration in the usual sense since  the class of boundary inclusions  is contained strictly  in~$\cal{I}$. 
 
 
 
 
 \section{Uniform Kan fibrations}
-\label{section-uniform-Kan}
+
 
 We now introduce the notion of a uniform Kan fibration, which will be our constructive counterpart
 of the standard notion of a Kan fibration. For this, recall that in $\SSet$ we have an interval, given by
@@ -987,17 +992,14 @@ their pushout product $h^k_n \hattimes i$ is given by the following pushout diag
  \]
  Thus, given the inclusion $u \co \cal{M} \to \SSet^\to$ of decidable morphisms and pullback squares, 
  we define the functor $u_{\Delta_1} \co \cal{M}_{\Delta_1} \co \SSet^\to$ as in~\eqref{equ:u-interval}. 
- Explicitly, we let $\cal{M}_{\Delta_1} = \cal{M} + \cal{M}$ and define $u_{\Delta_1}$ via the universal
- property of coproducts:
-  \[
- \xymatrix@R=1.2cm@C=1.2cm{
- \cal{M} \ar[dr]_{u^0}  \ar[r]^{\iota_0} &  \cal{M}_{\Delta_1} \ar[d]^{u_{\Delta_1}} & \cal{M} \ar[dl]^{u^1} \ar[l]_{\iota_1} \\
-  & \SSet^\to & }
+ Explicitly, $ \cal{M}_{\Delta_1} = \cal{M} + \cal{M}$ and
+ \[
+  u_{\Delta_1} (\iota_k(i)) = h^k_1 \hattimes i \, ,
   \]
-  where $u^k(i) = h^k_1 \hattimes i$,   for $k \in \{ 0, 1 \}$ and $i \co A \to B$ in $\cal{M}$. 
+  for $k \in \{ 0, 1 \}$. 
    
 
-\begin{definition} A \emph{uniform Kan fibration} is a $\cal{M}_{\Delta_1}$-injective map, \ie 
+\begin{definition} A \emph{uniform Kan fibration} is a $\cal{M}_{\Delta_1}$-fibration, \ie 
 a map  $p \co X \to Y$ of simplicial sets equipped with a function $\phi$ that assigns
 to every decidable monomorphism $i \co A \to B$, $k \in \{0, 1\}$  and commuting
 square a diagram of the form
@@ -1036,8 +1038,8 @@ X \ar[rr]^f \ar[dr]_{i_f}  & & Y \\
 \end{proposition} 
 
 \begin{proof} The claim follows from Garner's small object argument, once we find a 
-functor $u \co \cal{C} \rightarrow \catE^\to$ such that $\cal{C}$ is small and the
-category of uniform Kan fibrations is isomorphic to $\liftr{\cal{C}}$. If we consider
+functor $u \co \cal{I} \rightarrow \catE^\to$ such that $\cal{I}$ is small and the
+category of uniform Kan fibrations is isomorphic to $\liftr{\cal{I}}$. If we consider
 the inclusion $u \co \mathcal{M}_1 \to \cal{E}^\to$ and perform the construction
 $u_\interval \co (\mathcal{M}_1)_\interval \to \catE^\to$, the result follows 
 by \cref{small-gen-triv-kan} and \cref{prod-exp-for-Kan}. 
@@ -1046,7 +1048,7 @@ by \cref{small-gen-triv-kan} and \cref{prod-exp-for-Kan}.
 
 \medskip
  
-Let us define a subcategory $\cal{C} \subseteq \SSet^\to$. The objects are the boundary inclusions
+Let us define a subcategory $\cal{I} \subseteq \SSet^\to$. The objects are the boundary inclusions
 $i_n \co \partial \Delta_n \to \Delta_n$ and the identity maps $\id_{\Delta_n} \co \Delta_n \to \Delta_n$; the
 maps are the identity squares and those of the form
  \[
@@ -1066,7 +1068,7 @@ maps are the identity squares and those of the form
 \] 
 
 
-\begin{definition} A \emph{regular trivial Kan fibration} is an $\cal{C}$-injective map, \ie a map $p \co X \to Y$ 
+\begin{definition} A \emph{regular trivial Kan fibration} is an $\cal{I}$-injective map, \ie a map $p \co X \to Y$ 
 equipped with a function that assigns fillers to all squares of the form
 \begin{equation}
 \label{equ:boundary-filler}
@@ -1080,7 +1082,7 @@ subject to the following naturality condition: for every diagram of the form
 {\vcenter{\hbox{\xymatrix@C=1.2cm{
   \partial \Delta_n
   \ar[r]
-  \ar[d]_{i_n}
+  \ar[d]_{i^n}
 &
   \Delta_{n-1}
   \ar[r]
@@ -1263,7 +1265,7 @@ that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$. The claim no
 \medskip
 
 
-Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \co \cal{C} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{C}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{C}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
+Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \co \cal{I} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{I}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
 
 \newpage
 
