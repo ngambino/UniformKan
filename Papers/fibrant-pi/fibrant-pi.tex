@@ -4,7 +4,10 @@
 
 \usepackage{uniform-kan-prelude}
 
-\title{On the pushforward of uniform Kan fibrations}
+
+
+
+\title{On the pushforward of uniform Kan fibrations in simplicial and cubical sets}
 
 \begin{document}
 
@@ -33,15 +36,52 @@ general approach subsumes also the existing work on cubical sets.
 
 \section{Introduction}
 
-This paper contributes to the ongoing efforts to define a constructive counterpart of Voevodsky's 
-simplicial model of type theory extended with the Univalence Axiom. 
+This paper contributes to the ongoing efforts to define a constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} and prove his canonicity conjecture
+on the univalence axiom. We will focus on the question of proving a constructive counterpart of the
+well-known statement that, in the category of simplicial sets, the pushforward functor (\ie the right adjoints to 
+the pullback functor) along a Kan fibrations preserves Kan fibrations. This result plays an important role in
+the development of the simplicial model of univalent foundations in that it ensures that the axioms for $\Pi$-types can be interpreted correctly~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. 
+However, as shown in~\cite{coquand-non-constructivity-kan}, it cannot be proved constructively without changes.
+Because of this, Bezem, Coquand and Huber decided to switch from simplicial sets to cubical sets and started to develop a cubical model of univalent foundations~\cite{coquand-cubical-sets}. In that setting, working with the notion of a \emph{uniform Kan fibration}, they have shown that it is possible to prove a counterpart of the fact the pushforward functor along a Kan fibrations preserves Kan fibrations. 
+
+
+These results may give the impression that there is something intrinsically non-constructive in simplicial homotopy theory. The work presented in this paper  shows that this impression is false and the possibility of eveloping a constructive version of Voevodsky's model remaining within in the setting of simplicial sets remains open. Indeed,
+we will introduce a notion of uniform Kan fibration in simplicial sets and prove that the pushforward functor along a 
+uniform Kan fibrations preserves uniform Kan fibrations. We will also show that, working within ZFC, the standard
+notion of a Kan fibration is equivalent to that of a uniform Kan fibration, thereby proving that our result is classically equivalent to the standard one. Our approach is inspired by some aspects of the development of cubical sets and
+by the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to treat
+the simplicial and the cubical setting simoultaneously. 
+
+
+\medskip
+
+
+In order to motivate present our results more precisely, let us briefly recall the classical proof of the fact that the pushforward functor along a Kan fibrations preserves Kan fibrations. First of all, applying 
+a general fact regarding the interaction of orthogonality classes of maps and adjoint functors, 
+one observes that the desired statement is equivalent to showing that 
+pullbacks along Kan fibrations preserves trivial cofibrations. One then proves that pullbacks along Kan 
+fibrations preserves trivial cofibrations combining the fact that the model structure on simplicial sets is right proper 
+(\ie that pullbacks along Kan fibrations preserve weak equivalences) with the fact that pullbacks preserve 
+cofibrations (since these are the monomorphisms). 
+
+
+
+
+
+
 
 \newpage
 
 
-\section{Preliminaries} 
+\section{Categories of orthogonal maps}
+\label{sec-orthog-functors}
 
-Let $(\catE, \otimes, \unit, \sigma)$ be a symmetric monoidal category, which we consider fixed throughout this section. 
+
+
+
+\subsection{Preliminaries} 
+
+Let $(\catE, \otimes, \unit, \sigma)$ be a symmetric monoidal category,. 
 Note that we write $\unit$ for the unit of the tensor product. The initial and terminal objects of $\catE$, when assumed to exist, will be denoted by $\initial$ and $\terminal$, respectively. Let us assume also that $\catE$ is finitely cocomplete. Recall from~\cite[Section 4]{riehl-verity:reedy} that, given $f \co X \to Y$ and $g \co U \to V$, their \emph{pushout product} is the arrow $f \hatotimes g$ fitting in the following pushout diagram:
 \[
 \xymatrix@R=1.2cm{
@@ -60,29 +100,7 @@ pullback diagram
  & [Y,V] \ar[r]_{[f,V]} & [X,V] }
  \]
 
-
-
-
-\begin{definition} An \emph{interval} in $\catE$ is a tuple $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ consisting of  an object $\interval \in \catE$, 
-and morphisms $\intervall, \intervalr \co \unit \to \interval$, called the \emph{left endpoint} and
-\emph{right endoint} of $\interval$, respectively, 
- and $\intervalc \co \interval \to \unit$,   such that the following diagrams commute:
-\[
-\xymatrix{
-\unit \ar[r]^\intervall \ar[dr]_{\id_\unit} & \interval \ar[d]^-{\varepsilon} & \unit \ar[dl]^{\id_\unit} \ar[l]_{\intervalr}  \\
- & \unit & }
- \]
-\end{definition}
-
-
-
-\section{Categories of orthogonal maps}
-\label{sec-orthog-functors}
-
-
-
-
-Given a set of morphisms $\cal{C}$ of $\catE$, we 
+\subsection{Left and right maps} Given a set of morphisms $\cal{C}$ of $\catE$, we 
 write $\liftr{\cal{C}}$ to be the class of morphisms of $\catE$ that have 
 the right lifting property with respect to all the morphisms in~$\cal{C}$. Dually, we write $\liftl{\cal{C}}$ for the class of morphisms of $\catE$ that have the left lifting property with respect to all the morphisms of $\cal{C}$. 
 Here, we shall be interested in algebraic counterparts of these notions. Instead of starting from a subset of $\catE^\to$, we consider a category $\cal{C}$, to be thought of an indexing category, and a functor $u \co \cal{C} \to \catE^\to$, which assigns an arrow $u_i \co A_i \to B_i$ in $\catE$ to each index $i \in \cal{C}$.
@@ -134,10 +152,16 @@ mapping $(f, \phi)$ to $f$. As we explain below, the additional generality obtai
 \medskip
 
 
-
-
-
-Let us consider a fixed interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ and a functor $u \co \cal{C} \to \catE^\to$. We wish to define a category~$\cal{C}_\interval$ and a functor $u_\interval \co \cal{C}_\interval \to \catE^\to$. First of all, let $\cal{C}_\interval$ be the coproduct
+\subsection{Intervals and fibrations} By definition an \emph{interval} in $\catE$ is a tuple $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ consisting of  an object $\interval \in \catE$, 
+and morphisms $\intervall, \intervalr \co \unit \to \interval$, called the \emph{left endpoint} and
+\emph{right endoint} of $\interval$, respectively, 
+ and $\intervalc \co \interval \to \unit$,   such that the following diagrams commute:
+\[
+\xymatrix{
+\unit \ar[r]^\intervall \ar[dr]_{\id_\unit} & \interval \ar[d]^-{\varepsilon} & \unit \ar[dl]^{\id_\unit} \ar[l]_{\intervalr}  \\
+ & \unit & }
+ \]
+Let us consider a fixed interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$. Given a functor $u \co \cal{C} \to \catE^\to$, we wish to define a category~$\cal{C}_\interval$ and a functor $u_\interval \co \cal{C}_\interval \to \catE^\to$. First of all, let $\cal{C}_\interval$ be the coproduct
  \[
  \cal{C}_\interval  \defeq \cal{C} + \cal{C} \, .
  \] 
@@ -174,9 +198,10 @@ have the inclusion $u \co \cal{M} \to \SSet^\to$. A right $\cal{M}_{\Delta_1}$-m
 a \emph{uniform Kan fibration}. This definition is unfolded and studied in \cref{section-kan-fib}. 
 \end{example} 
   
-  \medskip
-  
-We now study categories of left and right maps in general. For this, we work with a fixed category~$\catE$, without assuming the presence of an interval. First of all, recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{C} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{C}} \to \cal{E}^\to$ defines the action on objects of the \emph{right orthogonality functor}
+
+
+\subsection{Orthogonality functors} 
+We now study categories of left and right maps. For this, we work with a fixed category~$\catE$, without assuming the presence of an interval. First of all, recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{C} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{C}} \to \cal{E}^\to$ defines the action on objects of the \emph{right orthogonality functor}
 \[
 \liftr{\brarghole} \co  (\CAT/\catE^{\to})^{\op} \to \CAT/\catE^{\to} \, .
 \]
@@ -267,8 +292,7 @@ B_i \ar[r]_{\id_{B_i}} & B_i \ar[r]_{t} & Y \, ,}
 we have  that $\phi_F(i, s, t) = \phi_G(i, s, t)$, as required.
 \end{proof} 
 
-\medskip
-
+\subsection{Orthogonality and adjoints}
 We now consider the effect of adjoint functors on orthogonality. In the standard setting, it is well known that if 
 we have classes of maps $\cal{C} \subseteq \cal{E}^\to$ and $\cal{D} \subseteq \cal{F}^\to$ and an adjunction
 \[
@@ -365,10 +389,7 @@ Let $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ be an interva
 \end{corollary}
 
 
-\medskip
-
-
-We now consider the interaction between the orthogonality functors and the slicing operation. In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $u \co \cal{C} \to \catE^{\to}$ and $X \in \catE$, we define the category $\cal{C}/X$
+\subsection{Orthogonality and slicing} In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.  In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions. Given a functor $u \co \cal{C} \to \catE^{\to}$ and $X \in \catE$, we define the category $\cal{C}/X$
 and a functor $u/X \co \cal{C}/X \to (\cal{E}/X)^\to$ as follows. The category $\cal{C}/X$ has as objects pairs consisting of an object $a \in \cal{C}$ and a commutative triangle of the form
 \[
 \xymatrix{
@@ -449,7 +470,7 @@ where $i \in \cal{C}$, subject to a uniformity condition.
 
 \medskip
 
-Next, we consider the interaction between the orthogonality functors and closure under retracts. In the ordinary setting, it is well-known that
+\subsection{Orthogonality and retract closure} In the ordinary setting, it is well-known that
 applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure. 
 In order to establish a counterpart of this fact, we need again some definitions. 
 Given a  functor $u \co \cal{C} \to \catE^{\to}$, we define its retract closure $\overline{u} \co \overline{\cal{C}} \to \catE^{\to}$ as follows. 
@@ -543,6 +564,7 @@ Taking the retract closure commutes with slicing and coslicing.
 
 \medskip
 
+\subsection{Orthogonality and left Kan extensions} 
 We conclude this section by considering the interaction between the orthogonality functors and  Kan extensions.
 
 
@@ -1092,7 +1114,7 @@ that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$. The claim no
 
 
 
-\section{Pullback and pushforward on orthogonality categories}
+\section{Pullback and pushforward of orthogonal maps}
 
 \begin{lemma}
 \label{slicing-2-functorial}
@@ -1511,11 +1533,6 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 
 
 
-\section{Strong homotopy equivalences}
-
-\medskip
-
-
 Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \co \cal{C} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{C}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{C}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
 
 \newpage
@@ -1528,7 +1545,7 @@ Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \
 
 
 
-\bibliographystyle{plain}
+\bibliographystyle{alpha}
 \bibliography{../../common/uniform-kan-bibliography}
 
 \end{document}
