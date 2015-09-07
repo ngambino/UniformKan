@@ -29,11 +29,13 @@ simplicial model of Martin-L\"of's dependent type theory extended with the Univa
 \section{Elements of abstract homotopy theory} 
 
 Let $(\catE, \otimes, \unit, \sigma)$ be a symmetric monoidal category, which we consider fixed throughout this section. 
-
+Note that we write $\unit$ for the unit of the tensor product. The initial and terminal objects of $\catE$, when assumed to exist, will be denoted by $\initial$ and $\terminal$, respectively.
 
 
 \begin{definition} An \emph{interval} in $\catE$ is a tuple $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ consisting of  an object $\interval \in \catE$, 
-and morphisms $\intervall, \intervalr \co \unit \to \interval$ and $\intervalc \co \interval \to \unit$,   such that the following diagrams commute:
+and morphisms $\intervall, \intervalr \co \unit \to \interval$, called the \emph{left endpoint} and
+\emph{right endoint} of $\interval$, respectively, 
+ and $\intervalc \co \interval \to \unit$,   such that the following diagrams commute:
 \[
 \xymatrix{
 \unit \ar[r]^\intervall \ar[dr]_{\id_\unit} & \interval \ar[d]^-{\varepsilon} & \unit \ar[dl]^{\id_\unit} \ar[l]_{\intervalr}  \\
@@ -205,7 +207,9 @@ Use \cref{strong-h-equiv-as-section},  that functors preserve sections, and that
 
 
 \section{Orthogonality functors}
-\label{sec:ortf}
+\label{sec-orthog-functors}
+
+
 
 For this section, fix a category $\catE$. Given a set of morphisms $\cal{C} \subseteq \catE^\to$, we 
 write $\liftr{\cal{C}}$ to be the class of morphisms of $\catE$ that have 
@@ -241,14 +245,21 @@ with respect to the ifting functions, which we omit.
 \end{enumerate}
 \end{definition}
 
+\begin{example}  \label{exa-triv-kan-fib}
+Let $\cal{M}$ be the full subcategory of $\SSet^\to$ spanned by decidable mo\-no\-mor\-phisms, \ie
+mo\-no\-mor\-phisms $i \co A \to B$ such that, for all $n$, the function $i_n \co A_n \to B_n$ has decidable
+image. An $\cal{M}$-injective function will be called a \emph{uniform trivial Kan fibration}. 
+This notion will be studied in \cref{trivial-kan-fibrations}. 
+\end{example}
+
 For a functor $u \co \cal{C} \to \catE^\to$, we write $\liftr{\cal{C}}$ for the category  of 
 $\cal{C}$-injective maps and their morphisms. There is a forgetful functor~$\liftr{u} \co \liftr{\cal{C}} \to \catE^\to$
-mapping $(f, \phi)$ to $f$. As we explain below, the extra generality obtained by allowing $u \co \cal{C} \to \catE^\to$ to be a functor rather than a mere inclusion of a  subcategory will be very useful.
+mapping $(f, \phi)$ to $f$. As we explain below, the additional generality obtained by allowing $u \co \cal{C} \to \catE^\to$ to be a functor rather than a mere inclusion of a  subcategory will be very useful.
 
 \medskip
 
-We introduce a general construction that we will apply to define uniform Kan fibrations in \cref{section-uniform-Kan}.
-Ler us consider a fixed interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ and a functor $u \co \cal{C} \to \catE^\to$. We wish to define a category~$\cal{C}_\interval$ and a functor $u_\interval \co \cal{C}_\interval \to \catE^\to$. First of all, let $\cal{C}_\interval$ be the coproduct
+
+Let us consider a fixed interval $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ and a functor $u \co \cal{C} \to \catE^\to$. We wish to define a category~$\cal{C}_\interval$ and a functor $u_\interval \co \cal{C}_\interval \to \catE^\to$. First of all, let $\cal{C}_\interval$ be the coproduct
  \[
  \cal{C}_\interval  \defeq \cal{C} + \cal{C} \, .
  \] 
@@ -273,8 +284,13 @@ B_i \otimes \interval \ar[r] & Y} \qquad \xymatrix{
 \bullet \ar[r] \ar[d]_{\intervalr \hatotimes u_i} & X \ar[d]^p \\
 B_i \otimes \interval \ar[r] & Y}
 \]
-subject to the naturality condition. The notion of a uniform Kan fibration will be defined as
-a special case of the notions of $\cal{C}_\interval$-injective map. 
+subject to the naturality condition. 
+
+\begin{example} Consider the interval in $\SSet$ given by $\Delta_1$, with the horn inclusions 
+$h^k_1 \co 1 \to \Delta_1$ ($k \in \{ 0, 1 \}$) as endpoints. Recall from \cref{exa-triv-kan-fib} that we
+have the inclusion $u \co \cal{M} \to \SSet^\to$. A $\cal{M}_{\Delta_1}$-injective map will be called
+a \emph{uniform Kan fibration}. This definition is unfolded and studied in \cref{section-kan-fib}. 
+\end{example} 
   
   \medskip
   
@@ -515,46 +531,7 @@ $\operatorname{cod} \co X/\cal{E} \to \catE$ constructs the \emph{coslice} over 
 \]
 which also admits an explicit description, dual to the one given above for $\cal{C}/X$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
 
-\begin{proposition}
-\label{slicing-2-functorial}
-For a functor $u : \cal{C} \to \catE^{\to}$ and a map $f : X \to Y$ in $\catE$ we have the following:
-\begin{enumerate}[(i)]
-\item
-Left composition $f_! : \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$:
-\[
-\xymatrix@C+1em{
-  \cal{C}/X
-  \ar@{.>}[r]^-{f_!}
-  \ar[d]_{u/X}
-&
-  \cal{C}/Y
-  \ar[d]_{u/X}
-\\
-  (\calE/X)^{\to}
-  \ar[r]^-{(f_!)^{\to}}
-&
-  (\calE/X)^{\to}
-}
-\]
-\item
-Right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$:
-\[
-\xymatrix@C+1em{
-  \cal{C}/X
-  \ar[d]_{u/X}
-&
-  \cal{C}/Y
-  \ar@{.>}[l]_-{f^!}
-  \ar[d]_{u/X}
-\\
-  (\calE/X)^{\to}
-&
-  (\calE/X)^{\to}
-  \ar[l]_-{(f^!)^{\to}}
-}
-\]
-\end{enumerate}
-\end{proposition}
+
 
 \begin{proposition} \hfill 
 \label{pitchfork-slicing}
@@ -586,216 +563,6 @@ A_i \ar[r] \ar[d]_{u_i} & X \ar[d]^{f} \\
 B_i \ar[r] & Y}
 \]
 where $i \in \cal{C}$, subject to a uniformity condition. 
-\end{proof}
-
-\begin{corollary}
-\label{lift-pullback}
-Let $f : X \to Y$ be a map in $\catE$ admitting pullback:
-\[
-\xymatrix@C+1em{
-  \catE/X
-  \ar@<-5pt>[r]_{f_!}
-  \ar@{}[r]|{\top}
-&
-  \catE/Y
-  \ar@<-5pt>[l]_{f^*}
-}
-\]
-Let $u : \cal{C} \to \catE^{\to}$ be a functor.
-Then pullback along $f$ lifts to slices of the right orthogonality category:
-\[
-\xymatrix@C=1.5cm{
-  \liftr{\cal{C}}/X
-  \ar[d]_{\liftr{u}/X}
-&
-  \liftr{\cal{C}}/Y
-  \ar@{.>}[l]_{f^*}
-  \ar[d]^{\liftr{u}/Y}
-\\
-  (\catE/X)^{\to}
-&
-  (\catE/Y)^{\to}
-  \ar[l]_{(f^*)^{\to}}
-}
-\]
-\end{corollary}
-
-\begin{proof}
-Combine \cref{lift-of-adjunction} with part (i) of \cref{slicing-2-functorial}.
-\end{proof}
-
-\begin{question}
-In fact, $\liftr{C}/\text{--}$ is a cartesian fibration (compare notes-on-awfs).
-Do we need that?
-\end{question}
-
-The next corollary combines \cref{lift-of-adjunction} and \cref{pitchfork-slicing} to obtain 
-a fact about the interaction of orthogonality functors with the pullback and pushforward
-functors. This will be useful to establish our main result.
-
-\begin{corollary}
-\label{lift-dependent-product}
-Let $f \co X \to Y$ be a map in $\catE$ admitting pullback and pushforward:
-\[
-\xymatrix@C+1em{
-  \catE/X
-  \ar@<5pt>[r]^{f_*}
-  \ar@{}[r]|{\top}
-&
-  \catE/Y
-  \ar@<5pt>[l]^{f^*}
-}
-\]
-Let $u \co \cal{C} \to \catE^{\to}$ be a functor. The following are
-equivalent:
-\begin{enumerate}[(i)]
-\item lifts of pullback
-\[
-\xymatrix@C=1.5cm{
-  \cal{C}/Y
-   \ar[r]^{f^*}
-  \ar[d]_{u/Y} 
-  &
-  \liftl{ ( \liftr{\cal{C}}/X ) }
-  \ar[d]^{\liftl{(\liftr{u}/X)}}
-     \\
-     (\catE/Y)^{\to} \ar[r]_{f^*} &
-   (\catE/X)^{\to} 
-}
-\]
-\item lifts of pushforward
-\[
-\xymatrix@C=1.5cm{
-\liftr{\cal{C}}/X
-\ar[r]^{f_*}
-  \ar[d]_{u/X}
-&
-  \liftr{\cal{C}}/Y
-  \ar[d]^{\liftr{u}/Y}
-\\
-  (\catE/X)^{\to}
-   \ar[r]_{f_*}
-&
-  (\catE/Y)^{\to}
- }
-\]
-\begin{comment}
-\item functors $F$ making the following diagram commute:
-\[
-\xymatrix@C=1.2cm@R=1.5cm{
-\liftr{\cal{C}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{C}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
- & (\cal{E}/X)^\to & }
-\]
-\end{comment}
-\end{enumerate}
-\end{corollary}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
-%The last statement is simply the adjunction~\eqref{garner-adjunction}.
-Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u/X$ and $v = \liftr{u}/Y$.
-\end{proof}
-
-Furthermore, lifts of the Beck-Chevalley condition are equivalent as well, as we shall now see.
-
-\begin{proposition}
-\label{lift-pushforward-BC}
-In the context of \cref{lift-dependent-product}, let $f' : X' \to Y'$ be a base change of $f : X \to Y$:
-\[
-\xymatrix{
-  X'
-  \ar[d]_{s}
-  \ar[r]^{f'}
-  \pullback{dr}
-&
-  Y'
-  \ar[d]^{t}
-\\
-  X
-  \ar[r]_{f}
-&
-  Y
-}
-\]
-Assume that $f$ and $f'$ admit pullback and pushforward as well as that $s$ and $t$ admit pullback.
-Recall (\eg, by pullback pasting) that this entails the following Beck-Chevalley condition for left composition:
-\[
-\xymatrix{
-  \catE/X'
-  \ar[d]_{s_!}
-&
-  \catE/Y'
-  \ar[l]_{f'^*}
-  \ar[d]^{t_!}
-\\
-  \catE/X
-&
-  \catE/Y
-  \ar[l]^{f^*}
-}
-\]
-By adjointness, this is equivalent to the following Beck-Chevalley condition for pushforward:
-\[
-\xymatrix{
-  \catE/X'
-  \ar[r]^{f'_*}
-&
-  \catE/Y'
-\\
-  \catE/X
-  \ar[r]_{f_*}
-  \ar[u]^{s^*}
-&
-  \catE/Y
-  \ar[u]_{t^*}
-}
-\]
-
-Assume now that the equivalent conditions of \cref{lift-dependent-product} for $f$ and $f'$ are satisfied.
-Then the following are equivalent:
-\begin{enumerate}[(i)]
-\item
-A Beck-Chevalley-style condition for lifts of pullback:
-\[
-\xymatrix{
-  \liftl{(\liftr{\cal{C}})}/X'
-  \ar[d]_{s_!}
-&
-  \cal{C}/Y'
-  \ar[l]_-{f'^*}
-  \ar[d]^{t_!}
-\\
-  \liftl{(\liftr{\cal{C}})}/X
-&
-  \cal{C}/Y
-  \ar[l]^-{f^*}
-}
-\]
-\item
-A Beck-Chevalley-style condition for lifts of pushforward:
-\[
-\xymatrix{
-  \liftr{\cal{C}}/X'
-  \ar[r]^{f'_*}
-&
-  \liftr{\cal{C}}/Y'
-\\
-  \liftr{\cal{C}}/X
-  \ar[r]_{f_*}
-  \ar[u]^{s^*}
-&
-  \liftr{\cal{C}}/Y
-  \ar[u]_{t^*}
-}
-\]
-
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/Y'$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
 \end{proof}
 
 \medskip
@@ -963,12 +730,282 @@ is an isomorphism. \qed
 
 
 
+\section{Pullback and pushforward on orthogonality categories}
+
+\begin{lemma}
+\label{slicing-2-functorial}
+Let $u \co \cal{C} \to \catE^{\to}$ be a functor and $f \co X \to Y$ a map in $\catE$. Then, 
+\begin{enumerate}[(i)]
+\item left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$,
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar[r]^-{f_!}
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar[d]^{u/Y}
+\\
+  (\calE/X)^{\to}
+  \ar[r]_-{f_!}
+&
+  (\calE/Y)^{\to}
+}
+\]
+\item right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$,
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar[l]_-{f^!}
+  \ar[d]^{u/Y}
+\\
+  (\calE/X)^{\to}
+&
+  (\calE/Y)^{\to}
+  \ar[l]^-{f^!}
+}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proposition}
+\label{lift-pullback}
+Let $f : X \to Y$ be a map in $\catE$ admitting pullback:
+\[
+\xymatrix@C+1em{
+  \catE/X
+  \ar@<-5pt>[r]_{f_!}
+  \ar@{}[r]|{\top}
+&
+  \catE/Y
+  \ar@<-5pt>[l]_{f^*}
+}
+\]
+Let $u : \cal{C} \to \catE^{\to}$ be a functor.
+Then pullback along $f$ lifts to slices of the right orthogonality categories:
+\[
+\xymatrix@C=1.5cm{
+  \liftr{\cal{C}}/X
+  \ar[d]_{\liftr{u}/X}
+&
+  \liftr{\cal{C}}/Y
+  \ar@{.>}[l]_{f^*}
+  \ar[d]^{\liftr{u}/Y}
+\\
+  (\catE/X)^{\to}
+&
+  (\catE/Y)^{\to}
+  \ar[l]^{f^*}
+}
+\]
+\end{proposition}
+
+\begin{proof}
+Combine \cref{lift-of-adjunction} with part (i) of \cref{slicing-2-functorial}.
+\end{proof}
+
+\begin{question}
+In fact, $\liftr{C}/\text{--}$ is a cartesian fibration (compare notes-on-awfs).
+Do we need that?
+\end{question}
+
+The next proposition applies the development in \cref{sec-orthog-functors} to obtain 
+a fact about the interaction of orthogonality functors with the pullback and pushforward
+functors. This will be useful to establish our main result.
+
+\begin{proposition}
+\label{lift-dependent-product}
+Let $f \co X \to Y$ be a map in $\catE$ admitting pullback and pushforward:
+\[
+\xymatrix@C+1em{
+  \catE/X
+  \ar@<5pt>[r]^{f_*}
+  \ar@{}[r]|{\top}
+&
+  \catE/Y
+  \ar@<5pt>[l]^{f^*}
+}
+\]
+Let $u \co \cal{C} \to \catE^{\to}$ be a functor. The following are
+equivalent:
+\begin{enumerate}[(i)]
+\item lifts of the pullback functor $f^*$ of the form
+\[
+\xymatrix@C=1.5cm{
+  \cal{C}/Y
+   \ar[r]^{f^*}
+  \ar[d]_{u/Y} 
+  &
+  \liftl{ ( \liftr{\cal{C}}/X ) }
+  \ar[d]^{\liftl{(\liftr{u}/X)}}
+     \\
+     (\catE/Y)^{\to} \ar[r]_{f^*} &
+   (\catE/X)^{\to} 
+}
+\]
+\item lifts of pushforward functor $f_*$ of the form
+\[
+\xymatrix@C=1.5cm{
+\liftr{\cal{C}}/X
+\ar[r]^{f_*}
+  \ar[d]_{u/X}
+&
+  \liftr{\cal{C}}/Y
+  \ar[d]^{\liftr{u}/Y}
+\\
+  (\catE/X)^{\to}
+   \ar[r]_{f_*}
+&
+  (\catE/Y)^{\to}
+ }
+\]
+\begin{comment}
+\item functors $F$ making the following diagram commute:
+\[
+\xymatrix@C=1.2cm@R=1.5cm{
+\liftr{\cal{C}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{C}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
+ & (\cal{E}/X)^\to & }
+\]
+\end{comment}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
+%The last statement is simply the adjunction~\eqref{garner-adjunction}.
+Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u/X$ and $v = \liftr{u}/Y$.
+\end{proof}
+
+It is possible to show that lifts of the Beck-Chevalley condition, defined in appropriate sense, are equivalent as well, as we shall now see. Let us begin by recalling one of the standard facts about the Beck-Chevalley condition. Consider a
+pullback square 
+\[
+\xymatrix{
+  U
+  \ar[d]_{s}
+  \ar[r]^{g}
+  \pullback{dr}
+&
+  V
+  \ar[d]^{t}
+\\
+  X
+  \ar[r]_{f}
+&
+  Y
+}
+\]
+and assume that $f$ and $g$ admit pullback and pushforward, and that $s$ and $t$ admit pullback. Then,
+ the Beck-Chevalley condition for left composition
+\[
+\xymatrix{
+  \catE/U
+  \ar[d]_{s_!}
+&
+  \catE/V
+  \ar[l]_{g^*}
+  \ar[d]^{t_!}
+\\
+  \catE/X
+&
+  \catE/Y
+  \ar[l]^{f^*}
+}
+\]
+is equivalent to the Beck-Chevalley condition for pushforward:
+\[
+\xymatrix{
+  \catE/U
+  \ar[r]^{g_*}
+&
+  \catE/V
+\\
+  \catE/X
+  \ar[r]_{f_*}
+  \ar[u]^{s^*}
+&
+  \catE/Y
+  \ar[u]_{t^*}
+}
+\]
+
+
+
+
+
+\begin{proposition}
+\label{lift-pushforward-BC} Let $u \co \cal{C} \to \catE^{\to}$ be a functor and consider a 
+pullback square
+\[
+\xymatrix{
+  U
+  \ar[d]_{s}
+  \ar[r]^{g}
+  \pullback{dr}
+&
+  V
+  \ar[d]^{t}
+\\
+  X
+  \ar[r]_{f}
+&
+  Y
+}
+\]
+Assume now that $f$ and $g$ satisfy the equivalent conditions of \cref{lift-dependent-product}.
+Then the following are equivalent:
+\begin{enumerate}[(i)]
+\item a Beck-Chevalley condition for lifts of pullback:
+\[
+\xymatrix{
+  \liftl{(\liftr{\cal{C}})}/U
+  \ar[d]_{s_!}
+&
+  \cal{C}/V
+  \ar[l]_-{g^*}
+  \ar[d]^{t_!}
+\\
+  \liftl{(\liftr{\cal{C}})}/X
+&
+  \cal{C}/Y
+  \ar[l]^-{f^*}
+}
+\]
+\item a Beck-Chevalley  condition for lifts of pushforward:
+\[
+\xymatrix{
+  \liftr{\cal{C}}/U
+  \ar[r]^{g_*}
+&
+  \liftr{\cal{C}}/V
+\\
+  \liftr{\cal{C}}/X
+  \ar[r]_{f_*}
+  \ar[u]^{s^*}
+&
+  \liftr{\cal{C}}/Y
+  \ar[u]_{t^*}
+}
+\]
+
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
+\end{proof}
+
 
 
 
 
 
 \section{Uniform trivial Kan fibrations}
+\label{trivial-kan-fibrations}
 
 Recall that classically a trivial Kan fibration, which is defined by right orthogonality with respect to arbitrary monomorphisms. We now introduce our counterpart of this notion. We say that a monomorphism 
 $i \co A \to B$ is  \emph{decidable} if for every $n$, the function $i_n \co A_n \to B_n$ has a decidable image. 
@@ -1156,7 +1193,7 @@ a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivi
 
 
 \section{Uniform Kan fibrations}
-\label{section-uniform-Kan}
+\label{section-kan-fib}
 
 We now introduce the notion of a uniform Kan fibration, which will be our constructive counterpart
 of the standard notion of a Kan fibration. For this, recall that in $\SSet$ we have an interval, given by
