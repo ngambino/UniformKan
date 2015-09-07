@@ -515,7 +515,46 @@ $\operatorname{cod} \co X/\cal{E} \to \catE$ constructs the \emph{coslice} over 
 \]
 which also admits an explicit description, dual to the one given above for $\cal{C}/X$. With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations. 
 
-
+\begin{proposition}
+\label{slicing-2-functorial}
+For a functor $u : \cal{C} \to \catE^{\to}$ and a map $f : X \to Y$ in $\catE$ we have the following:
+\begin{enumerate}
+\item
+Left composition $f_! : \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$:
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar@{.>}[r]^-{f_!}
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar[d]_{u/X}
+\\
+  (\calE/X)^{\to}
+  \ar[r]^-{(f_!)^{\to}}
+&
+  (\calE/X)^{\to}
+}
+\]
+\item
+Right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$:
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar@{.>}[l]_-{f^!}
+  \ar[d]_{u/X}
+\\
+  (\calE/X)^{\to}
+&
+  (\calE/X)^{\to}
+  \ar[l]_-{(f^!)^{\to}}
+}
+\]
+\end{enumerate}
+\end{proposition}
 
 \begin{proposition} \hfill 
 \label{pitchfork-slicing}
