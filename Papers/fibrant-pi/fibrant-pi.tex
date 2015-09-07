@@ -671,7 +671,7 @@ equivalent:
   \ar[d]_{u/X}
 &
   \liftr{\cal{C}}/Y
-  \ar[d]^{u/Y}
+  \ar[d]^{\liftr{u}/Y}
 \\
   (\catE/X)^{\to}
    \ar[r]_{f_*}
@@ -694,7 +694,7 @@ equivalent:
 Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
 %For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
 %The last statement is simply the adjunction~\eqref{garner-adjunction}.
-Now simply apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
+Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u/X$ and $v = \liftr{u}/Y$.
 \end{proof}
 
 Furthermore, lifts of the Beck-Chevalley condition are equivalent as well, as we shall now see.
@@ -754,7 +754,7 @@ By adjointness, this is equivalent to the following Beck-Chevalley condition for
 
 Assume now that the equivalent conditions of \cref{lift-dependent-product} for $f$ and $f'$ are satisfied.
 Then the following are equivalent:
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item
 A Beck-Chevalley-style condition for lifts of pullback:
 \[
@@ -792,6 +792,11 @@ A Beck-Chevalley-style condition for lifts of pushforward:
 
 \end{enumerate}
 \end{proposition}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/Y'$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
+\end{proof}
 
 \medskip
 
