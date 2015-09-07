@@ -589,7 +589,7 @@ where $i \in \cal{C}$, subject to a uniformity condition.
 \end{proof}
 
 \begin{corollary}
-\label{pitchfork-pullback}
+\label{lift-pullback}
 Let $f : X \to Y$ be a map in $\catE$ admitting pullback:
 \[
 \xymatrix@C+1em{
@@ -690,9 +690,17 @@ equivalent:
 \end{enumerate}
 \end{corollary}
 
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
+%The last statement is simply the adjunction~\eqref{garner-adjunction}.
+Now simply apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
+\end{proof}
+
 Furthermore, lifts of the Beck-Chevalley condition are equivalent as well, as we shall now see.
 
 \begin{proposition}
+\label{lift-pushforward-BC}
 In the context of \cref{lift-dependent-product}, let $f' : X' \to Y'$ be a base change of $f : X \to Y$:
 \[
 \xymatrix{
@@ -784,13 +792,6 @@ A Beck-Chevalley-style condition for lifts of pushforward:
 
 \end{enumerate}
 \end{proposition}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with right orthogonality functor.
-%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
-%The last statement is simply the adjunction~\eqref{garner-adjunction}.
-Now simply apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
-\end{proof}
 
 \medskip
 
