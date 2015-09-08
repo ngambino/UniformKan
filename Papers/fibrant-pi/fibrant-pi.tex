@@ -1505,11 +1505,297 @@ Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \
 \newpage
 
 
+\begin{definition}
+We define a category $\cat{S}_l(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to some category $\cal{I} : \cat{I} \to \catE^{\to}$ of arrows.
+The objects consist of objects $i : \cat{I}$ together with data $(g, h, k)$ making $\cal{I}(i)$ into a strong homotopy equivalence.
+A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ to $i' : \cat{I}$ with $\cal{I}(i') : A' \to B'$ with data $(g', h', k')$ consists of a map $m : i \to i'$ in $\cat{I}$ such that, writing $\cal{I}(m) = (u, v)$ with maps $u : A \to A'$ and $v : B \to B'$, the following diagrams commute:
+\begin{mathpar}
+\xymatrix{
+  B
+  \ar[r]^{g}
+  \ar[d]^{v}
+&
+  A
+  \ar[d]^{u}
+\\
+  B'
+  \ar[r]^{g'}
+&
+  A'
+}
+\and
+\xymatrix{
+  \interval \otimes A
+  \ar[r]^{h}
+  \ar[d]^{\interval \otimes u}
+&
+  A
+  \ar[d]^{\interval \otimes u}
+\\
+  \interval \otimes A'
+  \ar[r]^{h'}
+&
+  A'
+}
+\and
+\xymatrix{
+  \interval \otimes B
+  \ar[r]^{k}
+  \ar[d]^{\interval \otimes v}
+&
+  B
+  \ar[d]^{\interval \otimes v}
+\\
+  \interval \otimes B'
+  \ar[r]^{k'}
+&
+  B'
+}
+\end{mathpar}
+
+We have an obvious forgetful functor $\cat{S}_l(\cal{I}) \to \cat{I}$.
+Let $\cal{S}_l(\cal{I}) : \cat{S}_l(\cal{I}) \to \catE^{\to}$ be its composition with $\cal{I} : \cat{I} \to \catE^{\to}$.
+\end{definition}
+
+\begin{remark}
+\label{strong-h-equiv-as-section-algebraic}
+Following the proof of \cref{strong-h-equiv-as-section}, the category $\cat{S}_l(\cal{I})$ can isomorphicly be described at the level of the arrow category $\catE^{\to}$ as follows.
+An object consists of $i : \cal{I}$ together with a retraction $\rho$ to $\thetal \hatotimes \cal{I}(i)$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $m : i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
+\[
+\xymatrix{
+  \intervalr \hatotimes \cal{I}(i)
+  \ar[r]^-{\rho}
+  \ar[d]^{\intervalr \hatotimes \cal{I}(m)}
+&
+  f
+  \ar[d]^{\cal{I}(m)}
+\\
+  \intervalr \hatotimes \cal{I}(i')
+  \ar[r]^-{\rho'}
+&
+  \cal{I}(i')
+}
+\]
+With this description, the functor $\cal{S}_l(\cal{I})$ maps $(i, \rho)$ to $i$.
+\end{remark}
+
+\begin{lemma}
+\label{she-to-retract-closure}
+There is functor $\cal{S}_l(\cal{I}) \to \overline{\intervall \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
+\end{lemma}
+
+\begin{proof}
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervall \hatotimes \cal{I}$, so we could stop here.
+
+Continuing anyway, suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
+Observe that it already has the form of a retract $(i, \cal{I}(i), \thetar \hatotimes f, \rho)$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+
+Suppose we are given a morphism $m : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+Observe that it already has the required form of a morphism $(m, \cal{I}(m))$ between retracts:
+\[
+\xymatrix@C+2em{
+  \cal{I}(i)
+  \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
+  \ar[d]_{\cal{I}(m)}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes \cal{I}(i)
+  \ar[r]_-{\rho}
+  \ar[d]^{\intervall \hatotimes \cal{I}(m)}
+&
+  \cal{I}(i)
+  \ar[d]^{\cal{I}(m)}
+\\
+  \cal{I}(i')
+  \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes \cal{I}(i')
+  \ar[r]^-{\rho'}
+&
+  \cal{I}(i')
+}
+\]
+\end{proof}
+
+\begin{lemma}
+\label{horn-times-gen-to-she}
+Assume that $\intervall$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervall$.
+Then there is a functor $\intervall \hatotimes \cal{I} \to \cat{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
+\end{lemma}
+
+\begin{proof}
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+
+Since $\intervall$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
+\[
+\xymatrix@C+1em{
+  \intervall
+  \ar[r]^-{\thetal \hatotimes \intervall}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \intervall \ar[d]^{\rho}
+\\&
+  \intervall
+}
+\]
+
+Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervall \hatotimes \cal{I}(i)$.
+We construct its image $(l \hatotimes i, \rho \hatotimes i)$ by tensoring the previous diagram with $\cal{I}(i)$ and using closure property of $\cal{I}$ from the assumptions:
+\[
+\xymatrix@C+2em{
+  \cal{I}(\intervall \hatotimes i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervall \hatotimes i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(\intervall \hatotimes i \ar[d]^{\rho \hatotimes i})
+\\&
+  \cal{I}(\intervall \hatotimes i)
+}
+\]
+
+Suppose we are given a morphism $m : i \to i'$ in $\cat{I}$, lying over map $\intervall \hatotimes \cal{I}(m)$ of arrows.
+We send it to the morphism $\intervall \hatotimes m : (\intervall \hatotimes i, \rho \hatotimes i) \to (\intervall \hatotimes i', \rho \hatotimes i')$, again using the closure property of $\cal{I}$ from the assumptions: 
+\[
+\xymatrix@C+2em{
+  l \hatotimes i
+  \ar[r]_{\thetar \hatotimes l \hatotimes i}
+  \ar[d]_{l \hatotimes \tau}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervall \hatotimes l \hatotimes i
+  \ar@{.>}[r]_{\rho \hatotimes i}
+  \ar[d]^{\intervall \hatotimes l \hatotimes \tau}
+&
+  l \hatotimes i
+  \ar[d]^{l \hatotimes \tau}
+\\
+  l \hatotimes i'
+  \ar[r]^{\thetar \hatotimes l \hatotimes i'}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervall \hatotimes l \hatotimes i'
+  \ar[r]^{\rho' \hatotimes i}
+&
+  l \hatotimes i'
+}
+\]
+Note that the right square commutes by interchange.
+\end{proof}
 
 
 
+\begin{lemma}
+\label{strong-h-equiv-base-change-along-fibration}
+Strong homotopy equivalences are stable under base change along morphisms having the right lifting property with respect to $\bot \hattimes \canonical_{0 \to X}$ for $X : \catC$.
+\end{lemma}
 
+\begin{proof}
+Let $f : A \to B$ be a strong homotopy equivalence and $v : B' \to B$ be a map having the lifting property mentioned in the statement.
+We consider the following pullback square:
+\[
+\xymatrix{
+  A'
+  \ar[r]^{u}
+  \ar[d]^{f'}
+  \pullback{dr}
+&
+  A
+  \ar[d]^{f}
+\\
+  B'
+  \ar[r]^{v}
+&
+  B
+}
+\]
+The goal is to show that $f'$ is a strong homotopy equivalence.
 
+According to \cref{strong-h-equiv-as-retraction}, we must construct $(s', t')$ from $(s, t)$ in the following commutative diagram in the arrow category $\catC^{\to}$:
+\[
+\xymatrix@C+3em{
+  \canonical_{0 \to 1} \hattimes f'
+  \ar[r]_{\theta \hattimes f'}
+  \ar[d]_{\canonical_{0 \to 1} \hattimes (u, v)}
+  \ar@/^2em/[rr]^{\id}
+&
+  \top \hattimes f'
+  \ar@{.>}[r]_{(s', t')}
+  \ar[d]^{\top \hattimes (u, v)}
+&
+  \canonical_{0 \to 1} \hattimes f'
+  \ar[d]^{\canonical_{0 \to 1} \hattimes (u, v)}
+\\
+  \canonical_{0 \to 1} \hattimes f
+  \ar[r]^{\theta \hattimes f}
+  \ar@/_2em/[rr]_{\id}
+&
+  \top \hattimes f
+  \ar[r]^{(s, t)}
+&
+  \canonical_{0 \to 1} \hattimes f'
+}
+\]
+Since the codomain fibration has $(u, v)$ as cartesian morphism, it will suffice to solve this problem when projected to its base $\catC$:
+\[
+\xymatrix@C+2em{
+  1 \times B'
+  \ar[r]_{\bot \times B'}
+  \ar[d]_{1 \times v}
+  \ar@/^2em/[rr]^{\id}
+&
+  I \times B'
+  \ar@{.>}[r]_{t'}
+  \ar[d]^{I \times v}
+&
+  1 \times B'
+  \ar[d]^{1 \times v}
+\\
+  1 \times B
+  \ar[r]^{\bot \times f}
+  \ar@/_2em/[rr]_{\id}
+&
+  I \times B
+  \ar[r]^{t}
+&
+  1 \times B
+}
+\]
+This is a lifting problem of the form $\bot \hattimes \canonical_{0 \to B'} \pitchfork v$, which is solvable by assumption.
+\end{proof}
+
+\begin{theorem} Fix $\cal{E}$ with interval $\interval$. Fix $u \co \cal{C} \to \cal{E}^\to$. For every $(\cal{C}, I)$-fibration $p$,
+the pullback functor $p^*$ lifts to a functor $p^* \co \cal{C}_I/X \to \cal{C}_I/Y$. 
+\end{theorem}
+
+\begin{corollary} Pushforward lifts.
+\end{corollary}
+
+\subsection*{Beck-Chevalley} 
 
 
 \bibliographystyle{alpha}
