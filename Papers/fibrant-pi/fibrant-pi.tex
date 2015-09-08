@@ -37,34 +37,25 @@ a Kan fibration in cubical sets.
 
 \section{Introduction}
 
-This paper contributes to the ongoing efforts to define a constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} and prove his canonicity conjecture
-on the univalence axiom. We will focus on the question of proving a constructive counterpart of the
-well-known statement that, in the category of simplicial sets, the pushforward functor (\ie the right adjoints to 
-the pullback functor) along a Kan fibrations preserves Kan fibrations. This result plays an important role in
-the development of the simplicial model of univalent foundations in that it ensures that the axioms for $\Pi$-types can be interpreted correctly~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. 
-However, as shown in~\cite{coquand-non-constructivity-kan}, it cannot be proved constructively without changes.
-Because of this, Bezem, Coquand and Huber decided to switch from simplicial sets to cubical sets and started to develop a cubical model of univalent foundations~\cite{coquand-cubical-sets}. In that setting, working with the notion of a \emph{uniform Kan fibration}, they have shown that it is possible to prove a counterpart of the fact the pushforward functor along a Kan fibrations preserves Kan fibrations. 
+This paper contributes to the ongoing efforts to define a constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}. In particular, we focus on the question of whether it it is possible to prove constructively a counterpart of the statement that, in the category of simplicial sets, the pushforward functor (\ie the right adjoints to 
+the pullback functor) along a Kan fibrations preserves Kan fibrations~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. 
+Although this result follows from well-known facts of simplicial homotopy theory, it cannot be proved constructively without changes,  as shown in~\cite{coquand-non-constructivity-kan}. In order to improve on this situation, Bezem, Coquand and Huber are developing a new model of 
+univalent foundation in the category of cubical, rather than simplicial, sets~\cite{coquand-cubical-sets}. In particular, they introduced the notion of a \emph{uniform Kan fibration} and shown that it is possible to prove a counterpart of the fact the pushforward functor along a Kan fibrations preserves Kan fibrations. 
 
 
-These results may give the impression that there is something intrinsically non-constructive in simplicial homotopy theory. The work presented in this paper  shows that this impression is false and the possibility of eveloping a constructive version of Voevodsky's model remaining within in the setting of simplicial sets remains open. Indeed,
+These results may give the impression that there is something intrinsically non-constructive in simplicial homotopy theory. The work presented in this paper  shows that this impression is false and the possibility of eveloping a constructive version of Voevodsky's simplicial model remains open. Indeed,
 we will introduce a notion of uniform Kan fibration in simplicial sets and prove that the pushforward functor along a 
 uniform Kan fibrations preserves uniform Kan fibrations. We will also show that, working within ZFC, the standard
 notion of a Kan fibration is equivalent to that of a uniform Kan fibration, thereby proving that our result is classically equivalent to the standard one. Our approach is inspired by some aspects of the development of cubical sets and
-by the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to treat
-the simplicial and the cubical setting simoultaneously. 
-
+by the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-cubical-sets}.
 
 \medskip
 
 
-In order to motivate present our results more precisely, let us briefly recall the classical proof of the fact that the pushforward functor along a Kan fibrations preserves Kan fibrations. First of all, applying 
-a general fact regarding the interaction of orthogonality classes of maps and adjoint functors, 
-one observes that the desired statement is equivalent to showing that 
-pullbacks along Kan fibrations preserves trivial cofibrations. One then proves that pullbacks along Kan 
-fibrations preserves trivial cofibrations combining the fact that the model structure on simplicial sets is right proper 
-(\ie that pullbacks along Kan fibrations preserve weak equivalences) with the fact that pullbacks preserve 
-cofibrations (since these are the monomorphisms). 
-
+In order to motivate present our results more precisely, let us briefly recall the classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations. First of all, recalling that Kan fibrations are the right class of a weak factorisation system in which the right class consists of the
+trivial cofibrations (\ie maps of simplicial sets that are both weak equivalences and monomorphisms), the required statement is equivalent to showing that 
+pullbacks along Kan fibrations preserves trivial cofibrations. This latter fact is then proved in two ways. One way is to combine the fact that the model structure on simplicial sets is right proper (\ie that pullbacks along Kan fibrations preserve weak equivalences) with the fact that pullbacks preserve monomorphisms.
+Alternatively, one can show that the pullback of one of the generating arrows for trivial cofibrations
 
 
 
@@ -684,7 +675,7 @@ Note that the class of decidable monomorphisms is closed under base change.
 
 
 
-\section{Pullback and pushforward of orthogonal maps}
+\section{Pullback and pushforward on categories of orthogonal maps}
 
 \begin{lemma}
 \label{slicing-2-functorial}
