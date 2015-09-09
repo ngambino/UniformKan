@@ -406,6 +406,9 @@ B \ar[r] & GD }
 We can apply \cref{lift-of-adjunction} to relate right $\cal{C}$-maps and 
 right  $\cal{C}_\interval$-maps.
 
+NEED LIFT OF TERNARY ADJUNCTIONS (AND THEIR LEIBNIZ EXTENSIONS) IN ORDER TO ESTABLISH NEXT COROLLARY.
+
+
 
 \begin{corollary} \label{prod-exp-general}
 Let $\interval = (\interval, \intervall, \intervalr, \varepsilon)$ be an interval in $\catE$ and
@@ -1507,7 +1510,7 @@ Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \
 
 \begin{definition}
 We define a category $\cat{S}_l(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to some category $\cal{I} : \cat{I} \to \catE^{\to}$ of arrows.
-The objects consist of objects $i : \cat{I}$ together with data $(g, h, k)$ making $\cal{I}(i)$ into a strong homotopy equivalence.
+The objects consist of objects $i : \cat{I}$ together with data $(g, h, k)$ making $\cal{I}(i)$ into a strong left homotopy equivalence.
 A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ to $i' : \cat{I}$ with $\cal{I}(i') : A' \to B'$ with data $(g', h', k')$ consists of a map $m : i \to i'$ in $\cat{I}$ such that, writing $\cal{I}(m) = (u, v)$ with maps $u : A \to A'$ and $v : B \to B'$, the following diagrams commute:
 \begin{mathpar}
 \xymatrix{
@@ -1572,15 +1575,15 @@ An object consists of $i : \cal{I}$ together with a retraction $\rho$ to $\theta
   \cal{I}(i)
 }
 \]
-A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $m : i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
+A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $\tau : i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
 \[
 \xymatrix{
   \intervalr \hatotimes \cal{I}(i)
   \ar[r]^-{\rho}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(m)}
+  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau)}
 &
   f
-  \ar[d]^{\cal{I}(m)}
+  \ar[d]^{\cal{I}(\tau)}
 \\
   \intervalr \hatotimes \cal{I}(i')
   \ar[r]^-{\rho'}
@@ -1591,50 +1594,55 @@ A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $m : i \to i'$ that coh
 With this description, the functor $\cal{S}_l(\cal{I})$ maps $(i, \rho)$ to $i$.
 \end{remark}
 
+\begin{remark}
+We have a dual construction of a category $\cat{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $\cal{I} : \cat{I} \to \catE^{\to}$.
+\end{remark}
+
 \begin{lemma}
 \label{she-to-retract-closure}
-There is functor $\cal{S}_l(\cal{I}) \to \overline{\intervall \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
+Assume that $\cal{I}$ is closed under tensoring with $\intervalr$.
+Then there is functor $\cal{S}_l(\cal{I}) \to \overline{\intervalr \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
 \end{lemma}
 
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervall \hatotimes \cal{I}$, so we could stop here.
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervalr \hatotimes \cal{I}$, but let us review the details anyway.
 
 Continuing anyway, suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
-Observe that it already has the form of a retract $(i, \cal{I}(i), \thetar \hatotimes f, \rho)$:
+Observe that it already has the form of a retract $(i, \cal{I}(i), \thetal \hatotimes i, \rho)$:
 \[
 \xymatrix@C+1em{
   \cal{I}(i)
   \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+  (\intervalr \hatotimes \cal{I})(i) \ar[d]^{\rho}
 \\&
   \cal{I}(i)
 }
 \]
 
-Suppose we are given a morphism $m : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
-Observe that it already has the required form of a morphism $(m, \cal{I}(m))$ between retracts:
+Suppose we are given a morphism $\tau : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau))$ between retracts:
 \[
 \xymatrix@C+2em{
   \cal{I}(i)
   \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
-  \ar[d]_{\cal{I}(m)}
+  \ar[d]_{\cal{I}(\tau)}
   \ar@/^2em/[rr]^{\id}
 &
-  \intervall \hatotimes \cal{I}(i)
+  (\intervalr \hatotimes \cal{I})(i)
   \ar[r]_-{\rho}
-  \ar[d]^{\intervall \hatotimes \cal{I}(m)}
+  \ar[d]^{(\intervalr \hatotimes \cal{I})(\tau)}
 &
   \cal{I}(i)
-  \ar[d]^{\cal{I}(m)}
+  \ar[d]^{\cal{I}(\tau)}
 \\
   \cal{I}(i')
   \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
   \ar@/_2em/[rr]_{\id}
 &
-  \intervall \hatotimes \cal{I}(i')
+  (\intervalr \hatotimes \cal{I})(i')
   \ar[r]^-{\rho'}
 &
   \cal{I}(i')
@@ -1643,71 +1651,69 @@ Observe that it already has the required form of a morphism $(m, \cal{I}(m))$ be
 \end{proof}
 
 \begin{lemma}
-\label{horn-times-gen-to-she}
-Assume that $\intervall$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervall$.
-Then there is a functor $\intervall \hatotimes \cal{I} \to \cat{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
+\label{horn-times-gen-to-she}]]
+Assume that $\intervalr$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervalr$.
+Then there is a functor $\intervalr \hatotimes \cal{I} \to \cal{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
 \end{lemma}
 
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
 
-Since $\intervall$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
+Since $\intervalr$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
 \[
 \xymatrix@C+1em{
-  \intervall
-  \ar[r]^-{\thetal \hatotimes \intervall}
+  \intervalr
+  \ar[r]^-{\thetal \hatotimes \intervalr}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \intervall \ar[d]^{\rho}
+  \intervalr \hatotimes \intervalr \ar[d]^{\rho}
 \\&
-  \intervall
+  \intervalr
 }
 \]
 
-Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervall \hatotimes \cal{I}(i)$.
-We construct its image $(l \hatotimes i, \rho \hatotimes i)$ by tensoring the previous diagram with $\cal{I}(i)$ and using closure property of $\cal{I}$ from the assumptions:
+Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervalr \hatotimes \cal{I}(i)$.
+We construct its image $(\intervalr \hatotimes i, \rho \hatotimes i)$ by tensoring the previous diagram with $\cal{I}(i)$, using that $\cal{I}$ is closed under tensoring with $\intervalr$:
 \[
 \xymatrix@C+2em{
-  \cal{I}(\intervall \hatotimes i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervall \hatotimes i)}
+  \cal{I}(\intervalr \hatotimes i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(\intervall \hatotimes i \ar[d]^{\rho \hatotimes i})
+  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i \ar[d]^{\rho \hatotimes i})
 \\&
-  \cal{I}(\intervall \hatotimes i)
+  \cal{I}(\intervalr \hatotimes i)
 }
 \]
 
-Suppose we are given a morphism $m : i \to i'$ in $\cat{I}$, lying over map $\intervall \hatotimes \cal{I}(m)$ of arrows.
-We send it to the morphism $\intervall \hatotimes m : (\intervall \hatotimes i, \rho \hatotimes i) \to (\intervall \hatotimes i', \rho \hatotimes i')$, again using the closure property of $\cal{I}$ from the assumptions: 
+Suppose we are given a morphism $\tau : i \to i'$ in $\cat{I}$, lying over map $\intervalr \hatotimes \cal{I}(m)$ of arrows.
+We send it to the morphism $\intervalr \hatotimes \tau : (\intervalr \hatotimes i, \rho \hatotimes i) \to (\intervalr \hatotimes i', \rho \hatotimes i')$, again using that $\cal{I}$ is closed under tensoring with $\intervalr$: 
 \[
 \xymatrix@C+2em{
-  l \hatotimes i
-  \ar[r]_{\thetar \hatotimes l \hatotimes i}
-  \ar[d]_{l \hatotimes \tau}
+  \cal{I}(\intervalr \hatotimes i)
+  \ar[r]_{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
+  \ar[d]_{\cal{I}(\intervalr \hatotimes \tau)}
   \ar@/^2em/[rr]^{\id}
 &
-  \intervall \hatotimes l \hatotimes i
-  \ar@{.>}[r]_{\rho \hatotimes i}
-  \ar[d]^{\intervall \hatotimes l \hatotimes \tau}
+  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i)
+  \ar[r]_{\rho \hatotimes \cal{I}(i)}
+  \ar[d]^{\intervalr \hatotimes \cal{I}(\intervalr \hatotimes \tau)}
 &
-  l \hatotimes i
-  \ar[d]^{l \hatotimes \tau}
+  \cal{I}(\intervalr \hatotimes i)
+  \ar[d]^{\cal{I}(\intervalr \hatotimes \tau)}
 \\
-  l \hatotimes i'
-  \ar[r]^{\thetar \hatotimes l \hatotimes i'}
+  \cal{I}(\intervalr \hatotimes i')
+  \ar[r]^{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i')}
   \ar@/_2em/[rr]_{\id}
 &
-  \intervall \hatotimes l \hatotimes i'
-  \ar[r]^{\rho' \hatotimes i}
+  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i')
+  \ar[r]^{\rho' \hatotimes \cal{I}(i)}
 &
-  l \hatotimes i'
+  \cal{I}(\intervalr \hatotimes i')
 }
 \]
 Note that the right square commutes by interchange.
 \end{proof}
-
-
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
