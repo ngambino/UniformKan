@@ -1582,7 +1582,7 @@ A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $\tau : i \to i'$ that 
   \ar[r]^-{\rho}
   \ar[d]^{\intervalr \hatotimes \cal{I}(\tau)}
 &
-  f
+  \cal{I}(i)
   \ar[d]^{\cal{I}(\tau)}
 \\
   \intervalr \hatotimes \cal{I}(i')
@@ -1603,52 +1603,6 @@ We have a dual construction of a category $\cat{S}_r(\cal{I})$ of strong right h
 Assume that $\cal{I}$ is closed under tensoring with $\intervalr$.
 Then there is functor $\cal{S}_l(\cal{I}) \to \overline{\intervalr \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
 \end{lemma}
-
-\begin{proof}
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervalr \hatotimes \cal{I}$, but let us review the details anyway.
-
-Continuing anyway, suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
-Observe that it already has the form of a retract $(i, \cal{I}(i), \thetal \hatotimes i, \rho)$:
-\[
-\xymatrix@C+1em{
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
-  \ar[dr]_{\id}
-&
-  (\intervalr \hatotimes \cal{I})(i) \ar[d]^{\rho}
-\\&
-  \cal{I}(i)
-}
-\]
-
-Suppose we are given a morphism $\tau : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
-Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau))$ between retracts:
-\[
-\xymatrix@C+2em{
-  \cal{I}(i)
-  \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
-  \ar[d]_{\cal{I}(\tau)}
-  \ar@/^2em/[rr]^{\id}
-&
-  (\intervalr \hatotimes \cal{I})(i)
-  \ar[r]_-{\rho}
-  \ar[d]^{(\intervalr \hatotimes \cal{I})(\tau)}
-&
-  \cal{I}(i)
-  \ar[d]^{\cal{I}(\tau)}
-\\
-  \cal{I}(i')
-  \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
-  \ar@/_2em/[rr]_{\id}
-&
-  (\intervalr \hatotimes \cal{I})(i')
-  \ar[r]^-{\rho'}
-&
-  \cal{I}(i')
-}
-\]
-\end{proof}
 
 \begin{lemma}
 \label{horn-times-gen-to-she}]]
@@ -1673,7 +1627,7 @@ Since $\intervalr$ is assumed a strong left homotopy equivalence, we have a retr
 \]
 
 Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervalr \hatotimes \cal{I}(i)$.
-We construct its image $(\intervalr \hatotimes i, \rho \hatotimes i)$ by tensoring the previous diagram with $\cal{I}(i)$, using that $\cal{I}$ is closed under tensoring with $\intervalr$:
+We construct its image $(\intervalr \hatotimes i, \rho \hatotimes \cal{I}(i))$ by tensoring the previous diagram with $\cal{I}(i)$, using that $\cal{I}$ is closed under tensoring with $\intervalr$:
 \[
 \xymatrix@C+2em{
   \cal{I}(\intervalr \hatotimes i)
@@ -1682,32 +1636,32 @@ We construct its image $(\intervalr \hatotimes i, \rho \hatotimes i)$ by tensori
 &
   \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i \ar[d]^{\rho \hatotimes i})
 \\&
-  \cal{I}(\intervalr \hatotimes i)
+  \cal{I}(\intervalr \hatotimes \cal{I}(i))
 }
 \]
 
 Suppose we are given a morphism $\tau : i \to i'$ in $\cat{I}$, lying over map $\intervalr \hatotimes \cal{I}(m)$ of arrows.
-We send it to the morphism $\intervalr \hatotimes \tau : (\intervalr \hatotimes i, \rho \hatotimes i) \to (\intervalr \hatotimes i', \rho \hatotimes i')$, again using that $\cal{I}$ is closed under tensoring with $\intervalr$: 
+We send it to the morphism $\intervalr \hatotimes \tau : (\intervalr \hatotimes i, \rho \hatotimes \cal{I}(i)) \to (\intervalr \hatotimes i', \rho \hatotimes \cal{I}(i'))$, again using that $\cal{I}$ is closed under tensoring with $\intervalr$: 
 \[
 \xymatrix@C+2em{
   \cal{I}(\intervalr \hatotimes i)
-  \ar[r]_{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
+  \ar[r]_-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
   \ar[d]_{\cal{I}(\intervalr \hatotimes \tau)}
   \ar@/^2em/[rr]^{\id}
 &
   \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i)
-  \ar[r]_{\rho \hatotimes \cal{I}(i)}
+  \ar[r]_-{\rho \hatotimes \cal{I}(i)}
   \ar[d]^{\intervalr \hatotimes \cal{I}(\intervalr \hatotimes \tau)}
 &
   \cal{I}(\intervalr \hatotimes i)
   \ar[d]^{\cal{I}(\intervalr \hatotimes \tau)}
 \\
   \cal{I}(\intervalr \hatotimes i')
-  \ar[r]^{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i')}
+  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i')}
   \ar@/_2em/[rr]_{\id}
 &
   \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i')
-  \ar[r]^{\rho' \hatotimes \cal{I}(i)}
+  \ar[r]^-{\rho' \hatotimes \cal{I}(i)}
 &
   \cal{I}(\intervalr \hatotimes i')
 }
