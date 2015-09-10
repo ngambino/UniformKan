@@ -7,17 +7,21 @@
 
 
 
-\title[Kan fibrations]{Kan fibrations, algebraic weak factorisation systems \\ and right properness}
+\title[NWFS with the Frobenius property]{Natural weak factorisation systems \\
+with the Frobenius property}
 
 \begin{document}
 
 \begin{abstract}
-We prove a  constructive counterpart of the fact that,
-in the category of simplicial sets, the pushforward functor along a Kan fibration preserve Kan fibrations. 
-In order to do so, we develop further the theory of algebraic weak factorisation systems and 
- introduce the notion of a uniform Kan fibration in simplicial sets. Our
-general approach subsumes also the existing work on pushforward along
-a Kan fibration in cubical sets.
+We develop further the theory of natural weak factorisation systems and establish  
+sufficient conditions to obtain a natural weak factorisation systems with the Frobenius
+property, \ie in which right maps are stable under pullback along left maps. 
+We  apply our results to the category of simplicial sets, introducing the
+notion of a uniform Kan fibration and proving that the pushforward along a Kan
+fibration preserves Kan fibrations, thereby contributing to giving a constructive
+version of Voevodsky's simplicial model of univalent foundations. When applied
+to cubical sets, our results  subsume some of the existing work on the cubical
+model of type theory.
 \end{abstract}
 
 \author{Nicola Gambino}
@@ -37,39 +41,80 @@ a Kan fibration in cubical sets.
 
 \section*{Introduction}
 
-This paper contributes to the ongoing efforts to obtain a new version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} that is  definable in a constructive setting, \ie without making use of the law of excluded middle or the axiom of choice. We focus our attention on the key fact that is necessary to define the interpretation of $\Pi$-types in the simplicial model, namely that pushforward (\ie the right adjoint to pullback) along a Kan fibration preserves Kan fibrations. Remarkably, as shown in~\cite{coquand-non-constructivity-kan},  this result cannot be proved constructively.
-In order to address this issue, Bezem, Coquand and Huber are developing a new model of 
-univalent foundation using cubical, rather than simplicial, sets~\cite{coquand-cubical-sets,coquand-variation,huber-thesis}. In particular, they introduced the notion of a uniform Kan fibration in the category of cubical sets and shown that 
-the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Because of these results and the
-subsequent focus by many
-authors on cubical sets or its equivalents~\cite{awodey-cubical,pitts-cubical-nominal,swan-awfs}, one may get the impression that it is necessary to switch from simplicial sets to cubical sets in order to address constructivity issues.
+This paper has two main  goals. The first is to develop further the theory of natural weak
+factorisation systems~\cite{grandis-tholen-nwfs} by isolating hypotheses
+under which Garner's small object argument~\cite{garner:small-object-argument} produces a 
+natural weak factorisation system that satisfies what we call the Frobenius property, \ie in which
+ the pullback along a right map preserves left maps\footnote{This terminology is inspired by 
+the analogy with Lawvere's Frobenius reciprocity condition~\cite{lawvere-1969}.}. 
+Examples of such natural weak factorisation systems are given by those consisting of
+the trivial cofibrations and the fibrations in a model category that  is right proper and in which cofibrations 
+are preserved by pullbacks (\eg when they are given by monomorphisms). These
+weak factorisation systems are also closely connected to the axioms for
+identity types in Martin-L\"of type theories~\cite[Section~4]{gambino-garner:idtypewfs}. Indeed, our second goal is to apply these results and contribute to the ongoing efforts to obtain a 
+constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model},
+\ie definable without making use of the law of excluded middle or the axiom of choice. In particular, we prove a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations, which is fundamental to interpreting correctly type-theoretic dependent products in the simplicial model.
+
+This result may appear surprising since the usual statement that the pushforward  along a Kan fibration 
+preserves Kan fibrations cannot be proved constructively~\cite{coquand-non-constructivity-kan}. In 
+order to address this issue, Bezem, Coquand and Huber have been developing a model of type theory
+in cubical sets~\cite{coquand-cubical-sets,coquand-variation,huber-thesis} and proved a counterpart
+of this result constructively, based on a notion of uniform Kan fibration. This result prompted many authors 
+to focus on cubical sets or its equivalents~\cite{awodey-cubical,pitts-cubical-nominal,swan-awfs}.
+However, as our results show, the independence result in~\cite{coquand-non-constructivity-kan}
+should be seen  simply as an indication that the standard notion of a Kan 
+fibration is not suitable for developing simplicial homotopy theory in a constructive setting, rather than 
+as an inherent non-constructivity of the simplicial setting.
+
+In order to treat homogeneously  simplicial sets and of cubical sets (only those 
+in~\cite{coquand-variation}, but not that in~\cite{coquand-cubical-sets}), we develop
+our theory at the level of generality of categories of presheaves over elegant Reedy categories,
+in the sense of~\cite{bergner-rezk-elegant}, equipped with an interval object. Our setting is
+quite similar to the one considered by Cisinski in~\cite{cisinski-univalence}, but we work
+with algebraic notions of weak factorisation systems and in a constructive setting.
+ 
+In this context, we introduce the notion of a uniform trivial fibration and of a uniform fibration. 
+Each of these are defined using weak orthogonality  in the style of
+natural weak factorisation systems, \ie by stipulating that diagonal fillers are part of the
+structure rather than merely asserted to exist, and requiring them to satisfy a naturality condition. 
+As we will explain below, the algebraic approach is essential in order to be able to 
+apply Garner's small object argument and obtain weak factorisation systems in which
+uniform trivial fibrations and uniform fibrations are the right classes. 
+
+In analogy with the way trivial fibrations of simplicial sets are defined in classical homotopy theory,
+uniform trivial fibrations are defined here as maps equipped with a function that provides
+fillers for all lifting problems against decidable monomorphisms. Uniform fibrations, instead, are defined as maps equipped with a function that provides fillers for all lifting  problems againsts the maps obtained by taking the pushout product of  a decidable monomorphisms with an interval endpoint inclusion. 
+As we will show, in the special  case of simplicial sets, under the assumption of the axiom of choice,  
+every Kan fibration can be equipped with the structure of a uniform Kan fibration, thus ensuring that our
+results in simplicial sets are classically equivalent to the well-known facts of simplicial homotopy theory.
 
 
-Our aim here is to show that this is not the case: we introduce the notion of a uniform Kan fibration in simplicial sets and give a constructive proof that the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Furthermore, we show that,  assuming the axiom of choice, a map of simplicial sets is a uniform Kan fibration if and only if it is a Kan fibration in the usual sense, thus showing that our result is classically equivalent to the standard one. Our approach is based on the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-variation} (but not that in~\cite{coquand-cubical-sets}, which falls outside our axiomatic approach).
+Our first main result shows that, under mild conditions, it is possible to apply Garner's small
+object argument so as to define two natural weak algebraic factorisation systems, one in which 
+the right class consists of trivial uniform fibrations and another in which the right class consists of
+uniform fibrations. Here, the algebraic approach is exploited crucially in order to reduce a lifting
+problem involving an arbitrary left map to defining an appropriate cocone of diagonal fillers. This 
+type of good behaviour of the left class of a natural algebraic weak factorisation systems with 
+colimits was already emphasised by Riehl~\cite{riehl-cat-homotopy}. When applied to 
+simplicial and cubical sets, these results show that it is possible to give an interpretation to
+the basic rules for identity types, satisfying the computation rule up to equality.
 
-In order to discuss the content of the paper in more detail, let us briefly recall a classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. For this, recall that the category of simplicial sets admits a model structure in which the class of fibrations  consists of the Kan fibrations. Hence, there is a  weak factorisation system in which the left class consists  of the trivial cofibrations, \ie the weak homotopy equivalences that are monomorphisms, and the right class consists of the Kan fibrations. By a standard fact about the interaction between weak orthogonality classes and adjoint functors, for a Kan fibration~$p \co X \to Y$, the 
- pushforward functor $p_*$ preserves Kan fibrations if and only if 
- the pullback functor $p^*$  preserves trivial cofibrations. Since pullbacks always preserve monomorphisms, 
-  the latter statement follows from the fact that the model structure on simplicial sets is right proper, \ie that pullbacks along Kan fibrations preserve weak equivalences. This fact, in turn, can be established either using the right properness of the model structure on topological spaces in which
-  the fibrations are the Serre fibrations, as done in~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} or purely combinatorially, via the theory of minimal fibrations, as done in~\cite[Theorem~1.7.1]{joyal-tierney-notes}. But, as shown in~\cite{coquand-non-constructivity-kan}, the use of classical logic is unavoidable in either case. 
+Our second main result shows that the natural weak factorisation system in which the right
+class is given by the uniform fibrations satisfies the Frobenius property, \ie that the pullback
+along a uniform fibration preserves trivial cofibrations. By adjointness, this implies that the
+pushforward along a uniform fibration preseves uniform fibrations. When instanciated to
+the category of simplicial sets, this results provides a constructive counterpart of one of
+the key lemmas in the development of the simplicial model of univalent 
+foundations~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. The standard proof of
+this fact follows from the right properness of the Kan model structure on simplicial
+sets, which can be established either using the right properness of the model structure on topological spaces in which
+  the fibrations are the Serre fibrations~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} or purely combinatorially, via the theory of minimal fibrations~\cite[Theorem~1.7.1]{joyal-tierney-notes}. But, as shown in~\cite{coquand-non-constructivity-kan}, the use of classical logic is unavoidable in either case. 
+Instead, the proof of our second main result relies on a delicate analysis of strong homotopy equivalences
+in the general setting described above. In particular, we will show that pullback along a uniform
+fibration preserves strong left (respectively, right) homotopy equivalences.
 
 
-We take this as an indication  that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory in a constructive setting. A well-known strategy to address this kind of issue is to isolate a new notion that is classically equivalent to the standard one, but allows a constructive development of the theory. We will introduce a candidate for this role, to which we
-refer as uniform Kan fibration, which is a 
-map $p \co X \to Y$ of simplicial sets, equipped with a function that assigns diagonal fillers to all diagrams of the form
-\begin{equation}
-\label{diag-kan}
-\xycenter{
-\bullet \ar[r] \ar[d] & X \ar[d]^p \\
-\Delta_1 \times B \ar[r] & Y}
-\end{equation}
-where the map $h^k_1 \hattimes i$ is obtained by the so-called pushout product of a \emph{decidable monomorphism}
-$i \co A \to B$ and the horn inclusion $h^k_1 \co 1 \to \Delta_1$. This definition has two distinct important aspects. On the one hand, following~\cite{grandis-tholen-nwfs,garner:small-object-argument}, we work with a fully
-algebraic version of the notion of a fibration, where diagonal fillers for appropriate diagrams is given as part of the structure of a fibration, rather than 
-being a mere property. This allows one to require also a naturality property for diagonal fillers, which plays an important role in defining an interpretation
-of type theory. The second aspect is the choice of the maps on the left-hand side of the diagram in~\eqref{diag-kan}
 
-\newpage
 
 
 \section{Right maps and fibrations}
@@ -876,7 +921,7 @@ by \cref{small-gen-triv-kan} and \cref{prod-exp-general}.
 
 
 
-\section{Kan fibrations vs. uniform Kan fibrations}
+\section{Fibrations vs. uniform fibrations}
 \label{section-kan-fib}
 
  The aim of this section is to compare the standard notion of a Kan fibration with the
@@ -1369,7 +1414,7 @@ Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not
 
 
 
-\section{Homotopy equivalences} 
+\section{The Frobenius property via homotopy equivalences} 
 
 
 \begin{definition}
