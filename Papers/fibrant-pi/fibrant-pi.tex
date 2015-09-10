@@ -7,7 +7,7 @@
 
 
 
-\title{On the pushforward of uniform Kan fibrations in simplicial and cubical sets}
+\title[Kan fibrations]{Kan fibrations, algebraic weak factorisation systems \\ and right properness}
 
 \begin{document}
 
@@ -35,36 +35,39 @@ a Kan fibration in cubical sets.
 \tableofcontents
 
 
-\section{Introduction}
+\section*{Introduction}
 
-This paper contributes to the ongoing efforts to obtain a new version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} that is  definable constructively, \ie without making use of the law of excluded middle or the axiom of choice. We focus our attention on the key fact necessary to define the interpretation of $\Pi$-types in the simplicial model, namely that pushforward (\ie the right adjoint to pullback) along a Kan fibration preserves Kan fibrations. Remarkably, as shown in~\cite{coquand-non-constructivity-kan},  this result cannot be proved constructively.
+This paper contributes to the ongoing efforts to obtain a new version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} that is  definable in a constructive setting, \ie without making use of the law of excluded middle or the axiom of choice. We focus our attention on the key fact that is necessary to define the interpretation of $\Pi$-types in the simplicial model, namely that pushforward (\ie the right adjoint to pullback) along a Kan fibration preserves Kan fibrations. Remarkably, as shown in~\cite{coquand-non-constructivity-kan},  this result cannot be proved constructively.
 In order to address this issue, Bezem, Coquand and Huber are developing a new model of 
-univalent foundation using cubical, rather than simplicial, sets~\cite{coquand-cubical-sets,coquand-variation,huber-thesis}. In particular, they introduced the notion of a \emph{uniform Kan fibration} and shown that, in the category of cubical sets,  
-the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Because of these results and the focus by many
-authors on cubical sets or its equivalents~\cite{awodey-cubical,pitts-cubical-nominal,swan-awfs}, one may get the impression that it is necessary to switch from simplicial sets to cubical sets in order to develop homotopy-theoretic models of type theory constructively.
+univalent foundation using cubical, rather than simplicial, sets~\cite{coquand-cubical-sets,coquand-variation,huber-thesis}. In particular, they introduced the notion of a uniform Kan fibration in the category of cubical sets and shown that 
+the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Because of these results and the
+subsequent focus by many
+authors on cubical sets or its equivalents~\cite{awodey-cubical,pitts-cubical-nominal,swan-awfs}, one may get the impression that it is necessary to switch from simplicial sets to cubical sets in order to address constructivity issues.
 
 
-Our aim here is to show that this is not the case: we introduce the notion of a uniform Kan fibration in simplicial sets and prove constructively that the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Furthermore, we show that, working classically and assuming the axiom of choice, a map of simplicial sets is a uniform Kan fibration if and only if it is a Kan fibration in the usual sense, thus showing that our result is classically equivalent to the standard one. Our approach is based on the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-variation}.
+Our aim here is to show that this is not the case: we introduce the notion of a uniform Kan fibration in simplicial sets and give a constructive proof that the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Furthermore, we show that,  assuming the axiom of choice, a map of simplicial sets is a uniform Kan fibration if and only if it is a Kan fibration in the usual sense, thus showing that our result is classically equivalent to the standard one. Our approach is based on the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-variation} (but not that in~\cite{coquand-cubical-sets}, which falls outside our axiomatic approach).
 
-In order to discuss our proof in more detail, let us briefly recall a classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. For this, recall that the category of simplicial sets admits a model structure $(\cal{W}, \cal{F}, \cal{C})$ in which the class of fibrations $\cal{F}$ consists of the Kan fibrations. Hence, there is a  weak factorisation system in which the left class consists  of the trivial cofibrations, \ie the weak homotopy equivalences that are monomorphisms, and the right class consists of the Kan fibrations. By a standard fact about the interaction between weak orthogonality classes and adjoint functors, for a Kan fibration~$p \co X \to Y$, the 
+In order to discuss the content of the paper in more detail, let us briefly recall a classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. For this, recall that the category of simplicial sets admits a model structure in which the class of fibrations  consists of the Kan fibrations. Hence, there is a  weak factorisation system in which the left class consists  of the trivial cofibrations, \ie the weak homotopy equivalences that are monomorphisms, and the right class consists of the Kan fibrations. By a standard fact about the interaction between weak orthogonality classes and adjoint functors, for a Kan fibration~$p \co X \to Y$, the 
  pushforward functor $p_*$ preserves Kan fibrations if and only if 
  the pullback functor $p^*$  preserves trivial cofibrations. Since pullbacks always preserve monomorphisms, 
-  this latter statement follows from the fact that the model structure on simplicial sets is right proper, \ie that pullbacks along Kan fibrations preserve weak equivalences. This fact, in turn, can be established either using the right properness of the model structure on topological spaces in which
-  the fibrations are the Serre fibrations~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} or purely combinatorially, via the theory of minimal fibrations~\cite[Theorem~1.7.1]{joyal-tierney-notes}. But, as shown in~\cite{coquand-non-constructivity-kan}, the use of classical logic is unavoidable. 
+  the latter statement follows from the fact that the model structure on simplicial sets is right proper, \ie that pullbacks along Kan fibrations preserve weak equivalences. This fact, in turn, can be established either using the right properness of the model structure on topological spaces in which
+  the fibrations are the Serre fibrations, as done in~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} or purely combinatorially, via the theory of minimal fibrations, as done in~\cite[Theorem~1.7.1]{joyal-tierney-notes}. But, as shown in~\cite{coquand-non-constructivity-kan}, the use of classical logic is unavoidable in either case. 
 
-\medskip
 
-This shows that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory in a constructive setting. As typical
-in constructive mathematics, one should try to isolate a new notion that is classically equivalent to the standard one, but allows a constructive development of the theory. We will introduce a candidate for this role, to which we
+We take this as an indication  that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory in a constructive setting. A well-known strategy to address this kind of issue is to isolate a new notion that is classically equivalent to the standard one, but allows a constructive development of the theory. We will introduce a candidate for this role, to which we
 refer as uniform Kan fibration, which is a 
 map $p \co X \to Y$ of simplicial sets, equipped with a function that assigns diagonal fillers to all diagrams of the form
-\[
-\xymatrix{
+\begin{equation}
+\label{diag-kan}
+\xycenter{
 \bullet \ar[r] \ar[d] & X \ar[d]^p \\
 \Delta_1 \times B \ar[r] & Y}
-\]
-subject to a uniformity condition. Here, the map $h^k_1 \hattimes i$ is obtained by the so-called pushout product of a \emph{decidable monomorphism}
-$i \co A \to B$ and the horn inclusion $h^k_1 \co 1 \to \Delta_1$. This definition has two orthogonal important aspects. 
+\end{equation}
+where the map $h^k_1 \hattimes i$ is obtained by the so-called pushout product of a \emph{decidable monomorphism}
+$i \co A \to B$ and the horn inclusion $h^k_1 \co 1 \to \Delta_1$. This definition has two distinct important aspects. On the one hand, following~\cite{grandis-tholen-nwfs,garner:small-object-argument}, we work with a fully
+algebraic version of the notion of a fibration, where diagonal fillers for appropriate diagrams is given as part of the structure of a fibration, rather than 
+being a mere property. This allows one to require also a naturality property for diagonal fillers, which plays an important role in defining an interpretation
+of type theory. The second aspect is the choice of the maps on the left-hand side of the diagram in~\eqref{diag-kan}
 
 \newpage
 
@@ -684,279 +687,8 @@ Note that the class of decidable monomorphisms is closed under base change.
 
 
 
-\section{Pullback and pushforward on categories of orthogonal maps}
 
-\begin{lemma}
-\label{slicing-2-functorial}
-Let $u \co \cal{C} \to \catE^{\to}$ be a functor and $f \co X \to Y$ a map in $\catE$. Then, 
-\begin{enumerate}[(i)]
-\item left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$,
-\[
-\xymatrix@C+1em{
-  \cal{C}/X
-  \ar[r]^-{f_!}
-  \ar[d]_{u/X}
-&
-  \cal{C}/Y
-  \ar[d]^{u/Y}
-\\
-  (\calE/X)^{\to}
-  \ar[r]_-{f_!}
-&
-  (\calE/Y)^{\to}
-}
-\]
-\item right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$,
-\[
-\xymatrix@C+1em{
-  \cal{C}/X
-  \ar[d]_{u/X}
-&
-  \cal{C}/Y
-  \ar[l]_-{f^!}
-  \ar[d]^{u/Y}
-\\
-  (\calE/X)^{\to}
-&
-  (\calE/Y)^{\to}
-  \ar[l]^-{f^!}
-}
-\]
-\end{enumerate}
-\end{lemma}
-
-\begin{proposition}
-\label{lift-pullback}
-Let $f : X \to Y$ be a map in $\catE$ admitting pullback:
-\[
-\xymatrix@C+1em{
-  \catE/X
-  \ar@<-5pt>[r]_{f_!}
-  \ar@{}[r]|{\top}
-&
-  \catE/Y
-  \ar@<-5pt>[l]_{f^*}
-}
-\]
-Let $u : \cal{C} \to \catE^{\to}$ be a functor.
-Then pullback along $f$ lifts to slices of the right orthogonality categories:
-\[
-\xymatrix@C=1.5cm{
-  \liftr{\cal{C}}/X
-  \ar[d]_{\liftr{u}/X}
-&
-  \liftr{\cal{C}}/Y
-  \ar@{.>}[l]_{f^*}
-  \ar[d]^{\liftr{u}/Y}
-\\
-  (\catE/X)^{\to}
-&
-  (\catE/Y)^{\to}
-  \ar[l]^{f^*}
-}
-\]
-\end{proposition}
-
-\begin{proof}
-Combine \cref{lift-of-adjunction} with part (i) of \cref{slicing-2-functorial}.
-\end{proof}
-
-\begin{question}
-In fact, $\liftr{C}/\text{--}$ is a cartesian fibration (compare notes-on-awfs).
-Do we need that?
-\end{question}
-
-The next proposition applies the development in \cref{sec-orthog-functors} to obtain 
-a fact about the interaction of orthogonality functors with the pullback and pushforward
-functors. This will be useful to establish our main result.
-
-\begin{proposition}
-\label{lift-dependent-product}
-Let $f \co X \to Y$ be a map in $\catE$ admitting pullback and pushforward:
-\[
-\xymatrix@C+1em{
-  \catE/X
-  \ar@<5pt>[r]^{f_*}
-  \ar@{}[r]|{\top}
-&
-  \catE/Y
-  \ar@<5pt>[l]^{f^*}
-}
-\]
-Let $u \co \cal{C} \to \catE^{\to}$ be a functor. The following are
-equivalent:
-\begin{enumerate}[(i)]
-\item lifts of the pullback functor $f^*$ of the form
-\[
-\xymatrix@C=1.5cm{
-  \cal{C}/Y
-   \ar[r]^{f^*}
-  \ar[d]_{u/Y} 
-  &
-  \liftl{ ( \liftr{\cal{C}}/X ) }
-  \ar[d]^{\liftl{(\liftr{u}/X)}}
-     \\
-     (\catE/Y)^{\to} \ar[r]_{f^*} &
-   (\catE/X)^{\to} 
-}
-\]
-\item lifts of pushforward functor $f_*$ of the form
-\[
-\xymatrix@C=1.5cm{
-\liftr{\cal{C}}/X
-\ar[r]^{f_*}
-  \ar[d]_{u/X}
-&
-  \liftr{\cal{C}}/Y
-  \ar[d]^{\liftr{u}/Y}
-\\
-  (\catE/X)^{\to}
-   \ar[r]_{f_*}
-&
-  (\catE/Y)^{\to}
- }
-\]
-\begin{comment}
-\item functors $F$ making the following diagram commute:
-\[
-\xymatrix@C=1.2cm@R=1.5cm{
-\liftr{\cal{C}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{C}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
- & (\cal{E}/X)^\to & }
-\]
-\end{comment}
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
-%The last statement is simply the adjunction~\eqref{garner-adjunction}.
-Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u/X$ and $v = \liftr{u}/Y$.
-\end{proof}
-
-It is possible to show that lifts of the Beck-Chevalley condition, defined in appropriate sense, are equivalent as well, as we shall now see. Let us begin by recalling one of the standard facts about the Beck-Chevalley condition. Consider a
-pullback square 
-\[
-\xymatrix{
-  U
-  \ar[d]_{s}
-  \ar[r]^{g}
-  \pullback{dr}
-&
-  V
-  \ar[d]^{t}
-\\
-  X
-  \ar[r]_{f}
-&
-  Y
-}
-\]
-and assume that $f$ and $g$ admit pullback and pushforward, and that $s$ and $t$ admit pullback. Then,
- the Beck-Chevalley condition for left composition
-\[
-\xymatrix{
-  \catE/U
-  \ar[d]_{s_!}
-&
-  \catE/V
-  \ar[l]_{g^*}
-  \ar[d]^{t_!}
-\\
-  \catE/X
-&
-  \catE/Y
-  \ar[l]^{f^*}
-}
-\]
-is equivalent to the Beck-Chevalley condition for pushforward:
-\[
-\xymatrix{
-  \catE/U
-  \ar[r]^{g_*}
-&
-  \catE/V
-\\
-  \catE/X
-  \ar[r]_{f_*}
-  \ar[u]^{s^*}
-&
-  \catE/Y
-  \ar[u]_{t^*}
-}
-\]
-
-
-
-
-
-\begin{proposition}
-\label{lift-pushforward-BC} Let $u \co \cal{C} \to \catE^{\to}$ be a functor and consider a 
-pullback square
-\[
-\xymatrix{
-  U
-  \ar[d]_{s}
-  \ar[r]^{g}
-  \pullback{dr}
-&
-  V
-  \ar[d]^{t}
-\\
-  X
-  \ar[r]_{f}
-&
-  Y
-}
-\]
-Assume now that $f$ and $g$ satisfy the equivalent conditions of \cref{lift-dependent-product}.
-Then the following are equivalent:
-\begin{enumerate}[(i)]
-\item the Beck-Chevalley condition for lifts of pullback, \ie the diagram
-\[
-\xymatrix{
-  \liftl{(\liftr{\cal{C}})}/U
-  \ar[d]_{s_!}
-&
-  \cal{C}/V
-  \ar[l]_-{g^*}
-  \ar[d]^{t_!}
-\\
-  \liftl{(\liftr{\cal{C}})}/X
-&
-  \cal{C}/Y
-  \ar[l]^-{f^*}
-}
-\]
-commutes. 
-\item the Beck-Chevalley  condition for lifts of pushforward, \ie the diagram
-\[
-\xymatrix{
-  \liftr{\cal{C}}/U
-  \ar[r]^{g_*}
-&
-  \liftr{\cal{C}}/V
-\\
-  \liftr{\cal{C}}/X
-  \ar[r]_{f_*}
-  \ar[u]^{s^*}
-&
-  \liftr{\cal{C}}/Y
-  \ar[u]_{t^*}
-}
-\]
-commutes.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
-\end{proof}
-
-
-
-\section{Two algebraic weak factorisation systems on simplicial sets}
+\section{Two algebraic weak factorisation systems}
 \label{trivial-kan-fibrations}
 
  
@@ -1070,6 +802,8 @@ Then $\liftr{\cal{C}} = \liftr{\cal{D}}$.
 
 \begin{proof} The result follows by combining \cref{left-kan-extension-of-representables} and part~(i) of \cref{kan-extension-closure}. 
 \end{proof}
+
+ADD THAT "COFIBRATIONS" ARE CLOSED UNDER PULLBACK ASSUMING C AND D AS ABOVE.
 
 
 \begin{theorem} \label{small-gen-triv-kan}
@@ -1360,6 +1094,278 @@ $p \co X \to Y$ be a Kan fibration. By the non-algebraic counterpart of \cref{pr
 that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$. The claim then follows  by \cref{prod-exp-general}. 
 \end{proof}
 
+
+
+
+\section{Pullback and pushforward on categories of orthogonal maps}
+
+\begin{lemma}
+\label{slicing-2-functorial}
+Let $u \co \cal{C} \to \catE^{\to}$ be a functor and $f \co X \to Y$ a map in $\catE$. Then, 
+\begin{enumerate}[(i)]
+\item left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$,
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar[r]^-{f_!}
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar[d]^{u/Y}
+\\
+  (\calE/X)^{\to}
+  \ar[r]_-{f_!}
+&
+  (\calE/Y)^{\to}
+}
+\]
+\item right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$,
+\[
+\xymatrix@C+1em{
+  \cal{C}/X
+  \ar[d]_{u/X}
+&
+  \cal{C}/Y
+  \ar[l]_-{f^!}
+  \ar[d]^{u/Y}
+\\
+  (\calE/X)^{\to}
+&
+  (\calE/Y)^{\to}
+  \ar[l]^-{f^!}
+}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proposition}
+\label{lift-pullback}
+Let $f : X \to Y$ be a map in $\catE$ admitting pullback:
+\[
+\xymatrix@C+1em{
+  \catE/X
+  \ar@<-5pt>[r]_{f_!}
+  \ar@{}[r]|{\top}
+&
+  \catE/Y
+  \ar@<-5pt>[l]_{f^*}
+}
+\]
+Let $u : \cal{C} \to \catE^{\to}$ be a functor.
+Then pullback along $f$ lifts to slices of the right orthogonality categories:
+\[
+\xymatrix@C=1.5cm{
+  \liftr{\cal{C}}/X
+  \ar[d]_{\liftr{u}/X}
+&
+  \liftr{\cal{C}}/Y
+  \ar@{.>}[l]_{f^*}
+  \ar[d]^{\liftr{u}/Y}
+\\
+  (\catE/X)^{\to}
+&
+  (\catE/Y)^{\to}
+  \ar[l]^{f^*}
+}
+\]
+\end{proposition}
+
+\begin{proof}
+Combine \cref{lift-of-adjunction} with part (i) of \cref{slicing-2-functorial}.
+\end{proof}
+
+\begin{question}
+In fact, $\liftr{C}/\text{--}$ is a cartesian fibration (compare notes-on-awfs).
+Do we need that?
+\end{question}
+
+The next proposition applies the development in \cref{sec-orthog-functors} to obtain 
+a fact about the interaction of orthogonality functors with the pullback and pushforward
+functors. This will be useful to establish our main result.
+
+\begin{proposition}
+\label{lift-dependent-product}
+Let $f \co X \to Y$ be a map in $\catE$ admitting pullback and pushforward:
+\[
+\xymatrix@C+1em{
+  \catE/X
+  \ar@<5pt>[r]^{f_*}
+  \ar@{}[r]|{\top}
+&
+  \catE/Y
+  \ar@<5pt>[l]^{f^*}
+}
+\]
+Let $u \co \cal{C} \to \catE^{\to}$ be a functor. The following are
+equivalent:
+\begin{enumerate}[(i)]
+\item lifts of the pullback functor $f^*$ of the form
+\[
+\xymatrix@C=1.5cm{
+  \cal{C}/Y
+   \ar[r]^{f^*}
+  \ar[d]_{u/Y} 
+  &
+  \liftl{ ( \liftr{\cal{C}}/X ) }
+  \ar[d]^{\liftl{(\liftr{u}/X)}}
+     \\
+     (\catE/Y)^{\to} \ar[r]_{f^*} &
+   (\catE/X)^{\to} 
+}
+\]
+\item lifts of pushforward functor $f_*$ of the form
+\[
+\xymatrix@C=1.5cm{
+\liftr{\cal{C}}/X
+\ar[r]^{f_*}
+  \ar[d]_{u/X}
+&
+  \liftr{\cal{C}}/Y
+  \ar[d]^{\liftr{u}/Y}
+\\
+  (\catE/X)^{\to}
+   \ar[r]_{f_*}
+&
+  (\catE/Y)^{\to}
+ }
+\]
+\begin{comment}
+\item functors $F$ making the following diagram commute:
+\[
+\xymatrix@C=1.2cm@R=1.5cm{
+\liftr{\cal{C}}/X \ar[rr]^F \ar[dr]_{\liftr{u}/X} & &  \liftr{\cal{C}}/ Y \ar[dl]^(.4){\ \liftr{( (u/Y) \cc f^*)}}  \\
+ & (\cal{E}/X)^\to & }
+\]
+\end{comment}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
+%The last statement is simply the adjunction~\eqref{garner-adjunction}.
+Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u/X$ and $v = \liftr{u}/Y$.
+\end{proof}
+
+It is possible to show that lifts of the Beck-Chevalley condition, defined in appropriate sense, are equivalent as well, as we shall now see. Let us begin by recalling one of the standard facts about the Beck-Chevalley condition. Consider a
+pullback square 
+\[
+\xymatrix{
+  U
+  \ar[d]_{s}
+  \ar[r]^{g}
+  \pullback{dr}
+&
+  V
+  \ar[d]^{t}
+\\
+  X
+  \ar[r]_{f}
+&
+  Y
+}
+\]
+and assume that $f$ and $g$ admit pullback and pushforward, and that $s$ and $t$ admit pullback. Then,
+ the Beck-Chevalley condition for left composition
+\[
+\xymatrix{
+  \catE/U
+  \ar[d]_{s_!}
+&
+  \catE/V
+  \ar[l]_{g^*}
+  \ar[d]^{t_!}
+\\
+  \catE/X
+&
+  \catE/Y
+  \ar[l]^{f^*}
+}
+\]
+is equivalent to the Beck-Chevalley condition for pushforward:
+\[
+\xymatrix{
+  \catE/U
+  \ar[r]^{g_*}
+&
+  \catE/V
+\\
+  \catE/X
+  \ar[r]_{f_*}
+  \ar[u]^{s^*}
+&
+  \catE/Y
+  \ar[u]_{t^*}
+}
+\]
+
+
+
+
+
+\begin{proposition}
+\label{lift-pushforward-BC} Let $u \co \cal{C} \to \catE^{\to}$ be a functor and consider a 
+pullback square
+\[
+\xymatrix{
+  U
+  \ar[d]_{s}
+  \ar[r]^{g}
+  \pullback{dr}
+&
+  V
+  \ar[d]^{t}
+\\
+  X
+  \ar[r]_{f}
+&
+  Y
+}
+\]
+Assume now that $f$ and $g$ satisfy the equivalent conditions of \cref{lift-dependent-product}.
+Then the following are equivalent:
+\begin{enumerate}[(i)]
+\item the Beck-Chevalley condition for lifts of pullback, \ie the diagram
+\[
+\xymatrix{
+  \liftl{(\liftr{\cal{C}})}/U
+  \ar[d]_{s_!}
+&
+  \cal{C}/V
+  \ar[l]_-{g^*}
+  \ar[d]^{t_!}
+\\
+  \liftl{(\liftr{\cal{C}})}/X
+&
+  \cal{C}/Y
+  \ar[l]^-{f^*}
+}
+\]
+commutes. 
+\item the Beck-Chevalley  condition for lifts of pushforward, \ie the diagram
+\[
+\xymatrix{
+  \liftr{\cal{C}}/U
+  \ar[r]^{g_*}
+&
+  \liftr{\cal{C}}/V
+\\
+  \liftr{\cal{C}}/X
+  \ar[r]_{f_*}
+  \ar[u]^{s^*}
+&
+  \liftr{\cal{C}}/Y
+  \ar[u]_{t^*}
+}
+\]
+commutes.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
+Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
+\end{proof}
 
 
 
