@@ -1605,8 +1605,54 @@ Assume that $\cal{I}$ is closed under tensoring with $\intervalr$.
 Then there is functor $\cal{S}_l(\cal{I}) \to \overline{\intervalr \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
 \end{lemma}
 
+\begin{proof}
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervalr \hatotimes \cal{I}$, but let us review the details anyway.
+
+Suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
+Observe that it already has the form of a retract $(i, \cal{I}(i), \thetal \hatotimes i, \rho)$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  (\intervalr \hatotimes \cal{I})(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+
+Suppose we are given a morphism $\tau : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau))$ between retracts:
+\[
+\xymatrix@C+2em{
+  \cal{I}(i)
+  \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
+  \ar[d]_{\cal{I}(\tau)}
+  \ar@/^2em/[rr]^{\id}
+&
+  (\intervalr \hatotimes \cal{I})(i)
+  \ar[r]_-{\rho}
+  \ar[d]^{(\intervalr \hatotimes \cal{I})(\tau)}
+&
+  \cal{I}(i)
+  \ar[d]^{\cal{I}(\tau)}
+\\
+  \cal{I}(i')
+  \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
+  \ar@/_2em/[rr]_{\id}
+&
+  (\intervalr \hatotimes \cal{I})(i')
+  \ar[r]^-{\rho'}
+&
+  \cal{I}(i')
+}
+\]
+\end{proof}
+
 \begin{lemma}
-\label{horn-times-gen-to-she}]]
+\label{horn-times-gen-to-she}
 Assume that $\intervalr$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervalr$.
 Then there is a functor $\intervalr \hatotimes \cal{I} \to \cal{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
 \end{lemma}
