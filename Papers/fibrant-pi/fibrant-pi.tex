@@ -12,7 +12,7 @@
 \begin{document}
 
 \begin{abstract}
-We provide a solution to the problem of proving  a constructive counterpart of the fact that,
+We prove a  constructive counterpart of the fact that,
 in the category of simplicial sets, the pushforward functor along a Kan fibration preserve Kan fibrations. 
 In order to do so, we develop further the theory of algebraic weak factorisation systems and 
  introduce the notion of a uniform Kan fibration in simplicial sets. Our
@@ -37,24 +37,25 @@ a Kan fibration in cubical sets.
 
 \section{Introduction}
 
-This paper contributes to the ongoing efforts to define a constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}. In particular, we focus on the question of whether it it is possible to prove constructively a counterpart of the statement that, in the category of simplicial sets, the pushforward functor (\ie the right adjoints to 
-the pullback functor) along a Kan fibrations preserves Kan fibrations~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. 
-Although this result follows from well-known facts of simplicial homotopy theory, it cannot be proved constructively without changes,  as shown in~\cite{coquand-non-constructivity-kan}. In order to improve on this situation, Bezem, Coquand and Huber are developing a new model of 
-univalent foundation in the category of cubical, rather than simplicial, sets~\cite{coquand-cubical-sets}. In particular, they introduced the notion of a \emph{uniform Kan fibration} and shown that it is possible to prove a counterpart of the fact the pushforward functor along a Kan fibrations preserves Kan fibrations. 
+This paper contributes to the ongoing efforts to define a constructive version of Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}. We focus on the classical result that, in the category of simplicial sets, the pushforward functors (\ie the right adjoints to the pullback functors) along a Kan fibrations preserve Kan fibrations,
+which is necessary to define the interpretation of $\Pi$-types in the simplicial model. Remarkably,
+this result cannot be proved constructively~\cite{coquand-non-constructivity-kan}, even though it follows from apparently basic facts of simplicial homotopy theory. In order to improve on this situation, Bezem, Coquand and Huber are developing a new model of 
+univalent foundation using cubical, rather than simplicial, sets~\cite{coquand-cubical-sets}. In particular, they introduced the notion of a \emph{uniform Kan fibration} and shown that, in the category of cubical sets,  
+the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations. Because of these results, one may get the impression that it is necessary to switch from simplicial sets to
+cubical sets in order to obtain constructive results.
 
 
-These results may give the impression that there is something intrinsically non-constructive in simplicial homotopy theory. The work presented in this paper  shows that this impression is false and the possibility of eveloping a constructive version of Voevodsky's simplicial model remains open. Indeed,
-we will introduce a notion of uniform Kan fibration in simplicial sets and prove that the pushforward functor along a 
-uniform Kan fibrations preserves uniform Kan fibrations. We will also show that, working within ZFC, the standard
-notion of a Kan fibration is equivalent to that of a uniform Kan fibration, thereby proving that our result is classically equivalent to the standard one. Our approach is inspired by some aspects of the development of cubical sets and
-by the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-cubical-sets}.
-
-\medskip
+Our aim here is to show that this is not the case: we will introduce a a notion of uniform Kan fibration in simplicial sets and prove that the pushforward functor along a uniform Kan fibrations preserves uniform Kan fibrations, working constructively. Furthermore, we will show that, working in ZFC, a map of simplicial sets is a uniform Kan fibration if and only if it is a Kan fibration in the usual sense, thus showing that our result is classically equivalent to the standard one. Our approach is inspired by some aspects of the development of cubical sets and by the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs} and algebraic weak factorisation systems~\cite{garner:small-object-argument}. In fact, we will work at a level of generality that allows us to obtain as a special case also the corresponding statement for cubical sets proved in~\cite{coquand-cubical-sets}. \medskip
 
 
-In order to motivate present our results more precisely, let us briefly recall the classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations. First of all, recalling that Kan fibrations are the right class of a weak factorisation system in which the right class consists of the
-trivial cofibrations (\ie maps of simplicial sets that are both weak equivalences and monomorphisms), the required statement is equivalent to showing that 
-pullbacks along Kan fibrations preserves trivial cofibrations. This latter fact is then proved in two ways. One way is to combine the fact that the model structure on simplicial sets is right proper (\ie that pullbacks along Kan fibrations preserve weak equivalences) with the fact that pullbacks preserve monomorphisms.
+In order to discuss our proof in more detail, let us briefly recall the classical proof of the fact that the pushforward functor along a Kan fibration preserves Kan fibrations. First of all, recalling the category of simplicial sets admits
+a weak factorisation system $(\mathcal{L}, \mathcal{R})$, in which $\mathcal{L}$ is the class of trivial cofibrations
+ (\ie maps of simplicial sets that are both weak equivalences and monomorphisms) and $\mathcal{R}$ is the class
+ of Kan fibrations. By standard facts on orthogonality classes, for a Kan fibration $p \co X \to Y$, the 
+ pushforward functor $p_* \co \SSet/X \to \SSet/Y$ preserves Kan fibrations if and only if its left adjoint,
+ the pullback functor $p^* \co \SSet/Y \to \SSet/X$,  preserves trivial cofibrations.
+ 
+This latter fact is then proved in two ways. One way is to combine the fact that the model structure on simplicial sets is right proper (\ie that pullbacks along Kan fibrations preserve weak equivalences) with the fact that pullbacks preserve monomorphisms.
 Alternatively, one can show that the pullback of one of the generating arrows for trivial cofibrations
 
 
