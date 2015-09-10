@@ -1628,7 +1628,7 @@ Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau
 \[
 \xymatrix@C+2em{
   \cal{I}(i)
-  \ar[r]_-{\thetar \hatotimes \cal{I}(i)}
+  \ar[r]_-{\thetal \hatotimes \cal{I}(i)}
   \ar[d]_{\cal{I}(\tau)}
   \ar@/^2em/[rr]^{\id}
 &
@@ -1640,7 +1640,7 @@ Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau
   \ar[d]^{\cal{I}(\tau)}
 \\
   \cal{I}(i')
-  \ar[r]^-{\thetar \hatotimes \cal{I}(i')}
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i')}
   \ar@/_2em/[rr]_{\id}
 &
   (\intervalr \hatotimes \cal{I})(i')
@@ -1718,81 +1718,212 @@ Note that the right square commutes by interchange.
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
-Strong homotopy equivalences are stable under base change along morphisms having the right lifting property with respect to $\bot \hattimes \canonical_{0 \to X}$ for $X : \catC$.
+Let $p : Y \to X$ be a $(\intervall \hatotimes \calE)$-right map.
+Assume that base change along $p$ lifts to a functor $F : \cat{I}_{/X} \to \cat{I}_{/Y}$.
+Then it lifts further to a functor $G : (\cat{S}_l)_{/X} \to (\cat{S}_l)_{/Y}$:
+\[
+\xymatrix{
+  \cat{S}_l(\cal{I})_{/X}
+  \ar@{.>}[r]^{G}
+  \ar[d]
+&
+  \cat{S}_l(\cal{I})_{/Y}
+  \ar[d]
+\\
+  \cat{I}_{/X}
+  \ar[r]^{F}
+  \ar[d]_{\cal{I}_{/X}}
+&
+  \cat{I}_{/Y}
+  \ar[d]^{\cal{I}_{/Y}}
+\\
+  (\catE / X)^{\to}
+  \ar[r]^{(p^*)^{\to}}
+&
+  (\catE / Y)^{\to}
+}
+\]
 \end{lemma}
 
 \begin{proof}
-Let $f : A \to B$ be a strong homotopy equivalence and $v : B' \to B$ be a map having the lifting property mentioned in the statement.
-We consider the following pullback square:
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+
+Let us first define the action of $G$ on objects.
+Suppose we are given $i : \cat{I}_{/X}$ such that $\cal{I}(i)$ is a strong left homotopy equivalence.
+This means we have a commutative triangle
+\[
+\xymatrix{
+  A
+  \ar[rr]^{\cal{I}(i)}
+  \ar[dr]
+&&
+  B
+  \ar[dl]
+\\&
+  X
+}
+\]
+and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+Let $\tau : \cal{I}(i') \to \cal{I}(i)$ denote the base change of $i$ along $p$:
 \[
 \xymatrix{
   A'
-  \ar[r]^{u}
-  \ar[d]^{f'}
+  \ar[r]
+  \ar[d]_{\cal{I}(i')}
   \pullback{dr}
 &
   A
-  \ar[d]^{f}
+  \ar[d]^{\cal{I}(i)}
 \\
   B'
-  \ar[r]^{v}
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  B
+  \ar[d]
+\\
+  Y
+  \ar[r]
+&
+  X
+}
+\]
+
+We want to make $\cal{I}(i')$ into a strong left homotopy equivalence.
+This means to find a retraction $\rho'$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i')
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i')}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i')
+  \ar@{.>}[d]^{\rho'}
+\\&
+  \cal{I}(i')
+}
+\]
+We will construct the retraction $\rho'$ as indicated in the below diagram:
+\[
+\xymatrix@C+2em{
+  \cal{I}(i')
+  \ar[r]_-{\thetal \hatotimes \cal{I}(i')}
+  \ar[d]_{\tau}
+  \ar@/^2em/[rr]^{\id}
+&
+  \intervalr \hatotimes \cal{I}(i')
+  \ar@{.>}[r]_-{\rho'}
+  \ar[d]^{\intervalr \hatotimes \tau}
+&
+  \cal{I}(i')
+  \ar[d]^{\tau}
+\\
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar@/_2em/[rr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i)
+  \ar[r]^-{\rho}
+&
+  \cal{I}(i)
+}
+\]
+Since $\tau$ is a cartesian square, it suffices to solve this problem when projected to the codomains:
+\[
+\xymatrix@C+2em{
+  B'
+  \ar[r]_-{\intervall \otimes B'}
+  \ar[d]_{\cod(\tau)}
+  \ar@/^2em/[rr]^{\id}
+  \pullback{dr}
+&
+  \interval \otimes B'
+  \ar@{.>}[r]_{\cod(\rho')}
+  \ar[d]^{\interval \otimes \cod(\tau)}
+&
+  B'
+  \ar[d]^{\cod(\tau)}
+\\
+  B
+  \ar[r]^-{\intervall \otimes B}
+  \ar@/_2em/[rr]_{\id}
+&
+  \interval \otimes B
+  \ar[r]^-{\cod(\rho)}
 &
   B
 }
 \]
-The goal is to show that $f'$ is a strong homotopy equivalence.
-
-According to \cref{strong-h-equiv-as-retraction}, we must construct $(s', t')$ from $(s, t)$ in the following commutative diagram in the arrow category $\catC^{\to}$:
-\[
-\xymatrix@C+3em{
-  \canonical_{0 \to 1} \hattimes f'
-  \ar[r]_{\theta \hattimes f'}
-  \ar[d]_{\canonical_{0 \to 1} \hattimes (u, v)}
-  \ar@/^2em/[rr]^{\id}
-&
-  \top \hattimes f'
-  \ar@{.>}[r]_{(s', t')}
-  \ar[d]^{\top \hattimes (u, v)}
-&
-  \canonical_{0 \to 1} \hattimes f'
-  \ar[d]^{\canonical_{0 \to 1} \hattimes (u, v)}
-\\
-  \canonical_{0 \to 1} \hattimes f
-  \ar[r]^{\theta \hattimes f}
-  \ar@/_2em/[rr]_{\id}
-&
-  \top \hattimes f
-  \ar[r]^{(s, t)}
-&
-  \canonical_{0 \to 1} \hattimes f'
-}
-\]
-Since the codomain fibration has $(u, v)$ as cartesian morphism, it will suffice to solve this problem when projected to its base $\catC$:
+We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, omitting the identity arrows for readability:
 \[
 \xymatrix@C+2em{
-  1 \times B'
-  \ar[r]_{\bot \times B'}
-  \ar[d]_{1 \times v}
-  \ar@/^2em/[rr]^{\id}
+  B'
+  \ar[r]_-{\intervall \otimes B'}
+  \ar[dd]_{\cod(\tau)}
+  \ar@/_2em/[drrr]
 &
-  I \times B'
-  \ar@{.>}[r]_{t'}
-  \ar[d]^{I \times v}
+  \interval \otimes B'
+  \ar@{.>}[r]^{\cod(\rho')}
+  \ar[dd]^(0.7){\interval \otimes \cod(\tau)}
+  \ar@{-->}@/_1em/[drr]
 &
-  1 \times B'
-  \ar[d]^{1 \times v}
+  B'
+  \ar[dd]^(0.8){\cod(\tau)}
+  \ar[dr]
+\\&&&
+  Y
+  \ar[dd]^{p}
 \\
-  1 \times B
-  \ar[r]^{\bot \times f}
-  \ar@/_2em/[rr]_{\id}
+  B
+  \ar[r]^-{\intervall \otimes B}
+  \ar@/_2em/[drrr]
 &
-  I \times B
-  \ar[r]^{t}
+  \interval \otimes B
+  \ar[r]^-{\cod(\rho)}
+  \ar@/_1em/[drr]
 &
-  1 \times B
+  B
+  \ar[dr]
+\\&&&
+  X
 }
 \]
-This is a lifting problem of the form $\bot \hattimes \canonical_{0 \to B'} \pitchfork v$, which is solvable by assumption.
+The arrows to $X$ from the bottom row are induced by $B \to X$.
+The square $\cod(\tau)$ over $p$ is cartesian by construction.
+If we can find a dashed arrow cohering as indicated, there will hence be a unique dotted arrow as indicated.
+To find the dashed arrow is to construct a diagonal filler in the following square:
+\[
+\xymatrix@C+2em{
+  B'
+  \ar[rr]
+  \ar[d]_{\intervall \otimes B'}
+&&
+  Y
+  \ar[d]^{p}
+\\
+  \interval \otimes B'
+  \ar[r]_{I \otimes \cod(\tau)}
+  \ar@{-->}[urr]
+&
+  \interval \otimes B
+  \ar[r]
+&
+  X
+}
+\]
+But we have such a filler since $p$ is a $(\intervall \otimes \catE)$-right map by assumption.
 \end{proof}
 
 \begin{theorem} Fix $\cal{E}$ with interval $\interval$. Fix $u \co \cal{C} \to \cal{E}^\to$. For every $(\cal{C}, I)$-fibration $p$,
