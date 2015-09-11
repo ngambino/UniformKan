@@ -2195,7 +2195,7 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
 \]
 Once again, we have omitted drawing the identity morphisms of the retract situations for readability.
 Our goal is to show that the top right square commutes.
-Since that square commutes after composing it with $\sigma_2$ and $\sigma_2$ is a cartesian square, it suffices to show that the square commutes when projected to codomains:
+Since that square commutes after composing it with the cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains:
 \[
 \xymatrix@C+2em{
   B_1'
@@ -2333,6 +2333,337 @@ Pushforward lifts.
 
 \subsection*{Beck-Chevalley} 
 
+Let $\omega = (y, x) : p_1 \to p_2$ be a morphism of $(\intervall \otimes \catE)$-maps $p_1 : Y_1 \to X_1$ and $p_2 : Y_2 \to X_2$:
+\begin{equation}
+\label{strong-h-equiv-base-change-along-fibration-BC:0}
+\begin{gathered}
+\xymatrix{
+  Y_1
+  \ar[r]^{p_1}
+  \ar[d]_{y}
+&
+  X_1
+  \ar[d]^{x}
+\\
+  Y_2
+  \ar[r]^{p_2}
+&
+  X_2
+}
+\end{gathered}
+\end{equation}
+Noting the adjunctions $x_! \dashv x^*$ and $y_! \dashv y^*$, we have a canonical natural transformation $\phi$ as follows:
+\begin{equation}
+\label{strong-h-equiv-base-change-along-fibration-BC:1}
+\begin{gathered}
+\xymatrix{
+  \catE/Y_1
+  \ar[d]_{x_!}
+&
+  \catE/X_1
+  \ar[l]_{p_1^*}
+  \ar[d]^{y_!}
+\\
+  \catE/Y_2
+  \urtwocell<\omit>{\phi}
+&
+  \catE/X_2
+  \ar[l]^{p_2^*}
+}
+\end{gathered}
+\end{equation}
+Recall from \cref{slicing-2-functorial} that we have canonical lifts of left composition along $x$ and $y$ to slices of $\cat{I}$ and $\cat{S}_l(\cal{I})$.
+
+\begin{lemma}
+\label{strong-h-equiv-base-change-along-fibration-BC}
+As in \cref{strong-h-equiv-base-change-along-fibration}, assume that base change along $p_1$ and $p_2$ lifts to functors $p_1^* : \cat{I}_{/X_1} \to \cat{I}_{/Y_1}$ and $p_2^* : \cat{I}_{/X_2} \to \cat{I}_{/Y_2}$, respectively.
+Assume that the natural transformation $\phi$ from~\eqref{strong-h-equiv-base-change-along-fibration-BC} lifts to a natural transformation $\phi'$ (coherence with respect to $\phi^{\to}$ not shown):
+\begin{equation}
+\label{strong-h-equiv-base-change-along-fibration-BC:2}
+\begin{gathered}
+\xymatrix{
+  \cat{I}_{/Y_1}
+  \ar[d]_{y_!}
+&
+  \cat{I}_{/X_1}
+  \ar[l]_{p_1^*}
+  \ar[d]^{x_!}
+\\
+  \cat{I}_{/Y_2}
+  \urtwocell<\omit>{\phi'}
+&
+  \cat{I}_{/X_2}
+  \ar[l]^{p_2^*}
+}
+\end{gathered}
+\end{equation}
+Then it lifts further to a natural transformation $\phi''$ between the lifts constructed in \cref{strong-h-equiv-base-change-along-fibration} (coherence with respect to $\phi'$ not shown):
+\begin{equation}
+\label{strong-h-equiv-base-change-along-fibration-BC:3}
+\begin{gathered}
+\xymatrix{
+  \cat{S}(\cal{I})_{/Y_1}
+  \ar[d]_{y_!}
+&
+  \cat{S}(\cal{I})_{/X_1}
+  \ar[l]_{p_1^*}
+  \ar[d]^{x_!}
+\\
+  \cat{S}(\cal{I})_{/Y_2}
+  \urtwocell<\omit>{\phi''}
+&
+  \cat{S}(\cal{I})_{/X_2}
+  \ar[l]^{p_2^*}
+}
+\end{gathered}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By faithfulnes of the functor $\cat{S}(\cal{I})_{/Y_2} \to \cat{I}_{/Y_2}$, we only have to check objectwise lifting.
+
+Suppose we are given a strong left homotopy equivalence $(i, \rho) : \cat{I}_{/X_1}$ over $X_1$.
+This means we have a commutative triangle
+\[
+\xymatrix{
+  A
+  \ar[rr]^{\cal{I}(i)}
+  \ar[dr]
+&&
+  B
+  \ar[dl]
+\\&
+  X_1
+}
+\]
+and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
+\[
+\xymatrix@C+1em{
+  \cal{I}(i)
+  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  \ar[dr]_{\id}
+&
+  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+\\&
+  \cal{I}(i)
+}
+\]
+Let $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i)$ and $\sigma_2 : \cal{I}(i_2') \to \cal{I}(i)$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
+\[
+\xymatrix{
+  A_1'
+  \ar[rr]
+  \ar[dd]_{\cal{I}(i_1')}
+  \pullback{dr}
+  \ar@{.>}[dr]
+&&
+  A
+  \ar[dd]^(0.3){\cal{I}(i)}
+  \ar@{=}[dr]
+\\&
+  A_2'
+  \ar[rr]
+  \ar[dd]_(0.3){\cal{I}(i_2')}
+  \pullback{dr}
+&&
+  A
+  \ar[dd]^{\cal{I}(i)}
+\\
+  B_1'
+  \ar[rr]
+  \ar[dd]
+  \pullback{dr}
+  \ar@{.>}[dr]
+&&
+  B
+  \ar[dd]
+  \ar@{=}[dr]
+\\&
+  B_2'
+  \ar[rr]
+  \ar[dd]
+  \pullback{dr}
+&&
+  B
+  \ar[dd]
+\\
+  Y_1
+  \ar[rr]^(0.7){p_1}
+  \ar[dr]^{y}
+&&
+  X_1
+  \ar[dr]^{x}
+\\&
+  Y_2
+  \ar[rr]^(0.3){p_2}
+&&
+  X_2
+}
+\]
+Recall that we have a canonical morphism $\phi_{\cal{I}(i)}^{\to} : \cal{I}(i_1') \to \cal{I}(i_2')$ over $Y_2$ as indicated in the diagram.
+By assumption, this lifts to a morphism $\phi_i' : i_1' \to i_2'$ in $\cat{I}_{/Y_2}$.
+
+The proof of \cref{strong-h-equiv-base-change-along-fibration} endows $i_1'$ and $i_2'$ with data for a strong left homotopy equivalence consisting of retracts $\rho_1'$ and $\rho_2'$, respectively.
+Our goal is to check that $\phi_i'$ lifts to a morphism in $\cat{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{\cal{I}(i)}^{\to}$ coheres with as follows:
+\[
+\xymatrix{
+  \intervalr \hatotimes \cal{I}(i_1')
+  \ar[r]^-{\rho_1'}
+  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau')}
+&
+  \cal{I}(i_1')
+  \ar[d]^{\cal{I}(\tau')}
+\\
+  \intervalr \hatotimes \cal{I}(i_2')
+  \ar[r]^-{\rho_2'}
+&
+  \cal{I}(i_2')
+}
+\]
+Recall the construction of $\rho_1'$ and $\rho_2'$:
+\[
+\xymatrix@C+2em{
+  \cal{I}(i_1')
+  \ar[rr]^-{\thetal \hatotimes \cal{I}(i_1')}
+  \ar[dd]_{\sigma_1}
+  \ar[dr]^{\cal{I}(\phi_i')}
+&&
+  \intervalr \hatotimes \cal{I}(i_1')
+  \ar@{.>}[rr]^-{\rho_1'}
+  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_1}
+  \ar[dr]^{\intervalr \hatotimes \cal{I}(\phi_i')}
+&&
+  \cal{I}(i_1')
+  \ar[dd]^(0.3){\sigma_1}
+  \ar[dr]^{\cal{I}(\phi_i')}
+\\&
+  \cal{I}(i_2')
+  \ar[rr]^-(0.3){\thetal \hatotimes \cal{I}(i_2')}
+  \ar[dd]_(0.3){\sigma_2}
+&&
+  \intervalr \hatotimes \cal{I}(i_2')
+  \ar@{.>}[rr]^-(0.3){\rho_2'}
+  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_2}
+&&
+  \cal{I}(i_2')
+  \ar[dd]^(0.3){\sigma_2}
+\\
+  \cal{I}(i)
+  \ar[rr]^-(0.25){\thetal \hatotimes \cal{I}(i)}
+  \ar@{=}[dr]
+&&
+  \intervalr \hatotimes \cal{I}(i)
+  \ar[rr]^-(0.3){\rho}
+  \ar@{=}[dr]
+&&
+  \cal{I}(i)
+  \ar@{=}[dr]
+\\&
+  \cal{I}(i)
+  \ar[rr]^-{\thetal \hatotimes \cal{I}(i)}
+&&
+  \intervalr \hatotimes \cal{I}(i)
+  \ar[rr]^-{\rho}
+&&
+  \cal{I}(i)
+}
+\]
+Yet again, we have omitted drawing the identity morphisms of the retract situations for readability.
+Our goal is to show that the top right square commutes.
+Since that square commutes after composing it with the cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains:
+\[
+\xymatrix@C+2em{
+  B_1'
+  \ar[rr]^-{\intervall \otimes B_1'}
+  \ar[dd]_{\sigma_1}
+  \ar[dr]^{\cal{I}(\tau')}
+&&
+  \interval \otimes B_1'
+  \ar@{.>}[rr]^-{\cod(\rho_1')}
+  \ar[dd]^(0.3){\interval \otimes \cod(\sigma_1)}
+  \ar[dr]^{\interval \otimes \cod(\cal{I}(\tau'))}
+&&
+  B_1'
+  \ar[dd]^(0.3){\cod(\sigma_1)}
+  \ar[dr]^{\cod(\cal{I}(\tau'))}
+\\&
+  B_2'
+  \ar[rr]^-(0.3){\intervall \otimes B_2'}
+  \ar[dd]_(0.3){\cod(\sigma_2)}
+&&
+  \interval \otimes B_2'
+  \ar@{.>}[rr]^-(0.3){\cod(\rho_2')}
+  \ar[dd]^(0.3){\interval \otimes \cod(\sigma_2)}
+&&
+  B_2'
+  \ar[dd]^(0.3){\cod(\sigma_2)}
+\\
+  B
+  \ar[rr]^-(0.25){\intervall \otimes B}
+  \ar@{=}[dr]
+&&
+  \interval \otimes B
+  \ar[rr]^-(0.3){\cod(\rho)}
+  \ar@{=}[dr]
+&&
+  B
+  \ar@{=}[dr]
+\\&
+  B
+  \ar[rr]^-{\intervall \otimes B}
+&&
+  \interval \otimes B
+  \ar[rr]^-{\cod(\rho)}
+&&
+  B
+}
+\]
+The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
+For our goal it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
+This is canonically the case except potentially for the top middle map $\interval \otimes B_1' \to \interval \otimes B_2'$.
+For this, we have to verify coherence of the dashed arrows as indicated below:
+\[
+\xymatrix@C+2em{
+  B_1'
+  \ar[rrrr]
+  \ar[dd]_{\intervall \otimes B_1'}
+  \ar@{=}[dr]
+&&&&
+  Y_1
+  \ar[dd]^(0.3){p}
+  \ar[dr]^{y}
+\\&
+  B_2'
+  \ar[rrrr]
+  \ar[dd]_(0.7){\intervall \otimes B_2'}
+&&&&
+  Y_2
+  \ar[dd]^{p}
+\\
+  \interval \otimes B_1'
+  \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
+  \ar@{-->}[uurrrr]
+  \ar@{=}[dr]
+&&
+  \interval \otimes B_1
+  \ar[rr]
+  \ar@{=}[dr]
+&&
+  X_1
+  \ar[dr]^{x}
+\\&
+  \interval \otimes B_2'
+  \ar[rr]_{I \otimes \cod(\sigma_2)}
+  \ar@{-->}[uurrrr]
+&&
+  \interval \otimes B_2
+  \ar[rr]
+&&
+  X_2
+}
+\]
+But the right face forms a morphism of $(\intervall \otimes \catE)$-right maps by assumption; its right lifting structures hence cohere as needed.
+\end{proof}
 
 \bibliographystyle{alpha}
 \bibliography{../../common/uniform-kan-bibliography}
