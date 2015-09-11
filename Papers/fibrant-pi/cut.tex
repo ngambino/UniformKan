@@ -1,0 +1,21 @@
+Recall from~\cite[Section 4]{riehl-verity:reedy} that, given $f \co X \to Y$ and $g \co U \to V$, their \emph{pushout product} is the arrow $f \hatotimes g$ fitting in the following pushout diagram:
+\[
+\xymatrix@R=1.2cm{
+X \otimes U \ar[r]^{X \otimes g}  \ar[d]_{f \otimes U} & X \otimes V \ar@/^2pc/[ddr]^{f \otimes V} \ar[d] & \\ 
+Y \otimes U \ar@/_2pc/[drr]_{V \otimes g} \ar[r] & (Y \otimes U) +_{X \otimes U} (X \otimes V) \ar[dr]^-(.35){f \hatotimes g}  & \\ 
+ & & Y \otimes V} 
+ \]
+This operation extends to a bifunctor  $\catE^{\to} \times \catE^{\to} \to \catE^{\to}$, which equips the arrow category of $\catE$ with a symmetric monoidal structure, with unit the unique map $\hatunit \co \initial \to \unit$.
+If the symmetric
+monoidal structure of~$\catE$ is closed, then so is that of $\catE^\to$. Writing $[X,Y]$ for the internal hom in~$\catE$,
+the internal hom $\hatexp(f,g)$ in $\catE^\to$ of $f \co X \to Y$ and $g \co U \to V$, is their \emph{pullback exponential}, obtained by the following pullback diagram
+\[
+\xymatrix@R=1.2cm{
+[Y, U] \ar@/^2pc/[drr]^{[f,U]} \ar@/_2pc/[ddr]_{[Y,g]}  \ar[dr]^{\hatexp(f,g)} & & \\ 
+ & [Y,V] \times_{[X,V]} [X,U]  \ar[d] \ar[r] & [X,U] \ar[d]^{[X,g]} \\
+ & [Y,V] \ar[r]_{[f,V]} & [X,V] }
+ \]
+
+
+
+
