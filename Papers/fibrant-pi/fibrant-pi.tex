@@ -46,8 +46,10 @@ The study of variants and generalizations of the classical notion of a Kan fibra
 in at least two significant directions in recent years. One direction of research, originating with the work of
 Cisinski~\cite{cisinski-asterisque}, is concerned with the development of  parts of the theory of Kan fibrations in
 general presheaf categories~\cite{cisinski-univalence,moerdijk-minimal}.  Another direction of
-research, motivated by Voevodsky's univalence foundations programme, is concerned with 
-analogues of Kan fibrations in categories of cubical sets~\cite{awodey-cubical,coquand-cubical-sets,coquand-variation,huber-thesis,pitts-cubical-nominal,swan-awfs}. A typical feature of this second line of research is  the focus on algebraic notions of fibrations, in which the diagonal fillers are given as part of the structure, rather than merely required to
+research, starting with the work of Bezem, Coquand and Huber~\cite{coquand-cubical-sets},
+ is concerned with 
+analogues of Kan fibrations in categories of cubical sets,
+with a view towards applications to Voevodsky's univalence foundations programme~\cite{awodey-cubical,coquand-cubical-sets,coquand-variation,huber-thesis,pitts-cubical-nominal,swan-awfs}. A typical feature of this second line of research is  the focus on algebraic notions of fibrations, in which the diagonal fillers are given as part of the structure, rather than merely required to
 exist, and are subject to naturality conditions, just as 
 in the theory of natural weak factorisation 
 systems~\cite{grandis-tholen-nwfs}.
@@ -773,7 +775,7 @@ Let $\cyl = (\cyl, \lcyl, \rcyl, \ccyl)$ be a functorial cylinder in $\catE$ and
  the following are equivalent: 
 \begin{enumerate}[(i)]
 \item $f$ admits the structure of a right $\cal{I}_\cyl$-map. 
-\item $\hatexp(\intervall, f)$ and $\hatexp(\rcyl, f)$ admit the structure of right $\cal{I}$-maps.
+\item $\hatexp(\lcyl, f)$ and $\hatexp(\rcyl, f)$ admit the structure of right $\cal{I}$-maps.
 \end{enumerate} 
 \end{corollary}
 
@@ -1648,75 +1650,70 @@ that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$. The claim th
 
 
 
+Assume that the subcategory $\cal{I}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
 
+\medskip
 
-Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \co \cal{I} \to \catE^{\to}$ be a subcategory of adhesive morphisms in $\catE$ with morphisms given by cartesian squares. Assume that the subcategory $\cal{I}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
-
-\newpage
-
-
-Given a functor $u \co \cal{I} \to \catE^{\to}$, we define the category $\cat{S}_\ell(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to $\cal{I}$ as
+Given a functor $u \co \cal{I} \to \catE^{\to}$, we define the category $\cal{S}_\ell(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to $\cal{I}$ as
 follows.
 \begin{description}
 \item[Objects] tuples $(i, g,h,k)$ consisting of an objects $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence,
 \ie arrows $g \co B_i \to A_i$, $h \co \interval \otimes A \to A$, $k \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
-\item[Morphisms] a morphism from $(i,g, h, k)$ to $(i', g', h', k')$ consists of a map $m \co i \to i'$ in $\cat{I}$ such that, writing 
+\item[Morphisms] a morphism from $(i,g, h, k)$ to $(i', g', h', k')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing 
 \[
 \xymatrix{
-A_i \ar[d]_{u_i}  \ar[r]^s & A_{i'} \ar[d]^{u_{i'}} \\
-B_i \ar[r]_t & B_{i'}}
+A \ar[d]_{u_i}  \ar[r]^s & A' \ar[d]^{u_{i'}} \\
+B \ar[r]_t & B'}
 \]
 for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 \begin{mathpar}
 \xymatrix{
   B
-  \ar[r]^{g}
-  \ar[d]_{t}
+  \ar[r]^{t}
+  \ar[d]_{g}
 &
-  A
-  \ar[d]^{s}
-\\
   B'
-  \ar[r]_{g'}
+  \ar[d]^{g'}
+\\
+  A
+  \ar[r]_{s}
 &
   A'
 }
 \and
-\xymatrix{
+\xymatrix@C+2em{
   \interval \otimes A
-  \ar[r]^{h}
-  \ar[d]_{\interval \otimes s}
+  \ar[d]_{h}
+  \ar[r]^{\interval \otimes s}
 &
-  A
-  \ar[d]^{\interval \otimes s}
+  I \otimes A'
+  \ar[d]^{h'}
 \\
-  \interval \otimes A'
-  \ar[r]_{h'}
-&
-  A'
+  A  \ar[r]_{s}
+&  A'
 }
 \and
 \xymatrix{
   \interval \otimes B
-  \ar[r]^{k}
-  \ar[d]_{\interval \otimes t}
+  \ar[d]_{k}
+  \ar[r]^{\interval \otimes t}
 &
-  B
-  \ar[d]^{\interval \otimes t}
+  I \otimes B'
+  \ar[d]^{k'}
 \\
-  \interval \otimes B'
-  \ar[r]^{k'}
+  B
+  \ar[r]_{t}
 &
   B'
 }
 \end{mathpar}
 \end{description}
-Note that there is an obvious forgetful functor $\cat{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) : \cat{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cat{I} \to \catE^{\to}$.
+Note that there is an obvious forgetful functor $\cal{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,h,k)$ to $u_i \co A_i \to B_i$.
 
 
 \begin{remark}
 \label{strong-h-equiv-as-section-algebraic}
-Following the proof of \cref{strong-h-equiv-as-section}, the category $\cat{S}_\ell(\cal{I})$ can isomorphicly be described at the level of the arrow category $\catE^{\to}$ as follows.  An object is a pair $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetal \hatotimes u_i$, as in the diagram
+Following the proof of \cref{strong-h-equiv-as-section}, the category $\cal{S}_\ell(\cal{I})$ can be described isomorphically at the level of the arrow category $\catE^{\to}$, as follows.  An object is a pair $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetal \hatotimes u_i$, as in the diagram
 \[
 \xymatrix@C+1em{
 u_i 
@@ -1728,27 +1725,28 @@ u_i
   u_i
 }
 \]
-A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $\tau \co i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
+A morphism $\tau \co (i, \rho) \to (i', \rho')$ consists of an arrow $\tau \co i \to i'$ in $\cal{I}$ such that the following
+diagram commutes:
 \[
-\xymatrix{
+\xymatrix@C+2em{
   \rcyl \hatotimes u_i 
-  \ar[r]^-{\rho}
-  \ar[d]_{\rcyl \hatotimes u_\tau }
+  \ar[d]_-{\rho}
+  \ar[r]^{\rcyl \hatotimes u_\tau }
 &
-  u_i
-  \ar[d]^{u_\tau}
+ \rcyl \hatotimes u_{i'} 
+  \ar[d]^-{\rho'}
 \\
-  \rcyl \hatotimes u_{i'}
-  \ar[r]_-{\rho'}
+  u_i
+  \ar[r]_{u_\tau}
 &
   u_{i'}
 }
 \]
-With this description, the functor $\cal{S}_\ell(u)$ sends $(i, \rho)$ to $i$.
+With this description, the functor $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ sends $(i, \rho)$ to $u_i$.
 \end{remark}
 
 \begin{remark}
-We have a dual construction of a category $\cat{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $u : \cal{I} \to \catE^{\to}$.
+We have a dual construction of a category $\cal{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $u \co \cal{I} \to \catE^{\to}$.
 \end{remark}
 
 \begin{lemma}
@@ -1765,7 +1763,7 @@ of categories over $\catE^{\to}$.
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
 That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\rcyl \hatotimes \cal{I}$, but let us make
-the details explicit. Suppose we are given an object $(i, \rho) \in \cat{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
+the details explicit. Suppose we are given an object $(i, \rho) \in \cal{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
 Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i, \rho)$:
 \[
 \xymatrix@C+1em{
@@ -1778,7 +1776,7 @@ Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i
   u_i
 }
 \]
-For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cal{S}_\ell(\cal{I})$.
 Observe that it already has the required form of a morphism $(\tau, u_\tau)$ between retracts:
 \[
 \xymatrix@C+2em{
@@ -1796,7 +1794,7 @@ Observe that it already has the required form of a morphism $(\tau, u_\tau)$ bet
  u_{i'} 
   \ar[r]_-{\thetal \hatotimes u_{i'}}
 &
-  (\rcyl \hatotimes u)_{i'}
+  \rcyl \hatotimes u_{i'}
   \ar[r]_-{\rho'}
 &
   u_{i'} 
@@ -1844,8 +1842,7 @@ We construct its image $(\rcyl \hatotimes i, \rho \hatotimes u_i)$ by tensoring 
   u_{\rcyl \hatotimes u_i}
   }
 \]
-
-Suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over map $\rcyl \hatotimes u_m$ of arrows.
+Now suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over the map $\rcyl \hatotimes u_m$ of arrows.
 We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho \hatotimes u_i) \to (\rcyl \hatotimes i', \rho \hatotimes u_{i'})$, again using that $\cal{I}$ is closed under tensoring with $\rcyl$:
 \[
 \xymatrix@C+5em{
@@ -1872,31 +1869,31 @@ We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho 
 Note that the right square commutes by interchange.
 \end{proof}
 
-HERE
+
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
-Let $p : Y \to X$ be a $(\lcyl \otimes \id_{\calE})$-right map.
-Assume that base change along $p$ lifts to a functor $F : \cat{I}_{/X} \to \cat{I}_{/Y}$.
-Then it lifts further to a functor $G : (\cat{S}_l)_{/X} \to (\cat{S}_l)_{/Y}$:
+Let $p \co Y \to X$ be a $(\lcyl \otimes \id_{\calE})$-right map.
+Assume that pullback  along $p$ lifts to a functor $F \co \cal{I}_{/X} \to \cal{I}_{/Y}$.
+Then it lifts further to a functor $G \co (\cal{S}_\ell)_{/X} \to (\cal{S}_\ell)_{/Y}$:
 \[
-\xymatrix{
-  \cat{S}_l(\cal{I})_{/X}
+\xymatrix@C+2em{
+  \cal{S}_\ell(\cal{I})_{/X}
   \ar@{.>}[r]^{G}
   \ar[d]
 &
-  \cat{S}_l(\cal{I})_{/Y}
+  \cal{S}_\ell(\cal{I})_{/Y}
   \ar[d]
 \\
-  \cat{I}_{/X}
+  \cal{I}_{/X}
   \ar[r]^{F}
   \ar[d]_{\cal{I}_{/X}}
 &
-  \cat{I}_{/Y}
+  \cal{I}_{/Y}
   \ar[d]^{\cal{I}_{/Y}}
 \\
   (\catE / X)^{\to}
-  \ar[r]^{(p^*)^{\to}}
+  \ar[r]_{p^*}
 &
   (\catE / Y)^{\to}
 }
@@ -1904,13 +1901,9 @@ Then it lifts further to a functor $G : (\cat{S}_l)_{/X} \to (\cat{S}_l)_{/Y}$:
 \end{lemma}
 
 \begin{proof}
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-
-\hfill
-
-\subparagraph{\textbf{Action of $G$ on objects}}
-
-Suppose we are given $i : \cat{I}_{/X}$ such that $u_i$ is a strong left homotopy equivalence.
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}. We define separately
+the action of $G$ on objects and on maps. 
+For the action on objects, suppose we are given $i \in \cal{I}_{/X}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
 \xymatrix{
@@ -1924,7 +1917,7 @@ This means we have a commutative triangle
   X
 }
 \]
-and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
+and a retraction $\rho$ to $\thetal \hatotimes i$ 
 \[
 \xymatrix@C+1em{
   u_i
@@ -1936,12 +1929,12 @@ and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
   u_i
 }
 \]
-Let $\sigma : \cal{I}(i') \to u_i$ denote the base change of $i$ along $p$:
+Let $\sigma \co u_{i'} \to u_i$ denote the pullback of $i$ along $p$:
 \[
 \xymatrix{
   A'
   \ar[r]
-  \ar[d]_{\cal{I}(i')}
+  \ar[d]_{u_{i'}}
   \pullback{dr}
 &
   A
@@ -1956,81 +1949,76 @@ Let $\sigma : \cal{I}(i') \to u_i$ denote the base change of $i$ along $p$:
   \ar[d]
 \\
   Y
-  \ar[r]
+  \ar[r]_p
 &
   X
 }
 \]
-
-We want to make $\cal{I}(i')$ into a strong left homotopy equivalence.
-This means to find a retraction $\rho'$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
+We want to make $u_{i'}$ into a strong left homotopy equivalence.
+This means to find a retraction $\rho'$ to $\thetal \hatotimes i$ 
 \[
 \xymatrix@C+1em{
-  \cal{I}(i')
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i')}
+  u_{i'}
+  \ar[r]^-{\thetal \hatotimes u_{i'}}
   \ar[dr]_{\id}
 &
-  \rcyl \hatotimes \cal{I}(i')
+  \rcyl \hatotimes u_{i'}
   \ar@{.>}[d]^{\rho'}
 \\&
-  \cal{I}(i')
+  u_{i'}
 }
 \]
 We will construct the retraction $\rho'$ as indicated in the below diagram:
 \[
 \xymatrix@C+2em{
-  \cal{I}(i')
-  \ar[r]_-{\thetal \hatotimes \cal{I}(i')}
+  u_{i'}
+  \ar[r]^-{\thetal \hatotimes u_{i'}}
   \ar[d]_{\sigma}
-  \ar@/^2em/[rr]^{\id}
 &
-  \rcyl \hatotimes \cal{I}(i')
-  \ar@{.>}[r]_-{\rho'}
-  \ar[d]^{\rcyl \hatotimes \sigma}
+  \rcyl \hatotimes u_{i'}
+  \ar@{.>}[r]^-{\rho'}
+  \ar[d]_{\rcyl \hatotimes \sigma}
 &
-  \cal{I}(i')
+  u_{i'}
   \ar[d]^{\sigma}
 \\
   u_i
-  \ar[r]^-{\thetal \hatotimes u_i}
-  \ar@/_2em/[rr]_{\id}
+  \ar[r]_-{\thetal \hatotimes u_i}
 &
   \rcyl \hatotimes u_i
-  \ar[r]^-{\rho}
+  \ar[r]_-{\rho}
 &
   u_i
 }
 \]
-Since $\sigma$ is a cartesian square, it suffices to solve this problem when projected to codomains:
+Since $\sigma$ is a pullback square, it suffices to solve this problem when projected to codomains:
 \[
-\xymatrix@C+2em{
+\xymatrix@C+4em{
   B'
-  \ar[r]_-{\intervall \otimes B'}
+  \ar[r]^-{\lcyl_{B'}}
   \ar[d]_{\cod(\sigma)}
-  \ar@/^2em/[rr]^{\id}
 &
   \interval \otimes B'
-  \ar@{.>}[r]_{\cod(\rho')}
+  \ar@{.>}[r]^{\cod(\rho')}
   \ar[d]^{\interval \otimes \cod(\sigma)}
 &
   B'
   \ar[d]^{\cod(\sigma)}
 \\
   B
-  \ar[r]^-{\intervall \otimes B}
-  \ar@/_2em/[rr]_{\id}
+  \ar[r]_-{\lcyl_B}
 &
   \interval \otimes B
-  \ar[r]^-{\cod(\rho)}
+  \ar[r]_-{\cod(\rho)}
 &
   B
 }
 \]
-We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, omitting the identity arrows for readability:
+We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, again omitting the identity arrows for readability:
 \[
 \xymatrix@C+2em{
   B'
-  \ar[r]_-{\intervall \otimes B'}
+  \ar[r]^-{\lcyl_{B'}}
   \ar[dd]_{\cod(\sigma)}
   \ar@/_2em/[drrr]
 &
@@ -2047,7 +2035,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   \ar[dd]^{p}
 \\
   B
-  \ar[r]^-{\intervall \otimes B}
+  \ar[r]^-{\lcyl_B}
   \ar@/_2em/[drrr]
 &
   \interval \otimes B
@@ -2065,10 +2053,10 @@ The square $\cod(\sigma)$ over $p$ is cartesian by construction.
 If we can find a dashed arrow cohering as indicated, there will hence be a unique dotted arrow as indicated.
 To find the dashed arrow is to construct a diagonal filler in the following square:
 \[
-\xymatrix@C+2em{
+\xymatrix@C+3em{
   B'
   \ar[rr]
-  \ar[d]_{\intervall \otimes B'}
+  \ar[d]_{\lcyl_{B'}}
 &&
   Y
   \ar[d]^{p}
@@ -2083,120 +2071,106 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
   X
 }
 \]
-But we have such a filler since $p$ is a $(\intervall \otimes \catE)$-right map by assumption.
+But we have such a filler since $p$ is a $(\lcyl \otimes \id_\catE)$-right map by assumption.
 
-\hfill
+\medskip
 
-\subparagraph{\textbf{Action of $G$ on morphisms}}
-
-Suppose we are given a map $\tau : (i_1, \rho_1) \to (i_2, \rho_2)$ of strong homotopy equivalences over $X$.
-This consists of a map $\tau : i_1 \to i_2$ in $\cat{I}$ living over $X$ as depicted below:
+We now define the action of $G$ on morphisms. Suppose we are given a map $\tau \co (i_1, \rho_1) \to (i_2, \rho_2)$ of strong homotopy equivalences over $X$.
+This consists of a map $\tau \co i_1 \to i_2$ in $\cal{I}$ living over $X$ as depicted below:
 \[
 \xymatrix{
-  A_1
-  \ar[rr]^{\cal{I}(i_1)}
-  \ar[d]
-&&
-  B_1
-  \ar[d]
-&
-  \ar[d]^{u_\tau}
-\\
-  A_2
-  \ar[rr]^{\cal{I}(i_2)}
-  \ar[dr]
-&&
-  B_2
-  \ar[dl]
-&
-\\&
-  X
-}
+  A_1 \ar[rr]^{u_{i_1}}  \ar[d]  &   & B_1 \ar[d] \\
+  A_2  \ar[rr]^{u_{i_2}} \ar[dr] &   & B_2 \ar[dl] \\
+  & X & }
 \]
 such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \[
-\xymatrix{
-  \rcyl \hatotimes \cal{I}(i_1)
+\xymatrix@C+2em{
+  \rcyl \hatotimes u_{i_1}
   \ar[r]^-{\rho_1}
-  \ar[d]^{\rcyl \hatotimes u_\tau}
+  \ar[d]_{\rcyl \hatotimes u_\tau}
 &
-  \cal{I}(i_1)
+  u_{i_1}
   \ar[d]^{u_\tau}
 \\
-  \rcyl \hatotimes \cal{I}(i_2)
-  \ar[r]^-{\rho_2}
+  \rcyl \hatotimes u_{i_2}
+  \ar[r]_-{\rho_2}
 &
-  \cal{I}(i_2)
+  u_{i_2}
 }
 \]
 Let $(i_1', \rho_1')$ and $(i_2', \rho_2')$ denote the action of $G$ on the objects $(i_1, \rho_1)$ and $(i_2, \rho_2)$, respectively, as constructed in the previous paragraph.
-Recall that this includes cartesian squares $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i_1)$ and $\sigma_2 : \cal{I}(i_2') \to \cal{I}(i_2)$ cartesian over $p : Y \to X$.
+Recall that this includes cartesian squares 
+\[
+\sigma_1 \co u_{i_1'} \to u_{i_1} \, , \quad
+\sigma_2 \co u_{i_2'} \to u_{i_2}  
+\]
+cartesian over $p \co Y \to X$.
 
-Since the base change functor lifts to slices of $\cat{I}$ by assumption, we have a lift $\tau' : i_1' \to i_2'$ in $\cat{I}_{/Y}$ of the morphism $\tau : i_1 \to i_2$ in $\cat{I}_{/X}$.
-We want to show that $\tau'$ in addition forms a morphism of left strong homotopy equivalences $\tau' : (i_1', \rho_1') \to (i_2', \rho_2')$.
+Since the base change functor lifts to slices of $\cal{I}$ by assumption, we have a lift $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/Y}$ of the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/X}$.
+We want to show that $\tau'$ in addition forms a morphism of left strong homotopy equivalences $\tau' \co (i_1', \rho_1') \to (i_2', \rho_2')$.
 For this, we have to verify commutativity of the following diagram:
 \[
-\xymatrix{
-  \rcyl \hatotimes \cal{I}(i_1')
+\xymatrix@C+2em{
+  \rcyl \hatotimes u_{i_1'}
   \ar[r]^-{\rho_1'}
-  \ar[d]^{\rcyl \hatotimes \cal{I}(\tau')}
+  \ar[d]_{\rcyl \hatotimes u_{\tau'}}
 &
-  \cal{I}(i_1')
-  \ar[d]^{\cal{I}(\tau')}
+  u_{i_1'}
+  \ar[d]^{u_{\tau'}}
 \\
-  \rcyl \hatotimes \cal{I}(i_2')
-  \ar[r]^-{\rho_2'}
+  \rcyl \hatotimes u_{i_2'}
+  \ar[r]_-{\rho_2'}
 &
-  \cal{I}(i_2')
+  u_{i_2'}
 }
 \]
-
 Recall the construction of $\rho_1'$ and $\rho_2'$:
 \[
 \xymatrix@C+2em{
-  \cal{I}(i_1')
-  \ar[rr]^-{\thetal \hatotimes \cal{I}(i_1')}
+  u_{i_1'}
+  \ar[rr]^-{\thetal \hatotimes u_{i_1'}}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cal{I}(\tau')}
+  \ar[dr]^{u_{\tau'}}
 &&
-  \rcyl \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes u_{i_1'}
   \ar@{.>}[rr]^-{\rho_1'}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
-  \ar[dr]^{\rcyl \hatotimes \cal{I}(\tau')}
+  \ar[dr]^{\rcyl \hatotimes u_{\tau'}}
 &&
-  \cal{I}(i_1')
+  u_{i_1'}
   \ar[dd]^(0.3){\sigma_1}
-  \ar[dr]^{\cal{I}(\tau')}
+  \ar[dr]^{u_{\tau'}}
 \\&
-  \cal{I}(i_2')
-  \ar[rr]^-(0.3){\thetal \hatotimes \cal{I}(i_2')}
+  u_{i_2'}
+  \ar[rr]^-(0.3){\thetal \hatotimes u_{i_2'}}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \rcyl \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes u_{i_2'}
   \ar@{.>}[rr]^-(0.3){\rho_2'}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_2}
 &&
-  \cal{I}(i_2')
+  u_{i_2'}
   \ar[dd]^(0.3){\sigma_2}
 \\
-  \cal{I}(i_1)
-  \ar[rr]^-(0.25){\thetal \hatotimes \cal{I}(i_1)}
+  u_{i_1}
+  \ar[rr]^-(0.25){\thetal \hatotimes u_{i_1}}
   \ar[dr]^{u_\tau}
 &&
-  \rcyl \hatotimes \cal{I}(i_1)
+  \rcyl \hatotimes u_{i_1}
   \ar[rr]^-(0.3){\rho_1}
-  \ar[dr]^{\rcyl \hatotimes \cal{I}(\tau')}
+  \ar[dr]^{\rcyl \hatotimes u_{\tau'}}
 &&
-  \cal{I}(i_1)
+  u_{i_1}
   \ar[dr]^{u_\tau}
 \\&
-  \cal{I}(i_2)
-  \ar[rr]^-{\thetal \hatotimes \cal{I}(i_2)}
+  u_{i_2}
+  \ar[rr]^-{\thetal \hatotimes u_{i_2}}
 &&
-  \rcyl \hatotimes \cal{I}(i_2)
+  \rcyl \hatotimes u_{i_2} 
   \ar[rr]^-{\rho_2}
 &&
-  \cal{I}(i_2)
+  u_{i_2}
 }
 \]
 Once again, we have omitted drawing the identity morphisms of the retract situations for readability.
@@ -2205,21 +2179,21 @@ Since that square commutes after composing it with the cartesian square $\sigma_
 \[
 \xymatrix@C+2em{
   B_1'
-  \ar[rr]^-{\intervall \otimes B_1'}
+  \ar[rr]^-{\lcyl \otimes B_1'}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cal{I}(\tau')}
+  \ar[dr]^{u_{\tau'}}
 &&
   \interval \otimes B_1'
   \ar@{.>}[rr]^-{\cod(\rho_1')}
   \ar[dd]^(0.3){\interval \otimes \cod(\sigma_1)}
-  \ar[dr]^{\interval \otimes \cod(\cal{I}(\tau'))}
+  \ar[dr]^{\interval \otimes \cod(u_{\tau'})}
 &&
   B_1'
   \ar[dd]^(0.3){\cod(\sigma_1)}
-  \ar[dr]^{\cod(\cal{I}(\tau'))}
+  \ar[dr]^{\cod(u_{\tau'})}
 \\&
   B_2'
-  \ar[rr]^-(0.3){\intervall \otimes B_2'}
+  \ar[rr]^-(0.3){\lcyl \otimes B_2'}
   \ar[dd]_(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes B_2'
@@ -2230,18 +2204,18 @@ Since that square commutes after composing it with the cartesian square $\sigma_
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B_1
-  \ar[rr]^-(0.25){\intervall \otimes B_1}
+  \ar[rr]^-(0.25){\lcyl \otimes B_1}
   \ar[dr]^{u_\tau}
 &&
   \interval \otimes B_1
   \ar[rr]^-(0.3){\cod(\rho_1)}
-  \ar[dr]^{\interval \otimes \cod(\cal{I}(\tau'))}
+  \ar[dr]^{\interval \otimes \cod(u_{\tau'})}
 &&
   B_1
   \ar[dr]^{\cod(u_\tau)}
 \\&
   B_2
-  \ar[rr]^-{\intervall \otimes B_2}
+  \ar[rr]^-{\lcyl \otimes B_2}
 &&
   \interval \otimes B_2
   \ar[rr]^-{\cod(\rho_2)}
@@ -2249,7 +2223,8 @@ Since that square commutes after composing it with the cartesian square $\sigma_
   B_2
 }
 \]
-The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
+The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the cartesian squares $\cod(\sigma_1)$ and 
+$\cod(\sigma_2)$ over $p$.
 For our goal it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
 This is canonically the case except potentially for the top middle map $\interval \otimes B_1' \to \interval \otimes B_2'$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
@@ -2257,8 +2232,8 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \xymatrix@C+2em{
   B_1'
   \ar[rrrr]
-  \ar[dd]_{\intervall \otimes B_1'}
-  \ar[dr]^{\cod(\cal{I}(\tau')}
+  \ar[dd]_{\lcyl \otimes B_1'}
+  \ar[dr]^{\cod(u_{\tau'})}
 &&&&
   Y
   \ar[dd]^(0.3){p}
@@ -2266,7 +2241,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \\&
   B_2'
   \ar[rrrr]
-  \ar[dd]_(0.7){\intervall \otimes B_2'}
+  \ar[dd]_(0.7){\lcyl \otimes B_2'}
 &&&&
   Y
   \ar[dd]^{p}
@@ -2274,7 +2249,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \interval \otimes B_1'
   \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
   \ar@{-->}[uurrrr]
-  \ar[dr]_{\intervall \otimes \cod(\cal{I}(\tau'))}
+  \ar[dr]_{\lcyl \otimes \cod(u_{\tau'})}
 &&
   \interval \otimes B_1
   \ar[rr]
@@ -2293,31 +2268,33 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   X
 }
 \]
-But the left face forms a morphism in $\intervall \otimes \catE$; since $p$ was assumed a $(\intervall \otimes \catE)$-right map, its right lifting structure coheres as needed.
+But the left face forms a morphism in $\lcyl \otimes \catE$; since $p$ was assumed a $(\lcyl \otimes \catE)$-right map, its right lifting structure coheres as needed.
 \end{proof}
 
 \begin{theorem}
-Fix $\cal{E}$ with interval $\interval$.
+Fix $\cal{E}$ with a cylinder object.
 Fix $u \co \cal{I} \to \cal{E}^\to$.
-For every $(\cal{I}, I)$-fibration $p : Y \to X$, the pullback functor $p^*$ lifts to a functor $p^* \co \cal{I}_I/X \to \overline{\cal{I}_I/Y}$.
+For every $\cal{I}$-fibration $p \co Y \to X$, the pullback functor $p^*$ lifts to a functor $p^* \co \cal{I}_I/X \to \overline{\cal{I}_I/Y}$.
 \end{theorem}
 
 \begin{proof}
-It will suffice to separately show that $p^*$ lifts to a functor $(\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X}$ and to a functor $(\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X}$.
-By duality, we may restrict ourselves to the first case.
-
-The lift is obtained as a composition of the three functors from \cref{she-to-retract-closure,horn-times-gen-to-she,strong-h-equiv-base-change-along-fibration}.
+It will suffice to separately show that $p^*$ lifts to functors 
+\[
+ (\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X} \, , \quad
+ (\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X} \, .
+ \]
+By duality, we may restrict ourselves to the first case. The lift is obtained as a composition of the three functors from \cref{she-to-retract-closure,horn-times-gen-to-she,strong-h-equiv-base-change-along-fibration}.
 \[
 \xymatrix{
   (\thetal \hatotimes \cal{I})_{/X}
   \ar[r]
   \ar[d]
 &
-  \cal{S}_l(\cal{I})_{/X}
+  \cal{S}_\ell(\cal{I})_{/X}
   \ar[r]
   \ar[dl]
 &
-  \cal{S}_l(\cal{I})_{/Y}
+  \cal{S}_\ell(\cal{I})_{/Y}
   \ar[r]
   \ar[dr]
 &
@@ -2325,21 +2302,23 @@ The lift is obtained as a composition of the three functors from \cref{she-to-re
   \ar[d]
 \\
   (\catE/X)^{\to}
-  \ar[rrr]^{(p^*)^{\to}}
+  \ar[rrr]_{(p^*)^{\to}}
 &&&
   (\catE/Y)^{\to}
 }
 \]
-For the application of \cref{strong-h-equiv-base-change-along-fibration}, note that a $(\cal{I}, \interval)$-fibration is in particular a $(\intervall \otimes \calE)$-right map.
+For the application of \cref{strong-h-equiv-base-change-along-fibration}, note that a $(\cal{I}, \interval)$-fibration is in particular a $(\lcyl \otimes \calE)$-right map.
 \end{proof}
 
 \begin{corollary}
 Pushforward lifts.
 \end{corollary}
 
-\subsection*{Beck-Chevalley} 
 
-Let $\omega = (y, x) : p_1 \to p_2$ be a morphism of $(\intervall \otimes \catE)$-maps $p_1 : Y_1 \to X_1$ and $p_2 : Y_2 \to X_2$:
+
+\section{The Beck-Chevalley condion for uniform fibrations}
+
+Let $\omega = (y, x) \co p_1 \to p_2$ be a morphism of $(\lcyl \otimes \catE)$-maps $p_1 \co Y_1 \to X_1$ and $p_2 \co Y_2 \to X_2$:
 \begin{equation}
 \label{strong-h-equiv-base-change-along-fibration-BC:0}
 \begin{gathered}
@@ -2352,7 +2331,7 @@ Let $\omega = (y, x) : p_1 \to p_2$ be a morphism of $(\intervall \otimes \catE)
   \ar[d]^{x}
 \\
   Y_2
-  \ar[r]^{p_2}
+  \ar[r]_{p_2}
 &
   X_2
 }
@@ -2378,57 +2357,61 @@ Noting the adjunctions $x_! \dashv x^*$ and $y_! \dashv y^*$, we have a canonica
 }
 \end{gathered}
 \end{equation}
-Recall from \cref{slicing-2-functorial} that we have canonical lifts of left composition along $x$ and $y$ to slices of $\cat{I}$ and $\cat{S}_l(\cal{I})$.
+For the statement of the next lemma, recall from \cref{slicing-2-functorial} that we have canonical lifts of left composition along $x$ and $y$ to slices of $\cal{I}$ and $\cal{S}_\ell(\cal{I})$.
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration-BC}
-As in \cref{strong-h-equiv-base-change-along-fibration}, assume that base change along $p_1$ and $p_2$ lifts to functors $p_1^* : \cat{I}_{/X_1} \to \cat{I}_{/Y_1}$ and $p_2^* : \cat{I}_{/X_2} \to \cat{I}_{/Y_2}$, respectively.
-Assume that the natural transformation $\phi$ from~\eqref{strong-h-equiv-base-change-along-fibration-BC} lifts to a natural transformation $\phi'$ (coherence with respect to $\phi^{\to}$ not shown):
+Assume that pullback functors along $p_1$ and $p_2$ lift to functors 
+\[
+p_1^* \co \cal{I}_{/X_1} \to \cal{I}_{/Y_1} \, , \quad 
+p_2^* \co \cal{I}_{/X_2} \to \cal{I}_{/Y_2} \, , 
+\]
+respectively, and that the natural transformation $\phi \co x_! \, p_1^* \Rightarrow p_2^* \, y_{!}$  lifts to a natural transformation~$\phi'$: 
 \begin{equation}
 \label{strong-h-equiv-base-change-along-fibration-BC:2}
 \begin{gathered}
 \xymatrix{
-  \cat{I}_{/Y_1}
+  \cal{I}_{/Y_1}
   \ar[d]_{y_!}
 &
-  \cat{I}_{/X_1}
+  \cal{I}_{/X_1}
   \ar[l]_{p_1^*}
   \ar[d]^{x_!}
 \\
-  \cat{I}_{/Y_2}
+  \cal{I}_{/Y_2}
   \urtwocell<\omit>{\phi'}
 &
-  \cat{I}_{/X_2}
+  \cal{I}_{/X_2}
   \ar[l]^{p_2^*}
 }
 \end{gathered}
 \end{equation}
-Then it lifts further to a natural transformation $\phi''$ between the lifts constructed in \cref{strong-h-equiv-base-change-along-fibration} (coherence with respect to $\phi'$ not shown):
+(satisfying coherence with respect to $\phi^\to$ that we do not spell out). Then it lifts further to a natural transformation $\phi''$ between the lifts 
 \begin{equation}
 \label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
 \xymatrix{
-  \cat{S}(\cal{I})_{/Y_1}
+  \cal{S}(\cal{I})_{/Y_1}
   \ar[d]_{y_!}
 &
-  \cat{S}(\cal{I})_{/X_1}
+  \cal{S}(\cal{I})_{/X_1}
   \ar[l]_{p_1^*}
   \ar[d]^{x_!}
 \\
-  \cat{S}(\cal{I})_{/Y_2}
+  \cal{S}(\cal{I})_{/Y_2}
   \urtwocell<\omit>{\phi''}
 &
-  \cat{S}(\cal{I})_{/X_2}
+  \cal{S}(\cal{I})_{/X_2}
   \ar[l]^{p_2^*}
 }
 \end{gathered}
 \end{equation}
+(satisfying coherence with respect to $\phi'$ that we do not spell out)
 \end{lemma}
 
 \begin{proof}
-By faithfulnes of the functor $\cat{S}(\cal{I})_{/Y_2} \to \cat{I}_{/Y_2}$, we only have to check objectwise lifting.
-
-Suppose we are given a strong left homotopy equivalence $(i, \rho) : \cat{I}_{/X_1}$ over $X_1$.
+By faithfulnes of the functor $\cal{S}(\cal{I})_{/Y_2} \to \cal{I}_{/Y_2}$, we only have to check objectwise lifting. So, 
+suppose we are given a strong left homotopy equivalence $(i, \rho) \in \cal{I}_{/X_1}$ over $X_1$.
 This means we have a commutative triangle
 \[
 \xymatrix{
@@ -2454,12 +2437,12 @@ and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
   u_i
 }
 \]
-Let $\sigma_1 : \cal{I}(i_1') \to u_i$ and $\sigma_2 : \cal{I}(i_2') \to u_i$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
+Let $\sigma_1 \co u_{i_1'} \to u_i$ and $\sigma_2 \co u_{i_2'} \to u_i$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
 \[
 \xymatrix{
   A_1'
   \ar[rr]
-  \ar[dd]_{\cal{I}(i_1')}
+  \ar[dd]_{u_{i_1'}}
   \pullback{dr}
   \ar@{.>}[dr]
 &&
@@ -2469,7 +2452,7 @@ Let $\sigma_1 : \cal{I}(i_1') \to u_i$ and $\sigma_2 : \cal{I}(i_2') \to u_i$ de
 \\&
   A_2'
   \ar[rr]
-  \ar[dd]_(0.3){\cal{I}(i_2')}
+  \ar[dd]_(0.3){u_{i_2'}}
   \pullback{dr}
 &&
   A
@@ -2506,52 +2489,52 @@ Let $\sigma_1 : \cal{I}(i_1') \to u_i$ and $\sigma_2 : \cal{I}(i_2') \to u_i$ de
   X_2
 }
 \]
-Recall that we have a canonical morphism $\phi_{u_i}^{\to} : \cal{I}(i_1') \to \cal{I}(i_2')$ over $Y_2$ as indicated in the diagram.
-By assumption, this lifts to a morphism $\phi_i' : i_1' \to i_2'$ in $\cat{I}_{/Y_2}$.
+Recall that we have a canonical morphism $\phi_{u_i}^{\to} \co u_{i_1'} \to u_{i_2'}$ over $Y_2$ as indicated in the diagram.
+By assumption, this lifts to a morphism $\phi_i' \co i_1' \to i_2'$ in $\cal{I}_{/Y_2}$.
 
 The proof of \cref{strong-h-equiv-base-change-along-fibration} endows $i_1'$ and $i_2'$ with data for a strong left homotopy equivalence consisting of retracts $\rho_1'$ and $\rho_2'$, respectively.
-Our goal is to check that $\phi_i'$ lifts to a morphism in $\cat{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{u_i}^{\to}$ coheres with as follows:
+Our goal is to check that $\phi_i'$ lifts to a morphism in $\cal{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{u_i}^{\to}$ coheres with as follows:
 \[
-\xymatrix{
-  \rcyl \hatotimes \cal{I}(i_1')
+\xymatrix@C+2em{
+  \rcyl \hatotimes u_{i_1'}
   \ar[r]^-{\rho_1'}
-  \ar[d]^{\rcyl \hatotimes \cal{I}(\tau')}
+  \ar[d]_{\rcyl \hatotimes u_{\tau'}}
 &
-  \cal{I}(i_1')
-  \ar[d]^{\cal{I}(\tau')}
+  u_{i_1'}
+  \ar[d]^{u_{\tau'}}
 \\
-  \rcyl \hatotimes \cal{I}(i_2')
-  \ar[r]^-{\rho_2'}
+  \rcyl \hatotimes u_{i_2'}
+  \ar[r]_-{\rho_2'}
 &
-  \cal{I}(i_2')
+  u_{i_2'}
 }
 \]
 Recall the construction of $\rho_1'$ and $\rho_2'$:
 \[
 \xymatrix@C+2em{
-  \cal{I}(i_1')
-  \ar[rr]^-{\thetal \hatotimes \cal{I}(i_1')}
+  u_{i_1'}
+  \ar[rr]^-{\thetal \hatotimes u_{i_1'}}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cal{I}(\phi_i')}
+  \ar[dr]^{u_{\phi_i'}}
 &&
-  \rcyl \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes u_{i_1'}
   \ar@{.>}[rr]^-{\rho_1'}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
-  \ar[dr]^{\rcyl \hatotimes \cal{I}(\phi_i')}
+  \ar[dr]^{\rcyl \hatotimes u_{\phi_i'}}
 &&
-  \cal{I}(i_1')
+  u_{i_1'}
   \ar[dd]^(0.3){\sigma_1}
-  \ar[dr]^{\cal{I}(\phi_i')}
+  \ar[dr]^{u_{\phi_i'}}
 \\&
-  \cal{I}(i_2')
-  \ar[rr]^-(0.3){\thetal \hatotimes \cal{I}(i_2')}
+  u_{i_2'}
+  \ar[rr]^-(0.3){\thetal \hatotimes u_{i_2'}}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \rcyl \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes u_{i_2'}
   \ar@{.>}[rr]^-(0.3){\rho_2'}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_2}
 &&
-  \cal{I}(i_2')
+  u_{i_2'}
   \ar[dd]^(0.3){\sigma_2}
 \\
   u_i
@@ -2574,27 +2557,26 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   u_i
 }
 \]
-Yet again, we have omitted drawing the identity morphisms of the retract situations for readability.
 Our goal is to show that the top right square commutes.
 Since that square commutes after composing it with the cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains:
 \[
 \xymatrix@C+2em{
   B_1'
-  \ar[rr]^-{\intervall \otimes B_1'}
+  \ar[rr]^-{\lcyl \otimes B_1'}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cal{I}(\tau')}
+  \ar[dr]^{u_{\tau'}}
 &&
   \interval \otimes B_1'
   \ar@{.>}[rr]^-{\cod(\rho_1')}
   \ar[dd]^(0.3){\interval \otimes \cod(\sigma_1)}
-  \ar[dr]^{\interval \otimes \cod(\cal{I}(\tau'))}
+  \ar[dr]^{\interval \otimes \cod(u_{\tau'})}
 &&
   B_1'
   \ar[dd]^(0.3){\cod(\sigma_1)}
-  \ar[dr]^{\cod(\cal{I}(\tau'))}
+  \ar[dr]^{\cod(u_{\tau'})}
 \\&
   B_2'
-  \ar[rr]^-(0.3){\intervall \otimes B_2'}
+  \ar[rr]^-(0.3){\lcyl \otimes B_2'}
   \ar[dd]_(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes B_2'
@@ -2605,7 +2587,7 @@ Since that square commutes after composing it with the cartesian square $\sigma_
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B
-  \ar[rr]^-(0.25){\intervall \otimes B}
+  \ar[rr]^-(0.25){\lcyl \otimes B}
   \ar@{=}[dr]
 &&
   \interval \otimes B
@@ -2616,7 +2598,7 @@ Since that square commutes after composing it with the cartesian square $\sigma_
   \ar@{=}[dr]
 \\&
   B
-  \ar[rr]^-{\intervall \otimes B}
+  \ar[rr]^-{\lcyl \otimes B}
 &&
   \interval \otimes B
   \ar[rr]^-{\cod(\rho)}
@@ -2632,7 +2614,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \xymatrix@C+2em{
   B_1'
   \ar[rrrr]
-  \ar[dd]_{\intervall \otimes B_1'}
+  \ar[dd]_{\lcyl \otimes B_1'}
   \ar@{=}[dr]
 &&&&
   Y_1
@@ -2641,7 +2623,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \\&
   B_2'
   \ar[rrrr]
-  \ar[dd]_(0.7){\intervall \otimes B_2'}
+  \ar[dd]_(0.7){\lcyl \otimes B_2'}
 &&&&
   Y_2
   \ar[dd]^{p}
@@ -2668,7 +2650,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   X_2
 }
 \]
-But the right face forms a morphism of $(\intervall \otimes \catE)$-right maps by assumption; its right lifting structures hence cohere as needed.
+But the right face forms a morphism of $(\lcyl \otimes \catE)$-right maps by assumption; its right lifting structures hence cohere as needed.
 \end{proof}
 
 
