@@ -535,7 +535,7 @@ the components of the multiplication and the unit,
 are defined by letting
 \[
 \mu_\cal{I}((i, e, \sigma,  \rho), e', \sigma', \rho') \defeq (i, e', \sigma \cc \sigma', \rho' \cc \rho) \, , \quad
-\eta_\cal{I}(i) \defeq (i, u_i, \id_{u_i}, \id_{u_i}) \, .
+\eta_{u_i} \defeq (i, u_i, \id_{u_i}, \id_{u_i}) \, .
 \]
 
 
@@ -773,7 +773,7 @@ Let $\cyl = (\cyl, \lcyl, \rcyl, \ccyl)$ be a functorial cylinder in $\catE$ and
  the following are equivalent: 
 \begin{enumerate}[(i)]
 \item $f$ admits the structure of a right $\cal{I}_\cyl$-map. 
-\item $\hatexp(\intervall, f)$ and $\hatexp(\intervalr, f)$ admit the structure of right $\cal{I}$-maps.
+\item $\hatexp(\intervall, f)$ and $\hatexp(\rcyl, f)$ admit the structure of right $\cal{I}$-maps.
 \end{enumerate} 
 \end{corollary}
 
@@ -1655,21 +1655,29 @@ Recall the notion of an adhesive morphism~\cite{garner-lack:adhesive}.  Let $u \
 \newpage
 
 
-\begin{definition}
-We define a category $\cat{S}_l(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to some category $\cal{I} : \cat{I} \to \catE^{\to}$ of arrows.
-The objects consist of objects $i : \cat{I}$ together with data $(g, h, k)$ making $\cal{I}(i)$ into a strong left homotopy equivalence.
-A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ to $i' : \cat{I}$ with $\cal{I}(i') : A' \to B'$ with data $(g', h', k')$ consists of a map $m : i \to i'$ in $\cat{I}$ such that, writing $\cal{I}(m) = (u, v)$ with maps $u : A \to A'$ and $v : B \to B'$, the following diagrams commute:
+Given a functor $u \co \cal{I} \to \catE^{\to}$, we define the category $\cat{S}_\ell(\cal{I})$ of strong left homotopy equivalences in $\catE$ relative to $\cal{I}$ as
+follows.
+\begin{description}
+\item[Objects] tuples $(i, g,h,k)$ consisting of an objects $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence,
+\ie arrows $g \co B_i \to A_i$, $h \co \interval \otimes A \to A$, $k \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
+\item[Morphisms] a morphism from $(i,g, h, k)$ to $(i', g', h', k')$ consists of a map $m \co i \to i'$ in $\cat{I}$ such that, writing 
+\[
+\xymatrix{
+A_i \ar[d]_{u_i}  \ar[r]^s & A_{i'} \ar[d]^{u_{i'}} \\
+B_i \ar[r]_t & B_{i'}}
+\]
+for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 \begin{mathpar}
 \xymatrix{
   B
   \ar[r]^{g}
-  \ar[d]^{v}
+  \ar[d]_{t}
 &
   A
-  \ar[d]^{u}
+  \ar[d]^{s}
 \\
   B'
-  \ar[r]^{g'}
+  \ar[r]_{g'}
 &
   A'
 }
@@ -1677,13 +1685,13 @@ A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ t
 \xymatrix{
   \interval \otimes A
   \ar[r]^{h}
-  \ar[d]^{\interval \otimes u}
+  \ar[d]_{\interval \otimes s}
 &
   A
-  \ar[d]^{\interval \otimes u}
+  \ar[d]^{\interval \otimes s}
 \\
   \interval \otimes A'
-  \ar[r]^{h'}
+  \ar[r]_{h'}
 &
   A'
 }
@@ -1691,10 +1699,10 @@ A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ t
 \xymatrix{
   \interval \otimes B
   \ar[r]^{k}
-  \ar[d]^{\interval \otimes v}
+  \ar[d]_{\interval \otimes t}
 &
   B
-  \ar[d]^{\interval \otimes v}
+  \ar[d]^{\interval \otimes t}
 \\
   \interval \otimes B'
   \ar[r]^{k'}
@@ -1702,169 +1710,173 @@ A morphism from $i : \cat{I}$ with $\cal{I}(i) : A \to B$ and data $(g, h, k)$ t
   B'
 }
 \end{mathpar}
+\end{description}
+Note that there is an obvious forgetful functor $\cat{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) : \cat{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cat{I} \to \catE^{\to}$.
 
-We have an obvious forgetful functor $\cat{S}_l(\cal{I}) \to \cat{I}$.
-Let $\cal{S}_l(\cal{I}) : \cat{S}_l(\cal{I}) \to \catE^{\to}$ be its composition with $\cal{I} : \cat{I} \to \catE^{\to}$.
-\end{definition}
 
 \begin{remark}
 \label{strong-h-equiv-as-section-algebraic}
-Following the proof of \cref{strong-h-equiv-as-section}, the category $\cat{S}_l(\cal{I})$ can isomorphicly be described at the level of the arrow category $\catE^{\to}$ as follows.
-An object consists of $i : \cal{I}$ together with a retraction $\rho$ to $\thetal \hatotimes \cal{I}(i)$:
+Following the proof of \cref{strong-h-equiv-as-section}, the category $\cat{S}_\ell(\cal{I})$ can isomorphicly be described at the level of the arrow category $\catE^{\to}$ as follows.  An object is a pair $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetal \hatotimes u_i$, as in the diagram
 \[
 \xymatrix@C+1em{
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+u_i 
+  \ar[r]^-{\thetal \hatotimes u_i }
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+  \rcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
-  \cal{I}(i)
+  u_i
 }
 \]
-A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $\tau : i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
+A morphism from $(i, \rho)$ to $(i', \rho')$ consists of $\tau \co i \to i'$ that coheres with $\rho$ and $\rho'$ as below:
 \[
 \xymatrix{
-  \intervalr \hatotimes \cal{I}(i)
+  \rcyl \hatotimes u_i 
   \ar[r]^-{\rho}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau)}
+  \ar[d]_{\rcyl \hatotimes u_\tau }
 &
-  \cal{I}(i)
-  \ar[d]^{\cal{I}(\tau)}
+  u_i
+  \ar[d]^{u_\tau}
 \\
-  \intervalr \hatotimes \cal{I}(i')
-  \ar[r]^-{\rho'}
+  \rcyl \hatotimes u_{i'}
+  \ar[r]_-{\rho'}
 &
-  \cal{I}(i')
+  u_{i'}
 }
 \]
-With this description, the functor $\cal{S}_l(\cal{I})$ maps $(i, \rho)$ to $i$.
+With this description, the functor $\cal{S}_\ell(u)$ sends $(i, \rho)$ to $i$.
 \end{remark}
 
 \begin{remark}
-We have a dual construction of a category $\cat{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $\cal{I} : \cat{I} \to \catE^{\to}$.
+We have a dual construction of a category $\cat{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $u : \cal{I} \to \catE^{\to}$.
 \end{remark}
 
 \begin{lemma}
 \label{she-to-retract-closure}
-Assume that $\cal{I}$ is closed under tensoring with $\intervalr$.
-Then there is functor $\cal{S}_l(\cal{I}) \to \overline{\intervalr \hatotimes \cal{I}}$ of categories over $\catE^{\to}$.
+Assume that $\cal{I}$ is closed under tensoring with $\rcyl$. Then there exists functor 
+\[
+\xymatrix{
+\cal{S}_\ell(\cal{I})  \ar[dr]_{\mathbb{S}_\ell(u)} \ar[rr] & & \overline{\rcyl \hatotimes \cal{I}} \ar[dl] \\
+  & \catE^{\to} & }
+\] 
+of categories over $\catE^{\to}$.
 \end{lemma}
 
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\intervalr \hatotimes \cal{I}$, but let us review the details anyway.
-
-Suppose we are given an object $(i, \rho)$ of $\cat{S}_l(\cal{I})$, lying over the arrow $\cal{I}(i)$.
-Observe that it already has the form of a retract $(i, \cal{I}(i), \thetal \hatotimes i, \rho)$:
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\rcyl \hatotimes \cal{I}$, but let us make
+the details explicit. Suppose we are given an object $(i, \rho) \in \cat{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
+Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i, \rho)$:
 \[
 \xymatrix@C+1em{
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+ u_i 
+  \ar[r]^-{\thetal \hatotimes u_i}
   \ar[dr]_{\id}
 &
-  (\intervalr \hatotimes \cal{I})(i) \ar[d]^{\rho}
+  \rcyl \hatotimes u_i  \ar[d]^{\rho}
 \\&
-  \cal{I}(i)
+  u_i
 }
 \]
-
-Suppose we are given a morphism $\tau : (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
-Observe that it already has the required form of a morphism $(\tau, \cal{I}(\tau))$ between retracts:
+For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cat{S}_l(\cal{I})$.
+Observe that it already has the required form of a morphism $(\tau, u_\tau)$ between retracts:
 \[
 \xymatrix@C+2em{
-  \cal{I}(i)
-  \ar[r]_-{\thetal \hatotimes \cal{I}(i)}
-  \ar[d]_{\cal{I}(\tau)}
-  \ar@/^2em/[rr]^{\id}
+  u_i
+  \ar[r]^-{\thetal \hatotimes u_i}
+  \ar[d]_{u_\tau}
+  &
+  \rcyl \otimes u_i
+  \ar[r]^-{\rho}
+  \ar[d]^{\rcyl \otimes u_\tau}
 &
-  (\intervalr \hatotimes \cal{I})(i)
-  \ar[r]_-{\rho}
-  \ar[d]^{(\intervalr \hatotimes \cal{I})(\tau)}
-&
-  \cal{I}(i)
-  \ar[d]^{\cal{I}(\tau)}
+  u_i
+  \ar[d]^{u_\tau}
 \\
-  \cal{I}(i')
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i')}
-  \ar@/_2em/[rr]_{\id}
+ u_{i'} 
+  \ar[r]_-{\thetal \hatotimes u_{i'}}
 &
-  (\intervalr \hatotimes \cal{I})(i')
-  \ar[r]^-{\rho'}
+  (\rcyl \hatotimes u)_{i'}
+  \ar[r]_-{\rho'}
 &
-  \cal{I}(i')
+  u_{i'} 
 }
 \]
 \end{proof}
 
 \begin{lemma}
 \label{horn-times-gen-to-she}
-Assume that $\intervalr$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\intervalr$.
-Then there is a functor $\intervalr \hatotimes \cal{I} \to \cal{S}_l(\cal{I})$ of categories over $\catE^{\to}$.
+Assume that $\rcyl$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\rcyl$.
+Then there is a functor 
+\[
+\xymatrix{
+\rcyl \hatotimes u \ar[dr] \ar[rr] & & \cal{S}_\ell(u) \ar[dl] \\ 
+ & \catE^\to & }
+ \] 
+ of categories over $\catE^{\to}$.
 \end{lemma}
 
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-
-Since $\intervalr$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
+Since $\rcyl$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
 \[
 \xymatrix@C+1em{
-  \intervalr
-  \ar[r]^-{\thetal \hatotimes \intervalr}
+  \rcyl
+  \ar[r]^-{\thetal \hatotimes \rcyl}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \intervalr \ar[d]^{\rho}
+  \rcyl \hatotimes \rcyl \ar[d]^{\rho}
 \\&
-  \intervalr
+  \rcyl
 }
 \]
-
-Suppose we are given an object $i : \cat{I}$, lying over the arrow $\intervalr \hatotimes \cal{I}(i)$.
-We construct its image $(\intervalr \hatotimes i, \rho \hatotimes \cal{I}(i))$ by tensoring the previous diagram with $\cal{I}(i)$, using that $\cal{I}$ is closed under tensoring with $\intervalr$:
+Suppose we are given an object $i \in \cal{I}$, lying over the arrow $\rcyl \hatotimes u_i$.
+We construct its image $(\rcyl \hatotimes i, \rho \hatotimes u_i)$ by tensoring the previous diagram with $u_i$, using that $\cal{I}$ is closed under tensoring with $\rcyl$:
 \[
 \xymatrix@C+2em{
-  \cal{I}(\intervalr \hatotimes i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
+ u_{\rcyl \hatotimes i}
+  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i \ar[d]^{\rho \hatotimes i})
+  \rcyl \hatotimes u_{\rcyl \hatotimes i} 
+  \ar[d]^{\rho \hatotimes i}
 \\&
-  \cal{I}(\intervalr \hatotimes \cal{I}(i))
-}
+  u_{\rcyl \hatotimes u_i}
+  }
 \]
 
-Suppose we are given a morphism $\tau : i \to i'$ in $\cat{I}$, lying over map $\intervalr \hatotimes \cal{I}(m)$ of arrows.
-We send it to the morphism $\intervalr \hatotimes \tau : (\intervalr \hatotimes i, \rho \hatotimes \cal{I}(i)) \to (\intervalr \hatotimes i', \rho \hatotimes \cal{I}(i'))$, again using that $\cal{I}$ is closed under tensoring with $\intervalr$: 
+Suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over map $\rcyl \hatotimes u_m$ of arrows.
+We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho \hatotimes u_i) \to (\rcyl \hatotimes i', \rho \hatotimes u_{i'})$, again using that $\cal{I}$ is closed under tensoring with $\rcyl$:
 \[
-\xymatrix@C+2em{
-  \cal{I}(\intervalr \hatotimes i)
-  \ar[r]_-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i)}
-  \ar[d]_{\cal{I}(\intervalr \hatotimes \tau)}
-  \ar@/^2em/[rr]^{\id}
+\xymatrix@C+5em{
+  u_{\rcyl \hatotimes i}
+  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
+  \ar[d]_{u_{\rcyl \hatotimes \tau}}
 &
-  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i)
-  \ar[r]_-{\rho \hatotimes \cal{I}(i)}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(\intervalr \hatotimes \tau)}
+  \rcyl \hatotimes u_{\rcyl \hatotimes i}
+  \ar[r]^-{\rho \hatotimes u_i}
+  \ar[d]^{\rcyl \hatotimes u_{\rcyl \hatotimes \tau}}
 &
-  \cal{I}(\intervalr \hatotimes i)
-  \ar[d]^{\cal{I}(\intervalr \hatotimes \tau)}
+  u_{\rcyl \hatotimes i}
+  \ar[d]^{u_{\rcyl \hatotimes \tau}}
 \\
-  \cal{I}(\intervalr \hatotimes i')
-  \ar[r]^-{\thetal \hatotimes \cal{I}(\intervalr \hatotimes i')}
-  \ar@/_2em/[rr]_{\id}
+  u_{\rcyl \hatotimes i'}
+  \ar[r]_-{\thetal \hatotimes u_{\rcyl \hatotimes i'}}
 &
-  \intervalr \hatotimes \cal{I}(\intervalr \hatotimes i')
-  \ar[r]^-{\rho' \hatotimes \cal{I}(i)}
+  \rcyl \hatotimes u_{\rcyl \hatotimes i'} 
+  \ar[r]_-{\rho' \hatotimes u_i}
 &
-  \cal{I}(\intervalr \hatotimes i')
+  u_{\rcyl \hatotimes i'}
 }
 \]
 Note that the right square commutes by interchange.
 \end{proof}
 
+HERE
+
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
-Let $p : Y \to X$ be a $(\intervall \hatotimes \calE)$-right map.
+Let $p : Y \to X$ be a $(\lcyl \otimes \id_{\calE})$-right map.
 Assume that base change along $p$ lifts to a functor $F : \cat{I}_{/X} \to \cat{I}_{/Y}$.
 Then it lifts further to a functor $G : (\cat{S}_l)_{/X} \to (\cat{S}_l)_{/Y}$:
 \[
@@ -1898,12 +1910,12 @@ We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
 
 \subparagraph{\textbf{Action of $G$ on objects}}
 
-Suppose we are given $i : \cat{I}_{/X}$ such that $\cal{I}(i)$ is a strong left homotopy equivalence.
+Suppose we are given $i : \cat{I}_{/X}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
 \xymatrix{
   A
-  \ar[rr]^{\cal{I}(i)}
+  \ar[rr]^{u_i}
   \ar[dr]
 &&
   B
@@ -1915,16 +1927,16 @@ This means we have a commutative triangle
 and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
 \[
 \xymatrix@C+1em{
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  u_i
+  \ar[r]^-{\thetal \hatotimes u_i}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+  \rcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
-  \cal{I}(i)
+  u_i
 }
 \]
-Let $\sigma : \cal{I}(i') \to \cal{I}(i)$ denote the base change of $i$ along $p$:
+Let $\sigma : \cal{I}(i') \to u_i$ denote the base change of $i$ along $p$:
 \[
 \xymatrix{
   A'
@@ -1933,7 +1945,7 @@ Let $\sigma : \cal{I}(i') \to \cal{I}(i)$ denote the base change of $i$ along $p
   \pullback{dr}
 &
   A
-  \ar[d]^{\cal{I}(i)}
+  \ar[d]^{u_i}
 \\
   B'
   \ar[r]
@@ -1958,7 +1970,7 @@ This means to find a retraction $\rho'$ to $\thetal \hatotimes i$ in $\catE^{\to
   \ar[r]^-{\thetal \hatotimes \cal{I}(i')}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i')
+  \rcyl \hatotimes \cal{I}(i')
   \ar@{.>}[d]^{\rho'}
 \\&
   \cal{I}(i')
@@ -1972,21 +1984,21 @@ We will construct the retraction $\rho'$ as indicated in the below diagram:
   \ar[d]_{\sigma}
   \ar@/^2em/[rr]^{\id}
 &
-  \intervalr \hatotimes \cal{I}(i')
+  \rcyl \hatotimes \cal{I}(i')
   \ar@{.>}[r]_-{\rho'}
-  \ar[d]^{\intervalr \hatotimes \sigma}
+  \ar[d]^{\rcyl \hatotimes \sigma}
 &
   \cal{I}(i')
   \ar[d]^{\sigma}
 \\
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  u_i
+  \ar[r]^-{\thetal \hatotimes u_i}
   \ar@/_2em/[rr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i)
+  \rcyl \hatotimes u_i
   \ar[r]^-{\rho}
 &
-  \cal{I}(i)
+  u_i
 }
 \]
 Since $\sigma$ is a cartesian square, it suffices to solve this problem when projected to codomains:
@@ -2088,7 +2100,7 @@ This consists of a map $\tau : i_1 \to i_2$ in $\cat{I}$ living over $X$ as depi
   B_1
   \ar[d]
 &
-  \ar[d]^{\cal{I}(\tau)}
+  \ar[d]^{u_\tau}
 \\
   A_2
   \ar[rr]^{\cal{I}(i_2)}
@@ -2104,14 +2116,14 @@ This consists of a map $\tau : i_1 \to i_2$ in $\cat{I}$ living over $X$ as depi
 such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \[
 \xymatrix{
-  \intervalr \hatotimes \cal{I}(i_1)
+  \rcyl \hatotimes \cal{I}(i_1)
   \ar[r]^-{\rho_1}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau)}
+  \ar[d]^{\rcyl \hatotimes u_\tau}
 &
   \cal{I}(i_1)
-  \ar[d]^{\cal{I}(\tau)}
+  \ar[d]^{u_\tau}
 \\
-  \intervalr \hatotimes \cal{I}(i_2)
+  \rcyl \hatotimes \cal{I}(i_2)
   \ar[r]^-{\rho_2}
 &
   \cal{I}(i_2)
@@ -2125,14 +2137,14 @@ We want to show that $\tau'$ in addition forms a morphism of left strong homotop
 For this, we have to verify commutativity of the following diagram:
 \[
 \xymatrix{
-  \intervalr \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes \cal{I}(i_1')
   \ar[r]^-{\rho_1'}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau')}
+  \ar[d]^{\rcyl \hatotimes \cal{I}(\tau')}
 &
   \cal{I}(i_1')
   \ar[d]^{\cal{I}(\tau')}
 \\
-  \intervalr \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes \cal{I}(i_2')
   \ar[r]^-{\rho_2'}
 &
   \cal{I}(i_2')
@@ -2147,10 +2159,10 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[dd]_{\sigma_1}
   \ar[dr]^{\cal{I}(\tau')}
 &&
-  \intervalr \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes \cal{I}(i_1')
   \ar@{.>}[rr]^-{\rho_1'}
-  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_1}
-  \ar[dr]^{\intervalr \hatotimes \cal{I}(\tau')}
+  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
+  \ar[dr]^{\rcyl \hatotimes \cal{I}(\tau')}
 &&
   \cal{I}(i_1')
   \ar[dd]^(0.3){\sigma_1}
@@ -2160,28 +2172,28 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[rr]^-(0.3){\thetal \hatotimes \cal{I}(i_2')}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \intervalr \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes \cal{I}(i_2')
   \ar@{.>}[rr]^-(0.3){\rho_2'}
-  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_2}
+  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_2}
 &&
   \cal{I}(i_2')
   \ar[dd]^(0.3){\sigma_2}
 \\
   \cal{I}(i_1)
   \ar[rr]^-(0.25){\thetal \hatotimes \cal{I}(i_1)}
-  \ar[dr]^{\cal{I}(\tau)}
+  \ar[dr]^{u_\tau}
 &&
-  \intervalr \hatotimes \cal{I}(i_1)
+  \rcyl \hatotimes \cal{I}(i_1)
   \ar[rr]^-(0.3){\rho_1}
-  \ar[dr]^{\intervalr \hatotimes \cal{I}(\tau')}
+  \ar[dr]^{\rcyl \hatotimes \cal{I}(\tau')}
 &&
   \cal{I}(i_1)
-  \ar[dr]^{\cal{I}(\tau)}
+  \ar[dr]^{u_\tau}
 \\&
   \cal{I}(i_2)
   \ar[rr]^-{\thetal \hatotimes \cal{I}(i_2)}
 &&
-  \intervalr \hatotimes \cal{I}(i_2)
+  \rcyl \hatotimes \cal{I}(i_2)
   \ar[rr]^-{\rho_2}
 &&
   \cal{I}(i_2)
@@ -2219,14 +2231,14 @@ Since that square commutes after composing it with the cartesian square $\sigma_
 \\
   B_1
   \ar[rr]^-(0.25){\intervall \otimes B_1}
-  \ar[dr]^{\cal{I}(\tau)}
+  \ar[dr]^{u_\tau}
 &&
   \interval \otimes B_1
   \ar[rr]^-(0.3){\cod(\rho_1)}
   \ar[dr]^{\interval \otimes \cod(\cal{I}(\tau'))}
 &&
   B_1
-  \ar[dr]^{\cod(\cal{I}(\tau))}
+  \ar[dr]^{\cod(u_\tau)}
 \\&
   B_2
   \ar[rr]^-{\intervall \otimes B_2}
@@ -2266,7 +2278,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 &&
   \interval \otimes B_1
   \ar[rr]
-  \ar[dr]^(0.7){\interval \otimes \cod(\cal{I}(\tau))}
+  \ar[dr]^(0.7){\interval \otimes \cod(u_\tau)}
 &&
   X
   \ar@{=}[dr]
@@ -2421,7 +2433,7 @@ This means we have a commutative triangle
 \[
 \xymatrix{
   A
-  \ar[rr]^{\cal{I}(i)}
+  \ar[rr]^{u_i}
   \ar[dr]
 &&
   B
@@ -2433,16 +2445,16 @@ This means we have a commutative triangle
 and a retraction $\rho$ to $\thetal \hatotimes i$ in $\catE^{\to}$:
 \[
 \xymatrix@C+1em{
-  \cal{I}(i)
-  \ar[r]^-{\thetal \hatotimes \cal{I}(i)}
+  u_i
+  \ar[r]^-{\thetal \hatotimes u_i}
   \ar[dr]_{\id}
 &
-  \intervalr \hatotimes \cal{I}(i) \ar[d]^{\rho}
+  \rcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
-  \cal{I}(i)
+  u_i
 }
 \]
-Let $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i)$ and $\sigma_2 : \cal{I}(i_2') \to \cal{I}(i)$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
+Let $\sigma_1 : \cal{I}(i_1') \to u_i$ and $\sigma_2 : \cal{I}(i_2') \to u_i$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
 \[
 \xymatrix{
   A_1'
@@ -2452,7 +2464,7 @@ Let $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i)$ and $\sigma_2 : \cal{I}(i_2') \to 
   \ar@{.>}[dr]
 &&
   A
-  \ar[dd]^(0.3){\cal{I}(i)}
+  \ar[dd]^(0.3){u_i}
   \ar@{=}[dr]
 \\&
   A_2'
@@ -2461,7 +2473,7 @@ Let $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i)$ and $\sigma_2 : \cal{I}(i_2') \to 
   \pullback{dr}
 &&
   A
-  \ar[dd]^{\cal{I}(i)}
+  \ar[dd]^{u_i}
 \\
   B_1'
   \ar[rr]
@@ -2494,21 +2506,21 @@ Let $\sigma_1 : \cal{I}(i_1') \to \cal{I}(i)$ and $\sigma_2 : \cal{I}(i_2') \to 
   X_2
 }
 \]
-Recall that we have a canonical morphism $\phi_{\cal{I}(i)}^{\to} : \cal{I}(i_1') \to \cal{I}(i_2')$ over $Y_2$ as indicated in the diagram.
+Recall that we have a canonical morphism $\phi_{u_i}^{\to} : \cal{I}(i_1') \to \cal{I}(i_2')$ over $Y_2$ as indicated in the diagram.
 By assumption, this lifts to a morphism $\phi_i' : i_1' \to i_2'$ in $\cat{I}_{/Y_2}$.
 
 The proof of \cref{strong-h-equiv-base-change-along-fibration} endows $i_1'$ and $i_2'$ with data for a strong left homotopy equivalence consisting of retracts $\rho_1'$ and $\rho_2'$, respectively.
-Our goal is to check that $\phi_i'$ lifts to a morphism in $\cat{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{\cal{I}(i)}^{\to}$ coheres with as follows:
+Our goal is to check that $\phi_i'$ lifts to a morphism in $\cat{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{u_i}^{\to}$ coheres with as follows:
 \[
 \xymatrix{
-  \intervalr \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes \cal{I}(i_1')
   \ar[r]^-{\rho_1'}
-  \ar[d]^{\intervalr \hatotimes \cal{I}(\tau')}
+  \ar[d]^{\rcyl \hatotimes \cal{I}(\tau')}
 &
   \cal{I}(i_1')
   \ar[d]^{\cal{I}(\tau')}
 \\
-  \intervalr \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes \cal{I}(i_2')
   \ar[r]^-{\rho_2'}
 &
   \cal{I}(i_2')
@@ -2522,10 +2534,10 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[dd]_{\sigma_1}
   \ar[dr]^{\cal{I}(\phi_i')}
 &&
-  \intervalr \hatotimes \cal{I}(i_1')
+  \rcyl \hatotimes \cal{I}(i_1')
   \ar@{.>}[rr]^-{\rho_1'}
-  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_1}
-  \ar[dr]^{\intervalr \hatotimes \cal{I}(\phi_i')}
+  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
+  \ar[dr]^{\rcyl \hatotimes \cal{I}(\phi_i')}
 &&
   \cal{I}(i_1')
   \ar[dd]^(0.3){\sigma_1}
@@ -2535,31 +2547,31 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[rr]^-(0.3){\thetal \hatotimes \cal{I}(i_2')}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \intervalr \hatotimes \cal{I}(i_2')
+  \rcyl \hatotimes \cal{I}(i_2')
   \ar@{.>}[rr]^-(0.3){\rho_2'}
-  \ar[dd]^(0.3){\intervalr \hatotimes \sigma_2}
+  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_2}
 &&
   \cal{I}(i_2')
   \ar[dd]^(0.3){\sigma_2}
 \\
-  \cal{I}(i)
-  \ar[rr]^-(0.25){\thetal \hatotimes \cal{I}(i)}
+  u_i
+  \ar[rr]^-(0.25){\thetal \hatotimes u_i}
   \ar@{=}[dr]
 &&
-  \intervalr \hatotimes \cal{I}(i)
+  \rcyl \hatotimes u_i
   \ar[rr]^-(0.3){\rho}
   \ar@{=}[dr]
 &&
-  \cal{I}(i)
+  u_i
   \ar@{=}[dr]
 \\&
-  \cal{I}(i)
-  \ar[rr]^-{\thetal \hatotimes \cal{I}(i)}
+  u_i
+  \ar[rr]^-{\thetal \hatotimes u_i}
 &&
-  \intervalr \hatotimes \cal{I}(i)
+  \rcyl \hatotimes u_i
   \ar[rr]^-{\rho}
 &&
-  \cal{I}(i)
+  u_i
 }
 \]
 Yet again, we have omitted drawing the identity morphisms of the retract situations for readability.
