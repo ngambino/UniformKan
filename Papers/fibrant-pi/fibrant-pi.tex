@@ -1649,8 +1649,8 @@ that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$. The claim th
 \label{sec:frobenius-uniform-fibration}
 
 
-
-Assume that the subcategory $\cal{I}$ is closed under the monoidal operations of $\catE^{\to}$, \ie that $(\cal{I}, \hatunit, \hatotimes)$ is itself a monoidal category and $u$ preserves the monoidal structure on the nose. 
+Assume that $\cal{I}$ is closed under tensoring with $\rcyl$.
+Assume that $\rcyl$ is a strong left homotopy equivalence.
 
 \medskip
 
@@ -1708,7 +1708,7 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 }
 \end{mathpar}
 \end{description}
-Note that there is an obvious forgetful functor $\cal{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,h,k)$ to $u_i \co A_i \to B_i$.
+Note that there is an obvious forgetful functor $\cal{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,h,k)$ to $u_i \co A_i \to B_i$. We have a dual construction of a category $\cal{S}_r(\cal{I})$ of strong right homotopy equivalences relative to  $u \co \cal{I} \to \catE^{\to}$.
 
 
 \begin{remark}
@@ -1745,13 +1745,11 @@ diagram commutes:
 With this description, the functor $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ sends $(i, \rho)$ to $u_i$.
 \end{remark}
 
-\begin{remark}
-We have a dual construction of a category $\cal{S}_r(\cal{I})$ of strong right homotopy equivalences relative to some functor $u \co \cal{I} \to \catE^{\to}$.
-\end{remark}
+
 
 \begin{lemma}
 \label{she-to-retract-closure}
-Assume that $\cal{I}$ is closed under tensoring with $\rcyl$. Then there exists functor 
+There exists a functor 
 \[
 \xymatrix{
 \cal{S}_\ell(\cal{I})  \ar[dr]_{\mathbb{S}_\ell(u)} \ar[rr] & & \overline{\rcyl \hatotimes \cal{I}} \ar[dl] \\
@@ -1804,11 +1802,10 @@ Observe that it already has the required form of a morphism $(\tau, u_\tau)$ bet
 
 \begin{lemma}
 \label{horn-times-gen-to-she}
-Assume that $\rcyl$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\rcyl$.
-Then there is a functor 
+There is a functor 
 \[
 \xymatrix{
-\rcyl \hatotimes u \ar[dr] \ar[rr] & & \cal{S}_\ell(u) \ar[dl] \\ 
+\rcyl \hatotimes \cal{I} \ar[dr] \ar[rr] & & \cal{S}_\ell(\cal{I}) \ar[dl] \\ 
  & \catE^\to & }
  \] 
  of categories over $\catE^{\to}$.
@@ -2271,10 +2268,15 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 But the left face forms a morphism in $\lcyl \otimes \catE$; since $p$ was assumed a $(\lcyl \otimes \catE)$-right map, its right lifting structure coheres as needed.
 \end{proof}
 
-\begin{theorem}
-Fix $\cal{E}$ with a cylinder object.
-Fix $u \co \cal{I} \to \cal{E}^\to$.
-For every $\cal{I}$-fibration $p \co Y \to X$, the pullback functor $p^*$ lifts to a functor $p^* \co \cal{I}_I/X \to \overline{\cal{I}_I/Y}$.
+\begin{theorem}[The Frobenius property for fibrations]
+Let $u \co \cal{I} \to \cal{E}^\to$ be a functor. For every $\cal{I}$-fibration $p \co Y \to X$, the pullback functor 
+$p^* \co \cal{E}_{/X} \to \cal{E}_{/Y}$ lifts to a functor 
+\[
+\xymatrix{
+\cal{I}_{\otimes/X} \ar[r] \ar[d] &  \overline{\cal{I}_{\otimes/Y}}\ar[d] \\ 
+\cal{E}_{/X} \ar[r]_{p^*} & \cal{E}_{/Y}
+}
+\]
 \end{theorem}
 
 \begin{proof}
@@ -2283,32 +2285,56 @@ It will suffice to separately show that $p^*$ lifts to functors
  (\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X} \, , \quad
  (\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X} \, .
  \]
-By duality, we may restrict ourselves to the first case. The lift is obtained as a composition of the three functors from \cref{she-to-retract-closure,horn-times-gen-to-she,strong-h-equiv-base-change-along-fibration}.
+By duality, we may restrict ourselves to the first case. Since a $\cal{I}$-fibration is in particular a $(\lcyl \otimes \calE)$-right map,
+we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
+\[
+\xymatrix@C+2em{
+  \cal{S}_\ell(\cal{I})_{/X}
+  \ar@{.>}[r]^{G}
+  \ar[d]
+&
+  \cal{S}_\ell(\cal{I})_{/Y}
+  \ar[d]
+\\
+  \cal{I}_{/X}
+  \ar[r]^{F}
+  \ar[d]_{\cal{I}_{/X}}
+&
+  \cal{I}_{/Y}
+  \ar[d]^{\cal{I}_{/Y}}
+\\
+  (\catE / X)^{\to}
+  \ar[r]_{p^*}
+&
+  (\catE / Y)^{\to}
+}
+\]
+ The required lift is then obtained composing this with the the functors from \cref{she-to-retract-closure}
+ and \cref{horn-times-gen-to-she}, as follows:
 \[
 \xymatrix{
-  (\thetal \hatotimes \cal{I})_{/X}
-  \ar[r]
-  \ar[d]
+  (\thetal \hatotimes \cal{I})_{/X} 
+  \ar[rr]
+  \ar[dr] & 
 &
   \cal{S}_\ell(\cal{I})_{/X}
   \ar[r]
   \ar[dl]
 &
   \cal{S}_\ell(\cal{I})_{/Y}
-  \ar[r]
+  \ar[rr]
   \ar[dr]
-&
+& &
   \overline{\thetal \hatotimes \cal{I}}_{/Y}
-  \ar[d]
-\\
+  \ar[dl]
+\\ & 
   (\catE/X)^{\to}
-  \ar[rrr]_{(p^*)^{\to}}
+  \ar[rrr]_{p^*}
 &&&
-  (\catE/Y)^{\to}
+  (\catE/Y)^{\to} & 
 }
 \]
-For the application of \cref{strong-h-equiv-base-change-along-fibration}, note that a $(\cal{I}, \interval)$-fibration is in particular a $(\lcyl \otimes \calE)$-right map.
-\end{proof}
+For the application of, note that \end{proof}
 
 \begin{corollary}
 Pushforward lifts.
