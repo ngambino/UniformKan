@@ -727,7 +727,7 @@ For \eg the first isomorphism, apply the adjunction \eqref{garner-adjunction} to
 \cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction,pitchfork-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 \end{remark}
 
-\section{The Frobenius property and the Beck-Chevalley condition}
+\section{The Frobenius property}
 \label{sec:frobenius}
 
 \begin{lemma}
@@ -1062,9 +1062,10 @@ that the homotopy $h$ is trivial.
 
 
 
-
-We wish to give an alternative characterisation of strong homotopy equivalences, which will be useful in  the following. Given
-a map $f \co X \to Y$, we consider  the pushout diagram
+Our next goal is to give an alternative characterisation of strong homotopy equivalences. In order to do this, we 
+introduce a general construction that will be useful also in other sections. Given
+ $f \co X \to Y$, we define $\delta^k \hatotimes f \co (\interval \otimes X) +_{X} Y \to \interval \otimes Y$, where
+ $k \in \{  0, 1\}$, by the universal property of pushouts, as in the following diagram:
  \begin{equation}
  \label{equ:delta-and-f}
  \begin{gathered}
@@ -1075,35 +1076,38 @@ X  \ar[r]^{f}  \ar[d]_{\kcyl_{X}} & Y  \ar@/^2pc/[ddr]^{\kcyl_{Y}} \ar[d] & \\
  \end{gathered}
  \end{equation}
 Note that this is an instance of the Leibniz construction. 
-Writing $0_\catE \co \catE \to \catE$ for the functor with constant value the initial object $0 \in \catE$, we have a natural transformation 
-$\bot \co 0_\catE \Rightarrow \Id_\catE$ with components given by  the unique maps $\bot_X \co 0 \to X$. This natural transformation is such that for every $f \co X \to Y$, we have an isomorphism $\bot \hatotimes f \iso f$, which we frequently treat as an equality. 
 
-Also recall that we have
-natural transformations $\kcyl \co \id_\catE \Rightarrow \interval \otimes (-)$, for $k \in \{ 0, 1 \}$ and commutative squares
+Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let 
+$\bot \co 0_\catE \Rightarrow \Id_\catE$ be the natural transformation with the unique maps $\bot_X \co 0 \to X$
+as components. Observe that for every $f \co X \to Y$, we have an isomorphism
 \begin{equation}
-\label{trivial-square}
-\begin{gathered}
-\xymatrix@C+2em{
-0 \ar[r]^{\bot_X} \ar[d]_{\bot_X} & X \ar[d]^{\rcyl_X} \\
-X \ar[r]_{\lcyl_X} & \interval \otimes X}
-\end{gathered}
+\label{equ:bot-hatotimes-f}
+\bot \hatotimes f \iso f 
 \end{equation}
-Thus, we can define maps \begin{equation}
+For $k \in \{ 0, 1 \}$, we then have a commutative square of natural transformations
+\[
+\xymatrix@C+2em{
+0_\catE \ar[r]^{\bot} \ar[d]_{\bot} & \id_\catE \ar[d]^{\rcyl} \\
+\id_\catE \ar[r]_{\lcyl} & \interval \otimes (-)}
+\]
+This diagram determines two maps in the arrow category of $[\catE, \catE]$, 
+\begin{equation}
 \label{equ:thetas}
 \thetal \co \bot \Rightarrow \rcyl \, , \quad \thetar \co \bot \Rightarrow \lcyl 
 \end{equation}
-in the arrow category of $[\catE, \catE]$
- by letting $\thetal \defeq (\bot, \lcyl)$ and $\thetar  \defeq (\bot, \rcyl)$.  By functoriality of the Leibniz construction, these give us squares
+which are defined by letting $\thetal \defeq (\bot, \lcyl)$ and $\thetar  \defeq (\bot, \rcyl)$.  By functoriality of the Leibniz construction
+and the isomorphisms in~\eqref{equ:bot-hatotimes-f}, the
+maps in~\eqref{equ:thetas} give us maps 
  \[
  \thetal \hatotimes f \co f \to \rcyl \hatotimes f  \, , \qquad \thetar \hatotimes f \co f \to \lcyl \hatotimes f 
  \]
- which have the form
+ in $\catE^\to$, which consist of squares of the form
  \[
  \xymatrix@C+2em{
  X \ar[r] \ar[d]_{f}  & (\interval \otimes X) +_{X} Y  \ar[d]^{\kcyl \hatotimes f}  \\ 
  Y \ar[r] & \interval \otimes Y} 
  \]
- where $k \in \{0, 1\}$. Using these squares, we provide the following  characterization of strong homotopy equivalences.
+ for $k \in \{0, 1\}$. We can now provide a characterization of strong homotopy equivalences.
 
 
 
@@ -1111,8 +1115,8 @@ in the arrow category of $[\catE, \catE]$
 \label{strong-h-equiv-as-section}
 Let $f \co X  \to Y$ be a morphism in $\catE$.
 \begin{enumerate}[(i)]
-\item $f$ is a strong left homotopy equivalence if and only if $\thetal \hatotimes f \co f \Rightarrow \rcyl \hatotimes f$ is a section.
-\item $f$ is a strong right homotopy equivalence if and only if $\thetar \hatotimes f \co f \Rightarrow  \lcyl \hatotimes f$ is a section.
+\item $f$ is a strong left homotopy equivalence if and only if $\thetal \hatotimes f \co f \rightarrow \rcyl \hatotimes f$ is a section.
+\item $f$ is a strong right homotopy equivalence if and only if $\thetar \hatotimes f \co f \rightarrow  \lcyl \hatotimes f$ is a section.
 \end{enumerate}
 \end{proposition}
 
@@ -1121,13 +1125,11 @@ By duality, it suffices to exhibit the equivalence in (i). To say that $\thetal 
 there is retraction $\rho$, as follows:
 \[
 \xymatrix@C+1em{
-  f
-  \ar[r]^-{\thetal \hatotimes f}
-  \ar[dr]_{\id_f} &   \rcyl \hatotimes f \ar[d]^{\rho} \\
-&   f
-}
+  X \ar[r] \ar[d]_f & (\interval \otimes X) +_{X} Y \ar[d]^{\rcyl \hatotimes f}  \ar[r]  & X \ar[d]^f \\
+  Y \ar[r] & \interval \otimes Y \ar[r] & Y }
 \]
-First, standard diagram-chasing shows that giving $\rho \co \rcyl \hatotimes f \Rightarrow f$ is equivalent  to giving maps $h \co \interval \otimes X \to X$, $g \co Y \to X$, and $k \co \interval \otimes Y \to Y$ such that the following diagrams commute:
+where the two horizontal composites should be identiies. First, by a standard diagram-chasing arguments, giving 
+the square on the right  is equivalent  to giving maps $h \co \interval \otimes X \to X$, $g \co Y \to X$, and $k \co \interval \otimes Y \to Y$ such that the following diagrams commute:
 \begin{equation}
 \label{equ:first-three}
 \xycenter{
@@ -1140,7 +1142,7 @@ X \ar[r]_f & B} \qquad
 \interval \otimes X \ar[d]_h \ar[r]^{I \otimes f} & \interval \otimes Y \ar[d]^k \\
 X \ar[r]_{f} & Y }
 \end{equation}
-Secondly, requiring that $\rho$ is a section to $\theta \hatotimes f$ means that the diagrams
+Secondly, requiring that the two horizontal composites are a section to $\theta \hatotimes f$ means that the diagrams
 \begin{equation}
 \label{equ:second-two}
 \xycenter{
@@ -1229,7 +1231,7 @@ In order to state our next result, we introduce a construction that will be usef
 \kcyl \hatotimes u \co \cal{I} \to \catE^\to
  \]
  by letting $(\kcyl \otimes u)_i \defeq \kcyl  \hatotimes u_i$,  where $\kcyl \hatotimes u_i$ is given by the construction
- in~\eqref{equ:delta-and-f}. Recalling that this is an instance of the Leibniz construction, applied to $\kcyl$ and $u_i$.  
+ in~\eqref{equ:delta-and-f}.   
  
  
 
@@ -1274,17 +1276,18 @@ diagram commutes:
 \begin{proof} This follows from \cref{strong-h-equiv-as-section}.
 \end{proof}
 
-
-Lemma~\ref{strong-h-equiv-as-section-algebraic} allows us to define a functor of the form
+We conclude this section by applying Lemma~\ref{strong-h-equiv-as-section-algebraic} to construct
+a pair of functors that will be used in the next section
+to prove \cref{thm:frobenius-fibrations}. The first functor has the form
 \begin{equation}
 \xycenter{
 \cal{S}_\ell(\cal{I})  \ar[dr]_{\cal{S}_\ell(u)} \ar[rr]^L & & \overline{\cal{I}} \ar[dl]^-{\overline{\rcyl \hatotimes u}} \\
   & \catE^{\to} & } \qquad \quad \label{she-to-retract-closure}  
   \end{equation}
-We describe its action on objects, leaving the evident definition of the action on arrows to the
+We describe its action on objects, leaving the definition of the definition of the action on arrows to the
 reader. For this, we identify the category $\cal{S}_\ell(\cal{I})$ with the isomorphic category defined
-in \cref{strong-h-equiv-as-section-algebraic}. For the functor in~\eqref{she-to-retract-closure}, observe that $u_i \co A_i \to B_i$ is a retract 
-of~$\rcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$, via the diagram
+in \cref{strong-h-equiv-as-section-algebraic}. Observe that $u_i \co A_i \to B_i$ is a retract 
+of~$\rcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$ via the diagram
 \[
 \xymatrix@C+1em{
  A_i \ar[d]_{u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[r] \ar[d]^{\rcyl \hatotimes u_i } & A_i \ar[d]^{u_i} \\
@@ -1292,11 +1295,27 @@ of~$\rcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \
 \]
 where the left-hand side square is $\thetal \hatotimes u_i$ and right-hand side square is given by $\rho$. Thus, we can define 
 \[
-L(i, \rho) \defeq (i, u_i, \thetal \hatotimes i, \rho) \, .
+L(i, \rho) \defeq (i, u_i, \thetal \hatotimes u_i, \rho) \, .
 \]
-Observe that this definition makes the diagram in~\eqref{she-to-retract-closure} commute. If we now assume that 
-$\rcyl$ is a strong left homotopy equivalence and that $\cal{I}$ is closed under tensoring with $\rcyl$, we can define
-also a functor of the form
+Observe that this definition makes the diagram in~\eqref{she-to-retract-closure} commute. 
+
+\medskip
+
+In order to define the second functor,  we make two furher assumptions. The first is that  $\rcyl$ is a strong left homotopy equivalence.
+[THIS NEEDS TO BE FIXED]
+Our second additional assumption is that the functor $\rcyl \otimes (-) \co \catE^\to \to \catE^\to$ lifts 
+to $\cal{I}$, in the sense that we have a diagram of the form
+\[
+\xymatrix@C+2em{
+\cal{I}  \ar[d]_u \ar[r]^{\rcyl \hatotimes (-)} & \cal{I} \ar[d]^{u} \\
+\cal{E}^\to \ar[r]_{\rcyl \hatotimes (-)} & \cal{E}^\to}
+\]
+This means that for $i \in \cal{I}$, we have $\rcyl \hatotimes i \in \cal{I}$ such that
+\begin{equation}
+\label{equ:I-closed-under-tensor}
+u_{\rcyl \hatotimes i} = \rcyl \hatotimes u_i \, .
+\end{equation}
+We wish to exhibit a functor of the form
 \begin{equation}
   \label{horn-times-gen-to-she}
 \xycenter{
@@ -1305,34 +1324,34 @@ also a functor of the form
  \end{equation}
 For this observe, that if $\rcyl$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
 \[
-\xymatrix@C+1em{
-  \rcyl
-  \ar[r]^-{\thetal \hatotimes \rcyl}
+\xymatrix@C+2em{
+  \rcyl_X
+  \ar[r]^-{\thetal \hatotimes \rcyl_X}
   \ar[dr]_{\id}
 &
-  \rcyl \hatotimes \rcyl \ar[d]^{\rho}
+  \rcyl \hatotimes \rcyl_X \ar[d]^{\rho_X}
 \\&
-  \rcyl
+  \rcyl_X
 }
 \]
-As before, we  define the functor $M$ in~\eqref{horn-times-gen-to-she} only on objects and use the isomorphic description
+As before, we  define the functor $M$ in~\eqref{horn-times-gen-to-she} only on objects. We use again the isomorphic description
 of~$\cal{S}_\ell(\cal{I})$ in \cref{strong-h-equiv-as-section-algebraic}. Given $i \in \cal{I}$, we need to equip 
 $\rcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$
-with a retraction to $\thetal \hatotimes (\rcyl \hatotimes u_i)$. But such a retraction is obtained as follows, 
-using that $\cal{I}$ is closed under tensoring with $\rcyl$:
+with a retraction to $\thetal \hatotimes (\rcyl \hatotimes u_i)$. But such a retraction is obtained as follows [THIS NEEDS TO BE FIXED]
+
 \[
-\xymatrix@C+2em{
- \rcyl \hatotimes u_{i}
-  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
+\xymatrix@C+4em{
+ u_{\rcyl \hatotimes i}
+  \ar[r]^-{\thetal \hatotimes  u_{\rcyl \hatotimes i} }
   \ar[dr]_{\id}
 &
-  \rcyl \hatotimes u_{\rcyl \hatotimes i} 
+  \rcyl \hatotimes u_{\rcyl \hatotimes i}
   \ar[d]^{\rho \hatotimes i}
 \\&
-  u_{\rcyl \hatotimes u_i}
+  \rcyl \hatotimes u_i
   }
 \]
-We can then let $M(i) \defeq (i, \rho \hatotimes i)$.
+where we used the equation in~\eqref{equ:I-closed-under-tensor}. We can then let $M(i) \defeq (i, \rho \hatotimes i)$.
 
 
 
@@ -1392,6 +1411,8 @@ For every map $p \co X \to Y$ in $\cal{E}$
 \end{enumerate} 
 \end{proposition}
 
+\begin{proof} The claim is a consequence of \cref{pitchfork-leibniz-adjunction}.
+\end{proof}
 
 
 \medskip
@@ -1801,6 +1822,7 @@ For the next result, we assume that $\cal{I}$ is closed under tensoring with $\r
 which allows us to use the functors in~\eqref{she-to-retract-closure}.
 
 \begin{theorem}[The Frobenius property for fibrations]
+\label{thm:frobenius-fibrations}
 Let $p \co Y \to X$ be an $\cal{I}$-fibration. If pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
@@ -2813,111 +2835,6 @@ We are grateful to Steve Awodey, Simon Huber and Andrew Swan for helpful discuss
 and to Emily Riehl for insightful comments on algebraic weak factorization systems.
 
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
-
-
-\appendix
-
-\section{Two functors}
-\label{app:two-functors}
-
-\begin{proof}[Proof of \cref{she-to-retract-closure}]
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\rcyl \hatotimes \cal{I}$, but let us make
-the details explicit. Suppose we are given an object $(i, \rho) \in \cal{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
-Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i, \rho)$:
-\[
-\xymatrix@C+1em{
- u_i 
-  \ar[r]^-{\thetal \hatotimes u_i}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes u_i  \ar[d]^{\rho}
-\\&
-  u_i
-}
-\]
-For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cal{S}_\ell(\cal{I})$.
-Observe that it already has the required form of a morphism $(\tau, u_\tau)$ between retracts:
-\[
-\xymatrix@C+2em{
-  u_i
-  \ar[r]^-{\thetal \hatotimes u_i}
-  \ar[d]_{u_\tau}
-  &
-  \rcyl \otimes u_i
-  \ar[r]^-{\rho}
-  \ar[d]^{\rcyl \otimes u_\tau}
-&
-  u_i
-  \ar[d]^{u_\tau}
-\\
- u_{i'} 
-  \ar[r]_-{\thetal \hatotimes u_{i'}}
-&
-  \rcyl \hatotimes u_{i'}
-  \ar[r]_-{\rho'}
-&
-  u_{i'} 
-}
-\]
-\end{proof}
-
-
-
-\begin{proof}[Proof of \cref{horn-times-gen-to-she}]
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-Since $\rcyl$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
-\[
-\xymatrix@C+1em{
-  \rcyl
-  \ar[r]^-{\thetal \hatotimes \rcyl}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes \rcyl \ar[d]^{\rho}
-\\&
-  \rcyl
-}
-\]
-Suppose we are given an object $i \in \cal{I}$, lying over the arrow $\rcyl \hatotimes u_i$.
-We construct its image $(\rcyl \hatotimes i, \rho \hatotimes u_i)$ by tensoring the previous diagram with $u_i$, using that $\cal{I}$ is closed under tensoring with $\rcyl$:
-\[
-\xymatrix@C+2em{
- u_{\rcyl \hatotimes i}
-  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i} 
-  \ar[d]^{\rho \hatotimes i}
-\\&
-  u_{\rcyl \hatotimes u_i}
-  }
-\]
-Now suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over the map $\rcyl \hatotimes u_m$ of arrows.
-We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho \hatotimes u_i) \to (\rcyl \hatotimes i', \rho \hatotimes u_{i'})$, again using that $\cal{I}$ is closed under tensoring with $\rcyl$:
-\[
-\xymatrix@C+5em{
-  u_{\rcyl \hatotimes i}
-  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
-  \ar[d]_{u_{\rcyl \hatotimes \tau}}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i}
-  \ar[r]^-{\rho \hatotimes u_i}
-  \ar[d]^{\rcyl \hatotimes u_{\rcyl \hatotimes \tau}}
-&
-  u_{\rcyl \hatotimes i}
-  \ar[d]^{u_{\rcyl \hatotimes \tau}}
-\\
-  u_{\rcyl \hatotimes i'}
-  \ar[r]_-{\thetal \hatotimes u_{\rcyl \hatotimes i'}}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i'} 
-  \ar[r]_-{\rho' \hatotimes u_i}
-&
-  u_{\rcyl \hatotimes i'}
-}
-\]
-Note that the right square commutes by interchange.
-\end{proof}
 
 
 
