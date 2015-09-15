@@ -1711,9 +1711,11 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 Note that there is an obvious forgetful functor $\cal{S}_\ell(\cal{I}) \to \cal{I}$. We write $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,h,k)$ to $u_i \co A_i \to B_i$. We have a dual construction of a category $\cal{S}_r(\cal{I})$ of strong right homotopy equivalences relative to  $u \co \cal{I} \to \catE^{\to}$.
 
 
-\begin{remark}
+\begin{lemma}
 \label{strong-h-equiv-as-section-algebraic}
-Following the proof of \cref{strong-h-equiv-as-section}, the category $\cal{S}_\ell(\cal{I})$ can be described isomorphically at the level of the arrow category $\catE^{\to}$, as follows.  An object is a pair $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetal \hatotimes u_i$, as in the diagram
+The category $\cal{S}_\ell(\cal{I})$ is  isomorphic to the category having
+\begin{enumerate}[(i)]
+\item An object is a pair $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetal \hatotimes u_i$, as in the diagram
 \[
 \xymatrix@C+1em{
 u_i 
@@ -1725,7 +1727,7 @@ u_i
   u_i
 }
 \]
-A morphism $\tau \co (i, \rho) \to (i', \rho')$ consists of an arrow $\tau \co i \to i'$ in $\cal{I}$ such that the following
+\item A morphism $\tau \co (i, \rho) \to (i', \rho')$ consists of an arrow $\tau \co i \to i'$ in $\cal{I}$ such that the following
 diagram commutes:
 \[
 \xymatrix@C+2em{
@@ -1742,131 +1744,27 @@ diagram commutes:
   u_{i'}
 }
 \]
-With this description, the functor $\cal{S}_\ell(u) \co \cal{S}_\ell(\cal{I}) \to \catE^{\to}$ sends $(i, \rho)$ to $u_i$.
-\end{remark}
-
-
-
-\begin{lemma}
-\label{she-to-retract-closure}
-There exists a functor 
-\[
-\xymatrix{
-\cal{S}_\ell(\cal{I})  \ar[dr]_{\mathbb{S}_\ell(u)} \ar[rr] & & \overline{\rcyl \hatotimes \cal{I}} \ar[dl] \\
-  & \catE^{\to} & }
-\] 
-of categories over $\catE^{\to}$.
+\end{enumerate}
 \end{lemma}
 
-\begin{proof}
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\rcyl \hatotimes \cal{I}$, but let us make
-the details explicit. Suppose we are given an object $(i, \rho) \in \cal{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
-Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i, \rho)$:
-\[
-\xymatrix@C+1em{
- u_i 
-  \ar[r]^-{\thetal \hatotimes u_i}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes u_i  \ar[d]^{\rho}
-\\&
-  u_i
-}
-\]
-For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cal{S}_\ell(\cal{I})$.
-Observe that it already has the required form of a morphism $(\tau, u_\tau)$ between retracts:
-\[
-\xymatrix@C+2em{
-  u_i
-  \ar[r]^-{\thetal \hatotimes u_i}
-  \ar[d]_{u_\tau}
-  &
-  \rcyl \otimes u_i
-  \ar[r]^-{\rho}
-  \ar[d]^{\rcyl \otimes u_\tau}
-&
-  u_i
-  \ar[d]^{u_\tau}
-\\
- u_{i'} 
-  \ar[r]_-{\thetal \hatotimes u_{i'}}
-&
-  \rcyl \hatotimes u_{i'}
-  \ar[r]_-{\rho'}
-&
-  u_{i'} 
-}
-\]
+\begin{proof} This follows by \cref{strong-h-equiv-as-section-algebraic}.
 \end{proof}
 
-\begin{lemma}
-\label{horn-times-gen-to-she}
-There is a functor 
-\[
-\xymatrix{
+
+Lemma~\ref{strong-h-equiv-as-section-algebraic} allows us to define two functors as follows:
+
+\begin{equation}
+\label{she-to-retract-closure} 
+%\label{horn-times-gen-to-she}
+\xycenter{
+\cal{S}_\ell(\cal{I})  \ar[dr]_{\cal{S}_\ell(u)} \ar[rr] & & \overline{\rcyl \hatotimes \cal{I}} \ar[dl] \\
+  & \catE^{\to} & } \qquad
+\xycenter{
 \rcyl \hatotimes \cal{I} \ar[dr] \ar[rr] & & \cal{S}_\ell(\cal{I}) \ar[dl] \\ 
- & \catE^\to & }
- \] 
- of categories over $\catE^{\to}$.
-\end{lemma}
-
-\begin{proof}
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
-Since $\rcyl$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
-\[
-\xymatrix@C+1em{
-  \rcyl
-  \ar[r]^-{\thetal \hatotimes \rcyl}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes \rcyl \ar[d]^{\rho}
-\\&
-  \rcyl
-}
-\]
-Suppose we are given an object $i \in \cal{I}$, lying over the arrow $\rcyl \hatotimes u_i$.
-We construct its image $(\rcyl \hatotimes i, \rho \hatotimes u_i)$ by tensoring the previous diagram with $u_i$, using that $\cal{I}$ is closed under tensoring with $\rcyl$:
-\[
-\xymatrix@C+2em{
- u_{\rcyl \hatotimes i}
-  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
-  \ar[dr]_{\id}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i} 
-  \ar[d]^{\rho \hatotimes i}
-\\&
-  u_{\rcyl \hatotimes u_i}
-  }
-\]
-Now suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over the map $\rcyl \hatotimes u_m$ of arrows.
-We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho \hatotimes u_i) \to (\rcyl \hatotimes i', \rho \hatotimes u_{i'})$, again using that $\cal{I}$ is closed under tensoring with $\rcyl$:
-\[
-\xymatrix@C+5em{
-  u_{\rcyl \hatotimes i}
-  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
-  \ar[d]_{u_{\rcyl \hatotimes \tau}}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i}
-  \ar[r]^-{\rho \hatotimes u_i}
-  \ar[d]^{\rcyl \hatotimes u_{\rcyl \hatotimes \tau}}
-&
-  u_{\rcyl \hatotimes i}
-  \ar[d]^{u_{\rcyl \hatotimes \tau}}
-\\
-  u_{\rcyl \hatotimes i'}
-  \ar[r]_-{\thetal \hatotimes u_{\rcyl \hatotimes i'}}
-&
-  \rcyl \hatotimes u_{\rcyl \hatotimes i'} 
-  \ar[r]_-{\rho' \hatotimes u_i}
-&
-  u_{\rcyl \hatotimes i'}
-}
-\]
-Note that the right square commutes by interchange.
-\end{proof}
-
-
+ & \catE^\to & } \medskip
+\end{equation}
+These functors are defined explicitly in Appendix~\ref{app:two-functors}, the key step in proving the Frobenius property
+for $\cal{I}$-fibrations is the following lemma.
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
@@ -2268,34 +2166,12 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 But the left face forms a morphism in $\lcyl \otimes \catE$; since $p$ was assumed a $(\lcyl \otimes \catE)$-right map, its right lifting structure coheres as needed.
 \end{proof}
 
-\begin{theorem}[The Frobenius property for fibrations]
-Let $u \co \cal{I} \to \cal{E}^\to$ be a functor. For every $\cal{I}$-fibration $p \co Y \to X$, the pullback functor 
-$p^* \co \cal{E}_{/X} \to \cal{E}_{/Y}$ lifts to a functor 
-\[
-\xymatrix{
-\cal{I}_{\otimes/X} \ar[r] \ar[d] &  \overline{\cal{I}_{\otimes/Y}}\ar[d] \\ 
-\cal{E}_{/X} \ar[r]_{p^*} & \cal{E}_{/Y}
-}
-\]
-\end{theorem}
+\newcommand{\Fib}{\mathsf{Fib}}
 
-\begin{proof}
-It will suffice to separately show that $p^*$ lifts to functors 
-\[
- (\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X} \, , \quad
- (\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X} \, .
- \]
-By duality, we may restrict ourselves to the first case. Since a $\cal{I}$-fibration is in particular a $(\lcyl \otimes \calE)$-right map,
-we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
+\begin{theorem}[The Frobenius property for fibrations]
+Let $p \co Y \to X$ be an $\cal{I}$-fibration. If pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \cal{S}_\ell(\cal{I})_{/X}
-  \ar@{.>}[r]^{G}
-  \ar[d]
-&
-  \cal{S}_\ell(\cal{I})_{/Y}
-  \ar[d]
-\\
   \cal{I}_{/X}
   \ar[r]^{F}
   \ar[d]_{\cal{I}_{/X}}
@@ -2309,8 +2185,38 @@ we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that
   (\catE / Y)^{\to}
 }
 \]
- The required lift is then obtained composing this with the the functors from \cref{she-to-retract-closure}
- and \cref{horn-times-gen-to-she}, as follows:
+then it also lifts to a functor 
+\[
+\xymatrix@C+2em{
+\cal{I}\text{-}\Fib_{/X} \ar[r] \ar[d] &  \overline{\cal{I}\text{-}\Fib_{/Y}}\ar[d] \\ 
+\cal{E}_{/X} \ar[r]_{p^*} & \cal{E}_{/Y}
+}
+\]
+\end{theorem}
+
+\begin{proof}
+It will suffice to separately show that $p^*$ lifts to functors 
+\[
+ (\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X} \, , \quad
+ (\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X} \, .
+ \]
+By duality, we may restrict ourselves to the first case. Since a $\cal{I}$-fibration is in particular a $(\lcyl \otimes \id_\catE)$-right map,
+we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
+\[
+\xymatrix@C+2em{
+  \cal{S}_\ell(\cal{I})_{/X}
+  \ar[r]^{G}
+  \ar[d]
+&
+  \cal{S}_\ell(\cal{I})_{/Y}
+  \ar[d] \\
+  (\catE / X)^{\to}
+  \ar[r]_{p^*}
+&
+  (\catE / Y)^{\to}
+}
+\]
+ The desired lift is then obtained composing this with the the functors in \eqref{she-to-retract-closure}, as follows:
 \[
 \xymatrix{
   (\thetal \hatotimes \cal{I})_{/X} 
@@ -2318,7 +2224,7 @@ we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that
   \ar[dr] & 
 &
   \cal{S}_\ell(\cal{I})_{/X}
-  \ar[r]
+  \ar[r]^G 
   \ar[dl]
 &
   \cal{S}_\ell(\cal{I})_{/Y}
@@ -2332,9 +2238,9 @@ we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that
   \ar[rrr]_{p^*}
 &&&
   (\catE/Y)^{\to} & 
-}
-\]
-For the application of, note that \end{proof}
+} 
+\] \qedhere
+\end{proof}
 
 \begin{corollary}
 Pushforward lifts.
@@ -2682,9 +2588,116 @@ But the right face forms a morphism of $(\lcyl \otimes \catE)$-right maps by ass
 
 \section*{Acknowledgements}
 
-We are grateful to Steve Awodey, Simon Huber and Andrew Swan for helpful discussions on the cubical model of type theory. The second-named author would like to thank also Emily Riehl for insightful comments on algebraic weak factorization systems.
+We are grateful to Steve Awodey, Simon Huber and Andrew Swan for helpful discussions on the cubical model of type theory,
+and to Emily Riehl for insightful comments on algebraic weak factorization systems.
 
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
+
+
+\appendix
+
+\section{Two functors}
+\label{app:two-functors}
+
+\begin{proof}[Proof of \cref{she-to-retract-closure}]
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+That remark already characterizes strong left homotopy equivalences in $\cal{I}$ as particular retracts of $\rcyl \hatotimes \cal{I}$, but let us make
+the details explicit. Suppose we are given an object $(i, \rho) \in \cal{S}_\ell(\cal{I})$, lying over $u_i \co A_i \to B_i$.
+Observe that it already has the form of a retract $(i, u_i, \thetal \hatotimes i, \rho)$:
+\[
+\xymatrix@C+1em{
+ u_i 
+  \ar[r]^-{\thetal \hatotimes u_i}
+  \ar[dr]_{\id}
+&
+  \rcyl \hatotimes u_i  \ar[d]^{\rho}
+\\&
+  u_i
+}
+\]
+For morphisms, suppose we have $\tau \co (i, \rho) \to (i', \rho')$ in $\cal{S}_\ell(\cal{I})$.
+Observe that it already has the required form of a morphism $(\tau, u_\tau)$ between retracts:
+\[
+\xymatrix@C+2em{
+  u_i
+  \ar[r]^-{\thetal \hatotimes u_i}
+  \ar[d]_{u_\tau}
+  &
+  \rcyl \otimes u_i
+  \ar[r]^-{\rho}
+  \ar[d]^{\rcyl \otimes u_\tau}
+&
+  u_i
+  \ar[d]^{u_\tau}
+\\
+ u_{i'} 
+  \ar[r]_-{\thetal \hatotimes u_{i'}}
+&
+  \rcyl \hatotimes u_{i'}
+  \ar[r]_-{\rho'}
+&
+  u_{i'} 
+}
+\]
+\end{proof}
+
+
+
+\begin{proof}[Proof of \cref{horn-times-gen-to-she}]
+We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+Since $\rcyl$ is assumed a strong left homotopy equivalence, we have a retraction $\rho$ as follows:
+\[
+\xymatrix@C+1em{
+  \rcyl
+  \ar[r]^-{\thetal \hatotimes \rcyl}
+  \ar[dr]_{\id}
+&
+  \rcyl \hatotimes \rcyl \ar[d]^{\rho}
+\\&
+  \rcyl
+}
+\]
+Suppose we are given an object $i \in \cal{I}$, lying over the arrow $\rcyl \hatotimes u_i$.
+We construct its image $(\rcyl \hatotimes i, \rho \hatotimes u_i)$ by tensoring the previous diagram with $u_i$, using that $\cal{I}$ is closed under tensoring with $\rcyl$:
+\[
+\xymatrix@C+2em{
+ u_{\rcyl \hatotimes i}
+  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
+  \ar[dr]_{\id}
+&
+  \rcyl \hatotimes u_{\rcyl \hatotimes i} 
+  \ar[d]^{\rho \hatotimes i}
+\\&
+  u_{\rcyl \hatotimes u_i}
+  }
+\]
+Now suppose we are given a morphism $\tau \co i \to i'$ in $\cal{I}$, lying over the map $\rcyl \hatotimes u_m$ of arrows.
+We send it to the morphism $\rcyl \hatotimes \tau \co (\rcyl \hatotimes i, \rho \hatotimes u_i) \to (\rcyl \hatotimes i', \rho \hatotimes u_{i'})$, again using that $\cal{I}$ is closed under tensoring with $\rcyl$:
+\[
+\xymatrix@C+5em{
+  u_{\rcyl \hatotimes i}
+  \ar[r]^-{\thetal \hatotimes u_{\rcyl \hatotimes i}}
+  \ar[d]_{u_{\rcyl \hatotimes \tau}}
+&
+  \rcyl \hatotimes u_{\rcyl \hatotimes i}
+  \ar[r]^-{\rho \hatotimes u_i}
+  \ar[d]^{\rcyl \hatotimes u_{\rcyl \hatotimes \tau}}
+&
+  u_{\rcyl \hatotimes i}
+  \ar[d]^{u_{\rcyl \hatotimes \tau}}
+\\
+  u_{\rcyl \hatotimes i'}
+  \ar[r]_-{\thetal \hatotimes u_{\rcyl \hatotimes i'}}
+&
+  \rcyl \hatotimes u_{\rcyl \hatotimes i'} 
+  \ar[r]_-{\rho' \hatotimes u_i}
+&
+  u_{\rcyl \hatotimes i'}
+}
+\]
+Note that the right square commutes by interchange.
+\end{proof}
+
 
 
 
