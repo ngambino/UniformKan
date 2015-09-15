@@ -475,16 +475,13 @@ B_i \ar[r] & Y}
 where $i \in \cal{I}$, subject to a uniformity condition. 
 \end{proof}
 
-
-
 \begin{remark}
 \label{retract-closure-slicing}
 Taking the retract closure commutes with slicing and coslicing.
 \end{remark}
 
-
-Finally, we discuss the interaction between the orthogonality functors and adjunctions. In the standard setting, 
-it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$ and an adjunction
+Finally, we discuss the interaction between the orthogonality functors and adjunctions.
+In the standard setting, it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$ and an adjunction
 \[
 \xymatrix@C+1em{
   \cal{E}
@@ -495,10 +492,8 @@ it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to
   \ar@<5pt>[l]^{G}
 }
 \]
-then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\cal{I} \subseteq G(\cal{J})$. Our next proposition provides the counterpart of this fact in our setting.
-
-
-
+then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\cal{I} \subseteq G(\cal{J})$, and consequently $\liftr{F(\cal{I})} = G(\liftr{\cal{I}})$ and $\liftl{G(\cal{J})} = F(\liftl{\cal{J}})$.
+The next proposition and corollary provide counterparts of these facts in our setting.
 
 \begin{proposition}[Orthogonality and adjoints] \label{lift-of-adjunction} 
 Let $u \co \cal{I} \to \cal{E}^{\to}$ and $v \co \cal{J} \to \cal{F}^{\to}$ be functors and consider an adjunction
@@ -512,9 +507,9 @@ Let $u \co \cal{I} \to \cal{E}^{\to}$ and $v \co \cal{J} \to \cal{F}^{\to}$ be f
   \ar@<5pt>[l]^{G}
 }
 \]
-Then, the following are equivalent:
-\begin{enumerate}[(i)] 
-\item the  functor $F \co \cal{E}^\to \to \cal{F}^\to$ extends to a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ making the following diagram commute:
+Then the following are equivalent:
+\begin{enumerate}[(i)]
+\item the functor $F \co \cal{E}^\to \to \cal{F}^\to$ extends to a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ making the following diagram commute:
 \[
 \xymatrix@C=1.2cm{
   \cal{I}
@@ -531,7 +526,7 @@ Then, the following are equivalent:
 \]
 \item the functor $G \co \cal{F}^\to \to \cal{E}^\to$ extends to a functor $G' \co \cal{J} \to \liftr{\cal{I}}$, making the following diagram commute:
 \[
-\xymatrix{
+\xymatrix@C=1.2cm{
   \liftr{\cal{I}}
   \ar[d]_{\liftr{u}}
 &
@@ -564,18 +559,173 @@ B \ar[r] & GD }
  natural in $i \in \cal{I}$ and $j \in \cal{J}$. Since $F \dashv G$, these situations coincide.
 \end{proof}
 
+\cref{lift-of-adjunction} can equivalently be expressed as orthogonality functors commuting with left composition with adjoints:
 
+\begin{corollary}
+\label{pitchfork-adjunction}
+In the setting of \cref{lift-of-leibniz-adjunction}, we have canonical isomorphisms as follows:
+\begin{align*}
+\liftr{(F^{\to} \cc u)} &= G^{\to} \cc \liftr{u}
+\\
+\liftl{(G^{\to} \cc v)} &= F^{\to} \cc \liftl{v}
+\end{align*}
+\end{corollary}
 
-NEED LIFT OF TERNARY ADJUNCTIONS (AND THEIR LEIBNIZ EXTENSIONS) IN ORDER TO ESTABLISH NEXT COROLLARY.
+\begin{proof}
+For \eg the first isomorphism, set $v = \liftr{u}$ in \cref{lift-of-leibniz-adjunction} and apply the adjunction \eqref{garner-adjunction} to the first diagram.
+\end{proof}
 
+We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions.
+Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k : \cal{K}$ by an adjunction:
+\[
+\xymatrix@C+1em{
+  \cal{E}
+  \ar@<5pt>[r]^{F(k, \arghole)}
+  \ar@{}[r]|{\bot}
+&
+  \cal{F}
+  \ar@<5pt>[l]^{G(k, \arghole)}
+}
+\]
+Assume that $\cal{E}$ has pushouts and $\cal{F}$ has pullbacks.
+Let $\widehat{F} : \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to}$ and $\widehat{G} : (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}$ denote the respective Leibniz constructions for $F$ and $G^{\op}$ (using pullback instead of pushout for $G$).
+In the standard setting, it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h : \cal{K}^{\to}$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\cal{I} \subseteq \widehat{G}(h, \cal{J})$, and consequently $\liftr{F(h, \cal{I})} = G(h, \liftr{\cal{I}})$ and $\liftl{G(h, \cal{J})} = F(h, \liftl{\cal{J}})$.
+The next proposition and corollary provide counterparts of these facts in our setting.
 
+\begin{proposition}[Orthogonality and Leibniz adjoints]
+\label{lift-of-leibniz-adjunction}
+Let $u \co \cal{I} \to \cal{E}^{\to}$ and $v \co \cal{J} \to \cal{F}^{\to}$ be functors.
+Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k : \cal{K}$ by an adjunction:
+\[
+\xymatrix@C+1em{
+  \cal{E}
+  \ar@<5pt>[r]^{F(k, \arghole)}
+  \ar@{}[r]|{\bot}
+&
+  \cal{F}
+  \ar@<5pt>[l]^{G(k, \arghole)}
+}
+\]
+Assume that $\cal{E}$ has pushouts and $\cal{F}$ has pullbacks.
+Let $\widehat{F} : \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to}$ and $\widehat{G} : (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}$ denote the respective Leibniz constructions for $F$ and $G^{\op}$ (using pullback instead of pushout for $G$).
+Then the following are equivalent for $h : X \to Y$ in $\cal{K}$:
+\begin{enumerate}[(i)]
+\item Extensions $F' \co \cal{I} \to \liftl{\cal{J}}$ of the functor $\widehat{F}(h, \arghole) \co \cal{E}^\to \to \cal{F}^\to$ making the following diagram commute:
+\[
+\xymatrix@C=1.2cm{
+  \cal{I}
+  \ar[r]^{F'}
+  \ar[d]_{u}
+&
+  \liftl{\cal{J}}
+  \ar[d]^{\liftl{v}}
+\\
+  \cal{E}^{\to}
+  \ar[r]_-{\widehat{F}(h, \arghole)}
+&
+  \cal{F}^{\to}\, ,}
+\]
+\item Extensions $G' \co \cal{J} \to \liftr{\cal{I}}$ of the functor $\widehat{G}(h, \arghole) \co \cal{F}^\to \to \cal{E}^\to$  making the following diagram commute:
+\[
+\xymatrix@C=1.2cm{
+  \liftr{\cal{I}}
+  \ar[d]_{\liftr{u}}
+&
+  \cal{J}
+  \ar[l]_{G'} 
+  \ar[d]^{v}
+\\
+  \cal{E}^{\to}
+&
+  \cal{F}^{\to}
+  \ar[l]^-{\widehat{G}(h, \arghole)}
+}
+\]
+\end{enumerate}
+\end{proposition}
 
+\begin{proof}
+Giving a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for trapezoids $\widehat{F}(h, u_i) \to v_j$
+\[
+\xymatrix{
+  F(X, A)
+  \ar[r]
+  \ar[d]
+&
+  F(Y, A)
+  \ar[d]
+  \ar@/^2em/[ddr]
+\\
+  F(X, B)
+  \ar[r]
+  \ar@/_2em/[drr]
+&
+  \bullet
+  \ar[dr]_{\widehat{F}(h, u_i)}
+  \ar[rr]
+  \pullback{ul}
+&&
+  C \ar[d]^{v_j}
+\\&&
+  F(Y, B)
+  \ar[r]
+&
+  D
+}
+\]
+natural in $i \in \cal{I}$ and $j \in \cal{J}$.
+Similarly, giving a functor $G' \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for trapezoids $u_i \to \widehat{G}(h, v_j)$
+\[
+\xymatrix{
+  A
+  \ar[d]_{u_i}
+  \ar[r]
+&
+  G(Y, C)
+  \ar[dr]^{\widehat{G}(h, v_j)}
+  \ar@/_2em/[ddr]
+  \ar@/^2em/[drr]
+\\
+  B
+  \ar[rr]
+&&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  G(X, C)
+  \ar[d]
+\\&&
+  G(Y, D)
+  \ar[r]
+&
+  G(X, D)
+}
+\]
+natural in $i \in \cal{I}$ and $j \in \cal{J}$.
+Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \arghole)$, the usual Leibniz construction diagram chasing shows that these situations coincide.
+\end{proof}
 
+\cref{lift-of-leibniz-adjunction} can equivalently be expressed as orthogonality functors commuting with left composition with Leibniz adjoints:
 
+\begin{corollary}
+\label{pitchfork-leibniz-adjunction}
+In the setting of \cref{lift-of-leibniz-adjunction}, we have canonical isomorphisms as follows:
+\begin{align*}
+\liftr{(\widehat{F}(h, \arghole) \cc u)} &= \widehat{G}(h, \arghole) \cc \liftr{u}
+\\
+\liftl{(\widehat{G}(h, \arghole) \cc v)} &= \widehat{F}(h, \arghole) \cc \liftl{v}
+\end{align*}
+\end{corollary}
 
+\begin{proof}
+For \eg the first isomorphism, set $v = \liftr{u}$ in \cref{lift-of-leibniz-adjunction} and apply the adjunction \eqref{garner-adjunction} to the first diagram.
+\end{proof}
 
-
-
+\begin{remark}
+\cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction,pitchfork-leibniz-adjunction} where $\cal{K}$ is the terminal category.
+\end{remark}
 
 \section{The Frobenius property and the Beck-Chevalley condition}
 \label{sec:frobenius}
