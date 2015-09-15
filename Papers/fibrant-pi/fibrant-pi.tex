@@ -807,19 +807,19 @@ Let $u \co \cal{I} \to \catE^{\to}$ be a functor and $f \co X \to Y$ a map in $\
   (\calE/Y)^{\to}
 }
 \]
-\item right composition $f^! : \calE/Y \to \calE/X$ lifts to a functor $f^!$ between slices of $u$,
+\item right composition $f^! : \calE \backslash Y \to \calE \backslash X$ lifts to a functor $f^!$ between coslices of $u$,
 \[
 \xymatrix@C+1em{
-  \cal{I}/X
+  \cal{I} \backslash X
   \ar[d]_{u/X}
 &
-  \cal{I}/Y
+  \cal{I} \backslash Y
   \ar[l]_-{f^!}
-  \ar[d]^{u/Y}
+  \ar[d]^{u \backslash Y}
 \\
-  (\calE/X)^{\to}
+  (\calE \backslash X)^{\to}
 &
-  (\calE/Y)^{\to}
+  (\calE \backslash Y)^{\to}
   \ar[l]^-{f^!}
 }
 \]
