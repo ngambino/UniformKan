@@ -130,29 +130,6 @@ uniform fibrations as right maps satisfies the Frobenius property.
 
 
   
-\section{Preliminaries}
-
-For this,
-we need a special case of the so-called Leibniz construction~\cite{riehl-verity:reedy} (which, in fact, will be used also later on). Given a natural transformation $\phi \co F \Rightarrow
-G$, where $F, G \co \cal{E} \to \cal{E}$ are two functors, and a map $f \co X \to Y$, we define the map~$\phi \hatotimes f \co GX +_{FX} FY \to GY$ via the following
-pushout diagram:
- \[
-\xymatrix@C=1.2cm{
-FX \ar[r]^{Ff}  \ar[d]_{\phi_X} & FY  \ar@/^2pc/[ddr]^{\phi_Y} \ar[d] & \\ 
-GX \ar@/_1pc/[drr]_{Gf} \ar[r] &  GX +_{FX} FY \ar[dr]^-(.35){\phi \hatotimes f}  & \\ 
- & & GY } 
- \]
-This operation extends to a functor $(-) \hatotimes (-) \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$. 
-
-The internal hom $\hatexp(f,g)$ in $\catE^\to$ of $f \co X \to Y$ and $g \co U \to V$, is their \emph{pullback exponential}, obtained by the following pullback diagram
-\[
-\xymatrix@R=1.2cm{
-[Y, U] \ar@/^2pc/[drr]^{[f,U]} \ar@/_2pc/[ddr]_{[Y,g]}  \ar[dr]^{\hatexp(f,g)} & & \\ 
- & [Y,V] \times_{[X,V]} [X,U]  \ar[d] \ar[r] & [X,U] \ar[d]^{[X,g]} \\
- & [Y,V] \ar[r]_{[f,V]} & [X,V] }
- \]
- 
-
 
 
 \section{Categories of orthogonal maps} 
@@ -576,7 +553,7 @@ For \eg the first isomorphism, apply the adjunction \eqref{garner-adjunction} to
 \end{proof}
 
 We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions.
-Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k : \cal{K}$ by an adjunction:
+Consider bifunctors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k \in \cal{K}$ by an adjunction:
 \[
 \xymatrix@C+1em{
   \cal{E}
@@ -588,14 +565,20 @@ Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{
 }
 \]
 Assume that $\cal{E}$ has pushouts and $\cal{F}$ has pullbacks.
-Let $\widehat{F} : \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to}$ and $\widehat{G} : (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}$ denote the respective Leibniz constructions for $F$ and $G^{\op}$ (using pullback instead of pushout for $G$).
-In the standard setting, it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h : \cal{K}^{\to}$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$, and consequently $\liftr{F(h, \cal{I})} = G(h, \liftr{\cal{I}})$ and $\liftl{G(h, \cal{J})} = F(h, \liftl{\cal{J}})$.
+Let 
+\[
+\widehat{F} \co \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to} \, , \quad
+\widehat{G} \co (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}
+\] 
+denote the respective Leibniz constructions for $F$ and $G^{\op}$, using pullback instead of pushout for~$\widehat{G}$.
+In the standard setting, it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h \in \cal{K}^{\to}$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$, and consequently $\liftr{F(h, \cal{I})} = G(h, \liftr{\cal{I}})$ and $\liftl{G(h, \cal{J})} = F(h, \liftl{\cal{J}})$.
 The next proposition and corollary provide counterparts of these facts in our setting.
 
 \begin{proposition}[Orthogonality and Leibniz adjoints]
 \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \cal{E}^{\to}$ and $v \co \cal{J} \to \cal{F}^{\to}$ be functors.
-Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k : \cal{K}$ by an adjunction:
+Consider bifunctors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for 
+$k \in \cal{K}$ by an adjunction:
 \[
 \xymatrix@C+1em{
   \cal{E}
@@ -607,8 +590,12 @@ Consider bifunctions $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{
 }
 \]
 Assume that $\cal{E}$ has pushouts and $\cal{F}$ has pullbacks.
-Let $\widehat{F} : \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to}$ and $\widehat{G} : (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}$ denote the respective Leibniz constructions for $F$ and $G^{\op}$ (using pullback instead of pushout for $G$).
-Then the following are equivalent for $h : X \to Y$ in $\cal{K}$:
+Let 
+\[
+\widehat{F} \co \cal{K}^{\to} \times \cal{E}^{\to} \to \cal{F}^{\to} \, , \quad \widehat{G} \co (\cal{K}^{\op})^{\to} \times \cal{F}^{\to} \to \cal{E}^{\to}
+\] 
+denote the respective Leibniz constructions for $F$ and $G^{\op}$ (using pullback instead of pushout for $G$).
+Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$:
 \begin{enumerate}[(i)]
 \item Extensions $F' \co \cal{I} \to \liftl{\cal{J}}$ of the functor $\widehat{F}(h, \arghole) \co \cal{E}^\to \to \cal{F}^\to$ making the following diagram commute:
 \[
@@ -1087,26 +1074,25 @@ X  \ar[r]^{f}  \ar[d]_{\kcyl_{X}} & Y  \ar@/^2pc/[ddr]^{\kcyl_{Y}} \ar[d] & \\
 Note that this is an instance of the Leibniz construction. 
 
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let 
-$\bot \co 0_\catE \Rightarrow \Id_\catE$ be the natural transformation with the unique maps $\bot_X \co 0 \to X$
-as components. Observe that for every $f \co X \to Y$, we have an isomorphism
+$\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$. Observe that for every $f \co X \to Y$, we have an isomorphism
 \begin{equation}
 \label{equ:bot-hatotimes-f}
-\bot \hatotimes f \iso f 
+\bot \hatotimes f \iso f \, .
 \end{equation}
-For $k \in \{ 0, 1 \}$, we then have a commutative square of natural transformations
+For $k \in \{ 0, 1 \}$, we then have a commutative square of functors and natural transformations
 \[
 \xymatrix@C+2em{
 0_\catE \ar[r]^{\bot} \ar[d]_{\bot} & \id_\catE \ar[d]^{\rcyl} \\
 \id_\catE \ar[r]_{\lcyl} & \interval \otimes (-)}
 \]
-This diagram determines two maps in the arrow category of $[\catE, \catE]$, 
+This diagram determines two maps in $[\catE, \catE]^\to$, 
 \begin{equation}
 \label{equ:thetas}
-\thetal \co \bot \Rightarrow \rcyl \, , \quad \thetar \co \bot \Rightarrow \lcyl 
+\thetal \co \bot \rightarrow \rcyl \, , \quad \thetar \co \bot \rightarrow \lcyl 
 \end{equation}
 which are defined by letting $\thetal \defeq (\bot, \lcyl)$ and $\thetar  \defeq (\bot, \rcyl)$.  By functoriality of the Leibniz construction
 and the isomorphisms in~\eqref{equ:bot-hatotimes-f}, the
-maps in~\eqref{equ:thetas} give us maps 
+maps in~\eqref{equ:thetas} give us two maps 
  \[
  \thetal \hatotimes f \co f \to \rcyl \hatotimes f  \, , \qquad \thetar \hatotimes f \co f \to \lcyl \hatotimes f 
  \]
@@ -1830,19 +1816,19 @@ But the left face forms a morphism in $\lcyl \otimes \catE$; since $p$ was assum
 \end{proof}
 
 For the next result, we assume that $\cal{I}$ is closed under tensoring with $\rcyl$ and  that $\rcyl$ is a strong left homotopy equivalence,
-which allows us to use the functors in~\eqref{she-to-retract-closure}.
+which allows us to use the functors in~\eqref{she-to-retract-closure} and~\eqref{horn-times-gen-to-she}.
 
-\begin{theorem}[The Frobenius property for fibrations]
+\begin{theorem}
 \label{thm:frobenius-fibrations}
 Let $p \co Y \to X$ be an $\cal{I}$-fibration. If pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \cal{I}_{/X}
   \ar[r]^{F}
-  \ar[d]_{\cal{I}_{/X}}
+  \ar[d]_{u_{/X}}
 &
   \cal{I}_{/Y}
-  \ar[d]^{\cal{I}_{/Y}}
+  \ar[d]^{u_{/Y}}
 \\
   (\catE / X)^{\to}
   \ar[r]_{p^*}
@@ -1853,19 +1839,31 @@ Let $p \co Y \to X$ be an $\cal{I}$-fibration. If pullback along $p$ lifts to a 
 then it also lifts to a functor 
 \[
 \xymatrix@C+2em{
-\cal{I}\text{-}\Fib_{/X} \ar[r] \ar[d] &  \overline{\cal{I}\text{-}\Fib_{/Y}}\ar[d] \\ 
+\cal{I}\text{-}\Fib_{/X} \ar[r] \ar[d]_{v/X} &  \overline{\cal{I}\text{-}\Fib}_{/Y} \ar[d]^{v/Y} \\ 
 \cal{E}_{/X} \ar[r]_{p^*} & \cal{E}_{/Y}
 }
 \]
 \end{theorem}
 
 \begin{proof}
-It will suffice to separately show that $p^*$ lifts to functors 
+It will suffice to separately show that $p^*$ lifts to functors
 \[
- (\thetal \hatotimes \cal{I})_{/X} \to \overline{\thetal \hatotimes \cal{I}}_{/X} \, , \quad
- (\thetar \hatotimes \cal{I})_{/X} \to \overline{\thetar \hatotimes \cal{I}}_{/X} \, .
- \]
-By duality, we may restrict ourselves to the first case. Since a $\cal{I}$-fibration is in particular a $(\lcyl \otimes \id_\catE)$-right map,
+\xymatrix@C+2em{
+  \cal{I}_{/X}
+  \ar[r]^{F}
+  \ar[d]_{(\kcyl \hatotimes u)_{/X}}
+&
+  \overline{\cal{I}}_{/Y}
+  \ar[d]^{  \overline{\kcyl \hatotimes u}_{/Y}}
+\\
+  (\catE / X)^{\to}
+  \ar[r]_{p^*}
+&
+  (\catE / Y)^{\to}
+}
+\]
+ for $k \in \{0, 1\}$. 
+For simplicity, we treat the case of $k =0$. Since a $\cal{I}$-fibration is in particular a $(\lcyl \otimes \id_\catE)$-right map,
 we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
 \[
 \xymatrix@C+2em{
@@ -1881,30 +1879,31 @@ we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that
   (\catE / Y)^{\to}
 }
 \]
- The desired lift is then obtained composing this with the the functors in \eqref{she-to-retract-closure}, as follows:
+Composing this with the the functors in \eqref{she-to-retract-closure} and~\eqref{horn-times-gen-to-she}, we obtain
 \[
 \xymatrix{
-  (\thetal \hatotimes \cal{I})_{/X} 
-  \ar[rr]
-  \ar[dr] & 
+  \cal{I}_{/X} 
+  \ar[rr]^{M_{/X}}
+  \ar[dr]_{(\lcyl \hatotimes u)_{/X}} & 
 &
   \cal{S}_\ell(\cal{I})_{/X}
   \ar[r]^G 
   \ar[dl]
 &
   \cal{S}_\ell(\cal{I})_{/Y}
-  \ar[rr]
+  \ar[rr]^{L_{/Y}}
   \ar[dr]
 & &
-  \overline{\thetal \hatotimes \cal{I}}_{/Y}
-  \ar[dl]
+  \overline{\cal{I}_{/Y}}
+  \ar[dl]^{\overline{\lcyl \hatotimes u}_{/Y}}
 \\ & 
   (\catE/X)^{\to}
   \ar[rrr]_{p^*}
 &&&
   (\catE/Y)^{\to} & 
 } 
-\] \qedhere
+\] 
+as required.
 \end{proof}
 
 \begin{corollary}
@@ -2847,6 +2846,31 @@ and to Emily Riehl for insightful comments on algebraic weak factorization syste
 
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
 
+\appendix
+
+
+\section{Some auxiliary notions}
+
+For this,
+we need a special case of the so-called Leibniz construction~\cite{riehl-verity:reedy} (which, in fact, will be used also later on). Given a natural transformation $\phi \co F \Rightarrow
+G$, where $F, G \co \cal{E} \to \cal{E}$ are two functors, and a map $f \co X \to Y$, we define the map~$\phi \hatotimes f \co GX +_{FX} FY \to GY$ via the following
+pushout diagram:
+ \[
+\xymatrix@C=1.2cm{
+FX \ar[r]^{Ff}  \ar[d]_{\phi_X} & FY  \ar@/^2pc/[ddr]^{\phi_Y} \ar[d] & \\ 
+GX \ar@/_1pc/[drr]_{Gf} \ar[r] &  GX +_{FX} FY \ar[dr]^-(.35){\phi \hatotimes f}  & \\ 
+ & & GY } 
+ \]
+This operation extends to a functor $(-) \hatotimes (-) \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$. 
+
+The internal hom $\hatexp(f,g)$ in $\catE^\to$ of $f \co X \to Y$ and $g \co U \to V$, is their \emph{pullback exponential}, obtained by the following pullback diagram
+\[
+\xymatrix@R=1.2cm{
+[Y, U] \ar@/^2pc/[drr]^{[f,U]} \ar@/_2pc/[ddr]_{[Y,g]}  \ar[dr]^{\hatexp(f,g)} & & \\ 
+ & [Y,V] \times_{[X,V]} [X,U]  \ar[d] \ar[r] & [X,U] \ar[d]^{[X,g]} \\
+ & [Y,V] \ar[r]_{[f,V]} & [X,V] }
+ \]
+ 
 
 
 
