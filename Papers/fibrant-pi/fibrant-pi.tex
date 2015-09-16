@@ -727,6 +727,15 @@ For \eg the first isomorphism, apply the adjunction \eqref{garner-adjunction} to
 \cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction,pitchfork-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 \end{remark}
 
+\begin{example}
+\label{pitchfork-leibniz-most-general-example}
+In \cref{lift-of-leibniz-adjunction} or \cref{pitchfork-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $F : \cal{E} \to \cal{F}$ and $G : \cal{F} \to \cal{E}$.
+A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u : U_1 \to U_2$ and $v : V_2 \to V_1$ forming mates.
+Note that we have fully faithful forgetful functors $\cal{K} \to [\cal{E}, \cal{F}]$ and $\cal{K} \to [\cal{F}, \cal{E}]^{\op}$.
+We have functors $F : \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ given by left and right adjoint application, respectively.
+This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-adjunction}.
+\end{example}
+
 \section{The Frobenius property}
 \label{sec:frobenius}
 
@@ -1411,7 +1420,9 @@ For every map $p \co X \to Y$ in $\cal{E}$
 \end{enumerate} 
 \end{proposition}
 
-\begin{proof} The claim is a consequence of \cref{pitchfork-leibniz-adjunction}.
+\begin{proof}
+First note that the right orthogonality functor sends coproducts to products of categories over $\cal{E}^{\to}$ as evidenced by the adjunction~\eqref{garner-adjunction}.
+The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as applied in \cref{pitchfork-leibniz-most-general-example}. 
 \end{proof}
 
 
