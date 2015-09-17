@@ -6,11 +6,8 @@
 \usepackage{stmaryrd}
 \usepackage{enumerate}
 \usepackage[all,cmtip,2cell]{xy} % cmtip gives arrow heads like in Shulman's papers
-\usepackage{mathpartir}
 \usepackage{fouridx}
 \usepackage{bbm}
-
-
 
 %% General packages
 \usepackage{geometry}
@@ -19,7 +16,7 @@
 \usepackage{url}
 \usepackage{cleveref}
 \usepackage[utf8]{inputenc}
-
+\usepackage{color}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Adapted from the HoTT book sources.
@@ -49,7 +46,6 @@
 \theoremstyle{remark}
 \defthm{remark}{remarks}{Remark}{Remarks}
 \defthm{example}{examples}{Example}{Examples}
-\defthm{note}{notes}{Note}{Notes}
 \defthm{question}{questions}{Question}{Questions}
 
 %%% Lambda abstractions.
@@ -76,7 +72,7 @@
 \newdir{ >}{{}*!/-7pt/@{>}}
 \newdir{m}{->}
 %\newdir{m}{{}*!/-1pt/@{o}}
-\newcommand{\xycenter}[1]{\vcenter{\hbox{\xymatrix{#1}}}}
+\newcommand{\xycenter}[1]{\begin{gathered}\xymatrix{#1}\end{gathered}}
 %%% Pullback symbols
 \newcommand{\pullback}[1]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
 \newcommand{\ulpullback}{\pullback{ul}}
@@ -209,7 +205,7 @@
 
 \newcommand{\Slice}{\operatorname{Slice}}
 
-\newcommand{\Fib}{\mathsf{Fib}}
+\newcommand{\Fib}[1]{{#1}\text{-}\mathsf{Fib}}
 
 \newcommand{\initial}{\bot}
 \newcommand{\terminal}{\top}
@@ -243,3 +239,16 @@
 \hyphenation{e-pi-mor-phisms}
 \hyphenation{mo-no-mor-phism}
 \hyphenation{mo-no-mor-phisms}
+
+
+\newcommand{\note}[1]{\textcolor{red}{[{#1}]}}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+\makeatother
+
+\newcommand{\para}[1]{\smallskip\noindent\textbf{{#1}.\ }\ignorespacesandallpars}
