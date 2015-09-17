@@ -115,25 +115,29 @@ by the independence result in~\cite{coquand-non-constructivity-kan}, these argum
 \smallskip
 
 \noindent
-\textbf{Organization of the paper.} Section~\ref{sec:preliminaries} recalls some preliminary notions,
-such as the Leibniz construction.
-Section~\ref{sec-orthog-functors} establishes basic facts about orthogonality functors.
-Section~\ref{sec:frobenius} defines the Frobenius property for natural weak factorisation
-systems and provides alternative characterizations of it. 
-Section~\ref{sec:uniform-fibrations} defines uniform trivial fibrations and uniform fibrations and
-establishes the existence of natural weak factorisation systems in which they are the 
-right maps.
-Section~\ref{section-kan-fib} shows that, assuming the axiom of choice, every Kan fibration
+\textbf{Organization of the paper.} Section~\ref{sec:unif} 
+introduces uniform fibrations.
+Section~\ref{sec:ortf} establishes basic facts about orthogonality functors which will be 
+useful in the  reminder of the paper. 
+Section~\ref{sec:frobc} introduces the Frobenius  and Beck-Chevalley conditions
+ and provides alternative characterizations of them.
+Section~\ref{sec:strhe} introduces strong homotopy equivalences,
+which play an important role in the proof of the Frobenius and Beck-Chevalley
+properties for uniform fibrations, which are presented in \cref{sec:frocuf} and
+\cref{sec:becccu}, respectively. 
+Section~\ref{sec:exinwf} shows the existence of natural weak factorisation
+systems in which the right maps are the uniform Kan fibrations. 
+Finally, in \cref{sec:kanfuk} w show that, 
+ assuming the axiom of choice, every Kan fibration
 can be equipped with the structure of a uniform Kan fibration.
-Finally, in Section~\ref{sec:frobenius-uniform-fibration} we show that the weak factorisation system with
-uniform fibrations as right maps satisfies the Frobenius property.
+Appendix~\ref{sec:auxn} reviews some useful notions.
 
 
   
 
 
 \section{Uniform fibrations} 
-\label{sec:right-maps-and-fibrations}
+\label{sec:unif}
 
 
 
@@ -238,7 +242,8 @@ $\lcyl \co \id_\catE \to \interval \otimes (-)$, $\rcyl \co  \id_\catE \to \inte
  \medskip
  
  Let us now assume to have a fixed functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$  in $\calE$.
- We use it in combination with the Leibniz construction to define a functor $v \co \cal{J} \to \catE^\to$ that
+ We use it in combination with a particular case of the Leibniz construction, in the sense of~\cite{riehl-verity:reedy},
+ to define a functor $v \co \cal{J} \to \catE^\to$ that
  will determine our notion of a uniform fibration.  Given
  $i \co A \to B$, for $k \in \{0 , 1 \}$, we define 
  \[
@@ -284,11 +289,13 @@ a diagonal filler, subject to a naturality condition.
 \end{enumerate}
 \end{definition}
 
+\medskip
+
 We write $\cal{I}\text{-}\Fib$ for the category of uniform $\cal{I}$-fibrations and their morphisms. In
 other words, we let $\cal{I}\text{-}\Fib \defeq \liftr{\cal{J}}$.  
 
 
-\begin{example}[Uniform Kan fibration] Let $\catE$ be a presheaf category equipped
+\begin{example}[Uniform Kan fibrations] Let $\catE$ be a presheaf category equipped
 with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$. 
 A \emph{uniform  Kan fibration} is a uniform $\cal{M}$-fibration, \ie 
 a map  $p \co X \to Y$ equipped with a function~$\phi$ that assigns
@@ -322,17 +329,17 @@ A  \ar[r]^{i}  \ar[d]_{(h^k_1, \id_A)} & B  \ar@/^2pc/[ddr]^{(h^k_1, \id_B)} \ar
  \end{gathered}
  \end{equation*}
 As mentioned in \cref{exa:cyl-in-sset}, the maps $h^0_1 \, , h^1_1 \co 1 \to \Delta_1$ used here are the two horn
- inclusions into $\Delta_1$.  Thus, higher-dimensional horns are not involved
+ inclusions into~$\Delta_1$.  Thus, higher-dimensional horns are not involved
  explicitly in the definition of a uniform Kan fibration in simplicial sets. However, 
   since they are included indirectly since they are  retracts of one-dimensional horns by Leibniz product 
   with certain subobjects of representables~\cite{joyal-quaderns} (see also \cite[Proposition 2.1.2.6]{lurie:htt}). Indeed, we will show in 
-  \cref{section-kan-fib} that assuming the axiom of choice
+  \cref{sec:kanfuk} that, assuming the axiom of choice,
   every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
   \end{example} 
 
 
 \section{Orthogonality functors}
-\label{sec:orthogonal-functors}
+\label{sec:ortf}
 
 
 The aim of this section is to establish some general facts regarding categories of right maps that will be useful
@@ -340,6 +347,8 @@ in the remainder of the paper. In particular, we will apply these results to cat
 Kan fibrations and  categories of uniform Kan fibrations, since both of these kinds of categories 
 are defined as categories of right maps. Within this section, we simply work with a category $\catE$,
 without assuming any additional structure. 
+
+\medskip
 
 Let us begin by recalling from~\cite{garner:small-object-argument} that the function mapping  a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$
 defines the action on objects of a functor
@@ -357,7 +366,7 @@ In view of its use in \cref{thm:orth-nat}, we recall the action of this functor 
  & \catE^\to }
 \]
 For $(f, \phi) \in \liftr{\cal{J}}$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$, where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$. 
-As shown in~\cite{garner:small-object-argument}, analogously to the way in which standard orthogonality operations determine a Galois connection between the poset of subsets of arrows in~$\catE$ and its opposite, the orthogonality functors form an adjunction 
+As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to the way in which standard orthogonality operations determine a Galois connection between the poset of subsets of arrows in~$\catE$ and its opposite, the orthogonality functors form an adjunction 
 \begin{equation}
 \label{garner-adjunction}
 \begin{gathered}
@@ -603,12 +612,7 @@ B_i \ar[r] & Y}
 where $i \in \cal{I}$, subject to a uniformity condition. 
 \end{proof}
 
-\begin{remark}
-\label{retract-closure-slicing}
-Taking the retract closure commutes with slicing and coslicing.
-\end{remark}
-
-Finally, we discuss the interaction between the orthogonality functors and adjunctions.
+Let us also observe that the retract closure commutes with slicing and coslicing. Finally, we discuss the interaction between the orthogonality functors and adjunctions.
 In the standard setting, it is well known that if  we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$ and an adjunction
 \[
 \xymatrix@C+1em{
@@ -712,7 +716,7 @@ there are canonical isomorphisms
 For the first isomorphism, apply the adjunction \eqref{garner-adjunction} to the first diagram in \cref{lift-of-adjunction} and compare it with the second diagram. The second isomorphism is obtained similarly.
 \end{proof}
 
-We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions.
+We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
 Consider bifunctors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k \in \cal{K}$ by an adjunction:
 \[
 \xymatrix@C+1em{
@@ -792,62 +796,24 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$:
 \end{proposition}
 
 \begin{proof}
-Giving a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for trapezoids $\widehat{F}(h, u_i) \to v_j$
+Giving a functor $F' \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for diagrams
+of the form
 \[
-\xymatrix{
-  F(X, A)
-  \ar[r]
-  \ar[d]
-&
-  F(Y, A)
-  \ar[d]
-  \ar@/^2em/[ddr]
-\\
-  F(X, B)
-  \ar[r]
-  \ar@/_2em/[drr]
-&
-  \bullet
-  \ar[dr]_{\widehat{F}(h, u_i)}
-  \ar[rr]
-  \pullback{ul}
-&&
-  C \ar[d]^{v_j}
-\\&&
-  F(Y, B)
-  \ar[r]
-&
-  D
-}
+\xymatrix@C+2em{
+F(X,B) +_{F(X,A)} F(Y,A)  \ar[d]_{\widehat{F}(h, u_i)} \ar[r] &  
+  C_j \ar[d]^{v_j} \\
+F(Y, B)  \ar[r] &
+  D_j }
 \]
 natural in $i \in \cal{I}$ and $j \in \cal{J}$.
-Similarly, giving a functor $G' \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for trapezoids $u_i \to \widehat{G}(h, v_j)$
+Similarly, giving a functor $G' \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for squares
+of the form
 \[
-\xymatrix{
-  A
-  \ar[d]_{u_i}
-  \ar[r]
-&
-  G(Y, C)
-  \ar[dr]^{\widehat{G}(h, v_j)}
-  \ar@/_2em/[ddr]
-  \ar@/^2em/[drr]
-\\
-  B
-  \ar[rr]
-&&
-  \bullet
-  \ar[r]
-  \ar[d]
-  \pullback{dr}
-&
-  G(X, C)
-  \ar[d]
-\\&&
-  G(Y, D)
-  \ar[r]
-&
-  G(X, D)
+\xymatrix@C+2em{
+  A_i  \ar[d]_{u_i} \ar[r] &
+  G(Y, C)  \ar[d]^{\widehat{G}(h, v_j)} \\
+  B \ar[r] &
+  G(Y,D) \times_{G(X,D)} G(X,D) 
 }
 \]
 natural in $i \in \cal{I}$ and $j \in \cal{J}$.
@@ -860,9 +826,9 @@ Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \ar
 \label{pitchfork-leibniz-adjunction}
 In the setting of \cref{lift-of-leibniz-adjunction}, we have canonical isomorphisms as follows:
 \begin{align*}
-\liftr{(\widehat{F}(h, \arghole) \cc u)} &= \widehat{G}(h, \arghole) \cc \liftr{u}
+\liftr{(\widehat{F}(h, -) \cc u)} &= \widehat{G}(h, -) \cc \liftr{u}
 \\
-\liftl{(\widehat{G}(h, \arghole) \cc v)} &= \widehat{F}(h, \arghole) \cc \liftl{v}
+\liftl{(\widehat{G}(h, -) \cc v)} &= \widehat{F}(h, -) \cc \liftl{v}
 \end{align*}
 \end{corollary}
 
@@ -886,12 +852,28 @@ This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-
 
 \medskip
 
-We can apply the results obtained above to relate precisely right maps and uniform fibrations. 
+Let us now return to consider the case of a category $\cal{E}$ with finite limits and colimits and
+equipped with a functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$. For a functor 
+ $u \co \cal{I} \to \cal{E}^\to$, we can apply the results obtained above to relate precisely 
+ right $\cal{I}$-maps and uniform $\cal{I}$-fibrations. In order to
+do so, we consider the following Leibniz adjunction. Given a map $p \co X \to Y$, we define $\hatexp(\kcyl,p)$ by the following pullback diagram
+\[
+\xymatrix@R=1.2cm{
+X \ar@/^2pc/[drr]^{p} \ar@/_2pc/[ddr]_{\kcyl_X}  \ar[dr]^{\hatexp(\kcyl,p)} & & \\ 
+ & (\interval \otimes X) \times_{\interval \otimes Y} Y \ar[d] \ar[r] & Y \ar[d]^{\kcyl_Y} \\
+ & \interval \otimes X \ar[r]_{\interval \otimes p } &  \interval \otimes Y}
+ \]
+ There is then an adjunction of the form
+ \[
+ \xymatrix@C+4em{
+ \cal{E}^\to \ar@<1ex>[r]^{\kcyl \hatotimes (-)} \ar@{}[r]|{\bot} &
+ \cal{E}^\to \ar@<1ex>[l]^{\hatexp(\kcyl, -)} }
+ \]
+which is the key to establish the next result.
 
 
 \begin{proposition} \label{prod-exp-general}
-Let $\cal{E}$ be a finitely complete and cocomplete category equipped with a functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$,
-and let $u \co \cal{I} \to \cal{E}^\to$ be a functor.  For every map $p \co X \to Y$ in $\cal{E}$ the following are equivalent: 
+For every map $p \co X \to Y$ in $\cal{E}$ the following are equivalent: 
 \begin{enumerate}[(i)]
 \item $p$ admits the structure of a uniform $\cal{I}$-fibration. 
 \item $\hatexp(\lcyl, p)$ and $\hatexp(\rcyl, p)$ admit the structure of right $\cal{I}$-maps.
@@ -906,9 +888,10 @@ The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as a
 
 
 \section{The Frobenius and Beck-Chevalley conditions}
+\label{sec:frobc}
 
 The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} 
-\to \cal{E}^\to$. As we will see, our results in \cref{sec:orthogonal-functors} show that when the pullback functor $f^*$ has a right adjoint 
+\to \cal{E}^\to$. As we will see, our results in \cref{sec:ortf} show that when the pullback functor $f^*$ has a right adjoint 
 $f_*$ then $f$ satisfies the Frobenius property if and only if~$f_*$ preserves, in a suitable sense, right $\cal{I}$-maps. The second aim
 of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting, and providing two equivalent
 formulations, in terms of either pullback or pushforward functors.
@@ -1047,14 +1030,13 @@ satisfies the \emph{Beck-Chevalley condition} if the canonical natural transform
  \[
 \xymatrix{
   (\cal{E}^\to)_{/X}
-  \ar[r]^{s_!}
+  \ar[r]^{s_!} \ar@{}[dr]|{\Downarrow \, \phi}
 &
   (\cal{E}^\to)_{/U}
 \\
   (\cal{E}^\to)_{/Y}
   \ar[u]^{f^*} 
   \ar[r]_{t_!}
-  \urtwocell<\omit>{\phi'}
 &
   (\cal{E}^\to)_{/V}
   \ar[u]_{g^*}
@@ -1065,13 +1047,13 @@ satisfies the \emph{Beck-Chevalley condition} if the canonical natural transform
 \xymatrix{
   \cal{I}_{/X}
   \ar[r]^{s_!}
+   \ar@{}[dr]|{\Downarrow \, \phi'}
 &
    \cal{I}_{/U}
 \\
    \cal{I}_{/Y}
   \ar[u]^{f^*} 
   \ar[r]_{t_!}
-  \urtwocell<\omit>{\phi'}
 &
    \cal{I}_{/V}
   \ar[u]_{g^*}
@@ -1154,6 +1136,7 @@ the following are equivalent:
 \xymatrix{
   \catE^\to_{/X}
   \ar[d]_{f_*}
+  \ar@{}[dr]|{\Uparrow \, \psi}
 &
   \catE^\to_{/U} \ar[d]^{g_*} \ar[l]_{s^*} 
 \\
@@ -1168,6 +1151,7 @@ lifts to a natural transformation
 \xymatrix{
   \cal{I}_{/X}
   \ar[d]_{f_*}
+  \ar@{}[dr]|{\Uparrow \, \psi'}
 &
   \cal{I}_{/U} \ar[d]^{g_*} \ar[l]_{s^*} 
 \\
@@ -1185,49 +1169,50 @@ lifts to a natural transformation
 Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{lift-pullback} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
 \end{proof}
 
-As we will see in \cref{sec:beck-chevalley-fibrations}, cartesian squares between uniform fibrations satisfy
+As we will see in \cref{sec:becccu}, cartesian squares between uniform fibrations satisfy
 the Beck-Chevalley condition  under very mild assumptions. In particular, cartesian squares between uniform Kan fibrations
 in presheaf categories satisfy the Beck-Chevalley condition.
 
 
 \section{Strong homotopy equivalences}
+\label{sec:strhe}
 
 The aim of this section is to develop some general results on homotopies in the general setting of a category 
 $\catE$ be a equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$. In particular, we introduce
 the notion of strong homotopy equivalence and provide a characterization for it, which will be useful in our study
-of Frobenius condition for uniform fibrations in \cref{sec:frobenius-uniform-fibration}. We begin by recalling a basic
+of Frobenius condition for uniform fibrations in \cref{sec:frocuf}. We begin by recalling a basic
 definition. 
 
 
 
 \begin{definition} \label{def:homotopy}
  Let $f, g \co X \to Y$ be maps in $\catE$. A \emph{homotopy from $f$ to $g$}, denoted $h \co f \sim g$,  is a morphism 
-$h \co \interval \otimes X \to Y$ such that the following diagrams commute:
+$\phi \co \interval \otimes X \to Y$ such that the following diagrams commute:
 \[
 \xymatrix@C=1.2cm{
-X \ar[r]^-{\lcyl_X} \ar[dr]_{f} & \interval \otimes X \ar[d]^{h} & X \ar[dl]^{g} \ar[l]_-{\rcyl_X}  \\
+X \ar[r]^-{\lcyl_X} \ar[dr]_{f} & \interval \otimes X \ar[d]^-{\phi} & X \ar[dl]^{g} \ar[l]_-{\rcyl_X}  \\
  & Y & }
  \]
  \end{definition}
  
  \begin{definition} \hfill 
  \begin{enumerate}[(i)] 
- \item  A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $h \co \id_X \sim g \cc f$ and $k \co
-\id_Y \sim f \cc g$. Such a left homotopy equivalence is said to be \emph{strong} if the
+ \item  A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co
+\id_Y \sim f \cc g$. Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f
+ \sim \id_X $ and $\psi \co
+ f \cc g \sim \id_Y$.
+\item  Such a left or right homotopy equivalence is said to be \emph{strong} if the
 following diagram commutes:
 \[
 \xymatrix{
-\interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{h} & \interval \otimes Y \ar[d]^{k} \\
+\interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{\phi} & \interval \otimes Y \ar[d]^{\psi} \\
 X \ar[r]_{f} & Y}
 \]
-\item  A map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $h \co g \cc f
- \sim \id_X $ and $k \co
- f \cc g \sim \id_Y$. Such a right homotopy equivalence is said to be \emph{strong} if the
-following diagram commutes [CHANGE]
+and \emph{co-strong} if the following diagram commutes:
 \[
 \xymatrix{
-\interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{h} & \interval \otimes Y \ar[d]^{k} \\
-X \ar[r]_{f} & Y}
+\interval \otimes Y \ar[r]^{\interval \otimes g } \ar[d]_{\psi} & \interval \otimes X \ar[d]^{\phi} \\
+Y \ar[r]_{g} & X}
 \]
 \end{enumerate}
 \end{definition}
@@ -1244,9 +1229,9 @@ that the homotopy $h$ is trivial.
 
 Let us now fix a functor $u \co \cal{I} \to \catE^\to$. We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies, relative
 to  $\cal{I}$ as follows. 
-The objects of $\cal{S}_1(\cal{I})$ are  4-tuples $(i, g,h,k)$ consisting of an object $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence,
-\ie arrows $g \co B_i \to A_i$, $h \co \interval \otimes A \to A$, $k \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
-A morphism $m \co (i,g, h, k) \to (i', g', h', k')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing 
+The objects of $\cal{S}_1(\cal{I})$ are  4-tuples $(i, g,\phi,\psi)$ consisting of an object $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence,
+\ie arrows $g \co B_i \to A_i$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
+A morphism $m \co (i,g, \phi, \psi) \to (i', g', \phi', \psi')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing 
 \[
 \xymatrix{
 A \ar[d]_{u_i}  \ar[r]^s & A' \ar[d]^{u_{i'}} \\
@@ -1270,11 +1255,11 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 \and
 \xymatrix@C+2em{
   \interval \otimes A
-  \ar[d]_{h}
+  \ar[d]_{\phi}
   \ar[r]^{\interval \otimes s}
 &
   I \otimes A'
-  \ar[d]^{h'}
+  \ar[d]^{\phi'}
 \\
   A  \ar[r]_{s}
 &  A'
@@ -1282,11 +1267,11 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 \and
 \xymatrix{
   \interval \otimes B
-  \ar[d]_{k}
+  \ar[d]_{\psi}
   \ar[r]^{\interval \otimes t}
 &
   I \otimes B'
-  \ar[d]^{k'}
+  \ar[d]^{\psi'}
 \\
   B
   \ar[r]_{t}
@@ -1294,7 +1279,7 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
   B'
 }
 \end{mathpar}
-Note that there is an obvious forgetful functor $\cal{S}_1(\cal{I}) \to \cal{I}$. We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,h,k)$ to $u_i \co A_i \to B_i$. We have a dual construction of a category $\cal{S}_r(\cal{I})$ of strong right homotopy equivalences relative to  $u \co \cal{I} \to \catE^{\to}$.
+Note that there is an obvious forgetful functor $\cal{S}_1(\cal{I}) \to \cal{I}$. We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^{\to}$ be its composition with $u \co \cal{I} \to \catE^{\to}$, mapping $(i, g,\phi,\psi)$ to $u_i \co A_i \to B_i$. We have a dual construction of a category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences relative to  $u \co \cal{I} \to \catE^{\to}$.
 
 
 
@@ -1349,7 +1334,7 @@ Let $f \co X  \to Y$ be a morphism in $\catE$.
 \end{proposition}
 
 \begin{proof}
-By duality, it suffices to exhibit the equivalence in (ii). To say that $\thetal \hatotimes f \co f \to \rcyl \hatotimes f$ is a section means that
+By duality, it suffices to exhibit the equivalence in~(ii). To say that $\thetal \hatotimes f \co f \to \rcyl \hatotimes f$ is a section means that
 there is retraction $\rho$, as follows:
 \[
 \xymatrix@C+1em{
@@ -1357,31 +1342,31 @@ there is retraction $\rho$, as follows:
   Y \ar[r] & \interval \otimes Y \ar[r] & Y }
 \]
 where the two horizontal composites should be identiies. First, by a standard diagram-chasing arguments, giving 
-the square on the right  is equivalent  to giving maps $h \co \interval \otimes X \to X$, $g \co Y \to X$, and $k \co \interval \otimes Y \to Y$ such that the following diagrams commute:
+the square on the right  is equivalent  to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, and $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
 \begin{equation}
 \label{equ:first-three}
 \xycenter{
-X \ar[r]^-{\rcyl_X}  \ar[d]_f & \interval \otimes X \ar[d]^{h} \\
+X \ar[r]^-{\rcyl_X}  \ar[d]_f & \interval \otimes X \ar[d]^{\phi} \\
 Y \ar[r]_{g} & X}  \qquad
 \xycenter{
-Y \ar[r]^-{\rcyl_Y} \ar[d]_g & \interval \otimes Y \ar[d]^{k} \\
+Y \ar[r]^-{\rcyl_Y} \ar[d]_g & \interval \otimes Y \ar[d]^{\psi} \\
 X \ar[r]_f & B} \qquad
 \xycenter{ 
-\interval \otimes X \ar[d]_h \ar[r]^{I \otimes f} & \interval \otimes Y \ar[d]^k \\
+\interval \otimes X \ar[d]_\phi \ar[r]^{I \otimes f} & \interval \otimes Y \ar[d]^\psi \\
 X \ar[r]_{f} & Y }
 \end{equation}
 Secondly, requiring that the two horizontal composites are a section to $\thetal \hatotimes f$ means that the diagrams
 \begin{equation}
 \label{equ:second-two}
 \xycenter{
-X \ar[r]^-{\lcyl_X} \ar[dr]_{\id_X} & \interval \otimes X \ar[d]^h \\ 
+X \ar[r]^-{\lcyl_X} \ar[dr]_{\id_X} & \interval \otimes X \ar[d]^\phi \\ 
  & X } \qquad
  \xycenter{
- Y \ar[r]^-{\lcyl_Y}  \ar[dr]_{\id_Y} & \interval \otimes Y \ar[d]^{k} \\
+ Y \ar[r]^-{\lcyl_Y}  \ar[dr]_{\id_Y} & \interval \otimes Y \ar[d]^{\psi} \\
   & Y} 
 \end{equation}
-commute. With reference to \cref{def:homotopy}, the equations in~\eqref{equ:first-three} provide right endpoint for $h$, 
-right endpoint for $k$, and strength for $h$, respectively; while the equations in~\eqref{equ:second-two} provide left endpoints for~$h$ and~$k$, respectively.
+commute. With reference to \cref{def:homotopy}, the equations in~\eqref{equ:first-three} provide right endpoint for $\phi$, 
+right endpoint for $\psi$, and strength for $\phi$, respectively; while the equations in~\eqref{equ:second-two} provide left endpoints for~$\phi$ and~$\psi$, respectively.
 \end{proof}
 
 \cref{strong-h-equiv-as-section} implies that left or right strong homotopy equivalences are closed under retracts 
@@ -1439,7 +1424,7 @@ diagram commutes:
  
 
 \section{The Frobenius condition for uniform fibrations} 
-\label{sec:frobenius-uniform-fibration}
+\label{sec:frocuf}
  
 
 We aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition,
@@ -1450,24 +1435,39 @@ results on strong homotopy equivalences and one on right orhogonality classes.
 
 
 
-\begin{definition} A functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$ is said to \emph{have connections} if $\kcyl$ are strong left homotopy equivalence. ADD.
+\begin{definition} A functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$ is said to \emph{have connections} if,
+for $k \in \{ 0, 1 \}$, there are natural transformations 
+\[
+\gamma^k \co \interval \otimes (-) \to \id_\catE \, , \quad
+\phi^k \co \interval \otimes (-) \to \id_\catE \, , \quad
+\psi^k \co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
+\]
+making the components of $\kcyl \co \id_\cal{E} \to \interval \otimes (-)$ into a left homotopy equivalence.
 \end{definition}
 
-By \cref{strong-h-equiv-as-section} a functorial cylinder has connections if and only if  for $f \co X \to Y$, we have 
-\begin{equation}
-\label{equ:retraction-for-f} 
+\begin{remark} \label{thm:retraction-for-connections}
+By \cref{strong-h-equiv-as-section}, a functorial cylinder has connections if and only if  for $f \co X \to Y$, there 
+exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose
+components provide retractions as follows:
+\[
 \begin{gathered}
 \xymatrix@C+3em{
  \kcyl \hatotimes f 
   \ar[r]^-{\thetak \hatotimes (\kcyl \hatotimes f)}
-  \ar[dr]_{\id}
+  \ar[dr]_{\id_{\kcyl \hatotimes f}}
 &
   \kcyl \hatotimes (\kcyl \hatotimes f)  \ar[d]^{\rho_f}
 \\&
   \kcyl \hatotimes f 
 }
 \end{gathered}
-\end{equation}
+\]
+\end{remark}
+
+\begin{example}[Connections in simplicial sets] The functorial cylinder of the category of simplicial sets has connections. TO BE
+ADDED.
+\end{example} 
+
 For the reminder of this section, we fix a category $\catE$ with finite limits and colimits,
 equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections,
 and a functor $u \co \cal{I} \to \cal{E}^\to$.
@@ -1517,10 +1517,9 @@ and that $\cal{I}$  is closed with respect to Leibniz product with the endpoint 
 As before, we  define the functor $M$  only on objects. We use again the isomorphic description
 of~$\cal{S}_k(\cal{I})$ in \cref{strong-h-equiv-as-section-algebraic}.  In order to guarantee that the
 diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption 
-that $\kcyl \hatotimes (-)$ lifts. Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}$, 
-\ie a retraction to $\thetak \hatotimes (\kcyl \hatotimes u_i)$ by the assumption that~$\cal{I}$ is
-closed with respect to Leibniz product with the endpoint inclusions. But such a retraction is provided by taking 
-$f = u_i$ in~\eqref{equ:retraction-for-f}. We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
+that $\kcyl \hatotimes (-)$ lifts. Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$
+which equals  $\thetak \hatotimes (\kcyl \hatotimes u_i)$ by the assumption that~$\cal{I}$ is closed with respect to Leibniz product with the endpoint inclusions. But such a retraction is provided by the natural transformation $\rho$ of~\cref{thm:retraction-for-connections}. 
+We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
 
 
@@ -1530,29 +1529,29 @@ The second key step to prove \cref{thm:frobenius-fibrations} is the following le
 
 \begin{lemma}
 \label{strong-h-equiv-base-change-along-fibration}
-Let $p \co Y \to X$ be a $(\lcyl \otimes \id_{\calE})$-right map.
-Assume that pullback  along $p$ lifts to a functor $F \co \cal{I}_{/X} \to \cal{I}_{/Y}$.
-Then it lifts further to a functor $G \co (\cal{S}_k)_{/X} \to (\cal{S}_1)_{/Y}$, as in
+Let $p \co X \to Y$ be a $(\kcyl \otimes \id_{\calE})$-right map, where $k \in \{ 0, 1\}$.
+Assume that pullback  along $p$ lifts to a functor $F \co \cal{I}_{/Y} \to \cal{I}_{/X}$.
+Then it lifts further to a functor $G \co (\cal{S}_k)_{/Y} \to (\cal{S}_k)_{/X}$, as in
 \[
 \xymatrix@C+2em{
-  \cal{S}_1(\cal{I})_{/X}
+  \cal{S}_k(\cal{I})_{/Y}
   \ar@{.>}[r]^{G}
   \ar[d]
 &
-  \cal{S}_1(\cal{I})_{/Y}
+  \cal{S}_k(\cal{I})_{/X}
   \ar[d]
 \\
-  \cal{I}_{/X}
-  \ar[r]^{F}
-  \ar[d]_{\cal{I}_{/X}}
-&
   \cal{I}_{/Y}
-  \ar[d]^{\cal{I}_{/Y}}
+  \ar[r]^{F}
+  \ar[d]_{\cal{I}_{/Y}}
+&
+  \cal{I}_{/X}
+  \ar[d]^{\cal{I}_{/X}}
 \\
-  (\catE / X)^{\to}
+  (\catE / Y)^{\to}
   \ar[r]_{p^*}
 &
-  (\catE / Y)^{\to}
+  (\catE / X)^{\to}
 }
 \]
 \end{lemma}
@@ -1560,7 +1559,7 @@ Then it lifts further to a functor $G \co (\cal{S}_k)_{/X} \to (\cal{S}_1)_{/Y}$
 \begin{proof}
 We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}. We define separately
 the action of $G$ on objects and on maps. 
-For the action on objects, suppose we are given $i \in \cal{I}_{/X}$ such that $u_i$ is a strong left homotopy equivalence.
+For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
 \xymatrix{
@@ -1571,7 +1570,7 @@ This means we have a commutative triangle
   B
   \ar[dl]
 \\&
-  X
+  Y
 }
 \]
 and a retraction $\rho$ to $\thetal \hatotimes i$ 
@@ -1605,10 +1604,10 @@ Let $\sigma \co u_{i'} \to u_i$ denote the pullback of $i$ along $p$:
   B
   \ar[d]
 \\
-  Y
+  X
   \ar[r]_p
 &
-  X
+  Y
 }
 \]
 We want to make $u_{i'}$ into a strong left homotopy equivalence.
@@ -1688,7 +1687,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   \ar[dd]^(0.8){\cod(\sigma)}
   \ar[dr]
 \\&&&
-  Y
+  X
   \ar[dd]^{p}
 \\
   B
@@ -1702,10 +1701,10 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   B
   \ar[dr]
 \\&&&
-  X
+  Y
 }
 \]
-The arrows to $X$ from the bottom row are induced by $B \to X$.
+The arrows to $Y$ from the bottom row are induced by $B \to Y$.
 The square $\cod(\sigma)$ over $p$ is cartesian by construction.
 If we can find a dashed arrow cohering as indicated, there will hence be a unique dotted arrow as indicated.
 To find the dashed arrow is to construct a diagonal filler in the following square:
@@ -1715,7 +1714,7 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
   \ar[rr]
   \ar[d]_{\lcyl_{B'}}
 &&
-  Y
+  X
   \ar[d]^{p}
 \\
   \interval \otimes B'
@@ -1725,20 +1724,20 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
   \interval \otimes B
   \ar[r]
 &
-  X
+  Y
 }
 \]
 But we have such a filler since $p$ is a $(\lcyl \otimes \id_\catE)$-right map by assumption.
 
 \medskip
 
-We now define the action of $G$ on morphisms. Suppose we are given a map $\tau \co (i_1, \rho_1) \to (i_2, \rho_2)$ of strong homotopy equivalences over $X$.
-This consists of a map $\tau \co i_1 \to i_2$ in $\cal{I}$ living over $X$ as depicted below:
+We now define the action of $G$ on morphisms. Suppose we are given a map $\tau \co (i_1, \rho_1) \to (i_2, \rho_2)$ of strong homotopy equivalences over $Y$.
+This consists of a map $\tau \co i_1 \to i_2$ in $\cal{I}$ living over $Y$ as depicted below:
 \[
 \xymatrix{
   A_1 \ar[rr]^{u_{i_1}}  \ar[d]  &   & B_1 \ar[d] \\
   A_2  \ar[rr]^{u_{i_2}} \ar[dr] &   & B_2 \ar[dl] \\
-  & X & }
+  & Y & }
 \]
 such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \[
@@ -1762,8 +1761,8 @@ Recall that this includes cartesian squares
 \sigma_1 \co u_{i_1'} \to u_{i_1} \, , \quad
 \sigma_2 \co u_{i_2'} \to u_{i_2}  
 \]
-cartesian over $p \co Y \to X$.
-Since the base change functor lifts to slices of $\cal{I}$ by assumption, we have a lift $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/Y}$ of the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/X}$.
+cartesian over $p \co X \to Y$.
+Since the base change functor lifts to slices of $\cal{I}$ by assumption, we have a lift $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/X}$ of the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$.
 We want to show that $\tau'$ in addition forms a morphism of left strong homotopy equivalences $\tau' \co (i_1', \rho_1') \to (i_2', \rho_2')$.
 For this, we have to verify commutativity of the following diagram:
 \[
@@ -1890,7 +1889,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \ar[dd]_{\lcyl \otimes B_1'}
   \ar[dr]^{\cod(u_{\tau'})}
 &&&&
-  Y
+  X
   \ar[dd]^(0.3){p}
   \ar@{=}[dr]
 \\&
@@ -1898,7 +1897,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \ar[rrrr]
   \ar[dd]_(0.7){\lcyl \otimes B_2'}
 &&&&
-  Y
+  X
   \ar[dd]^{p}
 \\
   \interval \otimes B_1'
@@ -1910,7 +1909,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \ar[rr]
   \ar[dr]^(0.7){\interval \otimes \cod(u_\tau)}
 &&
-  X
+  Y
   \ar@{=}[dr]
 \\&
   \interval \otimes B_2'
@@ -1920,38 +1919,37 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \interval \otimes B_2
   \ar[rr]
 &&
-  X
+  Y
 }
 \]
 But the left face forms a morphism in $\lcyl \otimes \catE$; since $p$ was assumed a $(\lcyl \otimes \catE)$-right map, its right lifting structure is coherent as needed.
 \end{proof}
 
-We are now ready to prove the main result of this section.
+We are now ready to prove the main result of this section. Recall that we are working in the setting of
+a finitely complete and cocomplete category $\cal{E}$ equipped with a functorial cylinder with connections.
 
 \begin{theorem} \label{thm:frobenius-fibrations}
-Let $\catE$ be a category equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections,
-and $u \co \cal{I} \to \catE^\to$ a functor that is closed with respect to Leibniz product with endpoint inclusions. 
-For every uniform $\cal{I}$-fibration $p \co Y \to X$, if pullback along $p$ lifts to a functor
+Let  $u \co \cal{I} \to \catE^\to$  be a functor that is closed with respect to Leibniz product with endpoint inclusions. For every uniform $\cal{I}$-fibration $p \co X \to Y$, if pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \cal{I}_{/X}
-  \ar[r]^{F}
-  \ar[d]_{u_{/X}}
-&
   \cal{I}_{/Y}
-  \ar[d]^{u_{/Y}}
+  \ar[r]^{F}
+  \ar[d]_{u_{/Y}}
+&
+  \cal{I}_{/X}
+  \ar[d]^{u_{/X}}
 \\
-  (\catE / X)^{\to}
+  (\catE / Y)^{\to}
   \ar[r]_{p^*}
 &
-  (\catE / Y)^{\to}
+  (\catE / X)^{\to}
 }
 \]
 then it also lifts to a functor 
 \[
 \xymatrix@C+2em{
-\cal{J}_{/X} \ar[r] \ar[d]_{v/X} &  \overline{\cal{J}}_{/Y} \ar[d]^{v/Y} \\ 
-(\cal{E}_{/X})^\to \ar[r]_{p^*} & (\cal{E}_{/Y})^\to
+\cal{J}_{/Y} \ar[r] \ar[d]_{v/Y} &  \overline{\cal{J}}_{/X} \ar[d]^{v/X} \\ 
+(\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to
 }
 \]
 \end{theorem}
@@ -1962,58 +1960,58 @@ then it also lifts to a functor
 It will suffice to separately show that $p^*$ lifts to functors
 \[
 \xymatrix@C+2em{
-  \cal{I}_{/X}
+  \cal{I}_{/Y}
   \ar[r]^{F}
-  \ar[d]_{(\kcyl \hatotimes u)_{/X}}
+  \ar[d]_{(\kcyl \hatotimes u)_{/Y}}
 &
-  \overline{\cal{I}}_{/Y}
-  \ar[d]^{  \overline{\kcyl \hatotimes u}_{/Y}}
+  \overline{\cal{I}}_{/X}
+  \ar[d]^{  \overline{\kcyl \hatotimes u}_{/X}}
 \\
-  (\catE / X)^{\to}
+  (\catE / Y)^{\to}
   \ar[r]_{p^*}
 &
-  (\catE / Y)^{\to}
+  (\catE / X)^{\to}
 }
 \]
  for $k \in \{0, 1\}$. 
-For simplicity, we treat the case of $k =0$. Since a uniform $\cal{I}$-fibration is in particular a $(\lcyl \otimes \id_\catE)$-right map,
+Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE)$-right map,
 we can apply  \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
 \[
 \xymatrix@C+2em{
-  \cal{S}_1(\cal{I})_{/X}
+  \cal{S}_1(\cal{I})_{/Y}
   \ar[r]^{G}
   \ar[d]
 &
-  \cal{S}_1(\cal{I})_{/Y}
+  \cal{S}_1(\cal{I})_{/X}
   \ar[d] \\
-  (\catE / X)^{\to}
+  (\catE / Y)^{\to}
   \ar[r]_{p^*}
 &
-  (\catE / Y)^{\to}
+  (\catE / X)^{\to}
 }
 \]
 Composing this with the the functors in \cref{thm:she-to-retract-closure}, we obtain
 \[
 \xymatrix{
-  \cal{I}_{/X} 
-  \ar[rr]^{M_{/X}}
-  \ar[dr]_{(\lcyl \hatotimes u)_{/X}} & 
+  \cal{I}_{/Y} 
+  \ar[rr]^{M_{/Y}}
+  \ar[dr]_{(\kcyl \hatotimes u)_{/Y}} & 
 &
-  \cal{S}_1(\cal{I})_{/X}
+  \cal{S}_k(\cal{I})_{/Y}
   \ar[r]^G 
   \ar[dl]
 &
-  \cal{S}_1(\cal{I})_{/Y}
-  \ar[rr]^{L_{/Y}}
+  \cal{S}_k(\cal{I})_{/X}
+  \ar[rr]^{L_{/X}}
   \ar[dr]
 & &
-  \overline{\cal{I}_{/Y}}
-  \ar[dl]^{\overline{\lcyl \hatotimes u}_{/Y}}
+  \overline{\cal{I}_{/X}}
+  \ar[dl]^{\overline{\kcyl \hatotimes u}_{/X}}
 \\ & 
-  (\catE/X)^{\to}
+  (\catE/Y)^{\to}
   \ar[rrr]_{p^*}
 &&&
-  (\catE/Y)^{\to} & 
+  (\catE/X)^{\to} & 
 } 
 \] 
 as required.
@@ -2023,27 +2021,27 @@ as required.
 \cref{thm:frobenius-fibrations} gives us a corollary the pushforward version. 
 
 \begin{corollary}
-Let $p \co Y \to X$ be a uniform $\cal{I}$-fibration. If pullback along $p$ lifts to a functor
+Let $p \co X \to Y$ be a uniform $\cal{I}$-fibration. If pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \cal{I}_{/X}
-  \ar[r]^{F}
-  \ar[d]_{u_{/X}}
-&
   \cal{I}_{/Y}
-  \ar[d]^{u_{/Y}}
+  \ar[r]^{F}
+  \ar[d]_{u_{/Y}}
+&
+  \cal{I}_{/X}
+  \ar[d]^{u_{/X}}
 \\
-  (\catE / X)^{\to}
+  (\catE / Y)^{\to}
   \ar[r]_{p^*}
 &
-  (\catE / Y)^{\to}
+  (\catE / X)^{\to}
 }
 \]
 then  pushforward along $p$ lifts to a functor 
 \[
 \xymatrix@C+2em{
-\cal{I}\text{-}\Fib_{/Y} \ar[r] \ar[d]_{} &  \cal{I}\text{-}\Fib_{/X} \ar[d] \\ 
-(\cal{E}_{/Y})^\to \ar[r]_{p_*} & (\cal{E}_{/X})^\to
+\cal{I}\text{-}\Fib_{/X} \ar[r] \ar[d]_{} &  \cal{I}\text{-}\Fib_{/Y} \ar[d] \\ 
+(\cal{E}_{/X})^\to \ar[r]_{p_*} & (\cal{E}_{/Y})^\to
 }
 \]
 \end{corollary}
@@ -2052,19 +2050,19 @@ then  pushforward along $p$ lifts to a functor
 equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections, and 
 let $\cal{M}$ the subcategory of $\catE^\to$ consisting of monomorphisms and pullback squares. 
 Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors
-always preserve monomorphisms, it follows that for every uniform Kan fibration $p \co Y \to X$,
+always preserve monomorphisms, it follows that for every uniform Kan fibration $p \co X \to Y$,
 the pullback functor lifts to 
 \[
 \xymatrix@C+2em{
-\cal{J}_{/X} \ar[r] \ar[d]_{v/X} &  \overline{\cal{J}}_{/Y} \ar[d]^{v/Y} \\ 
-(\cal{E}_{/X})^\to \ar[r]_{p^*} & (\cal{E}_{/Y})^\to
+\cal{J}_{/Y} \ar[r] \ar[d]_{v/Y} &  \overline{\cal{J}}_{/X} \ar[d]^{v/X} \\ 
+(\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to
 }
 \]
 Therefore, pushforward along $p$ lifts to a functor 
 \[
 \xymatrix@C+2em{
-\mathsf{KanFib}_{/Y} \ar[r] \ar[d]_{} &  \mathsf{KanFib}_{/X} \ar[d] \\ 
-(\cal{E}_{/Y})^\to \ar[r]_{p_*} & (\cal{E}_{/X})^\to
+\mathsf{KanFib}_{/X} \ar[r] \ar[d]_{} &  \mathsf{KanFib}_{/Y} \ar[d] \\ 
+(\cal{E}_{/X})^\to \ar[r]_{p_*} & (\cal{E}_{/Y})^\to
 }
 \]
 In particular, the pushforward of a uniform Kan fibrations along uniform Kan fibrations is again a Kan
@@ -2072,7 +2070,7 @@ fibration.
 \end{example}
 
 \section{The Beck-Chevalley condition for uniform fibrations}
-\label{sec:beck-chevalley-fibrations}
+\label{sec:becccu}
 
 
 
@@ -2415,7 +2413,7 @@ But the right face forms a morphism of $(\lcyl \otimes \catE)$-right maps by ass
 
 
 \section{Existence of natural weak factorisation systems}
-\label{sec:uniform-fibrations}
+\label{sec:exinwf}
 
  
 
@@ -2682,7 +2680,7 @@ by \cref{small-gen-triv-kan} and \cref{prod-exp-general}.
 
 
 \section{Kan fibrations and uniform Kan fibrations}
-\label{section-kan-fib}
+\label{sec:kanfuk}
 
  The aim of this section is to compare the standard notion of a Kan fibration with the
  notion of a uniform Kan fibration: we will show that a map $p \co X \to Y$ of simplicial
@@ -2912,31 +2910,9 @@ and to Emily Riehl for insightful comments on algebraic weak factorization syste
 
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
 
-\appendix
 
 
-\section{Some auxiliary notions}
 
-For this,
-we need a special case of the so-called Leibniz construction~\cite{riehl-verity:reedy} (which, in fact, will be used also later on). Given a natural transformation $\phi \co F \Rightarrow
-G$, where $F, G \co \cal{E} \to \cal{E}$ are two functors, and a map $f \co X \to Y$, we define the map~$\phi \hatotimes f \co GX +_{FX} FY \to GY$ via the following
-pushout diagram:
- \[
-\xymatrix@C=1.2cm{
-FX \ar[r]^{Ff}  \ar[d]_{\phi_X} & FY  \ar@/^2pc/[ddr]^{\phi_Y} \ar[d] & \\ 
-GX \ar@/_1pc/[drr]_{Gf} \ar[r] &  GX +_{FX} FY \ar[dr]^-(.35){\phi \hatotimes f}  & \\ 
- & & GY } 
- \]
-This operation extends to a functor $(-) \hatotimes (-) \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$. 
-
-The internal hom $\hatexp(f,g)$ in $\catE^\to$ of $f \co X \to Y$ and $g \co U \to V$, is their \emph{pullback exponential}, obtained by the following pullback diagram
-\[
-\xymatrix@R=1.2cm{
-[Y, U] \ar@/^2pc/[drr]^{[f,U]} \ar@/_2pc/[ddr]_{[Y,g]}  \ar[dr]^{\hatexp(f,g)} & & \\ 
- & [Y,V] \times_{[X,V]} [X,U]  \ar[d] \ar[r] & [X,U] \ar[d]^{[X,g]} \\
- & [Y,V] \ar[r]_{[f,V]} & [X,V] }
- \]
- 
 
 
 
