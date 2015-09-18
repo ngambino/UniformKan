@@ -215,6 +215,8 @@ a diagonal filler, subject to a naturality condition.
 \notec{Do we really have to repeat all that stuff? It kind of suggests that the paper is full of long technical definitions whereas many definitions are instances of previously defined things (``A uniform $\cal{I}$-fibration (morphism) is a right $\cal{J}$-map (morphism)''). The details are once again spelled out anyway in the examples below.}
 \end{definition}
 
+\notec{Justify choice of $\cal{I}$-fibrations, in particular with regards to the different choice by Cisinsky. Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] : 1 + 1 \to I$. Note that Cisinski even puts an assumption implying that this map is mono into his definition of cylinder functor. Foreshadow that our main results will still hold for notions of $\cal{I}$-fibrations such as Cisinksi.}
+
 We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms.
 In other words, we let $\Fib{\cal{I}} \defeq \liftr{\cal{J}}$.
 
@@ -842,7 +844,7 @@ The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as a
 The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I}
 \to \cal{E}^\to$.
 As we will see, our results in \cref{sec:ortf} show that when the pullback functor $f^*$ has a right adjoint $f_*$ then $f$ satisfies the Frobenius property if and only if~$f_*$ preserves, in a suitable sense, right $\cal{I}$-maps.
-The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting, and providing two equivalent formulations, in terms of either pullback or pushforward functors.
+The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting, and providing two equivalent formulations, in terms of either pullback or pushforward functors. \notec{Grammar?}
 
 \medskip
 
@@ -866,12 +868,14 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 }
 \]
 \end{definition}
+\notec{I don't like the bracketing. Either choose $\liftl{( \liftr{\cal{I}})}/X$ or $\liftl{(\liftr{(\cal{I}/X)})}$.}
 
 The Frobenius property for a weak factorisation system is closely related to the right properness condition for a model structure.
-Indeed, in any right proper model structure where the cofibrations are stable under pullback (which is the case if they are the monomorphisms), the weak factorisation system given by trivial cofibrations and fibrations has the Frobenius property.
+Indeed, a model structure where the cofibrations are stable under pullback (which is the case if they are the monomorphisms) is right proper if and only if the weak factorisation system given by trivial cofibrations and fibrations has the Frobenius property.
 For example, the weak factorisation system on simplicial sets in which the right maps are the Kan fibrations has the Frobenius property.
 The standard proof of this fact follows from the right properness of the Kan model structure on simplicial sets, which in turn can be established either using the right properness of the model structure on topological spaces in which  the fibrations are the Serre fibrations~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} or purely combinatorially, via the theory of minimal fibrations~\cite[Theorem~1.7.1]{joyal-tierney-notes}.
-However, by the independence result in~\cite{coquand-non-constructivity-kan}, these arguments must use classical reasoning.
+\notec{I disagree with the presentation here. The combinatorial proof of right properness in Joyal goes the other way round, reducing right properness to Frobenius.}
+However, by the independence result in~\cite{coquand-non-constructivity-kan}, these arguments must use classical reasoning. \notec{...when the classical Kan condition is naively taken as the constructive definition of Kan fibrations.}
 
 \begin{proposition} \label{lift-dependent-product}
 Let $u \co \cal{I} \to \cal{E}^\to$ be a functor.
@@ -918,10 +922,11 @@ Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u =
 
 In order to introduce the Beck-Chevalley condition, we need to prove an auxiliary result that shows how we can lift pullback functors to categories of right orthogonal maps.
 For this, we first establish the following lemma.
+\notec{This should be a remark, not a lemma. If there is a need for a lemma/proposition, it should be for the corollary that pullback lifts to slices of $\liftr{\cal{I}}$.}
 
 \begin{lemma} \label{slicing-2-functorial}
 Let $u \co \cal{I} \to \catE^\to$ be a functor and $f \co X \to Y$ a map in $\catE$.
-Then,
+Then, \notec{I think commas after ``Then'' and ``So'' suggest or very informal casual style.}
 \begin{enumerate}[(i)]
 \item left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor $f_!$ between slices of $u$,
 \[
@@ -997,11 +1002,11 @@ satisfies the \emph{Beck-Chevalley condition} if the canonical natural transform
 lifts to a natural transformation
 \[
 \xymatrix{
-  \cal{I}_{/X}
+  \liftl{(\liftr{\cal{I}})}_{/X}
   \ar[r]^{s_!}
   \ar@{}[dr]|{\Downarrow \, \phi'}
 &
-  \cal{I}_{/U}
+  \liftl{(\liftr{\cal{I}})}_{/U}
 \\
   \cal{I}_{/Y}
   \ar[u]^{f^*}
@@ -1011,10 +1016,11 @@ lifts to a natural transformation
   \ar[u]_{g^*}
 }
 \]
+\notec{I feel the 2-cells should go from $f$ to $g$, not from $s$ to $t$. I also prefer the version were $f$ and $g$ were horizontal, just as in the definition of the Frobenius condition.}
 \end{definition}
 
 \begin{remark}
-If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition) and therefore, under mild assumptions (such as that $u \co \cal{I} \to \cal{E}^\to$ reflects isomorphisms), so is $\phi'$.
+If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms. \notec{Make this a separate earlier remark, shortens proof of first proposition in second section.}
 \end{remark}
 
 In analogy with \cref{lift-dependent-product}, we provide an equivalent formulation of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward, rather than pullback, functors.
@@ -1022,7 +1028,7 @@ In order to state this characterization, we need the following simple result.
 
 \begin{lemma} \label{lift-pullback}
 Let $u : \cal{I} \to \catE^\to$ be a functor.
-For every map $f \co X \to Y$ admitting pullback:
+For every map $f \co X \to Y$ admitting pullback
 \[
 \xymatrix@C+1em{
   \catE/X
@@ -1033,6 +1039,7 @@ For every map $f \co X \to Y$ admitting pullback:
   \ar@<-5pt>[l]_{f^*}
 }
 \]
+\notec{For consistency, this diagram should be vertically flipped.}
 pullback along $f$ lifts to slices of the right orthogonality categories,
 \[
 \xymatrix@C=1.5cm{
@@ -1059,8 +1066,6 @@ Combine \cref{lift-of-adjunction} with part (i) of \cref{slicing-2-functorial}.
 %In fact, $\liftr{C}/\text{--}$ is a cartesian fibration (compare notes-on-awfs).
 % Do we need that?
 % \end{question}
-
-
 
 \begin{proposition} \label{lift-pushforward-BC}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -1102,15 +1107,15 @@ the following are equivalent:
 lifts to a natural transformation
 \[
 \xymatrix{
-  \cal{I}_{/X}
+  \liftr{\cal{I}}_{/X}
   \ar[d]_{f_*}
   \ar@{}[dr]|{\Uparrow \, \psi'}
 &
-  \cal{I}_{/U} \ar[d]^{g_*} \ar[l]_{s^*}
+  \liftr{\cal{I}}_{/U} \ar[d]^{g_*} \ar[l]_{s^*}
 \\
-  \cal{I}_{/Y}
+  \liftr{\cal{I}}_{/Y}
 &
-  \cal{I}_{/V}
+  \liftr{\cal{I}}_{/V}
   \ar[l]^{t^*}
 }
 \]
@@ -1125,6 +1130,84 @@ Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not
 
 As we will see in \cref{sec:becccu}, cartesian squares between uniform fibrations satisfy the Beck-Chevalley condition under very mild assumptions.
 In particular, cartesian squares between uniform Kan fibrations in presheaf categories satisfy the Beck-Chevalley condition.
+
+\notec{
+I want to have something like the following definition:
+\begin{definition}
+Let $u \co \cal{I} \to \catE^\to$ and $v : \cal{J} \to \catE^\to$ be functors.
+We say that $v$ satisfies the ??-condition with respect to $u$ if for every object $j \co \cal{J}$, we have that $v_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, we have that $v_\tau$ satisfies the Beck-Chevalley condition with respect to $u$.
+In detail,
+\begin{enumerate}[(i)]
+\item
+for every object $j \co \cal{J}$, pullback along $v_j \co X \to Y$ lifts to a functor
+\[
+\xymatrix@C=1.5cm{
+  \cal{I}/Y
+  \ar[r]^{v_j^*}
+  \ar[d]_{u/Y}
+&
+  \liftl{ ( \liftr{\cal{I}}/X ) }
+  \ar[d]^{\liftl{(\liftr{u}/X)}}
+\\
+  (\catE/Y)^\to \ar[r]_{v_j^*}
+&
+  (\catE/X)^\to
+}
+\]
+\item
+for every morphism $\tau \co j_1 \to j_2$ in $\cal{J}$, 
+\[
+\xymatrix{
+  X_1
+  \ar[d]_{s}
+  \ar[r]^{v_{j_1}}
+&
+  Y_1
+  \ar[d]^{t}
+\\
+  X_2
+  \ar[r]_{v_{j_2}}
+&
+  Y_2
+}
+\]
+the canonical natural transformation
+\[
+\xymatrix{
+  (\cal{E}^\to)_{/X_1}
+  \ar[d]^{s_!}
+  \ar@{}[dr]|{\Downarrow \, \phi}
+&
+  (\cal{E}^\to)_{/Y_1}
+  \ar[l]_{v_1^*}
+  \ar[d]^{t_!}
+\\
+  (\cal{E}^\to)_{/X_2}
+&
+  (\cal{E}^\to)_{/Y_2}
+  \ar[l]^{v_2^*}
+}
+\]
+lifts to a natural transformation
+\[
+\xymatrix{
+  \liftl{(\liftr{(\cal{E}^\to)})}_{/X_1}
+  \ar[d]^{s_!}
+  \ar@{}[dr]|{\Downarrow \, \phi}
+&
+  (\cal{E}^\to)_{/Y_1}
+  \ar[l]_-{v_1^*}
+  \ar[d]^{t_!}
+\\
+  \liftl{(\liftr{(\cal{E}^\to)})}_{/X_2}
+&
+  (\cal{E}^\to)_{/Y_2}
+  \ar[l]^-{v_2^*}
+}
+\]
+\end{enumerate}
+\end{definition}
+}
 
 
 \section{Strong homotopy equivalences}
