@@ -69,7 +69,7 @@ We will interested in algebraic counterparts of the familiar weak orthogonality 
 Furthermore, instead of starting from a mere class of arrows in $\catE$ and define its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$, which assigns an arrow $u_i \co A_i \to B_i$ in $\catE$ to each object $i \in \cal{I}$.
 The additional generality obtained by allowing $u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
 
-\notec{We follow Garner~\cite{garner:small-object} (or even earlier?) in the following definition.}`
+\notec{We follow Garner~\cite{garner:small-object-argument} (or even earlier?) in the following definition.}`
 
 \begin{definition}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -171,15 +171,15 @@ As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cyli
 
 Let us now assume to have a fixed \notec{Let us now fix a [...]?} functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$.
 We use it in combination with a particular case of the Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to define a functor $v \co \cal{J} \to \catE^\to$ that will determine our notion of a uniform fibration.
-Given $i \co A \to B$, for $k \in \braces{0, 1}$, we define
+Given $f \co A \to B$, for $k \in \braces{0, 1}$, we define
 \[
-  \delta^k \hatotimes i \co (\interval \otimes A) +_{A} B \to \interval \otimes B
+  \delta^k \hatotimes f \co \catE^\to \to \catE^\to
 \]
 by the universal property of pushouts, as in the following diagram:
 \begin{gather*}
 \xymatrix@C=1.2cm{
-  A \ar[r]^{i} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
-  \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes i} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes i} & \\
+  A \ar[r]^{f} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
+  \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes f} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes f} & \\
   & & \interval \otimes B
 \rlap{.}}
 \end{gather*}
@@ -258,15 +258,16 @@ Indeed \notec{I don't think it makes sense to say ``Indeed'' here.}, we will sho
 \label{sec:ortf}
 
 The aim of this section is to establish some general facts regarding categories of right maps that will be useful in the remainder of the paper.
+\notec{None of these facts are very likely to be original. For instance, [...] appears/is mentioned in Garner, Riehl, etc.}
 In particular, we will apply these results to categories of trivial uniform Kan fibrations and categories of uniform Kan fibrations, since both of these kinds of categories are defined as categories of right maps.
 Within this section, we simply work with a category $\catE$, without assuming any additional structure.
 
 \medskip
 
 Let us begin by recalling from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
-\begin{equation} \label{equ:right-orthogonality}
-\liftr{\brarghole} \co (\CAT/\catE^\to)^{\op} \to \CAT/\catE^\to \, .
-\end{equation}
+\[
+  \liftr{\brarghole} \co (\CAT/\catE^\to)^{\op} \to \CAT/\catE^\to \, .
+\]
 In view of its use in \cref{thm:orth-nat}, we recall the action of this functor on arrows:
 \begin{align*}
 \xymatrix{
@@ -284,9 +285,8 @@ In view of its use in \cref{thm:orth-nat}, we recall the action of this functor 
   & \catE^\to
 }
 \end{align*}
-
 For $(f, \phi) \in \liftr{\cal{J}}$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$, where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
-As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to the way in which standard orthogonality operations determine a Galois connection between the poset of subsets of arrows in~$\catE$ and its opposite, the orthogonality functors form an adjunction
+As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to the way in which standard orthogonality operations determine a Galois connection between the poset of subset \notec{Subclass? But then ``poset'' sounds strange.} of arrows in~$\catE$ and its opposite, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -301,6 +301,7 @@ As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to
 \end{equation}
 
 We now extend some useful facts about orthogonality operations to orthogonality functors.
+\notec{Does this sentence apply to the following proposition as well?}
 
 \begin{proposition} \label{thm:orth-nat}
 Consider a natural transformation between categories over $\catE^\to$:
@@ -317,7 +318,7 @@ Consider a natural transformation between categories over $\catE^\to$:
 }
 \]
 Note that this includes the condition $v \sigma = \id_u$.
-Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$,
+Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$, \notec{make use of comma or colon consistent}
 \begin{align*}
 \xymatrix{
   \liftr{\cal{I}}
@@ -357,11 +358,13 @@ Hence, by the naturality condition for $\phi$, applied to the diagram
 we have that $\phi_F(i, s, t) = \phi_G(i, s, t)$, as required.
 \end{proof}
 
-We now consider the interaction between the orthogonality functors and the operation of retract closure.
+\para{Retract closure}
+
+%We now consider the interaction between the orthogonality functors and the operation of retract closure.
 In the setting of standard weak factorisation systems, it is well-known that applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure.
 In order to establish a counterpart of this fact, we need again some definitions.
 Given a functor $u \co \cal{I} \to \catE^\to$, we define its retract closure $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
-An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an arrow $e \in \cal{E}^\to$ together with squares $\sigma \co e \Rightarrow u_i$ and $\rho \co u_i \Rightarrow e$, which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that $\sigma \cc \rho = \id_e$.
+An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$ and an arrow $e \in \cal{E}^\to$ together with squares $\sigma \co e \Rightarrow u_i$ and $\rho \co u_i \Rightarrow e$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that $\sigma \cc \rho = \id_e$. \notec{No diagram here?}
 A morphism $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ of $\overline{\cal{I}}$ consists of a morphism $f \co i \to i'$ in $\cal{I}$ and a square $\kappa \co e \Rightarrow e'$ such that the following diagram in $\cal{E}^\to$ commutes:
 \[
 \xymatrix{
@@ -439,14 +442,15 @@ The retract closure of $u \co \cal{I} \to \catE^\to$ fits into the following dia
   \catE^\to
 }
 \]
-The unit of the monad is formally induced by $(\catE^\to)^{\canonical} \co \catE^\to \to (\catE^\to)^{\ret}$ being a section to $(\catE^\to)^{\retB}$.
+The unit and multiplication of the monad are formally induced by $(\catE^\to)^{\canonical} \co \catE^\to \to (\catE^\to)^{\ret}$ and $(\catE^\to)^{\Delta} \co (\catE^\to)^{\ret \times \ret} \to (\catE^\to)^{\ret}$, respectively (note that this part of construction works for any bipointed category).
 \end{remark}
 
+\para{Slicing and coslicing}
 
-Next, we consider the interaction between the orthogonality functors and the slicing and coslicing operations.
+%Next, we consider the interaction between the orthogonality functors and the slicing and coslicing operations.
 In the classical setting it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.
 In order to provide a counterpart of this fact in our setting, we need some auxiliary definitions.
-Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define the category $\cal{I}/X$ and a functor $u/X \co \cal{I}/X \to (\cal{E}/X)^\to$ as follows.
+Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define the category $\cal{I}/X$ and a functor $u/X \co \cal{I}/X \to (\cal{E}/X)^\to$ as follows. \notec{Be consistent with layout of the slicing operation.}
 The category $\cal{I}/X$ has as objects pairs consisting of an object $a \in \cal{I}$ and a commutative triangle of the form
 \[
 \xymatrix{
@@ -498,12 +502,12 @@ With these definitions in place, we can now state the counterpart in our setting
 \begin{enumerate}[(i)]
 \item The right orthogonality functor commutes with slicing, \ie for every $u \co \cal{I} \to \cal{E}$, we have
 \[
-  \liftr{\cal{I}}/X = \liftr{(\cal{I}/X)}
+  \liftr{(\cal{I}/X)} = \liftr{\cal{I}}/X 
 \]
 as categories over $\cal{E}^\to$.
 \item The left orthogonality functor commutes with coslicing, \ie for every $u \co \cal{I} \to \cal{E}$, we have
 \[
-  \liftl{\cal{I}} \backslash X = \liftl{\cal{I} \backslash X}
+  \liftl{(\cal{I} \backslash X)} = \liftl{\cal{I}} \backslash X
 \]
 as categories over $\cal{E}^\to$.
 \end{enumerate}
@@ -527,9 +531,13 @@ and a function $\phi$ that assigns a diagonal filler to every diagram in $\cal{E
 }
 \]
 where $i \in \cal{I}$, subject to a uniformity condition.
+\notec{This is a description of $\liftr{\cal{I}}/X$. How about contrast the $\phi$ part for $\liftr{(\cal{I}/X)}$?}
 \end{proof}
 
-Let us also observe that the retract closure commutes with slicing and coslicing.
+Let us also observe that the retract closure commutes with slicing and coslicing. \notec{This should be at least a proper remark.}
+
+\para{Adjunctions}
+
 Finally, we discuss the interaction between the orthogonality functors and adjunctions.
 In the standard setting, it is well known that if we have classes of maps $\cal{I} \subseteq \cal{E}^\to$ and $\cal{J} \subseteq \cal{F}^\to$ and an adjunction
 \[
@@ -543,6 +551,7 @@ In the standard setting, it is well known that if we have classes of maps $\cal{
 }
 \]
 then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$, and consequently $\liftr{F(\cal{I})} = G(\liftr{\cal{I}})$ and $\liftl{G(\cal{J})} = F(\liftl{\cal{J}})$.
+\notec{Can we not fix this adjunction (separately from the subclasses $\cal{I}$ and $\cal{J}$ for this subsection? It would avoid the repetition in the following proposition.}
 The next proposition and corollary provide counterparts of these facts in our setting.
 
 \begin{proposition}[Orthogonality and adjoints] \label{lift-of-adjunction}
@@ -592,6 +601,7 @@ Then the following are equivalent:
 \rlap{.}}
 \]
 \end{enumerate}
+\notec{I guess you don't like different arrow styles.}
 \end{proposition}
 
 \begin{proof}
@@ -629,7 +639,7 @@ Given an adjunction
   \ar@<5pt>[l]^{G}
 \rlap{,}}
 \]
-there are canonical isomorphisms
+\notec{which has now been repeated for the third time} there are canonical isomorphisms
 \begin{align*}
   \liftr{(F^\to \cc u)} &= G^\to \cc \liftr{u}
 \, ,\\
@@ -640,8 +650,10 @@ there are canonical isomorphisms
 
 \begin{proof}
 For the first isomorphism, apply the adjunction \eqref{garner-adjunction} to the first diagram in \cref{lift-of-adjunction} and compare it with the second diagram.
-The second isomorphism is obtained similarly.
+The second isomorphism is obtained dually.
 \end{proof}
+
+\para{Leibniz adjunctions}
 
 We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
 Consider bifunctors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for $k \in \cal{K}$ by an adjunction:
@@ -670,6 +682,7 @@ The next proposition and corollary provide counterparts of these facts in our se
 
 \begin{proposition}[Orthogonality and Leibniz adjoints] \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
+\notec{From here...}
 Consider bifunctors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ related pointwise for
 $k \in \cal{K}$ by an adjunction:
 \[
@@ -683,6 +696,7 @@ $k \in \cal{K}$ by an adjunction:
 }
 \]
 Assume that $\cal{E}$ has pushouts and $\cal{F}$ has pullbacks.
+\notec{...to here, we have exact duplication of the start of the subsection.}
 Let
 \[
 \begin{aligned}
@@ -780,8 +794,8 @@ In the setting of \cref{lift-of-leibniz-adjunction}, we have canonical isomorphi
 \end{corollary}
 
 \begin{proof}
-We only give the first isomorphism.
-In order to obtain it, it is sufficient to apply the adjunction \eqref{garner-adjunction} to the first diagram in \cref{lift-of-leibniz-adjunction} and compare it with the second diagram.
+In order to obtain the first isomorphism, it is sufficient to apply the adjunction \eqref{garner-adjunction} to the first diagram in \cref{lift-of-leibniz-adjunction} and compare it with the second diagram.
+The second isomorphism is obtained dually.
 \end{proof}
 
 Note that \cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction,pitchfork-leibniz-adjunction} where $\cal{K}$ is the terminal category.
@@ -796,28 +810,20 @@ This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-
 
 \medskip
 
-Let us now return to consider the case of a category $\cal{E}$ with finite limits and colimits and equipped with a functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$.
-For a functor $u \co \cal{I} \to \cal{E}^\to$, we can apply the results obtained above to relate precisely right $\cal{I}$-maps and uniform $\cal{I}$-fibrations.
-In order to do so, we consider the following Leibniz adjunction.
-Given a map $p \co X \to Y$, we define $\hatexp(\kcyl,p)$ by the following pullback diagram
-\[
-\xymatrix@R=1.2cm{
-  X \ar@/^2pc/[drr]^{p} \ar@/_2pc/[ddr]_{\kcyl_X} \ar[dr]^{\hatexp(\kcyl,p)} & & \\
-  & (\interval \otimes X) \times_{\interval \otimes Y} Y \ar[d] \ar[r] & Y \ar[d]^{\kcyl_Y} \\
-  & \interval \otimes X \ar[r]_{\interval \otimes p } & \interval \otimes Y
-}
-\]
-There is then an adjunction of the form
+Let us now return to consider the case of \notec{three levels of indirection} a category $\cal{E}$ equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$.
+If $I \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $([I, -], \overline{\delta}^0, \overline{\delta}^1, \overline{\epsilon})$ \notec{Fix notation}, \ie a functorial cylinder in the dual category $\catE$. \notec{cite reference (as in first section).}
+Assuming $\catE$ has pushouts and pullbacks, we obtain a functor $[\overline{\delta}^k, -]$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, defined in terms of a pushout, for $k : \braces{0, 1}$.
+These form an adjunction as follows:
 \[
 \xymatrix@C+4em{
   \cal{E}^\to \ar@<1ex>[r]^{\kcyl \hatotimes (-)} \ar@{}[r]|{\bot} &
   \cal{E}^\to \ar@<1ex>[l]^{\hatexp(\kcyl, -)}
 }
 \]
-which is the key to establish the next result.
+For a functor $u \co \cal{I} \to \cal{E}^\to$, we can apply the results obtained above to characterize uniform $\cal{I}$-fibrations in terms of right $\cal{I}$-maps:
 
 \begin{proposition} \label{prod-exp-general}
-For every map $p \co X \to Y$ in $\cal{E}$ the following are equivalent:
+For every map $p \co X \to Y$ in $\cal{E}$, the following are equivalent:
 \begin{enumerate}[(i)]
 \item $p$ admits the structure of a uniform $\cal{I}$-fibration.
 \item $\hatexp(\lcyl, p)$ and $\hatexp(\rcyl, p)$ admit the structure of right $\cal{I}$-maps.
@@ -825,8 +831,8 @@ For every map $p \co X \to Y$ in $\cal{E}$ the following are equivalent:
 \end{proposition}
 
 \begin{proof}
-First, recall that the right orthogonality functor in~\eqref{equ:right-orthogonality} is controvariant and therefore sends coproducts to products of categories over $\cal{E}^\to$.
-The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as applied in \cref{pitchfork-leibniz-most-general-example}.
+First recall that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\cal{E}^\to$.
+The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as applied in \cref{pitchfork-leibniz-most-general-example} and the preceeding discussion.
 \end{proof}
 
 
