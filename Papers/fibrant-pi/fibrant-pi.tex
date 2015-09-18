@@ -69,6 +69,8 @@ We will interested in algebraic counterparts of the familiar weak orthogonality 
 Furthermore, instead of starting from a mere class of arrows in $\catE$ and define its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$, which assigns an arrow $u_i \co A_i \to B_i$ in $\catE$ to each object $i \in \cal{I}$.
 The additional generality obtained by allowing $u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
 
+\notec{We follow Garner~\cite{garner:small-object} (or even earlier?) in the following definition.}`
+
 \begin{definition}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
@@ -88,6 +90,7 @@ where the left-hand side square is the image of $\sigma \co i \to j$ in $\cal{I}
 \[
 \phi(j, s, t) \, b = \phi(i, s a, t b) \, .
 \]
+\notec{I think $\phi(j, s, t) \cc b$ would be more readable.}
 \item A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the right lifting functions, which we omit.
 \end{enumerate}
 \end{definition}
@@ -97,8 +100,8 @@ There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mappi
 
 \begin{example}[Uniform trivial Kan fibrations] \label{exa-triv-kan-fib}
 Let $\catE$ be a presheaf category.
-We define $\cal{M}$ to be the subcategory of $\cal{E}^\to$ consisting of decidable mo\-no\-mor\-phisms (\ie mo\-no\-mor\-phisms $i \co A \to B$ such that, for all $n$, the function $i_n \co A_n \to B_n$ has decidable image) and pullback squares.
-We define a \emph{uniform trivial Kan fibration} to be a right $\cal{M}$-map, \ie a map $f \co X \to Y$ equipped with a function $\phi$ that assigns to every decidable monomorphism $i \co A \to B$ and commuting square
+We define $\cal{M}$ to be the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms (\ie monomorphisms $i \co A \to B$ such that, for all $n$, the function $i_n \co A_n \to B_n$ has decidable image) and pullback squares.
+We define a \emph{uniform trivial Kan fibration} to be a right $\cal{M}$-map, \ie \notec{Is this elaboration really needed? It is just a duplication of the above.} a map $f \co X \to Y$ equipped with a function $\phi$ that assigns to every decidable monomorphism $i \co A \to B$ and commuting square
 \[
 \xymatrix{
 A \ar[r]^s \ar[d]_i & X \ar[d]^f \\
@@ -112,25 +115,42 @@ B \ar[r]_{k} & D \ar[r]_t & Y }
 \]
 where the left square is a pullback, we have that $\phi(j, s, t) \, k = \phi(i, s h, t k)$.
 We write~$\mathsf{TrivKanFib}$ for the category of uniform trivial Kan fibrations and their morphisms, \ie $\mathsf{TrivKanFib} \defeq \liftr{\cal{M}}$.
+\notec{Will people get angry about the use of Kan?}
 \end{example}
 
 In order to introduce the notion of a uniform $\cal{I}$-fibration, we assume further structure on $\catE$, namely that of a functorial cylinder.
 We recall the definition of this notion.
+\notec{Insert reference (\eg Kamps and Porter, Abstract Homotopy and Simple Homotopy Theory, or Williamson's thesis)}
 
 \begin{definition}
-A \emph{functorial cylinder} $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ is endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformation $\lcyl \co \id_\catE \to \interval \otimes (-)$, $\rcyl \co \id_\catE \to \interval \otimes (-)$, called the \emph{right and left endopoint inclusions}, respectively, and $\ccyl \co \interval \otimes (-) \to \id_\catE$, such that the following diagrams commute:
+A \emph{functorial cylinder} $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformation $\lcyl \co \Id_\catE \to \interval \otimes (-)$, $\rcyl \co \Id_\catE \to \interval \otimes (-)$, called the \emph{right and left endopoint inclusions} \notec{is this terminology standard?}, respectively, and $\ccyl \co \interval \otimes (-) \to \Id_\catE$, such that the following diagram commute \notec{Does it not suffice to say that $\lcyl$ and $\rcyl$ are sections to $\ccyl$?}:
 \[
 \xymatrix{
-  \id_\catE \ar[r]^-{\lcyl} \ar@{=}[dr] & \interval \otimes (-) \ar[d]^-(.4){\ccyl} & \id_\catE \ar@{=}[dl] \ar[l]_-{\rcyl} \\
-  & \id_\catE
+  \Id_\catE \ar[r]^-{\lcyl} \ar@{=}[dr] & \interval \otimes (-) \ar[d]^-(.4){\ccyl} & \Id_\catE \ar@{=}[dl] \ar[l]_-{\rcyl} \\
+  & \Id_\catE
 }
 \]
 \end{definition}
 
-The notation $\interval \otimes (-)$ used in the definition of a functorial cylinder is suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object (see below).
+The notation $\interval \otimes (-)$ used in the definition of a functorial cylinder is suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object.
 However, it is convenient to develop our theory without making this extra assumption.
 
+\begin{example} \label{exa:cyl-via-int}
+Let $(\catE, \otimes, \top)$ be a monoidal category.
+An \emph{interval object} $(\interval, \ell, r, c)$ \notec{change notation?} in $\calE$ is an object $\interval \co \catE$ equipped with maps $\ell, r \co \top \to \intervall$ called \emph{endpoint inclusions} and a common retraction $c \co \intervall \to \top$ to both $\ell$ and $r$.
+In case the unit $\top$ of the monoidal structure coincides with the terminal object $1$, this reduces to a bipointed object.
+
+Tensoring with an interval object (as suggested by our notation for a functorial cylinder) evidently induces a functorial cylinder.
+\end{example}
+
+Our main examples will have functorial cylinders induced by interval objects:
+
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
+The category $\SSet$ is cartesian-closed.
+An interval object is given by $\Delta^1$ \notec{agree on notation} with endpoint inclusions $\braces{0} \to \Delta^1$ and $\braces{1} \to \Delta^1$.
+Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
+As in \cref{exa:cyl-via-int}, tensoring with $\Delta^1$ provides a functorial cylinder.
+\begin{comment}
 The category $\SSet$ can be equipped with a functorial cylinder, given by the endofunctor $\Delta_1 \times (-) \co \SSet \to \SSet$.
 For $k \in \braces{0, 1}$, the endpoint inclusion $\kcyl \co \id_\SSet \to \Delta_1 \times (-)$ is given by the natural transformation with components
 \[
@@ -138,11 +158,18 @@ For $k \in \braces{0, 1}$, the endpoint inclusion $\kcyl \co \id_\SSet \to \Delt
 \]
 where the maps $h^0_1 \, , h^1_1 \co 1 \to \Delta_1$ are the two endpoint inclusions.
 Note that these are special cases of the horn inclusions $h^k_n \co \Lambda^k_n \to \Delta_n$.
+\end{comment}
+\end{example}
+
+\begin{example}[Interval object in cubical sets] \label{exa:cyl-in-cuset}
+The category of cubical sets \notec{notation?} as studied in \notec{reference?} has a monoidal structure with unit coinciding with the terminal object.
+An interval object is gievn by $\Box^1$ \notec{agree on notation} with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
+As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder.
 \end{example}
 
 \medskip
 
-Let us now assume to have a fixed functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$.
+Let us now assume to have a fixed \notec{Let us now fix a [...]?} functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$.
 We use it in combination with a particular case of the Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to define a functor $v \co \cal{J} \to \catE^\to$ that will determine our notion of a uniform fibration.
 Given $i \co A \to B$, for $k \in \braces{0, 1}$, we define
 \[
@@ -154,7 +181,7 @@ by the universal property of pushouts, as in the following diagram:
   A \ar[r]^{i} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
   \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes i} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes i} & \\
   & & \interval \otimes B
-}
+\rlap{.}}
 \end{gather*}
 For $u \co \cal{I} \to \catE^\to$ and $k \in \braces{0, 1}$, we define a functor
 \[
@@ -168,14 +195,14 @@ The functor $v \co \cal{J} \to \catE^\to$ is then given by the coproduct diagram
 \xymatrix@C=1.2cm{
   \cal{I} \ar[r]^{\iota_0} \ar[dr]_-{\lcyl \hatotimes u} & \cal{J} \ar[d]^(.4){v} & \cal{I} \ar[dl]^-{\rcyl \hatotimes u} \ar[l]_{\iota_1} \\
   & \catE^\to
-}
+\rlap{.}}
 \end{equation*}
 Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $v \co \cal{J} \to \catE^\to$ is not.
 
 \begin{definition} \label{def:I-fibration}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
-\item An \emph{uniform $\cal{I}$-fibration} is a right $\cal{J}$-map, \ie a map $p \co X \to Y$ equipped with a function~$\phi$ that assigns to every $i \in \cal{I}$, $k \in \braces{0, 1}$ and commuting square a diagram of the form
+\item A \emph{uniform $\cal{I}$-fibration} is a right $\cal{J}$-map, \ie a map $p \co X \to Y$ equipped with a function~$\phi$ that assigns to every $i \in \cal{I}$, $k \in \braces{0, 1}$ and commuting square a diagram of the form
 \[
 \xymatrix{
   (\interval \otimes A_i) +_{A_i} B_i \ar[r] \ar[d]_{\kcyl_{A_i} \hatotimes u_i} & X \ar[d]^p \\
@@ -185,9 +212,8 @@ Let $u \co \cal{I} \to \catE^\to$ be a functor.
 a diagonal filler, subject to a naturality condition.
 \item A \emph{uniform $\cal{I}$-fibration morphism} is a morphism of right $\cal{J}$-maps.
 \end{enumerate}
+\notec{Do we really have to repeat all that stuff? It kind of suggests that the paper is full of long technical definitions whereas many definitions are instances of previously defined things (``A uniform $\cal{I}$-fibration (morphism) is a right $\cal{J}$-map (morphism)''). The details are once again spelled out anyway in the examples below.}
 \end{definition}
-
-\medskip
 
 We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms.
 In other words, we let $\Fib{\cal{I}} \defeq \liftr{\cal{J}}$.
@@ -201,7 +227,7 @@ A \emph{uniform Kan fibration} is a uniform $\cal{M}$-fibration, \ie a map $p \c
   \interval \otimes B \ar[r] & Y
 }
 \]
-a diagonal filler, subject to a naturality condition.
+a diagonal filler, subject to a naturality condition. \notec{So much repetition...}
 We write $\mathsf{KanFib}$ for the category of uniform Kan fibrations and their morphisms, \ie $\mathsf{KanFib} = \Fib{\cal{M}}$.
 \end{example}
 
@@ -220,10 +246,11 @@ where the map on the left-hand side is obtained from a decidable monomorphism $i
   & & \Delta_1 \times B
 }
 \end{gather*}
+\notec{Use point-set notation here to make diagrams less repetitive? E.g., $\braces{k} \times A \hookrightarrow \Delta^1 \times A$. Would get rid of explicit pushout.}
 As mentioned in \cref{exa:cyl-in-sset}, the maps $h^0_1 \, , h^1_1 \co 1 \to \Delta_1$ used here are the two horn inclusions into~$\Delta_1$.
 Thus, higher-dimensional horns are not involved explicitly in the definition of a uniform Kan fibration in simplicial sets.
-However, since they are included indirectly since they are retracts of one-dimensional horns by Leibniz product with certain subobjects of representables~\cite{joyal-quaderns} (see also \cite[Proposition 2.1.2.6]{lurie:htt}).
-Indeed, we will show in \cref{sec:kanfuk} that, assuming the axiom of choice, every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
+However, they are included indirectly since they are retracts of one-dimensional horns by Leibniz product with certain subobjects of representables~\cite{joyal-quaderns} \notec{more explicit: with themselves} (see also \cite[Proposition 2.1.2.6]{lurie:htt}).
+Indeed \notec{I don't think it makes sense to say ``Indeed'' here.}, we will show in \cref{sec:kanfuk} that, assuming the axiom of choice, every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
 \end{example}
 
 
