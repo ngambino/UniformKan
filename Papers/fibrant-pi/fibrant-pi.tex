@@ -57,7 +57,12 @@ As our results show, this independence result should be seen as an indication th
 Let us also point out that, when instanciated to the category of cubical sets considered in~\cite{coquand-variation}, our second main theorem provides a new, completely category-theoretic proof of the fact that also in that setting the pushforward along a uniform Kan fibration preseves uniform Kan fibrations.
 
 
-
+The Frobenius property for a weak factorisation system is closely related to the right properness condition for a model structure.
+Indeed, a model structure where the cofibrations are stable under pullback (which is the case if they are the monomorphisms) is right proper if and only if the weak factorisation system given by trivial cofibrations and fibrations has the Frobenius property.
+For example, the weak factorisation system on simplicial sets in which the right maps are the Kan fibrations has the Frobenius property.
+The standard proof of this fact follows from the right properness of the Kan model structure on simplicial sets, which in turn can be established either using the right properness of the model structure on topological spaces in which  the fibrations are the Serre fibrations~\cite[Theorem~13.1.13]{hirschhorn-model-localizations}. Working purely combinatorially, it is possible to
+establish directly the Frobenius condition using the theory of minimal fibrations~\cite[Theorem~1.7.1]{joyal-tierney-notes}.
+Note that, by the independence result in~\cite{coquand-non-constructivity-kan}, these arguments must use classical reasoning. 
 
 \para{Organization of the paper}
 
@@ -110,25 +115,29 @@ There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mappi
 
 \medskip
 
-The terminology introduced in the next example is intended to suggest the analogy with some aspects of the theory
+The terminology introduced in the next example is intended to suggest the analogy with the theory
 developed by Cisinski in~\cite{cisinski-asterisque}, where he studied extensively model structures in which the cofibrations are the monomorphisms. 
 
-\begin{example}[Uniform trivial Cisinski fibrations] \label{exa-triv-kan-fib}
-Let $\catE$ be a presheaf category. 
-We define $\cal{M}$ to be the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms (\ie monomorphisms $i \co A \to B$ such that, for all $n$, the function $i_n \co A_n \to B_n$ has decidable image) and pullback squares.
-We define a \emph{uniform trivial Cisinski fibration} to be a right $\cal{M}$-map. Note that  the compatibility condition
-for a uniform Kan fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
+
+
+\begin{example}[Uniform trivial fibrations] \label{exa-triv-kan-fib} Let $\catE$ be a presheaf category and write $\cal{M}$
+for the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms, \ie mo\-no\-mor\-phisms whose 
+components are functions with decidable image,  and pullback squares. The right $\cal{M}$-maps play a particularly important
+role in our development, and therefore we shall introduce a special terminology for them: we will call them 
+\emph{uniform  trivial fibrations}. We define the category $\mathsf{TrivFib}$  of
+uniform trivial fibrations and their morphisms by letting
+\[
+ \mathsf{TrivFib} \defeq \liftr{\cal{M}} \rlap{.}
+\]
+Note that  the compatibility condition
+for a uniform trivial fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
 \[
 \xymatrix{
 A \ar[r]^{h} \ar[d]_{i} \pullback{dr} & C \ar[d]^{j} \ar[r]^s & X \ar[d]^f \\
-B \ar[r]_{k} & D \ar[r]_t & Y } 
+B \ar[r]_{k} & D \ar[r]_t & Y \rlap{,}} 
 \]
 where $i$ and $j$ are decidable monomorphisms and the square on the left-hand side is a pullback.
-In \cref{sec:unif}, we expand on this example and introduce the notion of a Cisinski fibration.
-\end{example}
-
-\begin{example}[Uniform trivial Kan fibrations] A right $\cal{M}$-map in $\SSet$ will be called a 
-\emph{uniform trivial Kan fibration}. 
+A uniform trivial fibration in $\SSet$ and $\CSet$ will be called a \emph{uniform trivial Kan fibration}.
 \end{example} 
 
 \medskip
@@ -888,8 +897,8 @@ Note that these are special cases of the horn inclusions $h^k_n \co \Lambda^k_n 
 \end{example}
 
 \begin{example}[Interval object in cubical sets] \label{exa:cyl-in-cuset}
-The category of cubical sets \notec{notation?} as studied in \notec{reference?} has a monoidal structure with unit coinciding with the terminal object.
-An interval object is given by $\Box^1$ \notec{agree on notation} with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
+The category of cubical sets $\CSet$ as studied in \notec{reference?} has a monoidal structure with unit coinciding with the terminal object.
+An interval object is given by $\Box^1$  with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
 As explained in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder.
 \end{example}
 
@@ -913,18 +922,17 @@ For $u \co \cal{I} \to \catE^\to$ and $k \in \braces{0, 1}$, we define a functor
   \kcyl \hatotimes u \co \cal{I} \to \catE^\to
 \]
 by letting $(\kcyl \otimes u)_i \defeq \kcyl \hatotimes u_i$, where $\kcyl \hatotimes u_i$ is given by the construction above.
-We define the category~$\cal{J}$ and the functor $v \co \cal{J} \to \catE^\to$ as follows.
-First, let $\cal{J} \defeq \cal{I} + \cal{I}$.
-The functor $v \co \cal{J} \to \catE^\to$ is then given by the coproduct diagram
+We now define a category~$\cal{I}_\otimes$ and a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$.
+First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$. Then, define  $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
 \begin{equation*}
-\xymatrix@C=1.2cm{
-  \cal{I} \ar[r]^{\iota_0} \ar[dr]_-{\lcyl \hatotimes u} & \cal{J} \ar[d]^(.4){v} & \cal{I} \ar[dl]^-{\rcyl \hatotimes u} \ar[l]_{\iota_1} \\
+\xymatrix@C+2em{
+  \cal{I} \ar[r]^{\iota_0} \ar[dr]_-{\lcyl \hatotimes u} & \cal{I}_\otimes \ar[d]^(.4){u_\otimes} & \cal{I} \ar[dl]^-{\rcyl \hatotimes u} \ar[l]_{\iota_1} \\
   & \catE^\to
 \rlap{.}}
 \end{equation*}
-Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $v \co \cal{J} \to \catE^\to$ is not. With these definitions
+Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not. With these definitions
 in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinly. After stating the definition, we unfold
-it in our examples.
+it in some examples.
 
 \begin{definition} \label{def:I-fibration}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -934,26 +942,37 @@ Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \end{enumerate}
 \end{definition}
 
+\medskip
+
 We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms.
-In other words, we let $\Fib{\cal{I}} \defeq \liftr{\cal{J}}$.
+In other words, we let 
+\[
+\Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
+\]
 
 \medskip
 
 \notec{Justify choice of $\cal{I}$-fibrations, in particular with regards to the different choice by Cisinsky. Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] : 1 + 1 \to I$. Note that Cisinski even puts an assumption implying that this map is mono into his definition of cylinder functor. Foreshadow that our main results will still hold for notions of $\cal{I}$-fibrations such as Cisinksi.}
 
-\begin{example}[Uniform Cisinski fibrations] 
+\begin{example}[Uniform fibrations in presheaf categories] 
 Let $\catE$ be a presheaf category equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$.
-Recall from \cref{exa-triv-kan-fib} that a uniform trivial Cisinski fibration is a right $\cal{M}$-map, where 
-$\cal{M} \hookrightarrow \cal{E}^\to$ is the subcategory of consisting of decidable monomorphisms and
-pullback squares. A \emph{uniform Cisinski fibration} is a uniform $\cal{M}$-fibration.
-We write $\mathsf{CisFib}$ for the category of uniform Cisinski fibrations and their morphisms, \ie $\mathsf{CisFib} = \Fib{\cal{M}}$.
+When working with presheaf categories, the category~$\cal{M}$ of decidable monomorphisms and pullback squares
+and the inclusion $u \co \cal{M} \hookrightarrow \cal{E}^\to$ are of particular importance, {cf.}\,\cref{exa-triv-kan-fib}.
+In this setting, a uniform~$\cal{M}$-fibration, \ie a right~$\cal{M}_\otimes$-map, will be called a \emph{uniform
+fibration}, without further specification. We defin the category $\mathsf{Fib}$ of uniform  fibrations and their morphisms
+by letting 
+\[
+\mathsf{Fib} \defeq \Fib{\cal{M}} = \liftr{(\cal{M}_\otimes)} \rlap{.}
+\]
+Below, we illustrate the notion of a uniform fibration in simplicial sets and cubical sets.
 \end{example}
 
-Below, we illustrate the notion of a uniform Cisinski fibrations in simplicial sets and cubical sets.
 
-\begin{example}[Uniform Kan fibrations]
-In the special case of the category of simplicial sets, a uniform $\cal{M}$-fibration will be called a \emph{uniform Kan
-fibration}. This notion of a uniform Kan fibration involves diagrams of the form
+
+
+\begin{example}[Uniform Kan fibrations] A uniform fibration in $\SSet$, will be called a \emph{uniform Kan
+fibration}. More explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simplicial map
+$p \co X \to Y$ and a function $\phi$ that provides diagonal fillers for diagrams of the form
 \[
 \xymatrix{
   (\Delta_1 \times A) +_A B \ar[r] \ar[d]_{(h^k_1, \id_A) \hattimes i} & X \ar[d]^p \\
@@ -973,6 +992,9 @@ Thus, higher-dimensional horns are not involved explicitly in the definition of 
 However, they are included indirectly since they are retracts of one-dimensional horns by Leibniz product with 
 themselves~\cite{joyal-quaderns} \ (see also \cite[Proposition 2.1.2.6]{lurie:htt}).
 We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice, every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
+\end{example}
+
+\begin{example} \noten{we need to mention something in cubical sets.}
 \end{example}
 
 \medskip
@@ -1007,43 +1029,49 @@ The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as a
 
 \subsection*{Existence of natural weak factorisation systems}
 
-We wish to show that categories of uniform (trivial) Cisinski fibrations in a presheaf category are the categories
+We wish to show that categories of uniform (trivial) fibrations in a presheaf category are the categories
 of right maps of a natural weak factorisation system. In the classical setting of simplicial sets, the existence of weak factorisation systems having trivial Kan fibrations and Kan fibrations as their right classes is proved using Quillen's small object argument, applied after having identified a suitable class of generating left maps.
 These are given by the boundary inclusions $i_n \co \partial \Delta_n \to \Delta_n$ for trivial Kan fibrations and by the horn inclusions $h^k_n \co \Lambda^k_n \to \Delta_n$ for Kan fibrations.
 
+\medskip
+
 Our treatment will be analogous: first, we will  isolate suitable small categories of generating left maps, and then obtain the
 required natural weak factorisation system by applying Garner's small object argument~\cite{garner:small-object-argument}.
-The key lemma for our results is the following result.
+The key step is contained in the next result. For its statement recall from \cref{exa-triv-kan-fib} that, in a presheaf category
+$\cal{E}$, we defined
+ $\mathsf{TrivFib} = \liftr{\cal{M}}$, where $\cal{M}$
+is the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms and pullback squares.
 
-\begin{lemma} \label{small-gen-triv-kan} Let $\catE$ be a presheaf category. There is an isomorphism
-\[
-\mathsf{TrivCisFib} = \liftr{  \cal{M}_{\textup{rep}} }
-\]
-where 
-\[
- \cal{M}_{\textup{rep}}  = \braces{i \co A \rightarrow \yon(c) \mid i \text{ is a decidable monomorphism} } \rlap{.}
-\]
+
+\begin{lemma} \label{small-gen-triv-kan} Let $\catE$ be a presheaf category. There is an isomorphism 
+$\mathsf{TrivFib} = \liftr{ ( \cal{N}) }$, where $\cal{N}$ is the full subcategory of $\cal{M}$ spanned by the mononorphisms whose codomain is 
+a representable presheaf.
 \end{lemma}
 
 \begin{proof} The claim follows from \cref{awfs-on-arrows-into-representables}.
 \end{proof}
 
-Note that the category of uniform trivial Cisinski fibrations is isomorphic also to the right orthogonality categories of 
-\begin{align*}
-  \cal{M}'  &= \braces{ i \co A \rightarrow \yon(c_1) \times \ldots \times \yon(c_n) \mid i \text{ is a decidable monomorphism} }
-\\
-  \cal{M}'' &= \braces{ i \co A \rightarrow B \mid i \text{ is a decidable monomorphism and $B$ is finite and finite-dimensional} }
-\end{align*}
-Indeed, for every full subcategory $\cal{S} \subseteq \cal{M}$ containing $\cal{M}_\textup{rep}$ we have that $\liftr{\cal{M}} = \liftr{\cal{S}}$, since $\cal{M}_\textup{rep}$ is the restriction to maps into representables of $\cal{M}$. The classes $\cal{M}'$ and $\cal{M}'' $ have
-better closure properties than $\cal{M}_\textup{rep}$, but the latter has the  key advantage of being a small category in a wide
+In particular, \cref{small-gen-triv-kan} says  that, for a map $f \co X \to Y$ in a presheaf category $\cal{E} = \mathrm{Psh}(\catC)$,  to give a natural choice of fillers for all diagrams with an arbitrary monomorphism on the right-hand side is the same as to give a choice of fillers for all diagrams of the form
+\[
+\xymatrix{
+A \ar[r] \ar[d] & X \ar[d]^f \\
+\yon(x) \ar[r] & Y \rlap{,} }
+\]
+where $\yon(x)$ the Yoneda embedding of some $x \in \catC$. The reduction to this type of diagrams relies essentially
+on the good behaviour of the orthogonality operations with respect to colimits, as in~\cref{awfs-on-arrows-into-representables}.
+
+
+\medskip
+
+Let us point out that we have that $\mathsf{TrivFib} = \liftr{\cal{S}}$ for every full subcategory $\cal{S} \subseteq \cal{M}$ 
+containing~$\cal{N}$, since~$\cal{N}$ is the restriction to maps into representables of $\cal{M}$. In particular, one could consider for
+$\cal{S}$ the full subcategory of $\cal{M}$ spaned by decidable monomorphisms with codomain a finite product of representables or, in the case of simplicial sets, decidable monomorphisms with codomain a finite and finite-dimensional simplicial set. These subcategories have better closure properties than $\cal{N}$, but $\cal{N}$ has the  key advantage of being a small category in a wide
 class of  presheaf categories, namely the categories of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}.
-We exploit this fact to establish our next result. 
-
-
+We exploit the smallness of the category $\cal{N}$ defined in \cref{small-gen-triv-kan} to establish our next result. 
 
 \begin{theorem}
 Let $\catE$ be a category of elegant Reedy presheaves.
-There exists an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$ on $\cal{E}$ such that the category of $\mathsf{R}$-algebras is the category of uniform trivial Kan fibrations.
+There exists a natural weak factorisation system $(\mathsf{L}, \mathsf{R})$ on $\cal{E}$ such that the category of $\mathsf{R}$-algebras is the category of uniform trivial fibrations.
 In particular, there is a functorial factorisation of maps of simplicial sets which sends a map $f \co X \to Y$ to a diagram of the form
 \[
 \xymatrix{
@@ -1055,30 +1083,31 @@ where $p_f$ admits the structure of a uniform trivial Kan fibration and $i_f$ ad
 \end{theorem}
 
 \begin{proof}
-Since $\catE$ is a category of elegant Reedy presheaves, the full category $\cal{M}_{\textup{rep}} \subseteq \cal{M}$ spanned by monomorphisms with codomain a representable presheaf is small.
-Now, since the inclusion $\cal{M}_{\textup{rep}} \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, it is possible to apply Garner's small object argument to obtain an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$.
-The fact that the category of $\mathsf{R}$-algebras is the category of uniform trivial Kan fibrations follows from \cref{small-gen-triv-kan}.
+Since $\catE$ is a category of elegant Reedy presheaves, the full category $\cal{N} \subseteq \cal{M}$ spanned by monomorphisms with codomain a representable presheaf is small.
+Now, since the inclusion~$\cal{N} \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, it is possible to apply Garner's small object argument to obtain an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$.
+The fact that the category of $\mathsf{R}$-algebras is the category of uniform trivial fibrations follows from \cref{small-gen-triv-kan}.
 \end{proof}
 
 \begin{theorem}
 Let $\catE$ be a category of elegant Reedy presheaves.
-There exists an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$ such that the category of $\mathsf{R}$-algebras is the category of uniform Kan fibrations.
+There exists a natural weak factorisation system $(\mathsf{L}, \mathsf{R})$ such that the category of $\mathsf{R}$-algebras is the category of uniform fibrations.
 In particular, there is a functorial factorisation of maps of simplicial sets which sends a map $f \co X \to Y$ to a diagram of the form
 \[
 \xymatrix{
 X \ar[rr]^f \ar[dr]_{i_f} & & Y \\
  & P_f \ar[ur]_{p_f} }
  \]
-where $p_f$ admits the structure of a uniform Kan fibration and $i_f$ admits the structure of a $\mathsf{L}$-coalgebra.
+where $p_f$ admits the structure of a uniform fibration and $i_f$ admits the structure of a $\mathsf{L}$-coalgebra.
 \end{theorem}
 
 \begin{proof}
-By Garner's small object argument, it is sufficient to find  a functor $v \co \cal{J} \rightarrow \catE^\to$ such that $\cal{J}$ is small and the category of uniform Kan fibrations is isomorphic to~$\liftr{\cal{J}}$. By \cref{prod-exp-general} and \cref{small-gen-triv-kan},
-such a category is obtained from  the inclusion $u \co \cal{M}_{\textup{rep}} \to \cal{E}^\to$ by taking Leibniz products with respect to
-endpoint inclusions.
+By Garner's small object argument, it is sufficient to find  a functor $v \co \cal{J} \rightarrow \catE^\to$ such that the
+category~$\cal{J}$ is small and the category of uniform Kan fibrations is isomorphic to~$\liftr{\cal{J}}$. By \cref{prod-exp-general} and \cref{small-gen-triv-kan},
+such a category is given by $u_\otimes \co \cal{N}_\otimes \rightarrow \catE^\to$, where $u \co \cal{N} \to \cal{E}^\to$ is the 
+evident inclusion.
 \end{proof}
 
-\noten{The last proof needs further polishing. Revised this section up to here.}
+
 
 %\section{Relating Kan fibrations and uniform Kan fibrations}
 %\label{sec:kanfuk}
@@ -1302,7 +1331,7 @@ $\phi \co \interval \otimes X \to Y$ such that the following diagrams commute:
 \[
 \xymatrix@C=1.2cm{
   X \ar[r]^-{\lcyl_X} \ar[dr]_{f} & \interval \otimes X \ar[d]^-{\phi} & X \ar[dl]^{g} \ar[l]_-{\rcyl_X} \\
-  & Y &
+  & Y \rlap{.} &
 }
 \]
 \end{definition}
@@ -1311,20 +1340,21 @@ $\phi \co \interval \otimes X \to Y$ such that the following diagrams commute:
 \begin{enumerate}[(i)]
 \item A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
 Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
-\item Such a left or right homotopy equivalence is said to be \emph{strong} if the following diagram commutes:
+\item Such a left (or right) homotopy equivalence is said to be \emph{strong} if the  diagram 
 \[
 \xymatrix{
   \interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{\phi} & \interval \otimes Y \ar[d]^{\psi} \\
-  X \ar[r]_{f} & Y
+  X \ar[r]_{f} & Y 
 }
 \]
-and \emph{co-strong} if the following diagram commutes:
+commutes, and \emph{co-strong} if the diagram
 \[
   \xymatrix{
   \interval \otimes Y \ar[r]^{\interval \otimes g } \ar[d]_{\psi} & \interval \otimes X \ar[d]^{\phi} \\
   Y \ar[r]_{g} & X
 }
 \]
+commutes.
 \end{enumerate}
 \end{definition}
 
@@ -1334,7 +1364,7 @@ The notion of a strong left or right homotopy equivalence is a generalization of
 \medskip
 
 Let us now fix a functor $u \co \cal{I} \to \catE^\to$.
-We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies, relative to $\cal{I}$ as follows.
+We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies relative to $\cal{I}$ as follows.
 The objects of $\cal{S}_1(\cal{I})$ are 4-tuples $(i, g,\phi,\psi)$ consisting of an object $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence,
 \ie arrows $g \co B_i \to A_i$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
 A morphism $m \co (i,g, \phi, \psi) \to (i', g', \phi', \psi')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing
@@ -1357,7 +1387,7 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
   A
   \ar[r]_{s}
 &
-  A'
+  A'\rlap{,}
 }
 &&
 \xymatrix{
@@ -1371,7 +1401,7 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
   A
   \ar[r]_{s}
 &
-  A'
+  A' \rlap{,}
 }
 &&
 \xymatrix{
@@ -1385,14 +1415,15 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
   B
   \ar[r]_{t}
 &
-  B'
+  B' \rlap{.}
 }
 \end{align*}
 Note that there is an obvious forgetful functor $\cal{S}_1(\cal{I}) \to \cal{I}$.
 We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^\to$ be its composition with $u \co \cal{I} \to \catE^\to$, mapping $(i, g,\phi,\psi)$ to $u_i \co A_i \to B_i$.
 We have a dual construction of a category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences relative to $u \co \cal{I} \to \catE^\to$.
 
-  Our next goal is to give an alternative characterisation of strong homotopy equivalences.
+  Our next goal is to give an alternative characterisation of strong left or right homotopy equivalences. For this, we need
+  some definitions.
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
 Observe that for every $f \co X \to Y$, we have an isomorphism
 \begin{equation}
@@ -1403,7 +1434,7 @@ For $k \in \braces{0, 1}$, we then have a commutative square of functors and nat
 \[
 \xymatrix@C+2em{
   0_\catE \ar[r]^{\bot} \ar[d]_{\bot} & \id_\catE \ar[d]^{\rcyl} \\
-  \id_\catE \ar[r]_{\lcyl} & \interval \otimes (-)
+  \id_\catE \ar[r]_{\lcyl} & \interval \otimes (-) \rlap{.}
 }
 \]
 This diagram determines two maps in $[\catE, \catE]^\to$,
@@ -1411,7 +1442,7 @@ This diagram determines two maps in $[\catE, \catE]^\to$,
 \begin{aligned}
   \thetar &\co \bot \rightarrow \lcyl
 \, ,&
-  \thetal &\co \bot \rightarrow \rcyl
+  \thetal &\co \bot \rightarrow \rcyl \rlap{,}
 \end{aligned}
 \end{equation}
 which are defined by letting $\thetar \defeq (\bot, \rcyl)$ and $\thetal \defeq (\bot, \lcyl)$.
@@ -1427,7 +1458,7 @@ in $\catE^\to$, which consist of squares of the form
 \[
 \xymatrix@C+2em{
   X \ar[r] \ar[d]_{f} & (\interval \otimes X) +_{X} Y \ar[d]^{\kcyl \hatotimes f} \\
-  Y \ar[r]_{\kcyl_Y} & \interval \otimes Y
+  Y \ar[r]_{\kcyl_Y} & \interval \otimes Y \rlap{,}
 }
 \]
 for $k \in \braces{0, 1}$.
@@ -1447,31 +1478,31 @@ To say that $\thetal \hatotimes f \co f \to \rcyl \hatotimes f$ is a section mea
 \[
 \xymatrix@C+1em{
   X \ar[r] \ar[d]_f & (\interval \otimes X) +_{X} Y \ar[d]^{\rcyl \hatotimes f}  \ar[r]  & X \ar[d]^f \\
-  Y \ar[r] & \interval \otimes Y \ar[r] & Y }
+  Y \ar[r] & \interval \otimes Y \ar[r] & Y \rlap{,} }
 \]
 where the two horizontal composites should be identiies.
 First, by a standard diagram-chasing arguments, giving the square on the right is equivalent to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, and $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
 \begin{align} \label{equ:first-three}
 \xycenter{
   X \ar[r]^-{\rcyl_X}  \ar[d]_f & \interval \otimes X \ar[d]^{\phi} \\
-  Y \ar[r]_{g} & X
+  Y \ar[r]_{g} & X \rlap{,}
 }
 &&
 \xycenter{
   Y \ar[r]^-{\rcyl_Y} \ar[d]_g & \interval \otimes Y \ar[d]^{\psi} \\
-  X \ar[r]_f & B
+  X \ar[r]_f & B \rlap{,}
 }
 &&
 \xycenter{
   \interval \otimes X \ar[d]_\phi \ar[r]^{I \otimes f} & \interval \otimes Y \ar[d]^\psi \\
-  X \ar[r]_{f} & Y
+  X \ar[r]_{f} & Y \rlap{.}
 }
 \end{align}
 Secondly, requiring that the two horizontal composites are a section to $\thetal \hatotimes f$ means that the diagrams
 \begin{align} \label{equ:second-two}
 \xycenter{
   X \ar[r]^-{\lcyl_X} \ar[dr]_{\id_X} & \interval \otimes X \ar[d]^\phi \\
-  & X
+  & X \rlap{,}
 }
 &&
 \xycenter{
@@ -1497,7 +1528,7 @@ The category $\cal{S}_k(\cal{I})$ is isomorphic to the category given as follows
 &
   \kcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
-  u_i
+  u_i \rlap{,}
 }
 \]
 \item morphisms $\tau \co (i, \rho) \to (i', \rho')$ are arrows $\tau \co i \to i'$ such that the following diagram commutes:
@@ -1513,14 +1544,14 @@ The category $\cal{S}_k(\cal{I})$ is isomorphic to the category given as follows
   u_i
   \ar[r]_{u_\tau}
 &
-  u_{i'}
+  u_{i'} \rlap{.}
 }
 \]
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-This follows from \cref{strong-h-equiv-as-section}.
+The claim follows from \cref{strong-h-equiv-as-section}.
 \end{proof}
 
 %\begin{remark} \label{strong-h-equiv-closed-under-monoidal-prod}
@@ -1536,10 +1567,10 @@ This follows from \cref{strong-h-equiv-as-section}.
 \label{sec:frobc}
 
 The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I}
-\to \cal{E}^\to$.
-As we will see, our results in \cref{sec:ortf} show that when the pullback functor $f^*$ has a right adjoint $f_*$ then $f$ satisfies the Frobenius property if and only if~$f_*$ preserves, in a suitable sense, right $\cal{I}$-maps.
-The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting
-and to provide an equivalent formulation, expressed using  pushforward, rather than pullback, functors.
+\to \cal{E}^\to$. As we will see in~\cref{lift-dependent-product}, analogously to the situation for Lawvere's original formulation of the Frobenius condition, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors. The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting.
+Also for this condition, we will provide an equivalent formulation, expressed using  pushforward rather than pullback. 
+
+\medskip
 
   We begin by introducing the Frobenius condition.
 
@@ -1557,18 +1588,13 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 \\
   (\catE/Y)^\to \ar[r]_{f^*}
 &
-  (\catE/X)^\to
+  (\catE/X)^\to \rlap{.}
 }
 \]
 \end{definition}
 
 
-The Frobenius property for a weak factorisation system is closely related to the right properness condition for a model structure.
-Indeed, a model structure where the cofibrations are stable under pullback (which is the case if they are the monomorphisms) is right proper if and only if the weak factorisation system given by trivial cofibrations and fibrations has the Frobenius property.
-For example, the weak factorisation system on simplicial sets in which the right maps are the Kan fibrations has the Frobenius property.
-The standard proof of this fact follows from the right properness of the Kan model structure on simplicial sets, which in turn can be established either using the right properness of the model structure on topological spaces in which  the fibrations are the Serre fibrations~\cite[Theorem~13.1.13]{hirschhorn-model-localizations}. Working purely combinatorially, it is possible to
-establish directly the Frobenius condition using the theory of minimal fibrations~\cite[Theorem~1.7.1]{joyal-tierney-notes}.
-Note that, by the independence result in~\cite{coquand-non-constructivity-kan}, these arguments must use classical reasoning. 
+
 
 
 \begin{proposition} \label{lift-dependent-product}
@@ -1667,9 +1693,10 @@ lifts to a natural transformation
   \cal{I}_{/V}
    \ar[r]_{g^*}
  &
-   \liftl{(\liftr{\cal{I}})}_{/U}
+   \liftl{(\liftr{\cal{I}})}_{/U} \rlap{.}
 }
 \]
+satisying evident coherence conditions with respect to $\phi$.
 \end{definition}
 
 \begin{remark}
@@ -1701,7 +1728,7 @@ For a square
   V
 }
 \]
-the following are equivalent:
+the following statements are equivalent:
 \begin{enumerate}[(i)]
 \item the square $(s,t)$ satisfies the Beck-Chevalley condition,
 \item the canonical natural transformation
@@ -1734,7 +1761,7 @@ lifts to a natural transformation
   \liftr{\cal{I}}_{/Y}
 }
 \]
-
+satisying the evident coherence conditions with respect to $\phi$.
 \end{enumerate}
 \end{proposition}
 
@@ -1743,8 +1770,7 @@ Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthog
 Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{exa:composition-pullback-lift} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
 \end{proof}
 
-As we will see in \cref{sec:becccu}, cartesian squares between uniform fibrations satisfy the Beck-Chevalley condition under very mild assumptions.
-In particular, cartesian squares between uniform Kan fibrations in presheaf categories satisfy the Beck-Chevalley condition.
+As we will see in \cref{sec:becccu}, cartesian squares between uniform $\cal{I}$-fibrations satisfy the Beck-Chevalley condition under very mild assumptions on $u \co \cal{I} \to \cal{E}^\to$. In particular, cartesian squares between uniform fibrations in presheaf categories satisfy the Beck-Chevalley condition.
 
 \medskip
 
@@ -1753,7 +1779,7 @@ conditions can be seen as the component for objects of $\cal{E}^\to$ and the com
 of a global condition. 
 
 
-\begin{definition}
+\begin{definition}[Uniform Frobenius condition]
 Let $u \co \cal{I} \to \catE^\to$. We say that $v \co \cal{J} \to \catE^\to$  satisfies the \emph{uniform Frobenius condition} 
 with respect to $u$ if  for every object $j \in \cal{J}$ the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$
 \[
@@ -1779,10 +1805,8 @@ The proof of the main result in this section, \cref{thm:frobenius-fibrations} re
 \begin{definition}
 A functorial cylinder $(\interval \otimes (-), \rcyl, \lcyl, \ccyl)$ is said to \emph{have connections} if, for $k \in \braces{0, 1}$, there are natural transformations
 \begin{align*}
-  \gamma^k &\co \interval \otimes (-) \to \id_\catE
-,&
-  \phi^k &\co \interval \otimes (-) \to \id_\catE
-,&
+  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
+  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
   \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
 \end{align*}
 making the components of $\kcyl \co \id_\cal{E} \to \interval \otimes (-)$ into a strong left homotopy equivalence.
@@ -1798,7 +1822,7 @@ By \cref{strong-h-equiv-as-section}, a functorial cylinder has connections if an
 &
   \kcyl \hatotimes (\kcyl \hatotimes f)  \ar[d]^{\rho_f}
 \\&
-  \kcyl \hatotimes f
+  \kcyl \hatotimes f \rlap{.}
 }
 \end{gather*}
 \end{remark}
@@ -1818,22 +1842,22 @@ For the reminder of this section, we fix a category $\catE$ with finite limits a
 The first key step to prove \cref{thm:frobenius-fibrations} is the following lemma.
 
 \begin{lemma} \label{thm:she-to-retract-closure}
-If the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts to $\cal{I}$, in the sense that there is a diagram of the form
+Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts to $\cal{I}$, in the sense that there is a diagram of the form
 \[
 \xymatrix@C+2em{
   \cal{I}  \ar[d]_u \ar[r]^{\kcyl \hatotimes (-)} & \cal{I} \ar[d]^{u} \\
-  \cal{E}^\to \ar[r]_{\kcyl \hatotimes (-)} & \cal{E}^\to} \, .
+  \cal{E}^\to \ar[r]_{\kcyl \hatotimes (-)} & \cal{E}^\to \rlap{.} } 
 \]
-then there are functors
+Then there are functors
 \begin{align*}
 \xycenter{
   \cal{S}_k(\cal{I}) \ar[dr]_{\cal{S}_k(u)} \ar[rr]^L & & \overline{\cal{I}} \ar[dl]^-{\overline{\kcyl \hatotimes u}} \\
-  & \catE^\to &
+  & \catE^\to \rlap{,} &
 }
 &&
 \xycenter{
  \cal{I} \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^M & & \cal{S}_k(\cal{I}) \ar[dl]^{\cal{S}_k(u)} \\
- & \ \catE^\to &
+ & \ \catE^\to \rlap{.}  &
 }
 \end{align*}
 \end{lemma}
@@ -1845,7 +1869,7 @@ Observe that $u_i \co A_i \to B_i$ is a retract of~$\kcyl \hatotimes u_i \co (\i
 \[
 \xymatrix@C+1em{
   A_i \ar[d]_{u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[r] \ar[d]^{\kcyl \hatotimes u_i } & A_i \ar[d]^{u_i} \\
-  B_i \ar[r] & \interval \otimes B_i \ar[r] & B_i }
+  B_i \ar[r] & \interval \otimes B_i \ar[r] & B_i \rlap{,}}
 \]
 where the left-hand side square is $\thetak \hatotimes u_i$ and right-hand side square is given by $\rho$.
 Thus, we can define
@@ -1865,7 +1889,10 @@ But such a retraction is provided by the natural transformation $\rho$ of~\cref{
 We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
 
-The second key step to prove \cref{thm:frobenius-fibrations} is the following lemma.
+It should be pointed out that the assumption of connections is used only in the definition of the functor $M$,
+and not of $L$, in \cref{thm:she-to-retract-closure}.
+The second key step to prove \cref{thm:frobenius-fibrations} is the following lemma, whose technical proof
+is given in the appendix.
 
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration}
@@ -1903,8 +1930,8 @@ We are now ready to prove the main result of this section.
 Recall that we are working in the setting of a finitely complete and cocomplete category $\cal{E}$ equipped with a functorial cylinder with connections.
 
 \begin{theorem} \label{thm:frobenius-fibrations}
-Let $u \co \cal{I} \to \catE^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
-For every uniform $\cal{I}$-fibration $p \co X \to Y$, if pullback along $p$ lifts to a functor
+Let $u \co \cal{I} \to \catE^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions,
+and let $p \co X \to Y$ be a uniform $\cal{I}$-fibration.  Assume that the pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \cal{I}_{/Y}
@@ -1917,14 +1944,14 @@ For every uniform $\cal{I}$-fibration $p \co X \to Y$, if pullback along $p$ lif
   (\catE / Y)^\to
   \ar[r]_{p^*}
 &
-  (\catE / X)^\to
+  (\catE / X)^\to \rlap{.}
 }
 \]
-then it also lifts to a functor
+Then it also lifts to a functor
 \[
 \xymatrix@C+2em{
-  \cal{J}_{/Y} \ar[r]^{p^*} \ar[d]_{v/Y} & \overline{\cal{J}}_{/X} \ar[d]^{v/X} \\
-  (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to
+  (\cal{I}_\otimes)_{/Y} \ar[r]^{p^*} \ar[d]_{u_{\otimes}/Y} & \overline{\cal{I}_\otimes}_{/X} \ar[d]^{u_{\otimes}/X} \\
+  (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to \rlap{.}
 }
 \]
 and so $p$ satisfies the Frobenius property with respect to $u$. 
@@ -1944,7 +1971,7 @@ It will suffice to separately show that $p^*$ lifts to functors
   (\catE / Y)^\to
   \ar[r]_{p^*}
 &
-  (\catE / X)^\to
+  (\catE / X)^\to \rlap{,}
 }
 \]
 for $k \in \braces{0, 1}$.
@@ -1960,7 +1987,7 @@ Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE
   (\catE / Y)^\to
   \ar[r]_{p^*}
 &
-  (\catE / X)^\to
+  (\catE / X)^\to \rlap{.}
 }
 \]
 Composing this with the the functors in \cref{thm:she-to-retract-closure}, we obtain
@@ -1984,7 +2011,7 @@ Composing this with the the functors in \cref{thm:she-to-retract-closure}, we ob
   (\catE/Y)^\to
   \ar[rrr]_{p^*}
 &&&
-  (\catE/X)^\to
+  (\catE/X)^\to \rlap{.}
 }
 \]
 as required.
@@ -1995,7 +2022,7 @@ uniform~$\cal{I}$-fibrations.
 
 \begin{corollary}
 Let $p \co X \to Y$ be a uniform $\cal{I}$-fibration.
-If pullback along $p$ lifts to a functor
+Assume that pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \cal{I}_{/Y}
@@ -2008,10 +2035,10 @@ If pullback along $p$ lifts to a functor
   (\catE / Y)^\to
   \ar[r]_{p^*}
 &
-  (\catE / X)^\to
+  (\catE / X)^\to \rlap{.}
 }
 \]
-then pushforward along $p$ lifts to a functor
+Then pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \Fib{\cal{I}}_{/X} \ar[r]^{p_*} \ar[d] & \Fib{\cal{I}}_{/Y} \ar[d] \\
@@ -2020,28 +2047,31 @@ then pushforward along $p$ lifts to a functor
 \]
 \end{corollary}
 
-\begin{example}[Frobenius property and pushforward for uniform Kan fibrations]
-Let $\catE$ be a category of presheaves equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections, and let $\cal{M}$ the subcategory of $\catE^\to$ consisting of monomorphisms and pullback squares.
-Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors always preserve monomorphisms, it follows that for every uniform Kan fibration $p \co X \to Y$, the pullback functor lifts to
+\begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
+Let $\catE$ be a category of presheaves equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections, and recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
+Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors always preserve monomorphisms, it follows that for every uniform fibration $p \co X \to Y$, the pullback functor lifts to
 \[
 \xymatrix@C+2em{
-  \cal{J}_{/Y} \ar[r] \ar[d]_{v/Y} & \overline{\cal{J}}_{/X} \ar[d]^{v/X} \\
-  (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to
+  (\cal{M}_\otimes)_{/Y} \ar[r]^{p^*} \ar[d]_{(u_\otimes)_{/Y}} & \overline{(\cal{M}_\otimes)}_{/X} \ar[d]^{(u_\otimes)_{/X}} \\
+  (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to \rlap{.}
 }
 \]
 Therefore, pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \mathsf{KanFib}_{/X} \ar[r] \ar[d]_{} & \mathsf{KanFib}_{/Y} \ar[d] \\
-  (\cal{E}_{/X})^\to \ar[r]_{p_*} & (\cal{E}_{/Y})^\to
+  \mathsf{KanFib}_{/X} \ar[r]^{p_*} \ar[d]_{} & \mathsf{KanFib}_{/Y} \ar[d] \\
+  (\cal{E}_{/X})^\to \ar[r]_{p_*} & (\cal{E}_{/Y})^\to \rlap{.}
 }
 \]
-In particular, the pushforward of a uniform Kan fibrations along uniform Kan fibrations is again a uniform Kan fibration. We consider
-this result the constructive counterpart of the classical statement that the pushforward functor along a Kan fibration preserves
-Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}.
-\end{example}
+In particular, the pushforward of a uniform fibrations along a uniform fibration is again a uniform fibration.  \end{example}
 
-\noten{Some discussion also that exponentiation of uniform Kan complexes is a uniform Kan complex. Discuss what were the key ideas involved in the proof}
+\begin{example}[The Frobenius property for uniform Kan fibrations] As a special case of \cref{frobenius-uniform-presheaf}, we obtain that 
+in $\SSet$ the pushforward of a uniform Kan fibrations along a uniform Kan fibration is again a uniform Kan fibration. We consider this a constructive counterpart of the 
+result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot
+be proved constructively~\cite{coquand-non-constructivity-kan}. Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes is again a Kan complex. 
+\end{example} 
+
+\noten{Need to add something about cubical sets}
 
 \section{The Beck-Chevalley condition for uniform fibrations}
 \label{sec:becccu}
@@ -2109,7 +2139,7 @@ respectively, and that  $\phi \co y_! \, p_1^* \Rightarrow p_2^* \, x_{!}$ lifts
 }
 \end{gathered}
 \end{equation}
-satisfying coherence with respect to $\phi$. \noten{This is the first time this idea is mentioned. It should be explained in general when we define Beck-Chevalley.}
+satisfying coherence with respect to $\phi$. 
 Then $\phi$ lifts further to a natural transformation $\phi''$ 
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
@@ -2223,7 +2253,7 @@ satisfying coherence with respect to $\psi$.
 
 \section*{Acknowledgements}
 
-We are grateful to Steve Awodey, Simon Huber and Andrew Swan for helpful discussions on the cubical model of type theory, and to Emily Riehl for insightful comments on algebraic weak factorization systems.
+We are grateful to Steve Awodey, Simon Huber and Andrew Swan for helpful discussions on the cubical model of type theory; to Emily Riehl for insightful comments on algebraic weak factorization systems; and to Richard Garner for pointing us to useful references.
 
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
 
