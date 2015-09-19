@@ -18,7 +18,45 @@
 \usepackage[utf8]{inputenc}
 \usepackage[usenames,dvipsnames]{xcolor}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \renewenvironment{proof}[1][\proofname]{\noindent {\sc #1.}\ }{\qed}
+
+%\makeatletter
+
+%\renewcommand{\section}{\@startsection
+  %{section}% name
+  %{1}% level
+  %{0mm}% indent
+  % {1\baselineskip}% beforeskip
+  %{0.5\baselineskip}% afterskip
+  % {\centering \sc}}% style
+
+%\makeatother
+
+% \renewcommand{\thepart}{\Roman{part}} 
+
+%\makeatletter
+
+ % \renewcommand{\subsection}{\@startsection
+  %{subsection}% name
+  % {2}% level
+  %{0mm}% indent
+   % {-\baselineskip}% beforeskip
+  % {0.5\baselineskip}% afterskip
+   % {\bfseries}}% style
+
+ %\renewcommand{\subsection}{\@startsection
+ %{subsection}% name
+ %{2}% level
+  %{0mm}% indent
+  %{-\baselineskip}% beforeskip
+   % {-2ex}% afterskip
+   % {\normalfont\normalsize\bfseries}}% styles
+
+% \makeatother
+
 %% Adapted from the HoTT book sources.
 
 %% Theorem environments
@@ -31,6 +69,42 @@
   \crefname{#2}{#4}{#4}  
 }
 
+\numberwithin{equation}{section}
+
+\newtheoremstyle{mythm}% 
+{10pt}% Space above 
+{}% Space below 
+{\itshape}% Body font 
+{}% Indent amount 
+{\sc}%  Theorem head font 
+{.}% Punctuation after theorem head 
+{.5em}% Space after theorem head 
+{}% 
+
+\newtheoremstyle{mydef}% 
+{10pt}% Space above 
+{3pt}% Space below 
+{}% Body font 
+{}% Indent amount 
+{\sc}%  Theorem head font 
+{.}% Punctuation after theorem head 
+{.5em}% Space after theorem head 
+{}% 
+
+\newtheoremstyle{myrmk}% 
+{10pt}% Space above 
+{3pt}% Space below 
+{}% Body font 
+{}% Indent amount 
+{\sc}%  Theorem head font 
+{.}% Punctuation after theorem head 
+{.5em}% Space after theorem head 
+{}% 
+
+
+
+\theoremstyle{mythm}
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem*{theorem*}{Theorem}
 \crefname{theorem}{Theorem}{Theorems}
@@ -39,15 +113,17 @@
 \defthm{lemma}{lemmata}{Lemma}{Lemmata}
 \defthm{proposition}{propositions}{Proposition}{Propositions}
 
-\theoremstyle{definition}
+\theoremstyle{mydef}
 \defthm{definition}{definitions}{Definition}{Definitions}
 
-\theoremstyle{remark}
+\theoremstyle{myrmk}
 \defthm{remark}{remarks}{Remark}{Remarks}
 \defthm{example}{examples}{Example}{Examples}
 \defthm{question}{questions}{Question}{Questions}
 
 \crefname{section}{Section}{Sections}
+
+\swapnumbers
 
 %%% Lambda abstractions.
 % Each variable being abstracted over is a separate argument.  If
