@@ -23,6 +23,10 @@
 
 % \renewenvironment{proof}[1][\proofname]{\noindent {\sc #1.}\ }{\qed}
 
+\makeatletter
+\renewenvironment{proof}[1][\proofname] {\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item[\hskip\labelsep\sc#1\@addpunct{.}]\ignorespaces}{\popQED\endtrivlist\@endpefalse}
+\makeatother
+
 %\makeatletter
 
 %\renewcommand{\section}{\@startsection
@@ -208,7 +212,7 @@
 \DeclarePairedDelimiter\angles\langle\rangle
 \DeclarePairedDelimiter\braces\lbrace\rbrace
 
-\newcommand{\arghole}{\mathop{\cdot}}
+\newcommand{\arghole}{-}
 \newcommand{\brarghole}{({}\mathop{\cdot}{})}
 
 \newcommand{\cc}{\mathbin{\circ}}
@@ -250,8 +254,8 @@
 
 
 \newcommand{\ret}{\mathbf{R}}
-\newcommand{\retA}{\mathsf{a}}
-\newcommand{\retB}{\mathsf{b}}
+\newcommand{\retA}{\mathit{x}}
+\newcommand{\retB}{\mathit{y}}
 
 % Stolen from Mike Shulman.
 \newcommand{\xto}{\xrightarrow}
@@ -335,3 +339,5 @@
 \newcommand{\notec}{\note{Red}}
 \newcommand{\noten}{\note{ForestGreen}}
 
+
+\newcommand{\yon}{\mathrm{y}}
