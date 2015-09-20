@@ -1744,7 +1744,7 @@ Also for this condition, we will provide an equivalent formulation, expressed us
 
   We begin by introducing the Frobenius condition.
 
-\begin{definition}[Frobenius condition]
+\begin{definition}[Frobenius condition] \label{thm:frobenius-def}
 Let $u \co \cal{I} \to \cal{E}^\to$ be a functor.
 We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u$ if pullback along $f$ lifts to a functor
 \[
@@ -1763,7 +1763,18 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 \]
 \end{definition}
 
+Let us explain the connection between the Frobenius condition of \cref{thm:frobenius-def} and the Frobenius condition on 
+a weak factorisation system, which states the the pullback along a right map preserves left 
+maps~\cite{garner:types-omega-groupoids,garner:topological-simplicial}. Given a  weak
+factorisation system $(\cal{L}, \cal{R})$ on a category $\catE$,  we have that the pullback along a right map preserves left 
+maps if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow
+\cal{E}^\to$. 
 
+\medskip
+
+For a weak factorisation system in a category with pushforward functors, \ie right adjoints to pullbacks,
+the standard Frobenius condition is equivalent to saying that pushforward along a right map preserves right maps.
+The counterpart of this equivalence in our setting is provided by the next proposition.
 
 
 
@@ -1903,35 +1914,39 @@ the following statements are equivalent:
 \item the square $(s,t)$ satisfies the Beck-Chevalley condition,
 \item the canonical natural transformation
 \[
-\xymatrix{
-  \catE^\to_{/U}
-  \ar[d]_{g_*}
-  \ar[r]^{s^*}
-  \ar@{}[dr]|{\stackrel{\psi\;}{\Rightarrow}}
+\xymatrix@C+2em{
+  \cal{E}^\to_{/U}
+  \ar[r]^{g_*} 
+  \ar[d]_{s^*}
+  \ar@{}[dr]|{\Downarrow \, \psi}
 &
-  \catE^\to_{/X} \ar[d]^{f_*} 
+  \cal{E}^\to_{/V}
+  \ar[d]^{t^*}
 \\
-  \catE^\to_{/V}  \ar[r]_{t^*}
+  \cal{E}^\to_{/X}
+  \ar[r]_{f_*} 
 &
-  \catE^\to_{/Y}
+  \cal{E}^\to_{/Y}
 }
 \]
 lifts to a natural transformation  
 \[
-\xymatrix{
+\xymatrix@C+2em{
   \liftr{\cal{I}}_{/U}
-  \ar[d]_{g_*}
-  \ar[r]^{s^*}
-  \ar@{}[dr]|{\stackrel{\psi\;}{\Rightarrow}}
+  \ar[r]^{g_*} 
+  \ar[d]_{s^*}
+  \ar@{}[dr]|{\Downarrow \, \psi'}
 &
-  \liftr{\cal{I}}_{/X} \ar[d]^{f_*} 
+  \liftr{\cal{I}}_{/V}
+  \ar[d]^{t^*}
 \\
-  \liftr{\cal{I}}_{/V}  \ar[r]_{t^*}
+  \liftr{\cal{I}}_{/X}
+  \ar[r]_{f_*} 
 &
   \liftr{\cal{I}}_{/Y}
 }
 \]
-satisying the evident coherence conditions with respect to $\phi$.
+satisying the evident coherence conditions with respect to $\psi$.
 \end{enumerate}
 \end{proposition}
 
@@ -1967,8 +1982,8 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 \section{The Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-The aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition, and in particular that uniform Kan fibrations in presheaf categories always satisfy the Frobenius condition.
-The proof of the main result in this section, \cref{thm:frobenius-fibrations} relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
+The aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
+The proof of the main result in this section, \cref{thm:frobenius-fibrations}, relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
 
 
 
@@ -1983,7 +1998,7 @@ making the components of $\kcyl \co \id_\cal{E} \to \interval \otimes (-)$ into 
 \end{definition}
 
 \begin{remark} \label{thm:retraction-for-connections}
-By \cref{strong-h-equiv-as-section}, a functorial cylinder has connections if and only if for $f \co X \to Y$, there exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
+By \cref{strong-h-equiv-as-section}, a functorial cylinder has connections if and only if  there exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
 \begin{gather*}
 \xymatrix@C+3em{
   \kcyl \hatotimes f
@@ -2246,10 +2261,15 @@ be proved constructively~\cite{coquand-non-constructivity-kan}. Obviously, since
 \section{The Beck-Chevalley condition for uniform fibrations}
 \label{sec:becccu}
 
-\noten{Some preliminary discussion needs to be added}
+We conclude the paper by providing some general conditions for morphisms of uniform fibrations to satisfy 
+the Beck-Chevalley condition. In particular, we will show that morphisms of uniform fibrations in presheaf
+categories, such as simplicial and cubical sets, always satisfy the Beck-Chevalley condition.
 
-Let $p \co X \to Y$ and $q \co U \to V$ be $(\lcyl \otimes \catE)$-maps and consider a 
-morphism of $(\lcyl \otimes \catE)$-maps
+\medskip
+
+Let us consider a fixed category $\catE$ with finite limits and colimits, equipped with a functorial cylinder
+$(\interval \otimes, \rcyl, \lcyl, \ccyl)$. Let us fix  $(\kcyl \otimes \catE)$-maps, for $k \in \{0 , 1\}$, $p \co X \to Y$ and $q \co U \to V$ be
+and a morphism of $(\kcyl \otimes \catE)$-maps
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:0}
 \begin{gathered}
 \xymatrix{
@@ -2276,10 +2296,9 @@ Let us write $\phi$ for the canonical natural transformation
 }
 \end{gathered}
 \end{equation}
-The key to prove the Beck-Chevalley property for uniform fibrations (under some hypotheses on $u \co \cal{I} \to \cal{E}$)
-is the next lemma.  For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ and $s_!$ lift 
-to slices of $\cal{I}$ and $\cal{S}_k(\cal{I})$. \noten{We know this for slice of $\cal{I}$. But what about the other claim?}
-
+The key to prove the Beck-Chevalley property for morphisms of uniform $\cal{I}$-fibrations (under some hypotheses on $u \co \cal{I} \to \cal{E}$)
+is the next lemma.  For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ and $t_!$ lift 
+to slices of $\cal{I}$, and note that they also lift to slices of $\cal{S}_k(\cal{I})$. 
 
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration-BC}
@@ -2290,7 +2309,7 @@ Assume that $p^* \co \cal{E}_{/Y} \to \cal{E}_{X}$ and $q^* \co \cal{E}_{/V} \to
   q^* \co \cal{I}_{/V} \to \cal{I}_{/U}
 \, ,
 \]
-respectively, and that  $\phi \co y_! \, p_1^* \Rightarrow p_2^* \, x_{!}$ lifts to a natural transformation~$\phi'$:
+respectively, and that  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:2}
 \begin{gathered}
 \xymatrix{
@@ -2310,7 +2329,7 @@ respectively, and that  $\phi \co y_! \, p_1^* \Rightarrow p_2^* \, x_{!}$ lifts
 \end{gathered}
 \end{equation}
 satisfying coherence with respect to $\phi$. 
-Then $\phi$ lifts further to a natural transformation $\phi''$ 
+Then $\phi$ lifts further to a natural transformation 
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
 \xymatrix{
@@ -2337,14 +2356,20 @@ where $k \in \braces{0, 1}$, satisfying coherence with respect to $\phi'$.
 
 
 
-\begin{theorem} Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
-inclusions. If  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
+\begin{theorem} \label{thm:beck-chevalley-unif} Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
+inclusions. Let $p \co X \to Y$ and $q \co U \to V$ be uniform $\cal{I}$-fibrations and consider a morphism of $\cal{I}$-fibrations
+\[
+\xymatrix{
+X \ar[r]^s \ar[d]_{p} & U \ar[d]^{q} \\
+Y \ar[r]_t & V}
+\]
+If  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
 \[
 \xymatrix{
   \cal{I}_{/Y}
   \ar[r]^{p^*} 
   \ar[d]_{t_!}
-  \ar@{}[dr]|{\Downarrow \, \psi}
+  \ar@{}[dr]|{\Downarrow \, \phi'}
 &
   \cal{I}_{/X}
   \ar[d]^{s_!}
@@ -2359,35 +2384,37 @@ satisfying coherence with respect to $\phi$, then $\phi$ lifts further to a natu
 \begin{equation*} 
 \begin{gathered}
 \xymatrix{
-  \cal{J}_{/Y}
+  (\cal{I}_\otimes)_{/Y}
   \ar[r]^{p^*} 
   \ar[d]_{t_!}
-  \ar@{}[dr]|{\Downarrow \, \chi}
+  \ar@{}[dr]|{\Downarrow \, \phi''}
 &
-  \overline{\cal{J}}_{/X}
+  \overline{\cal{I}_\otimes}_{/X}
   \ar[d]^{s_!}
 \\
-  \cal{J}_{/V}
+  (\cal{I}_\otimes)_{/V}
   \ar[r]_{q^*} 
 &
-  \overline{\cal{J}}_{/U}
+  \overline{\cal{I}_\otimes}_{/U}
 }
 \end{gathered}
 \end{equation*}
-satisfying coherence with respect to $\psi$, and so the square $(s,t) \co f \to g$ satisfies the Beck-Chevalley
+satisfying coherence with respect to $\phi'$, and so the map $(s,t) \co f \to g$ satisfies the Beck-Chevalley
 condition.
 \end{theorem}
 
+\begin{proof} The argument is analogous to that of \cref{thm:frobenius-fibrations} and hence we omit it.
+\end{proof}
 
-\begin{corollary}
+\begin{corollary} \label{thm:beck-chevalley-unif-push}
 Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
-inclusions. If  $\phi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural transformation 
+inclusions. If  $\psi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural transformation 
 \[
 \xymatrix@C+2em{
   \cal{I}_{/U}
   \ar[r]^{q_*} 
   \ar[d]_{s^*}
-  \ar@{}[dr]|{\Downarrow \, \psi}
+  \ar@{}[dr]|{\Downarrow \, \psi'}
 &
   \cal{I}_{/V}
   \ar[d]^{t^*}
@@ -2398,27 +2425,38 @@ inclusions. If  $\phi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural tra
   \cal{I}_{/Y}
 }
 \]
-satisfying coherence with respect to $\phi$, then $\psi$ lifts further to a natural transformation
+satisfying coherence with respect to $\psi$, then $\psi'$ lifts further to a natural transformation
 \[
 \xymatrix@C+2em{
-  \liftl{(\Fib{\cal{I}}_{/U})}
+  \Fib{\cal{I}}_{/U}
   \ar[r]^{q_*} 
   \ar[d]_{s^*}
-  \ar@{}[dr]|{\Downarrow \, \chi}
+  \ar@{}[dr]|{\Downarrow \, \psi''}
 &
-  \liftl{(\Fib{\cal{I}}_{/V})}
+  \Fib{\cal{I}}_{/V}
   \ar[d]^{t^*}
 \\
-  \liftl{(\Fib{\cal{I}}_{/X})}
+  \Fib{\cal{I}}_{/X}
   \ar[r]_{p_*} 
 &
-  \liftl{(\Fib{\cal{I}}_{/Y})}
+  \Fib{\cal{I}}_{/Y}
 }
 \]
-satisfying coherence with respect to $\psi$.
+satisfying coherence with respect to $\psi'$. \qed
 \end{corollary} 
 
-\noten{Add discussion of examples}
+\begin{proof} The claim follows from \cref{thm:beck-chevalley-unif} and \cref{lift-pushforward-BC}.
+\end{proof}
+
+
+\begin{example}[Beck-Chevalley condition for uniform fibrations in presheaf categories] If $\catE$ is a presheaf category, 
+then the map $\cal{M} \to \cal{E}^\to$ is closed under Leibniz product with endpoint inclusions. The maps of uniform
+fibrations satisfy the Beck-Chevalley condition, since  the lifts
+of the natural transformations
+$\phi \co t^* q_* \Rightarrow p_* \, s^*$  and $\psi \co t^* q_* \Rightarrow p_* \, s^*$  
+which are required to exist in order to be able to apply \cref{thm:beck-chevalley-unif} and \cref{thm:beck-chevalley-unif-push}
+are simply their restrictions to the components indexed by decidable monomorphisms. \noten{Something is missing}
+\end{example}
 
 
 \section*{Acknowledgements}
