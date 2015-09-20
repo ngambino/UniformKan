@@ -752,99 +752,6 @@ is an isomorphism.
 \end{enumerate}
 \end{proposition}
 
-\medskip
-
-
-Note that in the next auxiliary result we make the additional assumption of working within a presheaf category. 
-
-
-\begin{lemma} \label{left-kan-extension-of-representables} Assume that $\cal{E}$ is the category of 
-presheaves over a small category $\cat{C}$.
-Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under pullbacks along morphisms with 
-codomain a representable presheaf.
-Let $\cal{I}$ denote its restriction to arrows into representables.
-\[
-\xymatrix{
-  \cal{I}
-  \ar[rr]
-  \ar[dr]
-&&
-  \cal{J}
-  \ar[dl]
-\\&
-  \catE^\to
-}
-\]
-Then the inclusion $\cal{J} \to \catE^\to$ is the left Kan extension of $\cal{I} \to \catE^\to$ along $\cal{I} \to \cal{J}$.
-\end{lemma}
-
-\begin{proof}
-Since $\catE^\to$ is cocomplete, we can verify the claim using the colimit formula for left Kan extensions.
-We write $\yon \co \cat{C} \to \catE$ for the Yoneda embedding.
-All of the following will be functorial in an object $j \co A \to B$ of $\cal{J}$.
-We consider the diagram indexed by cartesian squares of the form
-\[
-\xymatrix@C=1.2cm{
-  A'
-  \ar[r]
-  \ar[d]_{i}
-  \pullback{dr}
-&
-  A
-  \ar[d]^{j}
-\\
-  \yon(x)
-  \ar[r]_-b
-&
-  B
-}
-\]
-with $i \co A' \to \yon(x)$ in $\cal{I}$ and valued $i$.
-Our goal is to show that its colimit of this diagram in $\catE^\to$ is $j$.
-Using the assumption that $\cal{J}$ is closed under pullback to representables, the given diagram can be described equivalently as the the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
-The claim can then be restated as $\colim_{b : \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b : \yon(x) \to B} \yon(x) \iso B$.
-\end{proof}
-
-\begin{remark}
-It would be of interest to prove \cref{left-kan-extension-of-representables} by combining the codomain fibration and the corresponding left Kan extension claim for the codomain part
-\[
-\xymatrix{
-  \cat{C}
-  \ar[rr]^{y}
-  \ar[dr]_{y}
-&&
-  \hat{\catC}
-  \ar[dl]^{\id}
-\\&
-  \hat{\cat{C}}
-}
-\]
-which holds by the co-Yoneda lemma.
-\end{remark}
-
-\begin{proposition} \label{awfs-on-arrows-into-representables}
-Assume that $\cal{E}$ is the category of 
-presheaves over a small category $\cat{C}$.
-Let~$\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables.
-Let $\cal{I}$ denote its restriction to arrows into representables, 
-\[
-\xymatrix{
-  \cal{I}
-  \ar[rr]
-  \ar[dr]
-&&
-  \cal{J}
-  \ar[dl]
-\\&
-  \catE^\to \rlap{.}
-}
-\]
-Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
-\end{proposition}
-
-\begin{proof}
-The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
-\end{proof}
 
 
 \section{Uniform fibrations}
@@ -1024,41 +931,138 @@ The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as a
 \end{proof}
 
 
-%\section{Existence of natural weak factorisation systems}
-%label{sec:exinwf}
+\section{Uniform fibrations in presheaf categories}
+\label{sec:exinwf}
 
-\subsection*{Existence of natural weak factorisation systems}
+\newcommand{\Psh}{\mathrm{Psh}}
 
-We wish to show that categories of uniform (trivial) fibrations in a presheaf category are the categories
-of right maps of a natural weak factorisation system. In the classical setting of simplicial sets, the existence of weak factorisation systems having trivial Kan fibrations and Kan fibrations as their right classes is proved using Quillen's small object argument, applied after having identified a suitable class of generating left maps.
-These are given by the boundary inclusions $i_n \co \partial \Delta_n \to \Delta_n$ for trivial Kan fibrations and by the horn inclusions $h^k_n \co \Lambda^k_n \to \Delta_n$ for Kan fibrations.
-
-\medskip
-
-Our treatment will be analogous: first, we will  isolate suitable small categories of generating left maps, and then obtain the
-required natural weak factorisation system by applying Garner's small object argument~\cite{garner:small-object-argument}.
-The key step is contained in the next result. For its statement recall from \cref{exa-triv-kan-fib} that, in a presheaf category
-$\cal{E}$, we defined
- $\mathsf{TrivFib} = \liftr{\cal{M}}$, where $\cal{M}$
-is the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms and pullback squares.
+The aim of this section is to study in more detail uniform fibrations in presheaf categories. Let
+us fix a presheaf category $\catE = \Psh(\cat{C})$, where $\cat{C}$ is a small category. We write $\yon \catC \to \cal{E}$
+for the Yoneda embedding. We assume that $\cal{E}$ is equipped with a cylinder object $( (-)\otimes, \rcyl, \lcyl, \cyl)$ and
+that the endofunctor $ \interval\otimes (-) \co \cal{E} \to \cal{E}$ has a right adjoint, so that we can apply \cref{prod-exp-general}. 
 
 
-\begin{lemma} \label{small-gen-triv-kan} Let $\catE$ be a presheaf category. There is an isomorphism 
-$\mathsf{TrivFib} = \liftr{ ( \cal{N}) }$, where $\cal{N}$ is the full subcategory of $\cal{M}$ spanned by the mononorphisms whose codomain is 
-a representable presheaf.
+
+Recall from \cref{exa-triv-kan-fib} that, in a presheaf category $\cal{E}$, we defined the category of uniform trivial fibrations 
+$\mathsf{TrivFib}$ and the category of uniform fibrations $\mathsf{Fib}$ by letting
+\[
+\mathsf{TrivFib} \defeq \liftr{\cal{M}} \, , \quad \mathsf{Fib} \defeq \liftr{\cal{M}_\otimes} \rlap{.}
+\] 
+respectively, where $\cal{M}$, is the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms and pullback squares.
+Our main result is that these categories can be also be defined as the right orthogonal with respect to categories over
+$\cal{E}$ that happen to be
+small in many examples, such as the categories of simplicial and cubical sets. This allows us to apply Garner's small object 
+argument~\cite{garner:small-object-argument} and obtain two natural weak factorisation systems in which the right maps are
+the uniform trivial fibrations and the uniform fibrations, respectively. In order to obtain these results, we need some auxiliary lemmas.
+
+\begin{lemma} \label{left-kan-extension-of-representables} 
+Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under pullbacks along morphisms with 
+codomain a representable presheaf.
+Let $\cal{I}$ denote its restriction to arrows into representables.
+\[
+\xymatrix{
+  \cal{I}
+  \ar[rr]
+  \ar[dr]
+&&
+  \cal{J}
+  \ar[dl]
+\\&
+  \catE^\to
+}
+\]
+Then the inclusion $\cal{J} \to \catE^\to$ is the left Kan extension of $\cal{I} \to \catE^\to$ along $\cal{I} \to \cal{J}$.
 \end{lemma}
 
-\begin{proof} The claim follows from \cref{awfs-on-arrows-into-representables}.
+\begin{proof}
+Since $\catE^\to$ is cocomplete, we can verify the claim using the colimit formula for left Kan extensions.
+We write $\yon \co \cat{C} \to \catE$ for the Yoneda embedding.
+All of the following will be functorial in an object $j \co A \to B$ of $\cal{J}$.
+We consider the diagram indexed by cartesian squares of the form
+\[
+\xymatrix@C=1.2cm{
+  A'
+  \ar[r]
+  \ar[d]_{i}
+  \pullback{dr}
+&
+  A
+  \ar[d]^{j}
+\\
+  \yon(x)
+  \ar[r]_-b
+&
+  B
+}
+\]
+with $i \co A' \to \yon(x)$ in $\cal{I}$ and valued $i$.
+Our goal is to show that its colimit of this diagram in $\catE^\to$ is $j$.
+Using the assumption that $\cal{J}$ is closed under pullback to representables, the given diagram can be described equivalently as the the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
+The claim can then be restated as $\colim_{b : \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b : \yon(x) \to B} \yon(x) \iso B$.
 \end{proof}
 
-In particular, \cref{small-gen-triv-kan} says  that, for a map $f \co X \to Y$ in a presheaf category $\cal{E} = \mathrm{Psh}(\catC)$,  to give a natural choice of fillers for all diagrams with an arbitrary monomorphism on the right-hand side is the same as to give a choice of fillers for all diagrams of the form
+\begin{remark}
+It would be of interest to prove \cref{left-kan-extension-of-representables} by combining the codomain fibration and the corresponding left Kan extension claim for the codomain part
+\[
+\xymatrix{
+  \cat{C}
+  \ar[rr]^{y}
+  \ar[dr]_{y}
+&&
+  \hat{\catC}
+  \ar[dl]^{\id}
+\\&
+  \hat{\cat{C}}
+}
+\]
+which holds by the co-Yoneda lemma.
+\end{remark}
+
+\begin{proposition} \label{awfs-on-arrows-into-representables}
+Let~$\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables.
+Let $\cal{I}$ denote its restriction to arrows into representables, 
+\[
+\xymatrix{
+  \cal{I}
+  \ar[rr]
+  \ar[dr]
+&&
+  \cal{J}
+  \ar[dl]
+\\&
+  \catE^\to \rlap{.}
+}
+\]
+Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
+\end{proposition}
+
+\begin{proof}
+The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
+\end{proof}
+
+
+
+\begin{theorem} \label{small-gen-triv-kan} Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms 
+with a representable presheaf as codomain.
+\begin{enumerate}[(i)]
+\item There is an isomorphism 
+$\mathsf{TrivFib} = \liftr{ ( \cal{N}) }$, 
+\item There is an isomorphism $\mathsf{Fib} = \liftr{(\cal{N}_\otimes)}$. 
+\end{enumerate}
+\end{theorem}
+
+\begin{proof} Part (i) The follows from \cref{awfs-on-arrows-into-representables}. Part (ii) follows from part (i) and
+\cref{prod-exp-general}.
+\end{proof}
+
+In particular, part (i) of \cref{small-gen-triv-kan} says  that, for a map $f \co X \to Y$ in  $\cal{E}$,  to give a natural choice of fillers for all diagrams with an arbitrary monomorphism on the right-hand side is the same as to give a choice of fillers for all diagrams of the form
 \[
 \xymatrix{
 A \ar[r] \ar[d] & X \ar[d]^f \\
 \yon(x) \ar[r] & Y \rlap{,} }
 \]
 where $\yon(x)$ the Yoneda embedding of some $x \in \catC$. The reduction to this type of diagrams relies essentially
-on the good behaviour of the orthogonality operations with respect to colimits, as in~\cref{awfs-on-arrows-into-representables}.
+on the good behaviour of the orthogonality functors with respect to colimits, as described in~\cref{awfs-on-arrows-into-representables}.
 
 
 \medskip
@@ -1066,89 +1070,80 @@ on the good behaviour of the orthogonality operations with respect to colimits, 
 Let us point out that we have that $\mathsf{TrivFib} = \liftr{\cal{S}}$ for every full subcategory $\cal{S} \subseteq \cal{M}$ 
 containing~$\cal{N}$, since~$\cal{N}$ is the restriction to maps into representables of $\cal{M}$. In particular, one could consider for
 $\cal{S}$ the full subcategory of $\cal{M}$ spaned by decidable monomorphisms with codomain a finite product of representables or, in the case of simplicial sets, decidable monomorphisms with codomain a finite and finite-dimensional simplicial set. These subcategories have better closure properties than $\cal{N}$, but $\cal{N}$ has the  key advantage of being a small category in a wide
-class of  presheaf categories, namely the categories of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}.
-We exploit the smallness of the category $\cal{N}$ defined in \cref{small-gen-triv-kan} to establish our next result. 
+class of  presheaf categories, including simplicial sets and cubical sets. We exploit this fact to establish the next corollary.
 
-\begin{theorem}
-Let $\catE$ be a category of elegant Reedy presheaves.
-There exists a natural weak factorisation system $(\mathsf{L}, \mathsf{R})$ on $\cal{E}$ such that the category of $\mathsf{R}$-algebras is the category of uniform trivial fibrations.
-In particular, there is a functorial factorisation of maps of simplicial sets which sends a map $f \co X \to Y$ to a diagram of the form
+
+\begin{corollary} \label{thm:sset-cset-nwfs} Let $\catE$ be either $\SSet$ or $\CSet$. There exist two natural weak factorisation systems
+$(\mathsf{L}_1, \mathsf{R}_1)$ and $(\mathsf{L}_2, \mathsf{R}_2)$ on $\catE$,  in which right maps are
+the uniform trivial Kan fibrations and the uniform Kan fibrations, respectively. In particular, every map $f \co X \to Y$ admits two functorial factorisations, one of the form
 \[
 \xymatrix{
   X \ar[rr]^f \ar[dr]_{i_f} & & Y \\
   & C_f \ar[ur]_{p_f}
 }
 \]
-where $p_f$ admits the structure of a uniform trivial Kan fibration and $i_f$ admits the structure of a $\mathsf{L}$-coalgebra.
-\end{theorem}
-
-\begin{proof}
-Since $\catE$ is a category of elegant Reedy presheaves, the full category $\cal{N} \subseteq \cal{M}$ spanned by monomorphisms with codomain a representable presheaf is small.
-Now, since the inclusion~$\cal{N} \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, it is possible to apply Garner's small object argument to obtain an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$.
-The fact that the category of $\mathsf{R}$-algebras is the category of uniform trivial fibrations follows from \cref{small-gen-triv-kan}.
-\end{proof}
-
-\begin{theorem}
-Let $\catE$ be a category of elegant Reedy presheaves.
-There exists a natural weak factorisation system $(\mathsf{L}, \mathsf{R})$ such that the category of $\mathsf{R}$-algebras is the category of uniform fibrations.
-In particular, there is a functorial factorisation of maps of simplicial sets which sends a map $f \co X \to Y$ to a diagram of the form
+where $p_f$ admits the structure of a uniform trivial Kan fibration and $i_f$ admits the structure of a $\mathsf{L}_1$-coalgebra,
+and another of the form
 \[
 \xymatrix{
 X \ar[rr]^f \ar[dr]_{i_f} & & Y \\
  & P_f \ar[ur]_{p_f} }
  \]
-where $p_f$ admits the structure of a uniform fibration and $i_f$ admits the structure of a $\mathsf{L}$-coalgebra.
-\end{theorem}
+where $p_f$ admits the structure of a uniform fibration and $i_f$ admits the structure of a $\mathsf{L}_2$-coalgebra.
+\end{corollary} 
 
-\begin{proof}
-By Garner's small object argument, it is sufficient to find  a functor $v \co \cal{J} \rightarrow \catE^\to$ such that the
-category~$\cal{J}$ is small and the category of uniform Kan fibrations is isomorphic to~$\liftr{\cal{J}}$. By \cref{prod-exp-general} and \cref{small-gen-triv-kan},
-such a category is given by $u_\otimes \co \cal{N}_\otimes \rightarrow \catE^\to$, where $u \co \cal{N} \to \cal{E}^\to$ is the 
+
+\begin{proof} In both simplicial sets and cubical sets, the full category $\cal{N} \subseteq \cal{M}$ spanned by monomorphisms with codomain a representable presheaf is small.
+Now, since the inclusion~$u \co \cal{N} \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, it is possible to apply Garner's small object argument to obtain an algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$.
+The fact that the category of $\mathsf{R}$-algebras is the category of uniform trivial fibrations follows from part~(i) of \cref{small-gen-triv-kan}. For (ii), Garner's small object argument, it is sufficient to find  a functor $v \co \cal{J} \rightarrow \catE^\to$ such that the
+category~$\cal{J}$ is small and the category of uniform Kan fibrations is isomorphic to~$\liftr{\cal{J}}$. By part (ii) of~\cref{small-gen-triv-kan}, such a category is given by $u_\otimes \co \cal{N}_\otimes \rightarrow \catE^\to$, where $u \co \cal{N} \to \cal{E}^\to$ is the 
 evident inclusion.
 \end{proof}
 
+\cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$
+having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) cofibration. We leave this question
+to further investigation. 
 
 
-%\section{Relating Kan fibrations and uniform Kan fibrations}
-%\label{sec:kanfuk}
 
+\section{Uniform fibrations in elegant Reedy presheaf categories}
 
+In this section, the only one in which the law of excluded middle and the axiom of choice are assumed, we study the notion of a uniform
+(trivial) fibration in the context of presheaf categories over elegant Reedy presheaves, in the sense of \cite{bergner-rezk-elegant},
+equipped with a functorial cylinder whose endofunctor has a right adjoint.  In particular, we introduce the non-algebraic notion of  a (trivial) fibration and fibration in that setting, essentially generalising in  a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets. We then show that every (trivial)  fibration admits the structure of a uniform (trivial) fibration, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice. 
 
-\subsection*{Relating Kan fibrations and uniform Kan fibrations}
+\medskip
 
-\notec{Please proofread this subsection.}
+Let us begin by reviewing some terminology. Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ 
+equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
+\begin{enumerate}[(i)] 
+\item the maps of $\Rp$, called \emph{cofaces},  are monotone with respect to $\deg$,
+\item the maps of $\Rm$, called \emph{codegeneracise}, are antimonotone with respect to $\deg$,
+\item every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface.
+\end{enumerate}
+Recall that these properties imply that $\R$ is skeletal. 
 
-The aim of this subsection is to compare the standard notion of a (trivial) Kan fibration with the notion of a uniform (trivial) Kan fibration: we will show that under classical reasoning, a map $p \co X \to Y$ of simplicial sets is a (trivial) Kan fibration if and only if it can be equipped with the structure of a uniform (trivial) Kan fibration.
-Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{M}_{\mathrm{rep}}$.
-In fact, we will prove this equivalence in the more general setting of presheaves over an arbitrary elegant Reedy category.
-This covers \eg cubical sets as well.
-Let us first review some terminology.
-\notec{The introduction of Reedy categories should probably be moved earlier.}
+\medskip
 
-A \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ with a degree function $\deg \co \obj(\R) \to \alpha$ where $\alpha$ is some ordinal and wide subcategories $\Rp, \Rm$ as follows.
-The maps of $\Rp$ are monotone with respect to $\deg$ and are called cofaces.
-The maps of $\Rm$ are antimonotone with respect to $\deg$ and are called codegeneracies.
-Every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface.
-Recall that this necessarily implies that $\R$ is skeletal.
+Next, recall from~\cite{bergner-rezk-elegant} that  a Reedy category 
+$\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.  For example, the categories $\Delta$ and $\square$ are elegant Reedy category. In an elegant Reedy category, for every degree $n < \alpha$, we have \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\catE = \Psh(\R)$ forming an adjunction $\Sk_n \dashv \Cosk_n$. The action of $\Sk_n$ is to keep only the non-degenerate elements of degree strictly less than $n$ (note the index shift opposite to the one that is usually adopted in the literature). Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{\deg(A)}(\yon A)$. The counit of $\Sk$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
 
-Recall from~\cite{bergner-rezk-elegant} that $\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
-For every degree $n < \alpha$, we have \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\Rhat$ forming an adjunction $\Sk_n \dashv \Cosk_n$.
-The action of $\Sk_n$ is to keep only the non-degenerate elements of degree strictly less than $n$ (note the index shift contrary to the usual terminology \notec{Is this a problem?}).
-Given $A \co \R$, the \emph{boundary} of $A$ is defined as $\partial A = \Sk_{\deg(A)}(\yon A)$.
-The counit of $\Sk$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
+\medskip
 
-For the remainder of this section, we fix a decidable elegant Reedy category $\R$ and consider presheaves $\calE = \Rhat$.
-We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations.
+For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category of presheaves over it, $\calE \defeq \Rhat$. 
+We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations. Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{M}_{\mathrm{rep}}$.
+
 
 \begin{definition}
-A \emph{trivial fibration} is a right $\cal{U}_0$-map where $\cal{U}_0$ is the discrete subcategory of $\Rhat^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$. 
+A \emph{trivial fibration} is a right $\cal{I}$-map, where $\cal{I}$ is the discrete subcategory of $\cal{E}^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$. 
 \end{definition}
 
-Assuming the axiom of choice, this definition coincides with the classical definition of (what we call) a trivial fibration \notec{Notation...} admitting fillers for lifting problems against boundary inclusions (this will be the only use of choice, the remainder of the classical development in this subsection relies on excluded middle only). 
-Relating these to uniform trivial fibrations will proceed via the following intermediate notion.
+Assuming the axiom of choice, a map is a trivial fibration if and only if it has the right lifting property against boundary inclusions\footnote{This will be the only use of choice in this section, the remainder of the classical development in this subsection relies on excluded middle only}. Relating trivial fibrations to uniform trivial fibrations will proceed via the following intermediate notion.
 
 \begin{definition}
-A \emph{regular trivial fibration} is a right $\cal{U}_1$-map where $\cal{U}_1$ is the following subcategory of $\Rhat^{\to}$: objects are boundary inlusions $\partial A \to \yon A$ and identities on $\yon A$; non-identity morphisms are commutative squares
+A \emph{regular trivial fibration} is a right $\cal{J}$-map, where $\cal{J}$ is the subcategory of~$\cal{E}^{\to}$
+that has boundary inclusions $\partial A \to \yon A$ and identity maps $\id_{\yon A} \co \yon A \to \yon A$ as objects,
+and commutative squares
 \[
 \xymatrix{
   \partial A_1
@@ -1159,19 +1154,18 @@ A \emph{regular trivial fibration} is a right $\cal{U}_1$-map where $\cal{U}_1$ 
   \ar[d]
 \\
   \yon A_1
-  \ar[r]^{\yon(d)}
+  \ar[r]_{\yon(d)}
 &
   \yon A_2
 }
 \]
-with the bottom map $d$ in $\Rm$ and not an identity.
+where $d$ in $\Rm$ and not an identity, as maps. 
 \end{definition}
 
-Unravelling the definition slightly, a regular trivial fibration is a map equipped with a filler for each boundary inclusion lifting problems such that degenerate lifting problems have degenerate fillers.
+Unfolding this definition, one sees that a regular trivial fibration is a map equipped with a filler for each boundary inclusion lifting problems such that degenerate lifting problems have degenerate fillers.
 
-\begin{proposition}[ZFC] \label{trivial-fibration-to-regular}
-Let $p \co X \to Y$ be a trivial fibration.
-Then $p$ can be given the structure of a regular trivial fibration.
+\begin{proposition} \label{trivial-fibration-to-regular}
+Every trivial fibration can be equipped with the structure of a regular trivial fibration.
 \end{proposition}
 
 \begin{proof}
@@ -1191,47 +1185,47 @@ Consider a lifting problem as follows:
   Y
 }
 \end{equation}
-We need to choose a filler for it such that for every non-trivial codegeneracy $d \co A \to B$ and factoring of~\eqref{trivial-fibration-to-regular:0} as below,
+We need to choose a filler for it such that for every non-trivial codegeneracy $d \co A \to B$ and factorisation of~\eqref{trivial-fibration-to-regular:0} as below,
 \begin{equation} \label{trivial-fibration-to-regular:1}
-\xymatrix@C+2em{
+\xymatrix@C+3em{
   \partial A
-  \ar[r]_{\yon(d) \cc i^A}
+  \ar[r]^{\yon(d) \cc i^A}
   \ar[d]_{i^A}
-  \ar@/^2em/[rr]^{s}
+  % \ar@/^2em/[rr]^{s}
 &
   \yon B
-  \ar@{.>}[r]_{s'}
+  \ar@{.>}[r]^{s'}
   \ar[d]^{\id}
 &
   X
   \ar[d]^{p}
 \\
   \yon A
-  \ar[r]^{\yon(d)}
-  \ar@/_2em/[rr]_{t}
+  \ar[r]_{\yon(d)}
+%  \ar@/_2em/[rr]_{t}
 &
   \yon B
-  \ar@{.>}[r]^{t'}
+  \ar@{.>}[r]_{t'}
 &
   Y
 }
 \end{equation}
 the chosen filler for the now composite square coheres with the unique filler for the right square.
 
-We do this by case distinction (using the law of excluded middle) on whether a factoring~\eqref{trivial-fibration-to-regular:1} exists at all.
+We do this by case distinction (using the law of excluded middle) on whether a factorisation~\eqref{trivial-fibration-to-regular:1} exists at all.
 If none exist, we choose the filler provided to us by $p$ being a trivial fibration.
 If one exists, we choose $s' \cc \yon(d)$ as filler.
 
-It only remains to justify that the latter choice is independent of the particular factoring.
-This is where the elegancy assumption on $\R$ is used.
+It only remains to justify that the latter choice is independent of the particular factorisation.
+This is where we use the  assumption that the Reedy category $\R$ is elegant.
 \cref{pushout-non-trivial-deg-boundary} below shows that any two factorings through non-trivial codegeneracies $d_1$ and $d_2$ extends to a common factoring through the pushout of $d_1$ and $d_2$, yielding independence as required.
 Note this also shows the existence of a unique largest factoring since $\alpha$ is wellfounded.
 \end{proof}
 
 \begin{lemma}
 \label{pushout-non-trivial-deg-boundary}
-Let $d_i \co A \to B_i$ be a non-trivial codegeneracy for $i \co \braces{1, 2}$.
-Then the span $(d_1, d_2)$ has a pushout $(e_1, e_2)$ with $e_i \co B_i \to C$ a codegeneracy for $i \co \braces{1, 2}$.
+Let $d_i \co A \to B_i$ be a non-trivial codegeneracy for $i \in \braces{1, 2}$.
+Then the span $(d_1, d_2)$ has a pushout $(e_1, e_2)$ with $e_i \co B_i \to C$ a codegeneracy for $i \in \braces{1, 2}$.
 The image of this square under the Yoneda embedding is again pushout.
 Furthermore, this pushout is stable under right composition with the boundary inclusion $\partial A \to \yon A$.
 \end{lemma}
@@ -1242,15 +1236,17 @@ For the remaining claim, note that right composing the pushout square under cons
 But $\Sk_{\deg(A)}$ is a left adjoint and hence preserves pushouts.
 \end{proof}
 
-\begin{remark}
-The construction of \cref{trivial-fibration-to-regular} does \emph{not} extend to functor $\liftr{\cal{U}_0} \to \liftr{\cal{U}_1}$ of categories over $\catE^{\to}$.
-\end{remark}
+
+Note that the construction of \cref{trivial-fibration-to-regular} does not seem to extend to functor $\liftr{\cal{U}_0} \to \liftr{\cal{U}_1}$ of categories over $\catE^{\to}$.
+
+\medskip
 
 We will now relate regular trivial fibrations with uniform trivial fibrations.
-For this, we need to know how to go from fillers for boundary inclusions to fillers for monomorphisms.
+For this, we need to show how it is possible to reduce a lifting problem involving monomorphisms
+to lifting problems involving boundary inclusions. 
 
-Let $i \co U \to V$ be a monomorphism in $\Rhat$.
-A \emph{cellular presentation} of $i$ is a cocontinuous ordinal-indexed diagram $F \co \gamma \to \Rhat \backslash U$ with colimit $i$
+\begin{definition} A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ 
+is a cocontinuous ordinal-indexed diagram $F \co \gamma \to \catE_{\backslash U}$ with colimit $i$
 \[
 \xymatrix{
   U = F 0
@@ -1266,16 +1262,16 @@ A \emph{cellular presentation} of $i$ is a cocontinuous ordinal-indexed diagram 
 }
 \]
 such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
-Since $\R$ is elegant, we have $i$ admitting a \emph{canonical cellular presentation} indexed by $\alpha$ where the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
+\end{definition}
 
+Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admitsa \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
 Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
 
-\begin{proposition}[ZFC] \label{regular-trivial-fibration-to-uniform}
-Let $p \co X \to Y$ be a regular trivial fibration.
-Then $p$ can be given the structure of a uniform trivial fibration.
+\begin{proposition} \label{regular-trivial-fibration-to-uniform}
+Every regular trivial fibration can be given the structure of a uniform trivial fibration.
 \end{proposition}
 
-\begin{proof}
+\begin{proof} Let $p \co X \to Y$ be a regular trivial fibration.
 Let $i \co U \to V$ be a monomorphism and consider a lifting problem as follows:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:0}
 \xycenter{
@@ -1297,7 +1293,8 @@ Let $i \co U \to V$ be a monomorphism and consider a lifting problem as follows:
 Since $\R$ is elegant, we have a cellular presentation for $i$ as per the preceding discussion.
 As a regular trivial fibration, note that $p$ has fillers for lifting problems against boundary inclusions.
 This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
-Importantly, standard Reedy reasoning \notec{Too vague?} shows that this filler is independent of the particular cellular presentation chosen.
+Importantly, standard reasoning used in the theory of Reedy categories 
+ shows that this filler is independent of the particular cellular presentation chosen.
 
 It remains to verify coherence of fillers with respect to cartesian squares of monomorphisms:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:1}
@@ -1471,7 +1468,7 @@ Commutativity of the top triangle of the composite square follows from the induc
 Recalling that the dotted fillers are provided by the given right lifting structure of $p$ as a regular trivial fibration, they cohere as needed.
 \end{proof}
 
-\begin{theorem}[ZFC] \label{thm:ac-kan-is-uniform} \hfill
+\begin{theorem} \label{thm:ac-kan-is-uniform} \hfill
 \begin{enumerate}[(i)]
 \item Every trivial fibration admits the structure of a uniform trivial fibration.
 \item Every fibration admits the structure of a uniform fibration.
@@ -1481,7 +1478,11 @@ Recalling that the dotted fillers are provided by the given right lifting struct
 \begin{proof}
 Part (i) follows by \cref{trivial-fibration-to-regular} and \cref{regular-trivial-fibration-to-uniform}.
 For part (ii), let $p \co X \to Y$ be a fibration.
-By the non-algebraic counterpart of \cref{prod-exp-general}, it follows that $\hatexp(\overline{\delta}^k, p)$ is a trivial fibration for $k \co \braces{0, 1}$, and hence a uniform trivial fibration by part (i).
+By the non-algebraic counterpart of \cref{prod-exp-general}, it follows that 
+\[
+\hatexp(\overline{\delta}^k, p)
+\]
+is a trivial fibration for $k \in \braces{0, 1}$, and hence a uniform trivial fibration by part (i).
 The claim then follows by \cref{prod-exp-general}.
 \end{proof}
 
