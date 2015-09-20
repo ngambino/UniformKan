@@ -1113,206 +1113,373 @@ evident inclusion.
 %\label{sec:kanfuk}
 
 \subsection*{Relating Kan fibrations and uniform Kan fibrations}
-The aim of this section is to compare the standard notion of a Kan fibration with the notion of a uniform Kan fibration: we will show that a map $p \co X \to Y$ of simplicial sets is a Kan fibration if and only if it can be equipped with the structure of a uniform Kan fibration.
-Note that ~\cref{awfs-on-arrows-into-representables} cannot be used to show a map $p \co X \to Y$ of simplicial sets admits the structure of a uniform trivial Kan fibration if and only if it is a trivial Kan fibration in the usual sense since the class of boundary inclusions is contained strictly in~$\cal{M}_{\mathrm{rep}}$.
 
-We first establish the corresponding result for trivial Kan fibration.
-For this, it is useful to define the following subcategory $\cal{I} \subseteq \SSet^\to$.
-The objects are the boundary inclusions $i_n \co \partial \Delta_n \to \Delta_n$ and the identity maps $\id_{\Delta_n} \co \Delta_n \to \Delta_n$; the maps are the identity squares and those of the form
-\[
-\xymatrix@C=1.2cm{
-  \partial \Delta_n
-  \ar[r]
-  \ar[d]_{i_n}
-&
-  \Delta_{n-1}
-  \ar[d]^{\id_{\Delta_{n-1}}}
-\\
-  \Delta_n
-  \ar[r]_-{s^k_{n-1}}
-&
-  \Delta_{n-1}
-}
-\]
+\cnote{Please proofread this subsection.}
+
+The aim of this subsection is to compare the standard notion of a (trivial) Kan fibration with the notion of a uniform (trivial) Kan fibration: we will show that under classical reasoning, a map $p \co X \to Y$ of simplicial sets is a (trivial) Kan fibration if and only if it can be equipped with the structure of a uniform (trivial) Kan fibration.
+Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{M}_{\mathrm{rep}}$.
+In fact, we will prove this equivalence in the more general setting of presheaves over an arbitrary elegant Reedy category.
+This covers \eg cubical sets as well.
+Let us first review some terminology.
+\notec{The introduction of Reedy categories should probably be moved earlier.}
+
+A \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ with a degree function $\deg \co \obj(\R) \to \alpha$ where $\alpha$ is some ordinal and wide subcategories $\Rp, \Rm$ as follows.
+The maps of $\Rp$ are monotone with respect to $\deg$ and are called cofaces.
+The maps of $\Rm$ are antimonotone with respect to $\deg$ and are called codegeneracies.
+Every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface.
+Recall that this necessarily implies that $\R$ is skeletal.
+
+Recall from~\cite{bergner-rezk-elegant} that $\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
+For every degree $n < \alpha$, we have \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\Rhat$ forming an adjunction $\Sk_n \dashv \Cosk_n$.
+The action of $\Sk_n$ is to keep only the non-degenerate elements of degree strictly less than $n$ (note the index shift contrary to the usual terminology \notec{Is this a problem?}).
+Given $A \co \R$, the \emph{boundary} of $A$ is defined as $\partial A = \Sk_{\deg(A)}(\yon A)$.
+The counit of $\Sk$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
+
+For the remainder of this section, we fix a decidable elegant Reedy category $\R$ and consider presheaves $\calE = \Rhat$.
+We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations.
 
 \begin{definition}
-A \emph{regular trivial Kan fibration} is a right $\cal{I}$-map, \ie a map $p \co X \to Y$ equipped with a function that assigns fillers to all squares of the form
-\begin{equation} \label{equ:boundary-filler}
-\xycenter{
-  \partial \Delta_n \ar[d]_{i_n} \ar[r] & X \ar[d]^{p} \\
-  \Delta_n \ar[r] & Y
-}
-\end{equation}
-subject to the following naturality condition: for every diagram of the form
-\begin{equation} \label{equ:factor-via-id}
-\begin{gathered}
-\xymatrix@C=1.2cm{
-  \partial \Delta_n
+A \emph{trivial fibration} is a right $\cal{U}_0$-map where $\cal{U}_0$ is the discrete subcategory of $\Rhat^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$. 
+\end{definition}
+
+Assuming the axiom of choice, this definition coincides with the classical definition of (what we call) a trivial fibration \notec{Notation...} admitting fillers for lifting problems against boundary inclusions (this will be the only use of choice, the remainder of the classical development in this subsection relies on excluded middle only). 
+Relating these to uniform trivial fibrations will proceed via the following intermediate notion.
+
+\begin{definition}
+A \emph{regular trivial fibration} is a right $\cal{U}_1$-map where $\cal{U}_1$ is the following subcategory of $\Rhat^{\to}$: objects are boundary inlusions $\partial A \to \yon A$ and identities on $\yon A$; non-identity morphisms are commutative squares
+\[
+\xymatrix{
+  \partial A_1
   \ar[r]
-  \ar[d]_{i_n}
+  \ar[d]
 &
-  \Delta_{n-1}
-  \ar[r]
-  \ar[d]^{\id_{\Delta_{n-1}}}
+  \yon A_2
+  \ar[d]
+\\
+  \yon A_1
+  \ar[r]^{\yon(d)}
+&
+  \yon A_2
+}
+\]
+with the bottom map $d$ in $\Rm$ and not an identity.
+\end{definition}
+
+Unravelling the definition slightly, a regular trivial fibration is a map equipped with a filler for each boundary inclusion lifting problems such that degenerate lifting problems have degenerate fillers.
+
+\begin{proposition}[ZFC] \label{trivial-fibration-to-regular}
+Let $p \co X \to Y$ be a trivial fibration.
+Then $p$ can be given the structure of a regular trivial fibration.
+\end{proposition}
+
+\begin{proof}
+Consider a lifting problem as follows:
+\begin{equation} \label{trivial-fibration-to-regular:0}
+\xymatrix{
+  \partial A
+  \ar[d]_{i^A}
+  \ar[r]^{s}
 &
   X
   \ar[d]^{p}
 \\
-  \Delta_n
-  \ar[r]_-{s_k^{n-1}}
-&
-  \Delta_{n-1}
-  \ar[r]
+  \yon A
+  \ar[r]^{t}
 &
   Y
 }
-\end{gathered}
 \end{equation}
-the composite filler is coherent with respect to the trivial filler in the right square.
-\end{definition}
+We need to choose a filler for it such that for every non-trivial codegeneracy $d \co A \to B$ and factoring of~\eqref{trivial-fibration-to-regular:0} as below,
+\begin{equation} \label{trivial-fibration-to-regular:1}
+\xymatrix@C+2em{
+  \partial A
+  \ar[r]_{\yon(d) \cc i^A}
+  \ar[d]_{i^A}
+  \ar@/^2em/[rr]^{s}
+&
+  \yon B
+  \ar@{.>}[r]_{s'}
+  \ar[d]^{\id}
+&
+  X
+  \ar[d]^{p}
+\\
+  \yon A
+  \ar[r]^{\yon(d)}
+  \ar@/_2em/[rr]_{t}
+&
+  \yon B
+  \ar@{.>}[r]^{t'}
+&
+  Y
+}
+\end{equation}
+the chosen filler for the now composite square coheres with the unique filler for the right square.
 
-\begin{lemma}[ZFC] \label{triv-Kan-is-regular}
-Every trivial Kan fibration admits the structure of a regular trivial Kan fibration.
-\end{lemma}
+We do this by case distinction (using the law of excluded middle) on whether a factoring~\eqref{trivial-fibration-to-regular:1} exists at all.
+If none exist, we choose the filler provided to us by $p$ being a trivial fibration.
+If one exists, we choose $s' \cc \yon(d)$ as filler.
 
-\begin{proof}
-By the axiom of choice, we can choose designated fillers for squares as in~\eqref{equ:boundary-filler} based on (using excluded middle) whether that square factors as in~\eqref{equ:factor-via-id}.
-Note that it does not matter which degeneracy we choose if multiple are available, since the resulting diagonal filler will be coherent with all possible choices.
+It only remains to justify that the latter choice is independent of the particular factoring.
+This is where the elegancy assumption on $\R$ is used.
+\cref{pushout-non-trivial-deg-boundary} below shows that any two factorings through non-trivial codegeneracies $d_1$ and $d_2$ extends to a common factoring through the pushout of $d_1$ and $d_2$, yielding independence as required.
+Note this also shows the existence of a unique largest factoring since $\alpha$ is wellfounded.
 \end{proof}
 
-\begin{lemma} \label{reg-triv-is-unif-Kan}
-Every regular trivial Kan fibration admits the structure of a uniform trivial Kan fibration.
+\begin{lemma}
+\label{pushout-non-trivial-deg-boundary}
+Let $d_i \co A \to B_i$ be a non-trivial codegeneracy for $i \co \braces{1, 2}$.
+Then the span $(d_1, d_2)$ has a pushout $(e_1, e_2)$ with $e_i \co B_i \to C$ a codegeneracy for $i \co \braces{1, 2}$.
+The image of this square under the Yoneda embedding is again pushout.
+Furthermore, this pushout is stable under right composition with the boundary inclusion $\partial A \to \yon A$.
 \end{lemma}
 
 \begin{proof}
-Let us consider a map $p \co X \to Y$ equipped with the structure of a regular trivial fibration.
-By \cref{small-gen-triv-kan}, it is sufficient to show that $p$ can be equipped with the structure of a right $\cal{M}_1$-map, where $\cal{M}_1$ is the full subcategory of $\SSet^{\mathbf{2}}_\cart$ spanned by monomorphisms into representables.
-So, let us consider a square of the form
-\[
-\xymatrix{
-  A \ar[d]_i \ar[r] & X \ar[d]^p \\
-  \Delta_n \ar[r] & Y
-}
-\]
-where $i$ is a decidable monomorphism.
-We define a diagonal filler by decomposing $i$ into a finite composition of cobase changes of boundary inclusions, filling each of these using~\cref{triv-Kan-is-regular}.
-Crucially, this process is independent of the actual order of the boundary fillings (note that this is not true for the analogous situation of horn fillings).
-In order to prove the naturality condition of uniform trivial Kan fibrations, let us consider a diagram of the form
-\[
-\xymatrix{
-  A
-  \ar[r]
-  \ar[d]_i
-  \pullback{dr}
-&
-  B
-  \ar[d]_j
-  \ar[r]
-&
-  X
-  \ar[d]^p
-\\
-  \Delta_{n}
-  \ar[r]
-&
-  \Delta_{m}
-  \ar[r]
-&
-  Y
-}
-\]
-where the left-hand side square is a pullback.
-By ``vertical'' induction and the remark on order invariance of boundary fillings, it will suffice to study the case where the middle vertical map is a boundary inclusion $i_n \co \partial \Delta_n \to \Delta_n$.
-Working ``horizontally'', it suffices to study the situation where the map $\Delta_{m} \to \Delta_n$ is a face or degeneracy map as $\Delta$ is generated by these.
+Everything up until the last sentence is part of the characterization of elegancy in~\cite[Proposition~3.8]{bergner-rezk-elegant}.
+For the remaining claim, note that right composing the pushout square under consideration with $\partial A \to \yon A$ is tantamount to applying $\Sk_{\deg(A)}$ to the square since we assumed $d_1, d_2$ to be non-trivial, \ie degree reducing.
+But $\Sk_{\deg(A)}$ is a left adjoint and hence preserves pushouts.
+\end{proof}
 
-Let us first examine the case of a face operation.
+\begin{remark}
+The construction of \cref{trivial-fibration-to-regular} does \emph{not} extend to functor $\liftr{\cal{U}_0} \to \liftr{\cal{U}_1}$ of categories over $\catE^{\to}$.
+\end{remark}
+
+We will now relate regular trivial fibrations with uniform trivial fibrations.
+For this, we need to know how to go from fillers for boundary inclusions to fillers for monomorphisms.
+
+Let $i \co U \to V$ be a monomorphism in $\Rhat$.
+A \emph{cellular presentation} of $i$ is a cocontinuous ordinal-indexed diagram $F \co \gamma \to \Rhat \backslash U$ with colimit $i$
 \[
 \xymatrix{
-  \Delta_n
-  \ar[r]
-  \ar[d]
-  \pullback{dr}
+  U = F 0
+  \ar[r]^-{F s_0}
 &
-  \partial \Delta_{n+1}
-  \ar[d]
-  \ar[r]
+  F 1
+  \ar[r]^{F s_1}
 &
-  X
-  \ar[d]
-\\
-  \Delta_n
-  \ar[r]_{d^k_{n+1}}
-&
-  \Delta^{n+1}
+  \ldots
   \ar[r]
 &
-  Y
+  V
 }
 \]
-Since the left vertical map is necessarily the identity, the filler for the composite square is uniquely determined, so there is no coherence to be verified.
+such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
+Since $\R$ is elegant, we have $i$ admitting a \emph{canonical cellular presentation} indexed by $\alpha$ where the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
 
-Let us now examine the case of a degeneracy operation.
-\[
-\xymatrix{
-  2 \times \partial \Delta_n
-  \ar[r]
-  \ar[d]
-  \ar@/^2em/[rr]^(0.3){\pi_2}
-  \pullback{dr}
-&
-  \bigcup_{i \neq k, k+1} \Delta_{[n+1] - i}
-  \ar[r]
-  \ar[d]
-  \pullback{dr}
-&
-  \partial \Delta_n
-  \ar[d]
+Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
+
+\begin{proposition}[ZFC] \label{regular-trivial-fibration-to-uniform}
+Let $p \co X \to Y$ be a regular trivial fibration.
+Then $p$ can be given the structure of a uniform trivial fibration.
+\end{proposition}
+
+\begin{proof}
+Let $i \co U \to V$ be a monomorphism and consider a lifting problem as follows:
+\begin{equation} \label{regular-trivial-fibration-is-uniform:0}
+\xycenter{
+  U
+  \ar[d]_{i}
   \ar[r]
 &
   X
-  \ar[dd]
+  \ar[d]^{p}
 \\
-  2 \times \Delta_n
+  V 
   \ar[r]
-  \ar@/_2em/[rr]_(0.3){\pi_2}
-&
-  \partial \Delta_{n+1}
-  \ar[r]
-  \ar[d]
-  \ar@{.>}[urr]
-  \pullback{ul}
-&
-  \Delta_n
-  \ar[d]
   \ar@{.>}[ur]
-\\&
-  \Delta_{n+1}
-  \ar[r]_{s_k^n}
-  \ar@{.>}[uurr]
-&
-  \Delta_n
-  \ar[r]
-  \ar@{.>}[uur]
 &
   Y
+\rlap{.}
 }
+\end{equation}
+Since $\R$ is elegant, we have a cellular presentation for $i$ as per the preceding discussion.
+As a regular trivial fibration, note that $p$ has fillers for lifting problems against boundary inclusions.
+This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
+Importantly, standard Reedy reasoning \notec{Too vague?} shows that this filler is independent of the particular cellular presentation chosen.
+
+It remains to verify coherence of fillers with respect to cartesian squares of monomorphisms:
+\begin{equation} \label{regular-trivial-fibration-is-uniform:1}
+\xycenter{
+  U'
+  \ar[d]_{i'}
+  \ar[r]
+  \pullback{dr}
+&
+  U
+  \ar[d]_(0.3){i}
+  \ar[r]
+&
+  X
+  \ar[d]^{p}
+\\
+  V'
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  V 
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+\rlap{.}}
+\end{equation}
+Choose a cellular presentation for $i$.
+Base change along $V' \to V$ induces a corresponding transfinite decomposition of $i'$ into cobase changes of coproducts of monomorphisms.
+Since the fillers for squares~\eqref{regular-trivial-fibration-is-uniform:0} are independent of the chosen cellular presentation, it suffices to verify coherence of fillers in~\eqref{regular-trivial-fibration-is-uniform:1} with $i$ replaced by a single boundary inclusion as in~\eqref{regular-trivial-fibration-is-uniform:2} below and apply transfinite induction to the chosen cellular presentation for $i$.
+
+It remains to verify coherence of fillers with respect to cartesian squares of monomorphisms with representable sink:
+\begin{equation} \label{regular-trivial-fibration-is-uniform:2}
+\xycenter{
+  U'
+  \ar[d]_{i'}
+  \ar[r]
+  \pullback{dr}
+&
+  \partial A
+  \ar[d]
+  \ar[r]
+&
+  X
+  \ar[d]^{p}
+\\
+  V'
+  \ar[r]_{m}
+  \ar@{.>}[urr]^(0.3){e'}
+&
+  \yon A
+  \ar[r]
+  \ar@{.>}[ur]_{e}
+&
+  Y
+\rlap{.}}
+\end{equation}
+Choose a cellular presentation $F \co \gamma \to \catE \backslash U'$ for $i'$.
+For $\beta < \gamma$, let $e_{\beta}' \co F(\beta) \to X$ denote the $\beta$-th stage of the construction of the composite filler $e'$ in~\eqref{regular-trivial-fibration-is-uniform:2} and write $t_{\beta} \co F(\beta) \to V'$ for the leg of the colimiting cocone of $V'$ under $F$.
+Note that $e_{\beta}' = e' t_{\beta}$.
+We will show that $e' t_{\beta} = e m t_{\beta}$ by transfinite induction on $\beta$.
+Passing to the colimit, it will then follow that $e' m = e$ as required.
+
+For the actual induction, the limit step similarly follows by passing to the colimit.
+For the successor step, let $\beta$ with $\beta + 1 < \gamma$ be given.
+We want to show $e_{\beta+1}' = e m t_{\beta+1}$ assuming that $e_{\beta}' = e m t_{\beta}$, \ie
+\begin{equation} \label{regular-trivial-fibration-is-uniform:ih}
+  e_{\beta+1}' \cc F(s_{\beta}) = e m t_{\beta+1} \cc F(s_{\beta}) \, .
+\end{equation}
+Here we have recalled that $e_{\beta}' = e_{\beta+1}' \cc F(s_{\beta})$ and $t_{\beta} = t_{\beta+1} \cc F(s_{\beta})$ where $F(s_{\beta})$ is given as a cobase change of a coproduct of boundary inclusions.
+It will suffice to focus on one such boundary inclusion as shown below:
+\begin{equation} \label{regular-trivial-fibration-is-uniform:3}
+\xycenter{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  U'
+  \ar[rr]
+  \ar[d]
+  \pullback{dr}
+&&
+  \partial A
+  \ar[r]
+  \ar[dd]
+&
+  X
+  \ar[dd]^{p}
+\\
+  \partial B
+  \ar[r]^{b'}
+  \ar[d]
+  \pullback{dr}
+&
+  F(\beta)
+  \ar[d]_{F(s_{\beta})}
+  \ar@{.>}[urrr]^(0.4){e_{\beta}'}
+\\
+  \yon B
+  \ar[r]_-{b}
+&
+  F(\beta+1)
+  \ar[r]_-{t_{\beta+1}}
+  \ar@{.>}[uurrr]_(0.4){e_{\beta+1}'}
+&
+  V'
+  \ar[r]_{m}
+&
+  \yon A
+  \ar[r]
+  \ar@{.>}[uur]^{e}
+&
+  Y
+\rlap{,}}
+\end{equation}
+and verify that $e_{\beta+1}' b = e m t_{\beta+1} b$, which will be our goal for the remainder of this proof.
+Here, the right pullback is derived from the pullback in~\eqref{regular-trivial-fibration-is-uniform:2} using that $t_{\beta+1}$ is mono.
+Recall that $e_{\beta+1}' b$ is by construction the filler for the above lifting problem from $i^B$ provided by the given right lifting structure of $p$.
+
+Write $m t_{\beta+1} b = \yon(d)$ with $d \co B \to A$.
+Note that $d$ has to be codegenerate.
+For otherwise, we would have $\yon(d)$ lifting through $i^A \co \partial A \to \yon A$.
+Recall that the base change of $i^A$ along itself is an isomorphism since $i^A$ is mono.
+It would follow that the base change of $i^A$ along $\yon(d)$ is an isomorphism as well.
+But as seen in~\eqref{regular-trivial-fibration-is-uniform:3}, this isomorphism would lift through $i^B$, making $i^B$ a retraction and hence an isomorphism, a contradiction.
+
+We will proceed by case distinction on whether $d$ is the identity on $A$, \ie $B = A$ and $m t_{\beta+1} b = \id_A$.
+If that is the case, then the goal reduces to $e_{\beta+1}' b = e$.
+But $e$ and $e_{\beta+1}' b$ are fillers for the same lifting problem from $i^A$ to $p$.
+Since they have both been provided by the given right lifting structure of $p$, they are equal.
+
+The remaining and main case is that $d$ is non-trivially codegenerate.
+But then we can make use of $\cal{U}_1$-coherence in the following comparison of lifting problems:
+\[
+\xymatrix{
+  \partial B
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  F(\beta)
+  \ar[rr]
+  \ar[d]_{F(s_{\beta})}
+&&
+  \yon A
+  \ar[r]^{e}
+  \ar@{=}[d]
+&
+  X
+  \ar[d]^{p}
+\\
+  \yon B
+  \ar[r]_{b}
+  \ar@{.>}[urrrr]_(0.6){e_{\beta+1}' b}
+&
+  F(\beta+1)
+  \ar[r]_-{t_{\beta+1}}
+&
+  V'
+  \ar[r]_-{m}
+&
+  \yon A
+  \ar[r]
+  \ar@{.>}[ur]_{e}
+&
+  Y
+\rlap{.}}
 \]
-The pullback of the boundary inclusion $\partial \Delta_n \to \Delta_n$ along $s^k_n$ decomposes as a cobase change of two parallel boundary inclusions of dimension $n$ followed by a boundary inclusion of dimension $n+1$, as indicated.
-The two parallel boundary fillings are identical copies of the original right square boundary filling, so they cohere as indicated.
-Finally, the filling for the boundary inclusion~$\partial \Delta_{n+1} \to \Delta_{n+1}$ coheres as indicated by how boundary filling was originally defined for degenerate squares.
+Commutativity of the top triangle of the composite square follows from the induction hypothesis~\eqref{regular-trivial-fibration-is-uniform:ih}.
+Recalling that the dotted fillers are provided by the given right lifting structure of $p$ as a regular trivial fibration, they cohere as needed.
 \end{proof}
 
-\begin{theorem}[ZFC] \hfill \label{thm:ac-kan-is-uniform}
+\begin{theorem}[ZFC] \label{thm:ac-kan-is-uniform} \hfill
 \begin{enumerate}[(i)]
-\item Every trivial Kan fibration admits the structure of a uniform trivial Kan fibration.
-\item Every Kan fibration admits the structure of a uniform Kan fibration.
+\item Every trivial fibration admits the structure of a uniform trivial fibration.
+\item Every fibration admits the structure of a uniform fibration.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-The claim in (i) follows by \cref{triv-Kan-is-regular} and \cref{reg-triv-is-unif-Kan}.
-For (ii), let $p \co X \to Y$ be a Kan fibration.
-By the non-algebraic counterpart of \cref{prod-exp-general}, it follows that $\hatexp(h_k^1, p)$ is a trivial Kan fibration for $k = 0, 1$.
+Part (i) follows by \cref{trivial-fibration-to-regular} and \cref{regular-trivial-fibration-to-uniform}.
+For part (ii), let $p \co X \to Y$ be a fibration.
+By the non-algebraic counterpart of \cref{prod-exp-general}, it follows that $\hatexp(\overline{\delta}^k, p)$ is a trivial fibration for $k \co \braces{0, 1}$, and hence a uniform trivial fibration by part (i).
 The claim then follows by \cref{prod-exp-general}.
 \end{proof}
 
