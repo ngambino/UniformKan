@@ -41,15 +41,15 @@
 
 % \renewcommand{\thepart}{\Roman{part}} 
 
-%\makeatletter
+\makeatletter
 
- % \renewcommand{\subsection}{\@startsection
-  %{subsection}% name
-  % {2}% level
-  %{0mm}% indent
-   % {-\baselineskip}% beforeskip
-  % {0.5\baselineskip}% afterskip
-   % {\bfseries}}% style
+  \renewcommand{\section}{\@startsection
+  {section}% name
+   {1}% level
+  {0mm}% indent
+    {-\baselineskip}% beforeskip
+   {0.5\baselineskip}% afterskip
+    {\large \bfseries}}% style
 
  %\renewcommand{\subsection}{\@startsection
  %{subsection}% name
@@ -59,7 +59,7 @@
    % {-2ex}% afterskip
    % {\normalfont\normalsize\bfseries}}% styles
 
-% \makeatother
+ \makeatother
 
 %% Adapted from the HoTT book sources.
 
@@ -335,10 +335,10 @@
 \newcommand{\para}[1]{\smallskip\noindent\textbf{{#1}.\ }\ignorespacesandallpars}
 
 % usage: \note[author]{color}{content}
-\newcommand{\note}[3][]{\def\auth{#1}\textcolor{#2}{\bf{[\ifx\auth\empty\else\auth: \fi{#3}]}}}
+\newcommand{\note}[3][]{\def\auth{#1}\textcolor{#2}{{[\ifx\auth\empty\else\auth: \fi{#3}]}}}
 
-\newcommand{\notec}{\note{Black}}
-\newcommand{\noten}{\note{Black}}
+\newcommand{\notec}{\note{Red}}
+\newcommand{\noten}{\note{Blue}}
 
 \newcommand{\yon}{\mathrm{y}}
 
