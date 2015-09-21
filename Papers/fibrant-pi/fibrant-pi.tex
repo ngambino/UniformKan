@@ -2296,34 +2296,9 @@ to slices of $\cal{I}$, and note that they also lift to slices of $\cal{S}_k(\ca
 
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration-BC}
-Assume that $p^* \co \cal{E}_{/Y} \to \cal{E}_{X}$ and $q^* \co \cal{E}_{/V} \to \cal{E}_{/U}$ lift to functors
-\[
-  p^* \co \cal{I}_{/Y} \to \cal{I}_{/X}
-\, , \qquad
-  q^* \co \cal{I}_{/V} \to \cal{I}_{/U}
-\, ,
-\]
-respectively, and that  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
-\begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:2}
-\begin{gathered}
-\xymatrix{
-  \cal{I}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{t_!}
-  \ar@{}[dr]|{\Downarrow \, \phi'}
-&
-  \cal{I}_{/X}
-  \ar[d]^{s_!}
-\\
-  \cal{I}_{/V}
-  \ar[r]_{q^*}
-&
-  \cal{I}_{/U}
-}
-\end{gathered}
-\end{equation}
-satisfying coherence with respect to $\phi$. 
-Then $\phi$ lifts further to a natural transformation 
+Assume that $p \co X \to Y$ and $q \co U \to V$ satisfy the Frobenius condition with respect to $u \co \cal{I} \to \catE^\to$ and that  
+$(s, t) \co p \to q$ satisfies the Beck-Chevalley condition with respect to  $u \co \cal{I} \to \catE^\to$.
+Then $\phi \co s_! p^* \to q^* t_!$ further to a natural transformation 
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
 \xymatrix{
@@ -2359,45 +2334,8 @@ inclusions. Let $p \co X \to Y$ and $q \co U \to V$ be uniform $\cal{I}$-fibrati
 X \ar[r]^s \ar[d]_{p} & U \ar[d]^{q} \\
 Y \ar[r]_t & V}
 \]
-If  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
-\[
-\xymatrix{
-  \cal{I}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{t_!}
-  \ar@{}[dr]|{\Downarrow \, \phi'}
-&
-  \cal{I}_{/X}
-  \ar[d]^{s_!}
-\\
-  \cal{I}_{/V}
-  \ar[r]_{q^*}
-&
-  \cal{I}_{/U}
-}
-\]
-satisfying coherence with respect to $\phi$, then $\phi$ lifts further to a natural transformation
-\begin{equation*}
-\begin{gathered}
-\xymatrix{
-  (\cal{I}_\otimes)_{/Y}
-  \ar[r]^{p^*} 
-  \ar[d]_{t_!}
-  \ar@{}[dr]|{\Downarrow \, \phi''}
-&
-  \overline{\cal{I}_\otimes}_{/X}
-  \ar[d]^{s_!}
-\\
-  (\cal{I}_\otimes)_{/V}
-  \ar[r]_{q^*} 
-&
-  \overline{\cal{I}_\otimes}_{/U}
-}
-\end{gathered}
-\end{equation*}
-satisfying coherence with respect to $\phi'$, and so the map $(s,t) \co f \to g$ satisfies the Beck-Chevalley
-condition.
-\end{theorem}
+Assume that  $(s,t) \co p \to q$ satisfies the Beck-Chevalley condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
+Then $(s,t) \co p \to q$ satisfies the Beck-Chevalley condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$.\end{theorem}
 
 \begin{proof} The argument is analogous to that of \cref{thm:frobenius-fibrations} and hence we omit it.
 \end{proof}
@@ -2405,27 +2343,11 @@ condition.
 
 \begin{corollary} \label{thm:beck-chevalley-unif-push}
 Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
-inclusions. If  $\psi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural transformation 
+inclusions. If  $(s,t) \co p \to q$ satisfies the Beck-Chevalley condition with respect to $u \co \cal{I} \to
+\catE^\to$, then the canonical natural transformation $\psi \co t^* q_* \to p_* s^*$ lifts to a natural transformation
 \[
 \xymatrix@C+2em{
-  \cal{I}_{/U}
-  \ar[r]^{q_*}
-  \ar[d]_{s^*}
-  \ar@{}[dr]|{\Downarrow \, \psi'}
-&
-  \cal{I}_{/V}
-  \ar[d]^{t^*}
-\\
-  \cal{I}_{/X}
-  \ar[r]_{p_*}
-&
-  \cal{I}_{/Y}
-}
-\]
-satisfying coherence with respect to $\psi$, then $\psi'$ lifts further to a natural transformation
-\[
-\xymatrix@C+2em{
-  \liftl{(\Fib{\cal{I}}_{/U})}
+  \Fib{\cal{I}}_{/U}
   \ar[r]^{q_*}
   \ar[d]_{s^*}
   \ar@{}[dr]|{\Downarrow \, \psi''}
@@ -2433,15 +2355,13 @@ satisfying coherence with respect to $\psi$, then $\psi'$ lifts further to a nat
   \Fib{\cal{I}}_{/V}
   \ar[d]^{t^*}
 \\
-  \liftl{(\Fib{\cal{I}}_{/X})}
-  \ar[r]_{p_*}
   \Fib{\cal{I}}_{/X}
-  \ar[r]_{p_*} 
+  \ar[r]_{p_*}
 &
   \Fib{\cal{I}}_{/Y}
 }
 \]
-satisfying coherence with respect to $\psi'$.
+satisfying coherence with respect to $\psi$.
 \end{corollary}
 
 
