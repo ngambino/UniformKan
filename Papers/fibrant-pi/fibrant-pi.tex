@@ -1,7 +1,7 @@
 \documentclass[reqno,10pt,a4paper,oneside,draft]{amsart}
 
 \setcounter{tocdepth}{1}
-
+\usepackage[parfill]{parskip}
 
 \usepackage{uniform-kan-prelude}
 
@@ -235,11 +235,7 @@ where the left-hand side square is the image of $\sigma \co i \to j$ in $\cal{I}
 For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
 There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we call the \emph{right orthogonal} of $u$.
 
-\medskip
-
 The terminology introduced in the next example is intended to suggest the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, where he studied extensively model structures in which the cofibrations are the monomorphisms.
-
-
 
 \begin{example}[Uniform trivial fibrations in presheaf categories] \label{exa-triv-kan-fib}
 Let $\catE$ be a presheaf category and write $\cal{M}$ for the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms, \ie monomorphisms whose components are functions with decidable image, and pullback squares.
@@ -258,29 +254,37 @@ where $i$ and $j$ are decidable monomorphisms and the square on the left-hand si
 A uniform trivial fibration in $\SSet$ and $\CSet$ will be called a \emph{uniform trivial Kan fibration}.
 \end{example}
 
-
 Let us now fix a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$.
-We use it in combination with a particular case of the Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to 
-introduce the notion of a uniform fibration in \cref{def:I-fibration}.
-Given $f \co A \to B$, for $k \in \braces{0, 1}$, we define
-\[
-  \delta^k \hatotimes f \co \catE^\to \to \catE^\to
-\]
+Given a functor $u \co \cal{I} \to \cal{E}^\to$ (which we think of as the counterpart of
+a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \cal{E}^\to$
+(which we think of as the counterpart of a set of generating trivial cofibrations) and use it
+to define the notion of a uniform $\cal{I}$-fibration. 
+The definition of $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$ involves a special case of 
+the so-called Leibniz construction (which is discussed in general in~\cite{riehl-verity:reedy}), which we now review 
+for the convenience of the reader. 
+
+Given a natural transformation $\phi \co F \to G$
+and a map $f \co X \to Y$, we define 
+$\widehat{\mathrm{ev}}(\phi, f) \co \catE^\to \to \catE^\to$
 by the universal property of pushouts, as in the following diagram:
 \begin{gather*}
 \xymatrix@C=1.2cm{
-  A \ar[r]^{f} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
-  \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes f} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes f} & \\
-  & & \interval \otimes B
+  FX \ar[r]^{Ff} \ar[d]_{\phi_X} & FY \ar@/^2pc/[ddr]^{\phi_Y} \ar[d] & \\
+  GX \ar@/_1pc/[drr]_{Gf} \ar[r] & GX +_{FX} FY  \ar[dr]^-{\widehat{\mathrm{ev}}(\phi, f)} & \\
+  & & GY
 \rlap{.}}
 \end{gather*}
+In this way, one obtains a functor $\widehat{\mathrm{ev}} \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$. Our notation
+is chosen since we are appying the Leibniz construction to the evaluation functor $\mathrm{ev} \co [\cal{E},\cal{E}] \times \calE 
+\to \cal{E}$.
+
 For $u \co \cal{I} \to \catE^\to$ and $k \in \braces{0, 1}$, we define a functor
 \[
   \kcyl \hatotimes u \co \cal{I} \to \catE^\to
 \]
 by letting $(\kcyl \otimes u)_i \defeq \kcyl \hatotimes u_i$, where $\kcyl \hatotimes u_i$ is given by the construction above.
-We now define a category~$\cal{I}_\otimes$ and a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$.
-First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
+We now define the category~$\cal{I}_\otimes$ and th functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ that will be used
+to define the notion of a uniform $\cal{I}$-fibration in \cref{def:I-fibration} below. First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
 Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
 \begin{equation}
 \label{equ:u-tensor}
@@ -310,6 +314,14 @@ In other words, we let
 \[
 \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
 \]
+Note that
+\begin{gather*}
+\xymatrix@C=1.2cm{
+  A \ar[r]^{f} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
+  \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes f} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes f} & \\
+  & & \interval \otimes B
+\rlap{.}}
+\end{gather*}
 
 \medskip
 
