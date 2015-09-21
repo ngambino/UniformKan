@@ -335,10 +335,10 @@
 \newcommand{\para}[1]{\smallskip\noindent\textbf{{#1}.\ }\ignorespacesandallpars}
 
 % usage: \note[author]{color}{content}
-\newcommand{\note}[3][]{\def\auth{#1}\textcolor{#2}{[\ifx\auth\empty\else\auth: \fi{#3}]}}
+\newcommand{\note}[3][]{\def\auth{#1}\textcolor{#2}{\bf{[\ifx\auth\empty\else\auth: \fi{#3}]}}}
 
-\newcommand{\notec}{\note{Red}}
-\newcommand{\noten}{\note{ForestGreen}}
+\newcommand{\notec}{\note{Black}}
+\newcommand{\noten}{\note{Black}}
 
 \newcommand{\yon}{\mathrm{y}}
 
