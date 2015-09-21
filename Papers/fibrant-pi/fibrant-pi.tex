@@ -97,20 +97,13 @@ categories of interest, such as the category of simplicial sets and the category
 
 
 
-\subsection*{Cylinders} 
-We begin by recalling a basic definition from~\cite{kamps-porter:homotopy}.
-
-\begin{definition}
-A \emph{functorial cylinder} $(\interval \otimes (-), \lcyl, \rcyl)$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformation 
+\subsection*{Cylinders and homotopies} 
+Recall from~\cite{kamps-porter:homotopy} that  a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl, \rcyl)$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformation 
 \[
 \lcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \, , \quad \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \rlap{,}
 \]
-called the \emph{right and left endopoint inclusions}, respectively.
-\end{definition}
-
-\medskip
-
-The notation $\interval \otimes (-)$ used in the definition of a functorial cylinder is suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object.
+called the \emph{right and left endopoint inclusions}, respectively. The notation $\interval \otimes (-)$ adopted here
+is suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object.
 However, it is convenient to develop our theory without making this extra assumption.
 
 \begin{example} \label{exa:cyl-via-int}
@@ -119,9 +112,9 @@ An \emph{interval object} $(\interval, \ell, r)$ in $\calE$ is an object~$\inter
 Tensoring with an interval object (as suggested by our notation for a functorial cylinder) evidently induces a functorial cylinder.
 \end{example}
 
-\medskip
 
-Our main examples will have functorial cylinders induced by interval objects:
+
+Our main examples will have functorial cylinders induced by interval objects.
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
 The category $\SSet$ is Cartesian-closed.
@@ -137,29 +130,8 @@ As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cyli
 \end{example}
 
 
-\begin{definition} \label{def:cyl-with-con}
-A \emph{functorial cylinder with connections} consists of a  functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ equipped with natural transformations 
-\begin{align*}
-  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-  \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
-\end{align*}
-such that the following diagrams commute:
-\begin{center}
-\noten{To be added.}
-\end{center}
-\end{definition}
 
 
-\begin{example}[Connections in simplicial sets]
-The functorial cylinder of the category of simplicial sets has connections.
-\noten{To be added}
-\end{example}
-
-\begin{example}[Connections in cubical sets] \noten{To be added}
-\end{example}
-
-\subsection*{Homotopies} % \label{def:homotopy}
 Let $f, g \co X \to Y$ be maps in $\catE$. Recall that 
 a \emph{homotopy from $f$ to $g$}, denoted $h \co f \sim g$, is a morphism $\phi \co \interval \otimes X \to Y$ such that the following diagrams commute:
 \begin{equation}
@@ -172,11 +144,11 @@ a \emph{homotopy from $f$ to $g$}, denoted $h \co f \sim g$, is a morphism $\phi
 \end{gathered}
 \end{equation}
 
+A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$. Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$. The notion of a \emph{strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial. For our purposes, it will be convenient to introduce the following
+generalisation of strong deformation retracts. 
 
-\begin{definition} 
- A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
-Such a left (or right) homotopy equivalence is said to be \emph{strong} if the diagram
+\begin{definition} \label{def:strhe}
+A left (or right) homotopy equivalence is said to be \emph{strong} if the diagram
 \[
 \xymatrix{
   \interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{\phi} & \interval \otimes Y \ar[d]^{\psi} \\
@@ -193,13 +165,34 @@ commutes, and \emph{co-strong} if the diagram
 commutes.
 \end{definition}
 
-The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong.
-The notion of a strong left or right homotopy equivalence is a generalization of the notion of a strong deformation retract, which is obtained by requiring also that the homotopy $h$ is trivial.
 
 
-\begin{remark} In a functorial cylinder with connections as in \cref{def:cyl-with-con}, the components of $\rcyl$ and $\lcyl$ 
- are a strong right and left homotopy equivalences, respectively.
- \end{remark}
+The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong. We use the notion of a strong homotopy equivalence to introduce a special class of functorial cylinders that will play
+an important role in our development.
+
+
+\begin{definition} \label{def:cyl-with-con}
+A \emph{functorial cylinder with connections} consists of a  functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ equipped with natural transformations 
+\begin{align*}
+  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
+  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
+  \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
+\end{align*}
+which make the components of $\rcyl$ into a strong right homotopy equivalences and the components of
+$\lcyl$ into strong left homotopies. \noten{Check left and right}
+\end{definition}
+
+
+\begin{example}[Connections in simplicial sets]
+The functorial cylinder of the category of simplicial sets has connections.
+\noten{To be added}
+\end{example}
+
+\begin{example}[Connections in cubical sets] \noten{To be added}
+\end{example}
+
+
+
 
 
 \subsection*{Uniform fibrations}
@@ -209,7 +202,7 @@ The additional generality obtained by allowing $u$ to be an arbitrary functor, r
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
 
 
-\begin{definition}
+\begin{definition} \label{def:right-map}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
 \item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consisting of a map $f \co X \to Y$ in $\cal{E}$ and a right lifting function~$\phi$ for $\cal{I}$, \ie a function that assigns to each $i \in \cal{I}$ and commuting square
@@ -297,7 +290,7 @@ Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct dia
 \end{equation}
 Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not.
 With these definitions in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinly.
-After stating the definition, we unfold it in some examples.
+After stating the definition, we unfold it and illustrate it in some examples.
 
 \begin{definition} \label{def:I-fibration}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -307,23 +300,22 @@ Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \end{enumerate}
 \end{definition}
 
-\medskip
 
-We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms.
-In other words, we let
+
+We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms, \ie 
 \[
 \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
 \]
-Note that
+By unfolding the relevant definitions, one readily sees that the notion of a uniform $\cal{I}$-fibration involves diagonal fillers for diagrams
+having on the left-hand side maps obtained by pushouts of the form
 \begin{gather*}
 \xymatrix@C=1.2cm{
-  A \ar[r]^{f} \ar[d]_{\kcyl_{A}} & B \ar@/^2pc/[ddr]^{\kcyl_{B}} \ar[d] & \\
-  \interval \otimes A \ar@/_1pc/[drr]_{\interval \otimes f} \ar[r] & (\interval \otimes A) +_{A} B \ar[dr]^-{\delta^k \hatotimes f} & \\
-  & & \interval \otimes B
+  A_i \ar[r]^{u_i} \ar[d]_{\kcyl_{A_i}} & B_i \ar@/^2pc/[ddr]^{\kcyl_{B_i}} \ar[d] & \\
+  \interval \otimes A_i \ar@/_1pc/[drr]_{\interval \otimes u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[dr]^-{\delta^k \hatotimes u_i} & \\
+  & & \interval \otimes B_i
 \rlap{.}}
 \end{gather*}
-
-\medskip
+where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 
 \notec{Justify choice of $\cal{I}$-fibrations, in particular with regards to the different choice by Cisinsky.
 Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] : 1 + 1 \to I$.
@@ -373,26 +365,26 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \end{example}
 
 
+The next two sections, \cref{sec:ortf} and \cref{sec:remshe}, study categories of right maps (in the sense 
+of~\cref{def:right-map}, and strong homotopy equivalences (in the sense of~\cref{def:strhe}), respectively,
+obtaining some results that will be used in our study of uniform fibrations in subsequent sections. In particular,
+the results in \cref{sec:ortf} will be applied to both categories of trivial uniform fibrations and to categories of uniform 
+fibrations, since both are defined as categories of right maps.
 
 
 
-\section{Remarks on orthogonality functors}
+\section{Remarks on categories of orthogonal maps}
 \label{sec:ortf}
 
-\subsection*{Categories of right and left maps}
-
-The aim of this section is to establish some general facts regarding categories of right maps that will be useful in the remainder of the paper.
-Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the non-algebraic setting.
-In particular, we will apply these results to categories of trivial uniform Kan fibrations and categories of uniform Kan fibrations, since both of these kinds of categories are defined as categories of right maps.
-Within this section, we simply work with a category $\catE$, without assuming any additional structure.
 
 
+The aim of this section is to establish some general facts regarding categories of right maps that will be useful in the remainder of the paper. Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the non-algebraic setting.
 
-First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
+Let us fix a category $\cal{E}$. First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
 \[
   \liftr{\brarghole} \co (\CAT/\catE^\to)^{\op} \to \CAT/\catE^\to \rlap{.}
 \]
-The action of this functor on arrows,
+In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action of this functor on arrows,
 \begin{align*}
 \xymatrix{
   \cal{I} \ar[dr]_u \ar[rr]^F & & \cal{J} \ar[dl]^{v} \\
@@ -411,7 +403,6 @@ The action of this functor on arrows,
 \end{align*}
 is defined as follows.
 For $(f, \phi) \in \liftr{\cal{J}}$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$, where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
-We will use this definition in the proof of~\cref{thm:orth-nat}.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to the way in which standard orthogonality operations form a Galois connection, the orthogonality functors form an adjunction,
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
@@ -425,6 +416,10 @@ As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to
 }
 \end{gathered}
 \end{equation}
+Most of the results in this section are easy extensions to the ortogonality functors of well-known properties of the
+orthogonality operations and therefore are probably known to experts. However, we could not find a reference for
+them and hence we include them for completeness, even if we frequently omit the most straightforward proofs.
+
 
 \subsection*{Orthogonality and natural transformations} We begin with a simple observation.
 
@@ -1034,17 +1029,14 @@ is an isomorphism.
 
 
 
-\section{Remarks on strong homotopy equivalences}  
+\section{Remarks on strong homotopy equivalences} 
+\label{sec:remshe} 
 
-The aim of this section is to develop some general results on homotopies in the general setting of a category $\catE$ with pullbacks and pushouts, equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$.
-In particular, we provide a characterization of strong homotopy equivalences, which will be useful in our study of the Frobenius
-and Beck-Chevalley conditions for uniform fibrations in \cref{sec:frocuf}.
+The aim of this section is to develop some general results on strong homotopy equivalences, which we introduced in \cref{def:strhe}. 
+The main result, \cref{strong-h-equiv-as-section},  is a characterisation of strong homotopy equivalences as particular sections. This characterisation leads to the proof of a relatively result, \cref{thm:she-to-retract-closure}, that will play an important role in our study of the Frobenius and Beck-Chevalley conditions for uniform fibrations in \cref{sec:frocuf}
 
-
-\medskip
-
-Let us now fix a functor $u \co \cal{I} \to \catE^\to$.
-Our next goal is to give an alternative characterisation of strong left or right homotopy equivalences.
+Let $\catE$ be a category with finite limits and colimits, equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl)$. 
+Our first goal is to give an alternative characterisation of strong left or right homotopy equivalences.
 For this, we need some definitions.
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
 Observe that for every $f \co X \to Y$, we have an isomorphism
@@ -1083,8 +1075,7 @@ in $\catE^\to$, which consist of squares of the form
   Y \ar[r]_{\kcyl_Y} & \interval \otimes Y \rlap{,}
 }
 \]
-for $k \in \braces{0, 1}$.
-We can now provide a characterization of strong homotopy equivalences.
+for $k \in \braces{0, 1}$. We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{proposition} \label{strong-h-equiv-as-section}
 Let $f \co X \to Y$ be a morphism in $\catE$.
@@ -1142,7 +1133,7 @@ With reference to \eqref{equ:homotopy}, the equations in~\eqref{equ:first-three}
 
 
 The logical equivalence of \cref{strong-h-equiv-as-section} can be extended to an isomorphism of categories, as follows. 
-We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies relative to $\cal{I}$ as follows.
+Fix a functor $u \cal{I} \to \cal{E}^\to$. We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies relative to $\cal{I}$ as follows.
 The objects of $\cal{S}_1(\cal{I})$ are 4-tuples $(i, g,\phi,\psi)$ consisting of an object $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence, \ie arrows $g \co B_i \to A_i$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
 A morphism $m \co (i,g, \phi, \psi) \to (i', g', \phi', \psi')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing
 \[
@@ -1196,8 +1187,7 @@ for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
 }
 \end{align*}
 Note that there is an obvious forgetful functor $\cal{S}_1(\cal{I}) \to \cal{I}$.
-We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^\to$ be its composition with $u \co \cal{I} \to \catE^\to$, mapping $(i, g,\phi,\psi)$ to $u_i \co A_i \to B_i$.
-We have a dual construction of a category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences relative to $u \co \cal{I} \to \catE^\to$.
+We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^\to$ be its composition with $u \co \cal{I} \to \catE^\to$, mapping $(i, g,\phi,\psi)$ to $u_i \co A_i \to B_i$. The category $\cal{S}_0(\cal{I})$ is defined analogously.
 
 
 
@@ -1269,22 +1259,25 @@ Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts
   \cal{I}  \ar[d]_u \ar[r]^{\kcyl \hatotimes (-)} & \cal{I} \ar[d]^{u} \\
   \cal{E}^\to \ar[r]_{\kcyl \hatotimes (-)} & \cal{E}^\to \rlap{.} }
 \]
-Then there are functors
-\begin{align*}
+\begin{enumerate}[(i)] 
+\item Then there is a functor
+\[
 \xycenter{
   \cal{S}_k(\cal{I}) \ar[dr]_{\cal{S}_k(u)} \ar[rr]^L & & \overline{\cal{I}} \ar[dl]^-{\overline{\kcyl \hatotimes u}} \\
   & \catE^\to \rlap{,} &
 }
-&&
+\]
+\item Assume further that the functorial cylinder has connections. Then there is a functor
+\[
 \xycenter{
  \cal{I} \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^M & & \cal{S}_k(\cal{I}) \ar[dl]^{\cal{S}_k(u)} \\
  & \ \catE^\to \rlap{.}  &
 }
-\end{align*}
+\]
+\end{enumerate}
 \end{lemma}
 
-\begin{proof}
-We define the action of the functor $L$ on objects, leaving the evident definition of the action on arrows to the reader.
+\begin{proof} For (i), we define the action of the functor $L$ on objects, leaving the evident definition of the action on arrows to the reader.
 For this, we identify the category $\cal{S}_k(\cal{I})$ with the isomorphic category defined in \cref{strong-h-equiv-as-section-algebraic}.
 Observe that $u_i \co A_i \to B_i$ is a retract of~$\kcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$ via the diagram
 \[
@@ -1299,8 +1292,7 @@ Thus, we can define
 \, .\]
 Observe that this definition makes the diagram for $L$ commute.
 
-In order to define the functor $M$, we make use of the assumptions that the functorial cylinder has connections and that $\cal{I}$ is closed with respect to Leibniz product with the endpoint inclusions.
-As before, we define the functor $M$ only on objects.
+For (ii), as before, we define the functor $M$ only on objects.
 We use again the isomorphic description of~$\cal{S}_k(\cal{I})$ in \cref{strong-h-equiv-as-section-algebraic}.
 In order to guarantee that the diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption that $\kcyl \hatotimes (-)$ lifts.
 Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes (\kcyl \hatotimes u_i)$ by the assumption that~$\cal{I}$ is closed with respect to Leibniz product with the endpoint inclusions.
