@@ -844,12 +844,15 @@ by letting $(\kcyl \otimes u)_i \defeq \kcyl \hatotimes u_i$, where $\kcyl \hato
 We now define a category~$\cal{I}_\otimes$ and a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$.
 First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
 Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
-\begin{equation*}
+\begin{equation}
+\label{equ:u-tensor}
+\begin{gathered}
 \xymatrix@C+2em{
   \cal{I} \ar[r]^{\iota_0} \ar[dr]_-{\lcyl \hatotimes u} & \cal{I}_\otimes \ar[d]^(.4){u_\otimes} & \cal{I} \ar[dl]^-{\rcyl \hatotimes u} \ar[l]_{\iota_1} \\
   & \catE^\to
 \rlap{.}}
-\end{equation*}
+\end{gathered}
+\end{equation}
 Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not.
 With these definitions in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinly.
 After stating the definition, we unfold it in some examples.
@@ -857,8 +860,8 @@ After stating the definition, we unfold it in some examples.
 \begin{definition} \label{def:I-fibration}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
-\item A \emph{uniform $\cal{I}$-fibration} is a right $\cal{J}$-map.
-\item A \emph{uniform $\cal{I}$-fibration morphism} is a morphism of right $\cal{J}$-maps.
+\item A \emph{uniform $\cal{I}$-fibration} is a right $\cal{I}_\otimes$-map.
+\item A \emph{uniform $\cal{I}$-fibration morphism} is a morphism of right $\cal{I}_\otimes$-maps.
 \end{enumerate}
 \end{definition}
 
@@ -959,7 +962,7 @@ We assume that $\cal{E}$ is equipped with a cylinder object $( (-)\otimes, \rcyl
 Recall from \cref{exa-triv-kan-fib} that, in a presheaf category $\cal{E}$, we defined the category of uniform trivial fibrations
 $\mathsf{TrivFib}$ and the category of uniform fibrations $\mathsf{Fib}$ by letting
 \[
-\mathsf{TrivFib} \defeq \liftr{\cal{M}} \, , \quad \mathsf{Fib} \defeq \liftr{\cal{M}_\otimes} \rlap{.}
+\mathsf{TrivFib} \defeq \liftr{\cal{M}} \, , \quad \mathsf{Fib} \defeq \liftr{(\cal{M}_\otimes)} \rlap{,}
 \]
 respectively, where $\cal{M}$, is the subcategory of $\cal{E}^\to$ consisting of decidable monomorphisms and pullback squares.
 Our main result is that these categories can be also be defined as the right orthogonal with respect to categories over
@@ -1924,15 +1927,11 @@ the following statements are equivalent:
 \xymatrix@C+2em{
   \cal{E}^\to_{/U}
   \ar[r]^{g_*} 
-  \ar[d]_{s^*}
+   \ar[d]_{s^*}
   \ar@{}[dr]|{\Downarrow \, \psi}
-&
-<<<<<<< HEAD
-  \catE^\to_{/X} \ar[d]^{f_*}
-=======
-  \cal{E}^\to_{/V}
-  \ar[d]^{t^*}
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
+& 
+\cal{E}^\to_{/V} 
+ \ar[d]^{t^*}
 \\
   \cal{E}^\to_{/X}
   \ar[r]_{f_*} 
@@ -1948,12 +1947,8 @@ lifts to a natural transformation
   \ar[d]_{s^*}
   \ar@{}[dr]|{\Downarrow \, \psi'}
 &
-<<<<<<< HEAD
-  \liftr{\cal{I}}_{/X} \ar[d]^{f_*}
-=======
   \liftr{\cal{I}}_{/V}
-  \ar[d]^{t^*}
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
+  \ar[d]^{t^*} 
 \\
   \liftr{\cal{I}}_{/X}
   \ar[r]_{f_*} 
@@ -2125,11 +2120,16 @@ Then it lifts to a functor $p^* \co (\cal{S}_k(\cal{I}))_{/Y} \to (\cal{S}_k(\ca
 \end{proof}
 
 We are now ready to prove the main result of this section.
-Recall that we are working in the setting of a finitely complete and cocomplete category $\cal{E}$ equipped with a functorial cylinder with connections.
+Recall that we are working in the setting of a finitely complete and cocomplete category $\cal{E}$ equipped with a functorial cylinder with connections. Broadly speaking, it should be read as saying that if pullback along a fibration preserves cofibrations,
+then it preserves trivial cofibrations.
 
 \begin{theorem} \label{thm:frobenius-fibrations}
-Let $u \co \cal{I} \to \catE^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions, and let $p \co X \to Y$ be a uniform $\cal{I}$-fibration.
-Assume that the pullback along $p$ lifts to a functor
+Let $u \co \cal{I} \to \catE^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions, and let 
+$(p,\phi) \co X \to Y$ be a uniform $\cal{I}$-fibration. Assume that $p$ satisfies the Frobenius condition with respect to $u \co \cal{I}
+\to \cal{E}^\to$. Then $p$ satisfies the Frobenius condition with respect  to $u_\otimes \co \cal{I}_\otimes \to \catE^\to$.
+\end{theorem}
+
+\begin{proof} We assume that the pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \cal{I}_{/Y}
@@ -2145,18 +2145,16 @@ Assume that the pullback along $p$ lifts to a functor
   (\catE / X)^\to \rlap{.}
 }
 \]
-Then it also lifts to a functor
+We will show that $p^*$ also lifts to a functor
 \[
 \xymatrix@C+2em{
   (\cal{I}_\otimes)_{/Y} \ar[r]^{p^*} \ar[d]_{u_{\otimes}/Y} & \overline{\cal{I}_\otimes}_{/X} \ar[d]^{u_{\otimes}/X} \\
   (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to \rlap{.}
 }
 \]
-and so $p$ satisfies the Frobenius property with respect to $u$.
-\end{theorem}
-
-\begin{proof}
-It will suffice to separately show that $p^*$ lifts to functors
+which implies the claim by \cref{retract-closure}.
+By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$, as given in~\eqref{equ:u-tensor}, 
+it  suffices to separately show that $p^*$ lifts to functors
 \[
 \xymatrix@C+2em{
   \cal{I}_{/Y}
@@ -2215,27 +2213,12 @@ Composing this with the the functors in \cref{thm:she-to-retract-closure}, we ob
 as required.
 \end{proof}
 
-\cref{thm:frobenius-fibrations} gives us a corollary the pushforward version of the Frobenius property for uniform~$\cal{I}$-fibrations.
+As a corollary, we obtain the pushforward version of the Frobenius property for uniform~$\cal{I}$-fibrations.
 
 \begin{corollary}
 Let $p \co X \to Y$ be a uniform $\cal{I}$-fibration.
-Assume that pullback along $p$ lifts to a functor
-\[
-\xymatrix@C+2em{
-  \cal{I}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{u_{/Y}}
-&
-  \cal{I}_{/X}
-  \ar[d]^{u_{/X}}
-\\
-  (\catE / Y)^\to
-  \ar[r]_{p^*}
-&
-  (\catE / X)^\to \rlap{.}
-}
-\]
-Then pushforward along $p$ lifts to a functor
+Assume that $p$ satisfies the Frobenius condition with respect to $u \co \cal{I}
+\to \cal{E}^\to$. Then pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \Fib{\cal{I}}_{/X} \ar[r]^{p_*} \ar[d] & \Fib{\cal{I}}_{/Y} \ar[d] \\
@@ -2244,18 +2227,15 @@ Then pushforward along $p$ lifts to a functor
 \]
 \end{corollary}
 
+\begin{proof} The claim follows from~\cref{thm:frobenius-fibrations} and \cref{lift-dependent-product}.
+\end{proof}
+
 \begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf} Let $\catE$ be a category of presheaves equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections, and recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
-Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors always preserve monomorphisms, it follows that for every uniform fibration $p \co X \to Y$, the pullback functor lifts to
+Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors always preserve monomorphisms, it follows that every uniform fibration satisfies the Frobenius property with respect to
+$\cal{M} \hookrightarrow \catE^\to$. Therefore, pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  (\cal{M}_\otimes)_{/Y} \ar[r]^{p^*} \ar[d]_{(u_\otimes)_{/Y}} & \overline{(\cal{M}_\otimes)}_{/X} \ar[d]^{(u_\otimes)_{/X}} \\
-  (\cal{E}_{/Y})^\to \ar[r]_{p^*} & (\cal{E}_{/X})^\to \rlap{.}
-}
-\]
-Therefore, pushforward along $p$ lifts to a functor
-\[
-\xymatrix@C+2em{
-  \mathsf{KanFib}_{/X} \ar[r]^{p_*} \ar[d]_{} & \mathsf{KanFib}_{/Y} \ar[d] \\
+  \mathsf{Fib}_{/X} \ar[r]^{p_*} \ar[d]_{} & \mathsf{Fib}_{/Y} \ar[d] \\
   (\cal{E}_{/X})^\to \ar[r]_{p_*} & (\cal{E}_{/Y})^\to \rlap{.}
 }
 \]
@@ -2276,15 +2256,12 @@ We conclude the paper by providing some general conditions for morphisms of unif
 the Beck-Chevalley condition. In particular, we will show that morphisms of uniform fibrations in presheaf
 categories, such as simplicial and cubical sets, always satisfy the Beck-Chevalley condition.
 
-<<<<<<< HEAD
-Let $p \co X \to Y$ and $q \co U \to V$ be $(\lcyl \otimes \catE)$-maps and consider a morphism of $(\lcyl \otimes \catE)$-maps
-=======
+
 \medskip
 
 Let us consider a fixed category $\catE$ with finite limits and colimits, equipped with a functorial cylinder
 $(\interval \otimes, \rcyl, \lcyl, \ccyl)$. Let us fix  $(\kcyl \otimes \catE)$-maps, for $k \in \{0 , 1\}$, $p \co X \to Y$ and $q \co U \to V$ be
 and a morphism of $(\kcyl \otimes \catE)$-maps
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:0}
 \begin{gathered}
 \xymatrix{
@@ -2311,16 +2288,11 @@ Let us write $\phi$ for the canonical natural transformation
 }
 \end{gathered}
 \end{equation}
-<<<<<<< HEAD
-The key to prove the Beck-Chevalley property for uniform fibrations (under some hypotheses on $u \co \cal{I} \to \cal{E}$) is the next lemma.
-For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ and $s_!$ lift to slices of $\cal{I}$ and $\cal{S}_k(\cal{I})$.
-\noten{We know this for slice of $\cal{I}$. But what about the other claim?}
 
-=======
 The key to prove the Beck-Chevalley property for morphisms of uniform $\cal{I}$-fibrations (under some hypotheses on $u \co \cal{I} \to \cal{E}$)
 is the next lemma.  For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ and $t_!$ lift 
 to slices of $\cal{I}$, and note that they also lift to slices of $\cal{S}_k(\cal{I})$. 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
+
 
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration-BC}
@@ -2331,11 +2303,7 @@ Assume that $p^* \co \cal{E}_{/Y} \to \cal{E}_{X}$ and $q^* \co \cal{E}_{/V} \to
   q^* \co \cal{I}_{/V} \to \cal{I}_{/U}
 \, ,
 \]
-<<<<<<< HEAD
-respectively, and that $\phi \co y_! \, p_1^* \Rightarrow p_2^* \, x_{!}$ lifts to a natural transformation~$\phi'$:
-=======
 respectively, and that  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:2}
 \begin{gathered}
 \xymatrix{
@@ -2354,13 +2322,8 @@ respectively, and that  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to 
 }
 \end{gathered}
 \end{equation}
-<<<<<<< HEAD
-satisfying coherence with respect to $\phi$.
-Then $\phi$ lifts further to a natural transformation $\phi''$
-=======
 satisfying coherence with respect to $\phi$. 
 Then $\phi$ lifts further to a natural transformation 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
 \xymatrix{
@@ -2388,11 +2351,7 @@ See Appendix~\ref{app:tecp}.
 
 
 
-<<<<<<< HEAD
-\begin{theorem}
-Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
-If $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
-=======
+
 \begin{theorem} \label{thm:beck-chevalley-unif} Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
 inclusions. Let $p \co X \to Y$ and $q \co U \to V$ be uniform $\cal{I}$-fibrations and consider a morphism of $\cal{I}$-fibrations
 \[
@@ -2401,7 +2360,6 @@ X \ar[r]^s \ar[d]_{p} & U \ar[d]^{q} \\
 Y \ar[r]_t & V}
 \]
 If  $\phi \co s_! \, p^* \Rightarrow q^* \, t_{!}$ lifts to a natural transformation
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \[
 \xymatrix{
   \cal{I}_{/Y}
@@ -2422,51 +2380,32 @@ satisfying coherence with respect to $\phi$, then $\phi$ lifts further to a natu
 \begin{equation*}
 \begin{gathered}
 \xymatrix{
-<<<<<<< HEAD
-  \cal{J}_{/Y}
-  \ar[r]^{p^*}
-=======
   (\cal{I}_\otimes)_{/Y}
   \ar[r]^{p^*} 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
   \ar[d]_{t_!}
   \ar@{}[dr]|{\Downarrow \, \phi''}
 &
   \overline{\cal{I}_\otimes}_{/X}
   \ar[d]^{s_!}
 \\
-<<<<<<< HEAD
-  \cal{J}_{/V}
-  \ar[r]_{q^*}
-=======
   (\cal{I}_\otimes)_{/V}
   \ar[r]_{q^*} 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 &
   \overline{\cal{I}_\otimes}_{/U}
 }
 \end{gathered}
 \end{equation*}
-<<<<<<< HEAD
-satisfying coherence with respect to $\psi$, and so the square $(s,t) \co f \to g$ satisfies the Beck-Chevalley condition.
-=======
 satisfying coherence with respect to $\phi'$, and so the map $(s,t) \co f \to g$ satisfies the Beck-Chevalley
 condition.
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \end{theorem}
 
 \begin{proof} The argument is analogous to that of \cref{thm:frobenius-fibrations} and hence we omit it.
 \end{proof}
 
-<<<<<<< HEAD
-\begin{corollary}
-Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
-If $\phi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural transformation
-=======
+
 \begin{corollary} \label{thm:beck-chevalley-unif-push}
 Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint
 inclusions. If  $\psi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural transformation 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 \[
 \xymatrix@C+2em{
   \cal{I}_{/U}
@@ -2486,38 +2425,25 @@ inclusions. If  $\psi \co t^* q_* \Rightarrow p_* \, s^*$ lifts to a natural tra
 satisfying coherence with respect to $\psi$, then $\psi'$ lifts further to a natural transformation
 \[
 \xymatrix@C+2em{
-<<<<<<< HEAD
   \liftl{(\Fib{\cal{I}}_{/U})}
   \ar[r]^{q_*}
-=======
-  \Fib{\cal{I}}_{/U}
-  \ar[r]^{q_*} 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
   \ar[d]_{s^*}
   \ar@{}[dr]|{\Downarrow \, \psi''}
 &
   \Fib{\cal{I}}_{/V}
   \ar[d]^{t^*}
 \\
-<<<<<<< HEAD
   \liftl{(\Fib{\cal{I}}_{/X})}
   \ar[r]_{p_*}
-=======
   \Fib{\cal{I}}_{/X}
   \ar[r]_{p_*} 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 &
   \Fib{\cal{I}}_{/Y}
 }
 \]
-<<<<<<< HEAD
-satisfying coherence with respect to $\psi$.
+satisfying coherence with respect to $\psi'$.
 \end{corollary}
 
-=======
-satisfying coherence with respect to $\psi'$. \qed
-\end{corollary} 
->>>>>>> e9298a8b63c4a09ee955206609eca08495a3468a
 
 \begin{proof} The claim follows from \cref{thm:beck-chevalley-unif} and \cref{lift-pushforward-BC}.
 \end{proof}
