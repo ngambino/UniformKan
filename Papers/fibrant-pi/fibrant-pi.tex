@@ -94,100 +94,327 @@ The proof of the Frobenius and Beck-Chevalley properties for uniform fibrations 
 
 The aim of this section is to introduce the main notions that will be used in our development, and provide examples thereof in categories of interest, such as the category of simplicial sets and the category of cubical sets with connections.
 
-
-
 \subsection*{Cylinders and homotopies}
-Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl, \rcyl)$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformation
+
+Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{right and left endpoint inclusions}, respectively.
+We say the functorial cylinder has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ to $\lcyl \otimes (-)$ and $\rcyl \times (-)$, making the following diagram commute:
 \[
-\lcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \, , \quad \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \rlap{,}
+\xymatrix@C+2em{
+  \Id_\catE
+  \ar[r]^-{\lcyl \otimes (-)}
+  \ar@{=}[dr]
+&
+  \interval \otimes (-)
+  \ar[d]^(0.4){\ccyl \otimes (-)}
+&
+  \Id_\catE
+  \ar[l]_-{\rcyl \otimes (-)}
+  \ar@{=}[dl]
+\\&
+  \Id_\catE
+}
 \]
-called the \emph{right and left endopoint inclusions}, respectively.
-The notation $\interval \otimes (-)$ adopted here is suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object.
+The notation $\interval \otimes (-)$ adopted here is deliberately suggestive of the fact that, in many examples, a functorial cylinder is defined using a monoidal structure and an interval object as in \cref{exa:cyl-via-int} below.
 However, it is convenient to develop our theory without making this extra assumption.
+For the future, we adopt the convention of associating the tensor product shorthand notation to the right in order to avoid excessive bracketing.
 
 \begin{example} \label{exa:cyl-via-int}
 Let $(\catE, \otimes, \top)$ be a monoidal category.
-An \emph{interval object} $(\interval, \ell, r)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\ell, r \co \top \to \intervall$ called \emph{endpoint inclusions}.
-Tensoring with an interval object (as suggested by our notation for a functorial cylinder) evidently induces a functorial cylinder.
+An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \co \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called \emph{left and right endpoint inclusions}, respectively.
+It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ to $\lcyl$ and $\rcyl$, making the following diagram commute:
+\[
+\xymatrix@C+1em{
+  \top
+  \ar[r]^{\lcyl}
+  \ar@{=}[dr]
+&
+  \interval
+  \ar[d]^(0.4){\ccyl}
+&
+  \top
+  \ar[l]_{\rcyl}
+  \ar@{=}[dl]
+\\&
+  \top
+\rlap{.}}
+\]
+If the unit $\top$ of the monoidal structure is also terminal, an interval object canonically has contractions.
+Tensoring with an interval object (with contractions) evidently induces a functorial cylinder (with contractions).
 \end{example}
-
-
 
 Our main examples will have functorial cylinders induced by interval objects.
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
 The category $\SSet$ is Cartesian-closed.
-An interval object is given by $\Delta^1$ with endpoint inclusions $h_{1-k}^1 \co \braces{k} \hookrightarrow \Delta^1$ for $k \in \braces{ 0, 1 }$.
+An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $h_{1-k}^1 \co \braces{k} \hookrightarrow \Delta^1$ for $k \in \braces{ 0, 1 }$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
 As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder.
 \end{example}
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
 The category of cubical sets $\CSet$ as studied in \notec{reference?} has a monoidal structure with unit coinciding with the terminal object.
-An interval object is given by $\Box^1$ with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
+An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
 As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder.
 \end{example}
 
-
-
-
 Let $f, g \co X \to Y$ be maps in $\catE$.
-Recall that a \emph{homotopy from $f$ to $g$}, denoted $h \co f \sim g$, is a morphism $\phi \co \interval \otimes X \to Y$ such that the following diagrams commute:
+Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a morphism $\phi \co \interval \otimes X \to Y$ such that the following diagram commutes:
 \begin{equation}
 \label{equ:homotopy}
 \begin{gathered}
 \xymatrix@C=1.2cm{
-  X \ar[r]^-{\lcyl_X} \ar[dr]_{f} & \interval \otimes X \ar[d]^-{\phi} & X \ar[dl]^{g} \ar[l]_-{\rcyl_X} \\
-  & Y \rlap{.} &
-}
+  X
+  \ar[r]^-{\lcyl \otimes X}
+  \ar[dr]_{f}
+&
+  \interval \otimes X
+  \ar[d]^(0.4){\phi}
+&
+  X
+  \ar[dl]^{g}
+  \ar[l]_-{\rcyl \otimes X}
+\\&
+  Y
+\rlap{.}}
 \end{gathered}
 \end{equation}
 
-A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
-The notion of a \emph{strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial.
-For our purposes, it will be convenient to introduce the following generalisation of strong deformation retracts.
+A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
+Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
+The notion of a \emph{(left or right) strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial.
+The following generalization of strong deformation retracts will be crucial for our purposes:
 
 \begin{definition} \label{def:strhe}
 A left (or right) homotopy equivalence is said to be \emph{strong} if the diagram
 \[
 \xymatrix{
-  \interval \otimes X \ar[r]^{\interval \otimes f } \ar[d]_{\phi} & \interval \otimes Y \ar[d]^{\psi} \\
+  \interval \otimes X \ar[r]^{\interval \otimes f} \ar[d]_{\phi} & \interval \otimes Y \ar[d]^{\psi} \\
   X \ar[r]_{f} & Y
 }
 \]
 commutes, and \emph{co-strong} if the diagram
 \[
   \xymatrix{
-  \interval \otimes Y \ar[r]^{\interval \otimes g } \ar[d]_{\psi} & \interval \otimes X \ar[d]^{\phi} \\
+  \interval \otimes Y \ar[r]^{\interval \otimes g} \ar[d]_{\psi} & \interval \otimes X \ar[d]^{\phi} \\
   Y \ar[r]_{g} & X
 }
 \]
 commutes.
 \end{definition}
 
-
-
 The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong.
-We use the notion of a strong homotopy equivalence to introduce a special class of functorial cylinders that will play an important role in our development.
+Strong homotopy equivalences will play a central role in our development (see \cref{def:effective-connections}). 
+In preparation for this, let us observe that they can be collected into a category as follows.
 
-
-\begin{definition} \label{def:cyl-with-con}
-A \emph{functorial cylinder with connections} consists of a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ equipped with natural transformations
+\begin{definition} \label{def:strhe-cat}
+The category $\cal{S}_0$ of strong left homotopy equivalences is defined as follows.
+An object is a 4-tuple $(f, g, \phi, \psi)$ consisting of an arrow $f \co A \to B$ together with data $g \co B \to A$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$ making $f$ into a strong left homotopy equivalence.
+A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of maps $s \co A \to A', t \co B \to B'$ such that the following diagrams commute:
 \begin{align*}
-  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-  \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
+\xymatrix{
+  A
+  \ar[r]^{s}
+  \ar[d]_{f}
+&
+  A'
+  \ar[d]^{f'}
+\\
+  B
+  \ar[r]_{t}
+&
+  B'\rlap{,}
+}
+&&
+\xymatrix{
+  B
+  \ar[r]^{t}
+  \ar[d]_{g}
+&
+  B'
+  \ar[d]^{g'}
+\\
+  A
+  \ar[r]_{s}
+&
+  A'\rlap{,}
+}
+&&
+\xymatrix{
+  \interval \otimes A
+  \ar[d]_{\phi}
+  \ar[r]^{\interval \otimes s}
+&
+  I \otimes A'
+  \ar[d]^{\phi'}
+\\
+  A
+  \ar[r]_{s}
+&
+  A' \rlap{,}
+}
+&&
+\xymatrix{
+  \interval \otimes B
+  \ar[d]_{\psi}
+  \ar[r]^{\interval \otimes t}
+&
+  I \otimes B'
+  \ar[d]^{\psi'}
+\\
+  B
+  \ar[r]_{t}
+&
+  B' \rlap{.}
+}
 \end{align*}
-which make the components of $\rcyl$ into a strong right homotopy equivalences and the components of
-$\lcyl$ into strong left homotopies.
-\noten{Check left and right}
+The category $\cal{S}_1$ of strong right homotopy equivalences is defined analogously.
+Note that there is an forgetful functor $\cal{S}_k \to \catE^\to$ projecting to the first component.
 \end{definition}
 
+\subsection*{Connections}
+
+\begin{definition} \label{def:connections}
+A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with contractions $\ccyl \otimes (-)$ has \emph{connections} if, for $k \in \braces{0, 1}$, there is a natural transformations $h^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the diagrams
+\begin{equation} \label{connections:0}
+\xymatrix@C+3em{
+  \interval \otimes (-)
+  \ar[r]^-{\kcyl \otimes \interval \otimes (-)}
+  \ar[d]_{\ccyl \otimes (-)}
+&
+  \interval \otimes \interval \otimes (-)
+  \ar[d]^{h^k \otimes (-)}
+&
+  \interval \otimes (-)
+  \ar[l]_-{\interval \otimes \kcyl \otimes (-)}
+  \ar[d]^{\ccyl \otimes (-)}
+\\
+  \Id_\catE
+  \ar[r]_{\kcyl \otimes (-)}
+&
+  \interval \otimes (-)
+&
+  \Id_\catE
+  \ar[l]^{\kcyl \otimes (-)}
+}
+\end{equation}
+and
+\begin{equation} \label{connections:1}
+\xymatrix@C+3em{
+  \interval \otimes (-)
+  \ar[r]^-{\kcylinv \otimes \interval \otimes (-)}
+  \ar@{=}[dr]
+&
+  \interval \otimes \interval \otimes (-)
+  \ar[d]^(0.4){h^k \otimes (-)}
+&
+  \interval \otimes (-)
+  \ar[l]_-{\interval \otimes \kcylinv \otimes (-)}
+  \ar@{=}[dl]
+\\&
+  \interval \otimes (-)
+}
+\end{equation}
+commute.
+\end{definition}
+
+The notation $h^k \otimes (-)$ is once again suggestive of an interval object (see \cref{exa:connections-for-interval} below).
+
+We use the notion of strong homotopy equivalence to introduce a structure on a functorial cylinder that is strictly weaker than connections (as shown in \cref{connections-are-effective}), but encapsulates more economically the requirements needed for carrying out our main development.
+
+\begin{definition} \label{def:effective-connections}
+A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has \emph{effective connections} if the endpoint inclusions $\lcyl \otimes X$ and $\rcyl \otimes X$ are strong left and right homotopy equivalences, respectively, naturally in $X \co \catE$.
+Formally, for $k \in \braces{0, 1}$, the natural transformation $\kcyl \otimes (-)$, seen as a functor $\catE \to \catE^\to$, is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
+\end{definition}
+
+Note that effective connections, in contrast to connections, do not presuppose contractions.
+
+\begin{proposition} \label{connections-are-effective}
+A functorial cylinder with contractions and connections has effective connections.
+\end{proposition}
+
+\begin{proof}
+Let $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ be a functorial cylinder with contractions $\ccyl \otimes (-)$ and connections $h^k \otimes (-)$ for $k \in \braces{0, 1}$ as in \cref{def:connections}.
+We will only show that $\lcyl \otimes (-) \co \catE \to \catE^\to$ lifts through $\cal{S}_0 \to \catE^\to$.
+
+Given $X \co \catE$, observe that $\lcyl \otimes X \co X \to \interval \otimes X$ is a strong left deformation retract with retraction given by contraction $\ccyl \otimes X \co I \otimes X \to X$ and homotopy $\psi \co \ccyl \cc (\lcyl \otimes X) \sim \id_{I \otimes X}$ given by connection $\psi = h^0 \otimes X$.
+The left and right endpoints of $\psi$ follow from the left parts of~\eqref{connections:0} and~\eqref{connections:1}, respectively, and the strength follows from the right part of~\eqref{connections:0}.
+Recall that strong left deformation retracts are special cases of strong left homotopy equivalences.
+The above assignment of a strong left homotopy equivalence is functorial in $X \co \catE$ since $\ccyl \otimes (-)$ and $h^0 \otimes (-)$ are natural transformations.
+\end{proof}
+
+\begin{example} \label{exa:connections-for-interval}
+Let $(\catE, \otimes, \top)$ be a monoidal category.
+
+An interval object $(\interval, \lcyl, \rcyl)$ with contractions $\ccyl$ has \emph{connections} if, for $k \in \braces{0, 1}$, there is a map $h^k \co \interval \otimes \interval \to \interval$ such the following diagrams commute:
+\begin{align} \label{connections-for-interval:0}
+\begin{aligned}
+\xymatrix@C+1em{
+  \interval
+  \ar[r]^-{\kcyl \otimes \interval}
+  \ar[d]_{\ccyl}
+&
+  \interval \otimes \interval
+  \ar[d]^{h^k}
+&
+  \interval
+  \ar[l]_-{\interval \otimes \kcyl}
+  \ar[d]^{\ccyl}
+\\
+  \top
+  \ar[r]_{\kcyl}
+&
+  \interval
+&
+  \top
+  \ar[l]^{\kcyl}
+\rlap{,}}
+\end{aligned}
+&&
+\begin{aligned}
+\xymatrix@C+2em{
+  \interval
+  \ar[r]^-{\kcylinv \otimes \interval}
+  \ar@{=}[dr]
+&
+  \interval \otimes \interval
+  \ar[d]^(0.4){h^k}
+&
+  \interval
+  \ar[l]_-{\interval \otimes \kcylinv}
+  \ar@{=}[dl]
+\\&
+  \interval
+\rlap{.}}
+\end{aligned}
+\end{align}
+The maps $h^0$ and $h^1$ can be seen as analogous to the minimum and maximum operations for the real line interval, or as conjunction and disjunction in a bounded distributive lattice.
+
+An interval object $(\interval, \lcyl, \rcyl)$ has \emph{effective connections} if $\lcyl$ and $\rcyl$ being are left and right homotopy equivalences, respectively.
+
+Assuming connections, we see in~\eqref{connections-for-interval:0} that the map $h^0$, seen as a homotopy from $\id_I$ to $\lcyl \cc \ccyl$, makes $\lcyl$ into a strong left deformation retract with left inverse $\ccyl$.
+Dually, the map $h^1$ makes $\rcyl$ into a strong right deformation retract with left inverse $\ccyl$.
+Note that this is not an equivalent characterization of connections as commutativity of the right triangle in the seond diagram in~\eqref{connections-for-interval:0} is not captured.
+Since strong deformation retracts are special cases of strong homotopy equivalences, we have effective connections.
+This all is analogous to \cref{connections-are-effective}.
+
+As in \cref{exa:cyl-via-int}, tensoring with an interval object with (effective) connections induces a functorial cylinder with (effective) connections.
+\end{example}
+
+%\begin{definition} \label{def:cyl-with-con}
+%A \emph{functorial cylinder with connections} consists of a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ equipped with natural transformations
+%\begin{align*}
+%  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
+%  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
+%  \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
+%\end{align*}
+%which make the components of $\rcyl$ into a strong right homotopy equivalences and the components of $\lcyl$ into strong left homotopies.
+%\noten{Check left and right}
+%\end{definition}
 
 \begin{example}[Connections in simplicial sets]
-The functorial cylinder of the category of simplicial sets has connections.
-\noten{To be added}
+The interval object $(\Delta^1, h_1^1, h_0^1)$ in simplicial of \cref{exa:cyl-in-sset} sets has uniquely determined connections $h^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $h^0(x, y) = \min(x, y)$ and $h^1(x, y) = \max(x, y)$.
+For this, note that $\Delta^1$ and $\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
+\notec{Notation for connections not ideal.}
 \end{example}
 
 \begin{example}[Connections in cubical sets] \noten{To be added}
@@ -310,7 +537,7 @@ By unfolding the relevant definitions, one readily sees that the notion of a uni
 where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 
 \notec{Justify choice of $\cal{I}$-fibrations, in particular with regards to the different choice by Cisinsky.
-Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] : 1 + 1 \to I$.
+Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] \co 1 + 1 \to I$.
 Note that Cisinski even puts an assumption implying that this map is mono into his definition of cylinder functor.
 Foreshadow that our main results will still hold for notions of $\cal{I}$-fibrations such as Cisinksi.}
 
@@ -914,9 +1141,9 @@ Note that \cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special 
 
 \begin{remark} \label{pitchfork-leibniz-most-general-example}
 In \cref{lift-of-leibniz-adjunction} or \cref{pitchfork-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \cal{E} \to \cal{F}$ and $V \co \cal{F} \to \cal{E}$.
-A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u \co U_1 \to U_2$ and $v : V_2 \to V_1$ forming mates.
+A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates.
 Note that we have fully faithful forgetful functors $\cal{K} \to [\cal{E}, \cal{F}]$ and $\cal{K} \to [\cal{F}, \cal{E}]^{\op}$.
-We have functors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G : \cal{K}^{\op} \times \cal{F} \to \cal{E}$ given by left and right adjoint application, respectively.
+We have functors $F \co \cal{K} \times \cal{E} \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \cal{E}$ given by left and right adjoint application, respectively.
 This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-adjunction}.
 \end{remark}
 
@@ -924,8 +1151,8 @@ This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-
 
 \medskip
 
-If $I \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $([I, -], \overline{\delta}^0, \overline{\delta}^1, \overline{\epsilon})$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
-We obtain a functor $[\overline{\delta}^k, -]$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, defined in terms of a pushout, for~$k \in \braces{0, 1}$.
+If $I \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $([I, -], \bar{\delta}^0, \bar{\delta}^1)$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
+We obtain a functor $[\bar{\delta}^k, -]$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$.
 These form an adjunction as follows:
 \[
 \xymatrix@C+4em{
@@ -1223,7 +1450,7 @@ The claim follows from \cref{strong-h-equiv-as-section}.
 \end{proof}
 
 \begin{remark} \label{thm:retraction-for-connections}
-By \cref{strong-h-equiv-as-section}, a functorial cylinder has connections if and only if there exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
+By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connections if and only if there exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
 \begin{gather*}
 \xymatrix@C+3em{
   \kcyl \hatotimes f
@@ -1259,7 +1486,7 @@ Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts
   & \catE^\to \rlap{,} &
 }
 \]
-\item Assume further that the functorial cylinder has connections.
+\item Assume further that the functorial cylinder has effective connections.
 Then there is a functor
 \[
 \xycenter{
@@ -1362,7 +1589,7 @@ We consider the diagram indexed by Cartesian squares of the form
 with $i \co A' \to \yon(x)$ in $\cal{I}$ and valued $i$.
 Our goal is to show that its colimit of this diagram in $\catE^\to$ is $j$.
 Using the assumption that $\cal{J}$ is closed under pullback to representables, the given diagram can be described equivalently as the the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
-The claim can then be restated as $\colim_{b : \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b : \yon(x) \to B} \yon(x) \iso B$.
+The claim can then be restated as $\colim_{b \co \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b \co \yon(x) \to B} \yon(x) \iso B$.
 \end{proof}
 
 \begin{remark}
@@ -1488,7 +1715,7 @@ For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_n$ and a \
 
 Next, recall from~\cite{bergner-rezk-elegant} that a Reedy category $\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
 For example, the categories $\Delta$ and $\square$ are elegant Reedy category.
-In an elegant Reedy category $\R$, the action of $\Sk_n$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X : \Psh(\R)$, the counit $\Sk_n(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
+In an elegant Reedy category $\R$, the action of $\Sk_n$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X \co \Psh(\R)$, the counit $\Sk_n(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
 Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{\deg(A)}(\yon A)$.
 The counit of $\Sk_{\deg(A)}$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
 
