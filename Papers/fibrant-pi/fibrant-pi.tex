@@ -536,10 +536,20 @@ By unfolding the relevant definitions, one readily sees that the notion of a uni
 \end{gather*}
 where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 
-\notec{Justify choice of $\cal{I}$-fibrations, in particular with regards to the different choice by Cisinsky.
-Explain that the notions coincide for symmetric monoidal categories with an interval object assuming that $\cal{I}$ is closed under tensoring with $[\ell, r] \co 1 + 1 \to I$.
-Note that Cisinski even puts an assumption implying that this map is mono into his definition of cylinder functor.
-Foreshadow that our main results will still hold for notions of $\cal{I}$-fibrations such as Cisinksi.}
+\begin{remark}
+One could object that our uniform $\cal{I}$-fibrations are not an algebraization of the naive fibrations of Cisinksi~\cite{cisinski-asterisque}.
+Indeed, abbreviate
+\[
+m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] : \Id_\catE + \Id_\catE \to \interval \otimes (-)
+.\]
+Then a notion $\Fib{\cal{I}}'$ of uniform Cisinksi $\cal{I}$-fibrations would be given by first closing $\cal{I}_\otimes$ under Leibniz tensor with $m$, \ie defining $\Fib{\cal{I}}'$ as right maps for the functor $u_\otimes' : \cal{I}_\otimes' \to \catE^\to$ with $\cal{I}_\otimes' \defeq \mathbb{N} \times \cal{I}_\otimes$ and $u_\otimes'(n, i) = (m \hatotimes (-))^n(u_\otimes(i))$.
+Our reasons for sticking with $\Fib{\cal{I}}$ are two-fold.
+
+First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u : \cal{I} \to \catE^\to$ is closed under Leibniz tensor with $[\lcyl, \rcyl] : 1 + 1 \to \interval$, then by permuting the Leibniz tensor one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform Cisinksi $\cal{I}$-fibration.
+This is the case in our main examples of simplicial and cubical sets where $u : \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz tensor preserves decidable monomorphisms.
+
+Second, our results \notec{put reference} in the context of a general functorial cylinder carry over also to uniform Cisinksi $\cal{I}$-fibrations... \notec{explain}
+\end{remark}
 
 \begin{example}[Uniform fibrations in presheaf categories]
 Let $\catE$ be a presheaf category equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$.
