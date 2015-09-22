@@ -1251,7 +1251,7 @@ The aim of this section is to develop some general results on strong homotopy eq
 The main result, \cref{strong-h-equiv-as-section}, is a characterisation of strong homotopy equivalences as particular sections.
 This characterisation leads to the proof of a relatively result, \cref{thm:she-to-retract-closure}, that will play an important role in our study of the Frobenius and Beck-Chevalley conditions for uniform fibrations in \cref{sec:frocuf}
 
-Let $\catE$ be a category with finite limits and colimits, equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl)$.
+Let $\catE$ be a category with finite colimits equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$.
 Our first goal is to give an alternative characterisation of strong left or right homotopy equivalences.
 For this, we need some definitions.
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
@@ -1263,181 +1263,82 @@ Observe that for every $f \co X \to Y$, we have an isomorphism
 For $k \in \braces{0, 1}$, we then have a commutative square of functors and natural transformations
 \[
 \xymatrix@C+2em{
-  0_\catE \ar[r]^{\bot} \ar[d]_{\bot} & \id_\catE \ar[d]^{\rcyl} \\
-  \id_\catE \ar[r]_{\lcyl} & \interval \otimes (-) \rlap{.}
-}
+  0_\catE
+  \ar[r]^{\bot}
+  \ar[d]_{\bot}
+&
+  \id_\catE
+  \ar[d]^{\rcyl \otimes (-)}
+\\
+  \id_\catE
+  \ar[r]_{\lcyl \otimes (-)}
+&
+  \interval \otimes (-)
+\rlap{.}}
 \]
 This diagram determines two maps in $[\catE, \catE]^\to$,
 \begin{equation} \label{equ:thetas}
 \begin{aligned}
-  \thetar &\co \bot \rightarrow \lcyl
+  \thetal &\co \bot \rightarrow \lcyl
 \, ,&
-  \thetal &\co \bot \rightarrow \rcyl \rlap{,}
+  \thetar &\co \bot \rightarrow \rcyl \rlap{,}
 \end{aligned}
 \end{equation}
-which are defined by letting $\thetar \defeq (\bot, \rcyl)$ and $\thetal \defeq (\bot, \lcyl)$.
+which are defined by letting $\thetal \defeq (\bot, \rcyl)$ and $\thetar \defeq (\bot, \lcyl)$.
 By functoriality of the Leibniz construction and the isomorphisms in~\eqref{equ:bot-hatotimes-f}, the maps in~\eqref{equ:thetas} give us two maps
 \begin{equation*}
 \begin{aligned}
-  \thetar \hatotimes f &\co f \to \lcyl \hatotimes f
+  \thetal \hatotimes f &\co f \to \lcyl \hatotimes f
 \, ,&
-  \thetal \hatotimes f &\co f \to \rcyl \hatotimes f
+  \thetar \hatotimes f &\co f \to \rcyl \hatotimes f
 \end{aligned}
 \end{equation*}
 in $\catE^\to$, which consist of squares of the form
 \[
-\xymatrix@C+2em{
-  X \ar[r] \ar[d]_{f} & (\interval \otimes X) +_{X} Y \ar[d]^{\kcyl \hatotimes f} \\
-  Y \ar[r]_{\kcyl_Y} & \interval \otimes Y \rlap{,}
-}
+\xymatrix@C+3em{
+  X
+  \ar[r]^-{\inl \cc (\kcylinv \otimes X)}
+  \ar[d]_{f}
+&
+  (\interval \otimes X) +_{X} Y \ar[d]^{\kcyl \hatotimes f}
+\\
+  Y
+  \ar[r]_-{\kcylinv \otimes Y}
+&
+  \interval \otimes Y
+\rlap{,}}
 \]
 for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
-\begin{proposition} \label{strong-h-equiv-as-section}
-Let $f \co X \to Y$ be a morphism in $\catE$.
+\begin{lemma} \label{strong-h-equiv-as-section}
+For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of (left or right) strong homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f : \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
+In detail,
 \begin{enumerate}[(i)]
-\item $f$ is a strong right homotopy equivalence if and only if $\thetar \hatotimes f \co f \rightarrow \lcyl \hatotimes f$ is a section.
-\item $f$ is a strong left homotopy equivalence if and only if $\thetal \hatotimes f \co f \rightarrow \rcyl \hatotimes f$ is a section.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-By duality, it suffices to exhibit the equivalence in~(ii).
-To say that $\thetal \hatotimes f \co f \to \rcyl \hatotimes f$ is a section means that there is retraction $\rho$, as follows:
-\[
-\xymatrix@C+1em{
-  X \ar[r] \ar[d]_f & (\interval \otimes X) +_{X} Y \ar[d]^{\rcyl \hatotimes f}  \ar[r]  & X \ar[d]^f \\
-  Y \ar[r] & \interval \otimes Y \ar[r] & Y \rlap{,} }
-\]
-where the two horizontal composites should be identiies.
-First, by a standard diagram-chasing arguments, giving the square on the right is equivalent to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, and $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
-\begin{align} \label{equ:first-three}
-\xycenter{
-  X \ar[r]^-{\rcyl_X}  \ar[d]_f & \interval \otimes X \ar[d]^{\phi} \\
-  Y \ar[r]_{g} & X \rlap{,}
-}
-&&
-\xycenter{
-  Y \ar[r]^-{\rcyl_Y} \ar[d]_g & \interval \otimes Y \ar[d]^{\psi} \\
-  X \ar[r]_f & B \rlap{,}
-}
-&&
-\xycenter{
-  \interval \otimes X \ar[d]_\phi \ar[r]^{I \otimes f} & \interval \otimes Y \ar[d]^\psi \\
-  X \ar[r]_{f} & Y \rlap{.}
-}
-\end{align}
-Secondly, requiring that the two horizontal composites are a section to $\thetal \hatotimes f$ means that the diagrams
-\begin{align} \label{equ:second-two}
-\xycenter{
-  X \ar[r]^-{\lcyl_X} \ar[dr]_{\id_X} & \interval \otimes X \ar[d]^\phi \\
-  & X \rlap{,}
-}
-&&
-\xycenter{
-  Y \ar[r]^-{\lcyl_Y}  \ar[dr]_{\id_Y} & \interval \otimes Y \ar[d]^{\psi} \\
-  & Y
-}
-\end{align}
-commute.
-With reference to \eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide right endpoint for $\phi$, right endpoint for $\psi$, and strength for $\phi$, respectively; while the equations in~\eqref{equ:second-two} provide left endpoints for~$\phi$ and~$\psi$, respectively.
-\end{proof}
-
-\begin{remark}
-\cref{strong-h-equiv-as-section} implies that left or right strong homotopy equivalences are closed under retracts since functors preserve sections, and that sections are closed under retracts.
-\end{remark}
-
-
-The logical equivalence of \cref{strong-h-equiv-as-section} can be extended to an isomorphism of categories, as follows.
-Fix a functor $u \cal{I} \to \cal{E}^\to$.
-We define the category $\cal{S}_0(\cal{I})$ of strong right homotopy equivalences and the category $\cal{S}_1(\cal{I})$ of strong left homotopies relative to $\cal{I}$ as follows.
-The objects of $\cal{S}_1(\cal{I})$ are 4-tuples $(i, g,\phi,\psi)$ consisting of an object $i \in \cal{I}$ together with data making $u_i \co A_i \to B_i$ into a strong left homotopy equivalence, \ie arrows $g \co B_i \to A_i$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$, satisfying the appropriate diagrams.
-A morphism $m \co (i,g, \phi, \psi) \to (i', g', \phi', \psi')$ consists of a map $m \co i \to i'$ in $\cal{I}$ such that, writing
-\[
-\xymatrix{
-  A \ar[d]_{u_i} \ar[r]^s & A' \ar[d]^{u_{i'}} \\
-  B \ar[r]_t & B'
-}
-\]
-for $u_m \co u_i \to u_{i'}$, the following diagrams commute:
-\begin{align*}
-\xymatrix{
-  B
-  \ar[r]^{t}
-  \ar[d]_{g}
-&
-  B'
-  \ar[d]^{g'}
-\\
-  A
-  \ar[r]_{s}
-&
-  A'\rlap{,}
-}
-&&
-\xymatrix{
-  \interval \otimes A
-  \ar[d]_{\phi}
-  \ar[r]^{\interval \otimes s}
-&
-  I \otimes A'
-  \ar[d]^{\phi'}
-\\
-  A
-  \ar[r]_{s}
-&
-  A' \rlap{,}
-}
-&&
-\xymatrix{
-  \interval \otimes B
-  \ar[d]_{\psi}
-  \ar[r]^{\interval \otimes t}
-&
-  I \otimes B'
-  \ar[d]^{\psi'}
-\\
-  B
-  \ar[r]_{t}
-&
-  B' \rlap{.}
-}
-\end{align*}
-Note that there is an obvious forgetful functor $\cal{S}_1(\cal{I}) \to \cal{I}$.
-We write $\cal{S}_1(u) \co \cal{S}_1(\cal{I}) \to \catE^\to$ be its composition with $u \co \cal{I} \to \catE^\to$, mapping $(i, g,\phi,\psi)$ to $u_i \co A_i \to B_i$.
-The category $\cal{S}_0(\cal{I})$ is defined analogously.
-
-
-
-
-\begin{lemma} \label{strong-h-equiv-as-section-algebraic}
-The category $\cal{S}_k(\cal{I})$ is isomorphic to the category given as follows:
-\begin{enumerate}[(i)]
-\item objects are pairs $(i, \rho)$ consisting of $i \in \cal{I}$ and a retraction $\rho$ to $\thetak \hatotimes u_i$, as in the diagram
+\item objects are pairs $(f, \rho)$ consisting of $f : \catE^\to$ and a retraction $\rho$ to $\thetak \hatotimes f$, as in the diagram
 \[
 \xymatrix@C+2em{
-  u_i
-  \ar[r]^-{\thetak \hatotimes u_i }
-  \ar[dr]_{\id}
+  f
+  \ar[r]^-{\thetak \hatotimes f}
+  \ar@{=}[dr]
 &
-  \kcyl \hatotimes u_i \ar[d]^{\rho}
+  \kcyl \hatotimes f \ar[d]^{\rho}
 \\&
-  u_i \rlap{,}
-}
+  f
+\rlap{,}}
 \]
-\item morphisms $\tau \co (i, \rho) \to (i', \rho')$ are arrows $\tau \co i \to i'$ such that the following diagram commutes:
+\item morphisms $\tau \co (f, \rho) \to (f', \rho')$ are arrows $\tau \co f \to f'$ such that the following diagram commutes:
 \[
 \xymatrix@C+2em{
-  \kcyl \hatotimes u_i
+  \kcyl \hatotimes f
   \ar[d]_-{\rho}
-  \ar[r]^{\kcyl \hatotimes u_\tau }
+  \ar[r]^{\kcyl \hatotimes \tau}
 &
- \kcyl \hatotimes u_{i'}
+ \kcyl \hatotimes f'
   \ar[d]^-{\rho'}
 \\
   u_i
-  \ar[r]_{u_\tau}
+  \ar[r]_{\tau}
 &
   u_{i'} \rlap{.}
 }
@@ -1446,21 +1347,115 @@ The category $\cal{S}_k(\cal{I})$ is isomorphic to the category given as follows
 \end{lemma}
 
 \begin{proof}
-The claim follows from \cref{strong-h-equiv-as-section}.
+We will only do the case $k = 0$ and the object part of the correspondence.
+To say that $\thetal \hatotimes f \co f \to \lcyl \hatotimes f$ is a section means that there is retraction $\rho$, as follows:
+\[
+\xymatrix@C+3em{
+  X
+  \ar[r]^-{\inl \cc (\rcyl \otimes X)}
+  \ar[d]_f
+&
+  (\interval \otimes X) +_{X} Y
+  \ar[d]^{\lcyl \hatotimes f}
+  \ar@{.>}[r]
+&
+  X
+  \ar[d]^f
+\\
+  Y
+  \ar[r]_-{\rcyl \otimes Y}
+&
+  \interval \otimes Y
+  \ar@{.>}[r]
+&
+  Y
+\rlap{,}}
+\]
+where the two horizontal composites should be identities.
+First, by a standard diagram-chasing arguments, giving the square on the right is equivalent to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
+\begin{align} \label{equ:first-three}
+\xycenter{
+  X
+  \ar[r]^-{\rcyl \otimes X}
+  \ar[d]_f
+&
+  \interval \otimes X \ar[d]^{\phi}
+\\
+  Y \ar[r]_{g}
+&
+  X
+\rlap{,}}
+&&
+\xycenter{
+  Y
+  \ar[r]^-{\rcyl \otimes Y}
+  \ar[d]_g
+&
+  \interval \otimes Y \ar[d]^{\psi}
+\\
+  X
+  \ar[r]_f
+&
+  B
+\rlap{,}}
+&&
+\xycenter{
+  \interval \otimes X
+  \ar[d]_\phi
+  \ar[r]^{I \otimes f}
+&
+  \interval \otimes Y
+  \ar[d]^\psi
+\\
+  X
+  \ar[r]_{f}
+&
+  Y
+\rlap{.}}
+\end{align}
+Second, requiring that the two horizontal composites are a section to $\thetar \hatotimes f$ means that the diagrams
+\begin{align} \label{equ:second-two}
+\xycenter{
+  X
+  \ar[r]^-{\lcyl \otimes X}
+  \ar[dr]_{\id_X}
+&
+  \interval \otimes X \ar[d]^\phi
+\\&
+  X
+\rlap{,}}
+&&
+\xycenter{
+  Y
+  \ar[r]^-{\lcyl \otimes Y}
+  \ar[dr]_{\id_Y}
+&
+  \interval \otimes Y \ar[d]^{\psi}
+\\&
+  Y
+}
+\end{align}
+commute.
+With reference to \eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide right endpoint for $\phi$, right endpoint for $\psi$, and strength for $\phi$, respectively; while the equations in~\eqref{equ:second-two} provide left endpoints for $\phi$ and $\psi$, respectively.
 \end{proof}
 
+\begin{remark}
+\cref{strong-h-equiv-as-section} implies that left or right strong homotopy equivalences are closed under retracts since functors preserve sections and sections are closed under retracts.
+\end{remark}
+
 \begin{remark} \label{thm:retraction-for-connections}
-By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connections if and only if there exists a natural transformation $\rho \co \kcyl \hatotimes (\kcyl \hatotimes (-)) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
+By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connections if and only if, for $k \in \braces{0, 1}$, there exists a natural transformation $\rho \co \kcyl \hatotimes \kcyl \hatotimes (-) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
 \begin{gather*}
 \xymatrix@C+3em{
   \kcyl \hatotimes f
-  \ar[r]^-{\thetak \hatotimes (\kcyl \hatotimes f)}
-  \ar[dr]_{\id_{\kcyl \hatotimes f}}
+  \ar[r]^-{\thetak \hatotimes \kcyl \hatotimes f}
+  \ar@{=}[dr]
 &
-  \kcyl \hatotimes (\kcyl \hatotimes f)  \ar[d]^{\rho_f}
+  \kcyl \hatotimes \kcyl \hatotimes f
+  \ar[d]^{\rho_f}
 \\&
-  \kcyl \hatotimes f \rlap{.}
-}
+  \kcyl \hatotimes f
+\rlap{.}}
 \end{gather*}
 \end{remark}
 
@@ -1469,10 +1464,29 @@ By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connect
 %Apply \cref{strong-h-equiv-as-section} and use that functors (in this case the Leibniz monoidal product in one variable) preserve sections.
 % \end{remark}
 
-
+Let now $u \co \cal{I} \to \catE^\to$ be a functor.
+For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong (left or right) homotopy equivalences relative to $\cal{I}$.
+It is induced by the following strict pullback of categories:
+\[
+\xymatrix{
+  \cal{S}_k(\cal{I})
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \cal{I}
+  \ar[d]^{u}
+\\
+  \cal{S}_k
+  \ar[r]
+&
+  \catE^\to
+}
+\]
+This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i : \cal{I}$ together with data $(g, \phi, \psi)$ making $u_i$ into a strong (left or right) homotopy equivalence.
 
 \begin{lemma} \label{thm:she-to-retract-closure}
-Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts to $\cal{I}$, in the sense that there is a diagram of the form
+Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lift to $\cal{I}$, in the sense that there is a diagram of the form
 \[
 \xymatrix@C+2em{
   \cal{I}  \ar[d]_u \ar[r]^{\kcyl \hatotimes (-)} & \cal{I} \ar[d]^{u} \\
@@ -1486,8 +1500,7 @@ Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts
   & \catE^\to \rlap{,} &
 }
 \]
-\item Assume further that the functorial cylinder has effective connections.
-Then there is a functor
+\item Assuming that the functorial cylinder has effective connections, there is a functor
 \[
 \xycenter{
  \cal{I} \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^M & & \cal{S}_k(\cal{I}) \ar[dl]^{\cal{S}_k(u)} \\
@@ -1497,8 +1510,9 @@ Then there is a functor
 \end{enumerate}
 \end{lemma}
 
-\begin{proof} For (i), we define the action of the functor $L$ on objects, leaving the evident definition of the action on arrows to the reader.
-For this, we identify the category $\cal{S}_k(\cal{I})$ with the isomorphic category defined in \cref{strong-h-equiv-as-section-algebraic}.
+\begin{proof}
+For (i), we define the action of the functor $L$ on objects, leaving the evident definition of the action on arrows to the reader.
+For this, we identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
 Observe that $u_i \co A_i \to B_i$ is a retract of~$\kcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$ via the diagram
 \[
 \xymatrix@C+1em{
@@ -1513,15 +1527,12 @@ Thus, we can define
 Observe that this definition makes the diagram for $L$ commute.
 
 For (ii), as before, we define the functor $M$ only on objects.
-We use again the isomorphic description of~$\cal{S}_k(\cal{I})$ in \cref{strong-h-equiv-as-section-algebraic}.
+We use again the isomorphic description of~$\cal{S}_k(\cal{I})$ in \cref{strong-h-equiv-as-section}.
 In order to guarantee that the diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption that $\kcyl \hatotimes (-)$ lifts.
 Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes (\kcyl \hatotimes u_i)$ by the assumption that~$\cal{I}$ is closed with respect to Leibniz product with the endpoint inclusions.
 But such a retraction is provided by the natural transformation $\rho$ of~\cref{thm:retraction-for-connections}.
 We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
-
-It should be pointed out that the assumption of connections is used only in the definition of the functor $M$, and not of $L$, in \cref{thm:she-to-retract-closure}.
-
 
 \section{Uniform fibrations in presheaf categories}
 \label{sec:exinwf}
@@ -2638,7 +2649,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 \begin{proof}[Proof of \cref{strong-h-equiv-base-change-along-fibration}]
 \noten{Proof needs to be checked.
 Notation needs to be made consistent with statement.}
-We work with the characterization of \cref{strong-h-equiv-as-section-algebraic}.
+We work with the characterization of \cref{strong-h-equiv-as-section}.
 We define separately the action of $G$ on objects and on maps.
 For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
