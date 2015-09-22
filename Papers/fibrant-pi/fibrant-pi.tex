@@ -2393,7 +2393,8 @@ Assume that $p$ satisfies the Frobenius condition with respect to $u \co \cal{I}
 Then $p$ satisfies the Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \catE^\to$.
 \end{theorem}
 
-\begin{proof} We assume that the pullback along $p$ lifts to a functor
+\begin{proof}
+We assume that the pullback along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
   \cal{I}_{/Y}
@@ -2493,9 +2494,11 @@ Then pushforward along $p$ lifts to a functor
 \begin{proof} The claim follows from~\cref{thm:frobenius-fibrations} and \cref{lift-dependent-product}.
 \end{proof}
 
-\begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf} Let $\catE$ be a category of presheaves equipped with a functorial cylinder $( \interval \otimes (-), \rcyl, \lcyl, \ccyl)$ with connections, and recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
-Since $\cal{M}$ is closed under Leibniz product with endpoint inclusions and pullback functors always preserve monomorphisms, it follows that every uniform fibration satisfies the Frobenius property with respect to
-$\cal{M} \hookrightarrow \catE^\to$.
+\begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
+Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl)$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
+Recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
+Note that $\cal{M}$ is closed under Leibniz product with endpoint inclusions since decidable monomorphisms are closed under Leibniz product in the category of sets.
+Since pulling back preserves decidable monomorphisms and Cartesian squares between them, it follows that every uniform fibration (in fact, any map) satisfies the Frobenius property with respect to $\cal{M} \hookrightarrow \catE^\to$.
 Therefore, pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
@@ -2628,11 +2631,10 @@ satisfying coherence with respect to $\psi$.
 \end{proof}
 
 
-\begin{example}[Beck-Chevalley condition for uniform fibrations in presheaf categories] If $\catE$ is a presheaf category, then the map $\cal{M} \to \cal{E}^\to$ is closed under Leibniz product with endpoint inclusions.
-The maps of uniform fibrations satisfy the Beck-Chevalley condition, since the lifts of the natural transformations $\phi \co t^* q_* \Rightarrow p_* \, s^*$ and $\psi \co t^* q_* \Rightarrow p_* \, s^*$ which are required to exist in order to be able to apply \cref{thm:beck-chevalley-unif} and \cref{thm:beck-chevalley-unif-push} are simply their restrictions to the components indexed by decidable monomorphisms.
-\noten{Something is missing}
+\begin{example}[Beck-Chevalley condition for uniform fibrations in presheaf categories]
+It is easily checked that the canonical natural transformation $\phi \co t^* q_* \Rightarrow p_* \, s^*$ of functors $\catE_{/U}^\to \to \catE_{/Y}^\to$ is valued in pullback squares.
+Hence, we can lift it as required in \cref{thm:beck-chevalley-unif} and \cref{thm:beck-chevalley-unif-push} and obtain that maps of uniform fibrations satisfy the Beck-Chevalley condition.
 \end{example}
-
 
 \section*{Acknowledgements}
 
