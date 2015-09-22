@@ -529,7 +529,7 @@ We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and th
 By unfolding the relevant definitions, one readily sees that the notion of a uniform $\cal{I}$-fibration involves diagonal fillers for diagrams having on the left-hand side maps obtained by pushouts of the form
 \begin{gather*}
 \xymatrix@C=1.2cm{
-  A_i \ar[r]^{u_i} \ar[d]_{\kcyl_{A_i}} & B_i \ar@/^2pc/[ddr]^{\kcyl_{B_i}} \ar[d] & \\
+  A_i \ar[r]^{u_i} \ar[d]_{\kcyl \otimes A_i} & B_i \ar@/^2pc/[ddr]^{\kcyl \otimes B_i} \ar[d] & \\
   \interval \otimes A_i \ar@/_1pc/[drr]_{\interval \otimes u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[dr]^-{\delta^k \hatotimes u_i} & \\
   & & \interval \otimes B_i
 \rlap{.}}
@@ -2743,7 +2743,7 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
 \[
 \xymatrix@C+4em{
   B'
-  \ar[r]^-{\kcyl_{B'}}
+  \ar[r]^-{\kcyl \otimes B'}
   \ar[d]_{\cod(\sigma)}
 &
   \interval \otimes B'
@@ -2754,7 +2754,7 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
   \ar[d]^{\cod(\sigma)}
 \\
   B
-  \ar[r]_-{\kcyl_B}
+  \ar[r]_-{\kcyl \otimes B}
 &
   \interval \otimes B
   \ar[r]_-{\cod(\rho)}
@@ -2766,7 +2766,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
 \[
 \xymatrix@C+2em{
   B'
-  \ar[r]^-{\kcyl_{B'}}
+  \ar[r]^-{\kcyl \otimes B'}
   \ar[dd]_{\cod(\sigma)}
   \ar@/_2em/[drrr]
 &
@@ -2783,7 +2783,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   \ar[dd]^{p}
 \\
   B
-  \ar[r]^-{\kcyl_B}
+  \ar[r]^-{\kcyl \otimes B}
   \ar@/_2em/[drrr]
 &
   \interval \otimes B
@@ -2804,7 +2804,7 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
 \xymatrix@C+3em{
   B'
   \ar[rr]
-  \ar[d]_{\kcyl_{B'}}
+  \ar[d]_{\kcyl \otimes B'}
 &&
   X
   \ar[d]^{p}
