@@ -2370,24 +2370,25 @@ The first key step to prove \cref{thm:frobenius-fibrations} is the following lem
 
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration}
-Let $p \co X \to Y$ be a $(\kcyl \otimes \id_{\calE})$-right map, where $k \in \braces{0, 1}$.
-Assume that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{I}_{/X}$.
-Then it lifts to a functor $p^* \co (\cal{S}_k(\cal{I}))_{/Y} \to (\cal{S}_k(\cal{I}))_{/X}$,
+Let $u : \cal{I} \to \catE^\to$ and $v : \cal{I}' \to \catE^\to$ be functors.
+Let $p \co X \to Y$ be a right map for $\kcylinv \otimes \id_{\calE} : \catE \to \catE^\to$ where $k \in \braces{0, 1}$.
+Assume that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{I}_{/X}'$.
+Then it lifts further to a functor $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_k(\cal{I}')_{/X}$,
 \[
 \xymatrix@C+2em{
   \cal{S}_k(\cal{I})_{/Y}
   \ar@{.>}[r]^{p^*}
   \ar[d]
 &
-  \cal{S}_k(\cal{I})_{/X}
+  \cal{S}_k(\cal{I}')_{/X}
   \ar[d]
 \\
   \cal{I}_{/Y}
   \ar[r]^{p^*}
-  \ar[d]_{\cal{I}_{/Y}}
+  \ar[d]_{u_{/Y}}
 &
-  \cal{I}_{/X}
-  \ar[d]^{\cal{I}_{/X}}
+  \cal{I}_{/X}'
+  \ar[d]^{u_{/X}'}
 \\
   (\catE / Y)^\to
   \ar[r]_{p^*}
@@ -2578,38 +2579,57 @@ For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ a
 
 
 
+
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration-BC}
-Assume that $p \co X \to Y$ and $q \co U \to V$ satisfy the Frobenius condition with respect to $u \co \cal{I} \to \catE^\to$ and that $(s, t) \co p \to q$ satisfies the Beck-Chevalley condition with respect to $u \co \cal{I} \to \catE^\to$.
-Then $\phi \co s_! p^* \to q^* t_!$ further to a natural transformation
-\begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:3}
+Let $u : \cal{I} \to \catE^\to$ and $v : \cal{I}' \to \catE^\to$ be functors.
+Let $p_1 \co X_1 \to Y_1$ and $p_2 \co X_2 \to Y_2$ be maps satisfying the assumptions of \cref{strong-h-equiv-base-change-along-fibration} with $k \in \braces{0, 1}$.
+Let $(s, t) : p_1 \to p_2$ be a morphism of $(\kcylinv \otimes \id_\catE)$-right maps.
+If the canonical natural transformation $\phi \co s_! p^* \to q^* t_!$ lifts to a natural transformation $\phi'$:
+\begin{equation*} %\label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
 \xymatrix{
-  \cal{S}_k(\cal{I})_{/Y}
-  \ar[r]^{p^*}
+  \cal{I}_{/Y_1}
+  \ar[r]^{p_1^*}
+  \ar[d]_{t_!}
+  \ar@{}[dr]|{\Downarrow \, \phi'}
+&
+  \cal{I}_{/X_1}'
+  \ar[d]^{s_!}
+\\
+  \cal{I}_{/Y_2}
+  \ar[r]_{p_2^*}
+&
+  \cal{I}_{/X_2}'
+\rlap{.}}
+\end{gathered}
+\end{equation*}
+Then it lifts further to a natural transformation $\phi''$:
+\begin{equation*} %\label{strong-h-equiv-base-change-along-fibration-BC:3}
+\begin{gathered}
+\xymatrix{
+  \cal{S}_k(\cal{I})_{/Y_1}
+  \ar[r]^{p_1^*}
   \ar[d]_{t_!}
   \ar@{}[dr]|{\Downarrow \, \phi''}
 &
-  \cal{S}_k(\cal{I})_{/X}
+  \cal{S}_k(\cal{I})_{/X_1}
   \ar[d]^{s_!}
 \\
-  \cal{S}_k(\cal{I})_{/V}
-  \ar[r]_{q^*}
+  \cal{S}_k(\cal{I})_{/Y_2}
+  \ar[r]_{p_2^*}
 &
-  \cal{S}_k(\cal{I})_{/U}
-}
+  \cal{S}_k(\cal{I})_{/X_2}
+\rlap{.}}
 \end{gathered}
-\end{equation}
-where $k \in \braces{0, 1}$, satisfying coherence with respect to $\phi'$.
+\end{equation*}
 \end{lemma}
 
 \begin{proof}
 See Appendix~\ref{app:tecp}.
 \end{proof}
 
-
-
-
-\begin{theorem} \label{thm:beck-chevalley-unif} Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
+\begin{theorem} \label{thm:beck-chevalley-unif}
+Let $u \co \cal{I} \to \cal{E}^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
 Let $p \co X \to Y$ and $q \co U \to V$ be uniform $\cal{I}$-fibrations and consider a morphism of $\cal{I}$-fibrations
 \[
 \xymatrix{
@@ -2668,10 +2688,9 @@ This material is based on research sponsored by the Air Force Research Laborator
 \label{app:tecp}
 
 \begin{proof}[Proof of \cref{strong-h-equiv-base-change-along-fibration}]
-\noten{Proof needs to be checked.
-Notation needs to be made consistent with statement.}
+\noten{Proof needs to be checked.}
 We work with the characterization of \cref{strong-h-equiv-as-section}.
-We define separately the action of $G$ on objects and on maps.
+We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_k(\cal{I}')_{/Y}$ on objects and on morphisms.
 For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
@@ -2686,19 +2705,19 @@ This means we have a commutative triangle
   Y
 }
 \]
-and a retraction $\rho$ to $\thetak \hatotimes i$
+and a retraction $\rho$ to $\thetak \hatotimes i$ as follows:
 \[
 \xymatrix@C+1em{
   u_i
   \ar[r]^-{\thetak \hatotimes u_i}
-  \ar[dr]_{\id}
+  \ar@{=}[dr]
 &
   \kcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
   u_i
-}
+\rlap{.}}
 \]
-Let $\sigma \co u_{i'} \to u_i$ denote the pullback of $i$ along $p$:
+Let $\sigma \co u_{i'} \to u_i$ denote the pullback of $i$ along $p$ with $i' \co \cal{I}'$:
 \[
 \xymatrix{
   A'
@@ -2721,15 +2740,15 @@ Let $\sigma \co u_{i'} \to u_i$ denote the pullback of $i$ along $p$:
   \ar[r]_p
 &
   Y
-}
+\rlap{.}}
 \]
 We want to make $u_{i'}$ into a strong left homotopy equivalence.
-This means to find a retraction $\rho'$ to $\thetak \hatotimes i$
+This means to find a retraction $\rho'$ to $\thetak \hatotimes i$ as follows:
 \[
 \xymatrix@C+1em{
   u_{i'}
   \ar[r]^-{\thetak \hatotimes u_{i'}}
-  \ar[dr]_{\id}
+  \ar@{=}[dr]
 &
   \kcyl \hatotimes u_{i'}
   \ar@{.>}[d]^{\rho'}
@@ -2737,7 +2756,7 @@ This means to find a retraction $\rho'$ to $\thetak \hatotimes i$
   u_{i'}
 }
 \]
-We will construct the retraction $\rho'$ as indicated in the below diagram:
+We will construct the retraction $\rho'$ as indicated in the below diagram where the two horizontal composites should be identities.
 \[
 \xymatrix@C+2em{
   u_{i'}
@@ -2764,7 +2783,7 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
 \[
 \xymatrix@C+4em{
   B'
-  \ar[r]^-{\kcyl \otimes B'}
+  \ar[r]^-{\kcylinv \otimes B'}
   \ar[d]_{\cod(\sigma)}
 &
   \interval \otimes B'
@@ -2775,7 +2794,7 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
   \ar[d]^{\cod(\sigma)}
 \\
   B
-  \ar[r]_-{\kcyl \otimes B}
+  \ar[r]_-{\kcylinv \otimes B}
 &
   \interval \otimes B
   \ar[r]_-{\cod(\rho)}
@@ -2783,11 +2802,11 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
   B
 }
 \]
-We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, again omitting the identity arrows for readability:
+We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, again omitting drawing the identity constraints for the horizontal composites for readability:
 \[
 \xymatrix@C+2em{
   B'
-  \ar[r]^-{\kcyl \otimes B'}
+  \ar[r]^-{\kcylinv \otimes B'}
   \ar[dd]_{\cod(\sigma)}
   \ar@/_2em/[drrr]
 &
@@ -2804,7 +2823,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   \ar[dd]^{p}
 \\
   B
-  \ar[r]^-{\kcyl \otimes B}
+  \ar[r]^-{\kcylinv \otimes B}
   \ar@/_2em/[drrr]
 &
   \interval \otimes B
@@ -2815,7 +2834,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   \ar[dr]
 \\&&&
   Y
-}
+\rlap{.}}
 \]
 The arrows to $Y$ from the bottom row are induced by $B \to Y$.
 The square $\cod(\sigma)$ over $p$ is Cartesian by construction.
@@ -2825,7 +2844,7 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
 \xymatrix@C+3em{
   B'
   \ar[rr]
-  \ar[d]_{\kcyl \otimes B'}
+  \ar[d]_{\kcylinv \otimes B'}
 &&
   X
   \ar[d]^{p}
@@ -2838,20 +2857,20 @@ To find the dashed arrow is to construct a diagonal filler in the following squa
   \ar[r]
 &
   Y
-}
+\rlap{.}}
 \]
-But we have such a filler since $p$ is a $(\kcyl \otimes \id_\catE)$-right map by assumption.
+But we have such a filler since $p$ is a $(\kcylinv \otimes \id_\catE)$-right map by assumption.
 
 \medskip
 
-We now define the action of $G$ on morphisms.
+We now define the action of the lift $p^*$ on morphisms.
 Suppose we are given a map $\tau \co (i_1, \rho_1) \to (i_2, \rho_2)$ of strong homotopy equivalences over $Y$.
 This consists of a map $\tau \co i_1 \to i_2$ in $\cal{I}$ living over $Y$ as depicted below:
 \[
 \xymatrix{
   A_1 \ar[rr]^{u_{i_1}}  \ar[d]  & & B_1 \ar[d] \\
   A_2  \ar[rr]^{u_{i_2}} \ar[dr] & & B_2 \ar[dl] \\
-  & Y & }
+  & Y \rlap{,}}
 \]
 such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \[
@@ -2867,9 +2886,9 @@ such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
   \ar[r]_-{\rho_2}
 &
   u_{i_2}
-}
+\rlap{.}}
 \]
-Let $(i_1', \rho_1')$ and $(i_2', \rho_2')$ denote the action of $G$ on the objects $(i_1, \rho_1)$ and $(i_2, \rho_2)$, respectively, as constructed in the previous paragraph.
+Let $(i_1', \rho_1')$ and $(i_2', \rho_2')$ denote the action of the lift $p^*$ on the objects $(i_1, \rho_1)$ and $(i_2, \rho_2)$, respectively, as constructed in the previous paragraph.
 Recall that this includes Cartesian squares
 \[
 \begin{aligned}
@@ -2879,7 +2898,7 @@ Recall that this includes Cartesian squares
 \end{aligned}
 \]
 Cartesian over $p \co X \to Y$.
-Since the base change functor lifts to slices of $\cal{I}$ by assumption, we have a lift $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/X}$ of the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$.
+Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{I}_{/X}'$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/Y}'$.
 We want to show that $\tau'$ in addition forms a morphism of left strong homotopy equivalences $\tau' \co (i_1', \rho_1') \to (i_2', \rho_2')$.
 For this, we have to verify commutativity of the following diagram:
 \[
@@ -2895,9 +2914,9 @@ For this, we have to verify commutativity of the following diagram:
   \ar[r]_-{\rho_2'}
 &
   u_{i_2'}
-}
+\rlap{.}}
 \]
-Recall the construction of $\rho_1'$ and $\rho_2'$:
+Recall the construction of $\rho_1'$ and $\rho_2'$, omitting horizontal composite identity arrows for readability:
 \[
 \xymatrix@C+2em{
   u_{i_1'}
@@ -2943,16 +2962,16 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[rr]^-{\rho_2}
 &&
   u_{i_2}
-}
+\rlap{.}}
 \]
 Our goal is to show that the top right square commutes.
-Since that square commutes after composing it with the Cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains:
+Since that square commutes after composing it with the Cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains, omitting horizontal composite identity arrows for readability:
 \[
 \xymatrix@C+2em{
   B_1'
-  \ar[rr]^-{\kcyl \otimes B_1'}
+  \ar[rr]^-{\kcylinv \otimes B_1'}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{u_{\tau'}}
+  \ar[dr]^{\cod(u_{\tau'})}
 &&
   \interval \otimes B_1'
   \ar@{.>}[rr]^-{\cod(\rho_1')}
@@ -2964,7 +2983,7 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dr]^{\cod(u_{\tau'})}
 \\&
   B_2'
-  \ar[rr]^-(0.3){\kcyl \otimes B_2'}
+  \ar[rr]^-(0.3){\kcylinv \otimes B_2'}
   \ar[dd]_(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes B_2'
@@ -2975,8 +2994,8 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B_1
-  \ar[rr]^-(0.25){\kcyl \otimes B_1}
-  \ar[dr]^{u_\tau}
+  \ar[rr]^-(0.25){\kcylinv \otimes B_1}
+  \ar[dr]^{\cod(u_\tau)}
 &&
   \interval \otimes B_1
   \ar[rr]^-(0.3){\cod(\rho_1)}
@@ -2986,13 +3005,13 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dr]^{\cod(u_\tau)}
 \\&
   B_2
-  \ar[rr]^-{\kcyl \otimes B_2}
+  \ar[rr]^-{\kcylinv \otimes B_2}
 &&
   \interval \otimes B_2
   \ar[rr]^-{\cod(\rho_2)}
 &&
   B_2
-}
+\rlap{.}}
 \]
 The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the Cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
 For our goal it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
@@ -3002,7 +3021,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \xymatrix@C+2em{
   B_1'
   \ar[rrrr]
-  \ar[dd]_{\kcyl \otimes B_1'}
+  \ar[dd]_{\kcylinv \otimes B_1'}
   \ar[dr]^{\cod(u_{\tau'})}
 &&&&
   X
@@ -3011,7 +3030,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
 \\&
   B_2'
   \ar[rrrr]
-  \ar[dd]_(0.7){\kcyl \otimes B_2'}
+  \ar[dd]_(0.7){\kcylinv \otimes B_2'}
 &&&&
   X
   \ar[dd]^{p}
@@ -3019,7 +3038,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \interval \otimes B_1'
   \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
   \ar@{-->}[uurrrr]
-  \ar[dr]_{\kcyl \otimes \cod(u_{\tau'})}
+  \ar[dr]_{I \otimes \cod(u_{\tau'})}
 &&
   \interval \otimes B_1
   \ar[rr]
@@ -3036,15 +3055,15 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \ar[rr]
 &&
   Y
-}
+\rlap{.}}
 \]
-But the left face forms a morphism in $\kcyl \otimes \catE$; since $p$ was assumed a $(\kcyl \otimes \catE)$-right map, its right lifting structure is coherent as needed.
+But the left face forms a morphism in the category $\kcylinv \otimes \id_\catE \co \catE \to \catE^\to$ of arrows; since $p$ was assumed a $(\kcylinv \otimes \id_\catE)$-right map, its right lifting structure is coherent as needed.
 \end{proof}
 
 \begin{proof}[Proof of \cref{strong-h-equiv-base-change-along-fibration-BC}]
 \noten{This proof needs to be checked. Notation needs to be made consistent with statement}
-By faithfulnes of the functor $\cal{S}_k(\cal{I})_{/Y_2} \to \cal{I}_{/Y_2}$, we only have to check objectwise lifting.
-So, suppose we are given a strong left homotopy equivalence $(i, \rho) \in \cal{I}_{/X_1}$ over $X_1$.
+By faithfulness of the functor $\cal{S}_k(\cal{I})_{/Y_2}' \to \cal{I}_{/Y_2}'$, we only have to check objectwise lifting.
+Suppose we are given a strong left homotopy equivalence $(i, \rho) \in \cal{I}_{/X_1}$ over $X_1$.
 This means we have a commutative triangle
 \[
 \xymatrix{
@@ -3063,14 +3082,14 @@ and a retraction $\rho$ to $\thetak \hatotimes i$ in $\catE^\to$:
 \xymatrix@C+1em{
   u_i
   \ar[r]^-{\thetak \hatotimes u_i}
-  \ar[dr]_{\id}
+  \ar@{=}[dr]
 &
   \rcyl \hatotimes u_i \ar[d]^{\rho}
 \\&
   u_i
-}
+\rlap{.}}
 \]
-Let $\sigma_1 \co u_{i_1'} \to u_i$ and $\sigma_2 \co u_{i_2'} \to u_i$ denote the base changes of $i$ along $p_1$ and $p_2$, respectively:
+Let $\sigma_1 \co u_{i_1'} \to u_i$ and $\sigma_2 \co u_{i_2'} \to u_i$ with $i_1', i_2' : \cal{I}'$ denote the base changes of $i$ over along $p_1$ and $p_2$, respectively:
 \[
 \xymatrix{
   A_1'
@@ -3111,22 +3130,22 @@ Let $\sigma_1 \co u_{i_1'} \to u_i$ and $\sigma_2 \co u_{i_2'} \to u_i$ denote t
 \\
   Y_1
   \ar[rr]^(0.7){p_1}
-  \ar[dr]^{y}
+  \ar[dr]^{t}
 &&
   X_1
-  \ar[dr]^{x}
+  \ar[dr]^{s}
 \\&
   Y_2
   \ar[rr]^(0.3){p_2}
 &&
   X_2
-}
+\rlap{.}}
 \]
 Recall that we have a canonical morphism $\phi_{u_i}^\to \co u_{i_1'} \to u_{i_2'}$ over $Y_2$ as indicated in the diagram.
-By assumption, this lifts to a morphism $\phi_i' \co i_1' \to i_2'$ in $\cal{I}_{/Y_2}$.
+By assumption, this lifts to a morphism $\phi_i' \co i_1' \to i_2'$ in $\cal{I}_{/Y_2}'$.
 
 The proof of \cref{strong-h-equiv-base-change-along-fibration} endows $i_1'$ and $i_2'$ with data for a strong left homotopy equivalence consisting of retracts $\rho_1'$ and $\rho_2'$, respectively.
-Our goal is to check that $\phi_i'$ lifts to a morphism in $\cal{S}(\cal{I})_{/Y_2}$, \ie to verify that $\phi_{u_i}^\to$ coheres with as follows:
+Our goal is to check that $\phi_i'$ lifts to a morphism in $\cal{S}(\cal{I})_{/Y_2}'$, \ie to verify that $\phi_{u_i}^\to$ coheres as follows:
 \[
 \xymatrix@C+2em{
   \rcyl \hatotimes u_{i_1'}
@@ -3140,9 +3159,9 @@ Our goal is to check that $\phi_i'$ lifts to a morphism in $\cal{S}(\cal{I})_{/Y
   \ar[r]_-{\rho_2'}
 &
   u_{i_2'}
-}
+\rlap{.}}
 \]
-Recall the construction of $\rho_1'$ and $\rho_2'$:
+Recall the construction of $\rho_1'$ and $\rho_2'$, where we omit again the horizontal composite identities:
 \[
 \xymatrix@C+2em{
   u_{i_1'}
@@ -3153,7 +3172,7 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \rcyl \hatotimes u_{i_1'}
   \ar@{.>}[rr]^-{\rho_1'}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
-  \ar[dr]^{\rcyl \hatotimes u_{\phi_i'}}
+  \ar[dr]^{\kcyl \hatotimes u_{\phi_i'}}
 &&
   u_{i_1'}
   \ar[dd]^(0.3){\sigma_1}
@@ -3188,16 +3207,16 @@ Recall the construction of $\rho_1'$ and $\rho_2'$:
   \ar[rr]^-{\rho}
 &&
   u_i
-}
+\rlap{.}}
 \]
 Our goal is to show that the top right square commutes.
 Since that square commutes after composing it with the Cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains:
 \[
 \xymatrix@C+2em{
   B_1'
-  \ar[rr]^-{\lcyl \otimes B_1'}
+  \ar[rr]^-{\kcylinv \otimes B_1'}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{u_{\tau'}}
+  \ar[dr]^{\cod(u_{\tau'})}
 &&
   \interval \otimes B_1'
   \ar@{.>}[rr]^-{\cod(\rho_1')}
@@ -3209,7 +3228,7 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dr]^{\cod(u_{\tau'})}
 \\&
   B_2'
-  \ar[rr]^-(0.3){\lcyl \otimes B_2'}
+  \ar[rr]^-(0.3){\kcylinv \otimes B_2'}
   \ar[dd]_(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes B_2'
@@ -3220,7 +3239,7 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B
-  \ar[rr]^-(0.25){\lcyl \otimes B}
+  \ar[rr]^-(0.25){\kcylinv \otimes B}
   \ar@{=}[dr]
 &&
   \interval \otimes B
@@ -3231,7 +3250,7 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar@{=}[dr]
 \\&
   B
-  \ar[rr]^-{\lcyl \otimes B}
+  \ar[rr]^-{\kcylinv \otimes B}
 &&
   \interval \otimes B
   \ar[rr]^-{\cod(\rho)}
@@ -3240,38 +3259,38 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
 }
 \]
 The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the Cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
-For our goal it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
+For our goal, it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
 This is canonically the case except potentially for the top middle map $\interval \otimes B_1' \to \interval \otimes B_2'$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
 \[
 \xymatrix@C+2em{
   B_1'
   \ar[rrrr]
-  \ar[dd]_{\lcyl \otimes B_1'}
-  \ar@{=}[dr]
+  \ar[dd]_{\kcylinv \otimes B_1'}
+  \ar[dr]^{\cod(u_{\tau'})}
 &&&&
   Y_1
-  \ar[dd]^(0.3){p}
-  \ar[dr]^{y}
+  \ar[dd]^(0.3){p_1}
+  \ar[dr]^{t}
 \\&
   B_2'
   \ar[rrrr]
-  \ar[dd]_(0.7){\lcyl \otimes B_2'}
+  \ar[dd]_(0.7){\kcylinv \otimes B_2'}
 &&&&
   Y_2
-  \ar[dd]^{p}
+  \ar[dd]^{p_2}
 \\
   \interval \otimes B_1'
   \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
   \ar@{-->}[uurrrr]
-  \ar@{=}[dr]
+  \ar[dr]_{I \otimes \cod(u_{\tau'})}
 &&
   \interval \otimes B_1
   \ar[rr]
   \ar@{=}[dr]
 &&
   X_1
-  \ar[dr]^{x}
+  \ar[dr]^{s}
 \\&
   \interval \otimes B_2'
   \ar[rr]_{I \otimes \cod(\sigma_2)}
@@ -3283,7 +3302,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   X_2
 }
 \]
-But the right face forms a morphism of $(\lcyl \otimes \catE)$-right maps by assumption; its right lifting structures hence cohere as needed.
+But the right face forms a morphism of $(\kcylinv \otimes \catE)$-right maps by assumption; its right lifting structures hence cohere as needed.
 \end{proof}
 
 
