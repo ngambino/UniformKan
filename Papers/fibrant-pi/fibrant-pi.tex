@@ -314,24 +314,46 @@ The notation $h^k \otimes (-)$ is once again suggestive of an interval object (s
 We use the notion of strong homotopy equivalence to introduce a structure on a functorial cylinder that is strictly weaker than connections, but encapsulates more economically the requirements needed for carrying out our main development.
 
 \begin{definition} \label{def:effective-connections}
+\notec{Fix: this definition presupposes the Leibniz construction.}
 A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has \emph{effective connections} if the endpoint inclusions $\lcyl \otimes X$ and $\rcyl \otimes X$ are strong left and right homotopy equivalences, respectively, naturally in $X \co \catE$.
-Formally, for $k \in \braces{0, 1}$, the natural transformation $\kcyl \otimes (-)$, seen as a functor $\catE \to \catE^\to$, is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
+Formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
 \end{definition}
 
 Note that effective connections, in contrast to connections, do not presuppose contractions.
 
 \begin{proposition} \label{connections-are-effective}
-A functorial cylinder with contractions and connections has effective connections.
+Let $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ be a functorial cylinder with contractions $\epsilon \times (-)$ and connections $h^k \otimes (-)$ for $k \in \braces{0, 1}$.
+If $\interval \otimes (-)$ preserves finite colimits, then the functorial cylinder has effective connections.
 \end{proposition}
 
 \begin{proof}
-Let $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ be a functorial cylinder with contractions $\ccyl \otimes (-)$ and connections $h^k \otimes (-)$ for $k \in \braces{0, 1}$ as in \cref{def:connections}.
-We will only show that $\lcyl \otimes (-) \co \catE \to \catE^\to$ lifts through $\cal{S}_0 \to \catE^\to$.
+\notec{This proof is horrible. Note that if you start from an interval object with effective connections (nicely shown to follow from contractions and connections) and use the remark from Section~4 that strong homotopy equivalences are closed under Leibniz tensor with arbitrary maps, then you get this proof.}
+We will only show that $\lcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through $\cal{S}_0 \to \catE^\to$.
+Given $u \co X \to Y$, we need to make
+\[
+  f \defeq \lcyl \hatotimes u \co \interval \otimes X +_X Y \to \interval \otimes Y
+\]
+into a strong homotopy equivalence.
+The homotopy inverse
+\[
+  g \co \interval \otimes Y \to \lcyl \hatotimes u \co \interval \otimes X +_X Y
+\]
+will be $g = \inr \cc (\epsilon \otimes Y)$.
+Noting that $I \otimes (-)$ preserves pushouts, the homotopy
+\[
+  \phi \co \interval \otimes \interval \otimes X +_{\interval \otimes X} \interval \otimes Y \to \interval \otimes X +_X Y
+\]
+is defined functorially as $\phi = h^0 \otimes X +_{\epsilon \otimes X} \epsilon \otimes Y$ using the right part of~\eqref{connections:0}.
+Its signature $\phi : g \cc f ~ \id$ follows from the left parts of~\eqref{connections:0} and~\eqref{connections:1} and the laws for contractions.
+The homotopy
+\[
+  \psi : \interval \otimes \interval \otimes Y \to \interval \otimes Y
+\]
+is defined as $\psi = h^0 \otimes Y$.
+Its signature $\psi : f \cc g ~ \id$ follows from the left parts of~\eqref{connections:0} and~\eqref{connections:1}, respectively.
+Finally, the strength $f \cc \phi = \psi \cc f$ follows from the right part of~\eqref{connections:0}.
 
-Given $X \in \catE$, observe that $\lcyl \otimes X \co X \to \interval \otimes X$ is a strong left deformation retract with retraction given by contraction $\ccyl \otimes X \co I \otimes X \to X$ and homotopy $\psi \co \ccyl \cc (\lcyl \otimes X) \sim \id_{I \otimes X}$ given by connection $\psi = h^0 \otimes X$.
-The left and right endpoints of $\psi$ follow from the left parts of~\eqref{connections:0} and~\eqref{connections:1}, respectively, and the strength follows from the right part of~\eqref{connections:0}.
-Recall that strong left deformation retracts are special cases of strong left homotopy equivalences.
-The above assignment of a strong left homotopy equivalence is functorial in $X \in \catE$ since $\ccyl \otimes (-)$ and $h^0 \otimes (-)$ are natural transformations.
+The above assignment of a strong left homotopy equivalence is functorial in $u$ since we are dealing with natural transformations only.
 \end{proof}
 
 \begin{example} \label{exa:connections-for-interval}
