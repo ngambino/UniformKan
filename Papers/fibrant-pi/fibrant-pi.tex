@@ -38,7 +38,7 @@ subsume some of the existing work on cubical models of type theory.
 \section{Introduction}
 
 In recent years there has been increasing interest in variants of the notion of a Kan fibration.
-One line of work, that originates in work of Cisinski~\cite{cisinski-asterisque}, is concerned with the generalisation of the theory of Kan fibrations from simplicial sets to general presheaf categories~\cite{cisinski-univalence,moerdijk-minimal}.
+One line of work, originating in work of Cisinski~\cite{cisinski-asterisque}, is concerned with the generalisation of the theory of Kan fibrations from simplicial sets to general presheaf categories~\cite{cisinski-univalence,moerdijk-minimal}.
 Another direction of research, which is motivated by Voevodsky's univalence foundations programme~\cite{voevodsky:uf} and began with the work of Bezem, Coquand and Huber~\cite{coquand-cubical-sets}, focuses on notions of uniform Kan fibration in categories of cubical sets~\cite{awodey-cubical,coquand-variation, huber-thesis,pitts-cubical-nominal,swan-awfs}.
 Here, a uniform fibration is understood to be a map equipped with additional structure which provides diagonal fillers for appropriate diagrams, as in the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs}, rather than a map merely satisfying a weak orthogonality property, as in the usual definition of a Kan fibration.
 
@@ -46,7 +46,7 @@ In this paper we introduce and study the notion of a uniform fibration in the ge
 This approach allows us to apply our results to both simplicial sets and to cubical sets with connections, as defined in~\cite{coquand-variation}.
 We work constructively, \ie without assuming the law of excluded middle or the axiom of choice, so as to contribute to the development of a constructive version of the simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}, which is also the goal of work on cubical sets mentioned above.
 This, in turn, would improve the relative consistency result in~\cite[Theorem~3.4.3]{voevodsky-simplicial-model} and help to establish the homotopy canonicity conjecture for the univalence axiom~\cite{voevodsky:uf}.
-In particular, working constructively we prove that in the category of simplicial sets the the pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
+In particular, working constructively we prove that in the category of simplicial sets the pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 We consider this the constructive counterpart of the fact that the pushforward along a Kan fibration preserves Kan fibrations, which is a key ingredient in the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, but cannot be proved constructively without modifying the standard notion of a Kan fibration~\cite{coquand-non-constructivity-kan}.
 
 Let us briefly summarize the main contributions of the paper.
@@ -57,18 +57,19 @@ By applying this result in the category of simplicial sets, we obtain that every
 
 Our second main result (\cref{thm:sset-cset-nwfs}) is that in presheaf categories (not necessarily over an elegant Reedy category) uniform fibrations and uniform trivial fibrations are the right maps of two natural weak factorisation systems, which are obtained using Garner's small object argument~\cite{garner:small-object-argument}.
 As a special case of this result, we obtain natural weak factorisation systems in simplicial and cubical sets that have uniform Kan fibrations as the right maps, which are of interest for the interpretation of Martin-L\"of's rules for identity types~\cite{warren:thesis,awodey-warren:homotopy-idtype,garner:topological-simplicial}.
-It should be noted that a key fact for establishing both of our first and second main result is that uniform (trivial) fibrations can be be defined equivalently by weak orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
-Working with uniform fibrations is essential to prove this fact, since it allows us to reduce an arbitrary lifting problem to a functorial family of lifting problems, while still working constructively.
+The key fact for establishing our second main result is that uniform (trivial) fibrations can be be defined equivalently by weak orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
+Working with uniform fibrations is essential to prove this fact, since it allows us to write an arbitrary lifting problem as a colimit of a functorial family of lifting problems, while still working constructively.
 This type of good interaction between colimits and lifting problems in the theory of natural weak factorisation systems was already emphasised in~\cite{riehl-cat-homotopy}.
 
 For our third main result, we return to consider the general setting of categories equipped with a functorial cylinder.
-In this setting, we introduce a version in our setting of the Frobenius condition\footnote{The terminology is inspired by Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}; see~\cite{clementino:frobenius} for a precise connection between the two notions.} for weak factorisation systems~\cite{garner:types-omega-groupoids}, which states the pullback along a right map preserves left maps.
-We then show that, under mild assumptions that hold in presheaf categories, uniform fibrations satisfy the Frobenius condition (\cref{thm:frobenius-fibrations}).
+In this setting, we introduce a version in our setting of the Frobenius condition\footnote{The terminology is inspired by Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}; see~\cite{clementino:frobenius} for a precise connection between the two notions.} for weak factorisation systems~\cite{garner:types-omega-groupoids}, which states that the pullback along a right map preserves left maps.
+We then show that, under the crucial assumption of connections, uniform fibrations satisfy the Frobenius condition (\cref{thm:frobenius-fibrations}).
 As a consequence, we obtain that the pushforward, \ie the right adjoint to pullback, along a uniform fibration preseves uniform fibrations (\cref{thm:frobenius-pushforward}).
 When applied to the category of simplicial sets, this fact implies that the pushforward along a uniform Kan fibration preseves uniform Kan fibrations.
 When instanciated to the category of cubical sets with connections, our results give also a new proof of the fact that the pushforward along a Kan fibration preserves Kan fibrations, which avoids entirely combinatorial manipulations with cubical sets~\cite{coquand-variation}.
 
 This result can be viewed as a constructive counterpart of the classical fact that the pushforward along a Kan fibration preserves Kan fibrations, which is known to be impossible to prove constructively without modifying the notion of a Kan fibration, as shown in~\cite{coquand-non-constructivity-kan}.
+\notec{This duplicates a previous sentence.}
 As our results show, this independence result should be seen as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as an inherent non-constructivity of the simplicial setting.
 Indeed, as the other results of the paper indicate, the notion of a uniform Kan fibration, while classically equivalent to the usual notion of a Kan fibration, permits the development of some parts of the theory of Kan fibrations in a constructive setting.
 
