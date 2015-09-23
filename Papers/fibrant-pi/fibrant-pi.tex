@@ -1279,15 +1279,15 @@ For $k \in \braces{0, 1}$, we have a commutative square of functors and natural 
   \interval \otimes (-)
 \rlap{.}}
 \]
-This diagram determines two maps in $[\catE, \catE]^\to$,
+This diagram determines two maps in $[\catE, \catE]^\to$:
 \begin{equation} \label{equ:thetas}
 \begin{aligned}
-  \thetal &\co \bot \rightarrow \lcyl \otimes (-)
+  \thetal \otimes (-) &\co \bot \rightarrow \lcyl \otimes (-)
 \, ,&
-  \thetar &\co \bot \rightarrow \rcyl \otimes (-) \rlap{,}
+  \thetar \otimes (-) &\co \bot \rightarrow \rcyl \otimes (-) \rlap{,}
 \end{aligned}
 \end{equation}
-which are defined by letting $\thetal \defeq (\bot, \rcyl)$ and $\thetar \defeq (\bot, \lcyl)$.
+which are defined by letting $\thetal \otimes (-) \defeq (\bot, \rcyl \otimes (-))$ and $\thetar \otimes (-) \defeq (\bot, \lcyl \otimes (-))$.
 By functoriality of the Leibniz construction and the isomorphisms in~\eqref{equ:bot-hatotimes-f}, the maps in~\eqref{equ:thetas} give us two maps
 \begin{equation*}
 \begin{aligned}
@@ -1315,10 +1315,10 @@ for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{lemma} \label{strong-h-equiv-as-section}
-For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of (left or right) strong homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
+For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong (left or right) homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
 In detail,
 \begin{enumerate}[(i)]
-\item objects are pairs $(f, \rho)$ consisting of $f \in \catE^\to$ and a retraction $\rho$ to $\thetak \hatotimes f$, as in the diagram
+\item objects are pairs $(f, \rho)$ consisting of $f \in \catE^\to$ and a retraction $\rho$ to $\thetak \hatotimes f$, as below:
 \[
 \xymatrix@C+2em{
   f
@@ -1330,7 +1330,7 @@ In detail,
   f
 \rlap{,}}
 \]
-\item morphisms $\tau \co (f, \rho) \to (f', \rho')$ are arrows $\tau \co f \to f'$ such that the following diagram commutes:
+\item morphisms $\tau \co (f, \rho) \to (f', \rho')$ are maps $\tau \co f \to f'$ such that the below diagram commutes:
 \[
 \xymatrix@C+2em{
   \kcyl \hatotimes f
@@ -1443,7 +1443,11 @@ With reference to \eqref{equ:homotopy}, the equations in~\eqref{equ:first-three}
 \end{proof}
 
 \begin{remark}
-\cref{strong-h-equiv-as-section} implies that left or right strong homotopy equivalences are closed under retracts since functors preserve sections and sections are closed under retracts.
+\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors preserve sections and sections are closed under retracts.
+\end{remark}
+
+\begin{remark} \label{strong-h-equiv-closed-under-monoidal-prod}
+If the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensor with arbitrary maps.
 \end{remark}
 
 \begin{remark} \label{thm:retraction-for-connections}
@@ -1461,11 +1465,6 @@ By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connect
 \rlap{.}}
 \end{gather*}
 \end{remark}
-
-%\begin{remark} \label{strong-h-equiv-closed-under-monoidal-prod}
-%If either $f$ or $g$ is a left (respectively, right) strong homotopy equivalence, then so is $f \hatotimes g$.
-%Apply \cref{strong-h-equiv-as-section} and use that functors (in this case the Leibniz monoidal product in one variable) preserve sections.
-% \end{remark}
 
 Let now $u \co \cal{I} \to \catE^\to$ be a functor.
 For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong (left or right) homotopy equivalences relative to $\cal{I}$.
@@ -1486,61 +1485,104 @@ It is induced by the following strict pullback of categories:
   \catE^\to
 }
 \]
-This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong (left or right) homotopy equivalence.
+This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \co \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong (left or right) homotopy equivalence.
 
-\medskip
+For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
+Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \co \cal{I}$ together with a retraction to $\thetak \hatotimes u_i$.
+We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$.
 
-Note that the functorial cylinder is assumed to have effective connections in part (ii) of \cref{thm:she-to-retract-closure} below.
-
-\begin{lemma} \label{thm:she-to-retract-closure} Let $k \in \{0 , 1\}$.
-Assume that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lift to $\cal{I}$, in the sense that there is a diagram of the form
+\begin{lemma} \label{lem:from-strong-hequiv}
+There is a functor
 \[
-\xymatrix@C+2em{
-  \cal{I}  \ar[d]_u \ar[r]^{\kcyl \hatotimes (-)} & \cal{I} \ar[d]^{u} \\
-  \catE^\to \ar[r]_{\kcyl \hatotimes (-)} & \catE^\to \rlap{.} }
+\xymatrix@!C{
+  \cal{S}_k(\cal{I})
+  \ar[dr]_{\cal{S}_k(u)}
+  \ar[rr]^{L_k}
+&&
+  \overline{\cal{I}}
+  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
+\\&
+  \catE^\to
+\rlap{.}}
 \]
-\begin{enumerate}[(i)]
-\item Then there is a functor
-\[
-\xycenter{
-  \cal{S}_k(\cal{I}) \ar[dr]_{\cal{S}_k(u)} \ar[rr]^L & & \overline{\cal{I}} \ar[dl]^-{\overline{\kcyl \hatotimes u}} \\
-  & \catE^\to \rlap{,} &
-}
-\]
-\item Assume also that the functorial cylinder has effective connections.
-Then there is a functor
-\[
-\xycenter{
- \cal{I} \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^M & & \cal{S}_k(\cal{I}) \ar[dl]^{\cal{S}_k(u)} \\
- & \ \catE^\to \rlap{.}  &
-}
-\]
-\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-For (i), we define the action of the functor $L$ on objects, leaving the evident definition of the action on arrows to the reader.
-For this, we identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-Observe that $u_i \co A_i \to B_i$ is a retract of~$\kcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$ via the diagram
-\[
-\xymatrix@C+1em{
-  A_i \ar[d]_{u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[r] \ar[d]^{\kcyl \hatotimes u_i } & A_i \ar[d]^{u_i} \\
-  B_i \ar[r] & \interval \otimes B_i \ar[r] & B_i \rlap{,}}
-\]
-where the left-hand side square is $\thetak \hatotimes u_i$ and right-hand side square is given by $\rho$.
-Thus, we can define
-\[
-  L(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)
-\, .\]
+We only describe the action of the functor $L$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
+Recall that $\rho$ is a retraction to $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
+%Observe that $u_i \co A_i \to B_i$ is a retract of~$\kcyl \hatotimes u_i \co (\interval \otimes A_i) +_{A_i} B_i \to \interval \otimes B_i$ via the diagram
+%\[
+%\xymatrix@C+1em{
+%  A_i \ar[d]_{u_i} \ar[r] & (\interval \otimes A_i) +_{A_i} B_i \ar[r] \ar[d]^{\kcyl \hatotimes u_i } & A_i \ar[d]^{u_i} \\
+%  B_i \ar[r] & \interval \otimes B_i \ar[r] & B_i \rlap{,}}
+%\]
+%where the left square is $\thetak \hatotimes u_i$ and right square is given by $\rho$.T
+%\notec{I think having this diagram is more confusing than illuminating. We have already reached a level of abstraction at the arrow category that permits to forget about the gory details underneath.}
+Thus, we may define $L(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
 Observe that this definition makes the diagram for $L$ commute.
+\end{proof}
 
-For (ii), as before, we define the functor $M$ only on objects.
-We use again the isomorphic description of~$\cal{S}_k(\cal{I})$ in \cref{strong-h-equiv-as-section}.
-In order to guarantee that the diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption that $\kcyl \hatotimes (-)$ lifts.
-Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes \kcyl \hatotimes u_i$ by the assumption that~$\cal{I}$ is closed with respect to Leibniz product with the endpoint inclusions.
+\begin{lemma} \label{lem:to-strong-hequiv}
+Assume that $\cal{I}$ is closed under Leibniz tensor with $\kcyl$ in the sense of the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifting as follows:
+\begin{equation}
+\label{to-strong-hequiv:0}
+\begin{gathered}
+\xymatrix@C+2em{
+  \cal{I}
+  \ar[d]_u
+  \ar@{.>}[r]^{\kcyl \hatotimes (-)}
+&
+  \cal{I}
+  \ar[d]^{u}
+\\
+  \catE^\to
+  \ar[r]_{\kcyl \hatotimes (-)}
+&
+  \catE^\to
+\rlap{.}}
+\end{gathered}
+\end{equation}
+Assume further that the functorial cylinder has effective connections.
+Then there is a functor
+\[
+\xymatrix@!C{
+  \cal{I}
+  \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{M_k}
+&&
+  \cal{S}_k(\cal{I})
+  \ar[dl]^{\cal{S}_k(u)}
+\\&
+   \catE^\to
+\rlap{.}}
+\]
+\end{lemma}
+
+\begin{proof}
+As before, we describe the functor $M$ only on objects.
+In order to guarantee that the diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption~\eqref{to-strong-hequiv:0} that $\kcyl \hatotimes (-)$ lifts to $\cal{I}$.
+Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes \kcyl \hatotimes u_i$ by~\eqref{to-strong-hequiv:0}.
 But such a retraction is provided by the natural transformation $\rho$ of~\cref{thm:retraction-for-connections}.
 We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
+
+\begin{remark}
+Upon combining the cases $k = 0$ and $k = 1$ and passing to right orthogonality categories, \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} induce functors
+\[
+\xymatrix@!C{
+  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
+  \ar[dr]
+  \ar@<4pt>[rr]^{\liftr{(M_0 + M_1)}}
+&&
+  \Fib[\cal{I}]
+  \ar[dl]
+  \ar@<4pt>[ll]^{\liftr{(L_0 + L_1)}}
+\\&
+  \catE^\to
+}
+\]
+relating uniform $I$-fibrations with right maps for strong homotopy equivalences relative to $\cal{I}$ (note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}).
+This will in general not be an isomorphism of categories over $\catE^\to$.
+\end{remark}
 
 
 \section{Uniform fibrations in presheaf categories}
@@ -2878,7 +2920,7 @@ Recall that this includes Cartesian squares
 \]
 Cartesian over $p \co X \to Y$.
 Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{I}_{/X}'$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\tau' \co i_1' \to i_2'$ in $\cal{I}_{/Y}'$.
-We want to show that $\tau'$ in addition forms a morphism of left strong homotopy equivalences $\tau' \co (i_1', \rho_1') \to (i_2', \rho_2')$.
+We want to show that $\tau'$ in addition forms a morphism of strong left homotopy equivalences $\tau' \co (i_1', \rho_1') \to (i_2', \rho_2')$.
 For this, we have to verify commutativity of the following diagram:
 \[
 \xymatrix@C+2em{
