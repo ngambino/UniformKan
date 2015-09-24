@@ -404,7 +404,6 @@ As in \cref{exa:cyl-via-int}, tensoring with an interval object with (effective)
 \begin{example}[Connections in simplicial sets]
 The interval object $(\Delta^1, h_1^1, h_0^1)$ in simplicial of~\cref{exa:cyl-in-sset} sets has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
 For this, note that $\Delta^1$ and $\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
-\notec{Notation for connections not ideal.}
 \end{example}
 
 \begin{example}[Connections in cubical sets] \noten{To be added}
@@ -1714,7 +1713,7 @@ Then the inclusion $\cal{J} \to \catE^\to$ is the left Kan extension of $\cal{I}
 \begin{proof}
 Since $\catE^\to$ is cocomplete, we can verify the claim using the colimit formula for left Kan extensions.
 All of the following will be functorial in an object $j \co A \to B$ of $\cal{J}$.
-We consider the diagram indexed by Cartesian squares of the form
+We consider the diagram indexed by pullback squares of the form
 \[
 \xymatrix@C=1.2cm{
   A'
@@ -1780,7 +1779,7 @@ The result follows by combining part~(i) of \cref{kan-extension-closure} and \cr
 
 \begin{theorem} \label{small-gen-triv-kan} Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms with a representable presheaf as codomain.
 \begin{enumerate}[(i)]
-\item There is an isomorphism $\TrivFib = \liftr{ ( \cal{N}) }$,
+\item There is an isomorphism $\TrivFib = \liftr{\cal{N}}$,
 \item There is an isomorphism $\Fib = \liftr{(\cal{N}_\otimes)}$.
 \end{enumerate}
 \end{theorem}
@@ -1995,7 +1994,7 @@ As a regular trivial fibration, note that $p$ has fillers for lifting problems a
 This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
 Importantly, standard reasoning used in the theory of Reedy categories shows that this filler is independent of the particular cellular presentation chosen.
 
-It remains to verify coherence of fillers with respect to Cartesian squares of monomorphisms:
+It remains to verify coherence of fillers with respect to pullback squares between monomorphisms:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:1}
 \xycenter{
   U'
@@ -2025,7 +2024,7 @@ Choose a cellular presentation for $i$.
 Base change along $V' \to V$ induces a corresponding transfinite decomposition of $i'$ into cobase changes of coproducts of monomorphisms.
 Since the fillers for squares~\eqref{regular-trivial-fibration-is-uniform:0} are independent of the chosen cellular presentation, it suffices to verify coherence of fillers in~\eqref{regular-trivial-fibration-is-uniform:1} with $i$ replaced by a single boundary inclusion as in~\eqref{regular-trivial-fibration-is-uniform:2} below and apply transfinite induction to the chosen cellular presentation for $i$.
 
-It remains to verify coherence of fillers with respect to Cartesian squares of monomorphisms with representable sink:
+It remains to verify coherence of fillers with respect to pullback squares between monomorphisms with representable sink:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:2}
 \xycenter{
   U'
@@ -2622,7 +2621,7 @@ Then pushforward along $p$ lifts to a functor
 Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
 Recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
 Note that $\cal{M}$ is closed under Leibniz product with endpoint inclusions since decidable monomorphisms are closed under Leibniz product in the category of sets.
-Since pulling back preserves decidable monomorphisms and Cartesian squares between them, it follows that every uniform fibration (in fact, any map) satisfies the Frobenius property with respect to $\cal{M} \hookrightarrow \catE^\to$.
+Since pulling back preserves decidable monomorphisms and pullback squares between them, it follows that every uniform fibration (in fact, any map) satisfies the Frobenius property with respect to $\cal{M} \hookrightarrow \catE^\to$.
 Therefore, pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
@@ -2941,7 +2940,7 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
 \rlap{.}}
 \]
 The arrows to $Y$ from the bottom row are induced by $B \to Y$.
-The square $\cod(\sigma)$ over $p$ is Cartesian by construction.
+The square $\cod(\sigma)$ over $p$ is a pullback by construction.
 If we can find a dashed arrow cohering as indicated, there will hence be a unique dotted arrow as indicated.
 To find the dashed arrow is to construct a diagonal filler in the following square:
 \[
@@ -2993,7 +2992,7 @@ such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \rlap{.}}
 \]
 Let $(i_1', \rho_1')$ and $(i_2', \rho_2')$ denote the action of the lift $p^*$ on the objects $(i_1, \rho_1)$ and $(i_2, \rho_2)$, respectively, as constructed in the previous paragraph.
-Recall that this includes Cartesian squares
+Recall that this includes pullback squares
 \[
 \begin{aligned}
   \sigma_1 &\co u_{i_1'} \to u_{i_1}
@@ -3069,7 +3068,7 @@ Recall the construction of $\rho_1'$ and $\rho_2'$, omitting horizontal composit
 \rlap{.}}
 \]
 Our goal is to show that the top right square commutes.
-Since that square commutes after composing it with the Cartesian square $\sigma_2$, it suffices to show that the square commutes when projected to codomains, omitting horizontal composite identity arrows for readability:
+Since that square commutes after composing it with the pullback square $\sigma_2$, it suffices to show that the square commutes when projected to codomains, omitting horizontal composite identity arrows for readability:
 \[
 \xymatrix@C+2em{
   B_1'
@@ -3117,7 +3116,7 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   B_2
 \rlap{.}}
 \]
-The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the Cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
+The dotted arrows were constructed by extending the back and front faces of this diagram to the total space of the codomain fibration and then appealing to the universal property of the Cartesian morphisms $\cod(\sigma_1)$ and $\cod(\sigma_2)$ over $p$.
 For our goal it will thus suffice to show that the maps from the back to the front face coherently extend to the total space of the codomain fibration as well.
 This is canonically the case except potentially for the top middle map $\interval \otimes B_1' \to \interval \otimes B_2'$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
