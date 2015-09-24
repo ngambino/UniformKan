@@ -38,7 +38,7 @@ subsume some of the existing work on cubical models of type theory.
 
 In recent years there has been increasing interest in variants of the notion of a Kan fibration.
 One line of work, originating in work of Cisinski~\cite{cisinski-asterisque}, is concerned with the generalisation of the theory of Kan fibrations from simplicial sets to general presheaf categories~\cite{cisinski-univalence,moerdijk-minimal}.
-Another direction of research, which is motivated by Voevodsky's univalence foundations programme~\cite{voevodsky:uf} and began with the work of Bezem, Coquand and Huber~\cite{coquand-cubical-sets}, focuses on notions of uniform Kan fibration in categories of cubical sets~\cite{awodey-cubical,coquand-variation, huber-thesis,pitts-cubical-nominal,swan-awfs}.
+Another direction of research, which is motivated by Voevodsky's univalence foundations programme~\cite{voevodsky:uf} and began with the work of Bezem, Coquand and Huber~\cite{coquand-cubical-sets}, focuses on notions of uniform Kan fibration in categories of cubical sets~\cite{awodey-cubical,coquand-variation,huber-thesis,pitts-cubical-nominal,swan-awfs}.
 Here, a uniform fibration is understood to be a map equipped with additional structure which provides diagonal fillers for appropriate diagrams, as in the theory of natural weak factorisation systems~\cite{grandis-tholen-nwfs}, rather than a map merely satisfying a weak orthogonality property, as in the usual definition of a Kan fibration.
 
 In this paper we introduce and study the notion of a uniform fibration in the general setting of categories with a functorial cylinder, combining ideas from the two lines of research mentioned above.
@@ -83,7 +83,7 @@ Appendix~\ref{app:tecp} contains the proof of two technical lemmas.
 \label{sec:cylhuf}
 
 The aim of this section is to introduce the main notions that will be used in our development, and provide examples thereof in categories of interest, such as the category of simplicial sets and the category of cubical sets with connections.
-\notec{There is excessive spacing after this paragraph. Can you fix it while still getting rid of most med skips?}
+%\notec{There is excessive spacing after this paragraph. Can you fix it while still getting rid of most med skips?}
 
 \subsection*{Cylinders and homotopies}
 
@@ -314,46 +314,24 @@ The notation $h^k \otimes (-)$ is once again suggestive of an interval object (s
 We use the notion of strong homotopy equivalence to introduce a structure on a functorial cylinder that is strictly weaker than connections, but encapsulates more economically the requirements needed for carrying out our main development.
 
 \begin{definition} \label{def:effective-connections}
-\notec{Fix: this definition presupposes the Leibniz construction.}
 A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has \emph{effective connections} if the endpoint inclusions $\lcyl \otimes X$ and $\rcyl \otimes X$ are strong left and right homotopy equivalences, respectively, naturally in $X \co \catE$.
-Formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
+Formally, for $k \in \braces{0, 1}$, the functor $\kcyl \otimes (-) \co \catE \to \catE^\to$ is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
 \end{definition}
 
 Note that effective connections, in contrast to connections, do not presuppose contractions.
+As we will see in \cref{effective-connnections-leibniz}, the notion of effective connections may be strengthened if $I \tensor (-)$ preserves pushouts.
 
 \begin{proposition} \label{connections-are-effective}
 Let $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ be a functorial cylinder with contractions $\epsilon \times (-)$ and connections $h^k \otimes (-)$ for $k \in \braces{0, 1}$.
-If $\interval \otimes (-)$ preserves finite colimits, then the functorial cylinder has effective connections.
+Then the functorial cylinder has effective connections.
 \end{proposition}
 
 \begin{proof}
-\notec{This proof is horrible. Note that if you start from an interval object with effective connections (nicely shown to follow from contractions and connections) and use the remark from Section~4 that strong homotopy equivalences are closed under Leibniz tensor with arbitrary maps, then you get this proof.}
 We will only show that $\lcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through $\cal{S}_0 \to \catE^\to$.
-Given $u \co X \to Y$, we need to make
-\[
-  f \defeq \lcyl \hatotimes u \co \interval \otimes X +_X Y \to \interval \otimes Y
-\]
-into a strong homotopy equivalence.
-The homotopy inverse
-\[
-  g \co \interval \otimes Y \to \lcyl \hatotimes u \co \interval \otimes X +_X Y
-\]
-will be $g = \inr \cc (\epsilon \otimes Y)$.
-Noting that $I \otimes (-)$ preserves pushouts, the homotopy
-\[
-  \phi \co \interval \otimes \interval \otimes X +_{\interval \otimes X} \interval \otimes Y \to \interval \otimes X +_X Y
-\]
-is defined functorially as $\phi = h^0 \otimes X +_{\epsilon \otimes X} \epsilon \otimes Y$ using the right part of~\eqref{connections:0}.
-Its signature $\phi : g \cc f ~ \id$ follows from the left parts of~\eqref{connections:0} and~\eqref{connections:1} and the laws for contractions.
-The homotopy
-\[
-  \psi : \interval \otimes \interval \otimes Y \to \interval \otimes Y
-\]
-is defined as $\psi = h^0 \otimes Y$.
-Its signature $\psi : f \cc g ~ \id$ follows from the left parts of~\eqref{connections:0} and~\eqref{connections:1}, respectively.
-Finally, the strength $f \cc \phi = \psi \cc f$ follows from the right part of~\eqref{connections:0}.
-
-The above assignment of a strong left homotopy equivalence is functorial in $u$ since we are dealing with natural transformations only.
+Given $X \in \catE$, observe that $\lcyl \otimes X \co X \to \interval \otimes X$ is a strong left deformation retract with retraction given by contraction $\ccyl \otimes X \co I \otimes X \to X$ and homotopy $\psi \co \ccyl \cc (\lcyl \otimes X) \sim \id_{I \otimes X}$ given by connection $\psi = h^0 \otimes X$.
+The left and right endpoints of $\psi$ follow from the left parts of~\eqref{connections:0} and~\eqref{connections:1}, respectively, and the strength follows from the right part of~\eqref{connections:0}.
+Recall that strong left deformation retracts are special cases of strong left homotopy equivalences.
+The above assignment of a strong left homotopy equivalence is functorial in $X \in \catE$ since $\ccyl \otimes (-)$ and $h^0 \otimes (-)$ are natural transformations.
 \end{proof}
 
 \begin{example} \label{exa:connections-for-interval}
@@ -978,14 +956,29 @@ Since $F$ is left adjoint to $G$, these situations coincide.
 
 \begin{corollary} \label{pitchfork-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
-There are canonical isomorphisms
+There are natural isomorphisms
 \begin{align*}
 \xycenter{
-\liftr{\cal{I}} \ar[dr]_-{\liftr{(F \cc u)}}  \ar[r]^-{\liftr{u}} & \catE^\to \ar[d]^-G \\
-& \catE^\to \rlap{,} }  \qquad
+  \liftr{\cal{I}}
+  \ar[dr]^-{\liftr{(F \cc u)}}
+  \ar[d]_-{\liftr{u}}
+\\
+  \catE^\to
+  \ar[r]_-G
+&
+  \catE^\to
+\rlap{,}}
+&&
 \xycenter{
- \liftl{\cal{I}}  \ar[r]^-{\liftl{v}} \ar[dr]_-{\liftl{(G \cc v)}}  & \catE^\to \ar[d]^-{F}   \\
-& \catE^\to \rlap{.}  }
+  \liftl{\cal{I}}
+  \ar[d]_-{\liftl{v}}
+  \ar[dr]^-{\liftl{(G \cc v)}}
+\\
+  \catE^\to
+  \ar[r]_-{F}
+&
+  \catE^\to
+\rlap{.}}
 \end{align*}
 \end{corollary}
 
@@ -1146,18 +1139,36 @@ Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \ar
 
 \cref{lift-of-leibniz-adjunction} can be expressed equivalently as orthogonality functors commuting with left composition with Leibniz adjoints.
 
-\begin{corollary} \label{pitchfork-leibniz-adjunction} There are canonical isomorphisms as follows:
+\begin{corollary} \label{pitchfork-leibniz-adjunction}
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
+There are natural isomorphisms
 \begin{align*}
-  \liftr{(\widehat{F}(h, -) \cc u)} &= \widehat{G}(h, -) \cc \liftr{u}
-\, ,\\
-  \liftl{(\widehat{G}(h, -) \cc v)} &= \widehat{F}(h, -) \cc \liftl{v}
-\, .
+\xymatrix@C+1em{
+  \liftr{\cal{I}}
+  \ar[dr]^-{\liftr{(\widehat{F}(h, -) \cc u)}}
+  \ar[d]_-{\liftr{u}}
+\\
+  \catE^\to
+  \ar[r]_-{\widehat{G}(h, -)}
+&
+  \catE^\to
+\rlap{,}}
+&&
+\xymatrix@C+1em{
+  \liftl{\cal{I}}
+  \ar[d]_-{\liftl{v}}
+  \ar[dr]^-{\liftl{(\widehat{G}(h, -) \cc v)}}
+\\
+  \catE^\to
+  \ar[r]_-{\widehat{F}(h, -)}
+&
+  \catE^\to
+\rlap{.}}
 \end{align*}
-\noten{Can we have diagrams here?}
 \end{corollary}
 
 \begin{proof}
-In order to obtain the first isomorphism, it is sufficient to apply the adjunction \eqref{garner-adjunction} to the first diagram in \cref{lift-of-leibniz-adjunction} and compare it with the second diagram.
+For the first isomorphism, apply the adjunction in~\eqref{garner-adjunction} to the first diagram in \cref{lift-of-leibniz-adjunction} and compare it with the second diagram.
 The second isomorphism is obtained dually.
 \end{proof}
 
@@ -1173,7 +1184,7 @@ This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-
 
 \medskip
 
-If $I \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $([I, -], \bar{\delta}^0, \bar{\delta}^1)$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
+If $\interval \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $(\exp(\interval, -), \bar{\delta}^0, \bar{\delta}^1)$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
 We obtain a functor $[\bar{\delta}^k, -]$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$.
 These form an adjunction as follows:
 \[
@@ -1462,13 +1473,63 @@ With reference to \eqref{equ:homotopy}, the equations in~\eqref{equ:first-three}
 \cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors preserve sections and sections are closed under retracts.
 \end{remark}
 
-\begin{remark} \label{strong-h-equiv-closed-under-monoidal-prod}
-If the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensor with arbitrary maps.
-\end{remark}
+For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
+
+If the functorial cylinder is induced by tensoring with an interval object in a monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensoring from the right with arbitrary maps since functors preserve section-retraction pairs.
+We have an analogue of this also in the general setting.
+
+\begin{lemma} \label{leibniz-lift}
+Assume that $\interval \otimes (-)$ preserves pushouts.
+If $u : \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hat{\mathrm{ev}}(u, -) : \cal{D}^\to \to \catE^\to$.
+\end{lemma}
+
+\begin{proof}
+
+\newcommand{\cchat}{\mathbin{\widehat{\cc}}}
+\newcommand{\buhatE}{\mathbin{\widehat{\bullet}_\catE}}
+\newcommand{\buhatD}{\mathbin{\widehat{\bullet}_{\cal{D}}}}
+
+This is pure abstract nonsense.
+In order to make this argument more readable, we will use infix notation for several important bifunctors.
+Let first $[\catE, \catE]'$ denote the pushout preserving endofunctors on $\catE$.
+By assumption, we have that $\thetak$ is a map in $[\catE, \catE]'^{\to}$.
+We write ${\cc} : [\catE, \catE]' \times [\cal{D}, \catE] \to [\cal{D}, \catE]$ for functor composition as well as $\bullet_\catE : [\catE, \catE]' \times \catE \to \catE$ and $\bullet_{\cal{D}} : [\cal{D}, \catE] \times \cal{D} \to \catE$ for functor application (previously denoted $\mathrm{ev}$).
+Of course, we have an isomorphism
+\begin{equation} \label{leibniz-lift:0}
+  (U \cc F) \bullet_{\cal{D}} X = U \bullet_\catE (F \bullet_{\cal{D}} X)
+\end{equation}
+natural $U : [\catE, \catE]'$, $F : [\cal{D}, \catE]$, and $X : \cal{D}$.
+
+Recall that $\catE$ has pushouts so that we have the Leibniz construction available and pushouts in the relevant functor categories are computed pointwise.
+From~\eqref{leibniz-lift:0}, it follows that we have an isomorphism
+\begin{equation} \label{leibniz-lift:1}
+  (\thetak \cchat u) \bullet_{\cal{D}} X = \thetak \buhatE (u \bullet_{\cal{D}} X)
+\end{equation}
+natural in $X : \cal{D}^\to$.
+Since $\bullet_{\cal{D}} : [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\bullet_\catE : [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
+\begin{equation} \label{leibniz-lift:2}
+  (\thetak \cchat u) \buhatD f = \thetak \buhatE (u \buhatD f)
+\end{equation}
+natural in $f : \cal{D}^\to$.
+
+The assumption of $u : \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to $\thetak \buhatE (u \bullet_{\cal{D}} (-))$.
+By~\eqref{leibniz-lift:1}, this map is isomorphic to $(\thetak \cchat u) \bullet_{\cal{D}} (-) = \thetak \cchat u$.
+The goal of $u \buhatD (-) : \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction to the map $\thetak \buhatE (u \buhatD (-))$.
+By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \buhatD (-)$.
+But functors, in this case $m \mapsto m \buhatD (-)$, preserve section-retraction pairs.
+\end{proof}
+
+\cref{leibniz-lift} enables us to strengthen effective connections as follows.
+
+\begin{corollary} \label{effective-connections-leibniz}
+Assume that $\interval \otimes (-)$ preserves pushouts.
+Then the functorial cylinder has effective connections if and only $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \co \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$.
+\end{corollary}
 
 \begin{remark} \label{thm:retraction-for-connections}
-By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connections if and only if, for $k \in \braces{0, 1}$, there exists a natural transformation $\rho \co \kcyl \hatotimes \kcyl \hatotimes (-) \to \kcyl \hatotimes (-)$ whose components provide retractions as follows:
-\begin{gather*}
+Assume that $\interval \otimes (-)$ preserves pushouts.
+By \cref{effective-connections-leibniz}, the functorial cylinder has effective connections if and only if, for $k \in \braces{0, 1}$, there exists a natural transformation $\rho \co \kcyl \hatotimes \kcyl \hatotimes (-) \to \kcyl \hatotimes (-)$ in the arrow category whose components provide retractions as follows:
+\begin{equation} \label{retraction-for-connections:0}
 \xymatrix@C+3em{
   \kcyl \hatotimes f
   \ar[r]^-{\thetak \hatotimes \kcyl \hatotimes f}
@@ -1479,7 +1540,13 @@ By \cref{strong-h-equiv-as-section}, a functorial cylinder has effective connect
 \\&
   \kcyl \hatotimes f
 \rlap{.}}
-\end{gather*}
+\end{equation}
+This retract situation is the categorical reason why Coquand \etal~\cite{coquand-variation} are able to, in their teminology, reduce filling for L-systems to composition.
+Translating to our language, an \emph{L-system} is a lifting problem of the form $\kcyl \hatotimes f \to p$.
+A \emph{filling} consists of a diagonal filler for that square.
+A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
+Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
+Uniformity in the sense of~\cite{coquand-variation} means Cartesian naturality in $f$.
 \end{remark}
 
 Let now $u \co \cal{I} \to \catE^\to$ be a functor.
