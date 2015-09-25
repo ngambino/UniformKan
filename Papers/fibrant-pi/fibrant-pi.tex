@@ -98,11 +98,13 @@ This material is based on research sponsored by the Air Force Research Laborator
 \label{sec:cylhuf}
 
 The aim of this section is to introduce the main notions that will be used in our development, and provide examples thereof in categories of interest, such as the category of simplicial sets and the category of cubical sets with connections.
-%\notec{There is excessive spacing after this paragraph. Can you fix it while still getting rid of most med skips?}
 
 \subsection*{Cylinders and homotopies}
 
+Throughout this section let $\catE$ be a category with finite colimits.
+
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{right and left endpoint inclusions}, respectively.
+We additionally assume that the functor $I \otimes (-)$ preserves finite colimits.
 We say the functorial cylinder has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ to $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
 \[
 \xymatrix@C+2em{
@@ -126,7 +128,7 @@ We adopt the convention of associating the tensor product shorthand notation to 
 
 \begin{example} \label{exa:cyl-via-int}
 Let $(\catE, \otimes, \top)$ be a monoidal category.
-An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called \emph{left and right endpoint inclusions}, respectively.
+An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called \emph{left and right endpoint inclusions}, respectively, such that $I \otimes (-)$ preserves finite colimits.
 It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ to $\lcyl$ and $\rcyl$, making the following diagram commute:
 \[
 \xymatrix@C+1em{
@@ -333,9 +335,6 @@ A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes 
 Formally, for $k \in \braces{0, 1}$, the functor $\kcyl \otimes (-) \co \catE \to \catE^\to$ is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
 \end{definition}
 
-As we will see in \cref{effective-connections-leibniz}, when $\interval \otimes (-)$ preserves pushouts  it is possible to rephrase
-equivalently the notion of effective connections by requiring certain maps to be left and right homotopies.  
-
 \begin{remark} \label{connections-are-effective}
 Effective connections, in contrast to connections, do not presuppose contractions. But if a functorial cylinder 
 $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has contractions $\varepsilon \otimes (-)$, then
@@ -346,7 +345,6 @@ The left and right endpoints of $\psi$ follow from the left parts of~\eqref{conn
 Recall that strong left deformation retracts are special cases of strong left homotopy equivalences.
 The above assignment of a strong left homotopy equivalence is functorial in $X \in \catE$ since $\ccyl \otimes (-)$ and $c^0 \otimes (-)$ are natural transformations.
 \end{remark}
-
 
 \begin{example} \label{exa:connections-for-interval}
 Let $(\catE, \otimes, \top)$ be a monoidal category.
@@ -403,17 +401,6 @@ This all is analogous to \cref{connections-are-effective}.
 
 As in \cref{exa:cyl-via-int}, tensoring with an interval object with (effective) connections induces a functorial cylinder with (effective) connections.
 \end{example}
-
-%\begin{definition} \label{def:cyl-with-con}
-%A \emph{functorial cylinder with connections} consists of a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$ equipped with natural transformations
-%\begin{align*}
-%  \gamma^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-%  \phi^k &\co \interval \otimes (-) \to \id_\catE \rlap{,} &
-%  \psi^k &\co \interval \otimes (\interval \otimes (-)) \to \interval \otimes (-)
-%\end{align*}
-%which make the components of $\rcyl$ into a strong right homotopy equivalences and the components of $\lcyl$ into strong left homotopies.
-%\noten{Check left and right}
-%\end{definition}
 
 \begin{example}[Connections in simplicial sets]
 The interval object $(\Delta^1, h_1^1, h_0^1)$ in simplicial of~\cref{exa:cyl-in-sset} sets has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
@@ -479,20 +466,20 @@ Let us now fix a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccy
 Given a functor $u \co \cal{I} \to \catE^\to$ (which we think of as the counterpart of a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations) and use it to define the notion of a uniform $\cal{I}$-fibration.
 The definition of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ involves a special case of the so-called Leibniz construction (which is discussed in general in~\cite{riehl-verity:reedy}), which we now review for the convenience of the reader.
 
-Given a natural transformation $\phi \co F \to G$ and a map $f \co X \to Y$, we define $\widehat{\mathrm{ev}}(\phi, f) \co \catE^\to \to \catE^\to$ by the universal property of pushouts, as in the following diagram:
+Given a natural transformation $\phi \co F \to G$ and a map $f \co X \to Y$, we define $\hateval(\phi, f) \co \catE^\to \to \catE^\to$ by the universal property of pushouts, as in the following diagram:
 \begin{gather*}
 \xymatrix@C=1.2cm{
   FX \ar[r]^{Ff} \ar[d]_{\phi_X} & FY \ar@/^2pc/[ddr]^{\phi_Y} \ar[d] & \\
-  GX \ar@/_1pc/[drr]_{Gf} \ar[r] & GX +_{FX} FY  \ar[dr]^-{\widehat{\mathrm{ev}}(\phi, f)} & \\
+  GX \ar@/_1pc/[drr]_{Gf} \ar[r] & GX +_{FX} FY  \ar[dr]^-{\hateval(\phi, f)} & \\
   & & GY
 \rlap{.}}
 \end{gather*}
-In this way, one obtains a functor $\widehat{\mathrm{ev}} \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$.
-Our notation is chosen since we are appying the Leibniz construction to the evaluation functor $\mathrm{ev} \co [\catE,\catE] \times \calE \to \catE$.
+In this way, one obtains a functor $\hateval \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$.
+Our notation is chosen since we are appying the Leibniz construction to the evaluation functor $\eval \co [\catE,\catE] \times \calE \to \catE$.
 
 For $u \co \cal{I} \to \catE^\to$ and $k \in \braces{0, 1}$, we define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
 \[
-(\kcyl \otimes u)_i \defeq \kcyl \hatotimes u_i  \defeq \widehat{\mathrm{ev}}(\kcyl, u_i)  \rlap{.}
+(\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i  \defeq \hateval(\kcyl, u_i)  \rlap{.}
 \]
 We now define the category~$\cal{I}_\otimes$ and th functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ that will be used to define the notion of a uniform $\cal{I}$-fibration in \cref{def:I-fibration} below.
 First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
@@ -552,7 +539,7 @@ This is the case if $[\lcyl, \rcyl]$ is a decidable monomorphism and the maps in
 
 \begin{example}[Uniform fibrations in presheaf categories]
 Let $\catE$ be a presheaf category equipped with a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$.
-When working with presheaf categories, the category~$\cal{M}$ of decidable monomorphisms and pullback squares and the inclusion $u \co \cal{M} \hookrightarrow \catE^\to$ are of particular importance, {cf.}\,\cref{exa-triv-kan-fib}.
+When working with presheaf categories, the category~$\cal{M}$ of decidable monomorphisms and pullback squares and the inclusion $u \co \cal{M} \hookrightarrow \catE^\to$ are of particular importance, \cf \cref{exa-triv-kan-fib}.
 In this setting, a uniform~$\cal{M}$-fibration, \ie a right~$\cal{M}_\otimes$-map, will be called a \emph{uniform fibration}, without further specification.
 We define the category $\Fib$ of uniform fibrations and their morphisms by letting
 \[
@@ -1198,8 +1185,8 @@ This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-
 
 \medskip
 
-If $\interval \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $(\exp(\interval, -), \bar{\delta}^0, \bar{\delta}^1)$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
-We obtain a functor $[\bar{\delta}^k, -]$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$.
+If $\interval \otimes (-)$ has a right adjoint, we obtain a \emph{functorial cocylinder} $(\exp(\interval, -), \exp(\bar{\delta}^0, -), \exp(\bar{\delta}^1, -))$ \notec{Fix notation}, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
+If $\calE$ has finite products, we obtain a functor $\hatexp(\bar{\delta}^k, -)$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$.
 These form an adjunction as follows:
 \[
 \xymatrix@C+4em{
@@ -1493,56 +1480,48 @@ If the functorial cylinder is induced by tensoring with an interval object in a 
 We have an analogue of this also in the general setting.
 
 \begin{lemma} \label{leibniz-lift}
-Assume that $\interval \otimes (-)$ preserves pushouts.
-If $u : \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hat{\mathrm{ev}}(u, -) : \cal{D}^\to \to \catE^\to$.
+If $u : \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) : \cal{D}^\to \to \catE^\to$.
 \end{lemma}
 
 \begin{proof}
-
-\newcommand{\cchat}{\mathbin{\widehat{\cc}}}
-\newcommand{\buhatE}{\mathbin{\widehat{\bullet}_\catE}}
-\newcommand{\buhatD}{\mathbin{\widehat{\bullet}_{\cal{D}}}}
-
 This is a formal argument in the theory of Leibniz constructions~\cite{riehl-verity:reedy}.
 In order to make this argument more readable, we will use infix notation for several important bifunctors.
 Let first $[\catE, \catE]'$ denote the pushout preserving endofunctors on $\catE$.
 By assumption, we have that~$\thetak$ is a map in $[\catE, \catE]'^{\to}$.
-We write $ {\cc}  \co [\catE, \catE]' \times [\cal{D}, \catE] \to [\cal{D}, \catE]$ for functor composition as well as~$\bullet_\catE \co [\catE, \catE]' \times \catE \to \catE$ and $\bullet_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ for functor application (previously denoted $\mathrm{ev}$).
+We write $ {\cc}  \co [\catE, \catE]' \times [\cal{D}, \catE] \to [\cal{D}, \catE]$ for functor composition as well as~$\otimes_\catE \co [\catE, \catE]' \times \catE \to \catE$ and $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ for functor application (previously denoted $\eval$).
 Of course, we have an isomorphism
 \begin{equation} \label{leibniz-lift:0}
-  (U \cc F) \bullet_{\cal{D}} X = U \bullet_\catE (F \bullet_{\cal{D}} X)
+  (U \cc F) \otimes_{\cal{D}} X = U \otimes_\catE (F \otimes_{\cal{D}} X)
 \end{equation}
 natural $U \in [\catE, \catE]'$, $F \in [\cal{D}, \catE]$, and $X \in \cal{D}$.
 
 Recall that $\catE$ has pushouts so that we have the Leibniz construction available and pushouts in the relevant functor categories are computed pointwise.
 From~\eqref{leibniz-lift:0}, it follows that we have an isomorphism
 \begin{equation} \label{leibniz-lift:1}
-  (\thetak \cchat u) \bullet_{\cal{D}} X = \thetak \buhatE (u \bullet_{\cal{D}} X)
+  (\thetak \cchat u) \otimes_{\cal{D}} X = \thetak \hatotimes_\catE (u \otimes_{\cal{D}} X)
 \end{equation}
 natural in $X \in \cal{D}^\to$.
-Since $\bullet_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\bullet_\catE : [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
+Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\otimes_\catE : [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
 \begin{equation} \label{leibniz-lift:2}
-  (\thetak \cchat u) \buhatD f = \thetak \buhatE (u \buhatD f)
+  (\thetak \cchat u) \hatotimes_{\cal{D}} f = \thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} f)
 \end{equation}
 natural in $f \in \cal{D}^\to$.
 
-The assumption of $u \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to~$\thetak \buhatE (u \bullet_{\cal{D}} (-))$.
-By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \bullet_{\cal{D}} (-) = \thetak \cchat u$.
-The goal of $u \buhatD (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction to the 
-map~$\thetak \buhatE (u \buhatD (-))$.
-By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \buhatD (-)$.
-But functors, in this case~$m \mapsto m \buhatD (-)$, preserve section-retraction pairs.
+The assumption of $u \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
+By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \otimes_{\cal{D}} (-) = \thetak \cchat u$.
+The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction to the 
+map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
+By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatotimes_{\cal{D}} (-)$.
+But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
 \end{proof}
 
 \cref{leibniz-lift} enables us to characterise effective connections as follows.
 
 \begin{corollary} \label{effective-connections-leibniz}
-Assume that $\interval \otimes (-)$ preserves pushouts.
-Then the functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \co \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$. \qed
+The functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \co \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$. \qed
 \end{corollary}
 
 \begin{remark}[Fillers and compositions] \label{thm:retraction-for-connections}
-Assume that $\interval \otimes (-)$ preserves pushouts.
 By \cref{effective-connections-leibniz}, the functorial cylinder has effective connections if and only if, for $k \in \braces{0, 1}$, there exists a natural transformation $\rho \co \kcyl \hatotimes \kcyl \hatotimes (-) \to \kcyl \hatotimes (-)$ in the arrow category whose components provide retractions as follows:
 \begin{equation} \label{retraction-for-connections:0}
 \xymatrix@C+3em{
@@ -2480,7 +2459,8 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 
 The aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
 The proof of the main result in this section, \cref{thm:frobenius-fibrations}, relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
-For the reminder of this section, we fix a category $\catE$ with finite limits and colimits, equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-), \ccyl \otimes (-))$ with connections, and a functor $u \co \cal{I} \to \catE^\to$.
+For the remainder of this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-), \ccyl \otimes (-))$ with connections as well as a functor $u \co \cal{I} \to \catE^\to$.
+\notec{Except for the appendix lemmata}
 
 \medskip
 
