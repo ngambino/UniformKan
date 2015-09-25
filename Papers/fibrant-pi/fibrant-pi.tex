@@ -72,6 +72,7 @@ For our third main result, we return to consider the general setting of categori
 In this setting, we introduce a version in our setting of the Frobenius condition\footnote{The terminology is inspired by Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}; see~\cite{clementino:frobenius} for a precise connection between the two notions.} for weak factorisation systems~\cite{garner:types-omega-groupoids}, which states that the pullback along a right map preserves left maps.
 We then show that, under the crucial assumption of connections, uniform fibrations satisfy the Frobenius condition (\cref{thm:frobenius-fibrations}). As a consequence, we obtain that the pushforward, \ie the right adjoint to pullback, along a uniform fibration preseves uniform fibrations (\cref{thm:frobenius-pushforward}). When applied to the category of simplicial sets, we obtain the above-mentioned
 result  that pushforward along a uniform Kan fibration preseves uniform Kan fibrations. When instanciated to the category of cubical sets with connections, our results give also a new proof of the fact that the pushforward along a Kan fibration preserves Kan fibrations, which avoids entirely combinatorial manipulations with cubical sets~\cite{coquand-variation}.
+\notec{Find a better reference: this one doesn't contain a proof for Pi.}
 
 Because of these results, we regard the independence result in~\cite{coquand-non-constructivity-kan} as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as an inherent non-constructivity of the simplicial setting. Indeed, the notion of a uniform Kan fibration, while classically equivalent to the usual notion of a Kan fibration, permits the development of some parts of the theory of Kan fibrations in a constructive setting in simplicial sets. 
 
@@ -92,16 +93,27 @@ Appendix~\ref{app:tecp} contains the proof of two technical lemmas.
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation and by an EPSRC grant (EP/M01729X/1).
 
 
-
-
 \section{Cylinders, homotopies, and uniform fibrations}
 \label{sec:cylhuf}
 
-The aim of this section is to introduce the main notions that will be used in our development, and provide examples thereof in categories of interest, such as the category of simplicial sets and the category of cubical sets with connections.
+The aim of this section is to introduce the main notions that will be used in our development.
+Through this section, let $\catE$ be a category with finite colimits.
+In our running examples, which we will now briefly introduce, this will be a presheaf category.
+
+Our first example will be the category $\catE = \SSet$ of simplicial sets.
+Recall that simplicial sets are defined as presheaves $\SSet = \Psh(\Delta)$ over the simplex category $\Delta$.
+As any presheaf category, we have $\SSet$ Cartesian closed.
+
+Our second example will be the category $\catE = \CSet$ of cubical sets as studied in~\cite{coquand-variation}.
+Cubical sets are defined as presheafs $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
+The specific category $\Box$ considered in~\cite{coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
+The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
+
+We stress that the only feature of the cube category $\Box$ relevant to our development are connections and symmetries (although we speculate a two-sided version should carry over to classical cube categories without symmetry).
+Thus, our results apply equally to many other variations of cubical sets, excluding however~\cite{coquand-cubical-sets}.
 
 \subsection*{Cylinders and homotopies}
-
-Throughout this section let $\catE$ be a category with finite colimits.
 
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{right and left endpoint inclusions}, respectively.
 We additionally assume that the functor $I \otimes (-)$ preserves finite colimits.
@@ -154,15 +166,15 @@ Our main examples will have functorial cylinders induced by interval objects.
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
 The category $\SSet$ of simplicial sets is Cartesian closed.
-An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $h_{1-k}^1 \co \braces{k} \hookrightarrow \Delta^1$ for $k \in \braces{ 0, 1 }$.
+An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_1^1 : \braces{0} \to \Delta^1$ and $\rcyl = h_0^1 : \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
-As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder.
+As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions
 \end{example}
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
 The category of cubical sets $\CSet$ as studied in \cite{coquand-variation} has a monoidal structure with unit coinciding with the terminal object.
-An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\braces{0} \to \Box^1$ and $\braces{1} \to \Box^1$.
-As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder.
+An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl : \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
+As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
 \end{example}
 
 Let $f, g \co X \to Y$ be maps in $\catE$.
@@ -407,7 +419,9 @@ The interval object $(\Delta^1, h_1^1, h_0^1)$ in simplicial of~\cref{exa:cyl-in
 For this, note that $\Delta^1$ and $\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
 \end{example}
 
-\begin{example}[Connections in cubical sets] \noten{To be added}
+\begin{example}[Connections in cubical sets]
+Connection operations $c^k : \Box^1 \otimes \Box^1 \simeq \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras.
+In detail, they are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
 \end{example}
 
 \subsection*{Uniform fibrations}
@@ -532,7 +546,7 @@ Our reasons for sticking with $\Fib[\cal{I}]$ are twofold.
 First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u : \cal{I} \to \catE^\to$ is closed under Leibniz product with the ``boundary inclusion'' $[\lcyl, \rcyl] : 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform Cisinski $\cal{I}$-fibration.
 This is the case in our main examples of simplicial and cubical sets where $u : \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
 
-Second, if the functorial cylinder has connections, as we assume for our main results in \cref{sec:frocuf} and onwards, then the maps in $\cal{I}_\otimes$ can still be shown to be strong homotopy equivalences in a uniform way, giving rise to a functor $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ over $\catE^\to$ in the terminology of \cref{sec:remshe} if we assume $\cal{I}$ to be closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$.
+Second, if the functorial cylinder connections, as we assume for our main results in \cref{sec:frocuf} and onwards, then the maps in $\cal{I}_\otimes$ can still be shown to be strong homotopy equivalences in a uniform way, \notec{not true} giving rise to a functor $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ over $\catE^\to$ in the terminology of \cref{sec:remshe} if we assume $\cal{I}$ to be closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$.
 With the results in \cref{sec:remshe}, every uniform Cisinski $\cal{I}$-fibrations is then a uniform $\cal{I}$-fibrations in a functorial way.
 This is the case if $[\lcyl, \rcyl]$ is a decidable monomorphism and the maps in $\cal{I}$ are the decidable monomorphisms in a presheaf category as in \cref{sec:unifpc}.
 \end{remark}
@@ -573,7 +587,10 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \end{example}
 
 \begin{example}[Uniform fibrations in cubical sets]
-\noten{we need to mention something in cubical sets.}
+Uniform Kan fibrations in cubical sets are precisely the maps with (non-regular) Kan filling satisfying the uniformity condition of~\cite{coquand-variation}.
+
+To illustrate the connection to the classical Kan filling condition for cubes, let $i^n : \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for the representable $\Box^n$, \ie its maximal non-trivial subobject.
+Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1 + n} \to \Box^{1 + n}$ and $\sqcap_1^{1 + n} \to \Box^{1 + n}$, respectively, hence open box fillings are included for uniform Kan fibrations (recall that $\sqcup_i^{1+n}$ is isomorphic to $\sqcup_1^{1+n}$ over $\Box^{1+n}$ for $i \in \braces{2, \ldots, n + 1}$ and similarly for $\sqcap_i^{1+n}$ since our cube category has symmetries).
 \end{example}
 
 
@@ -1536,7 +1553,7 @@ By \cref{effective-connections-leibniz}, the functorial cylinder has effective c
 \rlap{.}}
 \end{equation}
 This retract situation is the categorical reason why Coquand \etal\cite{coquand-variation} are able to, in their teminology, reduce filling for L-systems to composition.
-Translating to our language, an \emph{L-system} is a lifting problem of the form $\kcyl \hatotimes f \to p$.
+Translating to our language, a filling problem for an \emph{L-system} is a lifting problem of the form $\kcyl \hatotimes f \to p$.
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
@@ -2802,7 +2819,7 @@ Hence, we can lift it as required in \cref{thm:beck-chevalley-unif} and \cref{th
 \begin{proof}[Proof of \cref{strong-h-equiv-base-change-along-fibration}]
 \noten{Proof needs to be checked.}
 We work with the characterization of \cref{strong-h-equiv-as-section}.
-We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_k(\cal{I})_{/Y}$ on objects and on morphisms.
+We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_k(\cal{J})_{/Y}$ on objects and on morphisms.
 For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
