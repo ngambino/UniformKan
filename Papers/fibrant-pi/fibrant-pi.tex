@@ -2484,10 +2484,10 @@ Then it lifts further to a functor $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_
   \cal{J}_{/X}
   \ar[d]^{v_{/X}}
 \\
-  (\catE_{/Y})^\to
+  \catE_{/Y}^\to
   \ar[r]_{p^*}
 &
-  (\catE_{/X})^\to \rlap{.}
+  \catE_{/X}^\to \rlap{.}
 }
 \]
 \end{lemma}
@@ -2517,17 +2517,25 @@ We assume that the pullback along $p$ lifts to a functor
   \cal{I}_{/X}
   \ar[d]^{u_{/X}}
 \\
-  (\catE_{/Y})^\to
+  \catE_{/Y}^\to
   \ar[r]_{p^*}
 &
-  (\catE_{/X})^\to \rlap{.}
-}
+  \catE_{/X}^\to
+\rlap{.}}
 \]
 We will show that $p^*$ also lifts to a functor
 \[
 \xymatrix@C+2em{
-  (\cal{I}_\otimes)_{/Y} \ar[r]^{p^*} \ar[d]_{u_{\otimes}/Y} & \overline{\cal{I}_\otimes}_{/X} \ar[d]^{u_{\otimes}/X} \\
-  (\catE_{/Y})^\to \ar[r]_{p^*} & (\catE_{/X})^\to \rlap{.}
+  {\cal{I}_\otimes}_{/Y}
+  \ar[r]^{p^*}
+  \ar[d]_{u_{\otimes}/Y}
+&
+  \overline{\cal{I}_\otimes}_{/X}
+  \ar[d]^{u_{\otimes}/X}
+\\
+  \catE_{/Y}^\to \ar[r]_{p^*}
+&
+  \catE_{/X}^\to \rlap{.}
 }
 \]
 which implies the claim by \cref{retract-closure}.
@@ -2541,11 +2549,11 @@ By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$, as given in~\eqref{eq
   \overline{\cal{I}}_{/X}
   \ar[d]^{ \overline{\kcyl \hatotimes u}_{/X}}
 \\
-  (\catE_{/Y})^\to
+  \catE_{/Y}^\to
   \ar[r]_{p^*}
 &
-  (\catE_{/X})^\to \rlap{,}
-}
+  \catE_{/X}^\to
+\rlap{,}}
 \]
 for $k \in \braces{0, 1}$.
 Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE)$-right map, we can apply \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
@@ -2557,11 +2565,11 @@ Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE
 &
   \cal{S}_k(\cal{I})_{/X}
   \ar[d] \\
-  (\catE_{/Y})^\to
+  \catE_{/Y}^\to
   \ar[r]_{p^*}
 &
-  (\catE_{/X})^\to \rlap{.}
-}
+  \catE_{/X}^\to
+\rlap{.}}
 \]
 Composing this with the the functors of \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}, we obtain
 \[
@@ -2581,10 +2589,10 @@ Composing this with the the functors of \cref{lem:from-strong-hequiv,lem:to-stro
   \overline{\cal{I}_{/X}}
   \ar[dl]^{\overline{\kcyl \hatotimes u}_{/X}}
 \\ &
-  (\catE_{/Y})^\to
+  \catE_{/Y}^\to
   \ar[rrr]_{p^*}
 &&&
-  (\catE_{/X})^\to \rlap{.}
+  \catE_{/X}^\to \rlap{.}
 }
 \]
 as required.
@@ -2598,8 +2606,17 @@ Assume that $p$ satisfies the Frobenius condition with respect to $u \co \cal{I}
 Then pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \Fib[\cal{I}]_{/X} \ar[r]^{p_*} \ar[d] & \Fib[\cal{I}]_{/Y} \ar[d] \\
-  (\catE_{/X})^\to \ar[r]_{p_*} & (\catE_{/Y})^\to
+  \Fib[\cal{I}]_{/X}
+  \ar[r]^{p_*}
+  \ar[d]
+&
+  \Fib[\cal{I}]_{/Y}
+  \ar[d]
+\\
+  \catE_{/X}^\to
+  \ar[r]_{p_*}
+&
+  \catE_{/Y}^\to
 }
 \]
 \end{corollary}
@@ -2615,9 +2632,17 @@ Since pulling back preserves decidable monomorphisms and pullback squares betwee
 Therefore, pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
-  \Fib_{/X} \ar[r]^{p_*} \ar[d]_{} & \Fib_{/Y} \ar[d] \\
-  (\catE_{/X})^\to \ar[r]_{p_*} & (\catE_{/Y})^\to \rlap{.}
-}
+  \Fib_{/X}
+  \ar[r]^{p_*}
+  \ar[d]
+& \Fib_{/Y}
+  \ar[d]
+\\
+  \catE_{/X}^\to
+  \ar[r]_{p_*}
+&
+  \catE_{/Y}^\to
+\rlap{.}}
 \]
 In particular, the pushforward of a uniform fibrations along a uniform fibration is again a uniform fibration.
 \end{example}
@@ -2652,18 +2677,18 @@ Let us write $\phi$ for the canonical natural transformation
 \begin{equation} \label{strong-h-equiv-base-change-along-fibration-BC:1}
 \begin{gathered}
 \xymatrix{
-  \catE/Y
+  \catE_{/Y}
   \ar[r]^{p^*}
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi$}}
 &
-  \catE/X
+  \catE_{/X}
   \ar[d]^{s_!}
 \\
-  \catE/V
+  \catE_{/V}
   \ar[r]_{q^*}
 &
-  \catE/U
+  \catE_{/U}
 }
 \end{gathered}
 \end{equation}
