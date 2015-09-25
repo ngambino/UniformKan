@@ -2209,9 +2209,11 @@ We leave this question to further investigation.
 \section{The Frobenius and Beck-Chevalley conditions}
 \label{sec:frobc}
 
+For this section, fix a functor $u \co \cal{I} \to \catE^\to$.
+
 \subsection*{The Frobenius condition}
 
-The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$.
+The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to $u$
 As we will see in~\cref{lift-dependent-product}, analogously to the situation for Lawvere's original formulation of the Frobenius condition~\cite{lawvere-equality}, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors.
 The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting.
 Also for this condition, we will provide an equivalent formulation, expressed using pushforward rather than pullback.
@@ -2221,21 +2223,20 @@ Also for this condition, we will provide an equivalent formulation, expressed us
 We begin by introducing the Frobenius condition.
 
 \begin{definition}[Frobenius condition] \label{thm:frobenius-def}
-Let $u \co \cal{I} \to \catE^\to$ be a functor.
 We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u$ if pullback along $f$ lifts to a functor
 \[
 \xymatrix@C=1.5cm{
   \cal{I}_{/Y}
   \ar[r]^{f^*}
-  \ar[d]_{u/Y}
+  \ar[d]_{u_{/Y}}
 &
-  \liftl{ ( \liftr{\cal{I}} )}_{/X}
-  \ar[d]^{\liftl{(\liftr{u})/X}}
+  \liftl{(\liftr{(\cal{I}_{/X})})}
+  \ar[d]^{\liftl{(\liftr{(u_{/X})})}}
 \\
-  (\catE_{/Y})^\to \ar[r]_{f^*}
+  \catE_{/Y}^\to \ar[r]_{f^*}
 &
-  (\catE_{/X})^\to \rlap{.}
-}
+  \catE_{/X}^\to
+\rlap{.}}
 \]
 \end{definition}
 
@@ -2257,7 +2258,6 @@ For a weak factorisation system in a category with pushforward functors, \ie rig
 The counterpart of this equivalence in our setting is provided by the next proposition.
 
 \begin{proposition} \label{lift-dependent-product}
-Let $u \co \cal{I} \to \catE^\to$ be a functor.
 For a map $f \co X \to Y$ admitting pushforward,
 \[
 \xymatrix@C+1em{
@@ -2282,10 +2282,10 @@ the following are equivalent:
   {\liftr{\cal{I}}}_{/Y}
   \ar[d]^{{\liftr{u}}_{/Y}}
 \\
-  (\catE_{/X})^\to
+  \catE_{/X}^\to
   \ar[r]_{f_*}
 &
-  (\catE_{/Y})^\to \rlap{.}
+  \catE_{/Y}^\to \rlap{.}
 }
 \]
 
@@ -2294,8 +2294,6 @@ the following are equivalent:
 
 \begin{proof}
 Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-%For the first correspondence, apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $v = \liftr{u}$.
-%The last statement is simply the adjunction~\eqref{garner-adjunction}.
 Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$.
 \end{proof}
 
@@ -2304,7 +2302,7 @@ Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u =
 In order to introduce the Beck-Chevalley condition, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $f \co X \to Y$ in~$\catE$, left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor between slices of~$u$.
 
 \begin{definition}[Beck-Chevalley condition] \label{def:beck-chevalley}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition.
+Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u$.
 We say that a commutative square
 \[
 \xymatrix{
@@ -2321,38 +2319,39 @@ We say that a commutative square
   V
 }
 \]
-satisfies the \emph{Beck-Chevalley condition} if the canonical natural transformation
+satisfies the \emph{Beck-Chevalley condition} with respect to $u$ if the canonical natural transformation
 \[
 \xymatrix{
-  (\catE^\to)_{/Y}
+  \catE^\to_{/Y}
    \ar[d]_{t_!}
   \ar[r]^{f^*}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi$}}
 &
-  (\catE^\to)_{/X}
+  \catE^\to_{/X}
   \ar[d]^{s_!}
 \\
-  (\catE^\to)_{/V}
+  \catE^\to_{/V}
   \ar[r]_{g^*}
 &
-  (\catE^\to)_{/U}
+  \catE^\to_{/U}
 }
 \]
 lifts to a natural transformation
 \[
 \xymatrix@C+3em{
-   \cal{I}_{/Y}
-    \ar[r]^{f^*}
-     \ar[d]_{t_!}
+  \cal{I}_{/Y}
+  \ar[r]^{f^*}
+  \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi'$}}
-   &
-  {\liftl{(\liftr{\cal{I}})}}_{/X}
-  \ar[d]^{\liftl{(\liftr{s_!})}} \\
+&
+  {\liftl{(\liftr{(\cal{I}_{/X})})}}
+  \ar[d]^{\liftl{(\liftr{s_!})}}
+\\
   \cal{I}_{/V}
-   \ar[r]_{g^*}
- &
-   {\liftl{(\liftr{\cal{I}})}}_{/U} \rlap{.}
-}
+  \ar[r]_{g^*}
+&
+  {\liftl{(\liftr{(\cal{I}_{/U})})}}_{/U}
+\rlap{.}}
 \]
 satisying evident coherence conditions with respect to $\phi$.
 \end{definition}
@@ -2366,8 +2365,7 @@ In analogy with \cref{lift-dependent-product}, we provide an equivalent formulat
 In order to state this characterization, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $s \co X \to U$, the pullback functor $s^* \co \catE^\to_{/U} \to \catE^\to_{/X}$ lifts to a functor $s^* \co {\liftr{\cal{I}}}_{/U} \to {\liftr{\cal{I}}}_{/X}$.
 
 \begin{proposition} \label{lift-pushforward-BC}
-Let $u \co \cal{I} \to \catE^\to$ be a functor.
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition.
+Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u$
 For a square
 \[
 \xymatrix{
@@ -2386,7 +2384,7 @@ For a square
 \]
 the following statements are equivalent:
 \begin{enumerate}[(i)]
-\item the square $(s,t)$ satisfies the Beck-Chevalley condition,
+\item the square $(s,t)$ satisfies the Beck-Chevalley condition with respect to $u$,
 \item the canonical natural transformation
 \[
 \xymatrix@C+2em{
@@ -2439,8 +2437,7 @@ We conclude this section by providing a combination of the Frobenius and Beck-Ch
 Indeed, these two conditions can be seen as the component for objects of $\catE^\to$ and the component for morphisms of $\catE^\to$ of a global condition.
 
 \begin{definition}[Uniform Frobenius condition]
-Let $u \co \cal{I} \to \catE^\to$.
-We say that $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u$ if for every object $j \in \cal{J}$ the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$
+We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u$ if for every object $j \in \cal{J}$, the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$
 \[
 \xymatrix{
 C_j \ar[r] \ar[d]_{v_j} & C_{j'} \ar[d]^{v_{j'}} \\
@@ -2459,7 +2456,7 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 
 The aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
 The proof of the main result in this section, \cref{thm:frobenius-fibrations}, relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
-For the remainder of this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-), \ccyl \otimes (-))$ with connections as well as a functor $u \co \cal{I} \to \catE^\to$.
+For the remainder of this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections as well as a functor $u \co \cal{I} \to \catE^\to$.
 \notec{Except for the appendix lemmata}
 
 \medskip
@@ -2566,7 +2563,7 @@ Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE
   (\catE_{/X})^\to \rlap{.}
 }
 \]
-Composing this with the the functors of \cref{lem:from-strong-hequiv} and \cref{lem:to-strong-hequiv}, we obtain
+Composing this with the the functors of \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}, we obtain
 \[
 \xymatrix{
   \cal{I}_{/Y}
