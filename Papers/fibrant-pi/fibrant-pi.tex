@@ -96,17 +96,10 @@ This material is based on research sponsored by the Air Force Research Laborator
 \section{Cylinders, homotopies, and uniform fibrations}
 \label{sec:cylhuf}
 
-The aim of this section is to introduce the main notions that will be used in our development.
-Through this section, let $\catE$ be a category with finite colimits.
-In our running examples, which we will now briefly introduce, this will be a presheaf category.
+The aim of this section is to introduce the main notions that will be used in our development. Throughout this section, let $\catE$ be a 
+fixed category with finite colimits. 
 
-Our first example will be the category $\catE = \SSet$ of simplicial sets.
-Recall that simplicial sets are defined as presheaves $\SSet = \Psh(\Delta)$ over the simplex category $\Delta$.
-As any presheaf category, we have $\SSet$ Cartesian closed.
-
-Our second example will be the category $\catE = \CSet$ of cubical sets as studied in~\cite{coquand-variation}.
-Cubical sets are defined as presheafs $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+Our motivating examples are the presheaf categories of simplicial sets $\SSet$ and of cubical sets  studied in~\cite{coquand-variation}, which we now review. As usual, the category of simplicial sets is defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. As any presheaf category, we have that $\SSet$ is Cartesian closed and cocomplete. Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration. The specific category $\Box$ considered in~\cite{coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
 Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
 
@@ -166,14 +159,14 @@ Our main examples will have functorial cylinders induced by interval objects.
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
 The category $\SSet$ of simplicial sets is Cartesian closed.
-An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_1^1 : \braces{0} \to \Delta^1$ and $\rcyl = h_0^1 : \braces{1} \to \Delta^1$.
+An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_1^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_0^1 \co \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
 As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions
 \end{example}
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
 The category of cubical sets $\CSet$ as studied in \cite{coquand-variation} has a monoidal structure with unit coinciding with the terminal object.
-An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl : \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
+An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl \co \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
 As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
 \end{example}
 
@@ -420,7 +413,7 @@ For this, note that $\Delta^1$ and $\Delta^1 \times \Delta^1$ are nerves of pose
 \end{example}
 
 \begin{example}[Connections in cubical sets]
-Connection operations $c^k : \Box^1 \otimes \Box^1 \simeq \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras.
+Connection operations $c^k \co \Box^1 \otimes \Box^1 \simeq \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras.
 In detail, they are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
 \end{example}
 
@@ -477,7 +470,7 @@ A uniform trivial fibration in $\SSet$ and $\CSet$ will be called a \emph{unifor
 \end{example}
 
 Let us now fix a functorial cylinder $(\interval \otimes (-), \lcyl, \rcyl, \ccyl)$ in $\calE$.
-Given a functor $u \co \cal{I} \to \catE^\to$ (which we think of as the counterpart of a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations) and use it to define the notion of a uniform $\cal{I}$-fibration.
+Given a functor $u \co \cal{I} \to \catE^\to$ (which we think of as the counterpart of a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations) and use it to define the notion of a uniform $\cal{I}$-fibration.
 The definition of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ involves a special case of the so-called Leibniz construction (which is discussed in general in~\cite{riehl-verity:reedy}), which we now review for the convenience of the reader.
 
 Given a natural transformation $\phi \co F \to G$ and a map $f \co X \to Y$, we define $\hateval(\phi, f) \co \catE^\to \to \catE^\to$ by the universal property of pushouts, as in the following diagram:
@@ -538,13 +531,13 @@ where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 One could object that our uniform $\cal{I}$-fibrations are not an algebraization of the \emph{naive fibrations} intoduced by Cisinski~\cite{cisinski-asterisque}.
 Indeed, abbreviate
 \[
-m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] : \Id_\catE + \Id_\catE \to \interval \otimes (-)
+m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] \co \Id_\catE + \Id_\catE \to \interval \otimes (-)
 .\]
-Then a notion $\Fib[\cal{I}]'$ of uniform Cisinski $\cal{I}$-fibrations would be given by first closing $\cal{I}_\otimes$ under Leibniz product with $m$, \ie defining $\Fib[\cal{I}]'$ as right maps for the functor $u_\otimes' : \cal{I}_\otimes' \to \catE^\to$ with $\cal{I}_\otimes' \defeq \mathbb{N} \times \cal{I}_\otimes$ and $u_\otimes'(n, i) = (m \hatotimes (-))^n(u_\otimes(i))$.
+Then a notion $\Fib[\cal{I}]'$ of uniform Cisinski $\cal{I}$-fibrations would be given by first closing $\cal{I}_\otimes$ under Leibniz product with $m$, \ie defining $\Fib[\cal{I}]'$ as right maps for the functor $u_\otimes' \co \cal{I}_\otimes' \to \catE^\to$ with $\cal{I}_\otimes' \defeq \mathbb{N} \times \cal{I}_\otimes$ and $u_\otimes'(n, i) = (m \hatotimes (-))^n(u_\otimes(i))$.
 Our reasons for sticking with $\Fib[\cal{I}]$ are twofold.
 
-First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u : \cal{I} \to \catE^\to$ is closed under Leibniz product with the ``boundary inclusion'' $[\lcyl, \rcyl] : 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform Cisinski $\cal{I}$-fibration.
-This is the case in our main examples of simplicial and cubical sets where $u : \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
+First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u \co \cal{I} \to \catE^\to$ is closed under Leibniz product with the ``boundary inclusion'' $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform Cisinski $\cal{I}$-fibration.
+This is the case in our main examples of simplicial and cubical sets where $u \co \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
 
 Second, if the functorial cylinder connections, as we assume for our main results in \cref{sec:frocuf} and onwards, then the maps in $\cal{I}_\otimes$ can still be shown to be strong homotopy equivalences in a uniform way, \notec{not true} giving rise to a functor $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ over $\catE^\to$ in the terminology of \cref{sec:remshe} if we assume $\cal{I}$ to be closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$.
 With the results in \cref{sec:remshe}, every uniform Cisinski $\cal{I}$-fibrations is then a uniform $\cal{I}$-fibrations in a functorial way.
@@ -589,7 +582,7 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \begin{example}[Uniform fibrations in cubical sets]
 Uniform Kan fibrations in cubical sets are precisely the maps with (non-regular) Kan filling satisfying the uniformity condition of~\cite{coquand-variation}.
 
-To illustrate the connection to the classical Kan filling condition for cubes, let $i^n : \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for the representable $\Box^n$, \ie its maximal non-trivial subobject.
+To illustrate the connection to the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for the representable $\Box^n$, \ie its maximal non-trivial subobject.
 Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1 + n} \to \Box^{1 + n}$ and $\sqcap_1^{1 + n} \to \Box^{1 + n}$, respectively, hence open box fillings are included for uniform Kan fibrations (recall that $\sqcup_i^{1+n}$ is isomorphic to $\sqcup_1^{1+n}$ over $\Box^{1+n}$ for $i \in \braces{2, \ldots, n + 1}$ and similarly for $\sqcap_i^{1+n}$ since our cube category has symmetries).
 \end{example}
 
@@ -604,7 +597,7 @@ In particular, the results in \cref{sec:ortf} will be applied to both categories
 The aim of this section is to establish some general facts regarding categories of right maps that will be useful in the remainder of the paper.
 Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the non-algebraic setting.
 
-Let us fix a category $\catE$.
+For this section, we fix a category $\catE$.
 First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
 \[
   \liftr{\brarghole} \co (\CAT/\catE^\to)^{\op} \to \CAT/\catE^\to \rlap{.}
@@ -1299,7 +1292,7 @@ The aim of this section is to develop some general results on strong homotopy eq
 The main result, \cref{strong-h-equiv-as-section}, is a characterisation of strong homotopy equivalences as particular sections.
 This characterisation leads to the proof of two results, \cref{lem:from-strong-hequiv} and \cref{lem:to-strong-hequiv}, that will play an important role in our study of the Frobenius and Beck-Chevalley conditions for uniform fibrations in \cref{sec:frocuf}.
 
-Let $\catE$ be a category with finite colimits equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$.
+For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$.
 Our first goal is to give an alternative characterisation of strong left or right homotopy equivalences.
 For this, we need some definitions.
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
@@ -1497,7 +1490,7 @@ If the functorial cylinder is induced by tensoring with an interval object in a 
 We have an analogue of this also in the general setting.
 
 \begin{lemma} \label{leibniz-lift}
-If $u : \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) : \cal{D}^\to \to \catE^\to$.
+If $u \co \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) \co \cal{D}^\to \to \catE^\to$.
 \end{lemma}
 
 \begin{proof}
@@ -1518,7 +1511,7 @@ From~\eqref{leibniz-lift:0}, it follows that we have an isomorphism
   (\thetak \cchat u) \otimes_{\cal{D}} X = \thetak \hatotimes_\catE (u \otimes_{\cal{D}} X)
 \end{equation}
 natural in $X \in \cal{D}^\to$.
-Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\otimes_\catE : [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
+Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\otimes_\catE \co [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
 \begin{equation} \label{leibniz-lift:2}
   (\thetak \cchat u) \hatotimes_{\cal{D}} f = \thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} f)
 \end{equation}
@@ -1699,7 +1692,6 @@ $\TrivFib$ and the category of uniform fibrations $Fib$ by letting
 \rlap{,}
 \end{aligned}
 \]
-\notec{Brackets needed here and elsewhere? Compare with $\liftr{\cal{M}_\otimes}$. Or is $\cal{M}_\otimes^\pitchfork$ preferrable?}
 respectively, where $\cal{M}$, is the subcategory of $\catE^\to$ consisting of decidable monomorphisms and pullback squares.
 Our main result is that these categories can be also be defined as the right orthogonal with respect to categories over
 $\catE$ that are small.
@@ -2226,18 +2218,16 @@ We leave this question to further investigation.
 \section{The Frobenius and Beck-Chevalley conditions}
 \label{sec:frobc}
 
-For this section, fix a functor $u \co \cal{I} \to \catE^\to$.
+
 
 \subsection*{The Frobenius condition}
 
-The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to $u$
+The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$.
 As we will see in~\cref{lift-dependent-product}, analogously to the situation for Lawvere's original formulation of the Frobenius condition~\cite{lawvere-equality}, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors.
 The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting.
 Also for this condition, we will provide an equivalent formulation, expressed using pushforward rather than pullback.
 
-\medskip
-
-We begin by introducing the Frobenius condition.
+For this section, we fix a functor $u \co \cal{I} \to \catE^\to$. We begin by introducing the Frobenius condition.
 
 \begin{definition}[Frobenius condition] \label{thm:frobenius-def}
 We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u$ if pullback along $f$ lifts to a functor
@@ -2481,8 +2471,8 @@ For the remainder of this section, we fix a category $\catE$ with finite colimit
 The first key step to prove \cref{thm:frobenius-fibrations} is the following lemma, whose technical proof is given in the appendix.
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration}
-Let $u : \cal{I} \to \catE^\to$ and $v : \cal{J} \to \catE^\to$ be functors.
-Let $p \co X \to Y$ be a right map for $\kcylinv \otimes \id_{\calE} : \catE \to \catE^\to$ where $k \in \braces{0, 1}$.
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$ be functors.
+Let $p \co X \to Y$ be a right map for $\kcylinv \otimes \id_{\calE} \co \catE \to \catE^\to$ where $k \in \braces{0, 1}$.
 Assume that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{J}_{/X}$.
 Then it lifts further to a functor $p^* \co \cal{S}_k(\cal{I})_{/Y} \to \cal{S}_k(\cal{J})_{/X}$,
 \[
@@ -2714,9 +2704,9 @@ The key to prove the Beck-Chevalley property for morphisms of uniform $\cal{I}$-
 For its statement, recall from \cref{exa:composition-pullback-lift} that $s_!$ and $t_!$ lift to slices of $\cal{I}$, and note that they also lift to slices of $\cal{S}_k(\cal{I})$.
 
 \begin{lemma} \label{strong-h-equiv-base-change-along-fibration-BC}
-Let $u : \cal{I} \to \catE^\to$ and $v : \cal{J} \to \catE^\to$ be functors.
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$ be functors.
 Let $p_1 \co X_1 \to Y_1$ and $p_2 \co X_2 \to Y_2$ be maps satisfying the assumptions of \cref{strong-h-equiv-base-change-along-fibration} with $k \in \braces{0, 1}$.
-Let $(s, t) : p_1 \to p_2$ be a morphism of $(\kcylinv \otimes \id_\catE)$-right maps.
+Let $(s, t) \co p_1 \to p_2$ be a morphism of $(\kcylinv \otimes \id_\catE)$-right maps.
 If the canonical natural transformation $\phi \co s_! p^* \to q^* t_!$ lifts to a natural transformation $\phi'$:
 \begin{equation*} %\label{strong-h-equiv-base-change-along-fibration-BC:3}
 \begin{gathered}
@@ -2763,7 +2753,7 @@ See Appendix~\ref{app:tecp}.
 
 \begin{theorem} \label{thm:beck-chevalley-unif}
 Let $u \co \cal{I} \to \catE^\to$ be a functor that is closed with respect to Leibniz product with endpoint inclusions.
-Consider a morphism $(s, t) : p \to q$ of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$:
+Consider a morphism $(s, t) \co p \to q$ of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$:
 \[
 \xymatrix{
   X \ar[r]^s \ar[d]_{p} & U \ar[d]^{q} \\
@@ -3218,7 +3208,7 @@ and a retraction $\rho$ to $\thetak \hatotimes i$ in $\catE^\to$:
   u_i
 \rlap{.}}
 \]
-Let $\sigma_1 \co v_{j_1} \to u_i$ and $\sigma_2 \co v_{j_2} \to u_i$ with $j_1, j_2 : \cal{J}$ denote the base changes of $i$ over along $p_1$ and $p_2$, respectively:
+Let $\sigma_1 \co v_{j_1} \to u_i$ and $\sigma_2 \co v_{j_2} \to u_i$ with $j_1, j_2 \co \cal{J}$ denote the base changes of $i$ over along $p_1$ and $p_2$, respectively:
 \[
 \xymatrix{
   C_1
