@@ -10,13 +10,13 @@
 \usepackage{bbm}
 
 %% General packages
-\usepackage{geometry}
-\usepackage{verbatim}
-%\usepackage{hyperref}
-\usepackage{url}
-\usepackage{cleveref}
 \usepackage[utf8]{inputenc}
 \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{verbatim}
+\usepackage[draft=false]{hyperref}
+%\usepackage{url}
+\usepackage{cleveref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -43,13 +43,13 @@
 
 \makeatletter
 
-  \renewcommand{\section}{\@startsection
-  {section}% name
-   {1}% level
-  {0mm}% indent
-    {-\baselineskip}% beforeskip
-   {0.5\baselineskip}% afterskip
-    {\large \bfseries}}% style
+\renewcommand{\section}{\@startsection
+{section}% name
+{1}% level
+{0mm}% indent
+{-\baselineskip}% beforeskip
+{0.5\baselineskip}% afterskip
+{\large \bfseries}}% style
 
  %\renewcommand{\subsection}{\@startsection
  %{subsection}% name
@@ -304,8 +304,8 @@
 \newcommand{\hatunit}{\hat{\unit}}
 \newcommand{\hatotimes}{\mathbin{\hat{\otimes}}}
 
-\newcommand{\eval}{\mathrm{ev}}
-\newcommand{\hateval}{\widehat{\mathrm{ev}}}
+\newcommand{\eval}{\operatorname{ev}}
+\newcommand{\hateval}{\widehat{\eval}}
 
 \newcommand{\cchat}{\mathbin{\widehat{\cc}}}
 
@@ -340,7 +340,7 @@
 }
 \makeatother
 
-\newcommand{\para}[1]{\smallskip\noindent\textbf{{#1}.\ }\ignorespacesandallpars}
+%\newcommand{\para}[1]{\smallskip\noindent\textbf{{#1}.\ }\ignorespacesandallpars}
 
 % usage: \note[author]{color}{content}
 \newcommand{\note}[3][]{\def\auth{#1}\textcolor{#2}{{[\ifx\auth\empty\else\auth: \fi{#3}]}}}
@@ -356,9 +356,11 @@
 
 \newcommand{\R}{\mathrm{R}}
 % \newcommand{\deg}{\operatorname{d}}
-\newcommand{\Rp}{\mathrm{R}^+}
-\newcommand{\Rm}{\mathrm{R}^-}
-\newcommand{\Sk}{\mathrm{Sk}}
-\newcommand{\Cosk}{\mathrm{Cosk}}
-\newcommand{\obj}{\mathrm{Obj}}
-\newcommand{\Rhat}{\mathrm{Psh}(\R)}
+\newcommand{\Rp}{\R^+}
+\newcommand{\Rm}{\R^-}
+\newcommand{\Sk}{\operatorname{Sk}}
+\newcommand{\Cosk}{\operatorname{Cosk}}
+\newcommand{\obj}{\operatorname{Obj}}
+\newcommand{\Rhat}{\operatorname{Psh}(\R)}
+
+\newcommand{\fakeslice}{\sslash}

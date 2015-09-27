@@ -30,7 +30,7 @@ model of univalent foundaitons, while in cubical sets it subsumes some of the ex
 
 \maketitle
 
-%\tableofcontents
+\tableofcontents
 
 % \notec{To do: remove unneeded parentheses.}
 
@@ -1652,7 +1652,7 @@ But such a retraction is provided by the natural transformation $\rho$ of~\cref{
 We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
 Upon combining the cases $k = 0$ and $k = 1$ and passing to right orthogonality categories, \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} induce functors
 \[
 \xymatrix@!C{
@@ -2363,7 +2363,7 @@ lifts to a natural transformation
 satisying evident coherence conditions with respect to $\phi$.
 \end{definition}
 
-\begin{remark}
+\begin{remark} \label{beck-chevalley-iso}
 If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $\liftl{(\liftr{u_{/U}})}$ reflects isomorphisms.
 \notec{Make this a separate earlier remark, shortens proof of first proposition in second section.}
 \end{remark}
@@ -2475,30 +2475,20 @@ Obvious.
 \end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-u}
-Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be functors related by as follows:
-\begin{align*}
+Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be functors related as follows:
+\[
 \xymatrix{
-  \cal{I}_1
-  \ar[rr]^{F}
-  \ar[dr]_{u_1}
+  \liftr{\cal{I}_1}
+  \ar@<4pt>[rr]^{F}
+  \ar[dr]_{\liftr{u_1}}
 &&
-  \liftl{(\liftr{\cal{I}_2})}
-  \ar[dl]^{\liftl{(\liftr{u_2})}}
+  \liftr{\cal{I}_2}
+  \ar@<4pt>[ll]^{G}
+  \ar[dl]^{\liftr{u_2}}
 \\&
   \catE^\to
-}
-&&
-\xymatrix{
-  \cal{I}_2
-  \ar[rr]^{G}
-  \ar[dr]_{u_2}
-&&
-  \liftl{(\liftr{\cal{I}_1})}
-  \ar[dl]^{\liftl{(\liftr{u_1})}}
-\\&
-  \catE^\to
-}
-\end{align*}
+\rlap{.}}
+\]
 Note that we do not impose any coherence on $F$ and $G$.
 If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condition with respect to $u_1$, then also with respect to $u_2$.
 \end{proposition}
@@ -2511,7 +2501,8 @@ Easy calculation using that $\liftl{(\liftr{(-)})}$ is a monad.
 
 \section{The uniform Frobenius condition for strong homotopy equivalences}
 
-For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections as well as a functor $u \co \cal{I} \to \catE^\to$.
+For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections.
+Fix also a functor $u \co \cal{I} \to \catE^\to$.
 
 \begin{lemma} \label{strong-h-equiv-frobenius}
 Let $p \co X \to Y$ be a right map for $\kcylinv \otimes \id_{\calE} \co \catE \to \catE^\to$ with $k \in \braces{0, 1}$.
@@ -2556,22 +2547,19 @@ We finish by applying \cref{uniform-frobenius-change-v}.
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-\subsection*{The Frobenius condition}
+In addition to the assumptions of the last section, we assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
+We assume once and for all that uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to $\cal{I}$.
+In our examples, this will always be the case with $\catE^\to$ itself having the uniform Frobenius property with respect to $\cal{I}$ as explained in \cref{frobenius-uniform-presheaf}.
+\notec{For some reason, the actual usage of something having the (uniform) Frobenius property with respect to something else seems a bit reverse.}
 
-The aim of this section is to show that, under suitable hypotheses, uniform fibrations satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
-The proof of the main result in this section, \cref{uniform-fibrations-uniform-frobenius}, relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
-
-For the remainder of this section, let $\catE$ be a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections.
-We fix a functor $u \co \cal{I} \to \catE^\to$ that is closed closed with respect to Leibniz product with endpoint inclusions.
-
-Broadly speaking, the next result should be read as saying that if pullback along a fibration preserves cofibrations, then it preserves trivial cofibrations.
+The next result, our final main theorem, should be read as the algebraic version of pullback along a fibration preserving trivial cofibrations.
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
-If $\liftr{(\cal{I}_{\otimes})}$ satisfies the uniform Frobenius property with respect to $\cal{I}$, then also with respect to $\cal{I}_{\otimes}$.
+We have that $\liftr{(\cal{I}_{\otimes})}$ satisfies the uniform Frobenius property with respect to $\cal{I}_{\otimes}$.
 \end{theorem}
 
 \begin{proof}
-Use \cref{strong-h-equiv-uniform-frobenius-fibrations} and translate it from strong homotopy equivalences relative to $\cal{I}$ to uniform $\cal{I}$-fibrations using \cref{uniform-frobenius-change-u} with \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
+We start from \cref{strong-h-equiv-uniform-frobenius-fibrations} and translate it from strong homotopy equivalences relative to $\cal{I}$ to uniform $\cal{I}$-fibrations using \cref{uniform-frobenius-change-u} with \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} as explained in \cref{relating-strong-hequiv-and-uniform-fib}.
 \begin{comment}
 For the benefit of intuition, let us make this explicit for a single right $\liftr{(\cal{I}_{\otimes})}$-map $p \co X \to Y$.
 
@@ -2645,8 +2633,8 @@ Composing this with the the functors of \cref{lem:from-strong-hequiv,lem:to-stro
 \xymatrix{
   \cal{I}_{/Y}
   \ar[rr]^{M_{/Y}}
-  \ar[dr]_{(\kcyl \hatotimes u)_{/Y}} &
-&
+  \ar[dr]_{(\kcyl \hatotimes u)_{/Y}}
+&&
   \cal{S}_k(\cal{I}_{/Y})
   \ar[r]
   \ar[dl]
@@ -2670,10 +2658,10 @@ Observe that the retract closure of \cref{lem:from-strong-hequiv} vanishes by \c
 \end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley property for uniform~$\cal{I}$-fibrations.
+First, pushforward lifts to slices of the category of uniform $\cal{I}$-fibrations.
 
 \begin{corollary} \label{uniform-fibrations-frobenius-pushforward}
 Let $p \co X \to Y$ be a uniform $\cal{I}$-fibration.
-Assume that $p$ satisfies the Frobenius condition with respect to $u \co \cal{I} \to \catE^\to$.
 Then pushforward along $p$ lifts to a functor
 \[
 \xymatrix@C+2em{
@@ -2688,7 +2676,7 @@ Then pushforward along $p$ lifts to a functor
   \ar[r]_{p_*}
 &
   \catE_{/Y}^\to
-}
+\rlap{.}}
 \]
 \end{corollary}
 
@@ -2696,9 +2684,11 @@ Then pushforward along $p$ lifts to a functor
 The claim follows from~\cref{uniform-fibrations-uniform-frobenius} and \cref{lift-dependent-product}.
 \end{proof}
 
+Second, pushforward behaves coherently with respect to pullback, in more type-theoretic terms to be read as implying that dependent product is stable under substitution.
+
 \begin{corollary} \label{uniform-fibrations-BC-pushforward}
 Let $(s, t) \co p \to q$ be a map of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$.
-If $(s, t)$ satisfies the Beck-Chevalley condition with respect to $u \co \cal{I} \to \catE^\to$, then the canonical natural transformation $\psi \co t^* q_* \to p_* s^*$ lifts to a natural transformation
+The canonical natural transformation $\psi \co t^* q_* \to p_* s^*$ lifts to a natural transformation
 \[
 \xymatrix@C+2em{
   \Fib[\cal{I}]_{/U}
@@ -2715,12 +2705,13 @@ If $(s, t)$ satisfies the Beck-Chevalley condition with respect to $u \co \cal{I
   \Fib[\cal{I}]_{/Y}
 \rlap{.}}
 \]
+If the square $(s, t)$ is furthermore a pullback, then $\psi'$ is an isomorphism.
 \end{corollary}
 
 \begin{proof}
 The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lift-pushforward-BC}.
+The statement at the end is \cref{beck-chevalley-iso}.
 \end{proof}
-
 
 \begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
 Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
@@ -2765,18 +2756,19 @@ As an example, given a uniform fibration $p \co X \to Y$, pushforward along $p$ 
   \catE_{/Y}^\to
 \rlap{.}}
 \]
+\notec{This is a repetition of \cref{uniform-fibrations-frobenius-pushforward}.}
 In particular, the pushforward of a uniform fibrations along a uniform fibration is again a uniform fibration.
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in simplicial sets]
-As a special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\SSet$ the pushforward of a uniform Kan fibrations along a uniform Kan fibration is again a uniform Kan fibration.
+As a special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\SSet$ pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
 Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a Kan complex.
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in cubical sets]
-As another special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\CSet$ the pushforward of a uniform Kan fibrations along a uniform Kan fibration is again a uniform Kan fibration.
-Insufficiency of the classical notion of Kan fibration for a constructive derivation of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}: the first step there restricts attention to dimensions zero and one where the cubical model minus inversions and the simplicial model coincide.
+As another special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\CSet$ pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
+Insufficiency of the classical notion of cubical Kan fibration for a constructive derivation of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}.
 \end{example}
 
 \notec{To do: remark discussing 2-functoriality and the three possibilities of defning uniform $\cal{I}$-fibrations as right maps for filling, composition, or strong homotopy equivalences. Comparison with Coquand's proof fits in here as well.}
@@ -2792,16 +2784,16 @@ We abbreviate the functor
 \[
 \liftl{(\liftr{u_{/X}})} \co \liftl{(\liftr{\cal{I}_{/X}})} \to \catE^\to
 \]
-by $v_{//X} \co \cal{J}_{//Y} \to \catE^\to$.
+by $v_{\fakeslice X} \co \cal{J}_{\fakeslice Y} \to \catE^\to$.
 Note that the canonical map
 \[
-  (\liftl{(\liftr{\cal{I}})})_{/X} \to \cal{J}_{//X}
+  (\liftl{(\liftr{\cal{I}})})_{/X} \to \cal{J}_{\fakeslice X}
 \]
 of functors over $\catE^\to$ is not in general invertible, which is highlighted by the double slash notation.
 The assumption now is that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{J}_{/X}$.
 Since we have a canonical map
 \[
-\cal{S}_k(\cal{J}_{//X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
+\cal{S}_k(\cal{J}_{\fakeslice X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
 ,\]
 the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{/X})$ as follows:
 \[
@@ -2828,7 +2820,7 @@ the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \
 \]
 
 We work with the characterization of \cref{strong-h-equiv-as-section}.
-We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{//Y})$ on objects and on morphisms.
+We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{\fakeslice Y})$ on objects and on morphisms.
 For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
 This means we have a commutative triangle
 \[
@@ -2855,12 +2847,12 @@ and a retraction $\rho$ to $\thetak \hatotimes i$ as follows:
   u_i
 \rlap{.}}
 \]
-Let $\sigma \co (v_{//X})_{j} \to u_i$ denote the pullback of $i$ along $p$ with $j \co \cal{J}_{//Y}$:
+Let $\sigma \co (v_{\fakeslice X})_{j} \to u_i$ denote the pullback of $i$ along $p$ with $j \co \cal{J}_{\fakeslice Y}$:
 \[
 \xymatrix{
   C
   \ar[r]
-  \ar[d]_{(v_{//X})_{j}}
+  \ar[d]_{(v_{\fakeslice X})_{j}}
   \pullback{dr}
 &
   A
@@ -2880,12 +2872,12 @@ Let $\sigma \co (v_{//X})_{j} \to u_i$ denote the pullback of $i$ along $p$ with
   Y
 \rlap{.}}
 \]
-We want to make $(v_{//X})_j$ into a strong left homotopy equivalence.
-This means to find a retraction $\pi$ to $\thetak \hatotimes (v_{//X})_j$ as follows:
+We want to make $(v_{\fakeslice X})_j$ into a strong left homotopy equivalence.
+This means to find a retraction $\pi$ to $\thetak \hatotimes (v_{\fakeslice X})_j$ as follows:
 \[
 \xymatrix@C+2em{
   v_{j}
-  \ar[r]^-{\thetak \hatotimes (v_{//X})_j}
+  \ar[r]^-{\thetak \hatotimes (v_{\fakeslice X})_j}
   \ar@{=}[dr]
 &
   \kcyl \hatotimes v_{j}
@@ -2897,15 +2889,15 @@ This means to find a retraction $\pi$ to $\thetak \hatotimes (v_{//X})_j$ as fol
 We will construct the retraction $\pi$ as indicated in the below diagram where the two horizontal composites should be identities.
 \[
 \xymatrix@C+2em{
-  (v_{//X})_{j}
-  \ar[r]^-{\thetak \hatotimes (v_{//X})_j}
+  (v_{\fakeslice X})_{j}
+  \ar[r]^-{\thetak \hatotimes (v_{\fakeslice X})_j}
   \ar[d]_{\sigma}
 &
-  \kcyl \hatotimes (v_{//X})_{j}
+  \kcyl \hatotimes (v_{\fakeslice X})_{j}
   \ar@{.>}[r]^-{\pi}
   \ar[d]_{\kcyl \hatotimes \sigma}
 &
-  (v_{//X})_{j}
+  (v_{\fakeslice X})_{j}
   \ar[d]^{\sigma}
 \\
   u_i
@@ -2950,11 +2942,11 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
 &
   \interval \otimes D
   \ar@{.>}[r]^{\cod(\pi)}
-  \ar[dd]^(0.7){\interval \otimes \cod(\sigma)}
+  \ar[dd]^(0.7){\interval \otimes \cod(\sigma)}|(0.43){\hole}
   \ar@{-->}@/_1em/[drr]
 &
   D
-  \ar[dd]^(0.8){\cod(\sigma)}
+  \ar[dd]^(0.8){\cod(\sigma)}|(0.40){\hole}|(0.57){\hole}
   \ar[dr]
 \\&&&
   X
@@ -3030,64 +3022,64 @@ Let $(j_1, \pi_1)$ and $(j_2, \pi_2)$ denote the action of the lift $p^*$ on the
 Recall that this includes pullback squares
 \[
 \begin{aligned}
-  \sigma_1 &\co (v_{//X})_{j_1} \to u_{i_1}
+  \sigma_1 &\co (v_{\fakeslice X})_{j_1} \to u_{i_1}
 \, ,\\
-  \sigma_2 &\co (v_{//X})_{j_2} \to u_{i_2}
+  \sigma_2 &\co (v_{\fakeslice X})_{j_2} \to u_{i_2}
 \end{aligned}
 \]
 Cartesian over $p \co X \to Y$.
-Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{J}_{//X}$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\upsilon \co j_1 \to j_2$ in $\cal{J}_{//Y}$.
-We want to show that $\upsilon$ in addition forms a morphism of strong left homotopy equivalences $\upsilon \co ((v_{//X})_{j_1}, \pi_1) \to ((v_{//X})_{j_2}, \pi_2)$.
+Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{J}_{\fakeslice X}$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\upsilon \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y}$.
+We want to show that $\upsilon$ in addition forms a morphism of strong left homotopy equivalences $\upsilon \co ((v_{\fakeslice X})_{j_1}, \pi_1) \to ((v_{\fakeslice X})_{j_2}, \pi_2)$.
 For this, we have to verify commutativity of the following diagram:
 \[
 \xymatrix@C+2em{
-  \kcyl \hatotimes (v_{//X}){j_1}
+  \kcyl \hatotimes (v_{\fakeslice X}){j_1}
   \ar[r]^-{\pi_1}
   \ar[d]_{\kcyl \hatotimes u_{\upsilon}}
 &
-  (v_{//X})_{j_1}
+  (v_{\fakeslice X})_{j_1}
   \ar[d]^{u_{\upsilon}}
 \\
-  \kcyl \hatotimes {v_{//X}}_{j_2}
+  \kcyl \hatotimes {v_{\fakeslice X}}_{j_2}
   \ar[r]_-{\pi_2}
 &
-  (v_{//X})_{j_2}
+  (v_{\fakeslice X})_{j_2}
 \rlap{.}}
 \]
 Recall the construction of $\pi_1$ and $\pi_2$, omitting horizontal composite identity arrows for readability:
 \[
 \xymatrix@C+2em{
-  (v_{//X})_{j_1}
-  \ar[rr]^-{\thetak \hatotimes (v_{//X})_{j_1}}
+  (v_{\fakeslice X})_{j_1}
+  \ar[rr]^-{\thetak \hatotimes (v_{\fakeslice X})_{j_1}}
   \ar[dd]_{\sigma_1}
   \ar[dr]^{u_{\upsilon}}
 &&
-  \kcyl \hatotimes (v_{//X})_{j_1}
+  \kcyl \hatotimes (v_{\fakeslice X})_{j_1}
   \ar@{.>}[rr]^-{\pi_1}
-  \ar[dd]^(0.3){\kcyl \hatotimes \sigma_1}
+  \ar[dd]^(0.3){\kcyl \hatotimes \sigma_1}|!{[dl];[dr]}{\hole}
   \ar[dr]^{\kcyl \hatotimes u_{\upsilon}}
 &&
-  (v_{//X})_{j_1}
-  \ar[dd]^(0.3){\sigma_1}
+  (v_{\fakeslice X})_{j_1}
+  \ar[dd]^(0.3){\sigma_1}|!{[dl];[dr]}{\hole}
   \ar[dr]^{u_{\upsilon}}
 \\&
-  (v_{//X})_{j_2}
+  (v_{\fakeslice X})_{j_2}
   \ar[rr]^-(0.3){\thetak \hatotimes v_{j_2}}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \kcyl \hatotimes (v_{//X})_{j_2}
+  \kcyl \hatotimes (v_{\fakeslice X})_{j_2}
   \ar@{.>}[rr]^-(0.3){\pi_2}
   \ar[dd]^(0.3){\kcyl \hatotimes \sigma_2}
 &&
-  (v_{//X})_{j_2}
+  (v_{\fakeslice X})_{j_2}
   \ar[dd]^(0.3){\sigma_2}
 \\
   u_{i_1}
-  \ar[rr]^-(0.25){\thetak \hatotimes u_{i_1}}
+  \ar[rr]^-(0.25){\thetak \hatotimes u_{i_1}}|!{[ur];[dr]}{\hole}
   \ar[dr]^{u_\tau}
 &&
   \kcyl \hatotimes u_{i_1}
-  \ar[rr]^-(0.3){\rho_1}
+  \ar[rr]^-(0.3){\rho_1}|!{[ur];[dr]}{\hole}
   \ar[dr]^{\kcyl \hatotimes u_{\upsilon}}
 &&
   u_{i_1}
@@ -3113,16 +3105,16 @@ Since that square commutes after composing it with the pullback square $\sigma_2
 &&
   \interval \otimes D_1
   \ar@{.>}[rr]^-{\cod(\pi_1)}
-  \ar[dd]^(0.3){\interval \otimes \cod(\sigma_1)}
+  \ar[dd]^(0.35){\interval \otimes \cod(\sigma_1)}|!{[dl];[dr]}{\hole}
   \ar[dr]^{\interval \otimes \cod(u_{\upsilon})}
 &&
   D_1
-  \ar[dd]^(0.3){\cod(\sigma_1)}
+  \ar[dd]^(0.35){\cod(\sigma_1)}|!{[dl];[dr]}{\hole}
   \ar[dr]^{\cod(u_{\upsilon})}
 \\&
   D_2
   \ar[rr]^-(0.3){\kcylinv \otimes D_2}
-  \ar[dd]_(0.3){\cod(\sigma_2)}
+  \ar[dd]^(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes D_2
   \ar@{.>}[rr]^-(0.3){\cod(\pi_2)}
@@ -3132,11 +3124,11 @@ Since that square commutes after composing it with the pullback square $\sigma_2
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B_1
-  \ar[rr]^-(0.25){\kcylinv \otimes B_1}
+  \ar[rr]^-(0.25){\kcylinv \otimes B_1}|!{[ur];[dr]}{\hole}
   \ar[dr]^{\cod(u_\tau)}
 &&
   \interval \otimes B_1
-  \ar[rr]^-(0.3){\cod(\rho_1)}
+  \ar[rr]^-(0.3){\cod(\rho_1)}|!{[ur];[dr]}{\hole}
   \ar[dr]^{\interval \otimes \cod(u_{\upsilon})}
 &&
   B_1
@@ -3156,31 +3148,31 @@ For our goal it will thus suffice to show that the maps from the back to the fro
 This is canonically the case except potentially for the top middle map $\interval \otimes D_1 \to \interval \otimes D_2$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
 \[
-\xymatrix@C+2em{
+\xymatrix@C+1em{
   D_1
   \ar[rrrr]
   \ar[dd]_{\kcylinv \otimes D_1}
   \ar[dr]^{\cod(u_{\upsilon})}
 &&&&
   X
-  \ar[dd]^(0.3){p}
+  \ar[dd]^(0.3){p}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
   \ar@{=}[dr]
 \\&
   D_2
   \ar[rrrr]
-  \ar[dd]_(0.7){\kcylinv \otimes D_2}
+  \ar[dd]^(0.66){\kcylinv \otimes D_2}
 &&&&
   X
   \ar[dd]^{p}
 \\
   \interval \otimes D_1
-  \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
-  \ar@{-->}[uurrrr]
+  \ar[rr]^(0.7){I \otimes \cod(\sigma_1)}|!{[ur];[dr]}{\hole}
+  \ar@{-->}[uurrrr]|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
   \ar[dr]_{I \otimes \cod(u_{\upsilon})}
 &&
   \interval \otimes B_1
-  \ar[rr]
-  \ar[dr]^(0.7){\interval \otimes \cod(u_\tau)}
+  \ar[rr]|!{[dl];[urrr]}{\hole}
+  \ar[dr]^(0.7){\interval \otimes \cod(u_\tau)}|!{[dl];[urrr]}{\hole}
 &&
   Y
   \ar@{=}[dr]
@@ -3210,13 +3202,13 @@ The assumption is that the canonical natural transformation $\phi \co s_! p^* \t
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi'$}}
 &
-  \cal{J}_{//X_1}
+  \cal{J}_{\fakeslice X_1}
   \ar[d]^{\liftl{(\liftr{s_!})}}
 \\
   \cal{I}_{/Y_2}
   \ar[r]_{p_2^*}
 &
-  \cal{J}_{//X_2}
+  \cal{J}_{\fakeslice X_2}
 \rlap{.}}
 \end{gathered}
 \end{equation*}
@@ -3229,18 +3221,18 @@ The goal will follow if we can show that lifts further to a natural transformati
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi''$}}
 &
-  \cal{S}_k(\cal{J}_{//X_1})
+  \cal{S}_k(\cal{J}_{\fakeslice X_1})
   \ar[d]^{\cal{S}_k(\liftl{(\liftr{s_!})})}
 \\
   \cal{S}_k(\cal{I}_{/Y_2})
   \ar[r]_{p_2^*}
 &
-  \cal{S}_k(\cal{J}_{//X_2})
+  \cal{S}_k(\cal{J}_{\fakeslice X_2})
 \rlap{.}}
 \end{gathered}
 \end{equation*}
 
-By faithfulness of the functor $\cal{S}_k(\cal{J}_{//Y_2} )\to \cal{J}_{//Y_2}$, we only have to check objectwise lifting.
+By faithfulness of the functor $\cal{S}_k(\cal{J}_{\fakeslice Y_2} )\to \cal{J}_{\fakeslice Y_2}$, we only have to check objectwise lifting.
 Suppose we are given a strong left homotopy equivalence $(i, \rho) \co \cal{S}_k(\cal{I}_{/X_1})$.
 This means we have a commutative triangle
 \[
@@ -3268,35 +3260,35 @@ and a retraction $\rho$ to $\thetak \hatotimes i$ in $\catE^\to$:
 \rlap{.}}
 \]
 Note that we can see $(i, \rho)$ also as an object of $\cal{S}_k(\cal{I}_{X_2})$ via $s$.
-Let $\sigma_1 \co (v_{//X_1})_{j_1} \to u_i$ and $\sigma_2 \co (v_{//X_2})_{j_2} \to u_i$ with $j_1 \co \cal{J}_{//Y_1}$ and $j_2 \co \cal{J}_{//Y_2}$ denote the base changes of $i$ over along $p_1$ and $p_2$, respectively:
+Let $\sigma_1 \co (v_{\fakeslice X_1})_{j_1} \to u_i$ and $\sigma_2 \co (v_{\fakeslice X_2})_{j_2} \to u_i$ with $j_1 \co \cal{J}_{\fakeslice Y_1}$ and $j_2 \co \cal{J}_{\fakeslice Y_2}$ denote the base changes of $i$ over along $p_1$ and $p_2$, respectively:
 \[
 \xymatrix{
   C_1
   \ar[rr]
-  \ar[dd]_{(v_{//X_1})_{j_1}}
+  \ar[dd]_{(v_{\fakeslice X_1})_{j_1}}
   \pullback{dr}
   \ar@{.>}[dr]
 &&
   A
-  \ar[dd]^(0.3){u_i}
+  \ar[dd]^(0.3){u_i}|!{[dl];[dr]}{\hole}
   \ar@{=}[dr]
 \\&
   C_2
   \ar[rr]
-  \ar[dd]_(0.3){(v_{//X_2})_{j_2}}
+  \ar[dd]_(0.3){(v_{\fakeslice X_2})_{j_2}}
   \pullback{dr}
 &&
   A
   \ar[dd]^{u_i}
 \\
   D_1
-  \ar[rr]
+  \ar[rr]|!{[dr];[ur]}{\hole}
   \ar[dd]
   \pullback{dr}
   \ar@{.>}[dr]
 &&
   B
-  \ar[dd]
+  \ar[dd]|!{[dl];[dr]}{\hole}
   \ar@{=}[dr]
 \\&
   D_2
@@ -3308,7 +3300,7 @@ Let $\sigma_1 \co (v_{//X_1})_{j_1} \to u_i$ and $\sigma_2 \co (v_{//X_2})_{j_2}
   \ar[dd]
 \\
   Y_1
-  \ar[rr]^(0.7){p_1}
+  \ar[rr]^(0.7){p_1}|!{[dr];[ur]}{\hole}
   \ar[dr]^{t}
 &&
   X_1
@@ -3320,60 +3312,60 @@ Let $\sigma_1 \co (v_{//X_1})_{j_1} \to u_i$ and $\sigma_2 \co (v_{//X_2})_{j_2}
   X_2
 \rlap{.}}
 \]
-Recall that we have a canonical morphism $\phi_{u_i}^\to \co (v_{//X_1})_{j_1} \to (v_{//X_2})_{j_2}$ over $Y_2$ as indicated in the diagram.
-By assumption, this lifts to a morphism $\upsilon \defeq \phi_j \co j_1 \to j_2$ in $\cal{J}_{//Y_2}$.
+Recall that we have a canonical morphism $\phi_{u_i}^\to \co (v_{\fakeslice X_1})_{j_1} \to (v_{\fakeslice X_2})_{j_2}$ over $Y_2$ as indicated in the diagram.
+By assumption, this lifts to a morphism $\upsilon \defeq \phi_j \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y_2}$.
 
 The proof of \cref{strong-h-equiv-frobenius} endows $j_1$ and $j_2$ with data for a strong left homotopy equivalence consisting of retracts $\pi_1$ and $\pi_2$, respectively.
-Our goal is to check that $\phi_j$ lifts to a morphism in $\cal{S}(\cal{J}_{//Y_2})$, \ie to verify that $u_{\upsilon}$ coheres as follows:
+Our goal is to check that $\phi_j$ lifts to a morphism in $\cal{S}(\cal{J}_{\fakeslice Y_2})$, \ie to verify that $u_{\upsilon}$ coheres as follows:
 \[
 \xymatrix@C+2em{
-  \rcyl \hatotimes (v_{//X_1})_{j_1}
+  \rcyl \hatotimes (v_{\fakeslice X_1})_{j_1}
   \ar[r]^-{\pi_1}
   \ar[d]_{\rcyl \hatotimes u_{\upsilon}}
 &
-  (v_{//X_1})_{j_1}
+  (v_{\fakeslice X_1})_{j_1}
   \ar[d]^{u_{\upsilon}}
 \\
-  \rcyl \hatotimes (v_{//X_2})_{j_2}
+  \rcyl \hatotimes (v_{\fakeslice X_2})_{j_2}
   \ar[r]_-{\pi_2}
 &
-  (v_{//X_2})_{j_2}
+  (v_{\fakeslice X_2})_{j_2}
 \rlap{.}}
 \]
 Recall the construction of $\pi_1$ and $\pi_2$, where we omit again the horizontal composite identities:
 \[
-\xymatrix@C+2em{
-  (v_{//X_1})_{j_1}
-  \ar[rr]^-{\thetak \hatotimes (v_{//X_1})_{j_1}}
+\xymatrix{
+  (v_{\fakeslice X_1})_{j_1}
+  \ar[rr]^-{\thetak \hatotimes (v_{\fakeslice X_1})_{j_1}}
   \ar[dd]_{\sigma_1}
   \ar[dr]^{u_\upsilon}
 &&
-  \rcyl \hatotimes (v_{//X_1})_{j_1}
+  \rcyl \hatotimes (v_{\fakeslice X_1})_{j_1}
   \ar@{.>}[rr]^-{\pi_1}
-  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}
+  \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}|!{[dl];[dr]}{\hole}
   \ar[dr]^{\kcyl \hatotimes u_\upsilon}
 &&
-  (v_{//X_1})_{j_1}
-  \ar[dd]^(0.3){\sigma_1}
+  (v_{\fakeslice X_1})_{j_1}
+  \ar[dd]^(0.3){\sigma_1}|!{[dl];[dr]}{\hole}
   \ar[dr]^{u_\upsilon}
 \\&
-  (v_{//X_2})_{j_2}
-  \ar[rr]^-(0.3){\thetak \hatotimes (v_{//X_2})_{j_2}}
+  (v_{\fakeslice X_2})_{j_2}
+  \ar[rr]^-(0.25){\thetak \hatotimes (v_{\fakeslice X_2})_{j_2}}
   \ar[dd]_(0.3){\sigma_2}
 &&
-  \rcyl \hatotimes (v_{//X_2})_{j_2}
+  \rcyl \hatotimes (v_{\fakeslice X_2})_{j_2}
   \ar@{.>}[rr]^-(0.3){\pi_2}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_2}
 &&
-  (v_{//X_2})_{j_2}
+  (v_{\fakeslice X_2})_{j_2}
   \ar[dd]^(0.3){\sigma_2}
 \\
   u_i
-  \ar[rr]^-(0.25){\thetak \hatotimes u_i}
+  \ar[rr]^-(0.25){\thetak \hatotimes u_i}|!{[ur];[dr]}{\hole}
   \ar@{=}[dr]
 &&
   \rcyl \hatotimes u_i
-  \ar[rr]^-(0.3){\rho}
+  \ar[rr]^-(0.3){\rho}|!{[ur];[dr]}{\hole}
   \ar@{=}[dr]
 &&
   u_i
@@ -3395,20 +3387,20 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   D_1
   \ar[rr]^-{\kcylinv \otimes D_1}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^(0.6){\cod(u_{\upsilon})}
 &&
   \interval \otimes D_1
   \ar@{.>}[rr]^-{\cod(\pi_1)}
-  \ar[dd]^(0.3){\interval \otimes \cod(\sigma_1)}
-  \ar[dr]^{\interval \otimes \cod(u_{\upsilon})}
+  \ar[dd]^(0.35){\interval \otimes \cod(\sigma_1)}|!{[dl];[dr]}{\hole}
+  \ar[dr]^(0.6){\interval \otimes \cod(u_{\upsilon})}
 &&
   D_1
-  \ar[dd]^(0.3){\cod(\sigma_1)}
+  \ar[dd]^(0.35){\cod(\sigma_1)}|!{[dl];[dr]}{\hole}
   \ar[dr]^{\cod(u_{\upsilon})}
 \\&
   D_2
   \ar[rr]^-(0.3){\kcylinv \otimes D_2}
-  \ar[dd]_(0.3){\cod(\sigma_2)}
+  \ar[dd]^(0.3){\cod(\sigma_2)}
 &&
   \interval \otimes D_2
   \ar@{.>}[rr]^-(0.3){\cod(\pi_2)}
@@ -3418,11 +3410,11 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   \ar[dd]^(0.3){\cod(\sigma_2)}
 \\
   B
-  \ar[rr]^-(0.25){\kcylinv \otimes B}
+  \ar[rr]^-(0.25){\kcylinv \otimes B}|!{[ur];[dr]}{\hole}
   \ar@{=}[dr]
 &&
   \interval \otimes B
-  \ar[rr]^-(0.3){\cod(\rho)}
+  \ar[rr]^-(0.3){\cod(\rho)}|!{[ur];[dr]}{\hole}
   \ar@{=}[dr]
 &&
   B
@@ -3442,31 +3434,31 @@ For our goal, it will thus suffice to show that the maps from the back to the fr
 This is canonically the case except potentially for the top middle map $\interval \otimes D_1 \to \interval \otimes D_2$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
 \[
-\xymatrix@C+2em{
+\xymatrix@C+1em{
   D_1
   \ar[rrrr]
   \ar[dd]_{\kcylinv \otimes D_1}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^(0.6){\cod(u_{\upsilon})}
 &&&&
   Y_1
-  \ar[dd]^(0.3){p_1}
+  \ar[dd]^(0.3){p_1}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
   \ar[dr]^{t}
 \\&
   D_2
   \ar[rrrr]
-  \ar[dd]_(0.7){\kcylinv \otimes D_2}
+  \ar[dd]^(0.66){\kcylinv \otimes D_2}
 &&&&
   Y_2
   \ar[dd]^{p_2}
 \\
   \interval \otimes D_1
-  \ar[rr]_(0.7){I \otimes \cod(\sigma_1)}
-  \ar@{-->}[uurrrr]
+  \ar[rr]^(0.7){I \otimes \cod(\sigma_1)}|!{[ur];[dr]}{\hole}
+  \ar@{-->}[uurrrr]|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
   \ar[dr]_{I \otimes \cod(u_{\upsilon})}
 &&
   \interval \otimes B_1
-  \ar[rr]
-  \ar@{=}[dr]
+  \ar[rr]|!{[dl];[urrr]}{\hole}
+  \ar@{=}[dr]|!{[dl];[urrr]}{\hole}
 &&
   X_1
   \ar[dr]^{s}
