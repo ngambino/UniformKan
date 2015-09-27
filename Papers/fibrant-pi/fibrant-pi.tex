@@ -1525,7 +1525,7 @@ By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatoti
 But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
 \end{proof}
 
-\cref{leibniz-lift} enables us to characterise effective connections as follows.
+\cref{leibniz-lift} enables us to give a seemingly stronger, yet equivalent characterization of effective connections.
 
 \begin{corollary} \label{effective-connections-leibniz}
 The functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \co \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$. \qed
@@ -1546,7 +1546,7 @@ By \cref{effective-connections-leibniz}, the functorial cylinder has effective c
 \rlap{.}}
 \end{equation}
 This retract situation is the categorical reason why Coquand \etal\cite{coquand-variation} are able to, in their teminology, reduce filling for L-systems to composition.
-Translating to our language, a filling problem for an \emph{L-system} is a lifting problem of the form $\kcyl \hatotimes f \to p$.
+Translating to our language, a filling problem for an L-system is a lifting problem of the form $\kcyl \hatotimes f \to p$ with $f$ mono.
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
@@ -2473,7 +2473,7 @@ Easy calculation using that $\liftl{(\liftr{(-)})}$ is a monad.
 
 \noten{Add some discussion of this notion and forward references to its uses}
 
-\section{The Frobenius and Beck-Chevalley conditions for strong homotopy equivalences}
+\section{The uniform Frobenius condition for strong homotopy equivalences}
 
 For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections as well as a functor $u \co \cal{I} \to \catE^\to$.
 
@@ -2517,14 +2517,13 @@ By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$ as given in~\eqref{equ
 We finish by applying \cref{uniform-frobenius-change-v}.
 \end{proof}
 
-\section{The Frobenius and Beck-Chevalley conditions for uniform fibrations}
+\section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
 \subsection*{The Frobenius condition}
 
-The aim of this section is to show that, under suitable hypotheses, uniform fibrations to satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
-The proof of the main result in this section, \cref{uniform-fibrations-uniform-frobenius}, relies on two key steps, one followin
-g from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
+The aim of this section is to show that, under suitable hypotheses, uniform fibrations satisfy the Frobenius condition, and in particular that uniform fibrations in presheaf categories always satisfy the Frobenius condition.
+The proof of the main result in this section, \cref{uniform-fibrations-uniform-frobenius}, relies on two key steps, one following from our earlier results on strong homotopy equivalences and one on right orhogonality classes.
 
 For the remainder of this section, let $\catE$ be a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections.
 We fix a functor $u \co \cal{I} \to \catE^\to$ that is closed closed with respect to Leibniz product with endpoint inclusions.
@@ -2760,15 +2759,15 @@ We abbreviate the functor
 by $v_{//X} \co \cal{J}_{//Y} \to \catE^\to$.
 Note that the canonical map
 \[
-  (\liftl{(\liftr{\cal{I}})})_{/X} \to \cal{J}_{//Y}
+  (\liftl{(\liftr{\cal{I}})})_{/X} \to \cal{J}_{//X}
 \]
-of functors over $\catE^\to$ is not in general invertible, which we highlight by using the double slash subscript notation.
+of functors over $\catE^\to$ is not in general invertible, which is highlighted by the double slash notation.
 The assumption now is that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{J}_{/X}$.
 Since we have a canonical map
 \[
 \cal{S}_k(\cal{J}_{//X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
 ,\]
-the goal will follow if we can show that it lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{/X})$ as follows:
+the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{/X})$ as follows:
 \[
 \xymatrix@C+2em{
   \cal{S}_k(\cal{I}_{/Y})
