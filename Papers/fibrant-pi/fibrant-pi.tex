@@ -2459,10 +2459,10 @@ Consider a map of categories of arrows as follows:
 \xymatrix{
   \cal{J}_1
   \ar[rr]
-  \ar[dr]
+  \ar[dr]_{v_1}
 &&
   \cal{J}_2
-  \ar[dl]
+  \ar[dl]^{v_2}
 \\&
   \catE^\to
 \rlap{.}}
@@ -3028,17 +3028,17 @@ Recall that this includes pullback squares
 \end{aligned}
 \]
 Cartesian over $p \co X \to Y$.
-Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{J}_{\fakeslice X}$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\upsilon \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y}$.
-We want to show that $\upsilon$ in addition forms a morphism of strong left homotopy equivalences $\upsilon \co ((v_{\fakeslice X})_{j_1}, \pi_1) \to ((v_{\fakeslice X})_{j_2}, \pi_2)$.
+Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{J}_{\fakeslice X}$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\zeta \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y}$.
+We want to show that $\zeta$ in addition forms a morphism of strong left homotopy equivalences $\zeta \co ((v_{\fakeslice X})_{j_1}, \pi_1) \to ((v_{\fakeslice X})_{j_2}, \pi_2)$.
 For this, we have to verify commutativity of the following diagram:
 \[
 \xymatrix@C+2em{
   \kcyl \hatotimes (v_{\fakeslice X}){j_1}
   \ar[r]^-{\pi_1}
-  \ar[d]_{\kcyl \hatotimes u_{\upsilon}}
+  \ar[d]_{\kcyl \hatotimes u_{\zeta}}
 &
   (v_{\fakeslice X})_{j_1}
-  \ar[d]^{u_{\upsilon}}
+  \ar[d]^{u_{\zeta}}
 \\
   \kcyl \hatotimes {v_{\fakeslice X}}_{j_2}
   \ar[r]_-{\pi_2}
@@ -3052,16 +3052,16 @@ Recall the construction of $\pi_1$ and $\pi_2$, omitting horizontal composite id
   (v_{\fakeslice X})_{j_1}
   \ar[rr]^-{\thetak \hatotimes (v_{\fakeslice X})_{j_1}}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{u_{\upsilon}}
+  \ar[dr]^{u_{\zeta}}
 &&
   \kcyl \hatotimes (v_{\fakeslice X})_{j_1}
   \ar@{.>}[rr]^-{\pi_1}
   \ar[dd]^(0.3){\kcyl \hatotimes \sigma_1}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\kcyl \hatotimes u_{\upsilon}}
+  \ar[dr]^{\kcyl \hatotimes u_{\zeta}}
 &&
   (v_{\fakeslice X})_{j_1}
   \ar[dd]^(0.3){\sigma_1}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{u_{\upsilon}}
+  \ar[dr]^{u_{\zeta}}
 \\&
   (v_{\fakeslice X})_{j_2}
   \ar[rr]^-(0.3){\thetak \hatotimes v_{j_2}}
@@ -3080,7 +3080,7 @@ Recall the construction of $\pi_1$ and $\pi_2$, omitting horizontal composite id
 &&
   \kcyl \hatotimes u_{i_1}
   \ar[rr]^-(0.3){\rho_1}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{\kcyl \hatotimes u_{\upsilon}}
+  \ar[dr]^{\kcyl \hatotimes u_{\zeta}}
 &&
   u_{i_1}
   \ar[dr]^{u_\tau}
@@ -3101,16 +3101,16 @@ Since that square commutes after composing it with the pullback square $\sigma_2
   D_1
   \ar[rr]^-{\kcylinv \otimes D_1}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^{\cod(u_{\zeta})}
 &&
   \interval \otimes D_1
   \ar@{.>}[rr]^-{\cod(\pi_1)}
   \ar[dd]^(0.35){\interval \otimes \cod(\sigma_1)}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\interval \otimes \cod(u_{\upsilon})}
+  \ar[dr]^{\interval \otimes \cod(u_{\zeta})}
 &&
   D_1
   \ar[dd]^(0.35){\cod(\sigma_1)}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^{\cod(u_{\zeta})}
 \\&
   D_2
   \ar[rr]^-(0.3){\kcylinv \otimes D_2}
@@ -3129,7 +3129,7 @@ Since that square commutes after composing it with the pullback square $\sigma_2
 &&
   \interval \otimes B_1
   \ar[rr]^-(0.3){\cod(\rho_1)}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{\interval \otimes \cod(u_{\upsilon})}
+  \ar[dr]^{\interval \otimes \cod(u_{\zeta})}
 &&
   B_1
   \ar[dr]^{\cod(u_\tau)}
@@ -3152,7 +3152,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   D_1
   \ar[rrrr]
   \ar[dd]_{\kcylinv \otimes D_1}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^{\cod(u_{\zeta})}
 &&&&
   X
   \ar[dd]^(0.3){p}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
@@ -3168,7 +3168,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \interval \otimes D_1
   \ar[rr]^(0.7){I \otimes \cod(\sigma_1)}|!{[ur];[dr]}{\hole}
   \ar@{-->}[uurrrr]|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
-  \ar[dr]_{I \otimes \cod(u_{\upsilon})}
+  \ar[dr]_{I \otimes \cod(u_{\zeta})}
 &&
   \interval \otimes B_1
   \ar[rr]|!{[dl];[urrr]}{\hole}
@@ -3313,18 +3313,18 @@ Let $\sigma_1 \co (v_{\fakeslice X_1})_{j_1} \to u_i$ and $\sigma_2 \co (v_{\fak
 \rlap{.}}
 \]
 Recall that we have a canonical morphism $\phi_{u_i}^\to \co (v_{\fakeslice X_1})_{j_1} \to (v_{\fakeslice X_2})_{j_2}$ over $Y_2$ as indicated in the diagram.
-By assumption, this lifts to a morphism $\upsilon \defeq \phi_j \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y_2}$.
+By assumption, this lifts to a morphism $\zeta \defeq \phi_j \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y_2}$.
 
 The proof of \cref{strong-h-equiv-frobenius} endows $j_1$ and $j_2$ with data for a strong left homotopy equivalence consisting of retracts $\pi_1$ and $\pi_2$, respectively.
-Our goal is to check that $\phi_j$ lifts to a morphism in $\cal{S}(\cal{J}_{\fakeslice Y_2})$, \ie to verify that $u_{\upsilon}$ coheres as follows:
+Our goal is to check that $\phi_j$ lifts to a morphism in $\cal{S}(\cal{J}_{\fakeslice Y_2})$, \ie to verify that $u_{\zeta}$ coheres as follows:
 \[
 \xymatrix@C+2em{
   \rcyl \hatotimes (v_{\fakeslice X_1})_{j_1}
   \ar[r]^-{\pi_1}
-  \ar[d]_{\rcyl \hatotimes u_{\upsilon}}
+  \ar[d]_{\rcyl \hatotimes u_{\zeta}}
 &
   (v_{\fakeslice X_1})_{j_1}
-  \ar[d]^{u_{\upsilon}}
+  \ar[d]^{u_{\zeta}}
 \\
   \rcyl \hatotimes (v_{\fakeslice X_2})_{j_2}
   \ar[r]_-{\pi_2}
@@ -3338,16 +3338,16 @@ Recall the construction of $\pi_1$ and $\pi_2$, where we omit again the horizont
   (v_{\fakeslice X_1})_{j_1}
   \ar[rr]^-{\thetak \hatotimes (v_{\fakeslice X_1})_{j_1}}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^{u_\upsilon}
+  \ar[dr]^{u_\zeta}
 &&
   \rcyl \hatotimes (v_{\fakeslice X_1})_{j_1}
   \ar@{.>}[rr]^-{\pi_1}
   \ar[dd]^(0.3){\rcyl \hatotimes \sigma_1}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\kcyl \hatotimes u_\upsilon}
+  \ar[dr]^{\kcyl \hatotimes u_\zeta}
 &&
   (v_{\fakeslice X_1})_{j_1}
   \ar[dd]^(0.3){\sigma_1}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{u_\upsilon}
+  \ar[dr]^{u_\zeta}
 \\&
   (v_{\fakeslice X_2})_{j_2}
   \ar[rr]^-(0.25){\thetak \hatotimes (v_{\fakeslice X_2})_{j_2}}
@@ -3387,16 +3387,16 @@ Since that square commutes after composing it with the Cartesian square $\sigma_
   D_1
   \ar[rr]^-{\kcylinv \otimes D_1}
   \ar[dd]_{\sigma_1}
-  \ar[dr]^(0.6){\cod(u_{\upsilon})}
+  \ar[dr]^(0.6){\cod(u_{\zeta})}
 &&
   \interval \otimes D_1
   \ar@{.>}[rr]^-{\cod(\pi_1)}
   \ar[dd]^(0.35){\interval \otimes \cod(\sigma_1)}|!{[dl];[dr]}{\hole}
-  \ar[dr]^(0.6){\interval \otimes \cod(u_{\upsilon})}
+  \ar[dr]^(0.6){\interval \otimes \cod(u_{\zeta})}
 &&
   D_1
   \ar[dd]^(0.35){\cod(\sigma_1)}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\cod(u_{\upsilon})}
+  \ar[dr]^{\cod(u_{\zeta})}
 \\&
   D_2
   \ar[rr]^-(0.3){\kcylinv \otimes D_2}
@@ -3438,7 +3438,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   D_1
   \ar[rrrr]
   \ar[dd]_{\kcylinv \otimes D_1}
-  \ar[dr]^(0.6){\cod(u_{\upsilon})}
+  \ar[dr]^(0.6){\cod(u_{\zeta})}
 &&&&
   Y_1
   \ar[dd]^(0.3){p_1}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
@@ -3454,7 +3454,7 @@ For this, we have to verify coherence of the dashed arrows as indicated below:
   \interval \otimes D_1
   \ar[rr]^(0.7){I \otimes \cod(\sigma_1)}|!{[ur];[dr]}{\hole}
   \ar@{-->}[uurrrr]|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
-  \ar[dr]_{I \otimes \cod(u_{\upsilon})}
+  \ar[dr]_{I \otimes \cod(u_{\zeta})}
 &&
   \interval \otimes B_1
   \ar[rr]|!{[dl];[urrr]}{\hole}
