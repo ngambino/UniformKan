@@ -1945,7 +1945,7 @@ If one exists, we choose $s' \cc \yon(d)$ as filler.
 
 It only remains to justify that the latter choice is independent of the particular factorisation.
 This is where we use the assumption that the Reedy category $\R$ is elegant.
-\cref{pushout-non-trivial-deg-boundary} below shows that any two factorings through non-trivial codegeneracies $d_1$ and $d_2$ extends to a common factoring through the pushout of $d_1$ and $d_2$, yielding independence as required.
+\cref{pushout-non-trivial-deg-boundary} below shows that any two factorings through non-trivial codegeneracies $d_1$ and $d_2$ extend to a common factoring through the pushout of $d_1$ and $d_2$, yielding independence as required.
 Note this also shows the existence of a unique largest factoring since $\alpha$ is wellfounded.
 \end{proof}
 
@@ -1953,7 +1953,7 @@ Note this also shows the existence of a unique largest factoring since $\alpha$ 
 \label{pushout-non-trivial-deg-boundary}
 Let $d_i \co A \to B_i$ be a non-trivial codegeneracy for $i \in \braces{1, 2}$.
 Then the span $(d_1, d_2)$ has a pushout $(e_1, e_2)$ with $e_i \co B_i \to C$ a codegeneracy for $i \in \braces{1, 2}$.
-The image of this square under the Yoneda embedding is again pushout.
+The image of this square under the Yoneda embedding is again a pushout.
 Furthermore, this pushout is stable under right composition with the boundary inclusion $i^A \co \partial A \to \yon A$.
 \end{lemma}
 
@@ -1988,7 +1988,7 @@ For this, we need to show how it is possible to reduce a lifting problem involvi
 such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
 \end{definition}
 
-Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admitsa \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
+Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admits a \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
 Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
 
 \begin{proposition} \label{regular-trivial-fibration-to-uniform}
@@ -2049,7 +2049,7 @@ Choose a cellular presentation for $i$.
 Base change along $V' \to V$ induces a corresponding transfinite decomposition of $i'$ into cobase changes of coproducts of monomorphisms.
 Since the fillers for squares~\eqref{regular-trivial-fibration-is-uniform:0} are independent of the chosen cellular presentation, it suffices to verify coherence of fillers in~\eqref{regular-trivial-fibration-is-uniform:1} with $i$ replaced by a single boundary inclusion as in~\eqref{regular-trivial-fibration-is-uniform:2} below and apply transfinite induction to the chosen cellular presentation for $i$.
 
-It remains to verify coherence of fillers with respect to pullback squares between monomorphisms with representable sink:
+It remains to verify coherence of fillers with respect to base changes of boundary inclusions as follows:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:2}
 \xycenter{
   U'
