@@ -2225,7 +2225,7 @@ where $p_f$ admits the structure of a uniform fibration and $i_f$ admits the str
 \end{theorem}
 
 \begin{proof}
-First, observe that the full subcategory of $\catE^\to$ spanned by monomorphisms with codomain a representable presheaf is small.
+First, observe that the full subcategory of $\catE^\to$ spanned by the monomorphisms with codomain a representable presheaf is small.
 Now, since the inclusion~$u \co \cal{N} \hookrightarrow \catE^\to$ preserves $\omega$-filtered colimits, it is possible to apply Garner's small object argument to obtain an algebraic weak factorisation system $(\mathsf{L}_1, \mathsf{R}_1)$.
 The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
 For (ii), Garner's small object argument, it is sufficient to find a functor $v \co \cal{J} \rightarrow \catE^\to$ such that the category~$\cal{J}$ is small and the category of uniform Kan fibrations is isomorphic to~$\liftr{\cal{J}}$.
@@ -2708,9 +2708,9 @@ A natural question to ask is whether the natural isomorphism
   \ar[rr]^{(q \cc p)_*}
 &&
   \catE_{/Z}
-  \ar[dl]^{q_*}
 \\&
   \catE_{/Y}
+  \ar[ur]_{q_*}
 \rlap{,}}
 \]
 relating pushforward functors lifts to a natural isomophism between their lifts:
@@ -2721,9 +2721,9 @@ relating pushforward functors lifts to a natural isomophism between their lifts:
   \ar[rr]^{(q \cc p)_*}
 &&
   \Fib[\cal{I}]_{/Z}
-  \ar[dl]^{q_*}
 \\&
   \Fib[\cal{I}]_{/Y}
+  \ar[ur]_{q_*}
 \rlap{.}}
 \end{equation}
 First of all, inspection of the proof of~\cref{strong-h-equiv-frobenius} reveals that we indeed have such a natural isomorphism at the level of right maps for strong homotopy equivalences:
@@ -2734,9 +2734,9 @@ First of all, inspection of the proof of~\cref{strong-h-equiv-frobenius} reveals
   \ar[rr]^{(q \cc p)_*}
 &&
   \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}_{/Z}
-  \ar[dl]^{q_*}
 \\&
   \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}_{/Y}
+  \ar[ur]^{q_*}
 \rlap{.}}
 \]
 Unfortunately, it is not the case that this isomorphism transfers to the diagram~\eqref{2-functoriality:0}.
@@ -2811,7 +2811,7 @@ The binary comparison in \cref{relating-strong-hequiv-and-uniform-fib} thus turn
 \end{gathered}
 \end{equation}
 As before, only the lower three faces commute here by default.
-However, under the assumption that the retraction $\rho$ to $\thetak \hatotimes \kcyl \hatotimes (-)$ provided by effective connections as per \cref{retraction-for-connections} is also a retraction to $\kcyl \hatotimes \thetak \hatotimes (-)$ (this is the case if we have connections, crucially using commutativity of the right half of diagram~\eqref{connections:1}, which was not needed for effective connections), we state directly a natural transformation from the unit $\eta_{\thetak \hatotimes u} \co \thetak \hatotimes u \to \overline{\thetak \hatotimes u}_l$ of the left retract closure monad to the composition $L_k' M_k L_k''$.
+However, under the assumption that the retraction $\rho$ to $\thetak \hatotimes \kcyl \hatotimes (-)$ provided by effective connections as per \cref{retraction-for-connections} is also a retraction to $\kcyl \hatotimes \thetak \hatotimes (-)$ (this is the case if we have connections, crucially using commutativity of the right half of diagram~\eqref{connections:1}, which was not needed for effective connections), we can state directly a natural transformation from the unit $\eta_{\thetak \hatotimes u} \co \thetak \hatotimes u \to \overline{(\thetak \hatotimes u)}_l$ of the left retract closure monad to the composition $L_k' M_k L_k''$.
 Using the analogue of the adjunction~\eqref{garner-adjunction} for lifts of squares against arrows, it then follows that the top triangle in~\eqref{relating-strong-hequiv-and-uniform-fib-and-uniform-composition-fib} commutes when starting from $\Fib[\cal{I}]''$.
 Thus, the category $\Fib[\cal{I}]''$ is distinguished from $\Fib[\cal{I}]$ and $\Fib[\cal{I}]'$ in that it is a retract of the other categories, giving credence to the point of view of seeing it as the most primitive of the three notions.
 
@@ -2841,7 +2841,7 @@ of functors over $\catE^\to$ is not in general invertible, which is highlighted 
 The assumption now is that pullback along $p$ lifts to a functor $p^* \co \cal{I}_{/Y} \to \cal{J}_{/X}$.
 Since we have a canonical map
 \[
-\cal{S}_k(\cal{J}_{\fakeslice X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
+\cal{S}_k(\cal{J}_{\fakeslice X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I})_{/X}})}
 ,\]
 the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{/X})$ as follows:
 \[
