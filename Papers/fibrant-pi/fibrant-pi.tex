@@ -2732,80 +2732,9 @@ Inspecting \cref{uniform-fibrations-uniform-frobenius}, the issue hinges on the 
 The problem is perhaps most illuminated at nullary composition: the lift of pushforward along an identity will not be an identity functor, rather it will be given by $\liftr{(M_0 + M_1)}$ after $\liftr{(L_0 + L_1)}$ in \cref{relating-strong-hequiv-and-uniform-fib}.
 
 The next question thus becomes: if we do want to have 2-functoriality of pushforward, what should an alternate notion of uniform $\cal{I}$-fibrations be instead?
-The easy answer, as per the discussion above, would be to define $\Fib[\cal{I}]' \defeq \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}$ as right maps for strong homotopy equivalences.
-However, there is a better solution going back to the discussion in \cref{retraction-for-connections} and incorporating Coquand \etals idea of taking composition instead of filling as the primitive operation.
-\notec{Find appropriate reference.}
-
-For this, we first have to remark that it is possible to extend in a rather straightforward fashion the theory of \cref{sec:ortf} from lifts of arrows against arrows to lifts of \emph{squares} against \emph{squares}, in the sense that a \emph{lifting problem} of a left square $L$ against a right square $R$ given as per the dashed arrows below 
-\[
-\xymatrix{
-  \bullet
-  \ar[r]
-  \ar[d]
-  \ar@{}[dr]|{L}
-&
-  \bullet
-  \ar@{-->}[r]
-  \ar[d]
-&
-  \bullet
-  \ar[r]
-  \ar[d]
-  \ar@{}[dr]|{R}
-&
-  \bullet
-  \ar[d]
-\\
-  \bullet
-  \ar[r]
-  \ar@{.>}[urrr]
-&
-  \bullet
-  \ar@{-->}[r]
-&
-  \bullet
-  \ar[r]
-&
-  \bullet
-\rlap{,}}
-\]
-with a \emph{filler} consisting of a diagonal map for the composite square cohering as indicated by the dotted arrow.
-Although it is convenient to develop the theory at this level of generality, we will only be needing an intermediate generalization of lifts of \emph{squares} against \emph{arrows}.
-Recall that $\Fib[\cal{I}]$ was defined as the right maps for the categories of arrows $\kcyl \hatotimes u$ with $k \in \braces{0, 1}$.
-We now define an alternate category $\Fib[\cal{I}]''$ of uniform $\cal{I}$-fibrations as the right maps for the categories of \emph{squares} $\thetak \hatotimes u$ with $k \in \braces{0, 1}$, once again brining to prominence the fundamental square~\eqref{the-trivial-square}.
-In the terminology of ?? \notec{insert reference}, the old category $\Fib[\cal{I}]$ corresponds to maps with a Kan filling structure, while the new category $\Fib[\cal{I}]''$ corresponds to maps with a Kan composition structure.
-
-It is easy to see from the characterization \cref{strong-h-equiv-as-section} of strong homotopy equivalences that the map $L_k$ from $\cal{S}_k(u)$ to $\overline{\kcyl \hatotimes u}$ from \cref{lem:from-strong-hequiv} factors as $L_k = \overline{(L_k'')}_l \cc L_k'$ where $L_k'$ goes from $\cal{S}_k(u)$ to $\overline{\thetak \hatotimes u}_l$ and $L_k''$ is the canonical map from $\thetak \hatotimes u$ to the square $\kcyl \hatotimes u$ constant in horizontal direction.
-Here, we have silently used a notion of \emph{left retract closure} $\overline{(-)}_l$ for squares that generalizes in an asymmetric, but evident way the retract closure construction of \cref{sec:ortf}.
-The binary comparison in \cref{relating-strong-hequiv-and-uniform-fib} thus turns into a ternary comparison as follows:
-\begin{equation} \label{relating-strong-hequiv-and-uniform-fib-and-uniform-composition-fib}
-\begin{gathered}
-\xymatrix@C+2em{
-&
-  \Fib[\cal{I}]''
-  \ar[dl]_{\liftr{(L_0'' + L_1'')}}
-  \ar[dd]|!{[dl];[dr]}{\hole}
-\\
-  \Fib[\cal{I}]'
-  \ar[rr]^(0.35){\liftr{(M_0 + M_1)}}
-  \ar[dr]
-&&
-  \Fib[\cal{I}]
-  \ar[ul]_{\liftr{(L_0' + L_1')}}
-  \ar[dl]
-\\&
-  \catE^\to
-}
-\end{gathered}
-\end{equation}
-As before, only the lower three faces commute here by default.
-However, under the assumption that the retraction $\rho$ to $\thetak \hatotimes \kcyl \hatotimes (-)$ provided by effective connections as per \cref{retraction-for-connections} is also a retraction to $\kcyl \hatotimes \thetak \hatotimes (-)$ (this is the case if we have connections, crucially using commutativity of the right half of diagram~\eqref{connections:1}, which was not needed for effective connections), we can state directly a natural transformation from the unit $\eta_{\thetak \hatotimes u} \co \thetak \hatotimes u \to \overline{(\thetak \hatotimes u)}_l$ of the left retract closure monad to the composition $L_k' M_k L_k''$.
-Using the analogue of the adjunction~\eqref{garner-adjunction} for lifts of squares against arrows, it then follows that the top triangle in~\eqref{relating-strong-hequiv-and-uniform-fib-and-uniform-composition-fib} commutes when starting from $\Fib[\cal{I}]''$.
-Thus, the category $\Fib[\cal{I}]''$ is distinguished from $\Fib[\cal{I}]$ and $\Fib[\cal{I}]'$ in that it is a retract of the other categories, giving credence to the point of view of seeing it as the most primitive of the three notions.
-
-We finish by remarking that it is possible to give a proof of the uniform Frobenius condition for $\Fib[\cal{I}]''$ similar to our current version for $\Fib[\cal{I}]'$ once the generalization of the theory of \cref{sec:ortf} to lifts of squares against squares is in place.
-% The following is not quite true: note that using the retract situation, our existing proof of the uniform Frobenius property for $\Fib[\cal{I}']$ transfers to $\Fib[\cal{I}]''$ such that 2-functoriality of lifts of pushforward is preserves.
-\notec{To do: comparison with Coquand's proof fits in here as well.}
+An easy answer, as per the discussion above, would be to define $\Fib[\cal{I}]' \defeq \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}$ as right maps for strong homotopy equivalences.
+In contrast to $\Fib[\cal{I}]$, however, it does not seem that $\Fib[\cal{I}]'$-admits a description as the category of algebras in a natural weak factorization system.
+\notec{To do: comparison with Coquand's proof needed; what reference to use?}
 \end{remark}
 
 
