@@ -410,7 +410,7 @@ An interval object $(\interval, \lcyl, \rcyl)$ has \emph{effective connections} 
 
 Assuming connections, we see in~\eqref{connections-for-interval:0} that the map $c^0$, seen as a homotopy from $\id_I$ to $\lcyl \cc \ccyl$, makes $\lcyl$ into a strong left deformation retract with left inverse $\ccyl$.
 Dually, the map $c^1$ makes $\rcyl$ into a strong right deformation retract with left inverse $\ccyl$.
-Note that this is not an equivalent characterization of connections as commutativity of the right triangle in the seond diagram in~\eqref{connections-for-interval:0} is not captured.
+Note that this is not an equivalent characterization of connections as commutativity of the right triangle in the second diagram in~\eqref{connections-for-interval:0} is not captured.
 Since strong deformation retracts are special cases of strong homotopy equivalences, we have effective connections.
 This all is analogous to \cref{connections-are-effective}.
 
@@ -1319,7 +1319,8 @@ Observe that for every $f \co X \to Y$, we have an isomorphism
 \bot \hatotimes f \iso f \, .
 \end{equation}
 For $k \in \braces{0, 1}$, we have a commutative square of functors and natural transformations
-\[
+\begin{equation} \label{the-trivial-square}
+\begin{gathered}
 \xymatrix@C+2em{
   0_\catE
   \ar[r]^{\bot}
@@ -1333,7 +1334,8 @@ For $k \in \braces{0, 1}$, we have a commutative square of functors and natural 
 &
   \interval \otimes (-)
 \rlap{.}}
-\]
+\end{gathered}
+\end{equation}
 This diagram determines two maps in $[\catE, \catE]^\to$:
 \begin{equation} \label{equ:thetas}
 \begin{aligned}
@@ -1548,7 +1550,7 @@ But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve sect
 The functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \co \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$. \qed
 \end{corollary}
 
-\begin{remark}[Fillers and compositions] \label{thm:retraction-for-connections}
+\begin{remark}[Fillers and compositions] \label{retraction-for-connections}
 By \cref{effective-connections-leibniz}, the functorial cylinder has effective connections if and only if, for $k \in \braces{0, 1}$, there exists a natural transformation $\rho \co \kcyl \hatotimes \kcyl \hatotimes (-) \to \kcyl \hatotimes (-)$ in the arrow category whose components provide retractions as follows:
 \begin{equation} \label{retraction-for-connections:0}
 \xymatrix@C+3em{
@@ -1563,7 +1565,7 @@ By \cref{effective-connections-leibniz}, the functorial cylinder has effective c
 \rlap{.}}
 \end{equation}
 This retract situation is the categorical reason why Coquand \etal\cite{coquand-variation} are able to, in their teminology, reduce filling for L-systems to composition.
-Translating to our language, a filling problem for an L-system is a lifting problem of the form $\kcyl \hatotimes f \to p$ with $f$ mono.
+Translating to our language, a filling problem for an L-system is in particular a lifting problem of the form $\kcyl \hatotimes f \to p$ with $f$ mono.
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
@@ -1665,7 +1667,7 @@ Then there is a functor
 As before, we describe the functor $M$ only on objects.
 In order to guarantee that the diagram to commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption~\eqref{to-strong-hequiv:0} that $\kcyl \hatotimes (-)$ lifts to $\cal{I}$.
 Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes \kcyl \hatotimes u_i$ by~\eqref{to-strong-hequiv:0}.
-But such a retraction is provided by the natural transformation $\rho$ of~\cref{thm:retraction-for-connections}.
+But such a retraction is provided by the natural transformation $\rho$ of~\cref{retraction-for-connections}.
 We can then let $M(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \end{proof}
 
@@ -2487,7 +2489,7 @@ Consider a map of categories of arrows as follows:
   \catE^\to
 \rlap{.}}
 \]
-If $v_2$ satisfies the uniform Frobenius condition with respect to a functor $u : \cat{I} \to \catE^\to$, then also $v_1$.
+If $v_2$ satisfies the uniform Frobenius condition with respect to a functor $u \co \cat{I} \to \catE^\to$, then also $v_1$.
 \end{proposition}
 
 \begin{proof}
@@ -2495,7 +2497,7 @@ Obvious.
 \end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-u}
-Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be functors related as follows:
+Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be categories over $\catE^\to$ related as follows:
 \[
 \xymatrix{
   \liftr{\cal{I}_1}
@@ -2509,7 +2511,7 @@ Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be f
   \catE^\to
 \rlap{.}}
 \]
-Note that we do not impose any coherence on $F$ and $G$.
+We do not stipulate that $F$ and $G$ be inverses.
 If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condition with respect to $u_1$, then also with respect to $u_2$.
 \end{proposition}
 
@@ -2580,101 +2582,6 @@ We have that $\liftr{(\cal{I}_{\otimes})}$ satisfies the uniform Frobenius prope
 
 \begin{proof}
 We start from \cref{strong-h-equiv-uniform-frobenius-fibrations} and translate it from strong homotopy equivalences relative to $\cal{I}$ to uniform $\cal{I}$-fibrations using \cref{uniform-frobenius-change-u} with \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} as explained in \cref{relating-strong-hequiv-and-uniform-fib}.
-\begin{comment}
-For the benefit of intuition, let us make this explicit for a single right $\liftr{(\cal{I}_{\otimes})}$-map $p \co X \to Y$.
-
-We assume that the pullback along $p$ lifts to a functor
-\[
-\xymatrix@C+2em{
-  \cal{I}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{u_{/Y}}
-&
-  \liftl{(\liftr{\cal{I}_{/X}})}
-  \ar[d]^{\liftl{(\liftr{u_{/X}})}}
-\\
-  \catE_{/Y}^\to
-  \ar[r]_{p^*}
-&
-  \catE_{/X}^\to
-\rlap{.}}
-\]
-We will show that $p^*$ also lifts to a functor
-\[
-\xymatrix@C+2em{
-  {\cal{I}_\otimes}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{u_{\otimes}/Y}
-&
-  \liftl{(\liftr{{\cal{I}_{\otimes}}_{/X}})}
-  \ar[d]^{\liftl{(\liftr{{u_{\otimes}}_{/X}}})}
-\\
-  \catE_{/Y}^\to \ar[r]_{p^*}
-&
-  \catE_{/X}^\to \rlap{.}
-}
-\]
-which implies the claim by \cref{retract-closure}.
-By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$, as given in~\eqref{equ:u-tensor}, it suffices to separately show that $p^*$ lifts to functors
-\[
-\xymatrix@C+2em{
-  \cal{I}_{/Y}
-  \ar[r]^{p^*}
-  \ar[d]_{(\kcyl \hatotimes u)_{/Y}}
-&
-  \liftl{(\liftr{\cal{I}_{/X}})}
-  \ar[d]^{\liftl{(\liftr{(\kcyl \hatotimes u)_{/X}}})}
-\\
-  \catE_{/Y}^\to
-  \ar[r]_{p^*}
-&
-  \catE_{/X}^\to
-\rlap{,}}
-\]
-for $k \in \braces{0, 1}$.
-Since a uniform $\cal{I}$-fibration is in particular a $(\kcyl \otimes \id_\catE)$-right map, we can apply \cref{strong-h-equiv-base-change-along-fibration} and observe that the pullback functor lifts as follows:
-\[
-\xymatrix@C+2em{
-  \cal{S}_k(\cal{I}_{/Y})
-  \ar[r]^{G}
-  \ar[d]
-&
-  \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
-  \ar[d]
-\\
-  \catE_{/Y}^\to
-  \ar[r]_{p^*}
-&
-  \catE_{/X}^\to
-\rlap{.}}
-\]
-Composing this with the the functors of \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}, we obtain
-\[
-\xymatrix{
-  \cal{I}_{/Y}
-  \ar[rr]^{M_{/Y}}
-  \ar[dr]_{(\kcyl \hatotimes u)_{/Y}}
-&&
-  \cal{S}_k(\cal{I}_{/Y})
-  \ar[r]
-  \ar[dl]
-&
-  \liftl{(\liftr{\cal{S}_k(\cal{I}_{/X})})}
-  \ar[rr]^{\liftl{(\liftr{L_{/X}})}}
-  \ar[dr]
-&&
-  \liftl{(\liftr{\cal{I}_{/X}})}
-  \ar[dl]^{\liftl{(\liftr{(\kcyl \hatotimes u)_{/X}}})}
-\\ &
-  \catE_{/Y}^\to
-  \ar[rrr]_{p^*}
-&&&
-  \catE_{/X}^\to
-\rlap{.}}
-\]
-as required.
-Observe that the retract closure of \cref{lem:from-strong-hequiv} vanishes by \cref{retract-closure}.
-\end{comment}
 \end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley property for uniform~$\cal{I}$-fibrations.
@@ -2791,8 +2698,128 @@ As another special case of \cref{frobenius-uniform-presheaf}, we obtain that in 
 Insufficiency of the classical notion of cubical Kan fibration for a constructive derivation of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}.
 \end{example}
 
-\notec{To do: remark discussing 2-functoriality and the three possibilities of defning uniform $\cal{I}$-fibrations as right maps for filling, composition, or strong homotopy equivalences.
-Comparison with Coquand's proof fits in here as well.}
+\begin{remark}[2-functoriality]
+Uniform $\cal{I}$-fibrations, as any category of right maps, come with an additional, vertical composition operation: given uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co Y \to Z$, their composite $q \cc p \co X \to Z$ inherits a canonical right lifting function for $\cal{I}$.
+A natural question to ask is whether the natural isomorphism
+\[
+\xymatrix{
+  \catE_{/X}
+  \ar[dr]_{p_*}
+  \ar[rr]^{(q \cc p)_*}
+&&
+  \catE_{/Z}
+  \ar[dl]^{q_*}
+\\&
+  \catE_{/Y}
+\rlap{,}}
+\]
+relating pushforward functors lifts to a natural isomophism between their lifts:
+\begin{equation} \label{2-functoriality:0}
+\xycenter{
+  \Fib[\cal{I}]_{/X}
+  \ar[dr]_{p_*}
+  \ar[rr]^{(q \cc p)_*}
+&&
+  \Fib[\cal{I}]_{/Z}
+  \ar[dl]^{q_*}
+\\&
+  \Fib[\cal{I}]_{/Y}
+\rlap{.}}
+\end{equation}
+First of all, inspection of the proof of~\cref{strong-h-equiv-frobenius} reveals that we indeed have such a natural isomorphism at the level of right maps for strong homotopy equivalences:
+\[
+\xymatrix{
+  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}_{/X}
+  \ar[dr]_{p_*}
+  \ar[rr]^{(q \cc p)_*}
+&&
+  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}_{/Z}
+  \ar[dl]^{q_*}
+\\&
+  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}_{/Y}
+\rlap{.}}
+\]
+Unfortunately, it is not the case that this isomorphism transfers to the diagram~\eqref{2-functoriality:0}.
+Inspecting \cref{uniform-fibrations-uniform-frobenius}, the issue hinges on the lack of coherence between $F$ and $G$ in \cref{uniform-frobenius-change-u}, ultimately going back to \cref{relating-strong-hequiv-and-uniform-fib}.
+The problem is perhaps most illuminated at nullary composition: the lift of pushforward along an identity will not be an identity functor, rather it will be given by $\liftr{(M_0 + M_1)}$ after $\liftr{(L_0 + L_1)}$ in \cref{relating-strong-hequiv-and-uniform-fib}.
+
+The next question thus becomes: if we do want to have 2-functoriality of pushforward, what should an alternate notion of uniform $\cal{I}$-fibrations be instead?
+The easy answer, as per the discussion above, would be to define $\Fib[\cal{I}]' \defeq \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}$ as right maps for strong homotopy equivalences.
+However, there is a better solution going back to the discussion in \cref{retraction-for-connections} and incorporating Coquand \etals idea of taking composition instead of filling as the primitive operation.
+\notec{Find appropriate reference.}
+
+For this, we first have to remark that it is possible to extend in a rather straightforward fashion the theory of \cref{sec:ortf} from lifts of arrows against arrows to lifts of \emph{squares} against \emph{squares}, in the sense that a \emph{lifting problem} of a left square $L$ against a right square $R$ given as per the dashed arrows below 
+\[
+\xymatrix{
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|{L}
+&
+  \bullet
+  \ar@{-->}[r]
+  \ar[d]
+&
+  \bullet
+  \ar[r]
+  \ar[d]
+  \ar@{}[dr]|{R}
+&
+  \bullet
+  \ar[d]
+\\
+  \bullet
+  \ar[r]
+  \ar@{.>}[urrr]
+&
+  \bullet
+  \ar@{-->}[r]
+&
+  \bullet
+  \ar[r]
+&
+  \bullet
+\rlap{,}}
+\]
+with a \emph{filler} consisting of a diagonal map for the composite square cohering as indicated by the dotted arrow.
+Although it is convenient to develop the theory at this level of generality, we will only be needing an intermediate generalization of lifts of \emph{squares} against \emph{arrows}.
+Recall that $\Fib[\cal{I}]$ was defined as the right maps for the categories of arrows $\kcyl \hatotimes u$ with $k \in \braces{0, 1}$.
+We now define an alternate category $\Fib[\cal{I}]''$ of uniform $\cal{I}$-fibrations as the right maps for the categories of \emph{squares} $\thetak \hatotimes u$ with $k \in \braces{0, 1}$, once again brining to prominence the fundamental square~\eqref{the-trivial-square}.
+In the terminology of ?? \notec{insert reference}, the old category $\Fib[\cal{I}]$ corresponds to maps with a Kan filling structure, while the new category $\Fib[\cal{I}]''$ corresponds to maps with a Kan composition structure.
+
+It is easy to see from the characterization \cref{strong-h-equiv-as-section} of strong homotopy equivalences that the map $L_k$ from $\cal{S}_k(u)$ to $\overline{\kcyl \hatotimes u}$ from \cref{lem:from-strong-hequiv} factors as $L_k = \overline{(L_k'')}_l \cc L_k'$ where $L_k'$ goes from $\cal{S}_k(u)$ to $\overline{\thetak \hatotimes u}_l$ and $L_k''$ is the canonical map from $\thetak \hatotimes u$ to the square $\kcyl \hatotimes u$ constant in horizontal direction.
+Here, we have silently used a notion of \emph{left retract closure} $\overline{(-)}_l$ for squares that generalizes in an asymmetric, but evident way the retract closure construction of \cref{sec:ortf}.
+The binary comparison in \cref{relating-strong-hequiv-and-uniform-fib} thus turns into a ternary comparison as follows:
+\begin{equation} \label{relating-strong-hequiv-and-uniform-fib-and-uniform-composition-fib}
+\begin{gathered}
+\xymatrix@C+2em{
+&
+  \Fib[\cal{I}]''
+  \ar[dl]_{\liftr{(L_0'' + L_1'')}}
+  \ar[dd]|!{[dl];[dr]}{\hole}
+\\
+  \Fib[\cal{I}]'
+  \ar[rr]^(0.35){\liftr{(M_0 + M_1)}}
+  \ar[dr]
+&&
+  \Fib[\cal{I}]
+  \ar[ul]_{\liftr{(L_0' + L_1')}}
+  \ar[dl]
+\\&
+  \catE^\to
+}
+\end{gathered}
+\end{equation}
+As before, only the lower three faces commute here by default.
+However, under the assumption that the retraction $\rho$ to $\thetak \hatotimes \kcyl \hatotimes (-)$ provided by effective connections as per \cref{retraction-for-connections} is also a retraction to $\kcyl \hatotimes \thetak \hatotimes (-)$ (this is the case if we have connections, crucially using commutativity of the right half of diagram~\eqref{connections:1}, which was not needed for effective connections), we state directly a natural transformation from the unit $\eta_{\thetak \hatotimes u} \co \thetak \hatotimes u \to \overline{\thetak \hatotimes u}_l$ of the left retract closure monad to the composition $L_k' M_k L_k''$.
+Using the analogue of the adjunction~\eqref{garner-adjunction} for lifts of squares against arrows, it then follows that the top triangle in~\eqref{relating-strong-hequiv-and-uniform-fib-and-uniform-composition-fib} commutes when starting from $\Fib[\cal{I}]''$.
+Thus, the category $\Fib[\cal{I}]''$ is distinguished from $\Fib[\cal{I}]$ and $\Fib[\cal{I}]'$ in that it is a retract of the other categories, giving credence to the point of view of seeing it as the most primitive of the three notions.
+
+We finish by remarking that it is possible to give a proof of the uniform Frobenius condition for $\Fib[\cal{I}]''$ similar to our current version for $\Fib[\cal{I}]'$ once the generalization of the theory of \cref{sec:ortf} to lifts of squares against squares is in place.
+% The following is not quite true: note that using the retract situation, our existing proof of the uniform Frobenius property for $\Fib[\cal{I}']$ transfers to $\Fib[\cal{I}]''$ such that 2-functoriality of lifts of pushforward is preserves.
+\notec{To do: comparison with Coquand's proof fits in here as well.}
+\end{remark}
+
 
 \appendix
 
