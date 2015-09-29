@@ -2514,10 +2514,15 @@ Easy calculation using that $\liftl{(\liftr{(-)})}$ is a monad.
 
 \noten{Add some discussion of this notion and forward references to its uses}
 
-\section{The uniform Frobenius condition for strong homotopy equivalences}
+\section{The uniform Frobenius condition for uniform fibrations}
+\label{sec:frocuf}
 
 For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \rcyl \otimes (-), \lcyl \otimes (-))$ with effective connections.
-Fix also a functor $u \co \cal{I} \to \catE^\to$.
+We fix also a functor $u \co \cal{I} \to \catE^\to$.
+
+\subsection*{Strong homotopy equivalences}
+
+As a milestone on our way to establish the uniform Frobenius condition for uniform fibrations, we first establish it with respect to right maps for strong homotopy equivalences.
 
 \begin{lemma} \label{strong-h-equiv-frobenius}
 Let $p \co X \to Y$ be a right map for $\kcylinv \otimes \id_{\calE} \co \catE \to \catE^\to$ with $k \in \braces{0, 1}$.
@@ -2559,11 +2564,10 @@ By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$ as given in~\eqref{equ
 We finish by applying \cref{uniform-frobenius-change-v}.
 \end{proof}
 
-\section{The uniform Frobenius condition for uniform fibrations}
-\label{sec:frocuf}
+\subsection*{Uniform fibrations}
 
-In addition to the assumptions of the last section, we assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
-We assume once and for all that uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to $\cal{I}$.
+In addition to previous assumptions, we now assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
+We also assume once and for all that uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to $\cal{I}$.
 In our examples, this will always be the case with all of $\catE^\to$ having the uniform Frobenius property with respect to $\cal{I}$ as explained in \cref{frobenius-uniform-presheaf}.
 
 The next result, our final main theorem, should be read as the algebraic version of pullback along a fibration preserving trivial cofibrations.
