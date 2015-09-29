@@ -532,21 +532,24 @@ By unfolding the relevant definitions, one readily sees that the notion of a uni
 \end{gather*}
 where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 
-\begin{remark}
-One could object that our uniform $\cal{I}$-fibrations are not an algebraization of the \emph{naive fibrations} intoduced by Cisinski~\cite{cisinski-asterisque}.
-Indeed, abbreviate
+\begin{remark} We briefly relate the notion of a uniform $\cal{I}$-fibration with that of a naive fibration, intoduced by Cisinski~\cite{cisinski-asterisque}.
+For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be given by 
 \[
-m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] \co \Id_\catE + \Id_\catE \to \interval \otimes (-)
-.\]
-Then a notion $\Fib[\cal{I}]'$ of uniform Cisinski $\cal{I}$-fibrations would be given by first closing $\cal{I}_\otimes$ under Leibniz product with $m$, \ie defining $\Fib[\cal{I}]'$ as right maps for the functor $u_\otimes' \co \cal{I}_\otimes' \to \catE^\to$ with $\cal{I}_\otimes' \defeq \mathbb{N} \times \cal{I}_\otimes$ and $u_\otimes'(n, i) = (m \hatotimes (-))^n(u_\otimes(i))$.
-Our reasons for sticking with $\Fib[\cal{I}]$ are twofold.
+m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)]  \, .
+\]
+Then a uniform naive Cisinski $\cal{I}$-fibration would be defined as a right map for the functor $u_\otimes' \co \cal{I}_\otimes' \to \catE^\to$, where $\cal{I}_\otimes' \defeq \mathbb{N} \times \cal{I}_\otimes$ and $u_\otimes'(n, i) \defeq (m \hatotimes (-))^n(u_\otimes(i))$. Informally, one can think of 
+$\cal{I}_\otimes'$ as the closure of  $\cal{I}_\otimes$ under Leibniz product with $m$.
+Our reasons for working with~$\Fib[\cal{I}]$ are twofold.
 
-First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u \co \cal{I} \to \catE^\to$ is closed under Leibniz product with the ``boundary inclusion'' $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform Cisinski $\cal{I}$-fibration.
+First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u \co \cal{I} \to \catE^\to$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform naive Cisinski $\cal{I}$-fibration.
 This is the case in our main examples of simplicial and cubical sets where $u \co \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
 
-Second, if we assume generalized connections in the sense of $(1+n+1)$-ary operations that behaves as connections for fixed middle $n$ arguments, then the maps in $\cal{I}_\otimes'$ can still be shown to be strong homotopy equivalences in a uniform way.
-This gives rise to a functor $\cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ over $\catE^\to$ in the terminology of \cref{sec:remshe} if we assume $\cal{I}$ to be closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$ (this is the case if $[\lcyl, \rcyl]$ is a decidable monomorphism and the maps in $\cal{I}$ are the decidable monomorphisms in a presheaf category as in \cref{sec:unifpc}).
-With the results in \cref{sec:remshe}, every uniform Cisinski $\cal{I}$-fibrations is then a uniform $\cal{I}$-fibrations in a functorial way.
+Second, if we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle $n$ arguments), 
+and that $\cal{I}$ is closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$ (this is the case if $[\lcyl, \rcyl]$ is a decidable monomorphism and the maps in $\cal{I}$ are the decidable monomorphisms in a presheaf category as in \cref{sec:unifpc}), then the maps in $\cal{I}_\otimes'$ can still be shown to be strong homotopy equivalences in a uniform way. This gives rise to a functor 
+\[
+\cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
+\] 
+over $\catE^\to$ (where $\cal{S}_k(\cal{I})$, for $k \in \{0,1\}$, are the categories of strong homotopy equivalences relative to $\cal{I}$, as defined in \cref{sec:remshe}). By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uniform naive Cisinski $\cal{I}$-fibration is  a uniform $\cal{I}$-fibration in a functorial way.
 \end{remark}
 
 \begin{example}[Uniform fibrations in presheaf categories]
@@ -585,9 +588,9 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \end{example}
 
 \begin{example}[Uniform fibrations in cubical sets]
-What we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-variation} since their notion of $L$-system does capture all decidable subobjects of representables, omitting the ones not using connections.
+What we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-variation} since the notion of $L$-system used therein does not capture all of the decidable subobjects of representables.
 %\notec{And which seems to have been a source of whay they call coherence issues, but what should properly be called failure of stability under pullback.}
-Instead, it seems to be closer to the version of uniform Kan fibrations defined in terms of partial elements in~\cite{coquand-face,coquand-rules5}.
+Instead, it seems to be closer to the version of uniform Kan fibrations defined in terms of partial elements considered in~\cite{coquand-face,coquand-rules5}.
 
 To illustrate the connection to the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for the representable $\Box^n$, \ie its maximal non-trivial subobject.
 Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1 + n} \to \Box^{1 + n}$ and $\sqcap_1^{1 + n} \to \Box^{1 + n}$, respectively, hence open box fillings are included for uniform Kan fibrations (recall that $\sqcup_i^{1+n}$ is isomorphic to $\sqcup_1^{1+n}$ over $\Box^{1+n}$ for $i \in \braces{2, \ldots, n + 1}$ and similarly for $\sqcap_i^{1+n}$ since our cube category has symmetries).
@@ -1846,8 +1849,9 @@ The counit of $\Sk_{\deg(A)}$ induces a \emph{boundary inclusion} monomorphism $
 \medskip
 
 For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category of presheaves over it, $\calE \defeq \Rhat$.
-Note that the our presheaves are valued in the category of sets, while the presheaves over an elegant Reedy category considered in~\cite{shulman:reedy} are valued in simplicial sets.
-\notec{This feels way too random a comment.}
+Note that the our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy}, since here 
+presheaves are valued in the category of sets, not in simplicial sets.
+
 We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations.
 Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{N}$.
 
@@ -2161,7 +2165,7 @@ But then we can make use of $\cal{J}$-coherence in the following comparison of l
   \ar[d]^{p}
 \\
   \yon B
-  \ar[r]_{b}
+  \ar[r]_-{b}
   \ar@{.>}[urrrr]_(0.6){e_{\beta+1}' b}
 &
   F(\beta+1)
@@ -2200,7 +2204,7 @@ The claim then follows by \cref{prod-exp-general}.
 
 \cref{small-gen-triv-kan} allows us to apply Garner's small object argument~\cite{garner:small-object-argument} and obtain two natural weak factorisation systems in which the right maps are the uniform trivial fibrations and the uniform fibrations, respectively.
 
-\begin{theorem} \label{thm:sset-cset-nwfs}
+\begin{theorem} \label{thm:sset-cset-nwfs} Assume that $\cal{E}$ is locally finitely presentable.
 There exist two natural weak factorisation systems $(\mathsf{L}_1, \mathsf{R}_1)$ and $(\mathsf{L}_2, \mathsf{R}_2)$ on $\catE$, in which right maps are the uniform trivial Kan fibrations and the uniform Kan fibrations, respectively.
 In particular, every map $f \co X \to Y$ admits two functorial factorisations, one of the form
 \[
