@@ -2759,7 +2759,7 @@ We abbreviate the functor
 \[
 \liftl{(\liftr{u_{/X}})} \co \liftl{(\liftr{\cal{I}_{/X}})} \to \catE^\to
 \]
-by $v_{\fakeslice X} \co \cal{J}_{\fakeslice Y} \to \catE^\to$.
+by $v_{\fakeslice X} \co \cal{J}_{\fakeslice X} \to \catE^\to$.
 Note that the canonical map
 \[
   (\liftl{(\liftr{\cal{I}})})_{/X} \to \cal{J}_{\fakeslice X}
@@ -2770,14 +2770,14 @@ Since we have a canonical map
 \[
 \cal{S}_k(\cal{J}_{\fakeslice X}) \to \liftl{(\liftr{\cal{S}_k(\cal{I})_{/X}})}
 ,\]
-the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{/X})$ as follows:
+the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{\fakeslice X})$ as follows:
 \[
 \xymatrix@C+2em{
   \cal{S}_k(\cal{I}_{/Y})
   \ar@{.>}[r]^{p^*}
   \ar[d]
 &
-  \cal{S}_k(\cal{J}_{/X})
+  \cal{S}_k(\cal{J}_{\fakeslice X})
   \ar[d]
 \\
   \cal{I}_{/Y}
@@ -2794,9 +2794,9 @@ the goal will follow if we can show that $p^*$ lifts further to a functor $p^* \
 \rlap{.}}
 \]
 
-We work with the characterization of \cref{strong-h-equiv-as-section}.
-We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{\fakeslice Y})$ on objects and on morphisms.
-For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i$ is a strong left homotopy equivalence.
+We work with the characterization of $\cal{S}$ in \cref{strong-h-equiv-as-section}.
+We define separately the action of the lift $p^* \co \cal{S}_k(\cal{I}_{/Y}) \to \cal{S}_k(\cal{J}_{\fakeslice X})$ on objects and on morphisms.
+For the action on objects, suppose we are given $i \in \cal{I}_{/Y}$ such that $u_i : A \to B$ is a strong left homotopy equivalence over $Y$.
 This means we have a commutative triangle
 \[
 \xymatrix{
@@ -2822,9 +2822,10 @@ and a retraction $\rho$ to $\thetak \hatotimes i$ as follows:
   u_i
 \rlap{.}}
 \]
-Let $\sigma \co (v_{\fakeslice X})_{j} \to u_i$ denote the pullback of $i$ along $p$ with $j \co \cal{J}_{\fakeslice Y}$:
-\[
-\xymatrix{
+
+We apply $p^*$ to $i \co \cal{I}_{/Y}$ so as obtain $j \co \cal{J}_{\fakeslice X}$ and a pullback diagram as follows.
+\begin{equation} \label{technical:0}
+\xycenter{
   C
   \ar[r]
   \ar[d]_{(v_{\fakeslice X})_{j}}
@@ -2846,7 +2847,9 @@ Let $\sigma \co (v_{\fakeslice X})_{j} \to u_i$ denote the pullback of $i$ along
 &
   Y
 \rlap{.}}
-\]
+\end{equation}
+We write $\sigma \co (v_{\fakeslice X})_{j} \to u_i$ for the upper pullback square.
+
 We want to make $(v_{\fakeslice X})_j$ into a strong left homotopy equivalence.
 This means to find a retraction $\pi$ to $\thetak \hatotimes (v_{\fakeslice X})_j$ as follows:
 \[
@@ -2859,9 +2862,9 @@ This means to find a retraction $\pi$ to $\thetak \hatotimes (v_{\fakeslice X})_
   \ar@{.>}[d]^{\pi}
 \\&
   v_{j}
-}
+\rlap{.}}
 \]
-We will construct the retraction $\pi$ as indicated in the below diagram where the two horizontal composites should be identities.
+We will define the retraction $\pi$ such that the below diagram commutes and its two horizontal composites are identities:
 \[
 \xymatrix@C+2em{
   (v_{\fakeslice X})_{j}
@@ -2882,9 +2885,9 @@ We will construct the retraction $\pi$ as indicated in the below diagram where t
   \ar[r]_-{\rho}
 &
   u_i
-}
+\rlap{.}}
 \]
-Since $\sigma$ is a pullback square, it suffices to solve this problem when projected to codomains:
+Since $\sigma$, being a pullback square, is a Cartesian arrow with respect to the codomain fibration $\cod : \catE^\to \to \catE$, it suffices to solve this problem when projected to codomains:
 \[
 \xymatrix@C+4em{
   D
@@ -2905,9 +2908,9 @@ Since $\sigma$ is a pullback square, it suffices to solve this problem when proj
   \ar[r]_-{\cod(\rho)}
 &
   B
-}
+\rlap{.}}
 \]
-We will now lift this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, again omitting drawing the identity constraints for the horizontal composites for readability:
+We will now expand this diagram from $\catE$ to the total space of the codomain fibration on $\catE$, again omitting drawing the identity constraints for the horizontal composites for readability:
 \[
 \xymatrix@C+2em{
   D
@@ -2941,8 +2944,8 @@ We will now lift this diagram from $\catE$ to the total space of the codomain fi
   Y
 \rlap{.}}
 \]
-The arrows to $Y$ from the bottom row are induced by $B \to Y$.
-The square $\cod(\sigma)$ over $p$ is a pullback by construction.
+The arrow $I \otimes B \to Y$ is defined as the composite of $\cod(\rho)$ with $B \to Y$.
+The square from $\cod(\sigma)$ over $p$ is the bottom pullback in \eqref{technical:0}.
 If we can find a dashed arrow cohering as indicated, there will hence be a unique dotted arrow as indicated.
 To find the dashed arrow is to construct a diagonal filler in the following square:
 \[
