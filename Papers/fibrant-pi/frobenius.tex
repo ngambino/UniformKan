@@ -50,7 +50,8 @@ Such a version of the simplicial model is of interest since it would strengthen 
 
 In particular, we prove constructively that in the category of simplicial sets the pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 We consider this result to be a constructive counterpart of the fact that the pushforward along a Kan fibration preserves Kan fibrations, which is a key ingredient of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, but cannot be proved constructively without modifying the standard notion of a Kan fibration~\cite{coquand-non-constructivity-kan}. Analogous results 
-have been obtained for by Coquand and his collaborators for uniform fibrations in the category of cubical sets without connections in~\cite{coquand-cubical-sets,huber-thesis} and in some categories of cubical sets with connections (\cf \cite{coquand-face,coquand-variation,coquand-rules5}).
+have been obtained for by Coquand and his collaborators for uniform fibrations in the category of cubical sets without 
+connections~\cite{coquand-cubical-sets,huber-thesis} and in some categories of cubical sets with connections (\cf \cite{coquand-face,coquand-variation,coquand-rules5}).
 They are also the subject of ongoing work by Awodey in the category of cartesian cubical sets~\cite{awodey-cubical}.
 Indeed, one of the initial motivations for this work was to investigate whether the idea of using uniform fibrations to obtain these results could be 
 treated more generally, so as to be applicable also to simplicial sets.
@@ -59,9 +60,10 @@ In view of our applications to simplicial and cubical sets, we devote particular
 In this setting, uniform trivial fibration are defined by weak orthogonality with respect to the category~$\mathcal{M}$ of decidable monomorphisms and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 These definitions may be seen as a counterpart in our setting of those introduced by Cisinski in~\cite{cisinski-asterisque}.
 
-Our first main result (\cref{thm:ac-kan-is-uniform}) relates the notion of a uniform (trivial) fibration to its non-algebraic counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
+Our first main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the classical 
+notion of a fibration. We do so by relating the notion of a uniform (trivial) fibration to its non-algebraic counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
 In particular, we show that, if one assumes the axiom of choice, then a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property with respect to the maps involved in the definition of a uniform (trivial) fibration.
-It should be pointed out that this result is far from being a simple application of the axiom of choice, since the function 
+This result is far from being a simple application of the axiom of choice, since the function 
 that is required to exist in order to have a uniform fibration needs to satisfy an appropriate naturality condition.
 Instead, it is necessary to obtain a careful decomposition of the lifting problems involved in the naturality condition.
 By applying this result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
@@ -110,10 +112,10 @@ This material is based on research sponsored by the Air Force Research Laborator
 \subsection*{Preliminaries}  The aim of this section is to introduce the main notions that will be used in our development and some
 examples. Let us begin by fixing some notation.  For a category $\cal{E}$,
 we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$ and $\cal{E}^\to_\mathrm{cart}$ for its 
-subcategory with pullback squares as maps. We now introduce the main examples to which our results apply. 
+subcategory with pullback squares as maps. We now introduce the main examples to which our results will apply. 
 
 \begin{example} 
-As usual, the category of simplicial sets is defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$.
+The category of simplicial sets $\SSet$ is defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$.
 As any presheaf category, we have that $\SSet$ is Cartesian closed and cocomplete. We will use standard notation for simplicial sets as used in~\cite{goerss-jardine}.
 %but note that we write $h_k^n \co \Lambda_k^n \to \Delta^n$ for the horn inclusions~\cite{joyal-tierney-notes}.
 \end{example}
@@ -133,7 +135,7 @@ Something far less trivial is true in the joint presence of symmetries and conne
 We stress that the only feature of the cube category $\Box$ relevant to our development are connections and symmetries (although we speculate a two-sided version should carry over to classical cube categories with connections, but no symmetries).
 Thus, our results apply equally to many other variations of cubical sets, excluding however~\cite{coquand-cubical-sets}.
 
-\subsection*{Cylinders and homotopies} Throughout this section, let $\catE$ be a fixed category with finite colimits.
+\subsection*{Cylinders and homotopies} For the rest of  this section, let $\catE$ be a fixed category with finite colimits.
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{right and left endpoint inclusions}, respectively.
 We additionally assume that the functor $I \otimes (-)$ preserves finite colimits.
 We say the functorial cylinder has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ to $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
@@ -243,7 +245,7 @@ commutes.
 
 The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong. 
 
-Strong homotopy equivalences can be organized into a category as follows. The category $\cal{S}_0$ of strong left homotopy equivalences is defined as follows.
+Strong left or right homotopy equivalences can be organized into  categories. The category~$\cal{S}_0$ of strong left homotopy equivalences is defined as follows.
 An object is a 4-tuple $(f, g, \phi, \psi)$ consisting of an arrow $f \co A \to B$ together with data $g \co B \to A$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$ making $f$ into a strong left homotopy equivalence.
 A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of maps $s \co A \to A', t \co B \to B'$ such that the following diagrams commute:
 \begin{align*}
@@ -1561,7 +1563,7 @@ By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatoti
 But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
 \end{proof}
 
-\cref{leibniz-lift} allows us to obtain an equivalent characterization of effective connections in terms of the functors $\delta^k \hatotimes (-)$ instead of $\delta^k \otimes (-)$ stated in \cref{effective-connections-leibniz}.
+\cref{leibniz-lift} allows us to obtain an equivalent characterization of effective connections in terms of the functors $\delta^k \hatotimes (-)$ instead of $\delta^k \otimes (-)$, stated in \cref{effective-connections-leibniz} below.
 
 \begin{corollary} \label{effective-connections-leibniz}
 The functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \in \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$. \qed
