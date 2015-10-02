@@ -3135,14 +3135,14 @@ such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 \]
 Let $(j_1, \pi_1)$ and $(j_2, \pi_2)$ denote the action of the lift $p^*$ on the objects $(i_1, \rho_1)$ and $(i_2, \rho_2)$, respectively, as constructed in the previous paragraph.
 Recall that this includes pullback squares
-\[
+\begin{equation} \label{technical:1}
 \begin{aligned}
   \sigma_1 &\co (v_{\fakeslice X})_{j_1} \to u_{i_1}
 \, ,\\
   \sigma_2 &\co (v_{\fakeslice X})_{j_2} \to u_{i_2}
 \end{aligned}
-\]
-Cartesian over $p \co X \to Y$.
+\end{equation}
+Cartesian over $p \co X \to Y$ as in~\eqref{technical:0}.
 Since the base change functor lifts to a functor from $\cal{I}_{/Y}$ to $\cal{J}_{\fakeslice X}$ by assumption, the morphism $\tau \co i_1 \to i_2$ in $\cal{I}_{/Y}$ pulls back to a morphism $\zeta \co j_1 \to j_2$ in $\cal{J}_{\fakeslice Y}$.
 We want to show that $\zeta$ in addition forms a morphism of strong left homotopy equivalences $\zeta \co ((v_{\fakeslice X})_{j_1}, \pi_1) \to ((v_{\fakeslice X})_{j_2}, \pi_2)$.
 For this, we have to verify commutativity of the following diagram:
@@ -3258,8 +3258,8 @@ Since that square commutes after composing it with the pullback square $\sigma_2
   B_2
 \rlap{.}}
 \]
-The dotted arrows were constructed by expanding the back and front face of this diagram to the total space of the codomain fibration and then appealing to the universal property of the Cartesian squares from $\cod(\sigma_1)$ and $\cod(\sigma_2)$ to $p$, respectively.
-For our goal it will thus suffice to show that the maps from the back to the front face coherently extend similarly.
+The dotted arrows were constructed by extending the back and front face of this diagram with the Cartesian squares $\cod(\sigma_1)$ and $\cod(\sigma_2)$, respectively, over $p$ obtained from $\sigma_1$ and $\sigma_2$ in~\eqref{technical:1}.
+For our goal, it will thus suffice to show that the maps from the back to the front face coherently extend similarly.
 This is canonically the case except potentially for the top middle map $\interval \otimes D_1 \to \interval \otimes D_2$.
 For this, we have to verify coherence of the dashed arrows as indicated below:
 \[
