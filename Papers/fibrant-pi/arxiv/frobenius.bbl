@@ -1,0 +1,202 @@
+\begin{thebibliography}{10}
+
+\bibitem{awodey-cubical}
+S.~Awodey.
+\newblock Notes on cubical models of type theory.
+\newblock Draft manuscript, March 2015.
+
+\bibitem{awodey-warren:homotopy-idtype}
+S.~Awodey and M.~A. Warren.
+\newblock Homotopy theoretic models of identity types.
+\newblock {\em Math. Proc. Camb. Phil. Soc.}, 146(45):45--55, 2009.
+
+\bibitem{berger-moerdijk:generalized-reedy}
+B.~Berger and I.~Moerdijk.
+\newblock On an extension of the notion of {R}eedy category.
+\newblock {\em Mathematische Zeitschrift}, 269(3-4):977--1004, 2011.
+
+\bibitem{bergner-rezk-elegant}
+J.~Bergner and C.~Rezk.
+\newblock Reedy categories and the {$\Theta$}-construction.
+\newblock {\em Mathematische Zeitschrift}, 274(1):499--514, 2013.
+
+\bibitem{coquand-cubical-sets}
+M.~Bezem, T.~Coquand, and S.~Huber.
+\newblock A model of type theory in cubical sets.
+\newblock In Ralph Matthes and Aleksy Schubert, editors, {\em 19th
+  International Conference on Types for Proofs and Programs (TYPES 2013)},
+  volume~26, pages 107--128. Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik,
+  March 2014.
+
+\bibitem{coquand-non-constructivity-kan}
+M.~Bezem, T.~Coquand, and E.~Parmann.
+\newblock Non-constructivity in {K}an simplicial sets.
+\newblock In Thorsten Altenkirch, editor, {\em 13th International Conference on
+  Typed Lambda Calculi and Applications (TLCA 2015)}, volume~38, pages 92--106.
+  Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik, 2015.
+
+\bibitem{bousfield-wfs}
+A.~K. Bousfield.
+\newblock Constructions of factorisation systems in categories.
+\newblock {\em Journal of Pure and Applied Algebra}, 9:207--220, 1977.
+
+\bibitem{cisinski-asterisque}
+D.-C. Cisinski.
+\newblock Les pr\'efaisceux comme mod\`eles des types d'homotopie.
+\newblock {\em Ast\'erisque}, 308:xxiv+392, 2006.
+
+\bibitem{cisinski-univalence}
+D.-C. Cisinski.
+\newblock Univalent universes for elegant models of homotopy types.
+\newblock ArXiv:1406.0058, 2014.
+
+\bibitem{clementino:frobenius}
+M.~M. Clementino, E.~Giuli, and W.~Tholen.
+\newblock Topology in a category: compactness.
+\newblock {\em Portugaliae Mathematica}, 53(4):397--433, 1996.
+
+\bibitem{coquand-face}
+T.~Coquand.
+\newblock Cubical type theory.
+\newblock Available from \url{http://www.cse.chalmers.se/~coquand/face.pdf}.
+
+\bibitem{coquand-variation}
+T.~Coquand.
+\newblock Variation on cubical sets.
+\newblock Available from \url{http://www.cse.chalmers.se/~coquand/comp.pdf},
+  November 2014.
+
+\bibitem{coquand-rules5}
+T.~Coquand.
+\newblock Cubical type theory.
+\newblock Available from \url{http://www.cse.chalmers.se/~coquand/rules5.pdf},
+  May 2015.
+
+\bibitem{gambino-garner:idtypewfs}
+N.~Gambino and R.~Garner.
+\newblock The identity type weak factorisation system.
+\newblock {\em Theor. Comput. Sci.}, 409:94--109, 12 2008.
+
+\bibitem{garner:small-object-argument}
+R.~Garner.
+\newblock Understanding the small object argument.
+\newblock {\em Applied Categorical Structures}, 17(3):247--285, 2009.
+
+\bibitem{goerss-jardine}
+P.~Goerss and J.~F. Jardine.
+\newblock {\em Simplicial homotopy theory}.
+\newblock Birk\"auser, 1999.
+
+\bibitem{grandis-tholen-nwfs}
+M.~Grandis and W.~Tholen.
+\newblock Natural weak factorisation systems.
+\newblock {\em Archiv. Math.}, 42:397--408, 2006.
+
+\bibitem{hirschhorn-model-localizations}
+P.~Hirschhorn.
+\newblock {\em Model categories and their localizations}.
+\newblock American Mathematical Society, 2003.
+
+\bibitem{huber-thesis}
+S.~Huber.
+\newblock A model of type theory in cubical sets.
+\newblock Licentiate of philosophy thesis, University of Gothenburg, 2015.
+
+\bibitem{joyal-quaderns}
+A.~Joyal.
+\newblock The theory of quasi-categories and its applications.
+\newblock Quaderns 45, Centre de Recerca Matem\`atica, 2008.
+
+\bibitem{joyal-tierney-notes}
+A.~Joyal and M.~Tierney.
+\newblock An introduction to simplicial homotopy theory.
+\newblock Available from
+  \url{http://hopf.math.purdue.edu/Joyal-Tierney/JT-chap-01.pdf}, 1999.
+
+\bibitem{kamps-porter:homotopy}
+K.~Kamps and T.~Porter.
+\newblock {\em Abstract homotopy and simple homotopy theory}.
+\newblock World Scientific Publishing Co., 1997.
+
+\bibitem{voevodsky-simplicial-model}
+C.~Kapulkin, P.~LeFanu~Lumsdaine, and V.~Voevodsky.
+\newblock The simplicial model of {U}nivalent {F}oundations, 2014.
+\newblock arXiv:1211.2851.
+
+\bibitem{lawvere-equality}
+F.~W. Lawvere.
+\newblock Equality in hyperdoctrines and comprehension schema as an adjoint
+  functor.
+\newblock In {\em Proceedings of the American Mathematical Society Symposium on
+  Pure Mathematics {XVII}}, pages 1--14, 1970.
+
+\bibitem{lurie:htt}
+J.~Lurie.
+\newblock {\em Higher topos theory}.
+\newblock Number 170 in Annals of Mathematics Studies. Princeton University
+  Press, 2009.
+
+\bibitem{moerdijk-minimal}
+I.~Moerdijk and J.~Nuiten.
+\newblock Minimal fibrations of dendroidal sets.
+\newblock ArXiv:1509.01073, 2015.
+
+\bibitem{pitts-cubical-nominal}
+A.~Pitts.
+\newblock Nominal presentation of cubical sets models of type theory.
+\newblock In H.~Herbelin, P.~Letouzey, and M.~Sozeau, editors, {\em 20th
+  International Conference on Types for Proofs and Programs (TYPES 2014)}.
+  Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik, 2015.
+
+\bibitem{riehl-verity:reedy}
+E.~Riehl and D.~Verity.
+\newblock The theory and practice of {R}eedy categories.
+\newblock {\em Theory and Applications of Categories}, 29(9):256--301, 2014.
+
+\bibitem{riehl-cat-homotopy}
+E.~Rielh.
+\newblock {\em Categorical Homotopy Theory}.
+\newblock Cambridge University Press, 2014.
+
+\bibitem{shulman:inverse-diagrams}
+M.~Shulman.
+\newblock Univalence for inverse diagrams and homotopy canonicity.
+\newblock {\em Mathematical Structures in Computer Science}, 25:1203--1277, 6
+  2015.
+
+\bibitem{shulman:reedy}
+M.~Shulman.
+\newblock The univalence axiom for elegant {R}eedy presheaves.
+\newblock {\em Homology, Homotopy and Applications}, To appear.
+
+\bibitem{swan-awfs}
+A.~Swan.
+\newblock An algebraic weak factorisation system on 01-substitution sets: a
+  constructive proof.
+\newblock ArXiv:1409.1829, 2014.
+
+\bibitem{garner:types-omega-groupoids}
+B.~van~den Berg and R.~Garner.
+\newblock Types are weak $\omega$-groupoids.
+\newblock {\em Proceedings of the London Mathematical Society},
+  102(3):370--394, 2010.
+
+\bibitem{garner:topological-simplicial}
+B.~van~den Berg and R.~Garner.
+\newblock Topological and simplicial models of identity types.
+\newblock {\em Transactions of the {ACM} on Computational Logic}, 13(1):3--44,
+  2012.
+
+\bibitem{voevodsky:uf}
+V.~Voevodsky.
+\newblock Univalent foundations project.
+\newblock
+  \url{http://www.math.ias.edu/vladimir/files/univalent_foundations_project.pdf},
+  2010.
+
+\bibitem{warren:thesis}
+M.~A. Warren.
+\newblock {\em Homotopy theoretic aspects of constructive type theory}.
+\newblock PhD thesis, Carnegie Mellon University, 2008.
+
+\end{thebibliography}
