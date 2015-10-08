@@ -49,8 +49,7 @@ They are also the subject of ongoing work by Awodey in the category of cartesian
 Indeed, one of the initial motivations for this work was to investigate whether the idea of using uniform fibrations to obtain these results could be treated more generally, so as to be applicable also to simplicial sets.
 
 In view of our applications to simplicial and cubical sets, we devote particular attention to uniform (trivial) fibrations in presheaf categories equipped with a functorial cylinder.
-In this setting, uniform trivial fibration are defined by weak orthogonality with respect to the category~$\mathcal{M}$ of decidable monomorphisms (which evidently coincide with all monomorphisms assuming 
-the law of excluded middle) and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
+In this setting, uniform trivial fibration are defined by weak orthogonality with respect to the category~$\mathcal{M}$ of decidable monomorphisms (which evidently coincide with all monomorphisms assuming the law of excluded middle) and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 These definitions may be seen as a counterpart in our setting of those introduced by Cisinski in~\cite{cisinski-asterisque}.
 
 Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption,  uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
@@ -63,8 +62,7 @@ Working with uniform fibrations is essential to prove this fact since it allows 
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the classical notion of a fibration.
 We do so by relating the notion of a uniform (trivial) fibration to its non-algebraic counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
 In particular, we show that, if one assumes the axiom of choice, then a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property with respect to the maps involved in the definition of a uniform (trivial) fibration.
-This result is not a simple application of the axiom of choice since the function 
-necessary to have a uniform fibration needs to satisfy an appropriate naturality condition.
+This result is not a simple application of the axiom of choice since the function necessary to have a uniform fibration needs to satisfy an appropriate naturality condition.
 Instead, we will obtain a careful decomposition of the lifting problems involved in the naturality condition.
 By applying this result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
 
@@ -522,7 +520,8 @@ The terminology introduced in the next example is intended to suggest an analogy
 
 \begin{example}[Uniform trivial fibrations in presheaf categories] \label{exa-triv-kan-fib}
 Let $\catE$ be a presheaf category and write $\cal{M}$ for the subcategory of $\catE^\to$ consisting of decidable monomorphisms, \ie the monomorphisms whose components are functions with decidable image, and pullback squares.%
-\footnote{ Assuming the law of excluded middle, all monomorphisms are decidable. 
+\footnote{
+Assuming the law of excluded middle, all monomorphisms are decidable. 
 The results obtained in this article hold constructively also for the subcategory $\cal{M}'$ of all monomorphisms and pullback squares, or more generally for any full subcategory of $\cal{M}'$ that satisfies the premise of \cref{awfs-on-arrows-into-representables} and appropriate other closure properties.
 However, we expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory.
 }
@@ -1878,8 +1877,7 @@ The aim of this section is to study in more detail uniform fibrations in preshea
 Let us fix a presheaf category $\catE = \Psh(\cat{C})$, where $\cat{C}$ is a small category.
 We write $\yon \co \catC \to \catE$ for the Yoneda embedding.
 We assume that $\catE$ is equipped with a functorial cylinder $( \interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ and that the endofunctor $ \interval\otimes (-) \co \catE \to \catE$ has a right adjoint, so that we can apply \cref{prod-exp-general}.
-Recall from \cref{exa-triv-kan-fib} that the category of uniform trivial 
-fibrations~$\TrivFib$ and the category of uniform fibrations $\Fib$ are defined by letting
+Recall from \cref{exa-triv-kan-fib} that the category of uniform trivial fibrations~$\TrivFib$ and the category of uniform fibrations $\Fib$ are defined by letting
 \[
 \begin{aligned}
   \TrivFib &\defeq \liftr{\cal{M}}
@@ -1888,10 +1886,10 @@ fibrations~$\TrivFib$ and the category of uniform fibrations $\Fib$ are defined 
 \rlap{,}
 \end{aligned}
 \]
-respectively, where $\cal{M}$ is the subcategory of $\catE^\to$ consisting of decidable monomorphisms and pullback squares. We wish to establish that uniform trivial fibrations and uniform fibrations are the right
-maps of two natural weak factorisation systems. We will do so using Garner's small object 
-argument~\cite{garner:small-object-argument}. In order to apply it, we establish that 
-these categories can be also be defined as right orthogonal with respect to small categories over $\catE$.
+respectively, where $\cal{M}$ is the subcategory of $\catE^\to$ consisting of decidable monomorphisms and pullback squares.
+We wish to establish that uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorisation systems.
+We will do so using Garner's small object argument~\cite{garner:small-object-argument}.
+In order to apply it, we establish that these categories can be also be defined as right orthogonal with respect to small categories over $\catE$.
 We begin with some general facts.
 
 \begin{lemma} \label{left-kan-extension-of-representables}
@@ -1990,8 +1988,7 @@ In particular, part (i) of \cref{small-gen-triv-kan} says that, for a map $f \co
 where $\yon(x)$ the Yoneda embedding of some $x \in \catC$.
 The reduction to this type of diagrams relies essentially on the good behaviour of the right orthogonality functor with respect to colimits as described in~\cref{awfs-on-arrows-into-representables}.
 
-Let us point out that by \cref{small-gen-triv-kan} we have that $\TrivFib = \liftr{\cal{S}}$ for every full 
-subcategory~$\cal{S} \subseteq \cal{M}$ containing~$\cal{N}$, since~$\cal{N}$ is then also the restriction to maps into representables of $\cal{S}$.
+Let us point out that by \cref{small-gen-triv-kan} we have that $\TrivFib = \liftr{\cal{S}}$ for every full subcategory~$\cal{S} \subseteq \cal{M}$ containing~$\cal{N}$, since~$\cal{N}$ is then also the restriction to maps into representables of $\cal{S}$.
 For example, one could consider for $\cal{S}$ the full subcategory of $\cal{M}$ spaned by decidable monomorphisms with codomain a finite product of representables or, in the case of simplicial sets, decidable monomorphisms with codomain a finite and finite-dimensional simplicial set.
 These subcategories enjoy different closure properties.
 Since they all have the same right category, one may choose according to the situation at hand.
@@ -2720,29 +2717,44 @@ Easy calculation using that $\liftl{(\liftr{(-)})}$ is a monad.
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-
-For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections. We fix also a functor $u \co \cal{I} \to \catE^\to$.  The aim of this section is to show that, under appropriate assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$,
-in the sense of \cref{def:uniFrobcond}. In particular, we will have that for every uniform fibration $(f, \phi) \co
-X \to Y$, pullback along $f$ lifts as follows:
+For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections.
+We fix also a functor $u \co \cal{I} \to \catE^\to$.
+The aim of this section is to show that, under appropriate assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}.
+In particular, we will have that for every uniform fibration $(p, \phi) \co X \to Y$, pullback along $p$ lifts as follows:
 \[
 \xymatrix@C+2em{
-(\cal{I}_\otimes)_{/Y} \ar[r]^{f^*} \ar[d] & \liftl{(\liftr{\cal{I}_\otimes})}_{/X} \ar[d] \\
-\cal{E}^\to_{/Y} \ar[r]_{f^*} & \cal{E}^\to_{/X}}
+  (\cal{I}_\otimes)_{/Y}
+  \ar[r]^{p^*}
+  \ar[d]
+&
+  \liftl{(\liftr{\cal{I}_\otimes})}_{/X}
+  \ar[d]
+\\
+  \cal{E}^\to_{/Y}
+  \ar[r]_{p^*}
+&
+  \cal{E}^\to_{/X}
+\rlap{.}}
 \]
 Since $\Fib[\cal{I}]  = \liftr{\cal{I}_\otimes}$, by adjointness, this implies that pushforward along $f$ lifts as follows:
 \[
 \xymatrix@C+2em{
-\Fib[\cal{I}]_{/X} \ar[r]^{f_*} \ar[d] & \Fib[\cal{I}]_{/Y} \ar[d] \\
-\cal{E}^\to_{/X} \ar[r]_{f_*} & \cal{E}^\to_{/Y}}
+  \Fib[\cal{I}]_{/X}
+  \ar[r]^{p_*}
+  \ar[d]
+&
+  \Fib[\cal{I}]_{/Y}
+  \ar[d]
+\\
+  \cal{E}^\to_{/X}
+  \ar[r]_{p_*}
+&
+  \cal{E}^\to_{/Y}
+\rlap{.}}
 \]
-As a first step, we establish that if uniform fibrations have the uniform Frobenius property with 
-respect $\cal{I}$, they they have it also with respect to the category  $\cal{S}_0(\cal{I}) +
-\cal{S}(\cal{I})_1$ of strong homotopy equivalences (viewed as a category over $\cal{E}^\to$ in
-the evident way). By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}(\cal{I})_1$, as described in  \cref{relating-strong-hequiv-and-uniform-fib}, this
-will enable us to establish the uniform Frobenius condition for uniform fibrations with respect to 
-$\cal{I}_\otimes$, as desired. We begin with a technical lemma, which applies to right maps for
-$\kcylinv \otimes \id_{\calE}$, where $k \in \{ 0,  1\}$, and hence to uniform $\cal{I}$-fibrations in
-particular (\cf the proof of \cref{strong-h-equiv-uniform-frobenius-fibrations}).
+As a first step, we establish that if uniform fibrations have the uniform Frobenius property with respect $\cal{I}$, they they have it also with respect to the category $\cal{S}_0(\cal{I}) + \cal{S}(\cal{I})_1$ of strong homotopy equivalences (viewed as a category over $\cal{E}^\to$ in the evident way).
+By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}(\cal{I})_1$, as described in \cref{relating-strong-hequiv-and-uniform-fib}, this will enable us to establish the uniform Frobenius condition for uniform fibrations with respect to $\cal{I}_\otimes$, as desired.
+We begin with a technical lemma, which applies to right maps for $\kcylinv \otimes \id_{\calE}$ where $k \in \braces{0, 1}$, and hence to uniform $\cal{I}$-fibrations in particular (\cf the proof of \cref{strong-h-equiv-uniform-frobenius-fibrations}).
 
 \begin{lemma} \label{strong-h-equiv-frobenius-BC}
 \leavevmode
@@ -2791,11 +2803,9 @@ The next result, our final main theorem, should be read as the algebraic version
 Under the assumptions stated above, we have that $\Fib[\cal{I}] $ satisfies the uniform Frobenius property with respect to $\cal{I}_{\otimes}$.
 \end{theorem}
 
-\begin{proof} The result follows from  \cref{uniform-frobenius-change-u}
-and \cref{strong-h-equiv-uniform-frobenius-fibrations}, 
-  using the functors in \cref{relating-strong-hequiv-and-uniform-fib},
-  which were constructed in   \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
-  \end{proof}
+\begin{proof}
+The result follows from \cref{uniform-frobenius-change-u} and \cref{strong-h-equiv-uniform-frobenius-fibrations}, using the functors in \cref{relating-strong-hequiv-and-uniform-fib}, which were constructed in \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
+\end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley property for uniform~$\cal{I}$-fibrations.
 First, pushforward lifts to slices of the category of uniform $\cal{I}$-fibrations.
@@ -2824,9 +2834,7 @@ Then pushforward along $p$ lifts to a functor
 The claim follows from~\cref{uniform-fibrations-uniform-frobenius} and \cref{lift-dependent-product}.
 \end{proof}
 
-Second, pushforward behaves coherently with respect to pullback, which is the 
-categorical counterpart of the distributivity between formation
-of dependent products and substitution in type theory. 
+Second, pushforward behaves coherently with respect to pullback, which is the categorical counterpart of the distributivity between formation of dependent products and substitution in type theory. 
 
 \begin{corollary} \label{uniform-fibrations-BC-pushforward}
 Let $(s, t) \co p \to q$ be a map of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$ additionally forming a pullback square.
