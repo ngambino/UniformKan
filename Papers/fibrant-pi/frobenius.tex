@@ -44,7 +44,7 @@ Such a version of the simplicial model is of interest since it would strengthen 
 
 In particular, we prove constructively that in the category of simplicial sets pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 We consider this result to be a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which is a key ingredient of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, but cannot be proved constructively without modifying the standard notion of a Kan fibration~\cite{coquand-non-constructivity-kan}.
-Analogous results have been obtained by Coquand and his collaborators for uniform fibrations in a category of cubical sets without connections~\cite{coquand-cubical-sets,huber-thesis} and in some categories of cubical sets with connections (\cf \cite{coquand-face,coquand-variation,coquand-rules5}).
+Analogous results have been obtained by Coquand and his collaborators for uniform fibrations in a category of cubical sets without connections~\cite{coquand-cubical-sets,huber-thesis} and in some categories of cubical sets with connections (\cf \cite{coquand-face,coquand-variation}).
 They are also the subject of ongoing work by Awodey in the category of cartesian cubical sets~\cite{awodey-cubical}.
 Indeed, one of the initial motivations for this work was to investigate whether the idea of using uniform fibrations to obtain these results could be treated more generally, so as to be applicable also to simplicial sets.
 
@@ -115,7 +115,7 @@ We will use standard notation for simplicial sets as in~\cite{goerss-jardine}.
 
 \begin{example}
 Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+The specific category $\Box$ considered in~\cite{coquand-face,coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
 Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
 Note that the presence of symmetries precludes $\Box$ from being a Reedy category as it has non-trivial isomorphisms.%
@@ -522,8 +522,8 @@ The terminology introduced in the next example is intended to suggest an analogy
 Let $\catE$ be a presheaf category and write $\cal{M}$ for the subcategory of $\catE^\to$ consisting of decidable monomorphisms, \ie the monomorphisms whose components are functions with decidable image, and pullback squares.%
 \footnote{
 Assuming the law of excluded middle, all monomorphisms are decidable. 
-The results obtained in this article hold constructively also for the subcategory $\cal{M}'$ of all monomorphisms and pullback squares, or more generally for any full subcategory of $\cal{M}'$ that satisfies the premise of \cref{awfs-on-arrows-into-representables} and appropriate other closure properties.
-However, we expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory.
+The results obtained in this article hold constructively also for the subcategory of all monomorphisms and pullback squares, or more generally for any of its full subcategories that satisfies the premise of \cref{awfs-on-arrows-into-representables} and closure under Leibniz product with endpoint inclusions in the sense of \cref{lem:to-strong-hequiv}.
+However, we expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
 }
 The right $\cal{M}$-maps play a particularly important role in our development, and therefore we shall introduce special terminology for them: we will call them \emph{uniform trivial fibrations}.
 We define the category $\TrivFib$ of uniform trivial fibrations and their morphisms by letting
@@ -683,20 +683,21 @@ More explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a s
 \]
 where the map on the left is the Leibniz product of the horn inclusion $h_{1-k}^1 \co \braces{k} \to \Delta^1$ mentioned in \cref{exa:cyl-in-sset} with a decidable monomorphism $i \co A \to B$.
 Note that higher-dimensional horns are not involved explicitly here.
-However, they are included indirectly since they are retracts of the Leibniz product of a one-dimensional horn inclusion with themselves~\cite{joyal-quaderns} (see also \cite[Proposition 2.1.2.6]{lurie:htt}).
+However, they are included indirectly since they are retracts of the Leibniz product of a one-dimensional horn inclusion with themselves~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
 We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice, every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
 \end{example}
 
 \begin{example}[Uniform fibrations in cubical sets]
-What we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-variation} since the notion of $L$-system used therein does not capture all of the decidable subobjects of representables, but apparently only the ones classified by endpoint inclusions of the interval.
-Instead, it seems to be closer to the version of uniform Kan fibrations defined in terms of partial elements considered in~\cite{coquand-face,coquand-rules5}.
+To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $(n+1)$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
+\footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
+Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
+Since our cube category has symmetries, open box fillings are thus included for uniform Kan fibrations (without symmetries, we would have to consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$).
 
-To illustrate the connection to the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for the representable $\Box^n$, \ie its maximal non-trivial subobject.
-Then $\lcyl \hatotimes i^n$ an-d $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1 + n} \to \Box^{1 + n}$ and $\sqcap_1^{1 + n} \to \Box^{1 + n}$, respectively, hence open box fillings are included for uniform Kan fibrations (recall that $\sqcup_i^{1+n}$ is isomorphic to $\sqcup_1^{1+n}$ over $\Box^{1+n}$ for $i \in \braces{2, \ldots, n + 1}$ and similarly for $\sqcap_i^{1+n}$ since our cube category has symmetries).
+What we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{N}'$ of decidable subobjects of representables.
+Note however, following the footnote in \cref{exa-triv-kan-fib}, that our results still apply to such $\cal{N}'$ under the assumptions that $\cal{N}'$ is closed under base change along morphisms between representables and Leibniz tensor with endpoint inclusions.
 \end{example}
 
-
-\begin{remark}
+\begin{remark} \label{cisinski-remark}
 We briefly relate the notion of a uniform $\cal{I}$-fibration with that of a naive fibration, intoduced by Cisinski~\cite{cisinski-asterisque}.
 For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be given by
 \[
@@ -2066,9 +2067,9 @@ Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ eq
 \begin{enumerate}[(i)]
 \item the maps of $\Rp$, called \emph{cofaces}, are monotone with respect to $\deg$,
 \item the maps of $\Rm$, called \emph{codegeneracies}, are antimonotone with respect to $\deg$,
-\item every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface.
+\item every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface,
+\item the only isomorphisms in $\R$ are identities.
 \end{enumerate}
-Recall that these properties imply that $\R$ is skeletal.
 For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_n \dashv \Cosk_n$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$ (note the index shift contrary to the usual convention in the literature).
 
 Next, recall from~\cite{bergner-rezk-elegant} that a Reedy category $\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
@@ -2079,17 +2080,29 @@ The counit of $\Sk_{\deg(A)}$ induces a \emph{boundary inclusion} monomorphism $
 
 \medskip
 
-For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category of presheaves over it, $\calE \defeq \Rhat$.
-Note that our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy} since here presheaves are valued in the category of sets, not in simplicial sets.
-
-We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations.
-Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{N}$.
+For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category $\calE \defeq \Rhat$ of presheaves over it.%
+\footnote{Note that our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy} since here presheaves are valued in the category of sets, not in simplicial sets.}
+We start by defining the non-algebraic analogues of uniform (trivial) fibrations (\cf also \cref{cisinski-remark}).
 
 \begin{definition}
-\leavevmode
+Let $\cal{I}$ be the discrete subcategory of $\catE^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$.
 \begin{enumerate}[(i)]
-\item A \emph{trivial fibration} is a right $\cal{I}$-map, where $\cal{I}$ is the discrete subcategory of $\catE^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$.
-\item A \emph{regular trivial fibration} is a right $\cal{J}$-map, where $\cal{J}$ is the subcategory of~$\catE^{\to}$ that has as objects boundary inclusions $\partial A \to \yon A$ and identity maps $\id_{\yon A} \co \yon A \to \yon A$, and as morphisms commutative squares
+\item A \emph{trivial fibration} is a right $\cal{I}$-map.
+\item A \emph{fibration} is a right $\cal{I}_\otimes$-map.
+\end{enumerate}
+\end{definition}
+
+Using the axiom of choice, a map is a trivial fibration if and only if it has the right lifting property against boundary inclusions.%
+\footnote{This will be the only use of choice in this section, the remainder of the classical development in this subsection relies only on the law of the excluded middle.}
+In the case of simplicial sets, these notions then coincide with the classical notions of trivial Kan fibration and Kan fibration~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
+
+\medskip
+
+We will first establish the classical equivalence of trivial fibrations and uniform trivial fibrations (note that \cref{awfs-on-arrows-into-representables} cannot be applied here since the class of boundary inclusions as a discrete category does not represent the added coherence of $\cal{N}$).
+For this, we require an auxiliary notion.
+
+\begin{definition}
+A \emph{regular trivial fibration} is a right $\cal{J}$-map, where $\cal{J}$ is the subcategory of~$\catE^{\to}$ that has as objects boundary inclusions $\partial A \to \yon A$ and identity maps $\id_{\yon A} \co \yon A \to \yon A$, and as morphisms commutative squares
 \[
 \xymatrix{
   \partial A_1
@@ -2106,24 +2119,17 @@ Note that \cref{awfs-on-arrows-into-representables} cannot be applied here since
 }
 \]
 where $d \co A_1 \to A_2$ is in $\Rm$ and non-trivial, \ie not an identity map.
-\end{enumerate}
 \end{definition}
 
-The notion of a regular trivial fibrations will serve as an intermediate step in relating trivial fibrations to uniform trivial fibrations.
 Note that a regular trivial fibration is a map equipped with a filler for each boundary inclusion lifting problems such that degenerate lifting problems have degenerate fillers.
+The notion of a regular trivial fibrations will serve as an intermediate step in relating trivial fibrations to uniform trivial fibrations.
 
 \begin{proposition} \label{trivial-fibration-to-regular}
-\leavevmode
-\begin{enumerate}[(i)]
-\item A map is a trivial fibration if and only if it has the right lifting property against boundary inclusions.
-\item Every trivial fibration can be equipped with the structure of a regular trivial fibration.
-\end{enumerate}
+Every trivial fibration can be equipped with the structure of a regular trivial fibration.
 \end{proposition}
 
 \begin{proof}
-Part (i) is an application of the axiom of choice.%
-\footnote{This will be the only use of choice in this section, the remainder of the classical development in this subsection relies only on the law of the excluded middle.}
-For part (ii), consider a lifting problem as follows:
+Consider a lifting problem as follows:
 \begin{equation} \label{trivial-fibration-to-regular:0}
 \xymatrix{
   \partial A
