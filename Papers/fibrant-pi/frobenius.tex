@@ -1420,7 +1420,7 @@ The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as a
 
 \subsection*{Kan extensions}
 
-We now establish some general facts about the interaction between orthogonality functors and left Kan extensions, which will be applied in \cref{sec:unifpc} to show that uniform (trivial) Kan fibrations are the right maps of a natural weak factorization system.
+We now establish some general facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors, which will be applied in \cref{sec:unifpc} to show that uniform (trivial) Kan fibrations are the right maps of a natural weak factorization system.
 
 \begin{proposition} \label{kan-extension-closure}
 Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
@@ -2869,6 +2869,7 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lif
 
 \begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
 Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
+Assume that $\interval \otimes (-)$ preserves (decidable) monomorphisms and pullback squares between them.
 Recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
 Note that $\cal{M}$ is closed under Leibniz product with endpoint inclusions since decidable monomorphisms are closed under Leibniz product in the category of sets.
 
