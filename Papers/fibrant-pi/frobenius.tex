@@ -2869,9 +2869,9 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lif
 
 \begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
 Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
-Assume that $\interval \otimes (-)$ preserves (decidable) monomorphisms and pullback squares between them.
+Assume that $\interval \otimes (-)$ preserves (decidable) monomorphisms and pullback squares between them, and that the naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks.
 Recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
-Note that $\cal{M}$ is closed under Leibniz product with endpoint inclusions since decidable monomorphisms are closed under Leibniz product in the category of sets.
+The above assumptions ensure that $\cal{M}$ is closed under Leibniz product with endpoint inclusions: for the object part, using that decidable monomorphisms are closed under Leibniz product in the category of sets, and for the morphism part, using that pushouts are stable under base change.
 
 Let us show that $\liftr{(\cal{M}_\otimes)}$ satisfies the uniform Frobenius condition with respect to $\cal{M}$.
 In fact, we will show something stronger, namely that $\catE^\to$ itself satisfies the uniform Frobenius condition with respect to $\cal{M}$.
@@ -2901,13 +2901,13 @@ Hence, the pushforward of a uniform fibration along a uniform fibration is again
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in simplicial sets]
-As a special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\SSet$ pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
+Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
 We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
 Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in cubical sets]
-As another special case of \cref{frobenius-uniform-presheaf}, we obtain that in $\CSet$ pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
+Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in cubical sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\CSet$.
 Insufficiency of the classical notion of cubical Kan fibration for a constructive derivation of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}.
 \end{example}
 
