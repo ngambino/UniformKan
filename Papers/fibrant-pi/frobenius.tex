@@ -657,7 +657,7 @@ We define the category $\Fib$ of uniform fibrations and their morphisms by letti
 \[
   \Fib \defeq \Fib[\cal{M}] = \liftr{(\cal{M}_\otimes)} \, .
 \]
-Below, we illustrate the notion of a uniform fibration in simplicial sets and cubical sets.
+Below, we illustrate the notion of a uniform fibration in the special cases of simplicial sets and cubical sets.
 \end{example}
 
 \begin{example}[Uniform fibrations in simplicial sets]
@@ -687,10 +687,11 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \begin{example}[Uniform fibrations in cubical sets]
 To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $(n+1)$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
-Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
-Since our cube category has symmetries, open box fillings are thus included for uniform Kan fibrations (without symmetries, we would have to consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$).
+Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively. Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a right map (in the algebraic sense) also to open box inclusions, which are 
+counterparts in cubical sets of the horn inclusions in simplicial sets.\footnote{Without symmetries, 
+one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
-What we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{N}'$ of decidable subobjects of representables.
+Let us point out that what we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{N}'$ of decidable subobjects of representables.
 Note however, following the footnote in \cref{exa-triv-kan-fib}, that our results still apply to such $\cal{N}'$ under the assumptions, satisfied satisfied for~\cite{coquand-face,coquand-variation}, that $\cal{N}'$ is closed under base change along morphisms between representables and Leibniz tensor with endpoint inclusions.
 \end{example}
 
