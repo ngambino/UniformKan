@@ -52,7 +52,7 @@ In view of our applications to simplicial and cubical sets, we devote particular
 In this setting, uniform trivial fibration are defined by weak orthogonality with respect to the category~$\mathcal{M}$ of decidable monomorphisms (which evidently coincide with all monomorphisms assuming the law of excluded middle) and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 These definitions may be seen as a counterpart in our setting of those introduced by Cisinski in~\cite{cisinski-asterisque}.
 
-Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption,  uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
+Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption, uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
 As a special case of this result, we obtain natural weak factorization systems in simplicial and cubical sets that have uniform Kan fibrations as the right maps, which are of interest for the interpretation of Martin-L\"of's rules for identity types~\cite{awodey-warren:homotopy-idtype,gambino-garner:idtypewfs,warren:thesis,garner:topological-simplicial,shulman:inverse-diagrams}.
 These natural weak factorization systems are obtained using Garner's small object argument~\cite{garner:small-object-argument}.
 But in order to be able to apply it, we crucially show that uniform (trivial) fibrations can be be defined equivalently by weak orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
@@ -79,15 +79,16 @@ Indeed, the notion of a uniform Kan fibration, while classically equivalent to t
 
 Let us also mention that, just as we introduce a version of the Frobenius property for a map, we introduce also a version of the Beck-Chevalley conditions for morphisms of maps, \ie commutative squares.
 As before, we show that the Beck-Chevalley condition holds for morphisms of uniform fibrations under mild assumptions, which are verified in categories of presheaves.
-In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which combines the Frobenius and Beck-Chevalley conditions in our setting. 
+In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which combines the Frobenius and Beck-Chevalley conditions in our setting.
 
 \subsection*{Organization of the paper}
 Section~\ref{sec:cylhuf} introduces the main concepts that will be studied in the paper, namely functorial cylinders with connections, homotopy equivalences, and uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular.
 The paper then proceeds with two sections containing auxiliary results: Section~\ref{sec:ortf} establishes basic facts about orthogonality functors, while \cref{sec:remshe} focuses on strong homotopy equivalences.
 The rest of the paper contains our main results.
-In Section~\ref{sec:unifpc}, we establish  the existence of natural weak factorization systems with uniform (trivial) fibrations as right maps. The relationship between uniform fibrations and their non-algebraic counterparts, assuming the axiom of choice, is studied in \cref{sec:non-alg}.
+In Section~\ref{sec:unifpc}, we establish the existence of natural weak factorization systems with uniform (trivial) fibrations as right maps.
+The relationship between uniform fibrations and their non-algebraic counterparts, assuming the axiom of choice, is studied in \cref{sec:non-alg}.
 Finally, after introducing the Frobenius and Beck-Chevalley conditions in Section~\ref{sec:frobc}, we prove that they hold for uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
-Appendix~\ref{app:tecp} contains the proof of a technical lemma. 
+Appendix~\ref{app:tecp} contains the proof of a technical lemma.
 
 \subsection*{Acknowledgements} We are grateful to Steve Awodey, Simon Huber, and Andrew Swan for helpful discussions on the cubical model of type theory; to Emily Riehl for insightful comments on algebraic weak factorization systems; and to Richard Garner for pointing us to useful references.
 
@@ -518,7 +519,7 @@ The terminology introduced in the next example is intended to suggest an analogy
 \begin{example}[Uniform trivial fibrations in presheaf categories] \label{exa-triv-kan-fib}
 Let $\catE$ be a presheaf category and write $\cal{M}$ for the subcategory of $\catE^\to$ consisting of decidable monomorphisms, \ie the monomorphisms whose components are functions with decidable image, and pullback squares.%
 \footnote{
-Assuming the law of excluded middle, all monomorphisms are decidable. 
+Assuming the law of excluded middle, all monomorphisms are decidable.
 The results obtained in this article hold constructively also for the subcategory of all monomorphisms and pullback squares, or more generally for any of its full subcategories that satisfies the premise of \cref{awfs-on-arrows-into-representables} and closure under Leibniz product with endpoint inclusions in the sense of \cref{lem:to-strong-hequiv}.
 However, we expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
 }
@@ -687,9 +688,10 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \begin{example}[Uniform fibrations in cubical sets]
 To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $(n+1)$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
-Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively. Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a right map (in the algebraic sense) also to open box inclusions, which are 
-counterparts in cubical sets of the horn inclusions in simplicial sets.\footnote{Without symmetries, 
-one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
+Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
+Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a right map (in the algebraic sense) also to open box inclusions, which are
+counterparts in cubical sets of the horn inclusions in simplicial sets.%
+\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
 Let us point out that what we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{N}'$ of decidable subobjects of representables.
 Note however, following the footnote in \cref{exa-triv-kan-fib}, that our results still apply to such $\cal{N}'$ under the assumptions, satisfied satisfied for~\cite{coquand-face,coquand-variation}, that $\cal{N}'$ is closed under base change along morphisms between representables and Leibniz tensor with endpoint inclusions.
@@ -2840,7 +2842,7 @@ Then pushforward along $p$ lifts to a functor
 The claim follows from~\cref{uniform-fibrations-uniform-frobenius} and \cref{lift-dependent-product}.
 \end{proof}
 
-Second, pushforward behaves coherently with respect to pullback, which is the categorical counterpart of the distributivity between formation of dependent products and substitution in type theory. 
+Second, pushforward behaves coherently with respect to pullback, which is the categorical counterpart of the distributivity between formation of dependent products and substitution in type theory.
 
 \begin{corollary} \label{uniform-fibrations-BC-pushforward}
 Let $(s, t) \co p \to q$ be a map of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$ additionally forming a pullback square.
