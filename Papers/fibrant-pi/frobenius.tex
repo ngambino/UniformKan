@@ -2800,8 +2800,6 @@ By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$ as given in~\eqref{equ
 We finish by applying \cref{uniform-frobenius-change-v}.
 \end{proof}
 
-
-
 In addition to previous assumptions, we now assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
 We also assume once and for all that uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to $\cal{I}$.
 In our examples, this will always be the case with all of $\catE^\to$ having the uniform Frobenius property with respect to $\cal{I}$ as explained in \cref{frobenius-uniform-presheaf}.
@@ -2905,7 +2903,8 @@ Hence, the pushforward of a uniform fibration along a uniform fibration is again
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in simplicial sets]
 Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
 We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
-Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.
+Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.%
+\footnote{Since strong homotopy equivalences are closed under product with a constant factor, an adaptation of the proof of \cref{uniform-fibrations-uniform-frobenius} shows that only the base needs to be assumed Kan.}
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in cubical sets]
