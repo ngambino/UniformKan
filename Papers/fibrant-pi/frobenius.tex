@@ -49,7 +49,7 @@ They are also the subject of ongoing work by Awodey in the category of cartesian
 Indeed, one of the initial motivations for this work was to investigate whether the idea of using uniform fibrations to obtain these results could be treated more generally, so as to be applicable also to simplicial sets.
 
 In view of our applications to simplicial and cubical sets, we devote particular attention to uniform (trivial) fibrations in presheaf categories equipped with a functorial cylinder.
-In this setting, uniform trivial fibration are defined by weak orthogonality with respect to the category~$\mathcal{M}$ of decidable monomorphisms (which evidently coincide with all monomorphisms assuming the law of excluded middle) and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
+In this setting, uniform trivial fibration are defined by weak orthogonality with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 These definitions may be seen as a counterpart in our setting of those introduced by Cisinski in~\cite{cisinski-asterisque}.
 
 Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption, uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
@@ -517,12 +517,7 @@ There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mappi
 The terminology introduced in the next example is intended to suggest an analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, where he studied extensively model structures in which the cofibrations are the monomorphisms.
 
 \begin{example}[Uniform trivial fibrations in presheaf categories] \label{exa-triv-kan-fib}
-Let $\catE$ be a presheaf category and write $\cal{M}$ for the subcategory of $\catE^\to$ consisting of decidable monomorphisms, \ie the monomorphisms whose components are functions with decidable image, and pullback squares.%
-\footnote{
-Assuming the law of excluded middle, all monomorphisms are decidable.
-The results obtained in this article hold constructively also for the subcategory of all monomorphisms and pullback squares, or more generally for any of its full subcategories that satisfies the premise of \cref{awfs-on-arrows-into-representables} and closure under Leibniz product with endpoint inclusions in the sense of \cref{lem:to-strong-hequiv}.
-However, we expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
-}
+Let $\catE$ be a presheaf category and $\cal{M}$ be some full subcategory of $\catE_\cart^\to$ of monomorphisms (we will start to impose certain conditions on $\cal{M}$ in \cref{uniform-fib-presheaf-cat}).
 The right $\cal{M}$-maps play a particularly important role in our development, and therefore we shall introduce special terminology for them: we will call them \emph{uniform trivial fibrations}.
 We define the category $\TrivFib$ of uniform trivial fibrations and their morphisms by letting
 \[
@@ -549,7 +544,7 @@ Note that the compatibility condition for a uniform trivial fibration $(f, \phi)
   Y
 \rlap{,}}
 \]
-where $i$ and $j$ are decidable monomorphisms and the square on the left is a pullback.
+where $i$ and $j$ are in $\cal{M}$ and the square on the left is a pullback.
 A uniform trivial fibration in $\SSet$ and $\CSet$ will be called a \emph{uniform trivial Kan fibration}.
 \end{example}
 
@@ -649,20 +644,52 @@ One readily sees that the notion of a uniform $\cal{I}$-fibration involves diago
 \end{gather*}
 where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 
-
-\begin{example}[Uniform fibrations in presheaf categories]
+\begin{example}[Uniform fibrations in presheaf categories] \label{uniform-fib-presheaf-cat}
 Let $\catE$ be a presheaf category equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$.
-When working with presheaf categories, the category~$\cal{M}$ of decidable monomorphisms and pullback squares and the inclusion $u \co \cal{M} \hookrightarrow \catE^\to$ are of particular importance, \cf \cref{exa-triv-kan-fib}.
+Continuing \cref{exa-triv-kan-fib}, we consider some full subcategory $\cal{M}$ of $\catE_\cart^\to$ of monomorphisms, letting $u \co \cal{M} \hookrightarrow \catE^\to$ denote the inclusion.
 In this setting, a uniform~$\cal{M}$-fibration, \ie a right~$\cal{M}_\otimes$-map, will be called a \emph{uniform fibration}, without further specification.
 We define the category $\Fib$ of uniform fibrations and their morphisms by letting
 \[
   \Fib \defeq \Fib[\cal{M}] = \liftr{(\cal{M}_\otimes)} \, .
 \]
-Below, we illustrate the notion of a uniform fibration in the special cases of simplicial sets and cubical sets.
+
+For the rest of this article, we will impose the following conditions on $\cal{M}$:
+\begin{enumerate}[(i)]
+\item for $i$ in $\cal{M}$, any base change of $i$ is also in $\cal{M}$;
+\item $\cal{M}$ is closed under the lift of the cylinder functor $\interval \otimes (-)$ to arrows;
+\item the endpoint inclusions $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ restrict to functors $\catE \to \cal{M}$;
+\item we have $\lcyl \hatotimes i \in \cal{M}$ and $\rcyl \hatotimes i \in \cal{M}$ for $i \in \cal{M}$.
+\end{enumerate}
+Condition~(ii) means that $\interval \otimes i : \interval \otimes A \to \interval \otimes B$ is in $\cal{M}$ given $i : A \to B$ in $\cal{M}$ and that $\interval \otimes (-)$ preserves pullback squares.
+Condition~(iii) means that $\kcyl \otimes C : C \to \interval \otimes C$ is in $\cal{M}$ for any $C \in \catE$ and that the naturality squares of $\kcyl \otimes (-)$ are pullbacks ($k \in \braces{0, 1}$).
+Since pushouts in presheaf categories are stable under base change, conditions~(ii) and~(iii) allow us to strengthen the objectwise assertion of condition~(iv) to a lift of the Leibniz product functor $\kcyl \hatotimes (-)$ to $\cal{M}$ as indicated below ($k \in \braces{0, 1}$):%
+\footnote{Abstracting from the setting of a presheaf category, the core property used here is adhesiveness~\cite{garner-lack:adhesive} of the elements of $\cal{M}$.}
+\[
+\xymatrix{
+  \cal{M}
+  \ar@{.>}[r]^{\kcyl \hatotimes (-)}
+  \ar[d]_{u}
+&
+  \cal{M}
+  \ar[d]^{u}
+\\
+  \catE^\to
+  \ar[r]_{\kcyl \hatotimes (-)}
+&
+  \catE^\to
+\rlap{.}}
+\]
+
+It it natural to consider for $\cal{M}$ the full subcatgory of $\catE_\cart^\to$ of either all monomorphisms or all decidable monomorphisms \footnote{
+Assuming the law of excluded middle, all monomorphisms are decidable.
+We expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
+} (\ie whose components are functions with decidable image), in particular if $\calE$ is a presheaves over an elegant Reedy category.
+For any of these two choices, conditions~(i) to~(iv) are inherited from the setting $\calE = \Set$.
+Below, we illustrate the notion of a uniform fibration in the special cases of simplicial sets and cubical sets
 \end{example}
 
 \begin{example}[Uniform fibrations in simplicial sets]
-A uniform fibration in $\SSet$ will be called a \emph{uniform Kan fibration}.
+A uniform fibration in $\SSet$ with $\cal{M}$ consisting of all decidable monomorphisms will be called a \emph{uniform Kan fibration}.
 More explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simplicial map $p \co X \to Y$ and a function $\phi$ that provides diagonal fillers for diagrams of the form
 \[
 \xymatrix{
@@ -686,6 +713,7 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 \end{example}
 
 \begin{example}[Uniform fibrations in cubical sets]
+A uniform fibration in $\CSet$ with $\cal{M}$ consisting of all decidable monomorphisms will be called a \emph{uniform Kan fibration}.
 To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $(n+1)$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
 Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
@@ -693,8 +721,9 @@ Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a 
 counterparts in cubical sets of the horn inclusions in simplicial sets.%
 \footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
-Let us point out that what we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{N}'$ of decidable subobjects of representables.
-Note however, following the footnote in \cref{exa-triv-kan-fib}, that our results still apply to such $\cal{N}'$ under the assumptions, satisfied satisfied for~\cite{coquand-face,coquand-variation}, that $\cal{N}'$ is closed under base change along morphisms between representables and Leibniz tensor with endpoint inclusions.
+Let us point out that what we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{M}'$ of decidable monomorphisms.
+Since the presence of symmetries precludes the cube category being Reedy, this may turn out to be a natural restriction.
+Fortunately, this choice $\cal{M}'$ also satisfies the properties~(i) to~(iv) of \cref{uniform-fib-presheaf-cat} and is thus covered by our setting.
 \end{example}
 
 \begin{remark} \label{cisinski-remark}
@@ -711,7 +740,7 @@ Our reasons for working with~$\Fib[\cal{I}]$ instead of $\liftr{(\cal{I}_\otimes
 First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the functor $u \co \cal{I} \to \catE^\to$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every uniform $\cal{I}$-fibration also has canonically the structure of a uniform naive Cisinski $\cal{I}$-fibration.
 This is the case in our main examples of simplicial and cubical sets where $u \co \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
 
-Second, if we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle $n$ arguments), and that $\cal{I}$ is closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$ (this is the case if $[\lcyl, \rcyl]$ is a decidable monomorphism and the maps in $\cal{I}$ are the decidable monomorphisms in a presheaf category as in \cref{sec:unifpc}), then the maps in $\cal{I}_\otimes'$ can still be shown to be strong homotopy equivalences in a uniform way.
+Second, if we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle $n$ arguments), and that $\cal{I}$ is closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$ (this is the case if $[\lcyl, \rcyl]$ is a (decidable) monomorphism and the maps in $\cal{I}$ are the (decidable) monomorphisms in a presheaf category as in \cref{sec:unifpc}), then the maps in $\cal{I}_\otimes'$ can still be shown to be strong homotopy equivalences in a uniform way.
 This gives rise to a functor
 \[
   \cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
@@ -1887,7 +1916,7 @@ Recall from \cref{exa-triv-kan-fib} that the category of uniform trivial fibrati
 \rlap{,}
 \end{aligned}
 \]
-respectively, where $\cal{M}$ is the subcategory of $\catE^\to$ consisting of decidable monomorphisms and pullback squares.
+respectively, where $\cal{M}$ is a full subcategory of $\catE_\cart^\to$ of monomorphisms and pullback squares.
 We wish to establish that uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorisation systems.
 We will do so using Garner's small object argument~\cite{garner:small-object-argument}.
 In order to apply it, we establish that these categories can be also be defined as right orthogonal with respect to small categories over $\catE$.
@@ -1959,18 +1988,19 @@ Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
 The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
 \end{proof}
 
-\begin{theorem} \label{small-gen-triv-kan} Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms with a representable presheaf as codomain.
+\begin{theorem} \label{small-gen-triv-kan}
+Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms with a representable presheaf as codomain.
 \begin{enumerate}[(i)]
 \item There is an isomorphism $\TrivFib = \liftr{\cal{N}}$,
 \item There is an isomorphism $\Fib = \liftr{(\cal{N}_\otimes)}$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof} Part (i) follows from \cref{awfs-on-arrows-into-representables}, while
-part (ii) follows from part (i) and \cref{prod-exp-general}.
+\begin{proof}
+Part (i) follows from \cref{awfs-on-arrows-into-representables} using condition~(i) of \cref{uniform-fib-presheaf-cat}, while part (ii) follows from part (i) and \cref{prod-exp-general}.
 \end{proof}
 
-In particular, part (i) of \cref{small-gen-triv-kan} says that, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary decidable monomorphism on the left is the same as to give a natural choice of fillers for all diagrams of the form
+In particular, part (i) of \cref{small-gen-triv-kan} says that, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of $\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams of the form
 \[
 \xymatrix{
   A
@@ -1990,17 +2020,16 @@ where $\yon(x)$ the Yoneda embedding of some $x \in \catC$.
 The reduction to this type of diagrams relies essentially on the good behaviour of the right orthogonality functor with respect to colimits as described in~\cref{awfs-on-arrows-into-representables}.
 
 Let us point out that by \cref{small-gen-triv-kan} we have that $\TrivFib = \liftr{\cal{S}}$ for every full subcategory~$\cal{S} \subseteq \cal{M}$ containing~$\cal{N}$, since~$\cal{N}$ is then also the restriction to maps into representables of $\cal{S}$.
-For example, one could consider for $\cal{S}$ the full subcategory of $\cal{M}$ spaned by decidable monomorphisms with codomain a finite product of representables or, in the case of simplicial sets, decidable monomorphisms with codomain a finite and finite-dimensional simplicial set.
+For example, one could consider for $\cal{S}$ the full subcategory of $\cal{M}$ spaned by maps with codomain a finite product of representables or, in the case of simplicial sets, a finite and finite-dimensional simplicial set.
 These subcategories enjoy different closure properties.
 Since they all have the same right category, one may choose according to the situation at hand.
 Note that $\cal{N}$ has the key advantage of being a small category.
 We will expoit this fact to obtain our second main results, \cref{thm:sset-cset-nwfs}, in the rest of this section.
 
-
-
 \cref{small-gen-triv-kan} allows us to apply Garner's small object argument~\cite{garner:small-object-argument} and obtain the desired natural weak factorization systems.
 
-\begin{theorem} \label{thm:sset-cset-nwfs} Assume that in $\cal{E}$ every subobject of a representable is finitely presentable.
+\begin{theorem} \label{thm:sset-cset-nwfs}
+Assume that in $\cal{E}$ every subobject of a representable is finitely presentable.
 \begin{enumerate}[(i)]
 \item There exists a natural weak factorization systems $(\mathsf{L}_1, \mathsf{R}_1)$ in which right maps are the uniform trivial fibrations.
 In particular, every map $f \co X \to Y$ admits a functorial factorization of the form
@@ -2037,7 +2066,7 @@ where $p_f$ admits the structure of a uniform fibration and $j_f$ admits the str
 \end{theorem}
 
 \begin{proof}
-First, observe that the full subcategory of $\catE^\to$ spanned by the monomorphisms with codomain a representable presheaf is small.
+First, observe that the full subcategory of $\catE^\to$ spanned by maps with codomain a representable presheaf is small.
 For part (i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Proposition 4.22]{garner:small-object-argument} shows that this suffices to construct the algebraically-free natural weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
 The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
@@ -2868,14 +2897,12 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lif
 \end{proof}
 
 \begin{example}[The Frobenius property for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
-Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections such that $\lcyl$ and $\rcyl$ are decidable monomorphisms.
-Assume that $\interval \otimes (-)$ preserves (decidable) monomorphisms and pullback squares between them, and that the naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks.
-Recall that we write $u \co \cal{M} \hookrightarrow \catE^\to$ for the inclusion of the subcategory of decidable monomorphisms and pullback squares.
-The above assumptions ensure that $\cal{M}$ is closed under Leibniz product with endpoint inclusions: for the object part, using that decidable monomorphisms are closed under Leibniz product in the category of sets, and for the morphism part, using that pushouts are stable under base change.
+Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and consider a full subcategory $\cal{M}$ of $\catE^\to$ of monomorphisms satisying the conditions of \cref{uniform-fib-presheaf-cat}.
+Recall from the discussion there that $\cal{M}$ is closed under Leibniz product with endpoint inclusions.
 
-Let us show that $\liftr{(\cal{M}_\otimes)}$ satisfies the uniform Frobenius condition with respect to $\cal{M}$.
+Let us show that $\liftr{\cal{M}}$ satisfies the uniform Frobenius condition with respect to $\cal{M}$.
 In fact, we will show something stronger, namely that $\catE^\to$ itself satisfies the uniform Frobenius condition with respect to $\cal{M}$.
-For the Frobenius part, observe that pulling back preserves decidable monomorphisms and pullback squares between them.
+For the Frobenius part, observe that pulling back preserves objects of $\cal{M}$ by condition~(i) of \cref{uniform-fib-presheaf-cat} and pullback squares between them by pullback pasting.
 For the Beck-Chevalley part, consider a commutative square
 \[
 \xymatrix{
