@@ -1,0 +1,80 @@
+\documentclass[reqno,10pt,a4paper,oneside,draft]{amsart}
+
+\usepackage{uniform-kan-prelude}
+
+\begin{document}
+
+We work in the setting of a locally presentable locally cartesian closed category $\catE$.
+Let $v \co \cal{J} \to \catE^\to$ be a category of finitely presentable maps, \ie having the property that source and target of $v(X)$ are finitely presentable for any $X \in \cal{J}$.
+
+\begin{lemma}
+The functor $\liftr{u}$ creates filtered colimits.
+\end{lemma}
+
+\begin{proof}
+Consider a filtered diagram $F \co \cat{D} \to \liftr{J}$.
+Let $(f, \phi)$ be a colimiting cone of $\liftr{v} \cc F$ in $\catE^\to$.
+Our goal will be to show that $(f, \phi)$ lifts uniquely to a colimiting cone of $F$ in $\liftr{J}$.
+
+Let us construct a $J$-right lifting structure for $f$.
+Suppose we are given $X \in \cal{J}$ and a square $J X \to f$.
+Since $J X$ is finitely presentable, there is $A \in \cat{D}$ such that $J X \to f$ factors through the leg $\phi_A : \liftr{v}(F A) \to f$.
+Finding a filler for the square $J X \to f$ thus reduces to finding a filler for the square $J X \to \liftr{v}(F A)$; in fact, we are forced to proceed this way since we want $\phi_A$ to lift to a map of $\cal{J}$-right maps.
+Since $F A$ is a $\cal{J}$-right map, we have such a filler.
+The resulting filler for the square $J X \to f$ is independent of the choice of $A$ by coherence of $J$-right maps in the diagram $F$.
+It is easily verified that the construction is natural in $X \in \cal{J}$.
+\end{proof}
+
+Let $(\liftr{v})_1 \co (\liftr{\cal{J}})_1 \to \catE$ denote the base change of $\liftr{v}$ along the right adjoint to $\dom_\catE$, \ie the functor $\catE \to \catE^\to$ mapping $X$ to $!_X \co X \to 1$.
+Explicitly, an object of $(\liftr{\cal{J}})_1$ is $X \in \liftr{\cal{J}}$ such that $\liftr{v}(X)$ has terminal codomain.
+
+\begin{corollary}
+The functor $\liftr{u}$ creates free monads on accessible well-pointed endofunctors.
+\end{corollary}
+
+\begin{proof}
+The construction of the free monad on an accessible well-pointed endofunctor proceeds by a transfinite construction via filtered colimits, thus the previous lemma applies.
+\end{proof}
+
+\begin{corollary}
+The functor $\liftr{u}$ creates free monads on accessible endofunctors.
+\end{corollary}
+
+\begin{proof}
+The construction of the free monad on an accessible endofunctor proceeds by a transfinite construction via filtered colimits, thus the previous lemma applies.
+\end{proof}
+
+\begin{corollary}
+The functor $\liftr{u}$ creates initial algberas on accessible endofunctors.
+In detail, let $F : \calE \to \calE$ be an accessible endofunctor that lifts as follows:
+\[
+\xymatrix{
+  (\liftr{\cal{J}})_1
+  \ar@{.>}[r]^{F'}
+  \ar[d]
+&
+  (\liftr{\cal{J}})_1
+  \ar[d]
+\\
+  \calE
+  \ar[r]_{F}
+&
+  \calE
+\rlap{.}}
+\]
+Then both $F$ and $F'$ admit initial algebras and we have $(\liftr{u})_1(\mu F') = \mu F$.
+\end{corollary}
+
+Assume now that pushforward along any right $\cal{J}$-map lifts to a functor between slices of $\liftr{\cal{J}}$.
+
+\begin{corollary}
+Consider morphisms $f : B \to A$, $s : B \to I$ and $t : A \to I$ where $f$ and $t$ are right $\cal{J}$-maps.
+Let $F : \catE/I \to \catE/I$ denote the corresponding polynomial functor, \ie $F = \Sigma_t \Pi_f s^*$.
+Then the initial algebra $\mu F \to I$ carries the structure of a right $\cal{J}$-map that furthermore makes it into an initial algebra for the lift of $F$ to $(\liftr{\cal{J}}_{/I})_1$.
+\end{corollary}
+
+\begin{proof}
+Apply the previous corollary with $\calE$ replaced by $\calE/I$, noting that $s^*$, $\Pi_f$, $\Sigma_t$ all lift to functors between base changes of $(\liftr{\cal{J}}_{/I})$.
+\end{proof}
+
+\end{document}
