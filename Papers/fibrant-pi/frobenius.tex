@@ -113,7 +113,7 @@ We will use standard notation for simplicial sets as in~\cite{goerss-jardine}.
 
 \begin{example}
 Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{coquand-face,coquand-variation} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
 Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
 Note that the presence of symmetries precludes $\Box$ from being a Reedy category as it has non-trivial isomorphisms.%
@@ -123,7 +123,7 @@ Something far less trivial is true in the joint presence of symmetries, diagonal
 \end{example}
 
 We stress that the only feature of the cube category $\Box$ relevant to our development are connections and symmetries (although we speculate a two-sided version should carry over to classical cube categories with connections, but no symmetries).
-Thus, our results apply equally to many other variations of cubical sets, excluding however~\cite{coquand-cubical-sets}.
+Thus, our results apply equally to many other variations of cubical sets, excluding however~\cite{coquand-cubical-sets,huber-thesis}.
 
 \subsection*{Cylinders and homotopies}
 
@@ -185,7 +185,7 @@ As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provi
 \end{example}
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
-The category of cubical sets $\CSet$ as studied in \cite{coquand-variation} has a monoidal structure with unit coinciding with the terminal object.
+The category of cubical sets $\CSet$ as studied in \cite{cohen-et-al:cubicaltt} has a monoidal structure with unit coinciding with the terminal object.
 An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl \co \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
 As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
 \end{example}
@@ -681,9 +681,10 @@ Since pushouts in presheaf categories are stable under base change, conditions~(
 \rlap{.}}
 \]
 
-It it natural to consider for $\cal{M}$ the full subcatgory of $\catE_\cart^\to$ of either all monomorphisms or all decidable monomorphisms \footnote{
+It it natural to consider for $\cal{M}$ the full subcatgory of $\catE_\cart^\to$ of either all monomorphisms or all decidable monomorphisms%
+\footnote{
 Assuming the law of excluded middle, all monomorphisms are decidable.
-We expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
+We expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{cohen-et-al:cubicaltt}).
 } (\ie whose components are functions with decidable image), in particular if $\calE$ is a presheaves over an elegant Reedy category.
 For any of these two choices, conditions~(i) to~(v) are inherited from the setting $\calE = \Set$.
 Below, we illustrate the notion of a uniform fibration in the special cases of simplicial sets and cubical sets
@@ -722,7 +723,7 @@ Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a 
 counterparts in cubical sets of the horn inclusions in simplicial sets.%
 \footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b : \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
-Let us point out that what we call a uniform Kan fibration in cubical sets does not correspond to the fibrant cubical types defined in~\cite{coquand-et-al:cubicaltt}: their notion of context restriction captures only the proper subset $\cal{M}'$ of decidable monomorphisms classified by their face lattice, excluding for example diagonals in cubes.
+Let us point out that what we call a uniform Kan fibration in cubical sets does not correspond to the fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt}: their notion of context restriction captures only the proper subset $\cal{M}'$ of decidable monomorphisms classified by their face lattice, excluding for example diagonals in cubes.
 Since the presence of symmetries, diagonals, and connections precludes the cube category being Reedy, this may turn out to be a natural restriction.
 Fortunately, this choice $\cal{M}'$ also satisfies the properties~(i) to~(v) of \cref{uniform-fib-presheaf-cat} and is thus covered by our setting.
 \end{example}
@@ -1782,12 +1783,12 @@ By \cref{effective-connections-leibniz}, the functorial cylinder has effective c
   \kcyl \hatotimes f
 \rlap{.}}
 \end{equation}
-This retract situation is the categorical reason why Coquand \etal\cite{coquand-variation} are able to, in their teminology, reduce filling for L-systems to composition.
-Translating to our language, a filling problem for an L-system is in particular a lifting problem of the form $\kcyl \hatotimes f \to p$ with $f$ mono.
+This retract situation is the categorical reason why Coquand \etal\cite{cohen-et-al:cubicaltt} are able to reduce Kan filling to what they call composition.
+Translating to our language, let us consider a lifting problem of the form $\kcyl \hatotimes f \to p$.
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
-Uniformity in the sense of~\cite{coquand-variation} means naturality in $f$ with respect to pullback squares.
+Uniformity in the sense of~\cite{cohen-et-al:cubicaltt} means naturality in $f$ with respect to pullback squares.
 \end{remark}
 
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
