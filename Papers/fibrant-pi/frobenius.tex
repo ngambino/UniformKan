@@ -658,7 +658,8 @@ For the rest of this article, we will impose the following conditions on $\cal{M
 \item for $i$ in $\cal{M}$, any base change of $i$ is also in $\cal{M}$;
 \item $\cal{M}$ is closed under the lift of the cylinder functor $\interval \otimes (-)$ to arrows;
 \item the endpoint inclusions $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ restrict to functors $\catE \to \cal{M}$;
-\item we have $\lcyl \hatotimes i \in \cal{M}$ and $\rcyl \hatotimes i \in \cal{M}$ for $i \in \cal{M}$.
+\item we have $\lcyl \hatotimes i \in \cal{M}$ and $\rcyl \hatotimes i \in \cal{M}$ for $i \in \cal{M}$;
+\item we have $\bot_X \co 0_{\cal{E}} \to X$ in $\cal{M}$ for $X \in \cal{M}$.
 \end{enumerate}
 Condition~(ii) means that $\interval \otimes i : \interval \otimes A \to \interval \otimes B$ is in $\cal{M}$ given $i : A \to B$ in $\cal{M}$ and that $\interval \otimes (-)$ preserves pullback squares.
 Condition~(iii) means that $\kcyl \otimes C : C \to \interval \otimes C$ is in $\cal{M}$ for any $C \in \catE$ and that the naturality squares of $\kcyl \otimes (-)$ are pullbacks ($k \in \braces{0, 1}$).
@@ -684,7 +685,7 @@ It it natural to consider for $\cal{M}$ the full subcatgory of $\catE_\cart^\to$
 Assuming the law of excluded middle, all monomorphisms are decidable.
 We expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{coquand-face}).
 } (\ie whose components are functions with decidable image), in particular if $\calE$ is a presheaves over an elegant Reedy category.
-For any of these two choices, conditions~(i) to~(iv) are inherited from the setting $\calE = \Set$.
+For any of these two choices, conditions~(i) to~(v) are inherited from the setting $\calE = \Set$.
 Below, we illustrate the notion of a uniform fibration in the special cases of simplicial sets and cubical sets
 \end{example}
 
@@ -723,7 +724,7 @@ counterparts in cubical sets of the horn inclusions in simplicial sets.%
 
 Let us point out that what we call a uniform Kan fibration in cubical sets does not seem to correspond to the notion of uniform Kan fibration defined in~\cite{coquand-face,coquand-variation}: the notions of $L$-system and partial elements used therein capture only a proper subset $\cal{M}'$ of decidable monomorphisms.
 Since the presence of symmetries precludes the cube category being Reedy, this may turn out to be a natural restriction.
-Fortunately, this choice $\cal{M}'$ also satisfies the properties~(i) to~(iv) of \cref{uniform-fib-presheaf-cat} and is thus covered by our setting.
+Fortunately, this choice $\cal{M}'$ also satisfies the properties~(i) to~(v) of \cref{uniform-fib-presheaf-cat} and is thus covered by our setting.
 \end{example}
 
 \begin{remark} \label{cisinski-remark}
@@ -2817,6 +2818,8 @@ If $\liftr{(\kcylinv \otimes \id_\catE)}$ satisfies the uniform Frobenius condit
 Combine part (i) and (ii) of~\cref{strong-h-equiv-frobenius-BC}.
 \end{proof}
 
+For the rest of the section, we assume that the functor from $\cal{E}$ to $\cal{E}^\to$ sending $X$ to $\bot_X$ lifts through $u \co \cal{I} \to \cal{E}^\to$.
+
 \begin{proposition} \label{strong-h-equiv-uniform-frobenius-fibrations}
 If uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to~$\cal{I}$, then also with respect to strong homotopy equivalences $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
 \end{proposition}
@@ -2824,12 +2827,12 @@ If uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect
 \begin{proof}
 This is a consequence of \cref{strong-h-equiv-uniform-frobenius}.
 Combining the cases $k = 0$ and $k = 1$, we have that if $\liftr{(\braces{\lcyl, \rcyl} \otimes \id_\catE)}$ satisfies the uniform Frobenius property with respect to $\cal{I}$, then also with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
-Note that, for $k \in \braces{0, 1}$, there is a functor $\delta^k \otimes \id_\catE \to \delta^k \hatotimes (-)$ over $\catE^\to$ sending $X$ to $\bot_X$.
+By assumption, for $k \in \braces{0, 1}$, there is a functor $\delta^k \otimes \id_\catE \to \delta^k \hatotimes (-)$ over $\catE^\to$ sending $X$ to $\bot_X$.
 By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$ as given in~\eqref{equ:u-tensor}, we hence have a functor over $\catE^\to$ from uniform $\cal{I}$-fibrations to right $(\braces{\lcyl, \rcyl} \otimes \id_\catE)$-maps.
 We finish by applying \cref{uniform-frobenius-change-v}.
 \end{proof}
 
-In addition to previous assumptions, we now assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
+In addition to previous assumptions of this section, we now assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
 We also assume once and for all that uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect to $\cal{I}$.
 In our examples, this will always be the case with all of $\catE^\to$ having the uniform Frobenius property with respect to $\cal{I}$ as explained in \cref{frobenius-uniform-presheaf}.
 The next result, our final main theorem, should be read as the algebraic version of pullback along a fibration preserving trivial cofibrations.
