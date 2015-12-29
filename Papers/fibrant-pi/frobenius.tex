@@ -214,13 +214,13 @@ Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a
 \end{gathered}
 \end{equation}
 
-A map $f \co X \to Y$ is called a \emph{left homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
-Dually, a map $f \co X \to Y$ is called a \emph{right homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-If the functorial cylinder has contractions, the notion of a (\emph{left} or \emph{right}) \emph{strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial.
+A map $f \co X \to Y$ is called a \emph{left} (or \emph{0-sided}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
+Dually, a map $f \co X \to Y$ is called a \emph{right} (or \emph{1-sided}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
+If the functorial cylinder has contractions, the notion of a (\emph{left/0-sided} or \emph{right/1-sided}) \emph{strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial, \ie $\phi = \epsilon_X$.
 The following generalization of strong deformation retracts will be very important in our development.
 
 \begin{definition} \label{def:strhe}
-A left (or right) homotopy equivalence as above is said to be \emph{strong} if the diagram
+A (left or right) homotopy equivalence as above is said to be \emph{strong} if the diagram
 \[
 \xymatrix{
   \interval \otimes X
@@ -257,9 +257,8 @@ commutes.
 
 The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong.
 
-Strong left or right homotopy equivalences can be organized into categories.
-The category~$\cal{S}_0$ of strong left homotopy equivalences is defined as follows.
-An object is a 4-tuple $(f, g, \phi, \psi)$ consisting of an arrow $f \co A \to B$ together with data $g \co B \to A$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$ making $f$ into a strong left homotopy equivalence.
+Fixing $k \in \braces{0, 1}$, strong $k$-sided homotopy equivalences can be organized into a category $\cal{S}_k$ as follows.
+An object is a 4-tuple $(f, g, \phi, \psi)$ consisting of an arrow $f \co A \to B$ together with data $g \co B \to A$, $\phi \co \interval \otimes A \to A$, $\psi \co \interval \otimes B \to B$ making $f$ into a strong $k$-sided homotopy equivalence.
 A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of maps $s \co A \to A', t \co B \to B'$ such that the following diagrams commute:
 \begin{align*}
 \xymatrix{
@@ -318,7 +317,6 @@ A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of map
   B'
 \rlap{.}}
 \end{align*}
-The category $\cal{S}_1$ of strong right homotopy equivalences is defined analogously.
 There is an obvious forgetful functor $\cal{S}_k \to \catE^\to$ projecting to the first component.
 
 \subsection*{Connections}
@@ -375,7 +373,7 @@ The notation $c^k \otimes (-)$ is once again suggestive of an interval object (s
 We use the notion of strong homotopy equivalence to introduce a structure on a functorial cylinder that is strictly weaker than connections, but encapsulates more economically the requirements needed for carrying out our main development.
 
 \begin{definition} \label{def:effective-connections}
-A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has \emph{effective connections} if the endpoint inclusions $\lcyl \otimes X$ and $\rcyl \otimes X$ are strong left and right homotopy equivalences, respectively, naturally in $X \in \catE$.
+A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ has \emph{effective connections} if the endpoint inclusion $\kcyl \otimes X$ is a $k$-sided strong homotopy equivalences for $k \in \braces{0, 1}$, naturally in $X \in \catE$.
 Formally, for $k \in \braces{0, 1}$, the functor $\kcyl \otimes (-) \co \catE \to \catE^\to$ is required to lift through the forgetful functor $\cal{S}_k \to \catE^\to$.
 \end{definition}
 
@@ -739,7 +737,7 @@ This gives rise to a functor
 \[
   \cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
 \]
-over $\catE^\to$ (where $\cal{S}_k(\cal{I})$, for $k \in \{0,1\}$, are the categories of strong homotopy equivalences relative to $\cal{I}$ as defined in \cref{sec:remshe}).
+over $\catE^\to$ (where $\cal{S}_k(\cal{I})$ for $k \in \{0,1\}$ are the categories of strong homotopy equivalences relative to $\cal{I}$ as defined in \cref{sec:remshe}).
 By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uniform naive Cisinski $\cal{I}$-fibration is a uniform $\cal{I}$-fibration in a functorial way.
 \end{remark}
 
@@ -1620,7 +1618,7 @@ for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{lemma} \label{strong-h-equiv-as-section}
-For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong (left or right) homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
+For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong $k$-sided homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
 In detail,
 \begin{enumerate}[(i)]
 \item objects are pairs $(f, \rho)$ consisting of $f \in \catE^\to$ and a retraction $\rho$ to $\thetak \hatotimes f$, as below:
@@ -1798,7 +1796,7 @@ But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve sect
 \cref{leibniz-lift} allows us to obtain an equivalent characterization of effective connections in terms of the functors $\delta^k \hatotimes (-)$ instead of $\delta^k \otimes (-)$, stated in \cref{effective-connections-leibniz} below.
 
 \begin{corollary} \label{effective-connections-leibniz}
-The functorial cylinder has effective connections if and only if $\lcyl \hatotimes f$ and $\rcyl \otimes f$ are strong left and right homotopy equivalences, respectively, naturally in $f \in \catE^\to$, or formally, for $k \in \braces{0, 1}$, the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$.
+The functorial cylinder has effective connections if and only if $\kcyl \hatotimes f$ is a strong $k$-sided homotopy equivalence naturally in $f \in \catE^\to$ for $k \in \braces{0, 1}$, \ie the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts through the forgetful functor $\cal{S}_k \to \catE^\to$.
 \qed
 \end{corollary}
 
@@ -1825,7 +1823,7 @@ Uniformity in the sense of~\cite{cohen-et-al:cubicaltt} means naturality in $f$ 
 \end{remark}
 
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
-For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong (left or right) homotopy equivalences relative to $\cal{I}$.
+For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong $k$-sided homotopy equivalences relative to $\cal{I}$.
 It is induced by the following strict pullback of categories:
 \[
 \xymatrix{
@@ -1843,7 +1841,7 @@ It is induced by the following strict pullback of categories:
   \catE^\to
 }
 \]
-This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong (left or right) homotopy equivalence.
+This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong $k$-sided homotopy equivalence.
 
 For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
 Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction to $\thetak \hatotimes u_i$.
@@ -3112,7 +3110,7 @@ The functor laws for $Q''$ will follow from $S_k(N \cal{I}) \to N \cal{I}$ being
 
 \medskip
 
-For the lift of the action on objects in \eqref{strong-h-equiv-uniform-frobenius:goal}, suppose we are given $v_j \co X \to Y$ with $j \in \cal{J}$ and $i \in \cal{I}_{/Y}$ such that $u_i \co A \to B$ is a strong homotopy equivalence over $Y$.
+For the lift of the action on objects in \eqref{strong-h-equiv-uniform-frobenius:goal}, suppose we are given $v_j \co X \to Y$ with $j \in \cal{J}$ and $i \in \cal{I}_{/Y}$ such that $u_i \co A \to B$ is a strong $k$-sided homotopy equivalence over $Y$.
 This means we have a commutative triangle and a retraction $\rho$ to $\thetak \hatotimes i$ as follows:
 \begin{align*}
 \xymatrix{
@@ -3162,7 +3160,7 @@ We apply $v_j^*$ to $i \in \cal{I}_{/Y}$ so as obtain $\bar{i} \in N \cal{I}_{/ 
 \rlap{.}}
 \end{equation}
 We write $\sigma \co N u_{\bar{i}} \to u_i$ for the upper pullback square.
-We want to make $N u_{\bar{i}}$ into a strong left homotopy equivalence.
+We want to make $N u_{\bar{i}}$ into a strong $k$-sided homotopy equivalence.
 This means to find a retraction $\pi$ to $\thetak \hatotimes N u_{\bar{i}}$ as follows:
 \[
 \xymatrix@C+2em{
@@ -3297,7 +3295,7 @@ For the lift of the action on morphisms in \eqref{strong-h-equiv-uniform-frobeni
   Y'
 }
 \]
-and map $(i, \rho) \to (i', \rho')$ of strong homotopy equivalences relative to $\cal{I}$ over $t$.
+and map $(i, \rho) \to (i', \rho')$ of strong $k$-sided homotopy equivalences relative to $\cal{I}$ over $t$.
 This consists of a map $\tau \co i \to i'$ in $\cal{I}$ over $t$ as below:
 \[
 \xymatrix{
@@ -3340,7 +3338,7 @@ such that $\tau$ commutes with the retractions $\rho_1$ and $\rho_2$ as follows:
 Let $(\bar{i}, \pi)$ and $(\bar{i}', \pi')$ denote the respective action of $Q''$ on the objects $(i, \rho, j)$ and $(i', \rho', j')$ as constructed in the first part of the proof.
 Recall that this includes pullback squares $\sigma \co N u_{\bar{i}} \to u_i$ and $\sigma' \co N u_{\bar{i}'} \to u_{i'}$ Cartesian over $v_j \co X \to Y$ and $v_{j'} \co X' \to Y'$, respectively, as in~\eqref{technical:0}.
 Using the action of $Q'$ on morphisms in \eqref{strong-h-equiv-uniform-frobenius:goal}, the morphism $\tau \co i \to i'$ pulls back to a morphism $\bar{\tau} \co \bar{i} \to \bar{i}'$ in $\cal{I}$.
-We want to show that $\bar{\tau}$ in addition forms a morphism of strong left homotopy equivalences from $(N u_{\bar{i}}, \pi)$ to $(N u_{\bar{i}'}, \pi')$.
+We want to show that $\bar{\tau}$ in addition forms a morphism of strong $k$-sided homotopy equivalences from $(N u_{\bar{i}}, \pi)$ to $(N u_{\bar{i}'}, \pi')$.
 For this, we have to verify commutativity of the following diagram:
 \[
 \xymatrix@C+2em{
