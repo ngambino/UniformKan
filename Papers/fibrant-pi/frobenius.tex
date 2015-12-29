@@ -1052,14 +1052,14 @@ which also admits an explicit description, dual to the one given above for $\cal
 With these definitions in place, we can now state the counterpart in our setting of the familiar commutation between slicing and orthogonality operations.
 
 \begin{proposition} \label{pitchfork-slicing}
-\leavevmode
+Let $u \co \cal{I} \to \catE^\to$ and $X \in \cal{E}$.
 \begin{enumerate}[(i)]
-\item The right orthogonality functor commutes with slicing, \ie for every $u \co \cal{I} \to \catE$, we have
+\item The right orthogonality functor commutes with slicing, \ie we have
 \[
   \liftr{(\cal{I}_{/X})} = {\liftr{\cal{I}}}_{/X}
 \]
 as categories over $\catE^\to$.
-\item The left orthogonality functor commutes with coslicing, \ie for every $u \co \cal{I} \to \catE$, we have
+\item The left orthogonality functor commutes with coslicing, \ie we have
 \[
   \liftl{(\cal{I}_{\backslash X})} = (\liftl{\cal{I}})_{\backslash X}
 \]
@@ -1067,6 +1067,47 @@ as categories over $\catE^\to$.
 \qed
 \end{enumerate}
 \end{proposition}
+
+\begin{lemma} \label{pitchfork-slicing-grothendieck}
+Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
+\[
+\xymatrix{
+  \cal{I}
+  \ar[r]^{u}
+  \ar[dr]_{\cod_{\cal{E}} \cc u}
+&
+  \cal{E}^\to
+  \ar[d]^{\cod_{\cal{E}}}
+\\&
+  \cal{E}
+}
+\]
+is a morphism of Grothendieck fibrations.
+Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in \cal{E}$ we have
+\[
+  \liftl{(\cal{I}_{/X})} = (\liftl{I})_{/X}
+.\]
+\end{lemma}
+
+\begin{proof}
+First note that $u_{/X}$ will also be a Grothendieck fibration.
+When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, it is sufficient by base changing and naturality of diagonal fillers to consider lifting problems with the bottom arrow an identity.
+But for such lifting problems the order of slicing makes no difference.
+\end{proof}
+
+We have an evident dual statement to \cref{pitchfork-slicing-grothendieck}, which we do not state.
+
+\begin{corollary} \label{pitchfork-slicing-monad}
+\leavevmode
+\begin{enumerate}[i]
+\item The monad $\liftl{(\liftr{(-)})}$ commutes with slicing.
+\item The monad $\liftr{(\liftl{(-)})}$ commutes with coslicing.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Use \cref{pitchfork-slicing} and note (for the first statement )that categories of right maps satisfy the assumptions of \cref{pitchfork-slicing-grothendieck} (and dually for the second statement).
+\end{proof}
 
 \begin{proposition}
 The retract closure commutes with slicing and coslicing, in the sense that for every $u \co \cal{I} \to \catE^\to$ we have
