@@ -2677,7 +2677,7 @@ satisying an evident coherence condition with respect to $\psi$.
 
 \begin{proof}
 Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u/V$ and $v = \liftr{u}/X$ to \cref{beck-chevalley-iso} while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{exa:composition-pullback-lift} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
+Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u_{/V}$ and $v = \liftr{u}_{/X}$ to \cref{beck-chevalley-iso} while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{exa:composition-pullback-lift} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
 \end{proof}
 
 As we will see in \cref{sec:frocuf}, morphisms of uniform $\cal{I}$-fibrations satisfy the Beck-Chevalley condition under very mild assumptions on $u \co \cal{I} \to \catE^\to$.
@@ -2686,7 +2686,7 @@ In particular, morphisms of uniform $\cal{M}$-fibrations in presheaf categories 
 \subsection*{The uniform Frobenius condition}
 
 We conclude this section by providing a combination of the Frobenius and Beck-Chevalley conditions.
-Indeed, these two conditions can be seen as the component for objects of $\catE^\to$ and the component for morphisms of $\catE^\to$ of a global condition.
+Indeed, we argue these two conditions can be seen as the component for objects of $\catE^\to$ and the component for morphisms of $\catE^\to$ of a more natural global condition.
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
 We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u$ if for every object $j \in \cal{J}$, the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$,
@@ -2694,10 +2694,10 @@ We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform 
 \xymatrix{
   C_j
   \ar[r]^{v_j}
-  \ar[d]
+  \ar[d]_{s}
 &
   D_j
-  \ar[d]
+  \ar[d]^{t}
 \\
   C_{j'}
   \ar[r]_-{v_{j'}}
@@ -2705,8 +2705,90 @@ We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform 
   D_{j'}
 \rlap{,}}
 \]
-satisfies the Beck-Chevalley condition with respect to $u$.
+satisfies the Beck-Chevalley condition with respect to $u$, \ie the canonical natural transformation $\phi_\tau \co s_! v_j^* \to v_{j'}^* t_!$ lifts to a natural transformation $\phi_\tau' \co s_! v_j^* \to v_{j'}^* t_!$ between the lifts.
+
+We furthermore require that this lift coheres with respect to identity and composition.
+In detail: given an object $j \in \cal{J}$ with $v_j \co C_j \to D_j$, we require that the following diagram of natural transformations commutes:
+\[
+\xymatrix{
+  (\id_{C_j})_! v_j^*
+  \ar[rr]^{\phi'_{\id_j}}
+  \ar@{=}[dr]
+&&
+  v_j^* (\id_{D_j})_!
+  \ar@{=}[dl]
+\\&
+  v_j^*
+\rlap{;}}
+\]
+given morphisms $\tau \co j \to j'$ and $\tau' \co j' \to j''$ in $\cal{J}$ where $v_\tau = (s, t)$ and $v_{\tau'} = (s', t')$, we require that the following diagram of natural transformations commutes:
+\[
+\xymatrix{
+  (s' s)_! v_j^*
+  \ar[rr]^{\phi'_{\tau' \tau}}
+  \ar@{=}[d]
+&&
+  v_{j''}^* (t' t)_!
+  \ar@{=}[d]
+\\
+  s'_! s_! v_j^*
+  \ar[r]_{s'_! \phi'_\tau}
+&
+  s'_! v_{j'}^* t_!
+  \ar[r]_{\phi'_{\tau'} t_!}
+&
+  v_{j''}^* t'_! t_!  
+\rlap{.}}
+\]
 \end{definition}
+
+\begin{proposition}
+\label{uniform-frob-nice}
+Let $P \co \cod_{\cal{E}} \downarrow \cod_{\cal{E}} \to \cal{E}^\to$ denote base change of arrows over objects.
+The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q \co (\cod_{\cal{E}} \cc u) \downarrow (\cod_{\cal{E}} \cc v) \to \liftl{(\liftr{\cal{I}})}$:
+\[
+\xymatrix{
+  (\cod_{\cal{E}} \cc u) \downarrow (\cod_{\cal{E}} \cc v)
+  \ar@{.>}[r]^-{Q}
+  \ar[d]_{u \downarrow v}
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]^{u}
+\\
+  \cod_{\cal{E}} \downarrow \cod_{\cal{E}}
+  \ar[r]_-{P}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+\end{proposition}
+
+\notec{
+Is the following more readable?
+Let $P \co (\cal{E}^\to \downarrow \cal{E}) \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote base change of arrows over objects.
+The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q \co (u \downarrow \cal{E}) \times_{\cal{E}} \cal{J} \to \liftl{(\liftr{\cal{I}})}$:
+\[
+\xymatrix{
+  (u \downarrow \cal{E}) \times_{\cal{E}} \cal{J}
+  \ar@{.>}[r]^-{Q}
+  \ar[d]_{(u \downarrow \cal{E}) \times_{\cal{E}} v}
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]^{u}
+\\
+  (\cal{E}^\to \downarrow \cal{E}) \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_-{P}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+}
+
+\begin{proof}
+The Frobenius condition corresponds to letting the object of $\cal{J}$ be constant in the domain of $Q$.
+The Beck-Chevalley condition minus naturality together with coherence with respect to identity and composition of its lifts corresponds to letting the object of $\cal{I}$ be constant in the domain of $Q$.
+Naturality of the lifts of the Beck-Chevalley condition corresponds to coherence of these two parts.
+\end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-v}
 Consider a map of categories of arrows as follows:
@@ -2723,8 +2805,11 @@ Consider a map of categories of arrows as follows:
 \rlap{.}}
 \]
 If $v_2$ satisfies the uniform Frobenius condition with respect to a functor $u \co \cal{I} \to \catE^\to$, then also $v_1$.
-\qed
 \end{proposition}
+
+\begin{proof}
+Using contravariance of $v$ in \cref{uniform-frob-nice}.
+\end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-u}
 Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be categories over $\catE^\to$ related as follows:
@@ -2746,7 +2831,7 @@ If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condi
 \end{proposition}
 
 \begin{proof}
-Easy calculation using that $\liftl{(\liftr{(-)})}$ is a monad.
+Using \cref{uniform-frob-nice} and the fact that $\liftl{(\liftr{(-)})}$ is a monad.
 \end{proof}
 
 
