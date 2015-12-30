@@ -80,7 +80,7 @@ Indeed, the notion of a uniform Kan fibration, while classically equivalent to t
 
 Let us also mention that, just as we introduce a version of the Frobenius property for a map, we introduce also a version of the Beck-Chevalley conditions for morphisms of maps, \ie commutative squares.
 As before, we show that the Beck-Chevalley condition holds for morphisms of uniform fibrations under mild assumptions, which are verified in categories of presheaves.
-In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which combines the Frobenius and Beck-Chevalley conditions in our setting.
+In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which naturally brings together the Frobenius and Beck-Chevalley conditions in our setting.
 
 \subsection*{Organization of the paper}
 Section~\ref{sec:cylhuf} introduces the main concepts that will be studied in the paper, namely functorial cylinders with connections, homotopy equivalences, and uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular.
@@ -88,7 +88,7 @@ The paper then proceeds with two sections containing auxiliary results: Section~
 The rest of the paper contains our main results.
 In Section~\ref{sec:unifpc}, we establish the existence of natural weak factorization systems with uniform (trivial) fibrations as right maps.
 The relationship between uniform fibrations and their non-algebraic counterparts, assuming the axiom of choice, is studied in \cref{sec:non-alg}.
-Finally, after introducing the Frobenius and Beck-Chevalley conditions in Section~\ref{sec:frobc}, we prove that they hold for uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
+Finally, after introducing the Frobenius, Beck-Chevalley, and uniform Frobenius conditions in Section~\ref{sec:frobc}, we prove that they hold for uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
 Appendix~\ref{app:tecp} contains the proof of a technical lemma.
 
 \subsection*{Acknowledgements}
@@ -2509,10 +2509,14 @@ The claim then follows by \cref{prod-exp-general}.
 \section{The Frobenius and Beck-Chevalley conditions}
 \label{sec:frobc}
 
-The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$.
+The first aim of this section is to introduce the Frobenius condition%
+\footnote{
+Note that what we call conditions actually consists of stipulated pieces of algebraic data.
+We believe this misuse of language excusible in this case.
+} for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$.
 As we will see in~\cref{lift-dependent-product}, analogous to the situation for Lawvere's original formulation of the Frobenius condition~\cite{lawvere-equality}, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors.
 The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting.
-We finish by providing a combination of the Frobenius and Beck-Chevalley conditions, calling it the uniform Frobenius condition, that we believe is adequate for the algebraic setting.
+We finish by unifying the Frobenius and Beck-Chevalley conditions, calling it the uniform Frobenius condition, that we believe is adequate for the algebraic setting.
 
 \subsection*{The Frobenius condition}
 
@@ -2781,31 +2785,12 @@ given morphisms $\tau \co j \to j'$ and $\tau' \co j' \to j''$ in $\cal{J}$ wher
 \]
 \end{definition}
 
+The most natural way to state the uniform Frobenius condition, making superfluous the need to separately state the Beck-Chevalley condition, is given by the following proposition.
+
 \begin{proposition}
 \label{uniform-frob-nice}
-Let $P \co \cod_{\cal{E}} \downarrow \cod_{\cal{E}} \to \cal{E}^\to$ denote base change of arrows over objects.
-The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q \co (\cod_{\cal{E}} \cc u) \downarrow (\cod_{\cal{E}} \cc v) \to \liftl{(\liftr{\cal{I}})}$:
-\[
-\xymatrix{
-  (\cod_{\cal{E}} \cc u) \downarrow (\cod_{\cal{E}} \cc v)
-  \ar@{.>}[r]^-{Q}
-  \ar[d]_{u \downarrow v}
-&
-  \liftl{(\liftr{\cal{I}})}
-  \ar[d]^{u}
-\\
-  \cod_{\cal{E}} \downarrow \cod_{\cal{E}}
-  \ar[r]_-{P}
-&
-  \cal{E}^\to
-\rlap{.}}
-\]
-\end{proposition}
-
-\notec{
-Is the following more readable?
-Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote base change of arrows over objects where the pullback is with respect to the slicing information of $\cal{E}^\to_{/-}$ and the codomain part of $\cal{E}^\to$.
-The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q \co \cal{I}_{/-} \times_{\cal{E}} \cal{J} \to \liftl{(\liftr{\cal{I}})}$:
+Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote base change of arrows over objects where the pullback is with respect to the slicing part of $\cal{E}^\to_{/-}$ and the codomain part of $\cal{E}^\to$.
+The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q$ as below:
 \[
 \xymatrix{
   \cal{I}_{/-} \times_{\cal{E}} \cal{J}
@@ -2821,7 +2806,7 @@ The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to
   \cal{E}^\to
 \rlap{.}}
 \]
-}
+\end{proposition}
 
 \begin{proof}
 The Frobenius condition corresponds to letting the object of $\cal{J}$ be constant in the domain of $Q$.
@@ -2843,7 +2828,7 @@ Consider a map of categories of arrows as follows:
   \catE^\to
 \rlap{.}}
 \]
-If $v_2$ satisfies the uniform Frobenius condition with respect to a functor $u \co \cal{I} \to \catE^\to$, then also $v_1$.
+If $v_2$ satisfies the uniform Frobenius condition with respect to $u$, then also $v_1$.
 \end{proposition}
 
 \begin{proof}
@@ -2933,7 +2918,7 @@ If uniform $\cal{I}$-fibrations have the uniform Frobenius property with respect
 
 \begin{proof}
 This is a consequence of \cref{strong-h-equiv-uniform-frobenius}.
-Combining the cases $k = 0$ and $k = 1$, we have that if $\liftr{(\braces{\lcyl, \rcyl} \otimes \id_\catE)}$ satisfies the uniform Frobenius property with respect to $\cal{I}$, then also with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
+Combining the cases $k = 0$ and $k = 1$, we have that if right $(\braces{\lcyl, \rcyl} \otimes \id_\catE)$-maps satisfies the uniform Frobenius property with respect to $\cal{I}$, then also with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
 By assumption, for $k \in \braces{0, 1}$, there is a functor $\delta^k \otimes \id_\catE \to \delta^k \hatotimes (-)$ over $\catE^\to$ sending $X$ to $\bot_X$.
 By the definiton of $u_\otimes \co \cal{I} \to \catE^\to$ as given in~\eqref{equ:u-tensor}, we hence have a functor over $\catE^\to$ from uniform $\cal{I}$-fibrations to right $(\braces{\lcyl, \rcyl} \otimes \id_\catE)$-maps.
 We finish by applying \cref{uniform-frobenius-change-v}.
