@@ -2531,8 +2531,8 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
   \ar[r]^{f^*}
   \ar[d]_{u_{/Y}}
 &
-  \liftl{(\liftr{(\cal{I}_{/X})})}
-  \ar[d]^{\liftl{(\liftr{(u_{/X})})}}
+  (\liftl{(\liftr{\cal{I}})})_{/X}
+  \ar[d]^{(\liftl{(\liftr{u})})_{/X}}
 \\
   \catE_{/Y}^\to \ar[r]_{f^*}
 &
@@ -2592,8 +2592,7 @@ the following are equivalent:
 \end{proposition}
 
 \begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$.
+Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
 \end{proof}
 
 \subsection*{The Beck-Chevalley condition}
@@ -2643,20 +2642,20 @@ lifts to a natural transformation
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi'$}}
 &
-  {\liftl{(\liftr{(\cal{I}_{/X})})}}
-  \ar[d]^{\liftl{(\liftr{s_!})}}
+  (\liftl{(\liftr{\cal{I}})})_{/X}
+  \ar[d]^{s_!}
 \\
   \cal{I}_{/V}
   \ar[r]_{g^*}
 &
-  {\liftl{(\liftr{(\cal{I}_{/U})})}}
+  (\liftl{(\liftr{\cal{I}})})_{/U}
 \rlap{.}}
 \]
 satisfying an evident coherence condition with respect to $\phi$.
 \end{definition}
 
 \begin{remark} \label{beck-chevalley-iso}
-If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $\liftl{(\liftr{u_{/U}})}$ reflects isomorphisms.
+If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $(\liftl{(\liftr{u})})_{/U}$ reflects isomorphisms.
 \end{remark}
 
 In partial analogy with \cref{lift-dependent-product}, we provide a consequence of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
@@ -2881,7 +2880,7 @@ In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi
   \cal{E}^\to_{/X}
 \rlap{.}}
 \]
-Since $\Fib{\cal{I}}  = \liftr{\cal{I}_\otimes}$, by adjointness, this implies that pushforward along $f$ lifts as follows:
+Since $\Fib{\cal{I}}  = \liftr{\cal{I}_\otimes}$, by adjointness and \cref{pitchfork-slicing-grothendieck}, this implies that pushforward along $f$ lifts as follows:
 \[
 \xymatrix@C+2em{
   \Fib{\cal{I}}_{/X}
