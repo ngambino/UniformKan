@@ -2747,10 +2747,14 @@ We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform 
   D_{j'}
 \rlap{,}}
 \]
-satisfies the Beck-Chevalley condition with respect to $u$, \ie the canonical natural transformation $\phi_\tau \co s_! v_j^* \to v_{j'}^* t_!$ lifts to a natural transformation $\phi_\tau' \co s_! v_j^* \to v_{j'}^* t_!$ between the lifts.
+satisfies the Beck-Chevalley condition with respect to $u$.
+\end{definition}
 
-We furthermore require that this lift coheres with respect to identity and composition.
-In detail: given an object $j \in \cal{J}$ with $v_j \co C_j \to D_j$, we require that the following diagram of natural transformations commutes:
+\begin{remark} \label{bc-coherence}
+For a morphism $\tau$ in $\cal{J}$ with $v_\tau = (s, t)$, the Beck-Chevalley part of \cref{def:uniFrobcond} requires a lift $\phi_\tau' \co s_! v_j^* \to v_{j'}^* t_!$ of the canonical natural transformation $\phi_\tau \co s_! v_j^* \to v_{j'}^* t_!$.
+This lift is automatically coherent with respect to identity and composition of morphisms in $\cal{J}$ since the functor $\liftl{(\liftr{u})}$ is faithful.
+However, one could imagine variants of the Frobenius condition such as in~\cite{garner:topological-simplicial} where instead of $\liftl{(\liftr{u})}$ we have a potentially non-faithful functor with domain the coalgebras in an algebraic weak factorization system.
+For this reason, let us state the alluded coherence in detail: given an object $j \in \cal{J}$ with $v_j \co C_j \to D_j$, we have that the following diagram of natural transformations commutes:
 \[
 \xymatrix{
   (\id_{C_j})_! v_j^*
@@ -2782,9 +2786,9 @@ given morphisms $\tau \co j \to j'$ and $\tau' \co j' \to j''$ in $\cal{J}$ wher
   v_{j''}^* t'_! t_!  
 \rlap{.}}
 \]
-\end{definition}
+\end{remark}
 
-The most natural way to state the uniform Frobenius condition, making superfluous the need to separately state the Beck-Chevalley condition, is given by the following proposition.
+The most natural way to state the uniform Frobenius condition, making superfluous the need for a separate Beck-Chevalley condition, is given by the following proposition.
 
 \begin{proposition}
 \label{uniform-frob-nice}
@@ -2809,7 +2813,7 @@ The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to
 
 \begin{proof}
 The Frobenius condition corresponds to letting the object of $\cal{J}$ be constant in the domain of $Q$.
-The Beck-Chevalley condition minus naturality together with coherence with respect to identity and composition of its lifts corresponds to letting the object of $\cal{I}$ be constant in the domain of $Q$.
+The Beck-Chevalley condition minus naturality together with coherence with respect to identity and composition of its lifts as in \cref{bc-coherence} corresponds to letting the object of $\cal{I}$ be constant in the domain of $Q$.
 Naturality of the lifts of the Beck-Chevalley condition corresponds to coherence of these two parts.
 \end{proof}
 
