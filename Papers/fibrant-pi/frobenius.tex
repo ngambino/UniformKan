@@ -2532,8 +2532,8 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
   \ar[r]^{f^*}
   \ar[d]_{u_{/Y}}
 &
-  (\liftl{(\liftr{\cal{I}})})_{/X}
-  \ar[d]^{(\liftl{(\liftr{u})})_{/X}}
+  \liftl{(\liftr{\cal{I}})}_{/X}
+  \ar[d]^{\liftl{(\liftr{u})}_{/X}}
 \\
   \catE_{/Y}^\to \ar[r]_{f^*}
 &
@@ -2541,6 +2541,11 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 \rlap{.}}
 \]
 \end{definition}
+
+\begin{remark} \label{frobenius-no-coherence}
+It suffices to lift the actions of $f^*$ on objects and morphisms without regard for further coherence.
+The lift will then form a functor since $\liftl{(\liftr{u})}$ is faithful.
+\end{remark}
 
 Let us explain the connection between the Frobenius condition of \cref{thm:frobenius-def} and the Frobenius condition on a weak factorization system, which states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,garner:topological-simplicial} and is closely related to the axioms for identity types in Martin-L\"of type theory~\cite{gambino-garner:idtypewfs}.
 Given a weak factorization system $(\cal{L}, \cal{R})$ on a category $\catE$, we have that the pullback along a right map preserves left maps if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow \catE^\to$.
@@ -2643,17 +2648,22 @@ lifts to a natural transformation
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi'$}}
 &
-  (\liftl{(\liftr{\cal{I}})})_{/X}
+  \liftl{(\liftr{\cal{I}})}_{/X}
   \ar[d]^{s_!}
 \\
   \cal{I}_{/V}
   \ar[r]_{g^*}
 &
-  (\liftl{(\liftr{\cal{I}})})_{/U}
+  \liftl{(\liftr{\cal{I}})}_{/U}
 \rlap{.}}
 \]
 satisfying an evident coherence condition with respect to $\phi$.
 \end{definition}
+
+\begin{remark} \label{beck-chevalley-no-coherence}
+It suffices to lift the components of $\phi$ without regard for further coherence.
+They will then form a natural transformation since $\liftl{(\liftr{u})} \co \liftl{(\liftr{\cal{I}})} \to \cal{E}^\to$ is faithful.
+\end{remark}
 
 \begin{remark} \label{beck-chevalley-iso}
 If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $(\liftl{(\liftr{u})})_{/U}$ reflects isomorphisms.
@@ -2729,7 +2739,7 @@ In particular, morphisms of uniform $\cal{M}$-fibrations in presheaf categories 
 \subsection*{The uniform Frobenius condition}
 
 We conclude this section by providing a combination of the Frobenius and Beck-Chevalley conditions.
-Indeed, we argue these two conditions can be seen as the component for objects of $\catE^\to$ and the component for morphisms of $\catE^\to$ of a more natural global condition.
+Indeed, we these two conditions can be seen as the component for objects of $\catE^\to$ and the component for morphisms of $\catE^\to$ of a global condition.
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
 We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u$ if for every object $j \in \cal{J}$, the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$, and for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$,
@@ -2751,49 +2761,9 @@ We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform 
 satisfies the Beck-Chevalley condition with respect to $u$.
 \end{definition}
 
-\begin{remark} \label{bc-coherence}
-For a morphism $\tau$ in $\cal{J}$ with $v_\tau = (s, t)$, the Beck-Chevalley part of \cref{def:uniFrobcond} requires a lift $\phi_\tau' \co s_! v_j^* \to v_{j'}^* t_!$ of the canonical natural transformation $\phi_\tau \co s_! v_j^* \to v_{j'}^* t_!$.
-This lift is automatically coherent with respect to identity and composition of morphisms in $\cal{J}$ since the functor $\liftl{(\liftr{u})}$ is faithful.
-However, one could imagine variants of the Frobenius condition such as in~\cite{garner:topological-simplicial} where instead of $\liftl{(\liftr{u})}$ we have a potentially non-faithful functor with domain the coalgebras in an algebraic weak factorization system.
-For this reason, let us state the alluded coherence in detail: given an object $j \in \cal{J}$ with $v_j \co C_j \to D_j$, we have that the following diagram of natural transformations commutes:
-\[
-\xymatrix{
-  (\id_{C_j})_! v_j^*
-  \ar[rr]^{\phi'_{\id_j}}
-  \ar@{=}[dr]
-&&
-  v_j^* (\id_{D_j})_!
-  \ar@{=}[dl]
-\\&
-  v_j^*
-\rlap{;}}
-\]
-given morphisms $\tau \co j \to j'$ and $\tau' \co j' \to j''$ in $\cal{J}$ where $v_\tau = (s, t)$ and $v_{\tau'} = (s', t')$, we require that the following diagram of natural transformations commutes:
-\[
-\xymatrix{
-  (s' s)_! v_j^*
-  \ar[rr]^{\phi'_{\tau' \tau}}
-  \ar@{=}[d]
-&&
-  v_{j''}^* (t' t)_!
-  \ar@{=}[d]
-\\
-  s'_! s_! v_j^*
-  \ar[r]_{s'_! \phi'_\tau}
-&
-  s'_! v_{j'}^* t_!
-  \ar[r]_{\phi'_{\tau'} t_!}
-&
-  v_{j''}^* t'_! t_!  
-\rlap{.}}
-\]
-\end{remark}
-
-The most natural way to state the uniform Frobenius condition, making superfluous the need for a separate Beck-Chevalley condition, is given by the following proposition.
-
 \begin{proposition}
 \label{uniform-frob-nice}
-Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote base change of arrows over objects where the pullback is with respect to the slicing part of $\cal{E}^\to_{/-}$ and the codomain part of $\cal{E}^\to$.
+Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}_{/-}^\to$ denote base change of arrows over objects defined as $P(f, h) \defeq h^* f$.
 The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q$ as below:
 \begin{equation} \label{uniform-frob-nice:lift}
 \xycenter{
@@ -2801,21 +2771,21 @@ The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to
   \ar@{.>}[r]^{Q}
   \ar[d]_{u_{/-} \times_{\cal{E}} v}
 &
-  \liftl{(\liftr{\cal{I}})}
-  \ar[d]^{\liftl{(\liftr{u})}}
+  \liftl{(\liftr{\cal{I}})}_{/-}
+  \ar[d]^{\liftl{(\liftr{u})}_{/-}}
 \\
   \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to
   \ar[r]_{P}
 &
-  \cal{E}^\to
+  \cal{E}_{/-}^\to
 \rlap{.}}
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-The Frobenius condition corresponds to letting the object of $\cal{J}$ be constant in the domain of $Q$.
-The Beck-Chevalley condition minus naturality together with coherence with respect to identity and composition of its lifts as in \cref{bc-coherence} corresponds to letting the object of $\cal{I}$ be constant in the domain of $Q$.
-Naturality of the lifts of the Beck-Chevalley condition corresponds to coherence of these two parts.
+First note that $\liftl{(\liftr{u})}$ is faithful.
+Hence, the lift $Q$ is already characterized by lifts of objects and morphisms without regard for further coherence (\cf \cref{frobenius-no-coherence,beck-chevalley-no-coherence}).
+The Frobenius and Beck-Chevalley conditions then correspond to letting the object of $\cal{J}$ and $\cal{I}$ be constant in the domain of $Q$, respectively.
 \end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-v}
@@ -2933,7 +2903,7 @@ The situation \eqref{uniform-frob-nice:lift} a priori represents a more general 
 In contrast, in \eqref{uniform-frob-even-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
 It follows that any lift $Q$ induces a lift $Q$.
 However, under the assumption that \eqref{uniform-frob:comprehension} forms a morphism of Grothendieck fibrations, the lift $Q$ can be reconstructed from the lift $Q'$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $Q(i, j) \defeq Q'(i, j')$.
-Furthermore, this choice of $Q$ is up to isomorphism forced upon us by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
+Furthermore, this choice of $Q$ is up to isomorphism forced upon us by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}_{/-}$ reflects isomorphisms.
 \end{proof}
 
 \section{The uniform Frobenius condition for uniform fibrations}
