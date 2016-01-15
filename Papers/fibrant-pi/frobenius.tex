@@ -2840,20 +2840,30 @@ Using contravariance of $v$ in \cref{uniform-frob-nice}.
 
 \begin{proposition} \label{uniform-frobenius-change-u}
 Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be categories over $\catE^\to$ related as follows:
-\[
+\begin{align*}
 \xymatrix{
-  \liftr{\cal{I}_1}
-  \ar@<4pt>[rr]^{F}
+  \cal{I}_1
+  \ar[rr]^{F}
   \ar[dr]_{\liftr{u_1}}
 &&
-  \liftr{\cal{I}_2}
-  \ar@<4pt>[ll]^{G}
-  \ar[dl]^{\liftr{u_2}}
+  \liftl{(\liftr{\cal{I}_2})}
+  \ar[dl]^{\liftl{(\liftr{u_2})}}
 \\&
   \catE^\to
-\rlap{.}}
-\]
-We do not stipulate that $F$ and $G$ be inverses.
+\rlap{,}}
+&&
+\xymatrix{
+  \cal{I}_2
+  \ar[rr]^{G}
+  \ar[dr]_{u_1}
+&&
+  \cal{I}_1
+  \ar[dl]^{u_2}
+\\&
+  \catE^\to
+\rlap{,}}
+\end{align*}
+We do not stipulate any relation between $F$ and $G$.
 If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condition with respect to $u_1$, then also with respect to $u_2$.
 \end{proposition}
 
@@ -2937,7 +2947,7 @@ Under the assumptions stated above, we have that $\Fib{\cal{I}} $ satisfies the 
 \end{theorem}
 
 \begin{proof}
-The result follows from \cref{uniform-frobenius-change-u} and \cref{strong-h-equiv-uniform-frobenius-fibrations}, using the functors in \cref{relating-strong-hequiv-and-uniform-fib}, which were constructed in \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
+The result follows from \cref{uniform-frobenius-change-u} and \cref{strong-h-equiv-uniform-frobenius-fibrations}, using the functors constructed in \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
 \end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley property for uniform~$\cal{I}$-fibrations.
