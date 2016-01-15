@@ -757,8 +757,9 @@ We omit the most straightforward proofs.
 For this section, we fix a category $\catE$.
 First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal category $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
 \[
-  \liftr{\brarghole} \co (\CAT/\catE^\to)^{\op} \to \CAT/\catE^\to \, .
+  \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to}
 \]
+of categories over $\catE^\to$.
 In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action of this functor on arrows
 \begin{align*}
 \xymatrix{
@@ -788,17 +789,16 @@ In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action
   \catE^\to
 }
 \end{align*}
-is defined as follows.
-For $F \co \cal{I} \to \cal{J}$ over $\catE^\to$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$ where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
+is defined as follows: for $F \co \cal{I} \to \cal{J}$ over $\catE^\to$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$ where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogous to the way in which standard orthogonality operations form a Galois connection, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+2em{
-  \CAT/\catE^\to
+  \CAT_{/\catE^\to}
   \ar@<5pt>[r]^-{\liftl{\brarghole}}
   \ar@{}[r]|-{\bot}
 &
-  (\CAT/\catE^\to)^{\op} \rlap{.}
+  \CAT_{/\catE^\to}^{\op} \rlap{.}
   \ar@<5pt>[l]^-{\liftr{\brarghole}}
 }
 \end{gathered}
@@ -2877,7 +2877,7 @@ If $v$ satisfies the uniform Frobenius condition with respect to functors $u_1 \
 \end{proposition}
 
 \begin{proof}
-Use the universal property of products in the category $\CAT/\cal{E}^\to$ with respect to the characerization of uniform Frobenius in \cref{uniform-frob-nice}, noting that we have a canonical map
+Use the universal property of products in the category $\CAT_{/\cal{E}^\to}$ with respect to the characerization of uniform Frobenius in \cref{uniform-frob-nice}, noting that we have a canonical map
 \[
 \liftl{(\liftr{\cal{I}_1})} \times_{\cal{E}^\to} \liftl{(\liftr{\cal{I}_2})} \to \liftl{(\liftr{(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2)})}
 \]
@@ -2885,7 +2885,7 @@ over $\cal{E}^\to$ given by the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
 \begin{remark} \label{uniform-frobenius-limit-u}
-The previous proposition holds true analogously for arbitrary limits in the category $\CAT/\cal{E}^\to$, not just binary products.
+The previous proposition holds true analogously for arbitrary limits in the category $\CAT_{/\cal{E}^\to}$, not just binary products.
 \end{remark}
 
 
