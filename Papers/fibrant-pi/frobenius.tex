@@ -2794,22 +2794,22 @@ The most natural way to state the uniform Frobenius condition, making superfluou
 \begin{proposition}
 \label{uniform-frob-nice}
 Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote base change of arrows over objects where the pullback is with respect to the slicing part of $\cal{E}^\to_{/-}$ and the codomain part of $\cal{E}^\to$.
-The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is isomorphic to a lift of $P$ to a functor $Q$ as below:
-\[
-\xymatrix{
+The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q$ as below:
+\begin{equation} \label{uniform-frob-nice:lift}
+\xycenter{
   \cal{I}_{/-} \times_{\cal{E}} \cal{J}
-  \ar@{.>}[r]^-{Q}
+  \ar@{.>}[r]^{Q}
   \ar[d]_{u_{/-} \times_{\cal{E}} v}
 &
   \liftl{(\liftr{\cal{I}})}
-  \ar[d]^{u}
+  \ar[d]^{\liftl{(\liftr{u})}}
 \\
   \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_-{P}
+  \ar[r]_{P}
 &
   \cal{E}^\to
 \rlap{.}}
-\]
+\end{equation}
 \end{proposition}
 
 \begin{proof}
@@ -2889,6 +2889,51 @@ over $\cal{E}^\to$ given by the adjunction~\eqref{garner-adjunction}.
 The previous proposition holds true analogously for arbitrary limits in the category $\CAT_{/\cal{E}^\to}$, not just binary products.
 \end{remark}
 
+For the remainder of this section, fix a functor $v \co \cal{J} \to \cal{E}^\to$ such that
+\begin{equation} \label{uniform-frob:comprehension}
+\xycenter{
+  \cal{J}
+  \ar[r]^{v}
+  \ar[dr]_{\cod_{\cal{E}} \cc v}
+&
+  \cal{E}^\to
+  \ar[d]^{\cod_{\cal{E}}}
+\\&
+  \cal{E}
+}
+\end{equation}
+is a morphism of Grothendieck fibrations.
+Under this assumption, the characterization of \cref{uniform-frobenius-nice} can be simplified even further:
+
+\begin{proposition}
+\label{uniform-frob-even-nicer}
+Let $P' \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote the pullback functor given by $P'(g, h) \defeq h^* g$.
+he structure of the uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q'$ as below:
+\begin{equation} \label{uniform-frob-even-nicer:lift}
+\xycenter{
+  \cal{I} \times_{\cal{E}} \cal{J}
+  \ar@{.>}[r]^{Q'}
+  \ar[d]_{u \times_{\cal{E}} v}
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]^{\liftl{(\liftr{u})}}
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P'}
+&
+  \cal{E}^\to
+\rlap{.}}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We will show that the structure of the respective lifts $Q$ and $Q'$ in \eqref{uniform-frob-nice:lift} and \eqref{uniform-frob-even-nicer:lift} is the same.
+The situation \eqref{uniform-frob-nice:lift} a priori represents a more general scenario: we are pulling back an arrow $u_i \co A \to B$ with $i \in \cal{I}$ over an object $Y$ along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
+In contrast, in \eqref{uniform-frob-even-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
+It follows that any lift $Q$ induces a lift $Q$.
+However, under the assumption that \eqref{uniform-frob:comprehension} forms a morphism of Grothendieck fibrations, the lift $Q$ can be reconstructed from the lift $Q'$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $Q(i, j) \defeq Q'(i, j')$.
+Furthermore, this choice of $Q$ is up to isomorphism forced upon us by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
+\end{proof}
 
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
