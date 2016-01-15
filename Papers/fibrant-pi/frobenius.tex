@@ -2871,6 +2871,23 @@ If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condi
 Using \cref{uniform-frob-nice} and the fact that $\liftl{(\liftr{(-)})}$ is a monad.
 \end{proof}
 
+\begin{proposition} \label{uniform-frobenius-product-u}
+Let $v \co \cal{J} \to \cal{E}^\to$ be a functor.
+If $v$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
+\end{proposition}
+
+\begin{proof}
+Use the universal property of products in the category $\CAT/\cal{E}^\to$ with respect to the characerization of uniform Frobenius in \cref{uniform-frob-nice}, noting that we have a canonical map
+\[
+\liftl{(\liftr{\cal{I}_1})} \times_{\cal{E}^\to} \liftl{(\liftr{\cal{I}_2})} \to \liftl{(\liftr{(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2)})}
+\]
+over $\cal{E}^\to$ given by the adjunction~\eqref{garner-adjunction}.
+\end{proof}
+
+\begin{remark} \label{uniform-frobenius-limit-u}
+The previous proposition holds true analogously for arbitrary limits in the category $\CAT/\cal{E}^\to$, not just binary products.
+\end{remark}
+
 
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
