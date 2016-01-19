@@ -11,26 +11,24 @@
 [11] D.-C. Cisinski. Univalent universes for elegant models of homotopy types. ArXiv:1406.0058, 2014.
 [12] M. M. Clementino, E. Giuli, and W. Tholen. Topology in a category: compactness. Portugaliae Mathematica, 53(4):397--433, 1996.
 [13] C. Cohen, T. Coquand, S. Huber, and A. Mörtberg. Cubical type theory: a constructive interpretation of the univalence axiom. Available from http://www.math.ias.edu/~amortberg/papers/cubicaltt.pdf, 2015.
-[14] T. Coquand. Cubical type theory. Available from http://www.cse.chalmers.se/~coquand/face.pdf.
-[15] T. Coquand. Variation on cubical sets. Available from http://www.cse.chalmers.se/~coquand/comp.pdf, November 2014.
-[16] P. Gabriel and M. Zisman. Calculus of fractions and homotopy theory, volume 35 of Ergebnisse der Mathematik und ihrer Grenzgebiete. Springer, 1967.
-[17] N. Gambino and R. Garner. The identity type weak factorisation system. Theor. Comput. Sci., 409:94--109, 2008.
-[18] R. Garner. Understanding the small object argument. Applied Categorical Structures, 17(3):247--285, 2009.
-[19] R. Garner and S. Lack. On the axioms for adhesive and quasiadhesive categories. Theory and Applications of Categories, 27(3):27--26, 2012.
-[20] P. Goerss and J. F. Jardine. Simplicial homotopy theory. Birkhäuser, 1999.
-[21] M. Grandis and W. Tholen. Natural weak factorisation systems. Archiv. Math., 42:397--408, 2006.
-[22] P. Hirschhorn. Model categories and their localizations. American Mathematical Society, 2003.
-[23] S. Huber. A model of type theory in cubical sets. Licentiate of philosophy thesis, University of Gothenburg, 2015.
-[24] A. Joyal and M. Tierney. An introduction to simplicial homotopy theory. Available from http://hopf.math.purdue.edu/Joyal-Tierney/JT-chap-01.pdf, 1999.
-[25] K. Kamps and T. Porter. Abstract homotopy and simple homotopy theory. World Scientific Publishing Co., 1997.
-[26] C. Kapulkin, P. LeFanu Lumsdaine, and V. Voevodsky. The simplicial model of Univalent Foundations, 2014. arXiv:1211.2851.
-[27] F. W. Lawvere. Equality in hyperdoctrines and comprehension schema as an adjoint functor. In Proceedings of the American Mathematical Society Symposium on Pure Mathematics XVII, pages 1--14, 1970.
-[28] I. Moerdijk and J. Nuiten. Minimal fibrations of dendroidal sets. ArXiv:1509.01073, 2015.
-[29] A. Pitts. Nominal presentation of cubical sets models of type theory. In H. Herbelin, P. Letouzey, and M. Sozeau, editors, 20th International Conference on Types for Proofs and Programs (TYPES 2014). Schloss Dagstuhl --- Leibniz-Zentrum für Informatik, 2015.
-[30] E. Riehl and D. Verity. The theory and practice of Reedy categories. Theory and Applications of Categories, 29(9):256--301, 2014.
-[31] E. Riehl. Categorical homotopy theory. Cambridge University Press, 2014.
-[32] M. Shulman. Univalence for inverse diagrams and homotopy canonicity. Mathematical Structures in Computer Science, 25:1203--1277, 2015.
-[33] M. Shulman. The univalence axiom for elegant Reedy presheaves. Homology, Homotopy and Applications, To appear.
-[34] A. Swan. An algebraic weak factorisation system on 01-substitution sets: a constructive proof. ArXiv:1409.1829, 2014.
-[35] V. Voevodsky. Univalent foundations project. http://www.math.ias.edu/vladimir/files/univalent_foundations_project.pdf, 2010.
-[36] M. A. Warren. Homotopy theoretic aspects of constructive type theory. PhD thesis, Carnegie Mellon University, 2008.
+[14] P. Gabriel and M. Zisman. Calculus of fractions and homotopy theory, volume 35 of Ergebnisse der Mathematik und ihrer Grenzgebiete. Springer, 1967.
+[15] N. Gambino and R. Garner. The identity type weak factorisation system. Theor. Comput. Sci., 409:94--109, 2008.
+[16] R. Garner. Understanding the small object argument. Applied Categorical Structures, 17(3):247--285, 2009.
+[17] R. Garner and S. Lack. On the axioms for adhesive and quasiadhesive categories. Theory and Applications of Categories, 27(3):27--26, 2012.
+[18] P. Goerss and J. F. Jardine. Simplicial homotopy theory. Birkhäuser, 1999.
+[19] M. Grandis and W. Tholen. Natural weak factorisation systems. Archiv. Math., 42:397--408, 2006.
+[20] P. Hirschhorn. Model categories and their localizations. American Mathematical Society, 2003.
+[21] S. Huber. A model of type theory in cubical sets. Licentiate of philosophy thesis, University of Gothenburg, 2015.
+[22] A. Joyal and M. Tierney. An introduction to simplicial homotopy theory. Available from http://hopf.math.purdue.edu/Joyal-Tierney/JT-chap-01.pdf, 1999.
+[23] K. Kamps and T. Porter. Abstract homotopy and simple homotopy theory. World Scientific Publishing Co., 1997.
+[24] C. Kapulkin, P. LeFanu Lumsdaine, and V. Voevodsky. The simplicial model of Univalent Foundations, 2014. arXiv:1211.2851.
+[25] F. W. Lawvere. Equality in hyperdoctrines and comprehension schema as an adjoint functor. In Proceedings of the American Mathematical Society Symposium on Pure Mathematics XVII, pages 1--14, 1970.
+[26] I. Moerdijk and J. Nuiten. Minimal fibrations of dendroidal sets. ArXiv:1509.01073, 2015.
+[27] A. Pitts. Nominal presentation of cubical sets models of type theory. In H. Herbelin, P. Letouzey, and M. Sozeau, editors, 20th International Conference on Types for Proofs and Programs (TYPES 2014). Schloss Dagstuhl --- Leibniz-Zentrum für Informatik, 2015.
+[28] E. Riehl and D. Verity. The theory and practice of Reedy categories. Theory and Applications of Categories, 29(9):256--301, 2014.
+[29] E. Riehl. Categorical homotopy theory. Cambridge University Press, 2014.
+[30] M. Shulman. Univalence for inverse diagrams and homotopy canonicity. Mathematical Structures in Computer Science, 25:1203--1277, 2015.
+[31] M. Shulman. The univalence axiom for elegant Reedy presheaves. Homology, Homotopy and Applications, To appear.
+[32] A. Swan. An algebraic weak factorisation system on 01-substitution sets: a constructive proof. ArXiv:1409.1829, 2014.
+[33] V. Voevodsky. Univalent foundations project. http://www.math.ias.edu/vladimir/files/univalent_foundations_project.pdf, 2010.
+[34] M. A. Warren. Homotopy theoretic aspects of constructive type theory. PhD thesis, Carnegie Mellon University, 2008.
