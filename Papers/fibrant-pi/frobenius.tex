@@ -1066,16 +1066,19 @@ as categories over $\catE^\to$.
 \end{enumerate}
 \end{proposition}
 
-\begin{lemma} \label{pitchfork-slicing-grothendieck}
+In contrast to the right orthogonality functor, the left orthogonality functor does not commute with slicing in general.
+However, it does under certain assumptions, as described in \cref{pitchfork-slicing-grothendieck} below.
+
+\begin{proposition} \label{pitchfork-slicing-grothendieck}
 Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
 \[
 \xymatrix{
   \cal{I}
-  \ar[r]^{u}
+  \ar[rr]^{u}
   \ar[dr]_{\cod_{\cal{E}} \cc u}
-&
+&&
   \cal{E}^\to
-  \ar[d]^{\cod_{\cal{E}}}
+  \ar[dl]^{\cod_{\cal{E}}}
 \\&
   \cal{E}
 }
@@ -1085,7 +1088,7 @@ Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in
 \[
   \liftl{(\cal{I}_{/X})} = (\liftl{I})_{/X}
 .\]
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 First note that $\cod_{\cal{E}/X} \cc u_{/X}$ will also be a Grothendieck fibration.
@@ -2511,7 +2514,7 @@ The claim then follows by \cref{prod-exp-general}.
 
 The first aim of this section is to introduce the Frobenius condition%
 \footnote{
-Note that what we call conditions actually consists of stipulated pieces of algebraic data.
+Even though we call it a condition, it actually consists of stipulated pieces of algebraic data.
 We believe this misuse of language excusible in this case.
 } for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$ for a category $\cal{E}$ will pullbacks.
 As we will see in~\cref{lift-dependent-product}, analogous to the situation for Lawvere's original formulation of the Frobenius condition~\cite{lawvere-equality}, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors.
@@ -2661,12 +2664,14 @@ satisfying an evident coherence condition with respect to $\phi$.
 \end{definition}
 
 \begin{remark} \label{beck-chevalley-no-coherence}
-It suffices to lift the components of $\phi$ without regard for further coherence.
-They will then form a natural transformation since $\liftl{(\liftr{u})} \co \liftl{(\liftr{\cal{I}})} \to \cal{E}^\to$ is faithful.
+In contrast to the Frobenius condition, the Beck-Chevalley condition is just a property, not stipulating additional structure.
+This is because the functor $\liftl{(\liftr{u})} \co \liftl{(\liftr{\cal{I}})} \to \cal{E}^\to$ is faithful.
+Note that it suffices to lift the components of $\phi$ without regard for further coherence.
+They will then form a natural transformation, again because  $\liftl{(\liftr{u})}$ is faithful.
 \end{remark}
 
 \begin{remark} \label{beck-chevalley-iso}
-If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $(\liftl{(\liftr{u})})_{/U}$ reflects isomorphisms.
+If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{remark}
 
 In partial analogy with \cref{lift-dependent-product}, we provide a consequence of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
@@ -2766,7 +2771,8 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 Let $P \co \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to \to \cal{E}_{/-}^\to$ denote base change of arrows over objects defined as $P(f, h) \defeq h^* f$.
 The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q$ as below:
 \begin{equation} \label{uniform-frob-nice:lift}
-\xycenter{
+\begin{gathered}
+\xymatrix@C+0em{
   \cal{I}_{/-} \times_{\cal{E}} \cal{J}
   \ar@{.>}[r]^{Q}
   \ar[d]_{u_{/-} \times_{\cal{E}} v}
@@ -2779,6 +2785,7 @@ The structure of the uniform Frobenius condition of a functor $v \co \cal{J} \to
 &
   \cal{E}_{/-}^\to
 \rlap{.}}
+\end{gathered}
 \end{equation}
 \end{proposition}
 
@@ -2806,7 +2813,7 @@ If $v_2$ satisfies the uniform Frobenius condition with respect to $u$, then so 
 \end{proposition}
 
 \begin{proof}
-Using contravariance of $v$ in \cref{uniform-frob-nice}.
+Use contravariance of $v$ in \cref{uniform-frob-nice}.
 \end{proof}
 
 \begin{proposition} \label{uniform-frobenius-change-u}
@@ -2863,11 +2870,11 @@ For the remainder of this section, fix a functor $v \co \cal{J} \to \cal{E}^\to$
 \begin{equation} \label{uniform-frob:comprehension}
 \xycenter{
   \cal{J}
-  \ar[r]^{v}
+  \ar[rr]^{v}
   \ar[dr]_{\cod_{\cal{E}} \cc v}
-&
+&&
   \cal{E}^\to
-  \ar[d]^{\cod_{\cal{E}}}
+  \ar[dl]^{\cod_{\cal{E}}}
 \\&
   \cal{E}
 }
@@ -2879,9 +2886,10 @@ Under this assumption, the characterization of \cref{uniform-frob-nice} can be s
 \begin{proposition}
 \label{uniform-frob-even-nicer}
 Let $P' \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ denote the pullback functor given by $P'(g, h) \defeq h^* g$.
-he structure of the uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q'$ as below:
+The structure of the uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift of $P$ to a functor $Q'$ as below:
 \begin{equation} \label{uniform-frob-even-nicer:lift}
-\xycenter{
+\begin{gathered}
+\xymatrix@C+2em{
   \cal{I} \times_{\cal{E}} \cal{J}
   \ar@{.>}[r]^{Q'}
   \ar[d]_{u \times_{\cal{E}} v}
@@ -2894,6 +2902,7 @@ he structure of the uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\t
 &
   \cal{E}^\to
 \rlap{.}}
+\end{gathered}
 \end{equation}
 \end{proposition}
 
@@ -2903,10 +2912,10 @@ The situation \eqref{uniform-frob-nice:lift} a priori represents a more general 
 In contrast, in \eqref{uniform-frob-even-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
 It follows that any lift $Q$ induces a lift $Q'$.
 However, under the assumption that \eqref{uniform-frob:comprehension} forms a morphism of Grothendieck fibrations, the lift $Q$ can be reconstructed from the lift $Q'$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $Q(i, j) \defeq Q'(i, j')$.
-Furthermore, this choice of $Q$ is up to isomorphism forced upon us by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
+Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{proof}
 
-We finish by remarking that the algebraic weak factorization system generated by a category $u \co \cal{I} \to \cal{E}^\to$ of generating left arrows using the algebraic small object argument~\cite{garner:small-object-argument} in a locally cartesian-closed category $\cal{E}$ will be functorially Frobenius in the sense of~\cite{garner:topological-simplicial} precisely if its category of algebras $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
+We finish by remarking that the algebraic weak factorization system generated by a category $u \co \cal{I} \to \cal{E}^\to$ of generating left arrows using the algebraic small object argument~\cite{garner:small-object-argument} in a locally Cartesian closed category $\cal{E}$ will be functorially Frobenius in the sense of~\cite{garner:topological-simplicial} precisely if its category of algebras $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
 This follows by \cref{uniform-frob-even-nicer} and an inspection of the algebraic small object argument.
 
 \section{The uniform Frobenius condition for uniform fibrations}
@@ -2957,7 +2966,9 @@ If $\liftr{(\kcylinv \otimes \id_\catE)}$ satisfies the uniform Frobenius condit
 \end{lemma}
 
 \begin{proof}[Proof of \cref{strong-h-equiv-uniform-frobenius}]
-Combine the premise with \cref{strong-h-equiv-uniform-base-change} using \cref{uniform-frobenius-product-u}, recalling the definition~\eqref{rel-strong-h-equiv-def} of $S_k(\cal{I})$ as a strict pullback of categories.
+Recall the definition~\eqref{rel-strong-h-equiv-def} of $\cal{S}_k(\cal{I})$ as a strict pullback of $\cal{S}_k \to \cal{E}$ and $\cal{I} \to \cal{E}$.
+Using \cref{uniform-frobenius-product-u}, it will suffice to separately show that $\liftr{(\kcylinv \otimes \id_\catE)}$ satisfies the uniform Frobenius condition with respect to $\cal{S}_k$ and $\cal{I}$.
+The former is \cref{strong-h-equiv-uniform-base-change}, while the latter is just the premise.
 \end{proof}
 
 For the rest of the section, we assume that the functor from $\cal{E}$ to $\cal{E}^\to$ sending $X$ to $\bot_X$ lifts through $u \co \cal{I} \to \cal{E}^\to$ so that the previous statement can be applied to uniform $\cal{I}$-fibrations.
@@ -3075,8 +3086,15 @@ Hence, the pushforward of a uniform $\cal{M}$-fibration along a uniform $\cal{M}
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in simplicial sets]
 Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
 We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
-Obviously, since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.%
-\footnote{Since strong homotopy equivalences are closed under product with a constant factor, an adaptation of the proof of \cref{uniform-fibrations-uniform-frobenius} shows that only the base needs to be assumed Kan.}
+
+Since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.
+In fact, as usual, only the base needs to be assumed uniform Kan.
+This can be seen as follows.
+
+Let $p \co Y \to X$ be a uniform Kan fibration and $i \co A \to B$ be a decidable monomorphism.
+Recall that $\cal{S}_k(\cal{M})$ is closed under Leibniz product with $i$ for $k \in \braces{0, 1}$ (it is true separately for $\cal{S}_k$ and $\cal{M}$).
+By Leibniz adjointness (\cref{lift-of-leibniz-adjunction}), we have that $\hatexp(i, p)$ is again a uniform Kan fibration.
+The above statement is then the special case $X \defeq 1$ and $A \defeq 0$.
 \end{example}
 
 \begin{example}[The uniform Frobenius property for uniform Kan fibrations in cubical sets]
@@ -3097,7 +3115,8 @@ Strong $k$-sided homotopy equivalences are uniformly stable under base change al
 In detail, let $P' \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to$ denote the pullback functor $P'(g, h) \defeq h^* g$.
 Then $P'$ lifts to $Q'$ as depicted below:
 \begin{equation} \label{strong-h-equiv-uniform-base-change:goal}
-\xycenter{
+\begin{gathered}
+\xymatrix@C+2em{
   S_k \times_{\cal{E}} \cal{J}
   \ar@{.>}[r]^{Q'}
   \ar[d]
@@ -3110,6 +3129,7 @@ Then $P'$ lifts to $Q'$ as depicted below:
 &
   \cal{E}^\to
 \rlap{.}}
+\end{gathered}
 \end{equation}
 
 In particular, we have that $\cal{J}$ has the uniform Frobenius property with respect to strong $k$-sided homotopy equivalences.
