@@ -2521,10 +2521,9 @@ This condition is similar to the functorial Frobenius condition of~\cite{garner:
 \subsection*{The Frobenius condition}
 
 For this section, we fix a functor $u \co \cal{I} \to \catE^\to$.
-We begin by introducing the Frobenius condition.
 
 \begin{definition}[Frobenius condition] \label{thm:frobenius-def}
-We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u$ if pullback along $f$ lifts to a functor
+We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if pullback along $f$ lifts to a functor
 \[
 \xymatrix@C=1.5cm{
   \cal{I}_{/Y}
@@ -2543,7 +2542,7 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 
 \begin{remark} \label{frobenius-no-coherence}
 Note that the Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
-Explicitly, the above definition unfolds to making $f^* u_i \co f^* X_i \to f^* Y_i$ into a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ fitting in a diagram of form
+Explicitly, the above definition unfolds to making $f^* u_i \co f^* X_i \to f^* Y_i$ into a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ as below,
 \[
 \xymatrix{
   X_i
@@ -2554,7 +2553,7 @@ Explicitly, the above definition unfolds to making $f^* u_i \co f^* X_i \to f^* 
   \ar[dl]
 \\&
    Y
-}
+\rlap{,}}
 \]
 such that morphisms in $\cal{I}_{/Y}$ induce morphisms of left $\liftr{\cal{I}}$-maps.
 \end{remark}
@@ -2618,7 +2617,7 @@ Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u =
 In order to introduce the Beck-Chevalley condition, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $f \co X \to Y$ in~$\catE$, left composition $f_! \co \calE/X \to \calE/Y$ lifts to a functor between slices of~$u$.
 
 \begin{definition}[Beck-Chevalley condition] \label{def:beck-chevalley}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u$.
+Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
 We say that a commutative square
 \[
 \xymatrix{
@@ -2685,7 +2684,7 @@ In partial analogy with \cref{lift-dependent-product}, we provide a consequence 
 In order to state this, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $s \co X \to U$, the pullback functor $s^* \co \catE^\to_{/U} \to \catE^\to_{/X}$ lifts to a functor $s^* \co {\liftr{\cal{I}}}_{/U} \to {\liftr{\cal{I}}}_{/X}$.
 
 \begin{proposition} \label{lift-pushforward-BC}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u$.
+Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
 For a pullback square
 \[
 \xymatrix{
@@ -2754,7 +2753,7 @@ We conclude this section by providing a combination of the Frobenius and Beck-Ch
 Indeed, these two conditions can be seen as the components for objects and morphisms of $\catE^\to$ of a global condition.
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
-We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u$ if:
+We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if:
 \begin{enumerate}[(i)]
 \item for every object $j \in \cal{J}$, the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$,
 \item for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$:
@@ -2782,7 +2781,7 @@ As such, it seems the most natural way to phrase the condition.
 
 \begin{proposition}
 \label{uniform-frob-nice}
-The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u$ is equivalent to a lift $Q$ as below:
+The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift $Q$ as below:
 \begin{equation} \label{uniform-frob-nice:lift}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -2804,7 +2803,7 @@ Here $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^* f$
 \end{proposition}
 
 \begin{proof}
-Since the functor $\liftl{(\liftr{u})}$ is faithful, a lift $Q$ consists just of a lift of the action of $P$ on objects that is coherent with respect to the action of $P$ on morphisms.
+Since the functor $\liftl{(\liftr{u})}$ is faithful, a lift $Q$ consists just of a lift of the action of $P$ on objects that is coherent with respect to the action of $P$ on morphisms (in the sense that the action of $P$ on morphisms lifts to a necessarily unique action of $Q$ on morphisms).
 Coherence with respect to morphisms in $\cal{I}_{/-} \times_{\cal{E}} \cal{J}$ separates into two parts:
 \begin{enumerate}[(i)]
 \item coherence with respect morphisms in $\cal{I}_{/D_j}$ for fixed $v_j \co C_j \to D_j$ with $j \in \cal{J}$,
@@ -2814,35 +2813,14 @@ The action of $Q$ on objects together with coherence (i) constitutes the Frobeni
 Coherence (ii) constitutes the Beck-Chevalley part of the uniform Frobenius condition.
 \end{proof}
 
-For future reference, we make explicit in the following two propositions the inherent functoriality of the uniform Frobenius condition in the parameters $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \cal{E}^\to$ evident in the phrasing given by \cref{uniform-frob-nice}.
+For future reference, we make explicit in the following two propositions some categorical properties of the uniform Frobenius condition evident in the phrasing given by \cref{uniform-frob-nice}.
 
-\begin{proposition} \label{uniform-frobenius-change-v}
-Consider a map of categories of arrows as follows:
-\[
-\xymatrix{
-  \cal{J}_1
-  \ar[rr]
-  \ar[dr]_{v_1}
-&&
-  \cal{J}_2
-  \ar[dl]^{v_2}
-\\&
-  \catE^\to
-\rlap{.}}
-\]
-If $v_2$ satisfies the uniform Frobenius condition with respect to $u$, then so does $v_1$.
-\end{proposition}
-
-\begin{proof}
-Use contravariance of $v$ in \cref{uniform-frob-nice}.
-\end{proof}
-
-\begin{proposition} \label{uniform-frobenius-change-u}
-Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be categories over $\catE^\to$ related as follows:
+\begin{proposition}[Functoriality of uniform Frobenius condition] \label{uniform-frobenius-functorial}
+Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \cal{E}^\to$ for $t \in \braces{1, 2}$ related as follows:
 \begin{align*}
-\xymatrix{
+\xymatrix@C-1.5em{
   \cal{I}_1
-  \ar[rr]^{F}
+  \ar[rr]^-{F}
   \ar[dr]_{\liftr{u_1}}
 &&
   \liftl{(\liftr{\cal{I}_2})}
@@ -2851,9 +2829,9 @@ Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be c
   \catE^\to
 \rlap{,}}
 &&
-\xymatrix{
+\xymatrix@C-1.5em{
   \cal{I}_2
-  \ar[rr]^{G}
+  \ar[rr]^-{G}
   \ar[dr]_{u_1}
 &&
   \cal{I}_1
@@ -2861,17 +2839,54 @@ Let $u_1 \co \cal{I}_1 \to \catE^\to$ and $u_2 \co \cal{I}_2 \to \catE^\to$ be c
 \\&
   \catE^\to
 \rlap{,}}
+&&
+\xymatrix@C-1.5em{
+  \cal{J}_2
+  \ar[rr]^-{H}
+  \ar[dr]_{v_2}
+&&
+  \cal{J}_1
+  \ar[dl]^{v_1}
+\\&
+  \catE^\to
+\rlap{.}}
 \end{align*}
-If a functor $v \co \cal{J} \to \catE^\to$ satisfies the uniform Frobenius condition with respect to $u_1$, then also with respect to $u_2$.
+If $v_t$ satisfies the uniform Frobenius condition with respect to $u_t$ for $t = 1$, then also for $t = 2$.
 \end{proposition}
 
 \begin{proof}
-Use contravariance of $u$ in the domain of $Q$ and covariance of $u$ in the codomain of $Q$ in \cref{uniform-frob-nice} together with the multiplication of the monad $\liftl{(\liftr{(-)})}$.
+We work with the characterization of uniform Frobenius given by \cref{uniform-frob-nice}.
+In the below diagram, the premise corresponds to a functor $Q_2$ making the inner square commute while the conclusion corresponds to a functor $Q_1$ making the lower trapezoid commute:
+\[
+\xymatrix{
+&
+  {\cal{I}_2}_{/-} \times_{\cal{E}} \cal{J}_2
+  \ar[rr]^{Q_2}
+  \ar[dd]^(0.25){{u_1}_{/-} \times_{\cal{E}} v_1}
+&&
+  \liftl{(\liftr{\cal{I}_2})}_{/-}
+  \ar[dr]
+  \ar[dd]_(0.25){\liftl{(\liftr{u_1})}_{/-}}
+\\
+  {\cal{I}_1}_{/-} \times_{\cal{E}} \cal{J}_1
+  \ar[ur]
+  \ar[dr]_{{u_1}_{/-} \times_{\cal{E}} v_1}
+  \ar[rrrr]^{Q_1}
+&&&&
+  \liftl{(\liftr{\cal{I}_1})}_{/-}
+  \ar[dl]^{\liftl{(\liftr{u_2})}_{/-}}
+\\&
+  \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to
+  \ar[rr]_{P}
+&&
+  \cal{E}^\to_{/-}  
+\rlap{.}}
+\]
+We may construct $Q_1$ from $Q_2$ by pasting the inner square with the left triangle, given by $G$ and $H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
 
 \begin{proposition} \label{uniform-frobenius-product-u}
-Let $v \co \cal{J} \to \cal{E}^\to$ be a functor.
-If $v$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
+If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
 \end{proposition}
 
 \begin{proof}
@@ -2905,7 +2920,7 @@ Under this assumption, the characterization of \cref{uniform-frob-nice} can be s
 
 \begin{proposition}
 \label{uniform-frob-even-nicer}
-The uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u$ is equivalent to a lift $Q'$ as below:
+The uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift $Q'$ as below:
 \begin{equation} \label{uniform-frob-even-nicer:lift}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -3002,7 +3017,7 @@ This is a consequence of \cref{strong-h-equiv-uniform-frobenius}.
 Combining the cases $k = 0$ and $k = 1$, we have that if right $(\braces{\lcyl, \rcyl} \otimes \id_\catE)$-maps satisfy the uniform Frobenius property with respect to $\cal{I}$, then also with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
 By assumption, for $k \in \braces{0, 1}$, there is a functor $\delta^k \otimes \id_\catE \to \delta^k \hatotimes (-)$ over $\catE^\to$ sending $X$ to $\bot_X$.
 By the definiton of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ as given in~\eqref{equ:u-tensor}, we hence have a functor over $\catE^\to$ from uniform $\cal{I}$-fibrations to right $(\braces{\lcyl, \rcyl} \otimes \id_\catE)$-maps.
-We finish by applying \cref{uniform-frobenius-change-v}.
+We finish by applying \cref{uniform-frobenius-functorial} with $F$ the unit of the monad $\liftl{(\liftr{(-)})}$ and $G$ the identity on $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
 \end{proof}
 
 In addition to previous assumptions of this section, we now assume that the functor $u \co \cal{I} \to \catE^\to$ is closed with respect to Leibniz product with endpoint inclusions.
@@ -3015,7 +3030,7 @@ Under the assumptions stated above, we have that $\Fib{\cal{I}} $ satisfies the 
 \end{theorem}
 
 \begin{proof}
-The result follows from \cref{uniform-frobenius-change-u} and \cref{strong-h-equiv-uniform-frobenius-fibrations}, using the functors constructed in \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
+The result follows from \cref{strong-h-equiv-uniform-frobenius-fibrations} and \cref{uniform-frobenius-functorial} using for $F$ and $G$ the functors constructed in \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}, respectively (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
 \end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley property for uniform~$\cal{I}$-fibrations.
