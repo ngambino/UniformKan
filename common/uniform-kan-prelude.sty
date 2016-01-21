@@ -51,15 +51,15 @@
 {0.5\baselineskip}% afterskip
 {\large \bfseries}}% style
 
- \renewcommand{\subsection}{\@startsection
- {subsection}% name
- {2}% level
-  {0mm}% indent
-  {1mm}% beforeskip
-    {-1ex}% afterskip
-   {\normalfont\normalsize\bfseries}}% styles
+\renewcommand{\subsection}{\@startsection
+{subsection}% name
+{2}% level
+{0mm}% indent
+{1mm}% beforeskip
+{-1ex}% afterskip
+{\normalfont\normalsize\bfseries}}% styles
 
- \makeatother
+\makeatother
 
 %% Adapted from the HoTT book sources.
 
@@ -106,7 +106,6 @@
 {}% 
 
 
-
 \theoremstyle{mythm}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -115,6 +114,15 @@
 
 \defthm{corollary}{corollaries}{Corollary}{Corollaries}
 \defthm{lemma}{lemmata}{Lemma}{Lemmata}
+
+% repeating a statement
+% see http://tex.stackexchange.com/a/443
+\newtheorem*{replemmax}{\reptitle}
+\newenvironment{replemma}[1]{%
+ \def\reptitle{Lemma \ref*{#1}}%
+ \begin{replemmax}}%
+ {\end{replemmax}}
+
 \defthm{proposition}{propositions}{Proposition}{Propositions}
 
 \theoremstyle{mydef}
