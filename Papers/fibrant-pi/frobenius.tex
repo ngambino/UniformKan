@@ -761,8 +761,9 @@ First of all, recall from~\cite{garner:small-object-argument} that the function 
 \]
 of categories over $\catE^\to$.
 In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action of this functor on arrows
-\begin{align*}
-\xymatrix{
+\[
+\begin{aligned}
+\xymatrix@C-1em{
   \cal{I}
   \ar[dr]_{u}
   \ar[rr]^{F}
@@ -778,7 +779,7 @@ In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action
   {}
 }
 &&
-\xymatrix{
+\xymatrix@C-1em{
   \liftr{\cal{J}}
   \ar[dr]_{\liftr{v}}
   \ar[rr]^{\liftr{F}}
@@ -788,7 +789,8 @@ In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action
 \\&
   \catE^\to
 }
-\end{align*}
+\end{aligned}
+\]
 is defined as follows: for $F \co \cal{I} \to \cal{J}$ over $\catE^\to$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$ where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogous to the way in which standard orthogonality operations form a Galois connection, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
@@ -999,7 +1001,7 @@ In order to prove a counterpart of this fact in our setting, we need some auxili
 Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
 The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in \cal{I}$ and a commutative triangle of the form
 \[
-\xymatrix{
+\xymatrix@C-1em{
   A_i
   \ar[dr]
   \ar[rr]^{u_i}
@@ -1072,7 +1074,7 @@ However, it does under certain assumptions, as described in \cref{pitchfork-slic
 \begin{proposition} \label{pitchfork-slicing-grothendieck}
 Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
 \[
-\xymatrix{
+\xymatrix@C-1em{
   \cal{I}
   \ar[rr]^{u}
   \ar[dr]_{\cod_{\cal{E}} \cc u}
@@ -1412,7 +1414,7 @@ Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \ar
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
 The diagrams
 \begin{align*}
-\xymatrix@C+1em{
+\xymatrix{
 &
   \liftr{\cal{I}}
   \ar[dr]^-{\liftr{(\widehat{F}(h, -) \cc u)}}
@@ -1424,7 +1426,7 @@ The diagrams
   \catE^\to
 \rlap{,}}
 &&
-\xymatrix@C+1em{
+\xymatrix{
 &
   \liftl{\cal{I}}
   \ar[dl]_-{\liftl{v}}
@@ -1492,7 +1494,7 @@ Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
 \begin{enumerate}[(i)]
 \item Assume that the pointwise left Kan extension of $u \co \cal{I} \to \catE^\to$ along $F$ exists:
 \[
-\xymatrix{
+\xymatrix@!C@C-1em{
   \cal{I}
   \ar[dr]_{u}
   \ar[rr]^{F}
@@ -1505,7 +1507,7 @@ Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
 \]
 Then the functor $\liftr{F} \co \liftr{\cal{J}} \to \liftr{\cal{I}}$, fitting in the diagram
 \[
-\xymatrix{
+\xymatrix@!C@C-1em{
   \liftr{\cal{I}}
   \ar[dr]_{\liftr{u}}
 &&
@@ -1519,7 +1521,7 @@ Then the functor $\liftr{F} \co \liftr{\cal{J}} \to \liftr{\cal{I}}$, fitting in
 is an isomorphism.
 \item Assume that the pointwise right Kan extension of $u \co \cal{I} \to \catE^\to$ along $F$ exists:
 \[
-\xymatrix{
+\xymatrix@!C@C-1em{
   \cal{I}
   \ar[dr]_{u}
   \ar[rr]^{F}
@@ -1532,7 +1534,7 @@ is an isomorphism.
 \]
 Then the functor $\liftl{F} \co \liftl{\cal{J}} \to \liftl{\cal{I}}$, fitting in the diagram
 \[
-\xymatrix{
+\xymatrix@!C@C-1em{
   \liftl{\cal{I}}
   \ar[dr]_{\liftl{u}}
 &&
@@ -1753,7 +1755,7 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \end{proof}
 
 \begin{remark}
-\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since the functors $\delta^0 \hatotimes -$ and $\delta^1 \hatotimes -$ preserve and sections are closed under retracts.
+\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since the functors $\delta^0 \hatotimes -$ and $\delta^1 \hatotimes -$ preserve retracts and sections are closed under retracts.
 \end{remark}
 
 For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
@@ -1853,7 +1855,7 @@ We are now going to relate strong homotopy equivalences relative to $\cal{I}$ wi
 \begin{lemma} \label{lem:from-strong-hequiv}
 There is a functor
 \[
-\xymatrix@!C{
+\xymatrix@!C@C-2em{
   \cal{S}_k(\cal{I})
   \ar[dr]_{\cal{S}_k(u)}
   \ar[rr]^{L_k}
@@ -1896,7 +1898,7 @@ Assume that $\cal{I}$ is closed under Leibniz tensor with $\kcyl$ in the sense t
 Assume further that the functorial cylinder has effective connections.
 Then there is a functor
 \[
-\xymatrix@!C{
+\xymatrix@!C@C-2em{
   \cal{I}
   \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{M_k}
 &&
@@ -1919,7 +1921,7 @@ We can then let $M_k(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
 Upon combining the cases $k = 0$ and $k = 1$ and passing to right orthogonality categories, \cref{lem:from-strong-hequiv,lem:to-strong-hequiv} induce functors
 \[
-\xymatrix@!C{
+\xymatrix@!C@C-2.5em{
   \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
   \ar[dr]
   \ar@<4pt>[rr]^{\liftr{(M_0 + M_1)}}
@@ -1963,7 +1965,7 @@ We begin with some general facts.
 Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables, \ie closed under pullbacks along morphisms with domain a representable presheaf.
 Let $\cal{I}$ denote its restriction to arrows into representables.
 \[
-\xymatrix{
+\xymatrix@C-1em{
   \cal{I}
   \ar[rr]
   \ar[dr]
@@ -2007,7 +2009,7 @@ The claim can then be restated as $\colim_{b \co \yon(x) \to B} b^*(j) \iso j$, 
 Let~$\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables.
 Let $\cal{I}$ denote its restriction to arrows into representables,
 \[
-\xymatrix{
+\xymatrix@C-1em{
   \cal{I}
   \ar[rr]
   \ar[dr]
@@ -2778,6 +2780,7 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 
 The following proposition assembles all the ingredients of the uniform Frobenius condition into a single global functor.
 As such, it seems the most natural way to phrase the condition.
+Given a functor $\cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/-}^{\to}$ for the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
 
 \begin{proposition}
 \label{uniform-frob-nice}
@@ -2799,7 +2802,7 @@ The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ wit
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Here $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^* f$.
+Here, the pullbacks are with respect to the slicing part of the left factor and the codomain part of the right factor, and $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^* f$.
 \end{proposition}
 
 \begin{proof}
@@ -2854,7 +2857,11 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \
 If $v_t$ satisfies the uniform Frobenius condition with respect to $u_t$ for $t = 1$, then also for $t = 2$.
 \end{proposition}
 
-\begin{proof}
+In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
+If only functoriality in $\cal{I}$ is desired, the map $H$ will default to an identity.
+If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default to a component of the unit of the monad $\liftl{(\liftr{(-)})}$ and an identity, respectively.
+
+\begin{proof}[Proof of \cref{uniform-frobenius-functorial}]
 We work with the characterization of uniform Frobenius given by \cref{uniform-frob-nice}.
 In the below diagram, the premise corresponds to a functor $Q_1$ making the inner square commute while the conclusion corresponds to a functor $Q_2$ making the lower trapezoid commute:
 \[
@@ -2903,7 +2910,8 @@ The previous proposition holds true analogously for arbitrary limits in the cate
 
 For the remainder of this section, fix a functor $v \co \cal{J} \to \cal{E}^\to$ such that
 \begin{equation} \label{uniform-frob:comprehension}
-\xycenter{
+\begin{gathered}
+\xymatrix@C-1em{
   \cal{J}
   \ar[rr]^{v}
   \ar[dr]_{\cod_{\cal{E}} \cc v}
@@ -2913,6 +2921,7 @@ For the remainder of this section, fix a functor $v \co \cal{J} \to \cal{E}^\to$
 \\&
   \cal{E}
 }
+\end{gathered}
 \end{equation}
 is a morphism of Grothendieck fibrations.
 This is for example the case if $\cal{J}$ is a category of right maps as later on in \cref{strong-h-equiv-uniform-base-change} or the category of algebras in an algebraic weak factorization system.
@@ -2976,11 +2985,12 @@ In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi
 \rlap{.}}
 \]
 Since $\Fib{\cal{I}}  = \liftr{\cal{I}_\otimes}$, this will imply that pushforward along $f$ lifts as in \cref{lift-dependent-product}.
+
 As an intermediate step, under mild assumptions, we establish that uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way) if they do so with respect to $\cal{I}$.
 By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ (\cf \cref{relating-strong-hequiv-and-uniform-fib}) this will enable us to establish the uniform Frobenius condition for uniform $\cal{I}$-fibrations with respect to $\cal{I}_\otimes$, as desired.
 
 Let $u' \co \cal{I}' \to \cal{E}^\to$ be the functor with domain $\cal{E}$ that sends $X$ to $\bot_X$.
-The central technical tool of our development is the following statement, proved in the appendix.
+The central technical tool of our development is the following statement.
 
 \begin{lemma} \label{technical}
 Let $k \in \braces{0, 1}$.
@@ -3026,7 +3036,7 @@ For the step from (i) to (ii), apply functoriality of uniform Frobenius in the f
 For the step from (ii) to (iii), recall with the definition~\eqref{rel-strong-h-equiv-def} of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
 Using \cref{uniform-frobenius-product-u}, we may combine the uniform Frobenius conditions for uniform $\cal{I}$-fibrations with respect to $\cal{S}_0 + \cal{S}_1$, provided by (ii), and with respect to $\cal{I}$, provided by assumption (2).
 
-For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the map $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}) \to \liftl{(\liftr{\cal{I}_\otimes})}$ induced by \cref{lem:to-strong-hequiv} and $G$ the map $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ induced by \cref{lem:from-strong-hequiv} (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
+For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the map $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}) \to \liftl{(\liftr{\cal{I}_\otimes})}$ induced by \cref{lem:from-strong-hequiv} and $G$ the map $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ induced by \cref{lem:to-strong-hequiv} (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
 Note that the latter map uses assumption (3).
 \end{proof}
 
@@ -3093,7 +3103,7 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lif
 \end{proof}
 
 \begin{example}[The Frobenius condition for uniform fibrations in presheaf categories] \label{frobenius-uniform-presheaf}
-Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and consider a full subcategory $\cal{M}$ of $\catE^\to$ of monomorphisms satisying the conditions of \cref{uniform-fib-presheaf-cat}.
+Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and consider a full subcategory $\cal{M}$ of $\catE^\to_{\cart}$ of monomorphisms satisying the conditions of \cref{uniform-fib-presheaf-cat}.
 We want to apply \cref{uniform-fibrations-uniform-frobenius} with $\cal{I} \defeq \cal{M}$.
 Recall from the discussion in \cref{uniform-fib-presheaf-cat} that $\cal{M}$ is closed under Leibniz product with endpoint inclusions, thus assumption (2) is satisfied.
 Assumption (1) is guaranteed by condition (v).
@@ -3205,7 +3215,7 @@ We construct the pullback square $\sigma \co \bar{g} \to g$ of $g$ along $v_j$:
 We want to make $\bar{g}$ into a strong $k$-sided homotopy equivalence.
 This means to find a retraction $\bar{g}$ to $\thetak \hatotimes \bar{g}$ as follows:
 \[
-\xymatrix@C+2em{
+\xymatrix@C+1em{
   \bar{g}
   \ar[r]^-{\thetak \hatotimes \bar{g}}
   \ar@{=}[dr]
@@ -3241,13 +3251,13 @@ We will define the retraction $\bar{\rho}$ such that the below diagram commutes 
 \]
 Since the pullback square $\sigma$ is a Cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains, again omitting horizontal composite identities:
 \[
-\xymatrix@C+4em{
+\xymatrix@C+2em{
   X
   \ar[r]^-{\kcylinv \otimes X}
   \ar[d]_{v_j}
 &
   \interval \otimes X
-  \ar@{.>}[r]^{\cod(\bar{\rho})}
+  \ar@{.>}[r]^-{\cod(\bar{\rho})}
   \ar[d]^{\interval \otimes v_j}
 &
   X
@@ -3264,7 +3274,7 @@ Since the pullback square $\sigma$ is a Cartesian arrow with respect to the codo
 \]
 To find the dotted arrow is to construct a diagonal filler in the following square:
 \[
-\xymatrix@C+3em{
+\xymatrix@C+2em{
   X
   \ar@{=}[rr]
   \ar[d]_{\kcylinv \otimes X}
