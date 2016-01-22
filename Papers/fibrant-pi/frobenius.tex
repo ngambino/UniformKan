@@ -1755,7 +1755,7 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \end{proof}
 
 \begin{remark}
-\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since the functors $\delta^0 \hatotimes -$ and $\delta^1 \hatotimes -$ preserve retracts and sections are closed under retracts.
+\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors, in this case $\delta^0 \hatotimes -$ and $\delta^1 \hatotimes -$, preserve retracts and sections are closed under retracts.
 \end{remark}
 
 For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
@@ -2780,7 +2780,7 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 
 The following proposition assembles all the ingredients of the uniform Frobenius condition into a single global functor.
 As such, it seems the most natural way to phrase the condition.
-Given a functor $\cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/-}^{\to}$ for the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
+Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$, \ie the category of $k \in \cal{K}$ and $X \in \cal{E}$ with $w_k$ living over $X$.
 
 \begin{proposition}
 \label{uniform-frob-nice}
@@ -2788,17 +2788,17 @@ The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ wit
 \begin{equation} \label{uniform-frob-nice:lift}
 \begin{gathered}
 \xymatrix@C+2em{
-  \cal{I}_{/-} \times_{\cal{E}} \cal{J}
+  \cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}
   \ar@{.>}[r]^{Q}
-  \ar[d]_{u_{/-} \times_{\cal{E}} v}
+  \ar[d]_{u_{/\cal{E}} \times_{\cal{E}} v}
 &
-  \liftl{(\liftr{\cal{I}})}_{/-}
-  \ar[d]^{\liftl{(\liftr{u})}_{/-}}
+  \liftl{(\liftr{\cal{I}})}_{/\cal{E}}
+  \ar[d]^{\liftl{(\liftr{u})}_{/\cal{E}}}
 \\
-  \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to
+  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
   \ar[r]_{P}
 &
-  \cal{E}_{/-}^\to
+  \cal{E}_{/\cal{E}}^\to
 \rlap{.}}
 \end{gathered}
 \end{equation}
@@ -2867,26 +2867,26 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
 \[
 \xymatrix{
 &
-  {\cal{I}_2}_{/-} \times_{\cal{E}} \cal{J}_2
+  {\cal{I}_2}_{/\cal{E}} \times_{\cal{E}} \cal{J}_2
   \ar[rr]^{Q_1}
-  \ar[dd]^(0.25){{u_1}_{/-} \times_{\cal{E}} v_1}
+  \ar[dd]^(0.25){{u_1}_{/\cal{E}} \times_{\cal{E}} v_1}
 &&
-  \liftl{(\liftr{\cal{I}_2})}_{/-}
+  \liftl{(\liftr{\cal{I}_2})}_{/\cal{E}}
   \ar[dr]
-  \ar[dd]_(0.25){\liftl{(\liftr{u_1})}_{/-}}
+  \ar[dd]_(0.25){\liftl{(\liftr{u_1})}_{/\cal{E}}}
 \\
-  {\cal{I}_1}_{/-} \times_{\cal{E}} \cal{J}_1
+  {\cal{I}_1}_{/\cal{E}} \times_{\cal{E}} \cal{J}_1
   \ar[ur]
-  \ar[dr]_{{u_2}_{/-} \times_{\cal{E}} v_2}
+  \ar[dr]_{{u_2}_{/\cal{E}} \times_{\cal{E}} v_2}
   \ar[rrrr]^{Q_2}
 &&&&
-  \liftl{(\liftr{\cal{I}_1})}_{/-}
-  \ar[dl]^{\liftl{(\liftr{u_2})}_{/-}}
+  \liftl{(\liftr{\cal{I}_1})}_{/\cal{E}}
+  \ar[dl]^{\liftl{(\liftr{u_2})}_{/\cal{E}}}
 \\&
-  \cal{E}^\to_{/-} \times_{\cal{E}} \cal{E}^\to
+  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
   \ar[rr]_{P}
 &&
-  \cal{E}^\to_{/-}  
+  \cal{E}^\to_{/\cal{E}}
 \rlap{.}}
 \]
 We may construct $Q_2$ from $Q_1$ by pasting the inner square with the left triangle, given by $G$ and $H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
