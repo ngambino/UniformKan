@@ -59,14 +59,12 @@ But in order to be able to apply it, we crucially show that uniform (trivial) fi
 Working with uniform fibrations is essential to prove this fact since it allows us to write an arbitrary lifting problem as a colimit of a functorial family of lifting problems, while still working constructively.%
 \footnote{This type of good interaction between colimits and lifting problems in the theory of natural weak factorization systems was already emphasized in~\cite{riehl-cat-homotopy}.}
 
-
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the classical notion of a fibration.
 We do so by relating the notion of a uniform (trivial) fibration to its non-algebraic counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
 In particular, we show that, if one assumes the axiom of choice, then a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting condition with respect to the maps involved in the definition of a uniform (trivial) fibration.
 This result is not a simple application of the axiom of choice since the function necessary to have a uniform fibration needs to satisfy an appropriate naturality condition.
 Instead, we will obtain a careful decomposition of the lifting problems involved in the naturality condition.
 By applying this result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
-
 
 For our third main result, we return to consider the general setting of categories equipped with a functorial cylinder.
 In this setting, we introduce a version in our setting of the Frobenius condition\footnote{The terminology is inspired by Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}; see~\cite{clementino:frobenius} for a precise connection between the two notions.} for weak factorization systems~\cite{garner:types-omega-groupoids}, which states that the pullback along a right map preserves left maps.
@@ -105,7 +103,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 The aim of this section is to introduce the main notions that will be used in our development and some examples.
 Let us begin by fixing some notation.
 For a category $\cal{E}$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$ and $\cal{E}^\to_{\cart}$ for its subcategory with pullback squares as maps.
-We now introduce the main examples to which our results will apply.
+We now introduce some important examples to which our results will apply.
 
 \begin{example}
 The category of simplicial sets $\SSet$ is defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$.
@@ -181,7 +179,7 @@ Our main examples will have functorial cylinders induced by interval objects.
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
 The category $\SSet$ of simplicial sets is Cartesian closed.
-An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_1^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_0^1 \co \braces{1} \to \Delta^1$.
+An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
 As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
 \end{example}
@@ -444,7 +442,7 @@ As in \cref{exa:cyl-via-int}, tensoring with an interval object with (effective)
 \end{example}
 
 \begin{example}[Connections in simplicial sets]
-The interval object $(\Delta^1, h_1^1, h_0^1)$ in simplicial sets of~\cref{exa:cyl-in-sset} sets has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
+The interval object $(\Delta^1, h_0^1, h_1^1)$ in simplicial sets of~\cref{exa:cyl-in-sset} sets has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
 For this, note that~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
 \end{example}
 
@@ -456,7 +454,7 @@ In detail, they are given by the maps from a singleton set to the free de Morgan
 \subsection*{Uniform fibrations}
 
 We will be interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs} as considered in the theory of natural weak factorization systems~\cite{grandis-tholen-nwfs}.
-Furthermore, instead of starting from a mere class of arrows in $\catE$ and define its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$.
+Furthermore, instead of starting from a mere class of arrows in $\catE$ and defining its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$.
 Thus, such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object $i \in \cal{I}$ (we will use this notation systematically below).
 The additional generality obtained by allowing $u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
@@ -464,7 +462,7 @@ Let us begin by recalling the following definition from~\cite{garner:small-objec
 \begin{definition} \label{def:right-map}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
-\item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consisting of a map $f \co X \to Y$ in $\catE$ and a right lifting function~$\phi$ for $\cal{I}$, \ie a function that assigns to each $i \in \cal{I}$ and commuting square
+\item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a right lifting function~$\phi$ for $\cal{I}$, \ie a function that assigns to each $i \in \cal{I}$ and commuting square
 \[
 \xymatrix@C=2cm{
   A_i
@@ -643,17 +641,15 @@ where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 \begin{example}[Uniform fibrations in presheaf categories] \label{uniform-fib-presheaf-cat}
 Let $\catE$ be a presheaf category equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$.
 Continuing \cref{exa-triv-kan-fib}, we consider some full subcategory $\cal{M}$ of $\catE_\cart^\to$ of monomorphisms, letting $u \co \cal{M} \hookrightarrow \catE^\to$ denote the inclusion.
-For the rest of this article, we will impose the following conditions on $\cal{M}$:
+For the rest of this article, we will impose the following conditions on $I$ and $\cal{M}$:
 \begin{enumerate}[(i)]
 \item for $i$ in $\cal{M}$, any base change of $i$ is also in $\cal{M}$;
-\item $\cal{M}$ is closed under the lift of the cylinder functor $\interval \otimes (-)$ to arrows;
-\item the endpoint inclusions $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ restrict to functors $\catE \to \cal{M}$;
 \item we have $\lcyl \hatotimes i \in \cal{M}$ and $\rcyl \hatotimes i \in \cal{M}$ for $i \in \cal{M}$;
-\item we have $\bot_X \co 0_{\cal{E}} \to X$ in $\cal{M}$ for $X \in \cal{M}$.
+\item we have $\bot_X \co 0_{\cal{E}} \to X$ in $\cal{M}$ for $X \in \cal{E}$.
+\item the functor $I \otimes (-)$ preserves pullbacks for squares of the form $i \to j$ with $i, j \in \cal{M}$;
+\item the naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks;
 \end{enumerate}
-Condition~(ii) means that $\interval \otimes i \co \interval \otimes A \to \interval \otimes B$ is in $\cal{M}$ given $i \co A \to B$ in $\cal{M}$ and that $\interval \otimes (-)$ preserves pullback squares.
-Condition~(iii) means that $\kcyl \otimes C \co C \to \interval \otimes C$ is in $\cal{M}$ for any $C \in \catE$ and that the naturality squares of $\kcyl \otimes (-)$ are pullbacks ($k \in \braces{0, 1}$).
-Since pushouts in presheaf categories are stable under base change, conditions~(ii) and~(iii) allow us to strengthen the objectwise assertion of condition~(iv) to a lift of the Leibniz product functor $\kcyl \hatotimes (-)$ to $\cal{M}$ as indicated below ($k \in \braces{0, 1}$):%
+Since pushouts in presheaf categories are stable under base change, conditions~(iv) and~(v) allow us to strengthen the objectwise assertion of condition~(iii) to a lift of the Leibniz product functor $\kcyl \hatotimes (-)$ to $\cal{M}$ as indicated below ($k \in \braces{0, 1}$):%
 \footnote{Abstracting from the setting of a presheaf category, the core property used here is adhesiveness~\cite{garner-lack:adhesive} of the elements of $\cal{M}$.}
 \[
 \xymatrix{
@@ -675,8 +671,8 @@ It it natural to consider for $\cal{M}$ the full subcatgory of $\catE_\cart^\to$
 \footnote{
 Assuming the law of excluded middle, all monomorphisms are decidable.
 We expect that the restriction to decidable monomorphisms is important to treat constructively with further aspects of the theory such as universes (\cf \cite{cohen-et-al:cubicaltt}).
-} (\ie whose components are functions with decidable image), in particular if $\calE$ is a presheaves over an elegant Reedy category.
-For any of these two choices, conditions~(i) to~(v) are inherited from the setting $\calE = \Set$.
+} (\ie whose components are functions with decidable image), in particular if $\calE$ is presheaves over an elegant Reedy category.
+For any of these two choices, conditions~(i) to~(v) are inherited from the setting $\calE \defeq \Set$.
 Below, we illustrate the notion of a uniform $\cal{M}$-fibration in the special cases of simplicial sets and cubical sets
 \end{example}
 
@@ -706,7 +702,7 @@ We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice,
 
 \begin{example}[Uniform Kan fibrations in cubical sets]
 A uniform $\cal{M}$-fibration in $\CSet$ with $\cal{M}$ consisting of all decidable monomorphisms will be called a \emph{uniform Kan fibration}.
-To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $(n+1)$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
+To illustrate the connection with the classical Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $n$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
 Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
 Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a right map (in the algebraic sense) also to open box inclusions, which are
@@ -733,11 +729,7 @@ First, if the functorial cylinder is induced by tensoring with an interval objec
 This is the case in our main examples of simplicial and cubical sets where $u \co \cal{I} \to \catE^\to$ is the subcategory of decidable monomorphisms, the map $[\lcyl, \rcyl]$ is a decidable monomorphism, and Leibniz product preserves decidable monomorphisms.
 
 Second, if we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle $n$ arguments), and that $\cal{I}$ is closed under Leibniz product not just with endpoint inclusions, but also with $[\lcyl, \rcyl]$ (this is the case if $[\lcyl, \rcyl]$ is a (decidable) monomorphism and the maps in $\cal{I}$ are the (decidable) monomorphisms in a presheaf category as in \cref{sec:unifpc}), then the maps in $\cal{I}_\otimes'$ can still be shown to be strong homotopy equivalences in a uniform way.
-This gives rise to a functor
-\[
-  \cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
-\]
-over $\catE^\to$ (where $\cal{S}_k(\cal{I})$ for $k \in \{0,1\}$ are the categories of strong homotopy equivalences relative to $\cal{I}$ as defined in \cref{sec:remshe}).
+This gives rise to a functor $\cal{I}_\otimes' \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ over $\catE^\to$ (where $\cal{S}_k(\cal{I})$ for $k \in \{0,1\}$ are the categories of strong homotopy equivalences relative to $\cal{I}$ as defined in \cref{sec:remshe}).
 By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uniform naive Cisinski $\cal{I}$-fibration is a uniform $\cal{I}$-fibration in a functorial way.
 \end{remark}
 
@@ -998,7 +990,7 @@ Let us also note that this part of construction works for any bipointed category
 
 In the classical setting, it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.
 In order to prove a counterpart of this fact in our setting, we need some auxiliary definitions.
-Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
+Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a \emph{slice} category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
 The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in \cal{I}$ and a commutative triangle of the form
 \[
 \xymatrix@C-1em{
@@ -1056,7 +1048,7 @@ Let $u \co \cal{I} \to \catE^\to$ and $X \in \cal{E}$.
 \begin{enumerate}[(i)]
 \item The right orthogonality functor commutes with slicing, \ie we have
 \[
-  \liftr{(\cal{I}_{/X})} = {\liftr{\cal{I}}}_{/X}
+  \liftr{(\cal{I}_{/X})} = (\liftr{\cal{I}})_{/X}
 \]
 as categories over $\catE^\to$.
 \item The left orthogonality functor commutes with coslicing, \ie we have
@@ -1093,7 +1085,7 @@ Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in
 \end{proposition}
 
 \begin{proof}
-First note that $\cod_{\cal{E}/X} \cc u_{/X}$ will also be a Grothendieck fibration.
+First note that $\cod_{\cal{E}_{/X}} \cc u_{/X}$ will also be a Grothendieck fibration.
 When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, it is then sufficient by base changing and naturality of diagonal fillers to consider lifting problems with the bottom arrow an identity.
 But for such lifting problems the order of slicing makes no difference.
 \end{proof}
@@ -1135,8 +1127,8 @@ Let us fix an adjunction
   \ar@<5pt>[l]^{G}
 \rlap{.}}
 \]
-In the non-algebraic setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$, and thus $\liftr{F(\cal{I})} = G(\liftr{\cal{I}})$ and $\liftl{G(\cal{J})} = F(\liftl{\cal{J}})$.
-The next statements provide counterparts of these facts in our setting.
+In the non-algebraic setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$.
+The next statement provides a counterpart of this fact in our setting.
 
 \begin{proposition} \label{lift-of-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
@@ -1158,7 +1150,7 @@ Then the following are equivalent:
   \cal{F}^\to
 \rlap{,}}
 \]
-\item the functor $G \co \cal{F}^\to \to \catE^\to$ lifts to a functor $G \co \cal{J} \to \liftr{\cal{I}}$, making the following diagram commute:
+\item the functor $G \co \cal{F}^\to \to \catE^\to$ lifts to a functor $G \co \cal{J} \to \liftr{\cal{I}}$ making the following diagram commute:
 \[
 \xymatrix@C=1.2cm{
   \cal{J}
@@ -1214,44 +1206,6 @@ natural in $i \in \cal{I}$ and $j \in \cal{J}$.
 Since $F$ is left adjoint to $G$, these situations coincide.
 \end{proof}
 
-\cref{lift-of-adjunction} implies that orthogonality functors commute with left composition with adjoints, as the next corollary makes precise.
-
-\begin{corollary} \label{pitchfork-adjunction}
-Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
-The diagrams
-\begin{align*}
-\xycenter{
-&
-  \liftr{\cal{I}}
-  \ar[dr]^-{\liftr{(F \cc u)}}
-  \ar[dl]_-{\liftr{u}}
-&\\
-  \catE^\to
-  \ar[rr]_-{G}
-&&
-  \catE^\to
-\rlap{,}}
-&&
-\xycenter{
-&
-  \liftl{\cal{I}}
-  \ar[dl]_-{\liftl{v}}
-  \ar[dr]^-{\liftl{(G \cc v)}}
-&\\
-  \catE^\to
-  \ar[rr]_-{F}
-&&
-  \catE^\to
-\rlap{.}}
-\end{align*}
-commute up to natural isomorphism.
-\end{corollary}
-
-\begin{proof}
-For the first isomorphism, apply the adjunction in~\eqref{garner-adjunction} to the first diagram in \cref{lift-of-adjunction} and compare it with the second diagram.
-The second isomorphism is obtained dually.
-\end{proof}
-
 \begin{example} \label{exa:composition-pullback-lift}
 If $\cal{E}$ has pullbacks, for an arrow $f \co X \to Y$, we have an adjunction
 \[
@@ -1299,11 +1253,6 @@ By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE
 \]
 \end{example}
 
-%\begin{question}
-%In fact, $\liftr{C}/\text{--}$ is a Cartesian fibration (compare notes-on-awfs).
-% Do we need that?
-% \end{question}
-
 \subsection*{Leibniz adjunctions}
 
 We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
@@ -1328,8 +1277,8 @@ Let
 \end{aligned}
 \]
 denote the respective Leibniz constructions for $F$ and $G^{\op}$, using pullback instead of pushout for~$\widehat{G}$.
-In the standard setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h \in \cal{K}^\to$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$, and consequently $\liftr{F(h, \cal{I})} = G(h, \liftr{\cal{I}})$ and $\liftl{G(h, \cal{J})} = F(h, \liftl{\cal{J}})$.
-The next statements provide counterparts of these facts in our setting.
+In the standard setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h \in \cal{K}^\to$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$.
+The next statement provides a counterpart of this fact in our setting.
 
 \begin{proposition} \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
@@ -1408,48 +1357,10 @@ natural in $i \in \cal{I}$ and $j \in \cal{J}$.
 Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \arghole)$, a diagram chasing argument typical of Leibniz constructions shows that these situations coincide.
 \end{proof}
 
-\cref{lift-of-leibniz-adjunction} can be expressed equivalently as orthogonality functors commuting with left composition with Leibniz adjoints.
-
-\begin{corollary} \label{pitchfork-leibniz-adjunction}
-Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
-The diagrams
-\begin{align*}
-\xymatrix{
-&
-  \liftr{\cal{I}}
-  \ar[dr]^-{\liftr{(\widehat{F}(h, -) \cc u)}}
-  \ar[dl]_-{\liftr{u}}
-&\\
-  \catE^\to
-  \ar[rr]_-{\widehat{G}(h, -)}
-&&
-  \catE^\to
-\rlap{,}}
-&&
-\xymatrix{
-&
-  \liftl{\cal{I}}
-  \ar[dl]_-{\liftl{v}}
-  \ar[dr]^-{\liftl{(\widehat{G}(h, -) \cc v)}}
-&\\
-  \catE^\to
-  \ar[rr]_-{\widehat{F}(h, -)}
-&&
-  \catE^\to
-\rlap{.}}
-\end{align*}
-commute up to natural isomorphism.
-\end{corollary}
-
-\begin{proof}
-For the first isomorphism, apply the adjunction in~\eqref{garner-adjunction} to the first diagram in \cref{lift-of-leibniz-adjunction} and compare it with the second diagram.
-The second isomorphism is obtained dually.
-\end{proof}
-
-Note that \cref{lift-of-adjunction,pitchfork-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction,pitchfork-leibniz-adjunction} where $\cal{K}$ is the terminal category.
+Note that \cref{lift-of-adjunction} can be seen as special cases of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
 \begin{remark} \label{pitchfork-leibniz-most-general-example}
-In \cref{lift-of-leibniz-adjunction} or \cref{pitchfork-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$.
+In \cref{lift-of-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$.
 A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates.
 Note that we have fully faithful forgetful functors $\cal{K} \to [\catE, \cal{F}]$ and $\cal{K} \to [\cal{F}, \catE]^{\op}$.
 We have functors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \catE$ given by left and right adjoint application, respectively.
@@ -1473,7 +1384,7 @@ These form an adjunction as follows:
 For a functor $u \co \cal{I} \to \catE^\to$, we can apply the results obtained above to characterize uniform $\cal{I}$-fibrations, which we introduced in \cref{def:I-fibration}, in terms of right $\cal{I}$-maps.
 
 \begin{proposition} \label{prod-exp-general}
-For every map $p \co X \to Y$ in $\catE$, the following are equivalent:
+For a map $p \co X \to Y$ in $\catE$, the following are equivalent:
 \begin{enumerate}[(i)]
 \item $p$ admits the structure of a uniform $\cal{I}$-fibration.
 \item $\hatexp(\bar{\delta}^0, p)$ and $\hatexp(\bar{\delta}^1, p)$ admit the structure of right $\cal{I}$-maps.
@@ -1482,7 +1393,7 @@ For every map $p \co X \to Y$ in $\catE$, the following are equivalent:
 
 \begin{proof}
 First recall that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-The remainder of the claim follows from \cref{pitchfork-leibniz-adjunction} as applied in \cref{pitchfork-leibniz-most-general-example} and the preceeding discussion.
+The remainder of the claim follows from \cref{lift-of-leibniz-adjunction} as applied in \cref{pitchfork-leibniz-most-general-example} and the preceeding discussion.
 \end{proof}
 
 \subsection*{Kan extensions}
@@ -1658,23 +1569,23 @@ In detail,
 \end{lemma}
 
 \begin{proof}
-We will only do the case $k = 0$ and the object part of the correspondence.
-To say that $\thetal \hatotimes f \co f \to \lcyl \hatotimes f$ is a section means that there is retraction $\rho$ as follows:
+We will only do the object part of the correspondence.
+To say that $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ has a retraction $\rho$ means to have dotted arrows as follows:
 \[
 \xymatrix@C+3em{
   X
-  \ar[r]^-{\inl \cc (\rcyl \otimes X)}
+  \ar[r]^-{\inl \cc (\kcylinv \otimes X)}
   \ar[d]_f
 &
   (\interval \otimes X) +_X Y
-  \ar[d]^{\lcyl \hatotimes f}
+  \ar[d]^{\kcyl \hatotimes f}
   \ar@{.>}[r]
 &
   X
   \ar[d]^f
 \\
   Y
-  \ar[r]_-{\rcyl \otimes Y}
+  \ar[r]_-{\kcylinv \otimes Y}
 &
   \interval \otimes Y
   \ar@{.>}[r]
@@ -1687,7 +1598,7 @@ First, by a standard diagram-chasing argument, giving the square on the right is
 \begin{align} \label{equ:first-three}
 \xycenter{
   X
-  \ar[r]^-{\lcyl \otimes X}
+  \ar[r]^-{\kcyl \otimes X}
   \ar[d]_f
 &
   \interval \otimes X
@@ -1701,7 +1612,7 @@ First, by a standard diagram-chasing argument, giving the square on the right is
 \xycenter{
   Y
   \ar[r]^-g
-  \ar[d]_{\lcyl \otimes Y}
+  \ar[d]_{\kcyl \otimes Y}
 &
   X
   \ar[d]^f
@@ -1726,11 +1637,12 @@ First, by a standard diagram-chasing argument, giving the square on the right is
   Y
 \rlap{.}}
 \end{align}
-Second, requiring that the two horizontal composites are a section to $\thetar \hatotimes f$ means that the diagrams
+Second, requiring that the two horizontal composites are identities means that the diagrams
 \begin{align} \label{equ:second-two}
-\xycenter{
+\begin{gathered}
+\xymatrix@C+2em{
   X
-  \ar[r]^-{\rcyl \otimes X}
+  \ar[r]^-{\kcylinv \otimes X}
   \ar@{=}[dr]
 &
   \interval \otimes X
@@ -1738,10 +1650,12 @@ Second, requiring that the two horizontal composites are a section to $\thetar \
 \\&
   X
 \rlap{,}}
+\end{gathered}
 &&
-\xycenter{
+\begin{gathered}
+\xymatrix@C+2em{
   Y
-  \ar[r]^-{\rcyl \otimes Y}
+  \ar[r]^-{\kcylinv \otimes Y}
   \ar@{=}[dr]
 &
   \interval \otimes Y
@@ -1749,9 +1663,10 @@ Second, requiring that the two horizontal composites are a section to $\thetar \
 \\&
   Y
 }
+\end{gathered}
 \end{align}
 commute.
-With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide left endpoint for $\phi$, left endpoint for $\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide right endpoints for $\phi$ and $\psi$, respectively.
+With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint $k$ for $\phi$ and $\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide endpoints $1-k$ for $\phi$ and $\psi$, respectively.
 \end{proof}
 
 \begin{remark}
@@ -1764,7 +1679,8 @@ If the functorial cylinder is induced by tensoring with an interval object in a 
 We have an analogue of this also in the general setting, which we will examine next.
 
 \begin{lemma} \label{leibniz-lift}
-If $u \co \cal{D} \to \catE^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) \co \cal{D}^\to \to \catE^\to$.
+Let $u \co \bracks{\cal{D}, \cal{E}}^\to$ be a natural transformation.
+If $\eval(u, -) \co \cal{D} \to \cal{E}^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) \co \cal{D}^\to \to \catE^\to$.
 \end{lemma}
 
 \begin{proof}
@@ -1791,7 +1707,7 @@ Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\ot
 \end{equation}
 natural in $f \in \cal{D}^\to$.
 
-The assumption of $u \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
+The assumption of $u \otimes_{\cal{D}} (-) \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to~$\thetak \hatotimes_\catE (u \otimes_{\cal{D}} (-))$.
 By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \otimes_{\cal{D}} (-) = \thetak \cchat u$.
 The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction to the map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
 By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatotimes_{\cal{D}} (-)$.
@@ -1824,7 +1740,7 @@ Translating to our language, let us consider a lifting problem of the form $\kcy
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting problem $\kcyl \hatotimes f \to p$ reduces to composition for $\kcyl \hatotimes \kcyl \hatotimes f \to p$.
-Uniformity in the sense of~\cite{cohen-et-al:cubicaltt} means naturality in $f$ with respect to pullback squares.
+Uniformity in the sense of~\cite{cohen-et-al:cubicaltt} means naturality in $f$.
 \end{remark}
 
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -1911,11 +1827,9 @@ Then there is a functor
 \end{lemma}
 
 \begin{proof}
-As before, we describe the functor $M_k$ only on objects.
-In order to guarantee that the diagram commutes, we send $i \in \cal{I}$ to a pair of the form $(\kcyl \hatotimes i, \rho)$, using the assumption~\eqref{to-strong-hequiv:0} that $\kcyl \hatotimes (-)$ lifts to $\cal{I}$.
-Here, $\rho$ has to be a retraction to $\thetak \hatotimes u_{\kcyl \hatotimes i}\, ,$ which equals $\thetak \hatotimes \kcyl \hatotimes u_i$ by~\eqref{to-strong-hequiv:0}.
-But such a retraction is provided by the natural transformation $\rho$ of~\cref{retraction-for-connections}.
-We can then let $M_k(i) \defeq (\kcyl \hatotimes i, \rho_{u_i})$.
+Recall from~\eqref{rel-strong-h-equiv-def} that $S_k(\cal{I})$ was defined as the product of $\cal{I}$ and $\cal{S}_k$ in $\CAT_{/\cal{E}^\to}$.
+The map to the first factor is the assumed lift~\eqref{to-strong-hequiv:0}.
+The map to the second factor is given by effective connections in the form of \cref{effective-connections-leibniz}.
 \end{proof}
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
@@ -1934,7 +1848,7 @@ Upon combining the cases $k = 0$ and $k = 1$ and passing to right orthogonality 
 }
 \]
 relating uniform $I$-fibrations with right maps for strong homotopy equivalences relative to $\cal{I}$ (note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}).
-This will in general not be an isomorphism of categories over $\catE^\to$.
+These functors will in general not be inverses in either way.
 \end{remark}
 
 
@@ -3106,7 +3020,7 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lif
 Let $\catE$ be a category of presheaves equipped with a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and consider a full subcategory $\cal{M}$ of $\catE^\to_{\cart}$ of monomorphisms satisying the conditions of \cref{uniform-fib-presheaf-cat}.
 We want to apply \cref{uniform-fibrations-uniform-frobenius} with $\cal{I} \defeq \cal{M}$.
 Recall from the discussion in \cref{uniform-fib-presheaf-cat} that $\cal{M}$ is closed under Leibniz product with endpoint inclusions, thus assumption (2) is satisfied.
-Assumption (1) is guaranteed by condition (v).
+Assumption (1) is guaranteed by condition (iii).
 
 Let us show that $\liftr{\cal{M}}$ satisfies the uniform Frobenius condition with respect to $\cal{M}$.
 In fact, we will show something stronger, namely that $\catE^\to$ itself satisfies the uniform Frobenius condition with respect to $\cal{M}$.
