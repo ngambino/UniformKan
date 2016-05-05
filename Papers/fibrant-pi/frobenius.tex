@@ -32,55 +32,81 @@ When instantiated in simplicial sets, this result gives a constructive counterpa
 
 \section*{Introduction}
 
-Over the past few years, there has been increasing interest in the study of algebraic  weak factorisation system~\cite{bouke-garner-I,bourke-garner-II,grandis-tholen-nwfs,garner:small-object-argument} and algebraic model categories~\cite{riehl-algmodel-cat,riehl-cat-homotopy}. While standard weak factorisation systems and Quillen model categories involve classes of
-maps satisfying appropriate weak orthogonality properties, algebraic weak factorisation systems and algebraic model categories  involve classes of maps that are equipped with additional structure which specifies diagonal fillers for appropriate diagrams, which is furthermore required to satisfy appropriate uniformity conditions. In this context, we generally
-refer as uniform (trivial) fibrations for algebraic counterparts of the standard notions of (trivial) fibrations. Although the initial
-motivation for this developments derives from homotopy theory, this research has recently found applications in relation to Voevodsky's univalence foundations programme~\cite{voevodsky:uf}, beginning with the work by  Bezem, Coquand, and Huber~\cite{coquand-cubical-sets} on uniform Kan fibration in categories of cubical sets.
+Over the past few years, there has been increasing interest in the study of algebraic  weak factorisation system~\cite{bourke-garner-I,bourke-garner-II,garner:small-object-argument,grandis-tholen-nwfs}. Algebraic weak factorisation systems
+differ from standard weak factorisation systems~\cite{bousfield-wfs} 
+in that they do not involve maps that merely satisfy a weak orthogonality condition
+(as in the definition of a Kan fibration, for example), but rather maps that come equipped with 
+additional structure, a choice of diagonal fillers for  lifting problems, which is furthermore required to satisfy a uniformity condition. Because of this additional condition, the algebraic
+counterparts of standard notions of fibrations studied in this context are generally referred to as uniform fibrations.  Although the initial
+motivation for these developments derives from categorical homotopy 
+theory (see~\cite{riehl-cat-homotopy} for an overview), 
+algebraic weak factorisation systems
+have recently found applications to Voevodsky's univalence foundations programme~\cite{voevodsky:uf}, beginning with the work by  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets}. 
+See~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs} for
+some recent developments. 
 
 
-Our aim here is to contribute to the development of the theory of algebraic weak factorisation
-systems by introducing the uniform Frobenius condition,  the general notion of uniform fibration in a presheaf category equipped with a functorial cylinder, and establishing that, under mild assumptions, uniform fibrations are the right maps of algebraic weak factorisation 
-systems that satisfy the uniform Frobenius condition. As a special case of our results, we prove that, in the category of simplicial sets,  pushforward along a uniform Kan fibration preserves uniform Kan fibrations. This result provides a solution to
-the  open problem of giving a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, a well-known result of classical 
-simplicial homotopy theory that is fundamental for the definition of simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model} but cannot be proved constructively~\cite{coquand-non-constructivity-kan}. When instanciated to a category of cubical sets with connections, instead, our results  give back the results obtained by Coquand and his collaborators in~\cite{cohen-et-al:cubicaltt}. Indeed, one of the initial motivations for this work was to explore whether Coquand's ideas could be developed at a greater level of generality, so as to make them applicable also to simplicial sets. 
+
+Our aim here is to develop further the theory of algebraic weak factorisation
+systems and to apply our results to contribute to the ongoing efforts of defining a constructive counterpart
+of the simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
+In particular, we introduce the uniform Frobenius condition for an algebraic weak
+factorisation system, define the general notion of a uniform fibration in a presheaf category equipped with a functorial cylinder (subsuming existing definitions), and establish that, under mild assumptions, uniform fibrations are the right maps of algebraic weak factorisation systems that satisfy the uniform Frobenius condition. 
+As a special case of our results we prove constructively that, in the category of simplicial sets,  pushforward along a uniform Kan fibration preserves uniform Kan fibrations, thereby solving the open problem of giving a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations in simplicial sets. 
+
+The Frobenius condition for an algebraic weak factorisation system that we introduce
+here is a counterpart of the Frobenius condition for weak factorization systems~
+defined in~\cite{garner:types-omega-groupoids}. These conditions, which derive their
+name from Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality} (to which
+they are precisely related~\cite{clementino:frobenius}), should be understood
+as the appropriate analogues for weak factorisation systems of the condition of being right proper for a Quillen model structure. Explicitly, the Frobenius condition 
+states that the pullback along a right map preserves left maps.
+The Frobenius condition for maps has a counterpart at the level of morphisms
+of maps (\ie commutative squares), which we call the Beck-Chevalley condition,
+since it is completely analogous to the well-known Beck-Chevalley conditions. 
+ In fact, we will introduce a single condition, which we call the uniform Frobenius condition, which is equivalent to combination of the the Frobenius and Beck-Chevalley conditions in our setting.
 
 
-We devote particular attention to uniform (trivial) fibrations in presheaf categories equipped with a functorial cylinder.
-In this setting, our definitions of uniform trivial fibrations and uniform fibrations can be seen
+Uniform (trivial) fibrations in presheaf categories equipped with a functorial cylinder
+play an important role for our applications. In that setting, our definitions of these
+notions can be seen
 as algebraic counterparts of those introduced by Cisinski in~\cite{cisinski-asterisque}: 
 uniform trivial fibrations are defined by weak orthogonality with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 
 Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption, uniform trivial fibrations and uniform fibrations are the right maps of two algebraic weak factorization systems.
-As a special case of this result, we obtain algebraic weak factorization systems in simplicial and cubical sets that have uniform Kan fibrations as the right maps, which are of interest for the interpretation of Martin-L\"of's rules for identity types~\cite{awodey-warren:homotopy-idtype,gambino-garner:idtypewfs,warren:thesis,garner:topological-simplicial,shulman:inverse-diagrams}.
 These algebraic weak factorization systems are obtained using Garner's small object argument~\cite{garner:small-object-argument}.
 But in order to be able to apply it, we crucially show that uniform (trivial) fibrations can be be defined equivalently by weak orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
-Working with uniform fibrations is essential to prove this fact since it allows us to write an arbitrary lifting problem as a colimit of a functorial family of lifting problems. This may be
-considered a further example of the good interaction between colimits and lifting problems in the theory of algebraic weak factorization systems that was already noted in~\cite{riehl-cat-homotopy}.
+Working with uniform fibrations is essential to prove this fact since it allows us to rephrase an general lifting problem as a colimit of a functorial family of lifting problems, providing
+a further example of the good interaction between colimits and lifting problems observed
+in~\cite{riehl-cat-homotopy}.
 
-Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the classical notion of a fibration.
+
+Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the standard notion of a fibration.
 We do so by relating the notion of a uniform (trivial) fibration to its standard counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
 In particular, we show that, if one assumes the axiom of choice, then a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting condition with respect to the maps involved in the definition of a uniform (trivial) fibration.
-This result is not a simple application of the axiom of choice since the function necessary to have a uniform fibration needs to satisfy an appropriate naturality condition.
-Instead, we will obtain a careful decomposition of the lifting problems involved in the naturality condition.
-By applying this result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
+This result is not a simple application of the axiom of choice since choice of
+diagonal fillers necessary to have a uniform fibration needs to satisfy an appropriate 
+uniformity condition.
+Instead, we will need to develop a careful decomposition of the lifting problems involved in the uniformity condition.
 
-For our third main result, we return to consider the general setting of categories equipped with a functorial cylinder.
-In this setting, we introduce a version in our setting of the Frobenius 
-condition for weak factorization systems~\cite{garner:types-omega-groupoids},
-which is related to Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}
-(see ~\cite{clementino:frobenius} for details). This condition 
-states that the pullback along a right map preserves left maps.
-We then show that, under the assumption of connections, uniform fibrations satisfy the Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}).
-As a consequence, we obtain that pushforward, \ie the right adjoint to pullback, along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
-When applied to the category of simplicial sets, we obtain the above-mentioned result that pushforward along a uniform Kan fibration preseves uniform Kan fibrations.
-When instantiated to the category of cubical sets with connections, our results give also a proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, which avoids entirely combinatorial manipulations with cubical sets (\cf~\cite{huber-thesis}).
+For our third main result, we return to consider the general setting of categories equipped with a functorial cylinder and show that, under the assumption that the functorial cylinder has connections, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As an immediate consequence, we obtain that pushforward, \ie the right adjoint to pullback, along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
 
-Because of these results, we regard the independence result in~\cite{coquand-non-constructivity-kan} as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than that the simplicial setting is inherently non-constructive.
+\subsection*{Applications to simplicial and cubical sets}
+As a special case of our first result, we obtain algebraic weak factorization systems in simplicial and cubical sets that have uniform Kan fibrations as the right maps, which are of interest for the interpretation of Martin-L\"of's rules for identity types~\cite{awodey-warren:homotopy-idtype,gambino-garner:idtypewfs,warren:thesis,garner:topological-simplicial,shulman:inverse-diagrams}.
+By applying the second main result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
+
+When applied to the category of simplicial sets, our third main result
+shows that pushforward along a uniform Kan fibration preseves uniform Kan fibrations. 
+We consider this the algebraic counterpart of a well-known result of standard
+simplicial homotopy theory (since it follows from the right properness of the model structure
+for Kan complexes). That result is fundamental for the definition of simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model} but cannot be proved constructively~\cite{coquand-non-constructivity-kan}. Because of these results, we regard the independence result in~\cite{coquand-non-constructivity-kan} as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than that the simplicial setting is inherently non-constructive.
 Indeed, the notion of a uniform Kan fibration, while classically equivalent to the usual notion of a Kan fibration, permits the development of some parts of the theory of Kan fibrations in a constructive setting in simplicial sets.
 
-Let us also mention that, just as we introduce a version of the Frobenius condition for a map, we introduce also a version of the Beck-Chevalley conditions for morphisms of maps, \ie commutative squares.
-As before, we show that the Beck-Chevalley condition holds for morphisms of uniform fibrations under mild assumptions, which are verified in categories of presheaves.
-In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which naturally brings together the Frobenius and Beck-Chevalley conditions in our setting.
+When instantiated to the category of cubical sets with connections, our results give also a proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations~\cite{cohen-et-al:cubicaltt}, which avoids entirely combinatorial manipulations with cubical sets (\cf~\cite{huber-thesis}). Indeed, one of the initial motivations for this work was to explore whether Coquand's ideas could be developed at a greater level of generality, so as to make them applicable also to simplicial sets. 
+
+
+
+
 
 \subsection*{Organization of the paper}
 Section~\ref{sec:ortf} establishes basic facts about orthogonality functors. 
