@@ -81,12 +81,12 @@ As before, we show that the Beck-Chevalley condition holds for morphisms of unif
 In fact, it will be useful to introduce and use a single condition, which we call the uniform Frobenius condition, which naturally brings together the Frobenius and Beck-Chevalley conditions in our setting.
 
 \subsection*{Organization of the paper}
-Section~\ref{sec:cylhuf} introduces the main concepts that will be studied in the paper, namely functorial cylinders with connections, homotopy equivalences, and uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular.
-The paper then proceeds with two sections containing auxiliary results: Section~\ref{sec:ortf} establishes basic facts about orthogonality functors, while \cref{sec:remshe} focuses on strong homotopy equivalences.
-The rest of the paper contains our main results.
+Section~\ref{sec:ortf} establishes basic facts about orthogonality functors. 
+We introduce the Frobenius, Beck-Chevalley, and uniform Frobenius conditions in Section~\ref{sec:frobc}. Section~\ref{sec:unif} introduces uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular.
 In Section~\ref{sec:unifpc}, we establish the existence of natural weak factorization systems with uniform (trivial) fibrations as right maps.
 The relationship between uniform fibrations and their non-algebraic counterparts, assuming the axiom of choice, is studied in \cref{sec:non-alg}.
-Finally, after introducing the Frobenius, Beck-Chevalley, and uniform Frobenius conditions in Section~\ref{sec:frobc}, we prove that they hold for uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
+After establishing some auxiliary results in \cref{sec:unifshe} on strong homotopy equivalences, we prove the uniform Frobenius property for 
+uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
 Appendix~\ref{app:tecp} contains the proof of a technical lemma.
 
 \subsection*{Acknowledgements}
@@ -101,18 +101,8 @@ This material is based on research sponsored by the Air Force Research Laborator
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
-\subsection*{Preliminaries}
 
-The aim of this section is to introduce the main notions that will be used in our development and some examples.
-Let us begin by fixing some notation.
-For a category $\cal{E}$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$ and $\cal{E}^\to_{\cart}$ for its subcategory with pullback squares as maps.
-
-
-
-
-
-
-We will be interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs} as considered in the theory of natural weak factorization systems~\cite{grandis-tholen-nwfs}.
+For a category $\cal{E}$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$ and $\cal{E}^\to_{\cart}$ for its subcategory with pullback squares as maps. We will be interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs} as considered in the theory of natural weak factorization systems~\cite{grandis-tholen-nwfs}.
 Furthermore, instead of starting from a mere class of arrows in $\catE$ and defining its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$.
 Thus, such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object $i \in \cal{I}$ (we will use this notation systematically below).
 The additional generality obtained by allowing $u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
@@ -1158,8 +1148,8 @@ Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthog
 Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u_{/V}$ and $v = \liftr{u}_{/X}$ to \cref{beck-chevalley-iso} while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{exa:composition-pullback-lift} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
 \end{proof}
 
-As we will see in \cref{sec:frocuf}, morphisms of uniform $\cal{I}$-fibrations satisfy the Beck-Chevalley condition under very mild assumptions on $u \co \cal{I} \to \catE^\to$.
-In particular, morphisms of uniform $\cal{M}$-fibrations in presheaf categories satisfy the Beck-Chevalley condition under the assumptions of \cref{uniform-fib-presheaf-cat}.
+
+
 
 \subsection*{The uniform Frobenius condition}
 
@@ -1375,9 +1365,9 @@ We finish by remarking that the algebraic weak factorization system generated by
 This follows by \cref{uniform-frob-even-nicer} and an inspection of the algebraic small object argument.
 
 \section{Uniform fibrations}
+\label{sec:unif}
 
 
-\subsection*{Cylinders}
 Let $\catE$ be a fixed category with finite colimits.
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{left} and \emph{right endpoint inclusions}, respectively.
 We additionally assume that the functor $I \otimes (-)$ preserves finite colimits.
@@ -1462,7 +1452,6 @@ As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cyli
 
 
 
-\subsection*{Uniform fibrations} 
 Let us now fix a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$.
 Given a functor $u \co \cal{I} \to \catE^\to$ (which we think of as the counterpart of a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations) and use it to define the notion of a uniform $\cal{I}$-fibration.
 The definition of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ involves a special case of the so-called Leibniz construction (which is discussed in general in~\cite{riehl-verity:reedy}), which we now review for the convenience of the reader.
@@ -2233,8 +2222,15 @@ The claim then follows by \cref{prod-exp-general}.
 \section{Uniform fibrations and strong homotopy equivalences}
 \label{sec:unifshe}
 
-The main result, \cref{strong-h-equiv-as-section}, is a characterization of strong homotopy equivalences as particular sections.
-This characterization leads to the proof of two results, \cref{lem:from-strong-hequiv} and \cref{lem:to-strong-hequiv}, that will play an important role in our study of the Frobenius and Beck-Chevalley conditions for uniform fibrations in \cref{sec:frocuf}.
+
+This section contains the main technical results needed to establish the uniform Frobenius property for uniform fibrations in~\cref{sec:frocuf}. The key ingredient is the notion of a 
+strong homotopy equivalence, which we introduce in~\cref{def:strhe}, and the possibility 
+of defining functors transforming uniform fibrations into right maps for  categories of
+strong homotopy equivalences, in~\cref{thm:onedir,thm:twodir}. This, in turn, 
+relies in part on the characterization of strong homotopy equivalences
+ as particular sections of \cref{strong-h-equiv-as-section}. 
+
+
 
 \subsection*{Strong homotopy equivalences}
 Let $f, g \co X \to Y$ be maps in $\catE$.
@@ -2363,6 +2359,10 @@ A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of map
 There is an obvious forgetful functor $\cal{S}_k \to \catE^\to$ projecting to the first component.
 
 
+
+
+
+
 Our first goal is to give an alternative characterization of strong left or right homotopy equivalences.
 For this, we need some definitions.
 Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
@@ -2426,7 +2426,7 @@ in $\catE^\to$ for $f \co X \to Y$, which consist of squares of the form
 for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
-\begin{lemma} \label{strong-h-equiv-as-section}
+\begin{lemma}[Strong homotopy equivalences as sections] \label{strong-h-equiv-as-section}
 For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong $k$-oriented homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
 In detail,
 \begin{enumerate}[(i)]
@@ -2566,8 +2566,7 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors, in this case $\delta^0 \hatotimes -$ and $\delta^1 \hatotimes -$, preserve retracts and sections are closed under retracts.
 \end{remark}
 
-For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-
+We now fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
 If the functorial cylinder is induced by tensoring with an interval object in a monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensoring from the right with arbitrary maps since functors preserve section-retraction pairs.
 We have an analogue of this also in the general setting, which we will examine next.
 
@@ -2607,79 +2606,9 @@ By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatoti
 But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
 \end{proof}
 
+\subsection*{Connections} Although parts of our development are carried out assuming only a functorial cylinder, some of our results assume also the presence of connections. We recall
+the definition.
 
-
-Let $u \co \cal{I} \to \catE^\to$ be a functor.
-For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong $k$-oriented homotopy equivalences relative to $\cal{I}$.
-It is induced by the following strict pullback of categories:
-\begin{equation} \label{rel-strong-h-equiv-def}
-\xycenter{
-  \cal{S}_k(\cal{I})
-  \ar[r]
-  \ar[d]
-  \pullback{dr}
-&
-  \cal{I}
-  \ar[d]^{u}
-\\
-  \cal{S}_k
-  \ar[r]
-&
-  \catE^\to
-}
-\end{equation}
-This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong $k$-oriented homotopy equivalence.
-
-For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction to $\thetak \hatotimes u_i$.
-We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
-
-\begin{lemma} \label{lem:from-strong-hequiv}
-There is a functor
-\[
-\xymatrix@!C@C-2em{
-  \cal{S}_k(\cal{I})
-  \ar[dr]_{\cal{S}_k(u)}
-  \ar[rr]^{L_k}
-&&
-  \overline{\cal{I}}
-  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
-\\&
-  \catE^\to
-\rlap{.}}
-\]
-\end{lemma}
-
-\begin{proof}
-We only describe the action of the functor $L_k$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
-Recall that $\rho$ is a retraction to $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
-Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
-Observe that this definition makes the diagram for $L_k$ commute.
-\end{proof}
-
-\begin{theorem} \label{thm:onedir} There is a functor
-\[
-\xymatrix@!C@C-2.5em{
- \Fib{\cal{I}}
-  \ar[dr]
-  \ar@<4pt>[rr]^{\liftr{(L_0 + L_1)}} 
-&&
-  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
-  \ar[dl]
-\\&
-  \catE^\to \, .
-}
-\]
-\end{theorem} 
-
-\begin{proof} Combine the case $k = 0, 1$ of~\cref{lem:from-strong-hequiv} and pass
-to the right orthogonality categories.  Note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
-\end{proof} 
-
-
-\subsection*{Connections} In order to obtain a functor in the other direction,
-we make use of the additional assumptio of the presence of connections.
-We recall the definition.
 
 \begin{definition} \label{def:connections}
 A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with contractions $\ccyl \otimes (-)$ has \emph{connections} if, for $k \in \braces{0, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the diagrams
@@ -2846,6 +2775,84 @@ Uniformity in the sense of~\cite{cohen-et-al:cubicaltt} means naturality in $f$.
 
 
 
+
+\subsection*{Relating uniform fibrations and strong homotopy equivalences}
+Let $u \co \cal{I} \to \catE^\to$ be a functor.
+For $k \in \braces{0, 1}$, we denote $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$ the category of strong $k$-oriented homotopy equivalences relative to $\cal{I}$.
+It is induced by the following strict pullback of categories:
+\begin{equation} \label{rel-strong-h-equiv-def}
+\xycenter{
+  \cal{S}_k(\cal{I})
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \cal{I}
+  \ar[d]^{u}
+\\
+  \cal{S}_k
+  \ar[r]
+&
+  \catE^\to
+}
+\end{equation}
+This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong $k$-oriented homotopy equivalence.
+
+For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
+Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction to $\thetak \hatotimes u_i$.
+We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
+
+\begin{lemma} \label{lem:from-strong-hequiv}
+There is a functor
+\[
+\xymatrix@!C@C-2em{
+  \cal{S}_k(\cal{I})
+  \ar[dr]_{\cal{S}_k(u)}
+  \ar[rr]^{L_k}
+&&
+  \overline{\cal{I}}
+  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
+\\&
+  \catE^\to
+\rlap{.}}
+\]
+\end{lemma}
+
+\begin{proof}
+We only describe the action of the functor $L_k$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
+Recall that $\rho$ is a retraction to $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
+Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
+Observe that this definition makes the diagram for $L_k$ commute.
+\end{proof}
+
+\begin{proposition} \label{thm:onedir} There is a functor
+\[
+\xymatrix@!C@C-2.5em{
+\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
+  \ar[dr]
+  \ar@<4pt>[rr] 
+&&
+  \liftl{(\Fib{\cal{I}})}
+  \ar[dl]
+\\&
+  \catE^\to \, .
+}
+\]
+\end{proposition}
+
+
+
+\begin{proof} Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:from-strong-hequiv} and compose
+with  a component of the unit of the monad $\liftl{(\liftr{(-)})}$.  Note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
+\end{proof} 
+
+ In order to obtain a functor in the other direction,
+we make use of the additional assumption of the presence of 
+effective connections.
+
+
+
+
 \begin{lemma} \label{lem:to-strong-hequiv}
 Assume that $\cal{I}$ is closed under Leibniz tensor with $\kcyl$ in the sense that the functor $\kcyl \hatotimes (-) \co \catE^\to \to \catE^\to$ lifts as follows:
 \begin{equation}
@@ -2888,28 +2895,28 @@ The map to the second factor is given by effective connections in the form of \c
 \end{proof}
 
 
-\begin{theorem} \label{thm:twodir}
-There is a functor 
+\begin{proposition} \label{thm:twodir}
+Under the assumptions of~\cref{lem:to-strong-hequiv}, there is a functor 
 \[
 \xymatrix@!C@C-2.5em{
-  \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
+    \cal{I}_\otimes
   \ar[dr]
-  \ar[rr]^{\liftr{(M_0 + M_1)}}
+  \ar[rr]
 &&
-  \Fib{\cal{I}}
+\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
   \ar[dl]
 \\&
   \catE^\to
 }
 \]
-\end{theorem} 
+\end{proposition} 
 
-\begin{proof} Combining the cases $k = 0, 1$ of~\cref{lem:to-strong-hequiv} and pass
-to the right orthogonality categories. 
+\begin{proof} Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:to-strong-hequiv}.
 \end{proof} 
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
-The pair of functors
+By~\cref{lem:from-strong-hequiv,lem:to-strong-hequiv},
+we also have a pair of functors
 \[
 \xymatrix@!C@C-2.5em{
   \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
@@ -2923,18 +2930,14 @@ The pair of functors
   \catE^\to
 }
 \]
-in~\cref{thm:onedir} and~\cref{thm:twodir}, relating uniform $I$-fibrations with right maps for strong homotopy equivalences relative to $\cal{I}$ are not, in general, inverses to each other in either way.
+relating uniform $\cal{I}$-fibrations with right maps for strong homotopy equivalences relative to $\cal{I}$. These are not, in general, inverses to each other in either way.
 \end{remark}
 
 
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-
-
-For this section, we fix a category $\catE$ with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections.
-We fix also a functor $u \co \cal{I} \to \catE^\to$.
-The aim of this section is to show that, under appropriate assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}.
+The aim of this section is to show that, under appropriate assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}, where $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
 In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi) \co X \to Y$, pullback along $p$ lifts as follows:
 \[
 \xymatrix@C+2em{
@@ -2954,10 +2957,11 @@ In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi
 Since $\Fib{\cal{I}}  = \liftr{\cal{I}_\otimes}$, this will imply that pushforward along $f$ lifts as in \cref{lift-dependent-product}.
 
 As an intermediate step, under mild assumptions, we establish that uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way) if they do so with respect to $\cal{I}$.
-By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ (\cf \cref{relating-strong-hequiv-and-uniform-fib}) this will enable us to establish the uniform Frobenius condition for uniform $\cal{I}$-fibrations with respect to $\cal{I}_\otimes$, as desired.
+By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ established in \cref{thm:onedir,thm:twodir}, this will enable us to establish the uniform Frobenius condition for uniform $\cal{I}$-fibrations with respect to $\cal{I}_\otimes$, as desired.
 
-Let $u' \co \cal{I}' \to \cal{E}^\to$ be the functor with domain $\cal{E}$ that sends $X$ to $\bot_X$.
-The central technical tool of our development is the following statement.
+
+The central technical tool of our development is the following statement, where
+$u' \co \cal{I}' \to \cal{E}^\to$ is the functor with domain $\cal{E}$ that sends $X$ to $\bot_X$.
 
 \begin{lemma} \label{technical}
 Let $k \in \braces{0, 1}$.
@@ -2965,7 +2969,7 @@ Right $(\delta^{1-k} \hatotimes u')$-maps satisfy the uniform Frobenius conditio
 \end{lemma}
 
 \begin{proof}
-See appendix.
+See~\cref{app:tecp}.
 \end{proof}
 
 We now make explicit the assumptions we will be working with for the rest of this section:
@@ -3003,15 +3007,15 @@ For the step from (i) to (ii), apply functoriality of uniform Frobenius in the f
 For the step from (ii) to (iii), recall with the definition~\eqref{rel-strong-h-equiv-def} of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
 Using \cref{uniform-frobenius-product-u}, we may combine the uniform Frobenius conditions for uniform $\cal{I}$-fibrations with respect to $\cal{S}_0 + \cal{S}_1$, provided by (ii), and with respect to $\cal{I}$, provided by assumption (3).
 
-For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the map $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}) \to \liftl{(\liftr{\cal{I}_\otimes})}$ induced by \cref{lem:from-strong-hequiv} and $G$ the map $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ induced by \cref{lem:to-strong-hequiv} (\cf \cref{relating-strong-hequiv-and-uniform-fib}).
-Note that the latter map uses assumption (2).
+For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the functor $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}) \to \liftl{(\liftr{\cal{I}_\otimes})}$ of \cref{thm:onedir} and $G$ the functor $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of \cref{thm:twodir}.
+Note that the latter one uses assumption (2).
 \end{proof}
 
 Thus, we have shown our final main result, which should be read as the algebraic version of pullback along a fibration preserving trivial cofibrations.
 Let us state it independently as a theorem.
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
-Under the assumptions (1) to (3) stated above, we have that $\Fib{\cal{I}} $ satisfies the uniform Frobenius condition with respect to $\cal{I}_{\otimes}$.
+Under the assumptions $(1)$-$(3)$ stated above, we have that $\Fib{\cal{I}} $ satisfies the uniform Frobenius condition with respect to $\cal{I}_{\otimes}$.
 \qed
 \end{theorem}
 
