@@ -52,12 +52,12 @@ In view of our applications to simplicial and cubical sets, we devote particular
 In this setting, uniform trivial fibration are defined by weak orthogonality with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by weak orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 These definitions may be seen as a counterpart in our setting of those introduced by Cisinski in~\cite{cisinski-asterisque}.
 
-Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption, uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
+Our first main result (\cref{thm:sset-cset-nwfs}) is that, in presheaf categories satisfying a suitable presentability assumption\footnote{We use a finite presentability condition to be able to work constructively. A more general result holds classically, see~\cref{sec:unifpc} for more details.}, uniform trivial fibrations and uniform fibrations are the right maps of two natural weak factorization systems.
 As a special case of this result, we obtain natural weak factorization systems in simplicial and cubical sets that have uniform Kan fibrations as the right maps, which are of interest for the interpretation of Martin-L\"of's rules for identity types~\cite{awodey-warren:homotopy-idtype,gambino-garner:idtypewfs,warren:thesis,garner:topological-simplicial,shulman:inverse-diagrams}.
 These natural weak factorization systems are obtained using Garner's small object argument~\cite{garner:small-object-argument}.
 But in order to be able to apply it, we crucially show that uniform (trivial) fibrations can be be defined equivalently by weak orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
-Working with uniform fibrations is essential to prove this fact since it allows us to write an arbitrary lifting problem as a colimit of a functorial family of lifting problems, while still working constructively.%
-\footnote{This type of good interaction between colimits and lifting problems in the theory of natural weak factorization systems was already emphasized in~\cite{riehl-cat-homotopy}.}
+Working with uniform fibrations is essential to prove this fact since it allows us to write an arbitrary lifting problem as a colimit of a functorial family of lifting problems. This may be
+considered a further example of the good interaction between colimits and lifting problems in the theory of natural weak factorization systems that was already noted in~\cite{riehl-cat-homotopy}.
 
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform fibration subsumes the classical notion of a fibration.
 We do so by relating the notion of a uniform (trivial) fibration to its non-algebraic counterpart in the setting of presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}.
@@ -67,7 +67,11 @@ Instead, we will obtain a careful decomposition of the lifting problems involved
 By applying this result in the category of simplicial sets, we obtain that every Kan fibration can be equipped with the structure of a uniform Kan fibration.
 
 For our third main result, we return to consider the general setting of categories equipped with a functorial cylinder.
-In this setting, we introduce a version in our setting of the Frobenius condition\footnote{The terminology is inspired by Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}; see~\cite{clementino:frobenius} for a precise connection between the two notions.} for weak factorization systems~\cite{garner:types-omega-groupoids}, which states that the pullback along a right map preserves left maps.
+In this setting, we introduce a version in our setting of the Frobenius 
+condition for weak factorization systems~\cite{garner:types-omega-groupoids},
+which is related to Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}
+(see ~\cite{clementino:frobenius} for details). This condition 
+states that the pullback along a right map preserves left maps.
 We then show that, under the assumption of connections, uniform fibrations satisfy the Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}).
 As a consequence, we obtain that pushforward, \ie the right adjoint to pullback, along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
 When applied to the category of simplicial sets, we obtain the above-mentioned result that pushforward along a uniform Kan fibration preseves uniform Kan fibrations.
@@ -101,9 +105,11 @@ This material is based on research sponsored by the Air Force Research Laborator
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
-
-For a category $\cal{E}$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$ and $\cal{E}^\to_{\cart}$ for its subcategory with pullback squares as maps. We will be interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs} as considered in the theory of natural weak factorization systems~\cite{grandis-tholen-nwfs}.
-Furthermore, instead of starting from a mere class of arrows in $\catE$ and defining its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$.
+Let us begin by fixing some notation. For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the
+subcategory of $\cal{E}^\to$ with pullback squares as maps. 
+We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs} as considered in the theory of natural weak factorization systems~\cite{grandis-tholen-nwfs}.
+Furthermore, instead of starting from a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$,
+where we write .
 Thus, such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object $i \in \cal{I}$ (we will use this notation systematically below).
 The additional generality obtained by allowing $u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
@@ -157,6 +163,9 @@ where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u
 \item A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the right lifting functions, which we omit.
 \end{enumerate}
 \end{definition}
+
+
+
 
 For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
 There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we call the \emph{right orthogonality category} (over $\catE^\to$) of $u$.
