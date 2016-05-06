@@ -1682,7 +1682,8 @@ By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uni
 The aim of this section is to study in more detail uniform $\cal{M}$-fibrations in presheaf categories.
 Let us fix a presheaf category $\catE = \Psh(\cat{C})$, where $\cat{C}$ is a small category.
 We write $\yon \co \catC \to \catE$ for the Yoneda embedding.
-We assume that $\catE$ is equipped with a functorial cylinder $( \interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ and that the endofunctor $ \interval\otimes (-) \co \catE \to \catE$ has a right adjoint, so that we can apply \cref{prod-exp-general}.
+We assume that $\catE$ is equipped with a functorial cylinder $( \interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ and that the endofunctor $ \interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
+The latter assumption allows us to transport statements about uniform trivial $\cal{M}$-fibrations to uniform $\cal{M}$-fibrations via \cref{prod-exp-general}.
 Recall from \cref{exa-triv-kan-fib} that the categories of uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are defined by letting
 \[
 \begin{aligned}
@@ -1865,9 +1866,10 @@ We leave this question to further investigation.
 \section{Uniform fibrations in elegant Reedy presheaf categories}
 \label{sec:non-alg}
 
-The aim of this section, the only one in which the law of excluded middle and the axiom of choice are assumed, is to study the notion of a uniform (trivial) $\cal{M}$-fibration in the context of presheaf categories over elegant Reedy presheaves, in the sense of \cite{bergner-rezk-elegant}, equipped with a functorial cylinder whose endofunctor has a right adjoint.
+The aim of this section, the only one in which the law of excluded middle and the axiom of choice are assumed, is to study the notion of a uniform (trivial) $\cal{M}$-fibration in the context of presheaf categories over elegant Reedy presheaves, in the sense of \cite{bergner-rezk-elegant}, equipped with a functorial cylinder whose endofunctor has a right adjoint.%
+\footnote{It might be possible to adapt our arguments to a weaker setting where instead of having a right adjoint, the functorial cylinder only preserves certain colimits. We do not pursue this direction here.}
 In particular, we introduce the standard notion of a (trivial) fibration and fibration in that setting, essentially generalizing in a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
-We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of $\cal{M}$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
+We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of $\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
 The role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibration.
 
 Let us begin by reviewing some terminology.
@@ -2044,7 +2046,7 @@ Every regular trivial fibration can be equipped with the structure of a uniform 
 
 \begin{proof}
 Let $p \co X \to Y$ be a regular trivial fibration.
-Let $i \co U \to V$ be a monomorphism and consider a lifting problem as follows:
+Let $i \co U \to V$ be a monomorphism in $\cal{M}$ and consider a lifting problem as follows:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:0}
 \xycenter{
   U
@@ -2066,7 +2068,7 @@ As a regular trivial fibration, note that $p$ has fillers for lifting problems a
 This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
 Importantly, standard reasoning used in the theory of Reedy categories shows that this filler is independent of the particular cellular presentation chosen.
 
-It remains to verify coherence of fillers with respect to pullback squares between monomorphisms:
+It remains to verify coherence of fillers with respect to pullback squares between monomorphisms in $\cal{M}$:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:1}
 \xycenter{
   U'
