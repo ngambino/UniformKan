@@ -1,5 +1,12 @@
 #!/bin/bash
 
+LATEX_MAIN='frobenius'
+COMMONS=('uniform-kan-prelude')
+
+COMMONS_DIR='../../common'
+ARXIV_DIR='arxiv'
+ARXIV_DIR_TEST='arxiv-test'
+
 function message {
     echo "================================================================================" 1>&2
     echo "$1" 1>&2
@@ -11,31 +18,46 @@ function error_exit {
     exit 1
 }
 
-message "Copying relevant files to ./arxiv/"
-echo $(dirname @0) || error_exit "failed to switch to fibrant-pi paper directory"
-(pdflatex frobenius.tex && bibtex frobenius) || error_exit "failed to compile frobenius"
-rm -rf arxiv && mkdir arxiv
-(cp -t arxiv frobenius.tex frobenius.bbl ../../common/uniform-kan-prelude.sty) || error_exit "failed to copy relevant files frobenius.tex frobenius.bbl ../../common/uniform-kan-prelude.sty to arxiv subdirectory"
+function init_dir {
+  rm -rf "$1"
+  mkdir "$1"
+}
 
-# modify files to make them self-contained and workaround arxiv TeX bugs
-message "Preparing files in ./arxiv/"
-cd arxiv
-mv uniform-kan-prelude.sty uniform-kan-prelude.tex
-sed -i 's/\\ProvidesPackage{uniform-kan-prelude}//' uniform-kan-prelude.tex
-sed -i 's/,draft]{amsart}/]{amsart}/' frobenius.tex
-sed -i 's/\\usepackage{uniform-kan-prelude}/\\input{uniform-kan-prelude}/' frobenius.tex
-sed -i 's/\\bibliography{\.\.\/\.\.\/common\/uniform-kan-bibliography}/\\bibliography{uniform-kan-bibliography}/' frobenius.tex
+# create bibliography file
+cd "$(dirname $0)" || error_exit "failed to switch to paper directory"
+(pdflatex "$LATEX_MAIN" && bibtex "$LATEX_MAIN") || error_exit "failed to compile $LATEX_MAIN"
+
+message "Copying relevant files to ./$ARXIV_DIR/"
+init_dir "$ARXIV_DIR"
+COPY=("$LATEX_MAIN.tex" "$LATEX_MAIN.bbl")
+for C in ${COMMONS[@]}; do
+  COPY+=("$COMMONS_DIR/$C.sty")
+done
+for C in ${COPY[@]}; do
+  cp -t "$ARXIV_DIR" "$C" || error_exit "failed to copy $C to subdirectory $ARXIV_DIR"
+done
+
+# modify files to make them self-contained and work around arxiv TeX bugs
+message "Preparing files in ./$ARXIV_DIR/"
+cd "$ARXIV_DIR"
+for C in ${COMMONS[@]}; do
+  mv "$C.sty" "$C.tex"
+  sed -i 's/\\ProvidesPackage{'"$C"'}//' "$C.tex"
+  sed -i 's/\\usepackage{'"$C"'}/\\input{'"$C"'}/' "$LATEX_MAIN.tex"
+done
+sed -i 's/,draft]{amsart}/]{amsart}/' "$LATEX_MAIN_TEX"
+sed -i 's/\\bibliography{[^}]*}/\\bibliography{}/' "$LATEX_MAIN.tex"
 # remove holes in arrow since arxiv uses an outdated version of xy which causes fragments of arrows to disappear
-sed -i 's/|\(!{\[[urdl]\+\];\[[urdl]\+\]}\|(.\+)\){\\hole}\( % bug: doesn'\''t work?\)\?//g' frobenius.tex
+sed -i 's/|\(!{\[[urdl]\+\];\[[urdl]\+\]}\|(.\+)\){\\hole}\( % bug: doesn'\''t work?\)\?//g' "$LATEX_MAIN.tex"
 
 message "Test compiling arXiv document..."
-mkdir test
-cp frobenius.tex uniform-kan-prelude.tex test/
-cd test
-pdflatex frobenius.tex && pdflatex frobenius.tex
+cd ..
+cp -r "$ARXIV_DIR" "$ARXIV_DIR_TEST"
+cd "$ARXIV_DIR_TEST"
+pdflatex "$LATEX_MAIN" && pdflatex "$LATEX_MAIN"
 result=$?
 cd ..
-rm -rf test
+rm -rf "$ARXIV_DIR_TEST"
 (exit $result) || error_exit "failed to test compile arXiv document"
 
-message "Success: please find arXiv sources in the arxiv subdirectory"
+message "Success: please find arXiv sources in the subdirectory $ARXIV_DIR"
