@@ -851,7 +851,7 @@ We have functors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K}^{\o
 This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-adjunction}.
 \end{remark}
 
-If $\interval \otimes (-)$ is a left adjoint, we obtain a \emph{functorial cocylinder} $(\exp(\interval, -), \exp(\bar{\delta}^0, -), \exp(\bar{\delta}^1, -))$, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
+If $\interval \otimes (-)$ has a right adjoint $\exp(I, -)$$, we obtain a \emph{functorial cocylinder} $(\exp(\interval, -), \exp(\bar{\delta}^0, -), \exp(\bar{\delta}^1, -))$, \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
 Structures on the functorial cylinder such as contractions and (effective) connections, to
 be introduced in~\cref{sec:unifshe}, carry over as well.
 If $\calE$ has finite limits, we obtain a functor $\hatexp(\bar{\delta}^k, -)$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$.
@@ -1405,7 +1405,7 @@ This follows by \cref{uniform-frob-even-nicer} and an inspection of the algebrai
 Let $\catE$ be a fixed category with finite colimits.
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{left} and \emph{right endpoint inclusions}, respectively.
 We additionally assume that the functor $I \otimes (-)$ preserves finite colimits.
-We say the functorial cylinder has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ to $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
+We say the functorial cylinder has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
 \[
 \xymatrix@C+2em{
   \Id_\catE
@@ -1429,7 +1429,7 @@ We adopt the convention of associating the tensor product notation to the right 
 \begin{example} \label{exa:cyl-via-int}
 Let $(\catE, \otimes, \top)$ be a monoidal category.
 An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called the \emph{left} and \emph{right endpoint inclusions}, respectively, such that $I \otimes (-)$ preserves finite colimits.
-It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ to $\lcyl$ and $\rcyl$, making the following diagram commute:
+It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ of $\lcyl$ and $\rcyl$, making the following diagram commute:
 \[
 \xymatrix@C+1em{
   \top
@@ -2461,10 +2461,10 @@ for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{lemma}[Strong homotopy equivalences as sections] \label{strong-h-equiv-as-section}
-For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong $k$-oriented homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ to $\thetak \hatotimes f$.
+For $k \in \braces{0, 1}$, the category $\cal{S}_k$ of strong $k$-oriented homotopy equivalences in $\catE$ can isomorphically be described as the category of arrows $f \in \catE^{\to}$ with a retraction $\rho$ of $\thetak \hatotimes f$.
 In detail,
 \begin{enumerate}[(i)]
-\item objects are pairs $(f, \rho)$ consisting of $f \in \catE^\to$ and a retraction $\rho$ to $\thetak \hatotimes f$, as below:
+\item objects are pairs $(f, \rho)$ consisting of $f \in \catE^\to$ and a retraction $\rho$ of $\thetak \hatotimes f$, as below:
 \[
 \xymatrix@C+2em{
   f
@@ -2633,9 +2633,9 @@ Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\ot
 \end{equation}
 natural in $f \in \cal{D}^\to$.
 
-The assumption of $u \otimes_{\cal{D}} (-) \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction to~$\thetak \hatotimes_\catE (u \otimes_{\cal{D}} (-))$.
+The assumption of $u \otimes_{\cal{D}} (-) \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction of~$\thetak \hatotimes_\catE (u \otimes_{\cal{D}} (-))$.
 By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \otimes_{\cal{D}} (-) = \thetak \cchat u$.
-The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction to the map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
+The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction of the map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
 By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatotimes_{\cal{D}} (-)$.
 But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
 \end{proof}
@@ -2664,7 +2664,7 @@ It is induced by the following strict pullback of categories:
 This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong $k$-oriented homotopy equivalence.
 
 For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction to $\thetak \hatotimes u_i$.
+Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction of $\thetak \hatotimes u_i$.
 We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
 
 \begin{lemma} \label{lem:from-strong-hequiv}
@@ -2685,7 +2685,7 @@ There is a functor
 
 \begin{proof}
 We only describe the action of the functor $L_k$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
-Recall that $\rho$ is a retraction to $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
+Recall that $\rho$ is a retraction of $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
 Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
 Observe that this definition makes the diagram for $L_k$ commute.
 \end{proof}
@@ -3182,7 +3182,7 @@ More precisely, the pullback functor $P'$ lifts to $Q'$ as depicted below:
 
 \begin{proof}
 For the lift of the action on objects in \eqref{strong-h-equiv-uniform-base-change:goal}, suppose we are given $v_j \co X \to Y$ with $j \in \cal{J}$ and $g \co B \to Y$ such that $g$ is a strong $k$-oriented homotopy equivalence over $Y$.
-This means we have a retraction $\rho$ to $\thetak \hatotimes g$ as follows:
+This means we have a retraction $\rho$ of $\thetak \hatotimes g$ as follows:
 \begin{align*}
 \xymatrix@C+1em{
   g
@@ -3212,7 +3212,7 @@ We construct the pullback square $\sigma \co \bar{g} \to g$ of $g$ along $v_j$:
 \rlap{.}}
 \end{equation}
 We want to make $\bar{g}$ into a strong $k$-oriented homotopy equivalence.
-This means to find a retraction $\bar{g}$ to $\thetak \hatotimes \bar{g}$ as follows:
+This means to find a retraction $\bar{g}$ of $\thetak \hatotimes \bar{g}$ as follows:
 \[
 \xymatrix@C+1em{
   \bar{g}
