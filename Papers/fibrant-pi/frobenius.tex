@@ -366,14 +366,14 @@ Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closu
 An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
 \xymatrix{
-  u_i
-  \ar[r]^\rho
+  e
+  \ar[r]^{\sigma}
   \ar@{=}[dr]
 &
-  e
-  \ar[d]^{\sigma}
-\\&
   u_i
+  \ar[d]^{\rho}
+\\&
+  e
 \rlap{.}}
 \]
 A map $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ in $\overline{\cal{I}}$ consists of a map $f \co i \to i'$ in $\cal{I}$ and a map $\kappa \co e \rightarrow e'$ in $\catE^\to$ such that the following diagram in $\catE^\to$ commutes:
