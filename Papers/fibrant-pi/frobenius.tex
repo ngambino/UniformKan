@@ -1796,10 +1796,10 @@ Since they all have the same right category, one may choose according to the sit
 Note that $\cal{N}$ has the key advantage of being a small category.
 We will expoit this fact to obtain our second main results, \cref{thm:sset-cset-nwfs}, in the rest of this section.
 
-\cref{small-gen-triv-kan} allows us to apply Garner's small object argument~\cite{garner:small-object-argument} and obtain the desired algebraic weak factorization systems.
+\cref{small-gen-triv-kan} allows us to apply Garner's small object argument~\cite[Theorem~4.4]{garner:small-object-argument} (see 
+also~\cite[Proposition~16]{bourke-garner-I}) and obtain the desired algebraic weak factorization systems.
 
-\begin{theorem} \label{thm:sset-cset-nwfs}
-Assume that in $\cal{E}$ every subobject of a representable is finitely presentable.
+\begin{theorem} \label{thm:sset-cset-nwfs} \hfill 
 \begin{enumerate}[(i)]
 \item There exists an algebraic weak factorization systems $(\mathsf{L}_1, \mathsf{R}_1)$ in which right maps are the uniform trivial $\cal{M}$-fibrations.
 In particular, every map $f \co X \to Y$ admits a functorial factorization of the form
@@ -1816,8 +1816,7 @@ In particular, every map $f \co X \to Y$ admits a functorial factorization of th
 }
 \]
 where $q_f$ admits the structure of a uniform trivial $\cal{M}$-fibration and $i_f$ admits the structure of a $\mathsf{L}_1$-coalgebra.
-\item Assume that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
-Then there exists an algebraic weak factorization systems $(\mathsf{L}_2, \mathsf{R}_2)$ in which right maps are the uniform $\cal{M}$-fibrations.
+\item There exists an algebraic weak factorization systems $(\mathsf{L}_2, \mathsf{R}_2)$ in which right maps are the uniform $\cal{M}$-fibrations.
 In particular, every map $f \co X \to Y$ admits a functorial factorization of the form
 \[
 \xymatrix{
@@ -1835,21 +1834,22 @@ where $p_f$ admits the structure of a uniform $\cal{M}$-fibration and $j_f$ admi
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
-First, observe that the full subcategory of $\catE^\to$ spanned by maps with codomain a representable presheaf is small.
-For part (i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
-An inspection of the proof of \cite[Proposition 4.22]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
-The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial $\cal{M}$-fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
-For part (ii), it is sufficient to find a functor $v \co \cal{J} \rightarrow \catE^\to$ such that the category~$\cal{J}$ is small, the values of $v$ are finitely presentable, and the category of uniform $\cal{M}$-fibrations is isomorphic to~$\liftr{\cal{J}}$.
-Such a functor is given by $u_\otimes \co \cal{N}_\otimes \rightarrow \catE^\to$.
-First, $\cal{N}_\otimes$ is clearly small.
-Second, the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout.
-Third, the claim that the category of right maps for this functor is the category of $\cal{I}$-fibrations follows from part (ii) of~\cref{small-gen-triv-kan}.
-\end{proof}
+\begin{proof} For (i), one applies Garner's small object argument, using  part (i) of~\cref{small-gen-triv-kan} and smallness of $\cal{N}$.
+Similarly, for (ii), one uses part (ii) of~\cref{small-gen-triv-kan} and smallness of $\cal{N}_\otimes$.
+\end{proof} 
 
-\begin{example}
-The assumptions of \cref{thm:sset-cset-nwfs} hold in both $\SSet$ and $\CSet$.
-\end{example}
+
+
+
+
+\begin{remark} \cref{thm:sset-cset-nwfs} applies to both $\SSet$ and $\CSet$. In these cases, we explain why the result holds constructively, \ie without using 
+the law of excluded middle or the axiom of choice. 
+First, observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects. For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
+An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. 
+The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial $\cal{M}$-fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
+The reasoning for part (ii) is analogous, noting that also the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. 
+\end{remark} 
+
 
 \cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$ having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) Kan fibration.
 We leave this question to further investigation.
