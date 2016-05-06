@@ -1216,7 +1216,7 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 
 The following proposition assembles all the ingredients of the uniform Frobenius condition into a single global functor.
 As such, it seems the most natural way to phrase the condition.
-Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$, \ie the category of $k \in \cal{K}$ and $X \in \cal{E}$ with $w_k$ living over $X$.
+Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for category of $k \in \cal{K}$ and $X \in \cal{E}$ with $w_k$ living over $X$, \ie the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
 
 \begin{proposition}
 \label{uniform-frob-nice}
@@ -1881,7 +1881,8 @@ Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ eq
 \end{enumerate}
 For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_n \dashv \Cosk_n$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$ (note the index shift contrary to the usual convention in the literature).
 
-Next, recall from~\cite{bergner-rezk-elegant} that a Reedy category $\R$ is called \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
+Given a presheaf $F$ on $R$, an element $x \in F(A)$ is called \emph{degenerate} and a \emph{degeneracy of} $y \in F(B)$ if there is non-identity $d \co A \to B$ in $\Rm$ such that $x = Fd(y)$.
+Following~\cite{bergner-rezk-elegant}, we call the Reedy category $\R$ \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
 For example, the categories $\Delta$ and $\square$ are elegant Reedy category.
 In an elegant Reedy category $\R$, the action of $\Sk_n$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X \in \Psh(\R)$, the counit $\Sk_n(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
 Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{\deg(A)}(\yon A)$.
@@ -1931,7 +1932,9 @@ A \emph{regular trivial fibration} is a right $\cal{J}$-map, where $\cal{J}$ is 
 where $d \co A_1 \to A_2$ is in $\Rm$ and non-trivial, \ie not an identity map.
 \end{definition}
 
-Note that the category $\cal{J}$ in the above definition has been chosen such that a regular trivial fibration is a map equipped with a filler for each boundary inclusion lifting problems such that degenerate lifting problems have degenerate fillers.
+Note that the category $\cal{J}$ in the above definition has been chosen such that regular trivial fibrations consist of lifting structures against boundary inclusions given by degenerate elements whenever they constitute a lift.
+In particular, any two degenerate lifts must coincide.
+
 The notion of a regular trivial fibrations will serve as an intermediate step in relating trivial fibrations to uniform trivial $\cal{M}$-fibrations.
 
 \begin{proposition} \label{trivial-fibration-to-regular}
@@ -2090,7 +2093,7 @@ It remains to verify coherence of fillers with respect to pullback squares betwe
 \rlap{.}}
 \end{equation}
 Choose a cellular presentation for $i$.
-Base change along $V' \to V$ induces a corresponding transfinite decomposition of $i'$ into cobase changes of coproducts of monomorphisms.
+Pullback along $V' \to V$ induces a corresponding transfinite decomposition of $i'$ into cobase changes of coproducts of monomorphisms.
 Since the fillers for squares~\eqref{regular-trivial-fibration-is-uniform:0} are independent of the chosen cellular presentation, it suffices to verify coherence of fillers in~\eqref{regular-trivial-fibration-is-uniform:1} with $i$ replaced by a single boundary inclusion as in~\eqref{regular-trivial-fibration-is-uniform:2} below and apply transfinite induction to the chosen cellular presentation for $i$.
 
 It remains to verify coherence of fillers with respect to base changes of boundary inclusions as follows:
