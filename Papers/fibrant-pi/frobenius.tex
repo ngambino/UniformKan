@@ -1870,7 +1870,7 @@ The aim of this section, the only one in which the law of excluded middle and th
 \footnote{It might be possible to adapt our arguments to a weaker setting where instead of having a right adjoint, the functorial cylinder only preserves certain colimits. We do not pursue this direction here.}
 In particular, we introduce the standard notion of a (trivial) fibration and fibration in that setting, essentially generalizing in a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
 We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of $\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
-The role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibration.
+The primary role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibrations.
 
 Let us begin by reviewing some terminology.
 Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
@@ -1905,7 +1905,7 @@ We define:
 \end{definition}
 
 Using the axiom of choice, a map is a trivial fibration if and only if it has the right lifting property against boundary inclusions.%
-\footnote{This will be the only use of choice in this section, the remainder of the classical development in this subsection relies only on the law of the excluded middle.}
+\footnote{This is essentially the only use of choice in this section: the remainder of the classical development in this subsection relies only on the law of the excluded middle.}
 In the case of simplicial sets, these notions then coincide with the classical notions of trivial Kan fibration and Kan fibration~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
 
 \medskip
@@ -1933,7 +1933,7 @@ A \emph{regular trivial fibration} is a right $\cal{J}$-map, where $\cal{J}$ is 
 where $d \co A_1 \to A_2$ is in $\Rm$ and non-trivial, \ie not an identity map.
 \end{definition}
 
-In the above definition, the category $\cal{J}$ has been chosen such that regular trivial fibrations consist of lifting structures against boundary inclusions given by degenerate elements whenever they constitute a lift.
+In the above definition, the category $\cal{J}$ has been chosen such that a regular trivial fibrations consist of a lifting structure against boundary inclusions with lifts given by degenerate elements whenever those constitute a lift.
 In particular, any two degenerate lifts must coincide.
 This explains why we have to restrict $d$ to non-identity maps: without this restriction, regular trivial fibrations would have unique lifts against boundary inclusions, which is too restrictive.
 
@@ -2037,7 +2037,7 @@ A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ is a
 such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
 \end{definition}
 
-Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admits a \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$.
+Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admits a \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$ (see \cite{riehl-verity:reedy} for a categorical exposition).
 Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
 
 \begin{proposition} \label{regular-trivial-fibration-to-uniform}
@@ -2064,9 +2064,10 @@ Let $i \co U \to V$ be a monomorphism in $\cal{M}$ and consider a lifting proble
 \rlap{.}}
 \end{equation}
 Since $\R$ is elegant, we have a cellular presentation for $i$ as per the preceding discussion.
-As a regular trivial fibration, note that $p$ has fillers for lifting problems against boundary inclusions.
+As a regular trivial fibration, note that $p$ comes equipped with chosen fillers for lifting problems against boundary inclusions.
 This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
-Importantly, standard reasoning used in the theory of Reedy categories shows that this filler is independent of the particular cellular presentation chosen.
+Importantly, standard reasoning used in the theory of Reedy categories shows that this filler is independent of the particular cellular presentation chosen.%
+\footnote{Intuitively, different cellular presentations differ only in the order in which cells (boundary inclusions) are added. Since the lifts for individual cells have been chosen beforehand, the order of lifting is irrelevant.}.
 
 It remains to verify coherence of fillers with respect to pullback squares between monomorphisms in $\cal{M}$:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:1}
