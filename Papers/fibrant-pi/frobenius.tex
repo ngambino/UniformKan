@@ -1880,14 +1880,14 @@ Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ eq
 \item every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface,
 \item the only isomorphisms in $\R$ are identities.
 \end{enumerate}
-For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_n$ and a \emph{coskeleton} monad $\Cosk_n$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_n \dashv \Cosk_n$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$ (note the index shift contrary to the usual convention in the literature).
+For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_{<n}$ and a \emph{coskeleton} monad $\Cosk_{<n}$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_{<n} \dashv \Cosk_{<n}$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$.
 
 Given a presheaf $F$ on $R$, an element $x \in F(A)$ is called \emph{degenerate} and a \emph{degeneracy of} $y \in F(B)$ if there is non-identity $d \co A \to B$ in $\Rm$ such that $x = Fd(y)$.
 Following~\cite{bergner-rezk-elegant}, we call the Reedy category $\R$ \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
 For example, the simplex category $\Delta$ is an elegant Reedy category.
-In an elegant Reedy category $\R$, the action of $\Sk_n$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X \in \Psh(\R)$, the counit $\Sk_n(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
-Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{\deg(A)}(\yon A)$.
-The counit of $\Sk_{\deg(A)}$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
+In an elegant Reedy category $\R$, the action of $\Sk_{<n}$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X \in \Psh(\R)$, the counit $\Sk_{<n}(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
+Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{<\deg(A)}(\yon A)$.
+The counit of $\Sk_{<\deg(A)}$ induces a \emph{boundary inclusion} monomorphism $i^A \co \partial A \to \yon A$.
 
 \medskip
 
@@ -2007,8 +2007,8 @@ Furthermore, this pushout is stable under right composition with the boundary in
 
 \begin{proof}
 Everything up until the last sentence is part of the characterization of elegancy in~\cite[Proposition~3.8]{bergner-rezk-elegant}.
-For the remaining claim, note that right composing the pushout square under consideration with $\partial A \to \yon A$ is tantamount to applying $\Sk_{\deg(A)}$ to the square since we assumed $d_1, d_2$ to be non-trivial, \ie degree reducing.
-But $\Sk_{\deg(A)}$ is a left adjoint and hence preserves pushouts.
+For the remaining claim, note that right composing the pushout square under consideration with $\partial A \to \yon A$ is tantamount to applying $\Sk_{<\deg(A)}$ to the square since we assumed $d_1, d_2$ to be non-trivial, \ie degree reducing.
+But $\Sk_{<\deg(A)}$ is a left adjoint and hence preserves pushouts.
 \end{proof}
 
 Note that the construction of \cref{trivial-fibration-to-regular} does not seem to extend to a functor from the category of trivial fibrations to the category of regular trivial fibrations over $\catE^{\to}$.
