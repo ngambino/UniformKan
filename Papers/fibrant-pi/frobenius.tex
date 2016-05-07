@@ -1784,13 +1784,13 @@ Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
 The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
 \end{proof}
 
-\begin{theorem} \label{small-gen-triv-kan}
+\begin{lemma} \label{small-gen-triv-kan}
 Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms with a representable presheaf as codomain.
 \begin{enumerate}[(i)]
 \item There is an isomorphism $\TrivFib{\cal{M}} = \TrivFib{\cal{N}}$.
 \item There is an isomorphism $\Fib{\cal{M}} = \Fib{\cal{N}}$.
 \end{enumerate}
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 Part (i) follows from \cref{awfs-on-arrows-into-representables} using condition~(i) of \cref{uniform-fib-presheaf-cat}, while part (ii) follows from part (i) and \cref{prod-exp-general}.
@@ -1875,12 +1875,12 @@ the law of excluded middle or the axiom of choice.
 First, observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects. For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. 
 The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial $\cal{M}$-fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
-The reasoning for part (ii) is analogous, noting that also the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. 
+The reasoning for part (ii) is analogous, noting that also the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. \cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$ having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) Kan fibration.
+We leave this question to further investigation.
 \end{remark} 
 
 
-\cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$ having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) Kan fibration.
-We leave this question to further investigation.
+
 
 
 \section{Uniform fibrations in elegant Reedy presheaf categories}
@@ -1888,8 +1888,8 @@ We leave this question to further investigation.
 
 The aim of this section, the only one in which the law of excluded middle and the axiom of choice are assumed, is to study the notion of a uniform (trivial) $\cal{M}$-fibration in the context of presheaf categories over elegant Reedy presheaves, in the sense of \cite{bergner-rezk-elegant}, equipped with a functorial cylinder whose endofunctor has a right adjoint.%
 \footnote{It might be possible to adapt our arguments to a weaker setting where instead of having a right adjoint, the functorial cylinder only preserves certain colimits. We do not pursue this direction here.}
-In particular, we introduce the standard notion of a (trivial) fibration and fibration in that setting, essentially generalizing in a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
-We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of $\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
+In particular, we introduce the notion of a (trivial) fibration and fibration in that setting, essentially generalizing in a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
+We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of~$\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
 The primary role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibrations.
 
 Let us begin by reviewing some terminology.
@@ -1955,9 +1955,15 @@ where $d \co A_1 \to A_2$ is in $\Rm$ and non-trivial, \ie not an identity map.
 
 In the above definition, the category $\cal{J}$ has been chosen such that a regular trivial fibrations consist of a lifting structure against boundary inclusions with lifts given by degenerate elements whenever those constitute a lift.
 In particular, any two degenerate lifts must coincide.
-This explains why we have to restrict $d$ to non-identity maps: without this restriction, regular trivial fibrations would have unique lifts against boundary inclusions, which is too restrictive.
+This explains why we have to restrict the maps $d \co A_1 \to A_2$ to non-identity maps: without this restriction, regular trivial fibrations would have unique lifts against boundary inclusions, which is too restrictive.
 
-The notion of a regular trivial fibrations will serve as an intermediate step in relating trivial fibrations to uniform trivial $\cal{M}$-fibrations.
+
+
+We will show that every (trivial) fibration  can be equipped with the structure of a uniform (trivial) fibration. We begin by proving that every trivial fibration  can be equipped with the structure of a uniform trivial fibration. This will shown in two steps: first,  we show that 
+every trivial fibration admits the structure of a regular trivial fibration (\cref{trivial-fibration-to-regular}); secondly, we show
+that every regular trivial fibration admits the structure of a uniform trivial 
+fibration~(\cref{regular-trivial-fibration-to-uniform}). 
+
 
 \begin{proposition} \label{trivial-fibration-to-regular}
 Every trivial fibration can be equipped with the structure of a regular trivial fibration.
@@ -2282,8 +2288,10 @@ The claim then follows by \cref{prod-exp-general}.
 \section{Uniform fibrations and strong homotopy equivalences}
 \label{sec:unifshe}
 
-
-This section contains the main technical results needed to establish the uniform Frobenius property for uniform fibrations in~\cref{sec:frocuf}. The key ingredient is the notion of a 
+This section and the next one are devoted to establish general results on
+the uniform Frobenius condition for uniform fibrations. 
+This section contains the main technical results needed to establish 
+our main results, which are presented in~\cref{sec:frocuf}. The key ingredient is the notion of a 
 strong homotopy equivalence, which we introduce in~\cref{def:strhe}, and the possibility 
 of defining functors transforming uniform fibrations into right maps for  categories of
 strong homotopy equivalences, in~\cref{thm:onedir,thm:twodir}. This, in turn, 
@@ -2316,7 +2324,8 @@ Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a
 \end{equation}
 A map $f \co X \to Y$ is called a \emph{left} (or \emph{0-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
 Dually, a map $f \co X \to Y$ is called a \emph{right} (or \emph{1-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-If the functorial cylinder has contractions, the notion of a (\emph{left/0-oriented} or \emph{right/1-oriented}) \emph{strong deformation retract} is obtained by requiring also that the homotopy $\phi$ is trivial, \ie $\phi = \epsilon_X$.
+If the functorial cylinder has contractions, the notion of a (\emph{left/0-oriented} or \emph{right/1-oriented}) \emph{strong deformation retract} is obtained by requiring also that the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-)
+\to \Id_\catE$ is the contraction of the functorial cylinder.
 The following generalization of strong deformation retracts will be very important in our development.
 
 \begin{definition} \label{def:strhe}
