@@ -14,7 +14,7 @@ We introduce and study the notion of a uniform fibration in categories with a fu
 We show that in a wide class of presheaf categories, including simplicial sets and cubical sets with connections, uniform fibrations are the right class of an algebraic weak factorization system and satisfy what we call the uniform Frobenius condition.
 This implies that pushforward along a uniform fibration preserves uniform fibrations.
 When instantiated in simplicial sets, this result solves the open problem of
-finding a constructive counterpart of one of the key facts underpinning Voevodsky's simplicial model of univalent foundations, as well as giving a new proof of the right properness of
+finding a constructive counterpart of one of the key facts underpinning Voevodsky's simplicial model of univalent foundations and gives a new proof of the right properness of
 the Quillen model structure for Kan complexes. In cubical sets, it extends some of the existing work on cubical models of type theory by Coquand and others.
 \end{abstract}
 
@@ -54,8 +54,12 @@ and use it to obtain algebraic counterparts of some important results in Cisinsk
  which avoids the use of topological realization~\cite{hovey-model-categories} and
  the simplicial theory of bundles~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
-We will be particularly  interested in a property of weak factorisation systems that is known as the Frobenius condition~\cite[Definition~3.2.1]{garner:types-omega-groupoids}, since it is closely related to Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality} (see \cite{clementino:frobenius} for an explanation of the connection). One of the reasons for the 
-interest in this condition, 
+We will be particularly  interested in the property of weak factorisation systems  
+known asthe Frobenius 
+condition~\cite[Definition~3.2.1]{garner:types-omega-groupoids}.\footnote{See~\cite{clementino:frobenius}
+for an explanation of the connection with Lawvere's Frobenius reciprocity 
+condition~\cite{lawvere-equality}.}
+One of the reasons for the interest in this condition, 
 which asserts that that the pullback along a right map preserves left maps, is that it is closely related to the
 right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak 
 equivalences~\cite[Definition 13.1.1]{hirschhorn-model-localizations}. Indeed, for 
@@ -1260,7 +1264,7 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \
 \xymatrix@!C@C-3em{
   \cal{I}_1
   \ar[rr]^{F}
-  \ar[dr]_{\liftr{u_1}}
+  \ar[dr]_{u_1}
 &&
   \liftl{(\liftr{\cal{I}_2})}
   \ar[dl]^{\liftl{(\liftr{u_2})}}
@@ -1271,10 +1275,10 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \
 \xymatrix@C-1.5em{
   \cal{I}_2
   \ar[rr]^-{G}
-  \ar[dr]_{u_1}
+  \ar[dr]_{u_2}
 &&
   \cal{I}_1
-  \ar[dl]^{u_2}
+  \ar[dl]^{u_1}
 \\&
   \catE^\to
 \rlap{,}}
@@ -1290,15 +1294,13 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \
   \catE^\to
 \rlap{.}}
 \end{align*}
-If $v_t$ satisfies the uniform Frobenius condition with respect to $u_t$ for $t = 1$, then also for $t = 2$.
+If $v_1$ satisfies the uniform Frobenius condition with respect to $u_1$, then
+$v_2$ satisfies the uniform Frobenius condition with respect to $u_2$.
 \end{proposition}
 
-In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
-If only functoriality in $\cal{I}$ is desired, the map $H$ will default to an identity.
-If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default to a component of the unit of the monad $\liftl{(\liftr{(-)})}$ and an identity, respectively.
 
-\begin{proof}[Proof of \cref{uniform-frobenius-functorial}]
-We work with the characterization of uniform Frobenius given by \cref{uniform-frob-nice}.
+\begin{proof}
+We work with the characterization of the uniform Frobenius condition given by \cref{uniform-frob-nice}.
 In the below diagram, the premise corresponds to a functor $Q_1$ making the inner square commute while the conclusion corresponds to a functor $Q_2$ making the lower trapezoid commute:
 \[
 \xymatrix{
@@ -1325,15 +1327,20 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
   \cal{E}^\to_{/\cal{E}}
 \rlap{.}}
 \]
-We may construct $Q_2$ from $Q_1$ by pasting the inner square with the left triangle, given by $G$ and $H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
+We may construct $Q_2$ from~$Q_1$ by pasting the inner square with the left triangle, given by $G$ and~$H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
+
+\begin{remark} In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
+If only functoriality in $\cal{I}$ is desired, the map $H$ will default to an identity.
+If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default to a component of the unit of the monad $\liftl{(\liftr{(-)})}$ and an identity, respectively.
+\end{remark} 
 
 \begin{proposition} \label{uniform-frobenius-product-u}
 If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
 \end{proposition}
 
 \begin{proof}
-Use the universal property of products in the category $\CAT_{/\cal{E}^\to}$ with respect to the characerization of uniform Frobenius in \cref{uniform-frob-nice}, noting that we have a canonical map
+Use the universal property of products in the category $\CAT_{/\cal{E}^\to}$ with respect to the characterization of uniform Frobenius in \cref{uniform-frob-nice}, noting that we have a canonical map
 \[
 \liftl{(\liftr{\cal{I}_1})} \times_{\cal{E}^\to} \liftl{(\liftr{\cal{I}_2})} \to \liftl{(\liftr{(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2)})}
 \]
@@ -3076,7 +3083,7 @@ Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respec
 The goals form a linear sequence of implications.
 We start by noting that (i) is just the combination of the cases $k = 0$ and $k = 1$ of \cref{technical}.
 
-For the step from (i) to (ii), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $H$ the map $\cal{I}' \to \cal{I}$ provided by assumption (1).
+For the step from (i) to (ii), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $H$ the functor $\Fib{\cal{I}} \to \Fib{\cal{I}'}$ obtained in the evident way from assumption~(1).
 
 For the step from (ii) to (iii), recall with the definition~\eqref{rel-strong-h-equiv-def} of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
 Using \cref{uniform-frobenius-product-u}, we may combine the uniform Frobenius conditions for uniform $\cal{I}$-fibrations with respect to $\cal{S}_0 + \cal{S}_1$, provided by (ii), and with respect to $\cal{I}$, provided by assumption (3).
@@ -3193,7 +3200,7 @@ Insufficiency of the classical notion of cubical Kan fibration for a constructiv
 We conclude the paper by describing how our results give also a new proof of the
 right properness of the Quillen model structure for Kan complexes. 
 
-\begin{remark}[Frobenius condition and right properness]
+\begin{remark}[Right properness of the model structure for Kan complexes]
 The Frobenius condition for a weak factorization system is closely related to the right properness condition for a model structure.
 Indeed, a model structure where the cofibrations are stable under pullback (which is the case if they are the monomorphisms) is right proper if and only if the weak factorization system given by trivial cofibrations and fibrations has the Frobenius condition.
 For example, the weak factorization system on simplicial sets in which the right maps are the Kan fibrations has the Frobenius condition.
