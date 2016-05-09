@@ -74,7 +74,7 @@ Furthermore, the Frobenius condition is intimately related to the homotopy-theor
 In the context of algebraic weak factorisation systems, it is natural to require not only a version of the Frobenius condition, which is a property of maps, but 
 also a counterpart of it for morphisms of maps (\ie commutative squares), which we call the Beck-Chevalley condition,
 since it is analogous to the well-known Beck-Chevalley conditions~\cite{benabou-descente,lawvere-equality}.  Hence, as part of our development, we will introduce a single
- single condition, which we call the uniform Frobenius condition, which is equivalent to combination of the the Frobenius and Beck-Chevalley conditions and that we consider the
+ single condition, which we call the uniform Frobenius condition, which is equivalent to a combination of the Frobenius and Beck-Chevalley conditions and that we consider the
  appropriate counterpart for algebraic weak factorisation systems of the usual condition. The uniform Frobenius condition introduced here is similar to the functorial Frobenius condition of~\cite{garner:topological-simplicial}, but formulated in a slightly more general setting.
 
 The main results in this paper establish the existence of algebraic weak factorisation systems with the uniform Frobenius condition on presheaf categories
@@ -968,6 +968,12 @@ We finish by unifying the Frobenius and Beck-Chevalley conditions, calling it th
 factorisation systems of the Frobenius condition for weak algebraic factorisation 
 systems~\cite{garner:types-omega-groupoids}. As already remarked in the introduction,
 this condition is similar to the functorial Frobenius condition of~\cite{garner:topological-simplicial}, but formulated in a slightly more general setting.
+\notec{
+Can you clarify the last two sentences?
+What is a weak algebraic factorisation system?
+As far as I can see, \cite{garner:types-omega-groupoids} does not talk about any kind of factorization systems (though it does call Frobenius a pullback stability property in a weaker setting).
+Is it really an appropriate reference for Frobenius in weak factorization systems?
+}
 
 \subsection*{The Frobenius condition}
 
@@ -1402,7 +1408,7 @@ However, under the assumption that \eqref{uniform-frob:comprehension} forms a mo
 Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{proof}
 
-We conclude this section by remarking that an algebraic weak factorization system on a finitely complete category $\cal{E}$ algebraically free on discrete category $u \co \cal{I} \to \cal{E}^\to$ in the sense of~\cite{garner:small-object-argument} such that right adjoints to pullbacks along right $\cal{I}$-maps exist will satisfy the uniform Frobenius condition with respect to $\cal{I}$ precisely if the underlying cloven weak factorization system in the sense of~\cite{garner:topological-simplicial} is functorially Frobenius.
+We conclude this section by remarking that an algebraic weak factorization system on a finitely complete category $\cal{E}$ algebraically free on a category $u \co \cal{I} \to \cal{E}^\to$ in the sense of~\cite{garner:small-object-argument} such that right adjoints to pullbacks along right $\cal{I}$-maps exist will satisfy the uniform Frobenius condition with respect to $\cal{I}$ precisely if the underlying cloven weak factorization system in the sense of~\cite{garner:topological-simplicial} is functorially Frobenius.
 This follows by \cref{uniform-frob-even-nicer} and orthogonality.
 
 \section{Uniform fibrations}
@@ -1972,7 +1978,7 @@ where $d \co A_1 \to A_2$ is in $\Rm$ and non-trivial, \ie not an identity map.
 
 In the above definition, the category $\cal{J}$ has been chosen such that a regular trivial fibrations consist of a lifting structure against boundary inclusions with lifts given by degenerate elements whenever those constitute a lift.
 In particular, any two degenerate lifts must coincide.
-This explains why we have to restrict the maps $d \co A_1 \to A_2$ to non-identity maps: without this restriction, regular trivial fibrations would have unique lifts against boundary inclusions, which is too restrictive.
+This explains why we have to restrict $d \co A_1 \to A_2$ to non-identity maps: without this restriction, regular trivial fibrations would have unique lifts against boundary inclusions, which is too restrictive.
 
 
 
