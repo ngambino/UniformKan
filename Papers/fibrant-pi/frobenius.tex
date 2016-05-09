@@ -1347,7 +1347,7 @@ over $\cal{E}^\to$ given by the adjunction~\eqref{garner-adjunction}.
 The previous proposition holds true analogously for arbitrary limits in the category $\CAT_{/\cal{E}^\to}$, not just binary products.
 \end{remark}
 
-For the remainder of this section, fix a functor $v \co \cal{J} \to \cal{E}^\to$ such that
+For the below result, fix a functor $v \co \cal{J} \to \cal{E}^\to$ such that
 \begin{equation} \label{uniform-frob:comprehension}
 \begin{gathered}
 \xymatrix@C-1em{
@@ -1398,18 +1398,79 @@ However, under the assumption that \eqref{uniform-frob:comprehension} forms a mo
 Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{proof}
 
+{
+\newcommand{\LL}{\mathsf{L}}
+\newcommand{\RR}{\mathsf{R}}
 
+We will now compare the uniform Frobenius condition with the functorial Frobenius condition van den Berg and Garner~\cite{garner:topological-simplicial}.
+Recall from~\cite{bourke-garner-I} that an algebraic weak factorisation system $(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations $f = \RR f \cc \LL f$ functorially in $f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ forms a distributive law.
+We write $\pCoalg{\LL}$ and $\pAlg{\RR}$ for the categories of (co)monad algebras and $\pcoalg{\LL}$ and $\palg{\RR}$ for the categories of (co)pointed endofunctor (co)algebras over $\LL$ and $\RR$, respectively.
+These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ and $\palg{\RR} = \liftr{\pCoalg{\LL}}$.
+The underlying weak factorization system of $(\LL, \RR)$ has as left and right classes maps that admit a lift to $\pcoalg{\LL}$ and $\palg{\RR}$.
+Recall also that $(\LL, \RR)$ is said to be algebraically free on a category $\cal{I}$ of arrows if $\pAlg{\R} = \liftr{\cal{I}}$.
 
-\begin{proposition} \label{thm:frobenius-comparison} Let $\cal{E}$ be a finitely complete category.
+\begin{definition}[Functorial Frobenius condition] \label{functorial-frobenius}
+An algebraic weak factorization system is called functorially Frobenius if $\pcoalg{\LL}$ is stable under pullback along $\palg{\RR}$ in the sense of a lift $Q'$ as follows:
+\[
+\xymatrix@C+2em{
+  \pcoalg{\LL} \times_{\cal{E}} \palg{\RR}
+  \ar@{.>}[r]^{Q'}
+  \ar[d]
+&
+  \pcoalg{\LL}
+  \ar[d]
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P'}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+Here $P'$ denotes the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
+\end{definition}
+
+\begin{proposition} \label{thm:frobenius-comparison}
+Let $(\mathsf{L}, \mathsf{R})$ be an algebraic weak factorization system on a category $\cal{E}$.
 \begin{enumerate}[(i)] 
-\item An algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$ satisfies the functorial Frobenius condition if and only if 
-$\mathsf{R}$-$\mathsf{alg}$  has the uniform Frobenius condition with respect to  $\mathsf{L}$-$\mathsf{coalg}$.
-\item An algebraic weak factorisation system $(\mathsf{L}, \mathsf{R})$ algebraically free on $\cal{I}$ has the functorial Frobenius condition if and only if $\liftr{\cal{I}}$ has the uniform Frobenius condition with respect to~$\cal{I}$. 
+\item
+The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\mathsf{R}$-$\mathsf{alg}$ satisfies the uniform Frobenius condition with respect to $\mathsf{L}$-$\mathsf{coalg}$.
+\item
+Assume that $\cal{E}$ is locally presentable and locally Cartesian closed and that $(\LL, \RR)$ is algebraically free on a category $\cal{I}$ of arrows.
+The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
 \end{enumerate}
-  \end{proposition} 
+\end{proposition} 
 
-\begin{proof} Part (i) follows by \cref{uniform-frob-even-nicer} and orthogonality.
-\end{proof} 
+\begin{proof}
+Part (i) follows from \cref{uniform-frob-even-nicer}: there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL}$ and $\liftl{(\liftr{(\pcoalg{\LL})})}$ since $\pcoalg{\LL}$ is a category of left maps.
+
+Part (ii) is more complicated.
+First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
+Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT/\cal{E}^\to$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$.
+It also follows that that there are maps back and forth between $\liftl{(\liftr{\cal{I}})}$ and $\pcoalg{\LL}$.
+With this, the functorial Frobenius condition for $(\LL, \RR)$ takes the form of a lift
+\[
+\xymatrix@C+2em{
+  \pcoalg{\LL} \times_{\cal{E}} \liftr{\cal{I}}
+  \ar@{.>}[r]
+  \ar[d]
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P'}
+&
+  \cal{E}^\to
+}
+\]
+emulating the form of uniform Frobenius of \cref{uniform-frob-even-nicer}, with a subtle difference: instead of a map coming from $\cal{I}$, we are pulling back a pointed endofunctor coalgebra for $\LL$.
+
+Since there is a map $\cal{I} \to \pcoalg{\LL}$, we have that functorial Frobenius implies uniform Frobenius.
+For the other direction, note that there is a map $\pcoalg{\LL} \to \overline{\cal{K}}$ where $\cal{K} \defeq \cal{E}^\to$ is regarded as a category of arrows via $\LL$: the pointed endofunctor coalgebra structure exhibits the underlying map as a retract of a free coalgebra for the comonad $\LL$.
+Since pullback preserves retracts, it remains to find a lift of $P'$ to $\cal{K} \times_{\cal{E}} \liftr{\cal{I}} \to \liftl{(\liftr{\cal{I}})}$.
+By inspecting the algebraic small object argument~\cite{garner:small-object-argument} [\ldots].
+\end{proof}
+}
 
 \section{Uniform fibrations}
 \label{sec:unif}
