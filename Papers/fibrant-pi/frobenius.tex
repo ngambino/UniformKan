@@ -34,23 +34,23 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 
 \section*{Introduction}
 
-Over the past few years, there has been increasing interest in algebraic  weak factorisation systems~\cite{bourke-garner-I,bourke-garner-II,garner:small-object-argument,grandis-tholen-nwfs}. Algebraic weak factorisation systems
-differ from standard weak factorisation systems~\cite{bousfield-wfs} 
-in that they do not involve maps that merely satisfy a left (or right) lifting property,
-as in the definition of a Kan fibration, but rather maps that are equipped with 
-additional structure, which provides explicit solutions for  left (or right) lifting problems
+
+Algebraic weak factorisation systems~\cite{garner:small-object-argument,grandis-tholen-nwfs}
+were originally introduced in order to improve on some aspects of standard weak factorisation systems~\cite{bousfield-wfs}, such as the unsatisfactory interaction between colimits and lifting problems, as discussed in~\cite[Chapter~12]{riehl-cat-homotopy}.  In recent years, there has been increasing interest in algebraic  weak factorisation systems (see~\cite{bourke-garner-I,bourke-garner-II}, for instance), also because the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets} 
+ has shown that they have natural applications in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, which have been developed  in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  The key aspect that
+ differentiates algebraic from standard  weak factorisation systems is
+ that the latter involve maps that merely satisfy a left (or right) lifting property,
+as in the definition of a Kan fibration, while the former involve maps equipped with 
+additional structure, consisting of an explicit choice of solutions for  left (or right) lifting problems
 and is required to satisfy a naturality condition. 
-Although algebraic weak factorisation systems were originally introduced to address issues in categorical homotopy theory (for example, the unsatisfactory interaction between 
-colimits and lifting problems in standard weak factorisation systems, discussed in~\cite[Chapter~12]{riehl-cat-homotopy}), 
- the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets} 
- has shown that they have natural applications in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. 
- 
- Our aim here is to develop further the theory of algebraic weak factorisation systems. In particular, we introduce the 
+
+  
+ Our general aim here is to develop further the theory of algebraic weak factorisation systems. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
-and use it to obtain algebraic counterparts of some important results in Cisinski's theory of Quillen model structures on presheaf categories~\cite{cisinski-asterisque}. We  apply these results  to solve the open problem in univalent foundations, namely that of proving a constructive counterpart of the
+and use it to obtain  counterparts of some important results of Cisinski's theory of Quillen model structures on presheaf categories~\cite{cisinski-asterisque}. We  apply these results  to solve the open problem in univalent foundations, namely that of proving a constructive counterpart of the
  fact that pushforward along Kan fibrations preserves Kan fibrations~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. This gives also a new proof of the right 
  properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}
- which avoids the use of topological realization~\cite{hovey-model-categories} and
+ which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
  the theory of minimal fibrations~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
 We will be particularly  interested in the property of weak factorisation systems  
@@ -71,21 +71,32 @@ in the category of simplicial sets is equivalent to the preservation of Kan fibr
 a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}.
 Furthermore, the Frobenius condition is intimately related to the homotopy-theoretic aspects of Martin-L\"of rules for identity types~\cite{gambino-garner:idtypewfs}.
 
-In the context of algebraic weak factorisation systems, it is natural to require not only a version of the Frobenius condition, which is a property of maps, but 
-also a counterpart of it for morphisms of maps (\ie commutative squares), which we call the Beck-Chevalley condition,
-since it is analogous to the well-known Beck-Chevalley conditions~\cite{benabou-descente,lawvere-equality}.  Hence, as part of our development, we will introduce a single
- single condition, which we call the uniform Frobenius condition, which is equivalent to combination of the the Frobenius and Beck-Chevalley conditions and that we consider the
- appropriate counterpart for algebraic weak factorisation systems of the usual condition. The uniform Frobenius condition introduced here is similar to the functorial Frobenius condition of~\cite{garner:topological-simplicial}, but formulated in a slightly more general setting.
+In the context of algebraic weak factorisation systems, it is natural to consider the functorial
+Frobenius condition introduced by Garner and van den Berg in~\cite{garner:topological-simplicial}, which involves
+both a version of the usual Frobenius condition for maps, but  also a counterpart of it for morphisms of maps (\ie commutative squares).\footnote{In~\cite{garner:topological-simplicial},
+the functorial Frobenius condition was actually formulated for cloven weak factorisation systems,
+which are slighly more general then algebraic weak factorisation systems.} Since algebraically-free algebraic 
+weak factorisation systems, such as those produced by Garner's small object
+argument~\cite{garner:small-object-argument}, 
+play an important role in our development, we begin the paper by 
+isolating   conditions on the generating 
+category of an algebraically-free awfs that are necessary and sufficient for the associated
+awfs to satisfy the functorial Frobenius condition. 
+In order to do so, we will introduce what we call the uniform Frobenius condition,
+which combines a version of the Frobenius condition for maps and a form of the
+Beck-Chevalley condition~\cite{benabou-descente,lawvere-equality}.
 
-The main results in this paper establish the existence of algebraic weak factorisation systems with the uniform Frobenius condition on presheaf categories
+The main results in this paper establish the existence of algebraic weak factorisation systems with the functorial Frobenius condition on presheaf categories
 equipped with a functorial cylinder. For this, we begin by defining the notions of a 
 uniform (trivial) fibration in the general setting of a  category equipped with a functorial cylinder, building on some ideas of Cisinski~\cite{cisinski-asterisque}.
-Uniform trivial fibrations are defined by weak uniform orthogonality with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by weak uniform orthogonality with respect to a category obtained by applying a Leibniz construction, in the sense of~\cite{riehl-verity:reedy}, to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
+Uniform trivial fibrations are defined by algebraic  orthogonality (\ie by requiring a choice
+of diagonal fillers satisfying a naturality condition) with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by algebraic orthogonality  with respect to a category obtained by applying a Leibniz construction 
+(in the sense of~\cite{riehl-verity:reedy}) to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
 
 Our first main result (\cref{thm:sset-cset-nwfs}) is that uniform trivial fibrations and uniform fibrations in presheaf categories equipped with a functorial cylinder
 are the right maps of two algebraic weak factorization systems.
-This is proved using Garner's small object argument~\cite{garner:small-object-argument} after having shown that uniform (trivial) fibrations can be be defined equivalently by weak uniform orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
-Working with algebraic notions of fibrations is essential to prove this result, since it allows us to rephrase an general lifting problem as a colimit of a functorial family of lifting problems, providing
+This is proved using Garner's small object argument~\cite{garner:small-object-argument} after having shown that uniform (trivial) fibrations can be be defined equivalently by algebraic orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
+Working with algebraic notions of fibrations is essential to prove this result, since it allows us to rephrase a general lifting problem as a colimit of a functorial family of lifting problems, providing
 a further example of the good interaction between colimits and lifting problems
 in algebraic weak factorisation systems.
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration, defined by 
@@ -107,7 +118,16 @@ proof of the fact that pushforward along a uniform Kan fibration preserves unifo
 in cubical sets could be developed at a greater level of generality, so as to make them applicable also to simplicial sets. 
 
 
-
+\subsection*{Remark} In the hope of making the paper more widely appealing, we have
+confined comments on constructivity issues to remarks and footnotes. However,
+let us point out here for the readers interested in constructive aspects that, since our development is completely
+algebraic, none of the results in this paper rely on the law of the excluded middle or the axiom of choice, apart  from~\cref{thm:sset-cset-nwfs} and those in~\cref{sec:non-alg}. For~\cref{thm:sset-cset-nwfs}, we argue separately that the result holds constructively for simplicial sets and
+cubical sets in~\cref{thm:sset-cset-nwfs-constr}.\footnote{A constructive proof 
+of~\cref{thm:sset-cset-nwfs} in full generality would require an analysis of aspects
+of the theory of locally presentable categories and of Garner's small object argument 
+that we leave for future investigation.}
+ The use of the axiom of choice in~\cref{sec:non-alg}, where we show how the classical notion of
+a fibration is equivalent to the uniform one, seems unavoidable.
 
 
 \subsection*{Organization of the paper}
@@ -1886,7 +1906,8 @@ Similarly, for (ii), one uses part (ii) of~\cref{small-gen-triv-kan} and smallne
 
 
 
-\begin{remark} \cref{thm:sset-cset-nwfs} applies to both $\SSet$ and $\CSet$. In these cases, we explain why the result holds constructively, \ie without using 
+\begin{remark} \label{thm:sset-cset-nwfs-constr}
+\cref{thm:sset-cset-nwfs} applies to both $\SSet$ and $\CSet$. In these cases, we explain why the result holds constructively, \ie without using 
 the law of excluded middle or the axiom of choice. 
 First, observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects. For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. 
