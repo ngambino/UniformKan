@@ -35,14 +35,16 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 \section*{Introduction}
 
 
-Algebraic weak factorisation systems~\cite{garner:small-object-argument,grandis-tholen-nwfs}
-were originally introduced in order to improve on some aspects of standard weak factorisation systems~\cite{bousfield-wfs}, such as the unsatisfactory interaction between colimits and lifting problems, as discussed in~\cite[Chapter~12]{riehl-cat-homotopy}.  In recent years, there has been increasing interest in algebraic  weak factorisation systems (see~\cite{bourke-garner-I,bourke-garner-II}, for instance), also because the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets} 
- has shown that they have natural applications in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, which have been developed  in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  The key aspect that
- differentiates algebraic from standard  weak factorisation systems is
- that the latter involve maps that merely satisfy a left (or right) lifting property,
-as in the definition of a Kan fibration, while the former involve maps equipped with 
-additional structure, consisting of an explicit choice of solutions for  left (or right) lifting problems
-and is required to satisfy a naturality condition. 
+Algebraic weak factorisation systems  (by which we mean natural factorisation systems in the
+sense of~\cite{grandis-tholen-nwfs} that satisfy the distributivity condition introduced 
+in~\cite{garner:small-object-argument}) differ from standard weak factorisation systems in
+ that they involve maps equipped with 
+additional structure, consisting of an explicit choice of solutions for  left (or right) lifting problems satisfying a naturality condition, rather than maps that merely satisfy a left (or right) lifting property, as in the definition of a Kan fibration.
+Algebraic weak factorisation systems are of interest in categorical homotopy theory since they improve on some aspects of standard weak factorisation systems~\cite{bousfield-wfs}, such as the unsatisfactory interaction between colimits and lifting problems
+(see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this point). 
+Recently, their theory has been developed significantly, thanks to the work of 
+Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II} and has found applications in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, thanks to the work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
  Our general aim here is to develop further the theory of algebraic weak factorisation systems. In particular, we introduce the 
@@ -129,8 +131,8 @@ of the paper and then highlighted only when appropriate.
 
 In the hope of making the paper more widely accessible, we have also
 confined comments on constructivity issues to a series of remarks and footnotes running through the paper. However,
-let us point out here for the readers interested in constructive aspects that, since our development is completely
-algebraic, none of the results in this paper rely on the law of the excluded middle or the axiom of choice, apart  from~\cref{thm:sset-cset-nwfs} and those in~\cref{sec:non-alg}. For~\cref{thm:sset-cset-nwfs}, we argue separately that the result holds constructively for simplicial sets and
+let us point out here for the readers interested in constructive aspects that
+ our development does not rely on the law of the excluded middle or the axiom of choice, apart  from~\cref{thm:sset-cset-nwfs} and those in~\cref{sec:non-alg}. For~\cref{thm:sset-cset-nwfs}, we argue separately that the result holds constructively for simplicial sets and
 cubical sets in~\cref{rem:constructive-small-object}.\footnote{A constructive proof 
 of~\cref{thm:sset-cset-nwfs} in full generality would require an analysis of aspects
 of the theory of locally presentable categories and of Garner's small object argument 
@@ -1242,7 +1244,8 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 \end{enumerate} 
 \end{definition}
 
-We will relate the uniform Frobenius condition introduced above with van den Berg and Garner's functorial Frobenius condition~\cite{garner:topological-simplicial} in~\cref{thm:frobenius-comparison} below. In order to do so, it is convenient 
+We will relate the uniform Frobenius condition introduced above with van den Berg and Garner's functorial Frobenius condition~\cite{garner:topological-simplicial} 
+in~\cref{thm:frobenius-comparison} below. In order to do so, it is convenient 
 to assemble all the ingredients of the uniform Frobenius condition into a single global functor, which we do in~\cref{uniform-frob-nice}.
 As such, this seems the most natural way to phrase the condition in our setting.
 Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for category of $k \in \cal{K}$ and $X \in \cal{E}$ with $w_k$ living over $X$, \ie the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
@@ -1431,8 +1434,8 @@ Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functor
 \newcommand{\LL}{\mathsf{L}}
 \newcommand{\RR}{\mathsf{R}}
 
-We will now compare the uniform Frobenius condition with the functorial Frobenius condition van den Berg and Garner~\cite{garner:topological-simplicial}.
-Recall from~\cite{bourke-garner-I} that an algebraic weak factorisation system $(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations $f = \RR f \cc \LL f$ functorially in $f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ forms a distributive law.
+We will now compare the uniform Frobenius condition with the functorial Frobenius condition of van den Berg and Garner~\cite{garner:topological-simplicial}.
+Recall from~\cite{bourke-garner-I} that an algebraic weak factorisation system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations~$f = \RR f \cc \LL f$ functorially in~$f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law.
 We write $\pCoalg{\LL}$ and $\pAlg{\RR}$ for the categories of (co)monad algebras and $\pcoalg{\LL}$ and $\palg{\RR}$ for the categories of (co)pointed endofunctor (co)algebras over $\LL$ and $\RR$, respectively.
 These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ and $\palg{\RR} = \liftr{\pCoalg{\LL}}$.
 The underlying weak factorization system of $(\LL, \RR)$ has as left and right classes maps that admit a lift to $\pcoalg{\LL}$ and $\palg{\RR}$.
