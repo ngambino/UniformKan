@@ -168,14 +168,6 @@ This material is based on research sponsored by the Air Force Research Laborator
 
 Let us begin by fixing some notation. For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the
 subcategory of $\cal{E}^\to$ with pullback squares as maps. 
-The main examples of $\cal{E}$ considered in this paper are the categories of simplicial sets and of cubical sets. 
-We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
-Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
-
-
-
-
 We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs}. For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
 Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we will use this notation systematically below).
 The additional generality obtained by allowing~$u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
@@ -655,45 +647,7 @@ For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following ar
 \] \qed\end{enumerate}
 \end{proposition}
 
-<<<<<<< HEAD
-=======
-\begin{proof}
-Giving a functor $F \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for squares of the form
-\[
-\xymatrix{
-  F A
-  \ar[d]_{F u_i}
-  \ar[r]
-&
-  C \ar[d]^{v_j}
-\\
-  F B
-  \ar[r]
-&
-  D
-}
-\]
-natural in $i \in \cal{I}$ and $j \in \cal{J}$.
-Similarly, giving a functor $G \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for squares of the form
-\[
-\xymatrix{
-  A
-  \ar[d]_{u_i}
-  \ar[r]
-&
-  G C
-  \ar[d]^{G v_j}
-\\
-  B
-  \ar[r]
-&
-  G D
-}
-\]
-natural in $i \in \cal{I}$ and $j \in \cal{J}$.
-Since $F$ is left adjoint to $G$, these situations are equivalent.
-\end{proof}
->>>>>>> FETCH_HEAD
+
 
 \begin{lemma} \label{lift-of-mates}
 Let $F_1 \dashv G_1$ and $F_2 \dashv G_2$ be adjunctions between $\cal{E}$ and $\cal{F}$ satisfying the equivalent conditions of \cref{lift-of-adjunction}.
@@ -1269,17 +1223,12 @@ lifts to a natural transformation
 Apply \cref{lift-of-mates} to the adjunctions $g^* t_! \dashv t^* g_*$ and $s_! f^* \dashv g^* t_!$.
 \end{proof}
 
-<<<<<<< HEAD
-
-
 
 \subsection*{The uniform Frobenius condition} 
 We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions,
 which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius
 condition of~\cite{garner:topological-simplicial} and how it allows us to give a characterization of the functorial Frobenius condition for algebraically free algebraic weak factorisation systems.
-=======
-\subsection*{The uniform Frobenius condition}
->>>>>>> FETCH_HEAD
+
 
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
@@ -1569,6 +1518,12 @@ By inspecting the algebraic small object argument~\cite{garner:small-object-argu
 
 \section{Uniform fibrations}
 \label{sec:unif}
+
+We introduce uniform (trivial) fibrations and establish some basic properties, giving examples. Our main examples
+will be in categories of simplicial sets and cubical sets. 
+We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
+The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 
 
 
