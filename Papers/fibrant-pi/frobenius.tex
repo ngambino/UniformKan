@@ -613,23 +613,13 @@ as categories over $\catE^\to$.
 \subsection*{Adjunctions}
 
 Next, we discuss the interaction between the orthogonality functors and adjunctions.
-Let us fix an adjunction
-\[
-\xymatrix@C+1em{
-  \catE
-  \ar@<5pt>[r]^{F}
-  \ar@{}[r]|{\bot}
-&
-  \cal{F}
-  \ar@<5pt>[l]^{G}
-\rlap{.}}
-\]
-In the standard setting of weak factorization systems, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$.
-The next statement provides a counterpart of this fact in our setting.
+In the standard setting of weak factorization systems and an adjunction $F \dashv G$ between categories $\cal{E}$ and $\cal{F}$ , it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$.
+We will provide a counterpart of this fact in our setting.
+
+For this and the next subsection, fix functors $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
 
 \begin{proposition} \label{lift-of-adjunction}
-Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
-Then the following are equivalent:
+For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following are equivalent:
 \begin{enumerate}[(i)]
 \item the functor $F \co \catE^\to \to \cal{F}^\to$ lifts to a functor $F \co \cal{I} \to \liftl{\cal{J}}$ making the following diagram commute:
 \[
@@ -665,9 +655,144 @@ Then the following are equivalent:
 \] \qed\end{enumerate}
 \end{proposition}
 
+<<<<<<< HEAD
+=======
+\begin{proof}
+Giving a functor $F \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for squares of the form
+\[
+\xymatrix{
+  F A
+  \ar[d]_{F u_i}
+  \ar[r]
+&
+  C \ar[d]^{v_j}
+\\
+  F B
+  \ar[r]
+&
+  D
+}
+\]
+natural in $i \in \cal{I}$ and $j \in \cal{J}$.
+Similarly, giving a functor $G \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for squares of the form
+\[
+\xymatrix{
+  A
+  \ar[d]_{u_i}
+  \ar[r]
+&
+  G C
+  \ar[d]^{G v_j}
+\\
+  B
+  \ar[r]
+&
+  G D
+}
+\]
+natural in $i \in \cal{I}$ and $j \in \cal{J}$.
+Since $F$ is left adjoint to $G$, these situations are equivalent.
+\end{proof}
+>>>>>>> FETCH_HEAD
 
-The example discussed in~\cref{exa:composition-pullback-lift} below
-will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
+\begin{lemma} \label{lift-of-mates}
+Let $F_1 \dashv G_1$ and $F_2 \dashv G_2$ be adjunctions between $\cal{E}$ and $\cal{F}$ satisfying the equivalent conditions of \cref{lift-of-adjunction}.
+Let $m \co F_1 \to F_2$ and $n \co G_2 \to G_1$ be natural transformations forming mates in the sense of~\cite{kelly-street}.
+Then the following are equivalent:
+\begin{enumerate}[(i)]
+\item
+The natural transformation $m$ lifts as follows:
+\[
+\xymatrix@C=1.2cm{
+  \cal{I}
+  \rtwocell_{F_2}^{F_1}{m}
+  \ar[d]_{u}
+&
+  \liftl{\cal{J}}
+  \ar[d]^{\liftl{v}}
+\\
+  \catE^\to
+  \rtwocell_{F_2}^{F_1}{m}
+&
+  \cal{F}^\to
+\rlap{,}}
+\]
+\item
+The natural transformation $n$ lifts as follows:
+\[
+\xymatrix@C=1.2cm{
+  \cal{J}
+  \rtwocell_{G_1}^{G_2}{n}
+  \ar[d]_{u}
+&
+  \liftr{\cal{I}}
+  \ar[d]^{\liftl{v}}
+\\
+  \cal{F}^\to
+  \rtwocell_{G_1}^{G_2}{n}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Condition~(i) is equivalent to coherence of lifts
+\[
+\xymatrix{
+  F_1 A
+  \ar[d]_{u_{F_1 i}}
+  \ar[r]
+&
+  F_2 A
+  \ar[d]_(0.3){u_{F_2 i}}
+  \ar[r]
+&
+  C \ar[d]^{v_j}
+\\
+  F_1 B
+  \ar[r]
+  \ar@{.>}[urr]
+&
+  F_2 B
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  D
+}
+\]
+for $i \in \cal{I}$ and $j \in \cal{J}$.
+Similarly, condition~(ii) is equivalent to coherence of lifts
+\[
+\xymatrix{
+  A
+  \ar[d]_{u_i}
+  \ar[r]
+&
+  G_1 C
+  \ar[d]^(0.7){v_{G_1 j}}
+  \ar[r]
+&
+  G_2 C
+  \ar[d]^{v_{G_2 j}}
+\\
+  B
+  \ar[r]
+  \ar@{.>}[ur]
+  \ar@{.>}[urr]
+&
+  G_1 D
+  \ar[r]
+&
+  G_2 D
+}
+\]
+for $i \in \cal{I}$ and $j \in \cal{J}$.
+By adjointness, these situations are equivalent.
+\end{proof}
+
+The example discussed in~\cref{exa:composition-pullback-lift} below will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
 
 \begin{remark} \label{exa:composition-pullback-lift}
 If $\cal{E}$ has pullbacks, for an arrow $f \co X \to Y$, we have an adjunction
@@ -821,12 +946,12 @@ Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \ar
 equivalent.
 \end{proof}
 
-Note that \cref{lift-of-adjunction} can be seen as a special case 
-of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
+Note that \cref{lift-of-adjunction} can be seen as a special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
+We will not have a need for the evident generalization of \cref{lift-of-mates} to Leibniz constructions.
 
 \begin{remark} \label{pitchfork-leibniz-most-general-example}
 In \cref{lift-of-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$.
-A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates, in the sense of~\cite{kelly-street}.
+A morphism from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ consists of natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates.
 Note that we have fully faithful forgetful functors $\cal{K} \to [\catE, \cal{F}]$ and $\cal{K} \to [\cal{F}, \catE]^{\op}$.
 We also have functors $F \co \cal{K} \times \catE \to \cal{F}$ and~$G \co \cal{K}^{\op} \times \cal{F} \to \catE$ given by left and right adjoint application, respectively.
 This is, in some sense, the most general instantiation of \cref{lift-of-leibniz-adjunction}.
@@ -1027,7 +1152,7 @@ the following are equivalent:
 \end{proposition}
 
 \begin{proof}
-Now apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
+Apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
 \end{proof}
 
 \subsection*{The Beck-Chevalley condition}
@@ -1037,7 +1162,8 @@ In order to introduce the Beck-Chevalley condition, recall from \cref{exa:compos
 \begin{definition}[Beck-Chevalley condition] \label{def:beck-chevalley}
 Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
 We say that a commutative square
-\[
+\begin{equation} \label{def:beck-chevalley:0}
+\begin{gathered}
 \xymatrix{
   X
   \ar[r]^{f}
@@ -1051,7 +1177,8 @@ We say that a commutative square
 &
   V
 }
-\]
+\end{gathered}
+\end{equation}
 satisfies the \emph{Beck-Chevalley condition} with respect to $u$ if the canonical natural transformation
 \[
 \xymatrix{
@@ -1097,29 +1224,12 @@ Explicitly, it requires the components of the natural transformation $\phi$ to b
 If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is~$\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{remark}
 
-In partial analogy with \cref{lift-dependent-product}, we provide a consequence of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
+In analogy with \cref{lift-dependent-product}, we provide a consequence of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
 In order to state this, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $s \co X \to U$, the pullback functor $s^* \co \catE^\to_{/U} \to \catE^\to_{/X}$ lifts to a functor $s^* \co {\liftr{\cal{I}}}_{/U} \to {\liftr{\cal{I}}}_{/X}$.
 
 \begin{proposition} \label{lift-pushforward-BC}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
-For a pullback square
-\[
-\xymatrix{
-  X
-  \ar[r]^{f}
-  \ar[d]_{s}
-  \pullback{dr}
-&
-  Y
-  \ar[d]^{t}
-\\
-  U
-  \ar[r]_{g}
-&
-  V
-\rlap{,}}
-\]
-that satisfies the Beck-Chevalley condition with respect to $u$, the canonical natural isomorphism
+Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$ and admit pushforward.
+A commuting square~\eqref{def:beck-chevalley:0} satisfies the Beck-Chevalley condition with respect to $u$ if and only if the canonical natural transformation
 \[
 \xymatrix@C+2em{
   \catE^\to_{/U}
@@ -1136,7 +1246,7 @@ that satisfies the Beck-Chevalley condition with respect to $u$, the canonical n
   \catE^\to_{/Y}
 }
 \]
-given by the usual Beck-Chevalley condition lifts to a natural isomorphism
+lifts to a natural transformation
 \[
 \xymatrix@C+2em{
   {\liftr{\cal{I}}}_{/U}
@@ -1156,10 +1266,10 @@ given by the usual Beck-Chevalley condition lifts to a natural isomorphism
 \end{proposition}
 
 \begin{proof}
-Recall from \cref{pitchfork-slicing} that slicing commutes with the right orthogonality functor.
-Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not just a logical equivalence) with $u = u_{/V}$ and $v = \liftr{u}_{/X}$ to \cref{beck-chevalley-iso} while noting that the construction of \cref{lift-of-adjunction} as applied in \cref{exa:composition-pullback-lift} and \cref{lift-dependent-product} composes (meaning the correspondence of \cref{lift-of-adjunction} commutes with composition of adjunctions).
+Apply \cref{lift-of-mates} to the adjunctions $g^* t_! \dashv t^* g_*$ and $s_! f^* \dashv g^* t_!$.
 \end{proof}
 
+<<<<<<< HEAD
 
 
 
@@ -1167,6 +1277,9 @@ Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not
 We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions,
 which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius
 condition of~\cite{garner:topological-simplicial} and how it allows us to give a characterization of the functorial Frobenius condition for algebraically free algebraic weak factorisation systems.
+=======
+\subsection*{The uniform Frobenius condition}
+>>>>>>> FETCH_HEAD
 
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
