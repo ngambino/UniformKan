@@ -168,8 +168,15 @@ This material is based on research sponsored by the Air Force Research Laborator
 
 Let us begin by fixing some notation. For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the
 subcategory of $\cal{E}^\to$ with pullback squares as maps. 
-We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs}.
-Instead of starting from a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, we consider a category~$\cal{I}$, to be thought of as an indexing category (but not assumed to be small), and a functor~$u \co \cal{I} \to \catE^\to$.
+The main examples of $\cal{E}$ considered in this paper are the categories of simplicial sets and of cubical sets. 
+We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
+The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
+
+
+
+
+We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs}. For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
 Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we will use this notation systematically below).
 The additional generality obtained by allowing~$u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
@@ -177,7 +184,8 @@ Let us begin by recalling the following definition from~\cite{garner:small-objec
 \begin{definition} \label{def:right-map}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
 \begin{enumerate}[(i)]
-\item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a right lifting function~$\phi$ for $\cal{I}$, \ie a function that assigns to each $i \in \cal{I}$ and commuting square
+\item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a
+ function~$\phi$ that assigns to each $i \in \cal{I}$ and commuting square
 \[
 \xymatrix@C=2cm{
   A_i
@@ -220,7 +228,7 @@ where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u
 \[
   \phi(j, s, t) \cc b = \phi(i, s \cc a, t \cc b) \, .
 \]
-\item A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the right lifting functions, which we omit.
+\item A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the choices of diagonal fillers, which we omit.
 \end{enumerate}
 \end{definition}
 
@@ -228,10 +236,18 @@ where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u
 
 
 For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
-There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we call the \emph{right orthogonality category} (over $\catE^\to$) of $u$. 
+There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we 
+call   the \emph{right orthogonal} of $u \co \cal{I} \to \catE^\to$. 
+We these definitions in place, we can already define the notion of a uniform trivial fibration in a presheaf
+category.
 
-\begin{example}[Uniform trivial $\cal{M}$-fibrations in presheaf categories] \label{exa-triv-kan-fib}
-Let $\catE$ be a presheaf category and $\cal{M}$ be some full subcategory of $\catE_\cart^\to$ of monomorphisms (we will start to impose certain conditions on $\cal{M}$ in \cref{uniform-fib-presheaf-cat}). In this context, a right $\cal{M}$-map will be called a \emph{uniform trivial $\cal{M}$-fibration}. This terminology is intended to suggest an analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, where he studied extensively model structures in which the cofibrations are the monomorphisms. The compatibility condition for a uniform trivial $\cal{M}$-fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
+\begin{definition} \label{exa-triv-kan-fib}
+Let $\catE$ be a presheaf category, $\cal{M}$ a full subcategory of $\catE_\cart^\to$ whose objects
+are monomorphisms. A \emph{uniform trivial $\cal{M}$-fibration} is a  right $\cal{M}$-map. 
+\end{definition}
+
+
+This terminology is intended to suggest an analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, where he studied extensively Quillen model structures in which the cofibrations are the monomorphisms. Note, however, that we do not require $\cal{M}$ to consist of all monomorphisms. To develop the theory more generally (and include some important examples), we will rather consider conditions on $\cal{M}$ (see~\cref{uniform-fib-presheaf-cat}). The compatibility condition for a uniform trivial $\cal{M}$-fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
 \[
 \xymatrix{
   A
@@ -253,17 +269,17 @@ Let $\catE$ be a presheaf category and $\cal{M}$ be some full subcategory of $\c
 \rlap{,}}
 \]
 where $i$ and $j$ are in $\cal{M}$ and the square on the left is a pullback.
-A uniform trivial $\cal{M}$-fibration in $\SSet$ or $\CSet$ with $\cal{M}$ consisting of all monomorphisms will be called a \emph{uniform trivial Kan fibration}.\footnote{When working constructively, it is appropriate to restrict the attention to decidable  monomorphisms, \ie natural transformations whose components are injective functions with decidable image. See~\cref{rem:constructive-small-object} for further comments on this issue.}
+
+\begin{example} In the categories $\SSet$ or $\CSet$ of simplicial sets and cubical sets, we consider $\cal{M}$ to consist of all monomorphisms. A uniform trivial $\cal{M}$-fibration will be called a \emph{uniform trivial Kan fibration}.\footnote{When working constructively, it is appropriate to restrict the attention to decidable  monomorphisms, \ie natural transformations whose components are injective functions with decidable image. See~\cref{rem:constructive-small-object} for further comments on this issue.}
 \end{example}
 
 
 The rest of this section is devoted to establishing some general facts regarding categories of right maps that will be useful in the remainder of the paper.
 Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the standard setting.
-They are probably known to experts, but we could not find them in the literature and hence we include them for completeness.
-We omit the most straightforward proofs.
+They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, but we omit the most straightforward proofs.
 
 
-First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal category $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
+First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
 \[
   \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to}
 \]
@@ -391,7 +407,7 @@ we have that $\phi_F(i, s, t) = \phi_G(i, s, t)$, as required.
 \subsection*{Retract closure}
 
 In the setting of standard weak orthogonality operations, it is well-known that applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure.
-In order to establish a counterpart of this fact, we need some definitions.
+In order to establish a counterpart of this fact in our algebraic setting, we need some definitions.
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
 An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
@@ -501,9 +517,8 @@ respectively.
 
 \subsection*{Slicing and coslicing}
 
-In the standard setting of weak factorization systems, it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing.
-In order to prove a counterpart of this fact in the setting of algebraic weak factorisation
-systems, we need some auxiliary definitions.
+In the standard setting of weak factorization systems, it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing. For our counterpart of this fact, we need 
+again some auxiliary definitions.
 Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a slice category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
 The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in \cal{I}$ and a commutative triangle of the form
 \[
@@ -596,12 +611,12 @@ Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
 is a morphism of Grothendieck fibrations.
 Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in \cal{E}$ we have
 \[
-  \liftl{(\cal{I}_{/X})} = (\liftl{I})_{/X}
+  \liftl{(\cal{I}_{/X})} = (\liftl{\cal{I}})_{/X}
 .\]
 \end{proposition}
 
 \begin{proof}
-First note that $\cod_{\cal{E}_{/X}} \cc u_{/X}$ will also be a Grothendieck fibration.
+First note that the composite $\cod_{\cal{E}_{/X}} \cc u_{/X}$ will also be a Grothendieck fibration.
 When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, 
 applying base change and naturality of diagonal fillers, 
 it is sufficient  to consider lifting problems with the bottom arrow an identity.
@@ -683,47 +698,10 @@ Then the following are equivalent:
    \ar[r]_{G}
 &
   \catE^\to
-\rlap{.}}
-\]
-\end{enumerate}
+\rlap{.}  } 
+\] \qed\end{enumerate}
 \end{proposition}
 
-\begin{proof}
-Giving a functor $F \co \cal{I} \to \liftl{\cal{J}}$ as above is the same thing as giving fillers for squares of the form
-\[
-\xymatrix{
-  F A
-  \ar[d]_{F u_i}
-  \ar[r]
-&
-  C \ar[d]^{v_j}
-\\
-  F B
-  \ar[r]
-&
-  D
-\rlap{,}}
-\]
-natural in $i \in \cal{I}$ and $j \in \cal{J}$.
-Similarly, giving a functor $G \co \cal{J} \to \liftl{\cal{I}}$ as above is the same thing as giving fillers for squares of the form
-\[
-\xymatrix{
-  A
-  \ar[d]_{u_i}
-  \ar[r]
-&
-  G C
-  \ar[d]^{G v_j}
-\\
-  B
-  \ar[r]
-&
-  G D
-\rlap{,}}
-\]
-natural in $i \in \cal{I}$ and $j \in \cal{J}$.
-Since $F$ is left adjoint to $G$, these situations are equivalent.
-\end{proof}
 
 The example discussed in~\cref{exa:composition-pullback-lift} below
 will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
@@ -800,7 +778,7 @@ Let
 \]
 denote the respective Leibniz constructions for $F$ and $G^{\op}$, using pullback instead of pushout for~$\widehat{G}$.
 In the standard setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h \in \cal{K}^\to$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$.
-The next statement provides a counterpart of this fact in our setting.
+The next statement provides an analogue of this fact in the algebraic setting.
 
 \begin{proposition} \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
@@ -926,7 +904,7 @@ The remainder of the claim follows from \cref{lift-of-leibniz-adjunction} as app
 
 \subsection*{Kan extensions}
 
-We now establish some general facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. These will be applied in \cref{sec:unifpc} to show that uniform (trivial) Kan fibrations are the right maps of a natural weak factorization system.
+We now establish some general facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. These will be applied in \cref{sec:unif} to show that uniform (trivial) Kan fibrations are the right maps of an algebraic weak factorization system.
 
 \begin{proposition} \label{kan-extension-closure}
 Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
@@ -993,13 +971,15 @@ is an isomorphism.
 \section{The Frobenius and Beck-Chevalley conditions}
 \label{sec:frobc}
 
-The first aim of this section is to introduce the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$ for a category $\cal{E}$ will pullbacks.
-As we will see in~\cref{lift-dependent-product}, analogous to the situation for Lawvere's original formulation of the Frobenius condition~\cite{lawvere-equality}, there is an equivalent formulation of our Frobenius condition that involves pushforward, rather than pullback, functors.
-The second aim of this section is to introduce a counterpart of the well-known Beck-Chevalley conditions in our setting.
-We finish by unifying the Frobenius and Beck-Chevalley conditions, calling it the uniform Frobenius condition, that we consider the appropriate counterpart for algebraic weak
-factorisation systems of the usual Frobenius condition~\cite{garner:types-omega-groupoids,gambino-garner:idtypewfs}. We conclude by relating
-the uniform Frobenius condition to the functorial Frobenius condition 
-of~\cite{garner:topological-simplicial}.
+
+The aim of this section is to obtain a necessary and sufficient condition for an algebraically free algebraic weak
+factorisation system~\cite{garner:small-object-argument} to satisfy the functorial Frobenius condition~\cite{garner:topological-simplicial}, expressed purely in terms of its generating category. We will use this characterization 
+in~\cref{sec:frocuf} to prove that algebraic weak factorisation systems with uniform fibrations as right maps
+have the functorial Frobenius property. 
+
+We begin by introducing the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$ for a category $\cal{E}$ will pullbacks, and a corresponding Beck-Chevalley condition for squares. We combination of these conditions is what we call the uniform Frobenius condition, which we then relate to the functorial Frobenius
+condition and use to obtain the required characterisation. 
+
 
 \subsection*{The Frobenius condition}
 
@@ -1024,8 +1004,7 @@ We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with 
 \end{definition}
 
 \begin{remark} \label{frobenius-no-coherence}
-Note that the Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
-Explicitly, the above definition unfolds to making $f^* u_i \co f^* X_i \to f^* Y_i$ into a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ as below,
+Note that the Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property. Explicitly,  it requires that $f^* u_i \co f^* X_i \to f^* Y_i$ is provided with the structure of a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ as below,
 \[
 \xymatrix{
   X_i
@@ -1041,8 +1020,9 @@ Explicitly, the above definition unfolds to making $f^* u_i \co f^* X_i \to f^* 
 such that morphisms in $\cal{I}_{/Y}$ induce morphisms of left $\liftr{\cal{I}}$-maps.
 \end{remark}
 
-Let us explain the relationship between the Frobenius condition of \cref{thm:frobenius-def} and the Frobenius condition on a weak factorization system, which states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,garner:topological-simplicial} and is closely related to the axioms for identity types in Martin-L\"of type theory~\cite{gambino-garner:idtypewfs}.
-Given a weak factorization system $(\cal{L}, \cal{R})$ on a category $\catE$, we have that the pullback along a right map preserves left maps if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow \catE^\to$.
+\begin{remark} Recall that the Frobenius condition for a weak factorization system states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,gambino-garner:idtypewfs}. Given a weak factorization system $(\cal{L}, \cal{R})$ on a category $\catE$, we have that it satisfies the Frobenius condition  in this sense if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow \catE^\to$
+in the sense of~\cref{thm:frobenius-def}.
+\end{remark} 
 
 
 For a weak factorization system in a category with pushforward functors, \ie right adjoints to pullbacks, the standard Frobenius condition is equivalent to saying that pushforward along a right map preserves right maps.
@@ -1151,7 +1131,7 @@ Explicitly, it requires the components of the natural transformation $\phi$ to b
 \end{remark}
 
 \begin{remark} \label{beck-chevalley-iso}
-If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is $\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
+If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is~$\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{remark}
 
 In partial analogy with \cref{lift-dependent-product}, we provide a consequence of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
@@ -1220,10 +1200,11 @@ Now apply \cref{lift-of-adjunction} in the form of a natural correspondence (not
 
 
 
-\subsection*{The uniform Frobenius condition}
+\subsection*{The uniform Frobenius condition} 
+We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions,
+which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius
+condition of~\cite{garner:topological-simplicial} and how it allows us to give a characterization of the functorial Frobenius condition for algebraically free algebraic weak factorisation systems.
 
-We conclude this section by providing a combination of the Frobenius and Beck-Chevalley conditions.
-Indeed, these two conditions can be seen as the components for objects and morphisms of $\catE^\to$ of a global condition.
 
 \begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
 We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if:
@@ -1249,11 +1230,12 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 \end{enumerate} 
 \end{definition}
 
-We will relate the uniform Frobenius condition introduced above with van den Berg and Garner's functorial Frobenius condition~\cite{garner:topological-simplicial} 
-in~\cref{thm:frobenius-comparison} below. In order to do so, it is convenient 
+In order relate the uniform Frobenius condition introduced above with the functorial Frobenius condition~\cite{garner:topological-simplicial}, it is convenient 
 to assemble all the ingredients of the uniform Frobenius condition into a single global functor, which we do in~\cref{uniform-frob-nice}.
 As such, this seems the most natural way to phrase the condition in our setting.
-Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for category of $k \in \cal{K}$ and $X \in \cal{E}$ with $w_k$ living over $X$, \ie the opposite Grothendieck construction of the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
+Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for the category of 
+pairs $(k, X)$, with $k \in \cal{K}$ and $X \in \cal{E}$ such that $w_k$ is over $X$, \ie the result of
+the opposite Grothendieck construction applied to the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
 
 \begin{proposition}
 \label{uniform-frob-nice}
@@ -1363,10 +1345,10 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
 We may construct $Q_2$ from~$Q_1$ by pasting the inner square with the left triangle, given by $G$ and~$H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
 
-\begin{remark} In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
+ In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
 If only functoriality in $\cal{I}$ is desired, the map $H$ will default to an identity.
 If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default to a component of the unit of the monad $\liftl{(\liftr{(-)})}$ and an identity, respectively.
-\end{remark} 
+
 
 \begin{proposition} \label{uniform-frobenius-product-u}
 If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
@@ -1439,15 +1421,15 @@ Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functor
 \newcommand{\LL}{\mathsf{L}}
 \newcommand{\RR}{\mathsf{R}}
 
-We will now compare the uniform Frobenius condition with the functorial Frobenius condition of van den Berg and Garner~\cite{garner:topological-simplicial}.
+We will now compare the uniform Frobenius condition with the functorial Frobenius condition of~\cite{garner:topological-simplicial}.
 Recall from~\cite{bourke-garner-I} that an algebraic weak factorisation system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations~$f = \RR f \cc \LL f$ functorially in~$f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law.
 We write $\pCoalg{\LL}$ and $\pAlg{\RR}$ for the categories of (co)monad algebras and $\pcoalg{\LL}$ and $\palg{\RR}$ for the categories of (co)pointed endofunctor (co)algebras over $\LL$ and $\RR$, respectively.
 These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ and $\palg{\RR} = \liftr{\pCoalg{\LL}}$.
-The underlying weak factorization system of $(\LL, \RR)$ has as left and right classes maps that admit a lift to $\pcoalg{\LL}$ and $\palg{\RR}$.
+The underlying weak factorization system of $(\LL, \RR)$ has as left and right classes the maps that admit a lift to $\pcoalg{\LL}$ and $\palg{\RR}$.
 Recall also that $(\LL, \RR)$ is said to be algebraically free on a category $\cal{I}$ of arrows if $\pAlg{\R} = \liftr{\cal{I}}$.
 
 \begin{definition}[Functorial Frobenius condition] \label{functorial-frobenius}
-An algebraic weak factorization system is called functorially Frobenius if $\pcoalg{\LL}$ is stable under pullback along $\palg{\RR}$ in the sense of a lift $Q'$ as follows:
+An algebraic weak factorization system is called \emph{functorially Frobenius} if $\pcoalg{\LL}$ is stable under pullback along $\palg{\RR}$ in the sense of a lift $Q'$ as follows:
 \[
 \xymatrix@C+2em{
   \pcoalg{\LL} \times_{\cal{E}} \palg{\RR}
@@ -1466,7 +1448,7 @@ An algebraic weak factorization system is called functorially Frobenius if $\pco
 Here $P'$ denotes the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
 \end{definition}
 
-\begin{proposition} \label{thm:frobenius-comparison}
+\begin{theorem} \label{thm:frobenius-comparison}
 Let $(\mathsf{L}, \mathsf{R})$ be an algebraic weak factorization system on a category $\cal{E}$.
 \begin{enumerate}[(i)] 
 \item
@@ -1475,7 +1457,7 @@ The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\maths
 Assume that $\cal{E}$ is locally presentable and locally Cartesian closed and that $(\LL, \RR)$ is algebraically free on a category $\cal{I}$ of arrows.
 The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
 \end{enumerate}
-\end{proposition} 
+\end{theorem} 
 
 \begin{proof}
 Part (i) follows from \cref{uniform-frob-even-nicer}: there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL}$ and $\liftl{(\liftr{(\pcoalg{\LL})})}$ since $\pcoalg{\LL}$ is a category of left maps.
@@ -1577,16 +1559,13 @@ Our main examples will have functorial cylinders induced by interval objects.
 
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
-
-We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. This category has a cartesian closed structure. An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
+The category $\SSet$ has a cartesian closed structure. An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
 As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
 \end{example}
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
-Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
-Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
+
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
 Note that the presence of symmetries precludes $\Box$ from being a Reedy category as it has non-trivial isomorphisms.%
 \footnote{
