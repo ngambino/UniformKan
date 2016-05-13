@@ -41,7 +41,7 @@ that involve maps which do not just satisfy a  lifting property (as in the defin
 They were originally introduced  in the context of categorical homotopy theory~\cite{garner:small-object-argument,grandis-tholen-nwfs}  to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
 In recent years, their theory has been developed significantly, thanks especially 
 to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II} and has found applications not only in 
-higher-dimensional category theory~\cite{batanin-cisinski-weber} but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf},  via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+higher-dimensional category theory~\cite{garner:globular-operator-awfs,batanin-cisinski-weber} but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf},  via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
 which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
@@ -137,10 +137,6 @@ cubical sets separately, in~\cref{rem:constructive-small-object}.\footnote{A con
 of~\cref{thm:sset-cset-nwfs} in full generality would require an analysis of aspects
 of the theory of locally presentable categories and of Garner's small object argument 
 that we leave for future investigation.} For the results in~\cref{sec:non-alg}, where we show how the classical notion of a fibration is equivalent to the uniform one, the use of the axiom of choice inseems unavoidable.
-
-Finally, let us mention that, to the best of our knowledge, 
-the main results presented here appear to be new even 
-in the classical, \ie non-constructive, setting.
 
 
 \subsection*{Organization of the paper}
@@ -650,7 +646,7 @@ For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following ar
 
 
 
-\begin{lemma} \label{lift-of-mates}
+\begin{proposition} \label{lift-of-mates}
 Let $F_1 \dashv G_1$ and $F_2 \dashv G_2$ be adjunctions between $\cal{E}$ and $\cal{F}$ satisfying the equivalent conditions of \cref{lift-of-adjunction}.
 Let $m \co F_1 \to F_2$ and $n \co G_2 \to G_1$ be natural transformations forming mates in the sense of~\cite{kelly-street}.
 Then the following are equivalent:
@@ -691,7 +687,7 @@ The natural transformation $n$ lifts as follows:
 \]
 \end{enumerate}
 \qed
-\end{lemma}
+\end{proposition}
 
 The example discussed in~\cref{exa:composition-pullback-lift} below will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
 
@@ -1486,16 +1482,8 @@ These are provided by the uniform Frobenius condition in the form of part~(ii) o
 \section{Uniform fibrations}
 \label{sec:unif}
 
-We introduce uniform (trivial) fibrations and establish some basic properties, giving examples. Our main examples
-will be in categories of simplicial sets and cubical sets. 
-We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$. Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
-Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
-
-
-
-
-
+We introduce uniform (trivial) fibrations and establish some basic properties.
+Our main examples will be in categories of simplicial sets and cubical sets. 
 
 \subsection*{Functorial cylinders and uniform fibrations}
 Let $\catE$ be a fixed category with finite colimits. For our purposes, it will be convenient to 
@@ -1562,6 +1550,7 @@ Our main examples will have functorial cylinders induced by interval objects.
 
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
+We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$.
 The category $\SSet$ has a cartesian closed structure. An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
 As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
@@ -1569,6 +1558,9 @@ As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provi
 
 \begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
 
+Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
+The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
 Note that the presence of symmetries precludes $\Box$ from being a Reedy category as it has non-trivial isomorphisms.%
 \footnote{
@@ -2057,7 +2049,7 @@ The counit of $\Sk_{<\deg(A)}$ induces a \emph{boundary inclusion} monomorphism 
 
 For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category $\calE \defeq \Rhat$ of presheaves over it.%
 \footnote{Note that our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy} since here presheaves are valued in the category of sets, not in simplicial sets.}
-We start by defining the non-coherent analogues of uniform (trivial) fibrations (\cf also \cref{cisinski-remark}).
+We start by defining non-coherent notions of (trivial) fibrations (\cf also \cref{cisinski-remark}).
 
 \begin{definition}
 Let $\cal{I}$ be the discrete subcategory of $\catE^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$.
@@ -3362,11 +3354,12 @@ the desired result from the right properness of the model structure on topologic
 which is used in~\cite[Theorem~1.7.1]{joyal-tierney-notes} to establish the result 
 working purely combinatorially\footnote{Note that, by the independence result in~\cite{coquand-non-constructivity-kan}, these arguments cannot be constructive.}.
 
-Finally, let us remark that it is possible to prove the right properness by avoiding  the algebraic approach adopted in 
-this paper, by going through the development presented here and replacing the algebraic notions and results  with their
+Finally, let us remark that it is possible to prove right properness without taking the algebraic approach adopted in 
+this paper, by going through the development presented here and replacing the algebraic notions and results with their
 standard counterparts. For example, one would consider the classes, rather than categories, of strong homotopy equivalences 
 and show that a map is a Kan fibration if and only if it has the right lifting property with respect to the class of strong homotopy
-equivalences (\cf~\cref{relating-strong-hequiv-and-uniform-fib}).
+equivalences that are monomorphisms (\cf~\cref{relating-strong-hequiv-and-uniform-fib}).
+The core of the argument, corresponding to \cref{technical}, then reduces to showing that strong homotopy equivalences are stable under pullback along Kan fibrations.
 \end{remark}
 
 
