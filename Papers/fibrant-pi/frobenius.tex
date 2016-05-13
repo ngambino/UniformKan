@@ -36,20 +36,19 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 
 
 Algebraic weak factorisation systems, by which we mean natural weak
-factorisation systems~\cite{grandis-tholen-nwfs} satisfying a
-distributivity condition~\cite{garner:small-object-argument}, 
-are a variant of ordinary weak factorisation systems~\cite{bousfield-wfs}
+factorisation systems are a variant of standard weak factorisation systems~\cite{bousfield-wfs}
 that involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for   lifting problems, subject to a naturality condition.
-They were originally introduced  in the context of categorical homotopy theory in order to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
+They were originally introduced  in the context of categorical homotopy theory~\cite{garner:small-object-argument,grandis-tholen-nwfs}  to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
 In recent years, their theory has been developed significantly, thanks especially 
 to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II} and has found applications not only in 
-higher-dimensional category theory~\cite{batanin-cisinski-weber} but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, thanks to the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+higher-dimensional category theory~\cite{batanin-cisinski-weber} but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf},  via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
 which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
  Our general aim here is to develop further the theory of algebraic weak factorisation systems. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
-and use it to obtain  counterparts of some important results of Cisinski's theory of Quillen model structures on presheaf categories~\cite{cisinski-asterisque}. We  apply these results  to solve an open problem in univalent foundations, namely that of proving a constructive counterpart of the
+and use it to construct algebraic weak factorisation systems on presheaf categories,
+which can be understood as counterparts of some important results of Cisinski's theory~\cite{cisinski-asterisque}. We  apply these results  to solve an open problem in univalent foundations, namely that of proving a constructive counterpart of the
  fact that pushforward along Kan fibrations preserves Kan fibrations~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. This gives also a new proof of the right 
  properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}
  which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
@@ -3161,7 +3160,12 @@ relating uniform $\cal{I}$-fibrations with right maps for strong homotopy equiva
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-The aim of this section is to show that, under appropriate assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}, where $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
+In this section we show that the algerbraic weak factoristion system in which the right maps
+are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
+For this, we will use our characterisation of the functorial Frobenius property in algebraically
+free algebraic weak factorisation systems, in~\cref{thm:frobenius-comparison}. 
+
+As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}, where $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
 In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi) \co X \to Y$, pullback along $p$ lifts as follows:
 \[
 \xymatrix@C+2em{
@@ -3180,7 +3184,7 @@ In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi
 \]
 Since $\Fib{\cal{I}}  = \liftr{\cal{I}_\otimes}$, this will imply that pushforward along $f$ lifts as in \cref{lift-pushforward}.
 
-As an intermediate step we establish that,  under mild assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way) if they do so with respect to $\cal{I}$.
+We begin by establishing that,  under mild assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way) if they do so with respect to $\cal{I}$.
 By the close relationship between uniform $\cal{I}$-fibrations and the right maps for $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ established in \cref{thm:onedir,thm:twodir}, this will enable us to establish the uniform Frobenius condition for uniform $\cal{I}$-fibrations with respect to $\cal{I}_\otimes$, as desired.
 
 
@@ -3235,8 +3239,7 @@ For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the
 Note that the latter one uses assumption (2).
 \end{proof}
 
-Thus, we have shown our final main result, which should be read as the algebraic version of pullback along a fibration preserving trivial cofibrations.
-Let us state it independently as a theorem.
+Let us summarize the result above as a theorem, for reference.
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
 Under the assumptions $(1)$-$(3)$ stated above, we have that $\Fib{\cal{I}} $ satisfies the uniform Frobenius condition with respect to $\cal{I}_{\otimes}$.
@@ -3297,6 +3300,8 @@ If $(s, t) \co p \to q$ forms a pullback square, then $\psi'$ is a natural isomo
 \begin{proof}
 The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lift-pushforward-BC} (see also \cref{beck-chevalley-iso})
 \end{proof}
+
+We can apply the above results to prove our final result. 
 
 \begin{theorem} 
 \label{frobenius-uniform-presheaf}
