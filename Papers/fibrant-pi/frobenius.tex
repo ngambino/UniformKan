@@ -2058,7 +2058,7 @@ The counit of $\Sk_{<\deg(A)}$ induces a \emph{boundary inclusion} monomorphism 
 
 For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category $\calE \defeq \Rhat$ of presheaves over it.%
 \footnote{Note that our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy} since here presheaves are valued in the category of sets, not in simplicial sets.}
-We start by defining the standard analogues of uniform (trivial) fibrations (\cf also \cref{cisinski-remark}).
+We start by defining the non-coherent analogues of uniform (trivial) fibrations (\cf also \cref{cisinski-remark}).
 
 \begin{definition}
 Let $\cal{I}$ be the discrete subcategory of $\catE^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$.
@@ -2210,10 +2210,23 @@ A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ is a
 }
 \]
 such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
+
+A \emph{morphism of cellular presentations} from $F \co \gamma \to \cal{E}_{\backslash U}$ to $G \co \delta \to \cal{E}_{\backslash U}$ is a map $h \co \delta \to \gamma$ such that $F \simeq G \cc h$.
 \end{definition}
 
-Since $\R$ is elegant, every monomorphism $i \co U \to V$ in $\catE$ admits a \emph{canonical cellular presentation} indexed by $\alpha$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$ (see \cite{riehl-verity:reedy} for a categorical exposition).
 Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
+
+\begin{remark}
+\label{elegant-reedy-lift-independent-of-cellular-presentation}
+Let $p \co X \to Y$ be a trivial fibration and $i \co A \to B$ a monomorphism.
+Any cellular presentation of $i$ induces a lifts of $i$ against $p$.
+If $R$ is elegant, such a lift exists and is uniquely determined independent of chosen the cellular presentation.
+
+Existence follows by using the \emph{canonical cellular presentation} $F \co \alpha \to \cal{E}$ of $i$, in which the $\beta$-th successor step adds the non-degenerate representables of degree $\beta$ in $V$ not contained in $U$ (see \cite{riehl-verity:reedy} for a categorical exposition).
+For uniqueness, we may for example show that any other cellular presentation $G \co \gamma \to \cal{E}$ of $i$ induces the same lift against $p$ as $F$.
+Given $\beta \leq \alpha$, we may restrict the coproduct index set in each pushout step in $G$ to objects of degree less than $\beta$ so as to obtain a cellular presentation $G'_\beta$ of $A \to F \beta$.
+By transfinite induction over $\beta$, standard reasoning in the theory of Reedy presheaves (via a nested transfinite induction in the successor case) may then be applied to show that $G'$ induces the same lift of $A \to F \beta$ against $p$ as $F|_{\beta}$.
+\end{remark}
 
 \begin{proposition} \label{regular-trivial-fibration-to-uniform}
 Every regular trivial fibration can be equipped with the structure of a uniform trivial $\cal{M}$-fibration.
@@ -2238,11 +2251,7 @@ Let $i \co U \to V$ be a monomorphism in $\cal{M}$ and consider a lifting proble
   Y
 \rlap{.}}
 \end{equation}
-Since $\R$ is elegant, we have a cellular presentation for $i$ as per the preceding discussion.
-As a regular trivial fibration, note that $p$ comes equipped with chosen fillers for lifting problems against boundary inclusions.
-This induces a filler in~\eqref{regular-trivial-fibration-is-uniform:0}.
-Importantly, standard reasoning used in the theory of Reedy categories shows that this filler is independent of the particular cellular presentation chosen.%
-\footnote{Intuitively, different cellular presentations differ only in the order in which cells (boundary inclusions) are added. Since the lifts for individual cells have been chosen beforehand, the order of lifting is irrelevant.}.
+We use the regular trivial fibration structure of $p$ to construct the filler in~\eqref{regular-trivial-fibration-is-uniform:0} via any cellular presentation of $i$ following \cref{elegant-reedy-lift-independent-of-cellular-presentation} (using that $R$ is elegant).
 
 It remains to verify coherence of fillers with respect to pullback squares between monomorphisms in $\cal{M}$:
 \begin{equation} \label{regular-trivial-fibration-is-uniform:1}
