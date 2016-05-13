@@ -35,21 +35,24 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 \section*{Introduction}
 
 
-Algebraic weak factorisation systems, by which we mean natural weak
-factorisation systems are a variant of standard weak factorisation systems~\cite{bousfield-wfs}
+Algebraic weak factorisation systems are a variant of standard weak factorisation systems~\cite{bousfield-wfs}
 that involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for   lifting problems, subject to a naturality condition.
 They were originally introduced  in the context of categorical homotopy theory~\cite{garner:small-object-argument,grandis-tholen-nwfs}  to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
 In recent years, their theory has been developed significantly, thanks especially 
-to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II} and has found applications not only in 
-higher-dimensional category theory~\cite{garner:globular-operator-awfs,batanin-cisinski-weber} but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf},  via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II} and has found applications  in 
+higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs} and in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
 which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
- Our general aim here is to develop further the theory of algebraic weak factorisation systems. In particular, we introduce the 
+ Our general aim here is to develop further the theory of algebraic weak factorisation systems and obtain 
+ some applications. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
-and use it to construct algebraic weak factorisation systems on presheaf categories,
-which can be understood as counterparts of some important results of Cisinski's theory~\cite{cisinski-asterisque}. We  apply these results  to solve an open problem in univalent foundations, namely that of proving a constructive counterpart of the
- fact that pushforward along Kan fibrations preserves Kan fibrations~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. This gives also a new proof of the right 
+and use it to construct algebraic weak factorisation systems on presheaf categories.
+Furthermore, we show that in this context pullback along uniform fibrations preserves uniform trivial cofibrations.
+These results can be understood as algebraic counterparts of some important results of Cisinski's theory~\cite{cisinski-asterisque}
+and solve an open problem in univalent foundations, namely that of proving a constructive version of the
+ fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. Furthermore,
+ they yield a new proof of the right 
  properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}
  which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
  the theory of minimal fibrations~\cite{joyal-tierney:simplicial-homotopy-theory}.
@@ -67,8 +70,7 @@ a Quillen model structure in which the cofibrations are the monomorphisms, such 
 right properness  is equivalent to the Frobenius condition for the  weak factorisation system of acyclic cofibrations and fibrations. 
 Furthermore, when  pushforwards along right maps exist, \ie pullbacks along  right maps have right adjoints, the Frobenius condition
 is equivalent to the preservation of right maps by pushforward along a right map. In the category of simplicial sets, this amounts exactly to the preservation of Kan fibrations by pushforward along Kan fibrations mentioned above, 
-a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}.
-Furthermore, the Frobenius condition is intimately related to the homotopy-theoretic aspects of Martin-L\"of rules for identity types~\cite{gambino-garner:idtypewfs}.
+a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. The Frobenius condition is also intimately related to the homotopy-theoretic aspects of Martin-L\"of rules for identity types~\cite{gambino-garner:idtypewfs}.
 
 
 In the context of algebraic weak factorisation systems, it is natural to consider the functorial
