@@ -36,25 +36,24 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 
 
 Algebraic weak factorisation systems~\cite{garner:small-object-argument,grandis-tholen-nwfs} are a variant of standard weak factorisation systems~\cite{bousfield-wfs}
-that involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for   lifting problems, subject to a naturality condition.
+that involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for lifting problems which is subject to a naturality condition.
 They were originally introduced  in the context of categorical homotopy theory in order to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
 In recent years, their theory has been developed significantly, thanks especially 
-to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II}, and has found applications  in 
-higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs} and in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II}, and has found applications not only
+higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs}, but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf} via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
 which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
- Our general aim here is to develop further the theory and applications of algebraic weak factorisation systems. In particular, we introduce the 
+ Our general aim here is to develop further the theory of algebraic weak factorisation systems and provide some
+ applications. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
-and use it to construct algebraic weak factorisation systems on presheaf categories.
-Furthermore, we show that in this context pullback along uniform fibrations preserves uniform trivial cofibrations.
-These results can be understood as algebraic counterparts of some important results of Cisinski's theory
+and use it to construct algebraic weak factorisation systems on presheaf categories, obtaining 
+ results that can be understood as algebraic counterparts of some important results of Cisinski's theory
 of Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
-They also solve an open problem in univalent foundations, namely that of proving a constructive version of the
- fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. Furthermore,
- they yield a new proof of the right 
- properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}
- which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
+As applications of our results, we  solve an open problem in univalent foundations, namely that of proving a constructive version of the
+ fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}, and obtain a new proof of the right 
+ properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}.
+ This proof avoids entirely the use of topological realization~\cite{hovey-model-categories} and
  the theory of minimal fibrations~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
 We will be particularly  interested in the property of weak factorisation systems  
@@ -75,20 +74,16 @@ a result that plays an important role in the definition of the simplicial model 
 
 In the context of algebraic weak factorisation systems, it is natural to consider the functorial
 Frobenius condition introduced by Garner and van den Berg in~\cite{garner:topological-simplicial}, which involves
-both a version of the usual Frobenius condition for maps, but  also a counterpart of it for morphisms of maps (\ie commutative squares).\footnote{In~\cite{garner:topological-simplicial},
+both a version of the usual Frobenius condition for maps, but  also a counterpart of it for morphisms of maps (\ie commutative squares),  which can be understood as a form of the Beck-Chevalley condition~\cite{benabou-descente,lawvere-equality}.\footnote{In~\cite{garner:topological-simplicial},
 the functorial Frobenius condition was actually formulated for cloven weak factorisation systems,
 which are slighly more general then algebraic weak factorisation systems.} Since algebraically-free algebraic 
 weak factorisation systems, such as those produced by Garner's small object
 argument~\cite{garner:small-object-argument}, 
-play an important role in our development, we begin the paper by 
-isolating   conditions on the generating 
-category of an algebraically-free awfs that are necessary and sufficient for the associated
-awfs to satisfy the functorial Frobenius condition. 
-In order to do so, we will introduce what we call the uniform Frobenius condition,
-which combines a version of the Frobenius condition for maps and a form of the
-Beck-Chevalley condition~\cite{benabou-descente,lawvere-equality}.
+play an important role in our development, we  
+isolate conditions on the generating category of an algebraically-free algebraic weak factorisation system that are necessary and sufficient for the algebraic weak factorisation system to satisfy the functorial Frobenius condition. 
+In order to do so, we introduce what we call the uniform Frobenius condition.
 
-The main results in this paper establish the existence of algebraic weak factorisation systems with the functorial Frobenius condition on presheaf categories
+The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorisation systems with the functorial Frobenius condition on presheaf categories
 equipped with a functorial cylinder. For this, we begin by defining the notions of a 
 uniform (trivial) fibration in the general setting of a  category equipped with a functorial cylinder, building on some ideas of Cisinski~\cite{cisinski-asterisque}.
 Uniform trivial fibrations are defined by algebraic  orthogonality (\ie by requiring a choice
@@ -98,21 +93,23 @@ of diagonal fillers satisfying a naturality condition) with respect to a categor
 Our first main result (\cref{thm:sset-cset-nwfs}) is that uniform trivial fibrations and uniform fibrations in presheaf categories equipped with a functorial cylinder
 are the right maps of two algebraic weak factorization systems.
 This is proved using Garner's small object argument~\cite{garner:small-object-argument} after having shown that uniform (trivial) fibrations can be be defined equivalently by algebraic orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
-Working with algebraic notions of fibrations is essential to prove this result, since it allows us to rephrase a general lifting problem as a colimit of a functorial family of lifting problems, providing
+Working with algebraic notions of fibrations is essential to prove this fact, since it allows us to rephrase a general lifting problem as a colimit of a functorial family of lifting problems, providing
 a further example of the good interaction between colimits and lifting problems
 in algebraic weak factorisation systems.
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration, defined by 
-a weak orthogonality property. In particular, (assuming the axiom of choice) we show that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property with respect to the maps involved in the definition of a uniform (trivial) fibration.
+a weak orthogonality property. In particular, we show that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property with respect to the maps involved in the definition of a uniform (trivial) fibration.
 In order to obtain this result, we will need to develop a careful decomposition of the lifting problems involved in the uniformity condition.
-For our third main result, we return to consider the general setting categories equipped with a functorial cylinder with connections and show that, under mild assumptions, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As an immediate consequence, we obtain that pushforward, \ie the right adjoint to pullback, along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
-In particular, the algebraic weak factorisation systems on presheaf categories with uniform fibrations as right maps considered earlier satisfy the uniform Frobenius condition (\cref{frobenius-uniform-presheaf}).
+For our third main result, we return to consider the general setting categories equipped with a functorial cylinder with connections and show that, under mild assumptions, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As a direct application, we obtain that the algebraic weak factorisation systems on presheaf categories with uniform fibrations as right maps constructed earlier in the paper satisfy the uniform Frobenius condition (\cref{frobenius-uniform-presheaf}).
 
 When instantiated to simplicial sets, our results imply that 
 the algebraic weak factorization system 
 with uniform Kan fibrations as right maps satisfies the 
-Frobenius property, and therefore that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. There are at least two reasons for the interest in this result. 
-First, it gives a new proof of the right properness of the Quillen model structure for Kan complexes. Secondly, since our proof is constructive, \ie avoids the the use of the law of excluded middle and the axiom of choice, it
-solves the open problem of obtaining a constructive counterpart of the fact, mentioned above, that pushforward along a  Kan fibration preserves  Kan fibrations, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}. Because of this, it seems therefore natural to regard the independence result in~\cite{coquand-non-constructivity-kan} simply as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as evidence that the simplicial setting is inherently non-constructive.
+Frobenius property, and therefore pushforward along a uniform Kan fibration
+preserves uniform Kan fibrations. There are at least two reasons for the interest in this result. 
+First,  since our proof is constructive, \ie avoids the the use of the law of excluded middle and the axiom of choice, 
+we solve the open problem of obtaining a constructive counterpart of the fact, mentioned above, that pushforward along a  Kan fibration preserves  Kan fibrations, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}. Because of this, it seems therefore natural to regard the independence result in~\cite{coquand-non-constructivity-kan} simply as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as evidence that the simplicial setting is inherently non-constructive. Secondly, it gives a new proof of the right properness of the Quillen model structure for Kan complexes.
+
+
 
 When instantiated in the category of cubical sets with connections, instead,
 our results give  a new constructive 
@@ -120,10 +117,9 @@ proof of the fact that pushforward along a uniform Kan fibration preserves unifo
 in cubical sets could be developed at a greater level of generality, so as to make them applicable also to simplicial sets. 
 
 
-\subsection*{Remarks} For brevity, we will not generally discuss the counterparts 
- for standard weak factorisation systems of our results for algebraic
-weak factorisation systems.
-Such results can be readily stated and proved by simply replacing 
+\subsection*{Remarks} For brevity, we will not always discuss the special cases  of our results for algebraic
+weak factorisation systems  for standard weak factorisation systems .
+Such results can be readily stated  by replacing 
 the existence of structure in the algebraic setting with the satisfaction of properties,
 functors between categories with inclusions between
 classes, pullbacks with intersections, and so on. This idea is illustrated in 
@@ -138,17 +134,18 @@ let us point out here for the interested readers  that
 cubical sets separately, in~\cref{rem:constructive-small-object}.\footnote{A constructive proof 
 of~\cref{thm:sset-cset-nwfs} in full generality would require an analysis of aspects
 of the theory of locally presentable categories and of Garner's small object argument 
-that we leave for future investigation.} For the results in~\cref{sec:non-alg}, where we show how the classical notion of a fibration is equivalent to the uniform one, the use of the axiom of choice inseems unavoidable.
+which we leave for future investigation.} For the results in~\cref{sec:non-alg}, where we show how the classical notion of a fibration is equivalent to the uniform one, the use of the axiom of choice inseems unavoidable.
 
 
 \subsection*{Organization of the paper}
-Section~\ref{sec:ortf} establishes basic facts about orthogonality functors. 
-We introduce the Frobenius, Beck-Chevalley, and uniform Frobenius conditions in Section~\ref{sec:frobc}. Section~\ref{sec:unif} introduces uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular,
+Section~\ref{sec:ortf} establishes basic facts about orthogonality functors.  In Section~\ref{sec:frobc}.
+we introduce the Frobenius, Beck-Chevalley, and uniform Frobenius conditions and related them
+to the functorial Frobenius condition. Section~\ref{sec:unif} introduces uniform fibrations, giving examples of these notions in presheaf categories in general and in simplicial and cubical sets in particular,
 and establishing the existence of algebraic weak factorization systems with uniform (trivial) fibrations as right maps.
 The relationship between uniform fibrations and their standard counterparts
  is studied in \cref{sec:non-alg}.
 After establishing some auxiliary results in \cref{sec:unifshe} on strong homotopy equivalences, we prove the uniform Frobenius property for 
-uniform fibrations under mild assumptions in~\cref{sec:frocuf}.
+uniform fibrations in~\cref{sec:frocuf}.
 Appendix~\ref{app:tecp} contains the proof of a technical lemma.
 
 \subsection*{Acknowledgements}
@@ -166,8 +163,8 @@ This material is based on research sponsored by the Air Force Research Laborator
 Let us begin by fixing some notation. For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the
 subcategory of $\cal{E}^\to$ with pullback squares as maps. 
 We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system~\cite{bousfield-wfs}. For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
-Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we will use this notation systematically below).
-The additional generality obtained by allowing~$u$ to be an arbitrary functor, rather than just an inclusion, will play an important role in our development.
+Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we  use this notation systematically below).
+The additional generality obtained by allowing~$u$ to be an arbitrary functor, rather than just an inclusion,  plays an important role in our development.
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
 
 \begin{definition} \label{def:right-map}
@@ -228,15 +225,14 @@ For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the 
 There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we 
 call   the \emph{right orthogonal} of $u \co \cal{I} \to \catE^\to$. The rest of this section is devoted to establishing some general facts regarding categories of right maps that will be useful in the remainder of the paper.
 Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the standard setting.
-They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, but we omit the most straightforward proofs.
+They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, omitting the most straightforward proofs.
 
 
-First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor
+First of all, recall from~\cite{garner:small-object-argument} that the function mapping a functor $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor of categories over $\catE^\to$, 
 \[
-  \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to}
+  \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to} \rlap{.}
 \]
-of categories over $\catE^\to$.
-In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action of this functor on arrows
+In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action of this functor on arrows, 
 \[
 \begin{aligned}
 \xymatrix@C-1em{
@@ -263,11 +259,11 @@ In view of its use in the proof of~\cref{thm:orth-nat}, let us recall the action
   \liftr{\cal{I}}
   \ar[dl]^{\liftr{u}}
 \\&
-  \catE^\to
+  \catE^\to \rlap{.}
 }
 \end{aligned}
 \]
-is defined as follows: for $F \co \cal{I} \to \cal{J}$ over $\catE^\to$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$ where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
+For $F \co \cal{I} \to \cal{J}$ over $\catE^\to$, we let $\liftr{F}(f,\phi) \defeq (f, \phi_F)$ where $\phi_F(i, s, t) \defeq \phi(Fi, s, t)$.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to the way in which standard orthogonality operations form a Galois connection, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
@@ -568,9 +564,9 @@ Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in
 \end{proposition}
 
 \begin{proof}
-First note that the composite $\cod_{\cal{E}_{/X}} \cc u_{/X}$ will also be a Grothendieck fibration.
-When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, 
-applying base change and naturality of diagonal fillers, 
+First note that the composite $\cod_{\cal{E}_{/X}} \cc u_{/X}$ is also a Grothendieck fibration.
+When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, an 
+application of base change and naturality of diagonal fillers shows that
 it is sufficient  to consider lifting problems with the bottom arrow an identity.
 But for such lifting problems the order of slicing makes no difference.
 \end{proof}
@@ -602,10 +598,8 @@ as categories over $\catE^\to$.
 \subsection*{Adjunctions}
 
 Next, we discuss the interaction between the orthogonality functors and adjunctions.
-In the standard setting of weak factorization systems and an adjunction $F \dashv G$ between categories $\cal{E}$ and $\cal{F}$ , it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$.
-We will provide a counterpart of this fact in our setting.
-
-For this and the next subsection, fix functors $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
+In the standard setting of weak factorization systems, it is well known that, given
+ adjunction $F \dashv G$ between categories $\cal{E}$ and $\cal{F}$ ,  if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$. To provide a counterpart of this fact in our setting, let us fix functors $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ for this and the next subsection.
 
 \begin{proposition} \label{lift-of-adjunction}
 For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following are equivalent:
@@ -646,12 +640,11 @@ For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following ar
 \qed
 \end{proposition}
 
-
+The next proposition involves the notion of a mate, defined in~\cite{kelly-street}.
 
 \begin{proposition} \label{lift-of-mates}
 Let $F_1 \dashv G_1$ and $F_2 \dashv G_2$ be adjunctions between $\cal{E}$ and $\cal{F}$ satisfying the equivalent conditions of \cref{lift-of-adjunction}.
-Let $m \co F_1 \to F_2$ and $n \co G_2 \to G_1$ be natural transformations forming mates in the sense of~\cite{kelly-street}.
-Then the following are equivalent:
+Let $m \co F_1 \to F_2$ and $n \co G_2 \to G_1$ be natural transformations forming mates. Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item
 The natural transformation $m$ lifts as follows:
@@ -691,7 +684,7 @@ The natural transformation $n$ lifts as follows:
 \qed
 \end{proposition}
 
-The example discussed in~\cref{exa:composition-pullback-lift} below will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
+\cref{exa:composition-pullback-lift} below will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
 
 \begin{remark} \label{exa:composition-pullback-lift}
 If $\cal{E}$ has pullbacks, for an arrow $f \co X \to Y$, we have an adjunction
@@ -742,8 +735,8 @@ By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE
 
 \subsection*{Leibniz adjunctions}
 
-We will now generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
-Let us fix bifunctors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \catE$ related pointwise for $k \in \cal{K}$ by an adjunction:
+We  now generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
+Let us fix bifunctors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \catE$ related pointwise, for $k \in \cal{K}$, by an adjunction:
 \[
 \xymatrix@C+1em{
   \catE
@@ -754,8 +747,8 @@ Let us fix bifunctors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K
   \ar@<5pt>[l]^{G(k, \arghole)}
 \rlap{.}}
 \]
-Assume that $\catE$ has pushouts and $\cal{F}$ has pullbacks.
-Let
+Assume that $\catE$ has pushouts and $\cal{F}$ has pullbacks and 
+let
 \[
 \begin{aligned}
   \widehat{F} &\co \cal{K}^\to \times \catE^\to \to \cal{F}^\to
@@ -765,7 +758,7 @@ Let
 \]
 denote the respective Leibniz constructions for $F$ and $G^{\op}$, using pullback instead of pushout for~$\widehat{G}$.
 In the standard setting, it is well known that if we have classes of maps $\cal{I} \subseteq \catE^\to$ and $\cal{J} \subseteq \cal{F}^\to$, then for each $h \in \cal{K}^\to$ we have $\widehat{F}(h, \cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq \widehat{G}(h, \cal{J})$.
-The next statement provides an analogue of this fact in the algebraic setting.
+The next statement generalize this fact in the algebraic setting.
 
 \begin{proposition} \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ be functors.
@@ -846,7 +839,7 @@ equivalent.
 \end{proof}
 
 Note that \cref{lift-of-adjunction} can be seen as a special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
-We will not have a need for the evident generalization of \cref{lift-of-mates} to Leibniz constructions.
+We will not need  the evident generalization of \cref{lift-of-mates} to Leibniz constructions.
 
 \begin{remark} \label{pitchfork-leibniz-most-general-example}
 In \cref{lift-of-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$.
@@ -1012,7 +1005,7 @@ in the sense of~\cref{thm:frobenius-def}.
 \end{remark} 
 
 
-For a weak factorization system in a category with pushforward functors, \ie right adjoints to pullbacks, the standard Frobenius condition is equivalent to saying that pushforward along a right map preserves right maps.
+For a weak factorization system in a category with pushforward functors, \ie right adjoints to pullback functors, the standard Frobenius condition is equivalent to saying that pushforward along a right map preserves right maps.
 The counterpart of this equivalence in our setting is provided by the next proposition.
 
 \begin{proposition} \label{lift-pushforward}
@@ -1029,7 +1022,7 @@ For a map $f \co X \to Y$ admitting pushforward,
 \]
 the following are equivalent:
 \begin{enumerate}[(i)]
-\item $f$ satisfies the Frobenius condition,
+\item $f$ satisfies the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$, 
 \item pushforward along $f$ lifts to a functor
 \[
 \xymatrix@C=1.5cm{
@@ -1128,7 +1121,7 @@ In order to state this, recall from \cref{exa:composition-pullback-lift} that fo
 
 \begin{proposition} \label{lift-pushforward-BC}
 Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$ and admit pushforward.
-A commuting square~\eqref{def:beck-chevalley:0} satisfies the Beck-Chevalley condition with respect to $u$ if and only if the canonical natural transformation
+A commuting square as in~\eqref{def:beck-chevalley:0} satisfies the Beck-Chevalley condition with respect to $u$ if and only if the canonical natural transformation
 \[
 \xymatrix@C+2em{
   \catE^\to_{/U}
@@ -1172,7 +1165,8 @@ Apply \cref{lift-of-mates} to the adjunctions $g^* t_! \dashv t^* g_*$ and $s_! 
 \subsection*{The uniform Frobenius condition} 
 We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions,
 which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius
-condition of~\cite{garner:topological-simplicial} and how it allows us to give a characterization of the functorial Frobenius condition for algebraically free algebraic weak factorisation systems.
+condition of~\cite{garner:topological-simplicial}. We then use the uniform Frobenius condition to give
+a characterization of the functorial Frobenius condition for algebraically-free algebraic weak factorisation systems.
 
 
 
@@ -1201,8 +1195,7 @@ satisfies the Beck-Chevalley condition with respect to $u$.
 \end{definition}
 
 In order relate the uniform Frobenius condition introduced above with the functorial Frobenius condition~\cite{garner:topological-simplicial}, it is convenient 
-to assemble all the ingredients of the uniform Frobenius condition into a single global functor, which we do in~\cref{uniform-frob-nice}.
-As such, this seems the most natural way to phrase the condition in our setting.
+to assemble all the ingredients of the uniform Frobenius condition into a single global functor, as we do in~\cref{uniform-frob-nice}, which seems the most natural way to phrase the condition in our setting.
 Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for the category of 
 pairs $(k, X)$, with $k \in \cal{K}$ and $X \in \cal{E}$ such that $w_k$ is over $X$, \ie the result of
 the opposite Grothendieck construction applied to the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
@@ -1227,7 +1220,7 @@ The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ wit
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Here, the pullbacks are with respect to the slicing part of the left factor and the codomain part of the right factor, and $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^* f$.
+Here, the pullbacks are with respect to the slicing part of the left factor and the codomain part of the right factor, and $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^*(f)$.
 \end{proposition}
 
 \begin{proof}
@@ -1315,9 +1308,17 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
 We may construct $Q_2$ from~$Q_1$ by pasting the inner square with the left triangle, given by $G$ and~$H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
 
- In applications, we might only need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
+In the context of standard weak factorisation systems, \cref{uniform-frobenius-functorial} implies that,
+for classes of maps $\cal{I}_t$ and $\cal{J}_t$, for $t \in \{ 1, 2 \}$, if $\cal{I}_1 \subseteq \liftl{(\liftr{I_2})}$,
+$\cal{I}_2 \subseteq \cal{I}_1$ and $\cal{J}_2 \subseteq \cal{J}_1$, if pullback along maps in $\cal{J}_1$
+preserves maps in $\cal{I}_1$, then pullback along maps in $\cal{J}_2$ preserves maps in $\cal{I}_2$. 
+
+
+\begin{remark} 
+ In some applications, we need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
 If only functoriality in $\cal{I}$ is desired, the map $H$ will default to an identity.
 If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default to a component of the unit of the monad $\liftl{(\liftr{(-)})}$ and an identity, respectively.
+\end{remark} 
 
 \begin{proposition} \label{uniform-frobenius-product-u}
 If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
@@ -1356,7 +1357,7 @@ For the below result, fix a functor $v \co \cal{J} \to \cal{E}^\to$ such that
 \end{gathered}
 \end{equation}
 is a morphism of Grothendieck fibrations.
-This is for example the case if $\cal{J}$ is a category of right maps as later on in \cref{strong-h-equiv-uniform-base-change} or the category of algebras in an algebraic weak factorization system.
+This is for example the case if $\cal{J}$ is a category of right maps as in \cref{strong-h-equiv-uniform-base-change} or the category of algebras in an algebraic weak factorization system.
 Under this assumption, the characterization of \cref{uniform-frob-nice} can be simplified even further.
 
 \begin{proposition}
@@ -1487,7 +1488,7 @@ These are provided by the uniform Frobenius condition in the form of part~(ii) o
 We introduce uniform (trivial) fibrations and establish some basic properties.
 Our main examples will be in categories of simplicial sets and cubical sets. 
 
-\subsection*{Functorial cylinders and uniform fibrations}
+\subsection*{Functorial cylinders}
 Let $\catE$ be a fixed category with finite colimits. For our purposes, it will be convenient to 
 work with a modified version of the standard definition of a functorial cylinder~\cite{kamps-porter:homotopy}, obtained by requiring also preservation of finite colimits.
 
@@ -1580,7 +1581,7 @@ As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cyli
 \end{example}
 
 
-
+\subsection*{Uniform fibrations} 
 
 Let us now fix a functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$.
 Given a functor $u \co \cal{I} \to \catE^\to$ (which we think of as the counterpart of a set of generating cofibrations), we will define a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations) and use it to define the notion of a uniform $\cal{I}$-fibration.
@@ -1642,7 +1643,6 @@ Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct dia
 \end{equation}
 Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not.
 With these definitions in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinctly, as in \cref{def:I-fibration} below.
-After stating the definition, we unfold it, illustrate it in some examples, and discuss its relation with Cisinski's notion of a naive fibration.
 
 \begin{definition} \label{def:I-fibration}
 Let $u \co \cal{I} \to \catE^\to$ be a functor.
@@ -1683,49 +1683,12 @@ where $i \in \cal{I}$ and $k \in \{0, 1 \}$.
 \subsection*{Uniform fibrations in presheaf categories} 
 
 
-We now introduce and study uniform trivial fibrations and uniform fibrations in presheaf categories. In this setting, the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque} it is 
-natural to consider $\cal{I}$ to be a category of monomorphisms. Rather than taking all monomorphisms, we work making only some assumotions on this category, so as to recover
+We now introduce and study  uniform  (trivial) fibrations  in presheaf categories. Let us fix a presheaf category $\catE = \Psh(\cat{C})$, where $\cat{C}$ is a small category, and
+write $\yon \co \catC \to \catE$ for the Yoneda embedding. We assume that $\catE$ is equipped with a functorial cylinder $( \interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ and that the endofunctor $ \interval\otimes (-) \co \catE \to \catE$ has a right adjoint.\footnote{The latter assumption allows us to transport statements about uniform trivial fibrations to uniform fibrations via \cref{prod-exp-general}.}
+In this setting, the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, it is 
+natural to consider $\cal{I}$ to be a category of monomorphisms. Rather than taking all monomorphisms, we work making only some assumptions on this category, so as to recover
 as a special case also the notion of uniform fibration in~\cite{cohen-et-al:cubicaltt}. 
-Let us fix a presheaf category $\catE = \Psh(\cat{C})$, where $\cat{C}$ is a small category, and
-write $\yon \co \catC \to \catE$ for the Yoneda embedding. We also fix $\cal{M}$ to be a full subcategory of $\catE_\cart^\to$ whose objects are monomorphisms.
-
-
-
-\begin{definition} \label{exa-triv-kan-fib}
-A \emph{uniform trivial $\cal{M}$-fibration} is a  right $\cal{M}$-map. 
-\end{definition}
-
-The compatibility condition for a uniform trivial $\cal{M}$-fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
-\[
-\xymatrix{
-  A
-  \ar[r]^{h}
-  \ar[d]_{i}
-  \pullback{dr}
-&
-  C \ar[d]^{j}
-  \ar[r]^{s}
-&
-  X \ar[d]^f
-\\
-  B
-  \ar[r]_{k}
-&
-  D \ar[r]_{t}
-&
-  Y
-\rlap{,}}
-\]
-where $i$ and $j$ are in $\cal{M}$ and the square on the left is a pullback.
-
-\begin{example} In the categories $\SSet$ or $\CSet$ of simplicial sets and cubical sets, we consider $\cal{M}$ to consist of all monomorphisms. A uniform trivial $\cal{M}$-fibration will be called a \emph{uniform trivial Kan fibration}.\footnote{When working constructively, it is appropriate to restrict the attention to decidable  monomorphisms, \ie natural transformations whose components are injective functions with decidable image. See~\cref{rem:constructive-small-object} for further comments on this issue.}
-\end{example}
-
-
-
-
-To define uniform fibrations, let us now assume that $\catE$ is equipped with a functorial cylinder $( \interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ and that the endofunctor $ \interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
-The latter assumption allows us to transport statements about uniform trivial $\cal{M}$-fibrations to uniform $\cal{M}$-fibrations via \cref{prod-exp-general}.
+We isolate the appropriate assumptions in the next definition.
 
 
 \begin{definition} \label{uniform-fib-presheaf-cat}
@@ -1761,28 +1724,46 @@ Since pushouts in presheaf categories are stable under base change, conditions~(
 \end{remark}
 
 If one takes $\cal{M}$ to be the full subcategory of $\catE_\cart^\to$ of all monomorphisms, the 
-conditions~(i) to~(v) are inherited from the setting $\calE \defeq \Set$. This choice of $\cal{M}$
+conditions~(i) to~(v) are inherited from the setting of $\calE \defeq \Set$. This choice of $\cal{M}$
 is particularly natural for presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant} , where the right lifting property
-with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms,
-see also~\cref{sec:non-alg}.  
+with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms
+(see also~\cref{sec:non-alg}).  
 
-Below, we fix a suitable category of monomorphisms $\cal{M}$.
-We write~$u \co \cal{M} \hookrightarrow \catE^\to$ to denote the inclusion.
-The categories of uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are defined by letting
+We now fix a suitable category of monomorphisms $\cal{M}$ and write~$u \co \cal{M} \hookrightarrow \catE^\to$ to denote the inclusion. In this context, it is useful to refer to a  right $\cal{M}$-map as a \emph{uniform trivial $\cal{M}$-fibration} and define the category of uniform trivial $\cal{M}$-fibrations  by letting
 \[
-\begin{aligned}
-  \TrivFib{\cal{M}} &\defeq \liftr{\cal{M}}
-\, ,&
-  \Fib{\cal{M}} &\defeq \liftr{(\cal{M}_\otimes)}
-\rlap{,}
-\end{aligned}
+  \TrivFib{\cal{M}} \defeq \liftr{\cal{M}}
 \]
-respectively. Below, we illustrate the notion of a uniform $\cal{M}$-fibration in the special cases of simplicial sets and cubical sets.
+The compatibility condition for a uniform trivial $\cal{M}$-fibration $(f, \phi) \co X \to Y$ involves diagrams of the form
+\[
+\xymatrix{
+  A
+  \ar[r]^{h}
+  \ar[d]_{i}
+  \pullback{dr}
+&
+  C \ar[d]^{j}
+  \ar[r]^{s}
+&
+  X \ar[d]^f
+\\
+  B
+  \ar[r]_{k}
+&
+  D \ar[r]_{t}
+&
+  Y
+\rlap{,}}
+\]
+where $i$ and $j$ are in $\cal{M}$ and the square on the left is a pullback. The category of uniform  $\cal{M}$-fibrations, 
+which are defined by instantiating~\cref{def:I-fibration}, is given by letting
+\[
+  \Fib{\cal{M}} \defeq \liftr{(\cal{M}_\otimes)} \rlap{.}
+\]
+Below, we illustrate the notion of a uniform (trivial) $\cal{M}$-fibration in the special cases of simplicial sets and cubical sets.
 
 
-\begin{example}[Uniform Kan fibrations in simplicial sets]
-A uniform $\cal{M}$-fibration in $\SSet$ with $\cal{M}$ consisting of all  monomorphisms will be called a \emph{uniform Kan fibration}.
-More explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simplicial map $p \co X \to Y$ and a function $\phi$ that provides diagonal fillers for diagrams of the form
+\begin{example}[Uniform  Kan fibrations in simplicial sets] In the category $\SSet$  of simplicial sets, we consider $\cal{M}$ to consist of all monomorphisms.\footnote{When working constructively, it is appropriate to restrict the attention to decidable  monomorphisms, \ie natural transformations whose components are injective functions with decidable image. See~\cref{rem:constructive-small-object} for further comments on this issue.} A uniform (trivial) $\cal{M}$-fibration will be called a \emph{uniform (trivial) Kan fibration}.
+Explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simplicial map $p \co X \to Y$ and a function $\phi$ that provides diagonal fillers for diagrams of the form
 \[
 \xymatrix{
   (\Delta^1 \times A) \cup (\braces{k} \times B)
@@ -1804,8 +1785,7 @@ However, they are included indirectly since they are retracts of the Leibniz pro
 We will show in \cref{thm:ac-kan-is-uniform} that, assuming the axiom of choice, every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
 \end{example}
 
-\begin{example}[Uniform Kan fibrations in cubical sets]
-A uniform $\cal{M}$-fibration in $\CSet$ with~$\cal{M}$ consisting of all  monomorphisms will be called a \emph{uniform Kan fibration}.
+\begin{example}[Uniform Kan fibrations in cubical sets] Also in the category $\CSet$  of cubical sets, we consider $\cal{M}$ to consist of all monomorphisms. A uniform (trivial) $\cal{M}$-fibration in $\CSet$ will be called a \emph{uniform (trivial) Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $n$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
 Then~$\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
@@ -2002,18 +1982,22 @@ Similarly, for (ii), one uses part (ii) of~\cref{small-gen-triv-kan} and smallne
 
 
 \begin{remark} \label{rem:constructive-small-object}
-\cref{thm:sset-cset-nwfs} applies to both $\SSet$ and $\CSet$. In these cases, we explain why the result holds constructively, \ie without using 
+\cref{thm:sset-cset-nwfs} applies to both $\SSet$ and $\CSet$. In these cases, we explain why the result can be proved
+ constructively, \ie without using 
 the law of excluded middle or the axiom of choice. 
 First, observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects. For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. 
 The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial $\cal{M}$-fibrations follows from part~(i) of \cref{small-gen-triv-kan}.
-The reasoning for part (ii) is analogous, noting that also the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. \cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$ having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) Kan fibration.
+The reasoning for part (ii) is analogous, noting that also the values of $u_\otimes$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. 
+
+For this argument, the assumption of working with decidable monomorphisms in a constructive setting is used
+to obtain the smallness of $\cal{N}$ and $\cal{N}_\otimes$ without relying on the Power Set axiom. We believe 
+that this restriction is important also to treat constructively further aspects of the theory, such as universes~\cite{cohen-et-al:cubicaltt}.
+
+\cref{thm:sset-cset-nwfs} suggests the possibility of defining constructively model structures on $\SSet$ and $\CSet$ having as (trivial) fibrations the maps that admit the structure of a uniform (trivial) Kan fibration.
 We leave this question to further investigation. 
 
-The assumption of working with decidable monomorphisms in a constructive setting implies that
-the smallness of $\cal{N}$ and $\cal{N}_\otimes$ does not rely on the Power Set axiom. Furthermore,
-we believe that this restriction is important to treat constructively further aspects of the theory,
-such as universes~\cite{cohen-et-al:cubicaltt}.
+
 \end{remark} 
 
 
@@ -2026,22 +2010,27 @@ such as universes~\cite{cohen-et-al:cubicaltt}.
 The aim of this section\footnote{Readers interested in constructive aspects should note that we
 use the law of excluded middle and the axiom of choice in this section.} is to study the notion of a uniform (trivial) $\cal{M}$-fibration in the context of presheaf categories over elegant Reedy presheaves, in the sense of \cite{bergner-rezk-elegant}, equipped with a functorial cylinder whose endofunctor has a right adjoint.%
 \footnote{It might be possible to adapt our arguments to a weaker setting where instead of having a right adjoint, the functorial cylinder only preserves certain colimits. We do not pursue this direction here.}
-In particular, we introduce the notion of a (trivial) fibration and fibration in that setting, essentially generalizing in a straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
-We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of~$\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones in the presence of the axiom of choice.
-The primary role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibrations.
+In particular, we introduce the notion of a (trivial) fibration and fibration in that setting,  generalizing in an
+essentially straightforward way the definitions of the notion of a (trivial) Kan fibration in simplicial sets.
+We then show that every (trivial) fibration admits the structure of a uniform (trivial) $\cal{M}$-fibration for any choice of~$\cal{M}$ as a full subcategory of monomorphisms of $\cal{E}_{\cart}^\to$, thereby establishing how our notions relate to more familiar ones.
+The primary role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibrations. Let us begin by reviewing some terminology.
 
-Let us begin by reviewing some terminology.
-Recall that a \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
+\begin{definition} A \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
 \begin{enumerate}[(i)]
 \item the maps of $\Rp$, called \emph{cofaces}, are monotone with respect to $\deg$,
 \item the maps of $\Rm$, called \emph{codegeneracies}, are antimonotone with respect to $\deg$,
 \item every map in $\R$ is assumed to factor uniquely as a codegeneracy followed by a coface,
 \item the only isomorphisms in $\R$ are identities.
 \end{enumerate}
-For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_{<n}$ and a \emph{coskeleton} monad $\Cosk_{<n}$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_{<n} \dashv \Cosk_{<n}$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$.
+\end{definition}
 
-Given a presheaf $F$ on $R$, an element $x \in F(A)$ is called \emph{degenerate} and a \emph{degeneracy of} $y \in F(B)$ if there is non-identity $d \co A \to B$ in $\Rm$ such that $x = Fd(y)$.
-Following~\cite{bergner-rezk-elegant}, we call the Reedy category $\R$ \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
+For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_{<n}$ and a \emph{coskeleton} monad $\Cosk_{<n}$ on $\catE = \Psh(\R)$ (both idempotent) forming an adjunction $\Sk_{<n} \dashv \Cosk_{<n}$ derived from left and right Kan extension along the full embedding $\R_{<n} \to \R$ of objects of degree less than $n$.
+Given a presheaf $F$ on $R$, an element $x \in F(A)$ is called \emph{degenerate} and a \emph{degeneracy of} $y \in F(B)$ if there is non-identity $d \co A \to B$ in $\Rm$ such that $x = Fd(y)$. The notion of an elegant Reedy category,
+recalled below, was introduced originally in~\cite{bergner-rezk-elegant}.
+
+\begin{definition} A Reedy category $\R$ is said to be \emph{elegant} if every element in any presheaf on $\R$ is a degeneracy in a unique way.
+\end{definition} 
+
 For example, the simplex category $\Delta$ is an elegant Reedy category.
 In an elegant Reedy category $\R$, the action of $\Sk_{<n}$ can be described as keeping only the non-degenerate elements of degree strictly less than $n$: for any $X \in \Psh(\R)$, the counit $\Sk_{<n}(X) \to X$ of the skeleton comonad on $X$ is a monomorphism.
 Given $A \in \R$, the \emph{boundary} of $A$ is defined as $\partial A \defeq \Sk_{<\deg(A)}(\yon A)$.
@@ -2049,9 +2038,9 @@ The counit of $\Sk_{<\deg(A)}$ induces a \emph{boundary inclusion} monomorphism 
 
 \medskip
 
-For the remainder of this section, we fix an elegant Reedy category $\R$ and consider the category $\calE \defeq \Rhat$ of presheaves over it.%
+For the remainder of this section, we fix an elegant Reedy category~$\R$ and consider the category~$\calE \defeq \Rhat$ of presheaves over it.%
 \footnote{Note that our use of elegant Reedy presheaves is different from the one considered in~\cite{shulman:reedy} since here presheaves are valued in the category of sets, not in simplicial sets.}
-We start by defining non-coherent notions of (trivial) fibrations (\cf also \cref{cisinski-remark}).
+We start by defining the following notion of a (trivial) fibration (\cf also \cref{cisinski-remark}).
 
 \begin{definition}
 Let $\cal{I}$ be the discrete subcategory of $\catE^{\to}$ consisting of boundary inclusions $\partial A \to \yon A$.
@@ -2097,8 +2086,8 @@ This explains why we have to restrict $d \co A_1 \to A_2$ to non-identity maps: 
 
 
 
-We wish to show that every (trivial) fibration  can be equipped with the structure of a uniform (trivial) fibration. We begin by proving that every trivial fibration  can be equipped with the structure of a uniform trivial fibration. This will shown in two steps: first,  we show that 
-every trivial fibration admits the structure of a regular trivial fibration (\cref{trivial-fibration-to-regular}); secondly, we show
+We wish to show that every (trivial) fibration  can be equipped with the structure of a uniform (trivial) fibration. We begin by proving that every trivial fibration  can be equipped with the structure of a uniform trivial fibration. This will shown in two steps: first,  we prove that 
+every trivial fibration admits the structure of a regular trivial fibration (\cref{trivial-fibration-to-regular}); secondly, we prove
 that every regular trivial fibration admits the structure of a uniform trivial 
 fibration~(\cref{regular-trivial-fibration-to-uniform}). 
 
@@ -2183,11 +2172,12 @@ Note that the construction of \cref{trivial-fibration-to-regular} does not seem 
 
 \medskip
 
-We will now relate regular trivial fibrations with uniform trivial $\cal{M}$-fibrations.
+We  now relate regular trivial fibrations with uniform trivial $\cal{M}$-fibrations.
 For this, we review how to reduce a lifting problem involving a monomorphism to lifting problems involving boundary inclusions.
 
-\begin{definition}
-A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ is a cocontinuous ordinal-indexed diagram $F \co \gamma \to \catE_{\backslash U}$ with colimit $i$
+\begin{definition} \hfill 
+\begin{enumerate}[(i)] 
+\item A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ is a cocontinuous ordinal-indexed diagram $F \co \gamma \to \catE_{\backslash U}$ with colimit $i$
 \[
 \xymatrix{
   U = F 0
@@ -2203,8 +2193,8 @@ A \emph{cellular presentation} of a monomorphism $i \co U \to V$ in $\catE$ is a
 }
 \]
 such that for $\beta + 1 < \gamma$, the image of a successor step $s_{\beta} \co \beta \to \beta + 1$ under $F$ is a (possibly infinite) coproduct of boundary inclusions.
-
-A \emph{morphism of cellular presentations} from $F \co \gamma \to \cal{E}_{\backslash U}$ to $G \co \delta \to \cal{E}_{\backslash U}$ is a map $h \co \delta \to \gamma$ such that $F \simeq G \cc h$.
+\item A \emph{morphism of cellular presentations} from $F \co \gamma \to \cal{E}_{\backslash U}$ to $G \co \delta \to \cal{E}_{\backslash U}$ is a map $h \co \delta \to \gamma$ such that $F \simeq G \cc h$.
+\end{enumerate}
 \end{definition}
 
 Note that a transfinite composition of cobase changes of coproducts of cellular presentations can be flattened to a single cellular presentation.
@@ -2439,15 +2429,17 @@ The claim then follows by \cref{prod-exp-general}.
 \section{Uniform fibrations and strong homotopy equivalences}
 \label{sec:unifshe}
 
-This section and the next one are devoted to establish general results on
-the uniform Frobenius condition for uniform fibrations. 
+This section and the next one are devoted to establish results on
+the uniform Frobenius condition for uniform fibrations, leading to the
+proof that the algebraic weak factorisation system on presheaf categories
+with uniform fibrations as right maps satisfies the functorial Frobenius condition.
 This section contains the main technical results needed to establish 
-our main results, which are presented in~\cref{sec:frocuf}. The key ingredient is the notion of a 
+our main results, which are then presented in~\cref{sec:frocuf}. The key ingredient is the notion of a 
 strong homotopy equivalence, which we introduce in~\cref{def:strhe}, and the possibility 
 of defining functors transforming uniform fibrations into right maps for  categories of
 strong homotopy equivalences, in~\cref{thm:onedir,thm:twodir}. This, in turn, 
 relies in part on the characterization of strong homotopy equivalences
- as particular sections of \cref{strong-h-equiv-as-section}. 
+ as particular sections (\cref{strong-h-equiv-as-section}). 
 
 
 
@@ -2477,7 +2469,7 @@ A map $f \co X \to Y$ is called a \emph{left} (or \emph{0-oriented}) \emph{homot
 Dually, a map $f \co X \to Y$ is called a \emph{right} (or \emph{1-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
 If the functorial cylinder has contractions, the notion of a (\emph{left/0-oriented} or \emph{right/1-oriented}) \emph{strong deformation retract} is obtained by requiring also that the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-)
 \to \Id_\catE$ is the contraction of the functorial cylinder.
-The following generalization of strong deformation retracts will be very important in our development.
+The following generalization of strong deformation retracts is  very important in our development.
 
 \begin{definition} \label{def:strhe}
 A (left or right) homotopy equivalence as above is said to be \emph{strong} if the diagram
@@ -3057,7 +3049,7 @@ By \cref{effective-connections-leibniz}, the functorial cylinder has effective c
 \end{equation}
 This retract situation is the categorical reason why in~\cite{cohen-et-al:cubicaltt} 
 it is possible to reduce the Kan filling operation to what is called there composition.
-Translating this to our language, let us consider a lifting problem of the form $\kcyl \hatotimes f \to p$.
+This idea can be translated to our setting as follows. Let us consider a lifting problem of the form $\kcyl \hatotimes f \to p$.
 A \emph{filling} consists of a diagonal filler for that square.
 A \emph{composition} consists of a diagonal filler for the composite square $f \to \kcyl \hatotimes f \to p$ obtained by prefixing $\theta^k \hatotimes f$.
 Using the retract situation of \eqref{retraction-for-connections:0}, filling for a lifting 
@@ -3154,12 +3146,12 @@ relating uniform $\cal{I}$-fibrations with right maps for strong homotopy equiva
 \section{The uniform Frobenius condition for uniform fibrations}
 \label{sec:frocuf}
 
-In this section we show that the algerbraic weak factoristion system in which the right maps
+In this section we show that the algerbraic weak factorization system in which the right maps
 are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
 For this, we will use our characterisation of the functorial Frobenius property in algebraically
 free algebraic weak factorisation systems, in~\cref{thm:frobenius-comparison}. 
 
-As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}, where $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
+As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}. Here, $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
 In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi) \co X \to Y$, pullback along $p$ lifts as follows:
 \[
 \xymatrix@C+2em{
@@ -3269,9 +3261,8 @@ The claim follows from~\cref{uniform-fibrations-uniform-frobenius}.
 
 Second, pushforward behaves coherently with respect to pullback.
 
-\begin{corollary} \label{uniform-fibrations-BC-pushforward}
-Let $(s, t) \co p \to q$ be a map of uniform $\cal{I}$-fibrations $p \co X \to Y$ and $q \co U \to V$ additionally forming a pullback square.
-The canonical natural transformation $\psi \co t^* q_* \to p_* s^*$ lifts to a natural transformation
+\begin{corollary} \label{uniform-fibrations-BC-pushforward} Under the assumptions $(1)$-$(3)$ stated above, 
+for every map of uniform $\cal{I}$-fibrations $(s, t) \co p \to q$ , where  $p \co X \to Y$ and $q \co U \to V$,  the canonical natural transformation $\psi \co t^* q_* \to p_* s^*$ lifts to a natural transformation
 \[
 \xymatrix@C+2em{
   \Fib{\cal{I}}_{/U}
@@ -3295,7 +3286,7 @@ If $(s, t) \co p \to q$ forms a pullback square, then $\psi'$ is a natural isomo
 The claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lift-pushforward-BC} (see also \cref{beck-chevalley-iso})
 \end{proof}
 
-We can apply the above results to prove our final result. 
+We can apply the above results to uniform fibrations in presheaf categories,  studied in~\cref{sec:unif}.
 
 \begin{theorem} 
 \label{frobenius-uniform-presheaf}
@@ -3325,13 +3316,12 @@ and so the pushforward of a uniform $\cal{M}$-fibration along a uniform $\cal{M}
 
 \begin{example}[The uniform Frobenius condition for uniform Kan fibrations in simplicial sets]
 Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
-We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations~\cite{voevodsky-simplicial-model}, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
+We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations (a fact equivalent to right properness for the model structure, see also \cite[Lemma 4.3.1]{voevodsky-simplicial-model}), which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
+
 
 Since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.
 In fact, as usual, only the base needs to be assumed uniform Kan.
-This can be seen as follows.
-
-Let $p \co Y \to X$ be a uniform Kan fibration and $i \co A \to B$ be a  monomorphism.
+This can be seen as follows. Let $p \co Y \to X$ be a uniform Kan fibration and $i \co A \to B$ be a  monomorphism.
 Recall that $\cal{S}_k(\cal{M})$ is closed under Leibniz product with $i$ for $k \in \braces{0, 1}$ (it is true separately for $\cal{S}_k$ and $\cal{M}$).
 By Leibniz adjointness (\cref{lift-of-leibniz-adjunction}), we have that $\hatexp(i, p)$ is again a uniform Kan fibration.
 The above statement is then the special case $X \defeq 1$ and $A \defeq 0$.
@@ -3339,15 +3329,17 @@ The above statement is then the special case $X \defeq 1$ and $A \defeq 0$.
 
 \begin{example}[The uniform Frobenius condition for uniform Kan fibrations in cubical sets]
 Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in cubical sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\CSet$.
-Insufficiency of the classical notion of cubical Kan fibration for a constructive derivation of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}.
+Insufficiency of the standard notion of cubical Kan fibration for a constructive proof 
+of this statement should follow by an argument analogous to~\cite{coquand-non-constructivity-kan}.
 \end{example}
 
 We conclude the paper by describing how our results give also a new proof of the
 right properness of the Quillen model structure for Kan complexes. 
 
 \begin{remark}[Right properness of the model structure for Kan complexes]
-As explained in the introduction, the Frobenius condition for a weak factorization system is closely related to the right properness condition for a model structure. In particular, when applied to the category of simplicial sets, \cref{frobenius-uniform-presheaf} gives a new
-proof of the right properness of the Quillen model structure for Kan complexes. This follows
+As explained in the introduction, the Frobenius condition for a weak factorization system is closely related to the right properness condition for a model structure. In particular, when applied to the category of simplicial sets, our results give a new
+proof of the right properness of the Quillen model structure for Kan complexes. This follows from
+\cref{frobenius-uniform-presheaf}
 simply by recalling that a map of simplicial sets is a Kan fibration if and only if it admits
 the structure of a uniform Kan fibration (\cref{thm:ac-kan-is-uniform}). 
 Our proof avoids both the use of topological realization, which is used 
