@@ -35,28 +35,27 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 \section*{Introduction}
 
 
-Algebraic weak factorisation systems~\cite{garner:small-object-argument,grandis-tholen-nwfs} are a variant of standard weak factorisation systems~\cite{bousfield-wfs}
-that involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for lifting problems which is subject to a naturality condition.
-They were originally introduced  in the context of categorical homotopy theory in order to address some unsatisfactory aspects of standard weak factorisation systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
+Algebraic weak factorization systems~\cite{garner:small-object-argument,grandis-tholen-nwfs} are a variant of standard weak factorization systems~\cite{bousfield-wfs}. They involve maps which do not just satisfy a  lifting property (as in the definition of a Kan fibration), but are equipped with additional structure, given by an explicit choice of solutions for lifting problems which satisfies a naturality condition.
+Algebraic weak factorization systems were originally introduced  in the context of categorical homotopy theory in order to address some unsatisfactory aspects of standard weak factorization systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
 In recent years, their theory has been developed significantly, thanks especially 
 to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II}, and has found applications not only
-higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs}, but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf} via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
+higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs}, but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
 which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
 
   
- Our general aim here is to develop further the theory of algebraic weak factorisation systems and provide some
+ Our general aim here is to develop further the theory of algebraic weak factorization systems and provide some
  applications. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
-and use it to construct algebraic weak factorisation systems on presheaf categories, obtaining 
- results that can be understood as algebraic counterparts of some important results of Cisinski's theory
-of Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
+and use it to construct algebraic weak factorization systems on presheaf categories, obtaining 
+  algebraic counterparts of some important results of Cisinski 
+on Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
 As applications of our results, we  solve an open problem in univalent foundations, namely that of proving a constructive version of the
- fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}, and obtain a new proof of the right 
- properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}.
- This proof avoids entirely the use of topological realization~\cite{hovey-model-categories} and
+ fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. We also obtain a new proof of the right 
+ properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, 
+ which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
  the theory of minimal fibrations~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
-We will be particularly  interested in the property of weak factorisation systems  
+We will be particularly  interested in the property of weak factorization systems  
 known as the Frobenius 
 condition~\cite[Definition~3.2.1]{garner:types-omega-groupoids}.\footnote{See~\cite{clementino:frobenius}
 for an explanation of the connection with Lawvere's Frobenius reciprocity 
@@ -66,24 +65,24 @@ which asserts that that the pullback along a right map preserves left maps, is t
 right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak 
 equivalences. Indeed, for 
 a Quillen model structure in which the cofibrations are the monomorphisms, such as the Cisinski model structures~\cite{cisinski-asterisque},   
-right properness  is equivalent to the Frobenius condition for the  weak factorisation system of acyclic cofibrations and fibrations. 
+right properness  is equivalent to the Frobenius condition for the  weak factorization system of acyclic cofibrations and fibrations. 
 Furthermore, when  pushforwards along right maps exist, \ie pullbacks along  right maps have right adjoints, the Frobenius condition
 is equivalent to the preservation of right maps by pushforward along a right map. In the category of simplicial sets, this amounts exactly to the preservation of Kan fibrations by pushforward along Kan fibrations mentioned above, 
 a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. The Frobenius condition is also intimately related to the homotopy-theoretic aspects of Martin-L\"of rules for identity types~\cite{gambino-garner:idtypewfs}.
 
 
-In the context of algebraic weak factorisation systems, it is natural to consider the functorial
+In the context of algebraic weak factorization systems, it is natural to consider the functorial
 Frobenius condition introduced by Garner and van den Berg in~\cite{garner:topological-simplicial}, which involves
 both a version of the usual Frobenius condition for maps, but  also a counterpart of it for morphisms of maps (\ie commutative squares),  which can be understood as a form of the Beck-Chevalley condition~\cite{benabou-descente,lawvere-equality}.\footnote{In~\cite{garner:topological-simplicial},
-the functorial Frobenius condition was actually formulated for cloven weak factorisation systems,
-which are slighly more general then algebraic weak factorisation systems.} Since algebraically-free algebraic 
-weak factorisation systems, such as those produced by Garner's small object
+the functorial Frobenius condition was actually formulated for cloven weak factorization systems,
+which are slighly more general then algebraic weak factorization systems.} Since algebraically-free algebraic 
+weak factorization systems, such as those produced by Garner's small object
 argument~\cite{garner:small-object-argument}, 
 play an important role in our development, we  
-isolate conditions on the generating category of an algebraically-free algebraic weak factorisation system that are necessary and sufficient for the algebraic weak factorisation system to satisfy the functorial Frobenius condition. 
+isolate conditions on the generating category of an algebraically-free algebraic weak factorization system that are necessary and sufficient for the algebraic weak factorization system to satisfy the functorial Frobenius condition. 
 In order to do so, we introduce what we call the uniform Frobenius condition.
 
-The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorisation systems with the functorial Frobenius condition on presheaf categories
+The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorization systems with the functorial Frobenius condition on presheaf categories
 equipped with a functorial cylinder. For this, we begin by defining the notions of a 
 uniform (trivial) fibration in the general setting of a  category equipped with a functorial cylinder, building on some ideas of Cisinski~\cite{cisinski-asterisque}.
 Uniform trivial fibrations are defined by algebraic  orthogonality (\ie by requiring a choice
@@ -95,11 +94,11 @@ are the right maps of two algebraic weak factorization systems.
 This is proved using Garner's small object argument~\cite{garner:small-object-argument} after having shown that uniform (trivial) fibrations can be be defined equivalently by algebraic orthogonality with respect to a small category of maps (\cref{small-gen-triv-kan}).
 Working with algebraic notions of fibrations is essential to prove this fact, since it allows us to rephrase a general lifting problem as a colimit of a functorial family of lifting problems, providing
 a further example of the good interaction between colimits and lifting problems
-in algebraic weak factorisation systems.
+in algebraic weak factorization systems.
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration, defined by 
 a weak orthogonality property. In particular, we show that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property with respect to the maps involved in the definition of a uniform (trivial) fibration.
 In order to obtain this result, we will need to develop a careful decomposition of the lifting problems involved in the uniformity condition.
-For our third main result, we return to consider the general setting categories equipped with a functorial cylinder with connections and show that, under mild assumptions, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As a direct application, we obtain that the algebraic weak factorisation systems on presheaf categories with uniform fibrations as right maps constructed earlier in the paper satisfy the uniform Frobenius condition (\cref{frobenius-uniform-presheaf}).
+For our third main result, we return to consider the general setting categories equipped with a functorial cylinder with connections and show that, under mild assumptions, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As a direct application, we obtain that the algebraic weak factorization systems on presheaf categories with uniform fibrations as right maps constructed earlier in the paper satisfy the uniform Frobenius condition (\cref{frobenius-uniform-presheaf}).
 
 When instantiated to simplicial sets, our results imply that 
 the algebraic weak factorization system 
@@ -118,7 +117,7 @@ in cubical sets could be developed at a greater level of generality, so as to ma
 
 
 \subsection*{Remarks} For brevity, we will not always discuss the special cases  of our results for algebraic
-weak factorisation systems  for standard weak factorisation systems .
+weak factorization systems  for standard weak factorization systems .
 Such results can be readily stated  by replacing 
 the existence of structure in the algebraic setting with the satisfaction of properties,
 functors between categories with inclusions between
@@ -519,7 +518,7 @@ Dually, taking the strict pullback along the map on arrows induced by the forget
 \]
 which also admits an explicit description, dual to the one given above for $\cal{I}_{/X}$.
 With these definitions in place, the commutation between 
-slicing and weak orthogonality functors in the setting of algebraic weak factorisation 
+slicing and weak orthogonality functors in the setting of algebraic weak factorization 
 systems can be stated as follows.
 
 \begin{proposition} \label{pitchfork-slicing}
@@ -953,8 +952,8 @@ is an isomorphism.
 
 
 The aim of this section is to obtain a necessary and sufficient condition for an algebraically free algebraic weak
-factorisation system~\cite{garner:small-object-argument} to satisfy the functorial Frobenius condition~\cite{garner:topological-simplicial}, expressed purely in terms of its generating category. We will use this characterization 
-in~\cref{sec:frocuf} to prove that algebraic weak factorisation systems with uniform fibrations as right maps
+factorization system~\cite{garner:small-object-argument} to satisfy the functorial Frobenius condition~\cite{garner:topological-simplicial}, expressed purely in terms of its generating category. We will use this characterization 
+in~\cref{sec:frocuf} to prove that algebraic weak factorization systems with uniform fibrations as right maps
 have the functorial Frobenius property. 
 
 We begin by introducing the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$ for a category $\cal{E}$ will pullbacks, and a corresponding Beck-Chevalley condition for squares. We combination of these conditions is what we call the uniform Frobenius condition, which we then relate to the functorial Frobenius
@@ -1166,7 +1165,7 @@ Apply \cref{lift-of-mates} to the adjunctions $g^* t_! \dashv t^* g_*$ and $s_! 
 We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions,
 which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius
 condition of~\cite{garner:topological-simplicial}. We then use the uniform Frobenius condition to give
-a characterization of the functorial Frobenius condition for algebraically-free algebraic weak factorisation systems.
+a characterization of the functorial Frobenius condition for algebraically-free algebraic weak factorization systems.
 
 
 
@@ -1308,7 +1307,7 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
 We may construct $Q_2$ from~$Q_1$ by pasting the inner square with the left triangle, given by $G$ and~$H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
 
-In the context of standard weak factorisation systems, \cref{uniform-frobenius-functorial} implies that,
+In the context of standard weak factorization systems, \cref{uniform-frobenius-functorial} implies that,
 for classes of maps $\cal{I}_t$ and $\cal{J}_t$, for $t \in \{ 1, 2 \}$, if $\cal{I}_1 \subseteq \liftl{(\liftr{I_2})}$,
 $\cal{I}_2 \subseteq \cal{I}_1$ and $\cal{J}_2 \subseteq \cal{J}_1$, if pullback along maps in $\cal{J}_1$
 preserves maps in $\cal{I}_1$, then pullback along maps in $\cal{J}_2$ preserves maps in $\cal{I}_2$. 
@@ -1397,7 +1396,7 @@ Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functor
 \newcommand{\RR}{\mathsf{R}}
 
 We will now compare the uniform Frobenius condition with the functorial Frobenius condition of~\cite{garner:topological-simplicial}.
-Recall from~\cite{bourke-garner-I} that an algebraic weak factorisation system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations~$f = \RR f \cc \LL f$ functorially in~$f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law.
+Recall from~\cite{bourke-garner-I} that an algebraic weak factorization system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations~$f = \RR f \cc \LL f$ functorially in~$f \in \cal{E}^\to$ and an extension of the evidently (co)pointed endofunctors $\LL, \RR$ to (co)monads such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law.
 We write $\pCoalg{\LL}$ and $\pAlg{\RR}$ for the categories of (co)monad algebras and $\pcoalg{\LL}$ and $\palg{\RR}$ for the categories of (co)pointed endofunctor (co)algebras over $\LL$ and $\RR$, respectively.
 These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ and $\palg{\RR} = \liftr{\pCoalg{\LL}}$.
 The underlying weak factorization system of $(\LL, \RR)$ has as left and right classes the maps that admit a lift to $\pcoalg{\LL}$ and $\palg{\RR}$, respectively.
@@ -1824,7 +1823,7 @@ By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uni
 
 
 
-We wish to establish that uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are the right maps of two algebraic weak factorisation systems.
+We wish to establish that uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are the right maps of two algebraic weak factorization systems.
 We will do so using Garner's small object argument~\cite{garner:small-object-argument}.
 In order to apply it, we establish that uniform (trivial) fibrations can be also be defined by right orthogonality 
 with respect to small categories over $\catE$. We begin with some general facts.
@@ -2431,7 +2430,7 @@ The claim then follows by \cref{prod-exp-general}.
 
 This section and the next one are devoted to establish results on
 the uniform Frobenius condition for uniform fibrations, leading to the
-proof that the algebraic weak factorisation system on presheaf categories
+proof that the algebraic weak factorization system on presheaf categories
 with uniform fibrations as right maps satisfies the functorial Frobenius condition.
 This section contains the main technical results needed to establish 
 our main results, which are then presented in~\cref{sec:frocuf}. The key ingredient is the notion of a 
@@ -3149,7 +3148,7 @@ relating uniform $\cal{I}$-fibrations with right maps for strong homotopy equiva
 In this section we show that the algerbraic weak factorization system in which the right maps
 are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
 For this, we will use our characterisation of the functorial Frobenius property in algebraically
-free algebraic weak factorisation systems, in~\cref{thm:frobenius-comparison}. 
+free algebraic weak factorization systems, in~\cref{thm:frobenius-comparison}. 
 
 As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}. Here, $\catE$ is a category with finite colimits equipped with a functorial cylinder functor $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with effective connections and  $u \co \cal{I} \to \catE^\to$ is a functor.
 In particular, we will have that for every uniform $\cal{I}$-fibration $(p, \phi) \co X \to Y$, pullback along $p$ lifts as follows:
@@ -3293,7 +3292,7 @@ We can apply the above results to uniform fibrations in presheaf categories,  st
 Let $\catE$ be a presheaf category equipped with a functorial cylinder
 $I \otimes (-) \co \catE \to \catE$ with effective connections. 
 Let $\cal{M}$ be a suitable category of monomorphisms in $\catE$. 
-Then the algebraic weak factorisation system 
+Then the algebraic weak factorization system 
 whose right maps are the uniform $\cal{M}$-fibrations satisfies
 the functorial Frobenius property. 
 \end{theorem}
