@@ -34,14 +34,16 @@ the Quillen model structure for Kan complexes. In cubical sets, it extends some 
 
 \section*{Introduction}
 
-
-Algebraic weak factorization systems~\cite{garner:small-object-argument,grandis-tholen-nwfs} are a variant of standard weak factorization systems~\cite{bousfield-wfs}.  They involve maps  equipped with additional structure, given by an explicit choice of solutions for lifting problems which, crucially, satisfies a naturality condition, rather than maps satisfying a lifting property (as in the definition of a Kan fibration). 
-Algebraic weak factorization systems were originally introduced  in the context of categorical homotopy theory in order to address some unsatisfactory aspects of standard weak factorization systems, such as the limited interaction between colimits and lifting problems (see~\cite[Chapter~12]{riehl-cat-homotopy} for a discussion of this issue). 
-In recent years, their theory has been developed significantly, thanks especially 
-to the work of Bourke and Garner~\cite{bourke-garner-I,bourke-garner-II}, and has found applications not only
-higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs}, but also in Voevodsky's univalent foundations programme~\cite{voevodsky:uf}, via the seminal work of  Bezem, Coquand, and Huber on uniform Kan fibration in categories of cubical sets~\cite{coquand-cubical-sets},
-which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
-
+Bousfield's weak factorization systems~\cite{bousfield-wfs} are a cornerstone of 
+modern homotopical algebra~\cite{quillen-homotopical}, not least because they support a very elegant treatment 
+of Quillen model categories~\cite{joyal-tierney-notes}. Yet, they have some unsatisfactory 
+aspects (such as the failure of left and right maps to be closed under all colimits), which can be
+remedied by considering instead algebraic weak factorisation  systems~\cite{bourke-garner-I,bourke-garner-II,garner:small-object-argument,grandis-tholen-nwfs,riehl-cat-homotopy}. This is  due to the fact that algebraic weak factorisation systems 
+involve maps equipped with a suitably natural
+family of solutions for lifting problems, rather than maps merely satisfying
+a lifting property. Remarkably, the presence of this additional algebraic structure on maps has proved to be crucial also for the applications of algebraic weak factorization systems in
+hi\-gher-di\-men\-sional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs,garner-homomorphisms}
+and in Voevodsky's univalent foundations programme~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.  
   
  Our general aim here is to develop further the theory of algebraic weak factorization systems and provide some
  applications. In particular, we introduce the 
@@ -49,7 +51,7 @@ which has developed further in~\cite{awodey-cubical,cohen-et-al:cubicaltt,pitts-
 and use it to construct algebraic weak factorization systems on presheaf categories, obtaining 
   algebraic counterparts of some important results of Cisinski 
 on Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
-As applications of our results, we  solve an open problem in univalent foundations, namely that of proving a constructive version of the
+As applications of our results, we  solve an open problem in the univalent foundations programme, namely that of proving a constructive version of the
  fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. We also obtain a new proof of the right 
  properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, 
  which avoids entirely the use of topological realization~\cite{hovey-model-categories} and
@@ -80,8 +82,8 @@ weak factorization systems, such as those produced by Garner's small object
 argument~\cite{garner:small-object-argument}, 
 play an important role in our development, we  
 isolate conditions on the generating category of an algebraically-free algebraic weak factorization system that are necessary and sufficient for the algebraic weak factorization system to satisfy the functorial Frobenius condition. 
-In order to do so, we introduce what we call the uniform Frobenius condition, which provides a convenient 
-way to phrase our analysis.
+In order to do so, we introduce what we call the uniform Frobenius condition, which provides a convenient and flexible
+concept to organize our analysis.
 
 The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorization systems with the functorial Frobenius condition on presheaf categories
 equipped with a functorial cylinder. For this, we begin by defining the notions of a 
@@ -100,6 +102,7 @@ in algebraic weak factorization systems.
 Our second main result (\cref{thm:ac-kan-is-uniform}) shows in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration, defined by 
 a weak orthogonality property. In particular, we show that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it satisfies the right lifting property (without any uniformity condition) with respect to the maps involved in the definition of a uniform (trivial) fibration.
 In order to obtain this result, we will need to develop a careful decomposition of the lifting problems involved in the uniformity condition.
+
 For our third main result, we return to consider the general setting categories equipped with a functorial cylinder with connections and show that, under mild assumptions, uniform fibrations satisfy the uniform Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). As a direct application, we obtain that the algebraic weak factorization systems on presheaf categories with uniform fibrations as right maps constructed earlier in the paper satisfy the uniform Frobenius condition (\cref{frobenius-uniform-presheaf}).
 
 When instantiated to simplicial sets, this result implies that 
@@ -108,16 +111,16 @@ with uniform Kan fibrations as right maps satisfies the
 Frobenius property, and therefore pushforward along a uniform Kan fibration
 preserves uniform Kan fibrations. There are at least two reasons for the interest in this result. 
 First,  since our proof is constructive, \ie avoids the the use of the law of excluded middle and the axiom of choice, 
-we solve the open problem of obtaining a constructive counterpart of the fact, mentioned above, that pushforward along a  Kan fibration preserves  Kan fibrations, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}. Because of this, it seems therefore natural to regard the independence result in~\cite{coquand-non-constructivity-kan} simply as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as evidence that the simplicial setting is inherently non-constructive. Secondly, it gives a new proof of the right properness of the Quillen model structure for Kan complexes.
+we solve the open problem of obtaining a constructive counterpart of the fact, mentioned above, that pushforward along a  Kan fibration preserves  Kan fibrations, which cannot be proved constructively~\cite{coquand-non-constructivity-kan}. Because of this, it seems therefore natural to regard the independence result in~\cite{coquand-non-constructivity-kan} simply as an indication that the standard notion of a Kan fibration is not suitable for developing simplicial homotopy theory constructively, rather than as evidence that the simplicial setting is inherently non-constructive. Secondly, it gives a new, purely combinatorial proof of the right properness of the Quillen model structure for Kan complexes that avoids the use of minimal fibrations.
 
 
 
-When instantiated in the category of cubical sets with connections, instead, \cref{frobenius-uniform-presheaf} gives  a new constructive 
-proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations~\cite{cohen-et-al:cubicaltt}. This proof avoids entirely combinatorial manipulations with cubical sets (\cf~\cite{huber-thesis}). Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations
-in cubical sets could be developed at a greater level of generality, so as to make them applicable also to simplicial sets. 
+When instantiated in the category of cubical sets with connections, instead, \cref{frobenius-uniform-presheaf} gives  a new  
+proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations~\cite{cohen-et-al:cubicaltt}. This proof avoids entirely difficult calculations with cubical sets (\cf~\cite{huber-thesis}). Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations
+in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets. 
 
 
-\subsection*{Remarks} For brevity, we will not always discuss the special cases  of our results for algebraic
+\subsection*{Remarks} For brevity, we do not always discuss the special cases  of our results for algebraic
 weak factorization systems  for standard weak factorization systems.
 Such results can be readily obtained  by replacing 
 the existence of structure in the algebraic setting with the satisfaction of properties,
@@ -126,15 +129,15 @@ classes, pullbacks with intersections, and so on. This idea is illustrated in
 a few examples in the first sections of the paper and then highlighted only 
 when it is of particular interest.
 
-In the hope of making the paper more widely accessible, we have also
-confined comments on constructivity issues to a series of remarks and footnotes.
+In the hope of making the paper more widely accessible, we also
+confine comments on constructivity issues to a series of remarks and footnotes.
 However,
 let us point out here for the interested readers  that
  our development does not rely on the law of the excluded middle or the axiom of choice, apart  from~\cref{thm:sset-cset-nwfs} and the results in~\cref{sec:non-alg}. For~\cref{thm:sset-cset-nwfs}, we argue that the result holds constructively for simplicial sets and
 cubical sets separately, in~\cref{rem:constructive-small-object}.\footnote{A constructive proof 
 of~\cref{thm:sset-cset-nwfs} in full generality would require an analysis of aspects
 of the theory of locally presentable categories and of Garner's small object argument 
-which we leave for future investigation.} For the results in~\cref{sec:non-alg}, where we show how the classical notion of a fibration is equivalent to the uniform one, the use of the axiom of choice inseems unavoidable.
+which we leave for future investigation.} For the results in~\cref{sec:non-alg}, where we show how the classical notion of a fibration is equivalent to the uniform one, the use of the axiom of choice seems unavoidable.
 
 
 \subsection*{Organization of the paper}
