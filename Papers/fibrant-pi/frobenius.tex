@@ -11,11 +11,12 @@
 
 \begin{abstract}
 We introduce and study the notion of a uniform fibration in categories with a functorial cylinder.
-We show that in a wide class of presheaf categories, including simplicial sets and cubical sets with connections, uniform fibrations are the right class of an algebraic weak factorization system and satisfy what we call the uniform Frobenius condition.
+We show that in a wide class of presheaf categories, including simplicial sets and cubical sets with connections, uniform fibrations are the right class of an algebraic weak factorization system that satisfies the functorial Frobenius condition.
 This implies that pushforward along a uniform fibration preserves uniform fibrations.
 When instantiated in simplicial sets, this result solves the open problem of
 finding a constructive counterpart of one of the key facts underpinning Voevodsky's simplicial model of univalent foundations and gives a new proof of the right properness of
-the Quillen model structure for Kan complexes. In cubical sets, it extends some of the existing work on cubical models of type theory by Coquand and others.
+the Quillen model structure for Kan complexes. In cubical sets, it extends some 
+work on cubical models of type theory by Coquand and others.
 \end{abstract}
 
 \author{Nicola Gambino}
@@ -49,7 +50,7 @@ and in Voevodsky's univalent foundations programme~\cite{awodey-cubical,coquand-
  applications. In particular, we introduce the 
  notion of uniform (trivial) fibration in  a category with a functorial cylinder
 and use it to construct algebraic weak factorization systems on presheaf categories, obtaining 
-  algebraic counterparts of some important results of Cisinski 
+  algebraic generalizations of some important results of Cisinski 
 on Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
 As applications of our results, we  solve an open problem in the univalent foundations programme, namely that of proving a constructive version of the
  fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}. We also obtain a new proof of the right 
@@ -85,9 +86,10 @@ isolate conditions on the generating category of an algebraically-free algebraic
 In order to do so, we introduce what we call the uniform Frobenius condition, which provides a convenient and flexible
 concept to organize our analysis.
 
-The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorization systems with the functorial Frobenius condition on presheaf categories
-equipped with a functorial cylinder. For this, we begin by defining the notions of a 
-uniform (trivial) fibration in the general setting of a  category equipped with a functorial cylinder, building on some ideas of Cisinski~\cite{cisinski-asterisque}.
+The main result in this paper  (\cref{frobenius-uniform-presheaf}) establishes the existence of algebraic weak factorization systems 
+with the functorial Frobenius condition on presheaf categories equipped with a functorial cylinder. The right maps of these algebraic
+weak factorization systems are uniform (trivial) fibrations, which we define  in the general setting of a  category equipped with a functorial cylinder, building on
+ideas of Cisinski~\cite{cisinski-asterisque}.
 Uniform trivial fibrations are defined by algebraic  orthogonality (\ie by requiring a choice
 of diagonal fillers satisfying a naturality condition) with respect to a category~$\mathcal{M}$ of monomorphisms and pullback squares, while uniform fibrations are defined by algebraic orthogonality  with respect to a category obtained by applying a Leibniz construction 
 (in the sense of~\cite{riehl-verity:reedy}) to the endpoint inclusions of the functorial cylinder and~$\cal{M}$.
@@ -165,7 +167,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 
 Let us begin by fixing some notation. For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the
 subcategory of $\cal{E}^\to$ with pullback squares as maps. 
-We are interested in algebraic counterparts of the weak orthogonality properties that are used in the definition of a weak factorization system. For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
+We are interested in algebraic generalizations of the weak orthogonality properties that are used in the definition of a weak factorization system. For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
 Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we  use this notation systematically below).
 The additional generality obtained by allowing~$u$ to be an arbitrary functor, rather than just an inclusion,  plays an important role in our development.
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
@@ -227,7 +229,7 @@ where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u
 For a functor $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
 There is a forgetful functor~$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ mapping $(f, \phi)$ to $f$, which we 
 call   the \emph{right orthogonal} of $u \co \cal{I} \to \catE^\to$. The rest of this section is devoted to establishing some general facts regarding categories of right maps that will be useful in the remainder of the paper.
-Most of these facts are expected counterparts of well-known statements for classes of weakly orthogonal classes in the standard setting.
+Most of these facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting.
 They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, omitting the most straightforward proofs.
 
 
@@ -356,9 +358,8 @@ we have that $\phi_F(i, s, t) = \phi_G(i, s, t)$, as required.
 \end{proof}
 
 \subsection*{Retract closure}
-
-In the setting of standard weak orthogonality operations, it is well-known that applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure.
-In order to establish a counterpart of this fact in our algebraic setting, we need some definitions.
+In the setting of standard weak orthogonality operations,  applying the left (or right) orthogonality operation to a class of morphisms produces the same result as applying it to its retract closure.
+In order to generalize  this fact in our algebraic setting, we need some definitions.
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
 An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
@@ -467,8 +468,7 @@ respectively.
 \end{remark}
 
 \subsection*{Slicing and coslicing}
-
-In the standard setting of weak factorization systems, it is well-known that the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing. For our counterpart of this fact, we need 
+In the setting of weak factorization systems, the right orthogonality operation commutes with slicing, while the left orthogonality operation commutes with coslicing. For our generalization of this fact, we need 
 again some auxiliary definitions.
 Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a slice category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
 The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in \cal{I}$ and a commutative triangle of the form
@@ -601,8 +601,8 @@ as categories over $\catE^\to$.
 \subsection*{Adjunctions}
 
 Next, we discuss the interaction between the orthogonality functors and adjunctions.
-In the standard setting of weak factorization systems, it is well known that, given
- adjunction $F \dashv G$ between categories $\cal{E}$ and $\cal{F}$ ,  if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$. To provide a counterpart of this fact in our setting, let us fix functors $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ for this and the next subsection.
+In the standard setting of weak factorization systems, given an
+ adjunction $F \dashv G$ between categories $\cal{E}$ and $\cal{F}$ ,  if we have classes of maps $\cal{I} \subseteq \catE^\to$ and~$\cal{J} \subseteq \cal{F}^\to$, then $F(\cal{I}) \subseteq \liftl{\cal{J}}$ if and only if $\liftr{\cal{I}} \subseteq G(\cal{J})$. To provide a generalization of this fact in our setting, let us fix functors $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$ for this and the next subsection.
 
 \begin{proposition} \label{lift-of-adjunction}
 For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following are equivalent:
@@ -687,7 +687,7 @@ The natural transformation $n$ lifts as follows:
 \qed
 \end{proposition}
 
-\cref{exa:composition-pullback-lift} below will be used when the Beck-Chevalley conditions are introduced in~\cref{sec:frobc}.
+\cref{exa:composition-pullback-lift} below is used in~\cref{sec:frobc} when we introduce the Beck-Chevalley conditions.
 
 \begin{remark} \label{exa:composition-pullback-lift}
 If $\cal{E}$ has pullbacks, for an arrow $f \co X \to Y$, we have an adjunction
@@ -841,8 +841,7 @@ Since $F(X, \arghole) \dashv G(X, \arghole)$ and $F(Y, \arghole) \dashv G(Y, \ar
 equivalent.
 \end{proof}
 
-Note that \cref{lift-of-adjunction} can be seen as a special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
-We will not need  the evident generalization of \cref{lift-of-mates} to Leibniz constructions.
+Note that \cref{lift-of-adjunction} can be seen as a special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category. We do not need  the evident generalization of \cref{lift-of-mates} to Leibniz constructions.
 
 \begin{remark} \label{pitchfork-leibniz-most-general-example}
 In \cref{lift-of-leibniz-adjunction}, let $\cal{K}$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$.
@@ -887,7 +886,7 @@ The remainder of the claim follows from \cref{lift-of-leibniz-adjunction} as app
 
 \subsection*{Kan extensions}
 
-We now establish some general facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. These will be applied in \cref{sec:unif} to show that uniform (trivial) Kan fibrations are the right maps of an algebraic weak factorization system.
+We now establish some general facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. These are applied in \cref{sec:unif} to show that uniform (trivial) Kan fibrations are the right maps of an algebraic weak factorization system.
 
 \begin{proposition} \label{kan-extension-closure}
 Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
@@ -1009,7 +1008,7 @@ in the sense of~\cref{thm:frobenius-def}.
 
 
 For a weak factorization system in a category with pushforward functors, \ie right adjoints to pullback functors, the standard Frobenius condition is equivalent to saying that pushforward along a right map preserves right maps.
-The counterpart of this equivalence in our setting is provided by the next proposition.
+The generalization of this equivalence in our setting is provided by the next proposition.
 
 \begin{proposition} \label{lift-pushforward}
 For a map $f \co X \to Y$ admitting pushforward,
