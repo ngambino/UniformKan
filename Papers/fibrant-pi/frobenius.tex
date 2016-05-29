@@ -39,15 +39,16 @@ These issues can be remedied by considering algebraic weak factorisation systems
 The presence of this additional structure on maps has proved to be crucial for applications of algebraic weak factorization systems in higher-dimensional category theory~\cite{batanin-cisinski-weber,garner:globular-operator-awfs,garner-homomorphisms} and in Voevodsky's univalent foundations programme~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.
 
 Our general aim here is to develop further the theory of algebraic weak factorization systems and provide some new applications.
-In particular, we introduce the notion of uniform (trivial) fibration in a category with a functorial cylinder and use it to construct algebraic weak factorization systems on presheaf categories, obtaining  generalizations of some important results of Cisinski on Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
+In particular, we introduce the notion of uniform (trivial) fibration in a category with a functorial cylinder and use it to construct algebraic weak factorization systems on presheaf categories, obtaining generalizations of some important results of Cisinski on Quillen model structures on presheaf categories~\cite{cisinski-asterisque}.
 As applications of our results, we solve an open problem in the univalent foundations programme, namely that of proving a constructive version of the fact that pushforward along Kan fibrations preserves Kan fibrations ~\cite{coquand-non-constructivity-kan,voevodsky-simplicial-model}.
 We also obtain a new proof of the right properness of the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, which avoids entirely the use of topological realization~\cite{hovey-model-categories} and the theory of minimal fibrations~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
-We are particularly interested in the property of weak factorization systems known as the Frobenius condition~\cite[Definition~3.2.1]{garner:types-omega-groupoids}.\footnote{See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}.} One reason for the interest in this condition, which asserts that  pullback along a right map preserves left maps, is that it is closely related to the right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak equivalences.
+We are particularly interested in the property of weak factorization systems known as the Frobenius condition~\cite[Definition~3.2.1]{garner:types-omega-groupoids}.\footnote{See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius reciprocity condition~\cite{lawvere-equality}.} One reason for the interest in this condition, which asserts that pullback along a right map preserves left maps, is that it is closely related to the right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak equivalences.
 Indeed, for a Quillen model structure in which the cofibrations are the monomorphisms, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the weak factorization system of acyclic cofibrations and fibrations.
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
-In the category of simplicial sets, this amounts exactly to the preservation of Kan fibrations by pushforward along Kan fibrations mentioned above, a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}. Furthermore,
-the Frobenius condition is intimately related to the homotopy-theoretic aspects of Martin-L\"of's rules for identity types~\cite{gambino-garner:idtypewfs}. It was also studied for (strict) factorization systems in~\cite{rosicky-tholem-factorization} (see Proposition~3.5 and Remark~3.6 therein).
+In the category of simplicial sets, this amounts exactly to the preservation of Kan fibrations by pushforward along Kan fibrations mentioned above, a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}.
+Furthermore, the Frobenius condition is intimately related to the homotopy-theoretic aspects of Martin-L\"of's rules for identity types~\cite{gambino-garner:idtypewfs}.
+It was also studied for (strict) factorization systems in~\cite{rosicky-tholem-factorization} (see Proposition~3.5 and Remark~3.6 therein).
 
 When working with algebraic weak factorization systems, it is natural to consider the functorial Frobenius condition introduced by Garner and van den Berg in~\cite{garner:topological-simplicial}.\footnote{In~\cite{garner:topological-simplicial}, the functorial Frobenius condition was actually formulated for cloven weak factorization systems, which are slighly more general then algebraic weak factorization systems.} Since algebraically-free algebraic weak factorization systems, such as those produced by Garner's small object argument~\cite{garner:small-object-argument}, play an important role in our development, we isolate conditions on the generating category of an algebraically-free algebraic weak factorization system that are necessary and sufficient for the algebraic weak factorization system to satisfy the functorial Frobenius condition.
 In order to do so, we introduce what we call the uniform Frobenius condition, which involves both a version of the usual Frobenius condition for maps, but also a Beck-Chevalley condition~\cite{benabou-descente,lawvere-equality} for morphisms of maps (\ie commutative squares), and provides a convenient notion to organize our analysis.
@@ -75,7 +76,7 @@ When instantiated in the category of cubical sets with connections, instead, \cr
 This proof avoids entirely complex calculations with cubical sets (\cf~\cite{huber-thesis}).
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
-In the setting of simplicial sets,  \cref{frobenius-uniform-presheaf} provides also a new proof of the right properness of the Quillen model structure for Kan complexes that avoids the use of geometric realization and minimal fibrations (see \cref{rem:rightpropernessnew}).
+In the setting of simplicial sets, \cref{frobenius-uniform-presheaf} provides also a new proof of the right properness of the Quillen model structure for Kan complexes that avoids the use of geometric realization and minimal fibrations (see \cref{rem:rightpropernessnew}).
 
 \subsection*{Remarks}
 
@@ -266,7 +267,8 @@ Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$:
 \end{align*}
 \end{proposition}
 
-\begin{proof} Using the notation introduced above, for $(f, \phi) \in \liftr{\cal{J}}$, we have $\liftr{F}(f, \phi) = (f, \phi_F)$ and~$\liftr{G}(f, \phi) = (f, \phi_G)$.
+\begin{proof}
+Using the notation introduced above, for $(f, \phi) \in \liftr{\cal{J}}$, we have $\liftr{F}(f, \phi) = (f, \phi_F)$ and~$\liftr{G}(f, \phi) = (f, \phi_G)$.
 We claim that the functions $\phi_F$ and $\phi_G$ coincide.
 Observe that for every $i \in \cal{I}$, we have that $\sigma_i \co v_{Fi} \to v_{Gi}$ is the identity square on $u_i \co A_i \to B_i$.
 Hence, by the naturality condition for $\phi$, applied to the diagram
@@ -936,7 +938,8 @@ Explicitly, it requires that $f^* u_i \co f^* X_i \to f^* Y_i$ is provided with 
 such that morphisms in $\cal{I}_{/Y}$ induce morphisms of left $\liftr{\cal{I}}$-maps.
 \end{remark}
 
-\begin{remark} Recall that the Frobenius condition for a weak factorization system states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,gambino-garner:idtypewfs}.
+\begin{remark}
+Recall that the Frobenius condition for a weak factorization system states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,gambino-garner:idtypewfs}.
 Given a weak factorization system $(\cal{L}, \cal{R})$ on a category $\catE$, we have that it satisfies the Frobenius condition in this sense if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow \catE^\to$ in the sense of~\cref{thm:frobenius-def}.
 \end{remark}
 
@@ -1692,7 +1695,8 @@ However, they are included indirectly since they are retracts of the Leibniz pro
 We will show in \cref{thm:ac-kan-is-uniform} that every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
 \end{example}
 
-\begin{example}[Uniform Kan fibrations in cubical sets] Also in the category $\CSet$ of cubical sets, we consider $\cal{M}$ to consist of all monomorphisms.
+\begin{example}[Uniform Kan fibrations in cubical sets]
+Also in the category $\CSet$ of cubical sets, we consider $\cal{M}$ to consist of all monomorphisms.
 A uniform (trivial) $\cal{M}$-fibration in $\CSet$ will be called a \emph{uniform (trivial) Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $n$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
@@ -1838,7 +1842,8 @@ We expoit this fact to obtain our second main results, \cref{thm:sset-cset-nwfs}
 
 \cref{small-gen-triv-kan} allows us to apply Garner's small object argument~\cite[Theorem~4.4]{garner:small-object-argument} (see also~\cite[Proposition~16]{bourke-garner-I}) and obtain the desired algebraic weak factorization systems.
 
-\begin{theorem} \label{thm:sset-cset-nwfs} Let $\catE$ be a presheaf category equipped with a functorial cylinder $I \otimes (-) \co \catE \to \catE$ that has a right adjoint and a suitable category $\cal{M}$ of monomorphisms (in the sense of~\cref{uniform-fib-presheaf-cat}).
+\begin{theorem} \label{thm:sset-cset-nwfs}
+Let $\catE$ be a presheaf category equipped with a functorial cylinder $I \otimes (-) \co \catE \to \catE$ that has a right adjoint and a suitable category $\cal{M}$ of monomorphisms (in the sense of~\cref{uniform-fib-presheaf-cat}).
 \begin{enumerate}[(i)]
 \item There exists an algebraic weak factorization systems $(\mathsf{L}_1, \mathsf{R}_1)$ in which right maps are the uniform trivial $\cal{M}$-fibrations.
 In particular, every map $f \co X \to Y$ admits a functorial factorization of the form
@@ -1873,7 +1878,8 @@ where $p_f$ admits the structure of a uniform $\cal{M}$-fibration and $j_f$ admi
 \end{enumerate}
 \end{theorem}
 
-\begin{proof} For (i), one applies Garner's small object argument, using part~(i) of~\cref{small-gen-triv-kan} and smallness of $\cal{N}$.
+\begin{proof}
+For (i), one applies Garner's small object argument, using part~(i) of~\cref{small-gen-triv-kan} and smallness of $\cal{N}$.
 Similarly, for (ii), one uses part~(ii) of~\cref{small-gen-triv-kan} and smallness of $\cal{N}_\otimes$.
 \end{proof}
 
@@ -1905,7 +1911,8 @@ We then show that every (trivial) fibration admits the structure of a uniform (t
 The primary role of elegancy is to allow us to factor any map in $\cal{M}$ into a series of cobase changes of boundary inclusions, allowing us to decompose lifting problems for uniform trivial $\cal{M}$-fibrations into lifting problems for trivial fibrations.
 Let us begin by reviewing some terminology.
 
-\begin{definition} A \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
+\begin{definition}
+A \emph{Reedy category} $(\R, \deg, \Rp, \Rm)$ is a category $\R$ equipped with a \emph{degree function} $\deg \co \obj(\R) \to \alpha$, where $\alpha$ is some ordinal, and wide subcategories $\Rp, \Rm$ satisfying the following properties:
 \begin{enumerate}[(i)]
 \item the maps of $\Rp$, called \emph{cofaces}, are monotone with respect to $\deg$,
 \item the maps of $\Rm$, called \emph{codegeneracies}, are antimonotone with respect to $\deg$,
@@ -1918,7 +1925,8 @@ For every degree $n < \alpha$, we have a \emph{skeleton} comonad $\Sk_{<n}$ and 
 Given a presheaf $F$ on $R$, an element $x \in F(A)$ is called \emph{degenerate} and a \emph{degeneracy of} $y \in F(B)$ if there is non-identity $d \co A \to B$ in $\Rm$ such that $x = Fd(y)$.
 The notion of an elegant Reedy category, recalled below, was introduced originally in~\cite{bergner-rezk-elegant}.
 
-\begin{definition} A Reedy category~$\R$ is said to be \emph{elegant} if every element in any presheaf on~$\R$ is a degeneracy in a unique way.
+\begin{definition}
+A Reedy category~$\R$ is said to be \emph{elegant} if every element in any presheaf on~$\R$ is a degeneracy in a unique way.
 \end{definition}
 
 For example, the simplex category $\Delta$ is an elegant Reedy category.
@@ -2746,7 +2754,8 @@ Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$
 Observe that this definition makes the diagram for $L_k$ commute.
 \end{proof}
 
-\begin{proposition} \label{thm:onedir} There is a functor
+\begin{proposition} \label{thm:onedir}
+There is a functor
 \[
 \xymatrix@!C@C-2.5em{
 \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
@@ -2761,7 +2770,8 @@ Observe that this definition makes the diagram for $L_k$ commute.
 \]
 \end{proposition}
 
-\begin{proof} Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:from-strong-hequiv} and compose with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
+\begin{proof}
+Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:from-strong-hequiv} and compose with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
 Note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
 \end{proof}
 
@@ -2984,7 +2994,8 @@ Under the assumptions of~\cref{lem:to-strong-hequiv}, there is a functor
 \]
 \end{proposition}
 
-\begin{proof} Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:to-strong-hequiv}.
+\begin{proof}
+Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:to-strong-hequiv}.
 \end{proof}
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
@@ -3071,7 +3082,8 @@ Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respec
 \end{enumerate}
 \end{proposition}
 
-\begin{proof} We begin by proving (i) and then show that the other claims hold by a linear sequence of implications.
+\begin{proof}
+We begin by proving (i) and then show that the other claims hold by a linear sequence of implications.
 We start by noting that (i) is just the combination of the cases $k = 0$ and $k = 1$ of \cref{technical}.
 For the step from (i) to (ii), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $H$ the functor $\Fib{\cal{I}} \to \Fib{\cal{I}'}$ obtained in the evident way from assumption~(1).
 For the step from (ii) to (iii), recall with the definition~\eqref{rel-strong-h-equiv-def} of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
