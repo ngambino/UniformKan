@@ -688,10 +688,129 @@ Under the assumptions of~\cref{lem:to-strong-hequiv}, the sets of maps $\cal{I}_
 Combine \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
 \end{proof}
 
+Given $k \in \braces{0, 1}$, we call a map in $\cal{E}$ a $k$-Hurewitz fibration if it has the right lifting property with respect to $\kcyl \otimes X$ for all $X \in \cal{E}$.
+Any fibration is in particular a $k$-Hurewitz fibration for $k \in \braces{0, 1}$ since $\bot_X \co 0 \to X$ is in $\cal{I}$ for all $X \in \cal{E}$.
+
 \begin{proposition}
-Fix $k \in \braces{0, 1}$.
+Let $k \in \braces{0, 1}$.
 The class $\cal{S}_k$ is stable under pullback along $(1-k)$-Hurewicz fibrations.
 \end{proposition}
+
+\begin{proof}
+Let $p \co X \to Y$ be a $(1-k)$-Hurewicz fibration and $f \co B \to Y$ be a $k$-strong homotopy equivalence.
+This means we have a retraction $\rho$ of $\thetak \hatotimes f$ as follows:
+\begin{align*}
+\xymatrix@C+1em{
+  f
+  \ar[r]^-{\thetak \hatotimes f}
+  \ar@{=}[dr]
+&
+  \kcyl \hatotimes f \ar[d]^{\rho}
+\\&
+  f
+\rlap{.}}
+\end{align*}
+We construct the pullback $\sigma \co \bar{f} \to f$ of $f$ along $p$:
+\begin{equation} \label{strong-h-equiv-uniform-base-change:0}
+\begin{gathered}
+\xymatrix{
+  A
+  \ar[r]
+  \ar[d]_{\bar{f}}
+  \pullback{dr}
+&
+  B
+  \ar[d]^{f}
+\\
+  X
+  \ar[r]_{p}
+&
+  Y
+\rlap{.}}
+\end{gathered}
+\end{equation}
+We want to make $\bar{f}$ into a strong $k$-oriented homotopy equivalence.
+This means to find a retraction $\bar{\rho}$ of $\thetak \hatotimes \bar{f}$ as follows:
+\[
+\xymatrix@C+1em{
+  \bar{f}
+  \ar[r]^-{\thetak \hatotimes \bar{f}}
+  \ar@{=}[dr]
+&
+  \kcyl \hatotimes \bar{f}
+  \ar@{.>}[d]^{\bar{\rho}}
+\\&
+  \bar{f}
+\rlap{.}}
+\]
+We will define the retraction $\bar{\rho}$ such that the below diagram commutes and its two horizontal composites are identities:
+\[
+\xymatrix@C+2em{
+  \bar{f}
+  \ar[r]^-{\thetak \hatotimes \bar{f}}
+  \ar[d]_{\sigma}
+&
+  \kcyl \hatotimes \bar{f}
+  \ar@{.>}[r]^-{\bar{\rho}}
+  \ar[d]_{\kcyl \hatotimes \sigma}
+&
+  \bar{f}
+  \ar[d]^{\sigma}
+\\
+  f
+  \ar[r]_-{\thetak \hatotimes f}
+&
+  \kcyl \hatotimes f
+  \ar[r]_-{\rho}
+&
+  f
+\rlap{.}}
+\]
+Since the pullback square $\sigma$ is a Cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains, again omitting horizontal composite identities:
+\[
+\xymatrix@C+2em{
+  X
+  \ar[r]^-{\kcylinv \otimes X}
+  \ar[d]_{p}
+&
+  \interval \otimes X
+  \ar@{.>}[r]^-{\cod(\bar{\rho})}
+  \ar[d]^{\interval \otimes p}
+&
+  X
+  \ar[d]^{p}
+\\
+  Y
+  \ar[r]_-{\kcylinv \otimes Y}
+&
+  \interval \otimes Y
+  \ar[r]_-{\cod(\rho)}
+&
+  Y
+\rlap{.}}
+\]
+To find the dotted arrow is to construct a diagonal filler in the following square:
+\[
+\xymatrix@C+2em{
+  X
+  \ar@{=}[rr]
+  \ar[d]_{\kcylinv \otimes X}
+&&
+  X
+  \ar[d]^{p}
+\\
+  \interval \otimes X
+  \ar[r]_-{I \otimes p}
+  \ar@{.>}[urr]^(0.4){\cod(\bar{\rho})}
+&
+  \interval \otimes Y
+  \ar[r]_-{\cod(\rho)}
+&
+  Y
+\rlap{.}}
+\]
+But we have such a filler since $p$ was assumed a $(1-k)$-Hurewicz fibration.
+\end{proof}
 
 \begin{theorem}
 Trivial cofibrations are stable under pullback along fibrations.
