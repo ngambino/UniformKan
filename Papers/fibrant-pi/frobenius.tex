@@ -1027,7 +1027,7 @@ Trivial cofibrations are stable under pullback along fibrations.
 
 \newpage
 
-\section{Categories of orthogonal maps}
+\section{Algebraic weak factorisation systems}
 \label{sec:ortf}
 
 Let us begin by fixing some notation.
@@ -1812,13 +1812,7 @@ is an isomorphism.
 \end{proposition}
 
 
-\section{Algebraic weak factorisation systems}
-
-
-We wish to establish that uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are the right maps of two algebraic weak factorization systems.
-We will do so using Garner's small object argument~\cite{garner:small-object-argument}.
-In order to apply it, we establish that uniform (trivial) fibrations can be defined equivalently by right uniform orthogonality with respect to small categories over $\catE$.
-We begin with some general facts.
+\subsection{Restriction to representable codomains} 
 
 \begin{lemma} \label{left-kan-extension-of-representables}
 Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables, \ie closed under pullbacks along morphisms with domain a representable presheaf.
@@ -1885,6 +1879,16 @@ Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
 \begin{proof}
 The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
 \end{proof}
+
+
+\section{Uniform fibrations}
+
+
+We wish to establish that uniform trivial $\cal{M}$-fibrations and uniform $\cal{M}$-fibrations are the right maps of two algebraic weak factorization systems.
+We will do so using Garner's small object argument~\cite{garner:small-object-argument}.
+In order to apply it, we establish that uniform (trivial) fibrations can be defined equivalently by right uniform orthogonality with respect to small categories over $\catE$.
+We begin with some general facts.
+
 
 \begin{lemma} \label{small-gen-triv-kan}
 Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by the mononorphisms with a representable presheaf as codomain.
