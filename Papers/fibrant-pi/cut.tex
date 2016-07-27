@@ -1,0 +1,25 @@
+Given a natural transformation $\phi \co F \to G$ and a map $f \co X \to Y$, we define $\hateval(\phi, f) \co \catE^\to \to \catE^\to$ by the universal property of pushouts as in the following diagram:
+\begin{equation} \label{definition-of-hateval}
+\begin{aligned}
+\xymatrix@C=1.2cm{
+  FX
+  \ar[r]^{Ff}
+  \ar[d]_{\phi_X}
+&
+  FY
+  \ar@/^2pc/[ddr]^{\phi_Y}
+  \ar[d]
+&\\
+  GX
+  \ar@/_1pc/[drr]_{Gf}
+  \ar[r]
+&
+  GX +_{FX} FY
+  \ar[dr]^-{\hateval(\phi, f)}
+&\\&&
+  GY
+\rlap{.}}
+\end{aligned}
+\end{equation}
+In this way, one obtains a functor $\hateval \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$.
+Our choice of notation is due to appying the Leibniz construction to the evaluation functor $\eval \co [\catE,\catE] \times \calE \to \catE
