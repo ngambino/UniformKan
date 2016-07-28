@@ -23,3 +23,63 @@ Given a natural transformation $\phi \co F \to G$ and a map $f \co X \to Y$, we 
 \end{equation}
 In this way, one obtains a functor $\hateval \co [\catE, \catE]^\to \times \catE^\to \to \catE^\to$.
 Our choice of notation is due to appying the Leibniz construction to the evaluation functor $\eval \co [\catE,\catE] \times \calE \to \catE
+
+
+
+\begin{remark} \label{rem-lift-suitable} If $\cal{E}$ is a presheaf category, 
+since pushouts  are stable under base change, conditions~(iv) and~(v) allow us to strengthen the objectwise assertion of condition~(iii) to a lift of the Leibniz product functor $\kcyl \hatotimes (-)$ to $\cal{M}$ as indicated below ($k \in \braces{0, 1}$):%
+\footnote{Abstracting from the setting of a presheaf category, the core property used here is adhesiveness~\cite{garner-lack:adhesive} of the elements of $\cal{M}$.}
+\[
+\xymatrix{
+  \cal{M}
+  \ar@{.>}[r]^{\kcyl \hatotimes (-)}
+  \ar[d]_{u}
+&
+  \cal{M}
+  \ar[d]^{u}
+\\
+  \catE^\to
+  \ar[r]_{\kcyl \hatotimes (-)}
+&
+  \catE^\to
+\rlap{.}}
+\]
+\end{remark}
+
+
+We will define a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations). The definition of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ involves a special case of the so-called Leibniz construction~\cite{riehl-verity:reedy}.
+We define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
+\[
+  (\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i  \defeq \hateval(\kcyl, u_i) \, .
+\]
+We adopt similar conventions for other natural transformations (or maps of such) written using the tensor notation.
+We now define the category~$\cal{I}_\otimes$ and the functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ that will be used to define the notion of a uniform $\cal{I}$-fibration in \cref{def:I-fibration} below.
+First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
+Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
+\begin{equation} \label{equ:u-tensor}
+\begin{gathered}
+\xymatrix@C+2em{
+  \cal{I}
+  \ar[r]^{\iota_0}
+  \ar[dr]_-{\lcyl \hatotimes u}
+&
+  \cal{I}_\otimes
+  \ar[d]^(.4){u_\otimes}
+&
+  \cal{I}
+  \ar[dl]^-{\rcyl \hatotimes u}
+  \ar[l]_{\iota_1}
+\\&
+  \catE^\to
+\rlap{.}}
+\end{gathered}
+\end{equation}
+Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not.
+With these definitions in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinctly, as in \cref{def:I-fibration} below.
+
+
+
+
+\footnote{
+When working constructively, it is appropriate to restrict the attention to decidable monomorphisms, \ie natural transformations whose components are injective functions with decidable image.
+See~\cref{rem:constructive-small-object} for further comments on this issue.} 

@@ -290,122 +290,78 @@ In detail, they are given by the maps from a singleton set to the free de Morgan
 
 
 \subsection*{Fibrations} We assume that $\catE$ is equipped with a functorial cylinder $ \interval\otimes (-) \co \catE \to \catE$
-having a right adjoint. % \footnote{The latter assumption allows us to transport statements about uniform trivial fibrations to uniform fibrations via \cref{prod-exp-general}.} In this setting, the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, it is natural to consider $\cal{I}$ to be a category of monomorphisms. 
+having a right adjoint and such that the naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks. % \footnote{The latter assumption allows us to transport statements about uniform trivial fibrations to uniform fibrations via \cref{prod-exp-general}.} In this setting, the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, it is natural to consider $\cal{I}$ to be a category of monomorphisms. 
 We isolate the appropriate assumptions on our class of generating cofibrations in the next definition.
 
 
 
 \begin{definition} \label{uniform-fib-presheaf-cat}
-A full subcategory $\cal{I}$ of $\catE_\cart^\to$  is said to be \emph{suitable} if the following conditions hold.
+A class of monomorphisms $\cal{I}$ in $\catE$  is said to be \emph{suitable} if the following conditions hold.
 \begin{enumerate}[(i)]
-\item For all $i$ in $\cal{I}$, any base change of $i$ is also in $\cal{I}$.
-\item We have $\lcyl \hatotimes i \in \cal{I}$ and $\rcyl \hatotimes i \in \cal{I}$ for $i \in \cal{I}$.
-\item We have $\bot_X \co 0_{\cal{E}} \to X$ in $\cal{I}$ for $X \in \cal{E}$.
-\item The functor $I \otimes (-)$ preserves pullbacks for squares of the form $i \to j$ with $i, j \in \cal{I}$.
-\item The naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks.
+\item $\cal{I}$ is closed under pullbacks, \ie for every pullback square
+\[
+\xymatrix{
+C \ar[d]_j \ar[r] & A \ar[d]^i \\
+D \ar[r] & B }
+\]
+if $i \in \cal{I}$ then $j \in \cal{I}$. 
+\item $\cal{I}$ is closed under Leibniz product with the endopoint inclusions, \ie for every $i \in \cal{I}$ we have 
+ $\lcyl \hatotimes i \in \cal{I}$ and $\rcyl \hatotimes i \in \cal{I}$.
+\item For every $X \in \cal{E}$, the unique map $\bot_X \co 0_{\cal{E}} \to X$ is in $\cal{I}$.
+\item The functor $I \otimes (-)$ preserves pullbacks for squares of the form $i \to j$ with $i, j \in \cal{I}$. \notec{WHERE IS THIS USED?}
 \end{enumerate}
 \end{definition}
 
 
 
-\begin{remark} \label{rem-lift-suitable} If $\cal{E}$ is a presheaf category, 
-since pushouts  are stable under base change, conditions~(iv) and~(v) allow us to strengthen the objectwise assertion of condition~(iii) to a lift of the Leibniz product functor $\kcyl \hatotimes (-)$ to $\cal{M}$ as indicated below ($k \in \braces{0, 1}$):%
-\footnote{Abstracting from the setting of a presheaf category, the core property used here is adhesiveness~\cite{garner-lack:adhesive} of the elements of $\cal{M}$.}
-\[
-\xymatrix{
-  \cal{M}
-  \ar@{.>}[r]^{\kcyl \hatotimes (-)}
-  \ar[d]_{u}
-&
-  \cal{M}
-  \ar[d]^{u}
-\\
-  \catE^\to
-  \ar[r]_{\kcyl \hatotimes (-)}
-&
-  \catE^\to
-\rlap{.}}
-\]
-\end{remark}
 
-If one takes $\cal{M}$ to be the full subcategory of $\catE_\cart^\to$ of all monomorphisms, the conditions~(i) to~(v) are inherited from the setting of $\calE \defeq \Set$.
-This choice of $\cal{M}$ is particularly natural for presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant} , where the right lifting property with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms (see also~\cref{sec:non-alg}).
+
+If one takes $\cal{I}$ to consist of all monomorphisms, the conditions above are inherited from~$\Set$.
+This choice of $\cal{M}$ is particularly natural for presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}, where the right lifting property with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms (see also~\cref{sec:non-alg}).
 
 \medskip
 
-Let us fix a suitable functor $u \co \cal{I} \to \catE^\to$, which we think of as the counterpart of a set of generating cofibrations.
-In analogy with the work of Cisinski~\cite{cisinski-asterisque}, where trivial fibrations as the maps having the right lifting properties with respect to monomorphisms, we refer to a right $\cal{I}$-map as a \emph{uniform trivial $\cal{I}$-fibration} and define the category of uniform trivial $\cal{I}$-fibrations by letting
+Let us fix a suitable class of monomorphisms $\cal{I}$, which we think of as the counterpart of a set of generating cofibrations.
+In analogy with the work of Cisinski~\cite{cisinski-asterisque}, we define a \emph{trivial $\cal{I}$-fibration} to be a map with the 
+right lifting property with respect to $\cal{I}$, and write $\TrivFib{\cal{I}}$ for the class of  trivial $\cal{I}$-fibrations, 
 \[
   \TrivFib{\cal{I}} \defeq \liftr{\cal{I}} \rlap{.}
 \]
-We now want to combine $\cal{I}$ and the cylinder to define the generating trivial cofibrations.
-We will define a functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ (which we think of as the counterpart of a set of generating trivial cofibrations). The definition of $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ involves a special case of the so-called Leibniz construction~\cite{riehl-verity:reedy}.
-We define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
-\[
-  (\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i  \defeq \hateval(\kcyl, u_i) \, .
-\]
-We adopt similar conventions for other natural transformations (or maps of such) written using the tensor notation.
-We now define the category~$\cal{I}_\otimes$ and the functor $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ that will be used to define the notion of a uniform $\cal{I}$-fibration in \cref{def:I-fibration} below.
-First, let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$.
-Then, define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
-\begin{equation} \label{equ:u-tensor}
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{I}
-  \ar[r]^{\iota_0}
-  \ar[dr]_-{\lcyl \hatotimes u}
-&
-  \cal{I}_\otimes
-  \ar[d]^(.4){u_\otimes}
-&
-  \cal{I}
-  \ar[dl]^-{\rcyl \hatotimes u}
-  \ar[l]_{\iota_1}
-\\&
-  \catE^\to
-\rlap{.}}
-\end{gathered}
-\end{equation}
-Note that, even if $u \co \cal{I} \to \catE^\to$ is an inclusion, $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ is not.
-With these definitions in place, the notion of a uniform $\cal{I}$-fibration can be stated very succinctly, as in \cref{def:I-fibration} below.
-
-\begin{definition} \label{def:I-fibration}
- A \emph{naive $\cal{I}$-fibration} is a right $\cal{I}_\otimes$-map.
-\end{definition}
-
-We write $\Fib{\cal{I}}$ for the category of uniform $\cal{I}$-fibrations and their morphisms, \ie
-\[
-  \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \, .
-\]
-One readily sees that the notion of a naive $\cal{I}$-fibration involves diagonal fillers for diagrams having on the left maps obtained by pushouts of the form
+We now want to combine $\cal{I}$ and the cylinder to define the generating trivial cofibrations. We define $\cal{I}_\otimes$ to consist
+of all the maps of the form $\kcyl \hatotimes i$, where $k \in \{ 0, 1 \}$ and  $i \in \cal{I}$. Explicitly, these maps are obtained via the
+following pushout diagram:
 \begin{gather*}
 \xymatrix@C=1.2cm{
-  A_i
-  \ar[r]^{u_i}
-  \ar[d]_{\kcyl \otimes A_i}
+  A
+  \ar[r]^{i}
+  \ar[d]_{\kcyl \otimes A}
 &
-  B_i
-  \ar@/^2pc/[ddr]^{\kcyl \otimes B_i}
+  B
+  \ar@/^2pc/[ddr]^{\kcyl \otimes B}
   \ar[d]
 &\\
-  \interval \otimes A_i
-  \ar@/_1pc/[drr]_{\interval \otimes u_i}
+  \interval \otimes A
+  \ar@/_1pc/[drr]_{\interval \otimes i}
   \ar[r]
 &
-  (\interval \otimes A_i) +_{A_i} B_i
-  \ar[dr]^-{\delta^k \hatotimes u_i}
+  (\interval \otimes A) +_A B
+  \ar[dr]^-{\delta^k \hatotimes i}
 &\\&&
-  \interval \otimes B_i
+  \interval \otimes B
 \rlap{.}}
 \end{gather*}
-where $i \in \cal{I}$ and $k \in \braces{0, 1}$. Below, we illustrate the notion of a naive (trivial) $\cal{I}$-fibration in the special cases of simplicial sets and cubical sets.
+Note that, since $\cal{I}$ is assumed to be closed under Leibniz products with the endpoint inclusions, we have $\cal{I}_\otimes
+\subseteq \cal{I}$. We then define an \emph{$\cal{I}$-fibration} to be a map with the right lifting property with respect to $\cal{I}_\otimes$
+and we write $\Fib{\cal{I}}$ for the class of  $\cal{I}$-fibrations, 
+\[
+  \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
+\]
+We now illustrate the notion of a (trivial) $\cal{I}$-fibration in simplicial sets and cubical sets.
 
-\begin{example}[Uniform Kan fibrations in simplicial sets]
-In the category $\SSet$ of simplicial sets, we consider $\cal{M}$ to consist of all monomorphisms.%
-\footnote{
-When working constructively, it is appropriate to restrict the attention to decidable monomorphisms, \ie natural transformations whose components are injective functions with decidable image.
-See~\cref{rem:constructive-small-object} for further comments on this issue.} A uniform (trivial) $\cal{M}$-fibration will be called a \emph{uniform (trivial) Kan fibration}.
-Explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simplicial map $p \co X \to Y$ and a function $\phi$ that provides diagonal fillers for diagrams of the form
+\begin{example}[Fibrations in simplicial sets]
+In the category $\SSet$ of simplicial sets, we consider $\cal{I}$ to consist of all monomorphisms. Then, a (trivial) $\cal{I}$-fibration
+is the same thing as a (trivial) Kan fibration in the usual sense. 
+Indeed, an $\cal{I}$- fibration $p \co X \to Y$ is a map for which there exist diagonal fillers for diagrams of the form
 \[
 \xymatrix{
   (\Delta^1 \times A) \cup (\braces{k} \times B)
@@ -424,25 +380,24 @@ Explicitly, a uniform Kan fibration $(p, \phi) \co X \to Y$ consists of a simpli
 where the map on the left is the Leibniz product of the horn inclusion $h_k^1 \co \braces{k} \to \Delta^1$ mentioned in \cref{exa:cyl-in-sset} with a monomorphism $i \co A \to B$.
 Note that higher-dimensional horns are not involved explicitly here.
 However, they are included indirectly since they are retracts of the Leibniz product of a one-dimensional horn inclusion with themselves~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
-We will show in \cref{thm:ac-kan-is-uniform} that every Kan fibration in the usual sense admits the structure of a uniform Kan fibration.
 \end{example}
 
-\begin{example}[Uniform Kan fibrations in cubical sets]
-Also in the category $\CSet$ of cubical sets, we consider $\cal{M}$ to consist of all monomorphisms.
-A uniform (trivial) $\cal{M}$-fibration in $\CSet$ will be called a \emph{uniform (trivial) Kan fibration}.
+\begin{example}[Fibrations in cubical sets]
+Also in the category $\CSet$ of cubical sets, we consider~$\cal{I}$ to consist of all monomorphisms.
+A  (trivial) $\cal{I}$-fibration in $\CSet$ will be called a \emph{(trivial) Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $n$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
 Then~$\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
-Since our cube category has symmetries, a uniform Kan fibration in $\CSet$ is a right map (in the algebraic sense) also to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.%
+Since our cube category has symmetries, a Kan fibration in $\CSet$ is has the left lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.%
 \footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
-The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering the uniform $\cal{M}'$-fibrations where~$\cal{M}'$ is the full subcategory of $\cal{M}$ spanned by (decidable) monomorphisms classified by their face lattice $\mathbb{F}$, \ie those arising as a base change of $\braces{\top} \to \mathbb{F}$, excluding for example diagonals in cubes.
+The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering the  $\cal{I}'$-fibrations where~$\cal{I}'$ is the full subcategory of $\cal{I}$ spanned by (decidable) monomorphisms classified by their face lattice~$\mathbb{F}$, \ie those arising as a base change of $\braces{\top} \to \mathbb{F}$, excluding for example diagonals in cubes.
 Since the presence of symmetries, diagonals, and connections precludes the cube category being Reedy, this may turn out to be a natural restriction.
-Note that this choice $\cal{M}'$ also satisfies the properties~(i) to~(v) of \cref{uniform-fib-presheaf-cat} and is thus covered by our development.
+Note that  $\cal{I}'$ satisfies the properties~(i) to~(iv) of \cref{uniform-fib-presheaf-cat} and is thus covered by our development.
 \end{example}
 
 \begin{remark} \label{cisinski-remark}
-We briefly relate the notion of a uniform $\cal{I}$-fibration with that of a naive fibration, intoduced by Cisinski~\cite{cisinski-asterisque}.
+We briefly relate the notion of an $\cal{I}$-fibration with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
 For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be given by
 \[
   m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] \, .
