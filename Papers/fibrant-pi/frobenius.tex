@@ -183,14 +183,11 @@ commute.
 \end{enumerate}
 \end{definition}
 
+When working with a functorial cylinder, we adopt the convention of associating the tensor product notation to the right in order to avoid excessive bracketing.
 The notation $\interval \otimes (-)$ adopted here is deliberately suggestive of the fact that a functorial cylinder is 
-often defined using a monoidal structure and an interval object, as in \cref{exa:cyl-via-int} below.
-We adopt the convention of associating the tensor product notation to the right in order to avoid excessive bracketing.
-
-
-
-
-\begin{example} \label{exa:cyl-via-int} \label{exa:connections-for-interval}
+often defined using a monoidal structure and an interval object, as in the examples below,
+so it is convenient to make some remarks about them in general.
+% \begin{example} \label{exa:cyl-via-int} \label{exa:connections-for-interval}
 Let $(\catE, \otimes, \top)$ be a monoidal category.
 An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called the \emph{left} and \emph{right endpoint inclusions}, respectively, such that $I \otimes (-)$ preserves finite colimits.
 It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ of $\lcyl$ and $\rcyl$, making the following diagram commute:
@@ -255,7 +252,7 @@ An interval object $(\interval, \lcyl, \rcyl)$ with contractions $\ccyl$ has \em
 \end{aligned}
 \end{align}
 The maps $c^0$ and $c^1$ can be seen as analogous to the minimum and maximum operations for the real line interval, or as conjunction and disjunction in a bounded distributive lattice. Tensoring with an interval object with connections induces a functorial cylinder with connections.
-\end{example}
+% \end{example}
 
 
 \begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
@@ -263,8 +260,8 @@ We write $\SSet$ for the category of simplicial sets, defined as the category of
 The category $\SSet$ has a cartesian closed structure.
 An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
 Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
-As in \cref{exa:cyl-via-int}, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
-The interval object $(\Delta^1, h_0^1, h_1^1)$ in simplicial sets of~\cref{exa:cyl-in-sset} sets has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
+Then, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
+This interval object has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
 For this, note that~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
 \end{example}
 
@@ -273,17 +270,17 @@ Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a
 The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
 Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
 The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
-Note that the presence of symmetries precludes $\Box$ from being a Reedy category as it has non-trivial isomorphisms.%
+Note that the presence of symmetries precludes $\Box$ from being a Reedy category.%
 \footnote{
 Something far less trivial is true in the joint presence of symmetries, diagonals, and connections: the morphism $\Box^{\braces{a, b}} \to \Box^{\braces{x, y}}$ that sends $x$ to $a \wedge b$ and $y$ to $a \vee b$ is neither an isomorphism nor does it factor through $\Box^1$; hence, the cube category in this case is not even a generalized Reedy category in the sense of~\cite{berger-moerdijk:generalized-reedy}.
 }
 
-We stress that the only feature of the cube category $\Box$ relevant for the main results on the uniform Frobenius condition are connections and symmetries (although we speculate a two-sided version should carry over to classical cube categories with connections, but no symmetries).
+We stress that the only feature of the cube category $\Box$ relevant for the main results on the  Frobenius condition are connections and symmetries.
 Thus, our results apply equally to many other variations of cubical sets, excluding however those considered in~\cite{coquand-cubical-sets,huber-thesis}, which do not have connections.
 
 The category of cubical sets $\CSet$ as studied in \cite{cohen-et-al:cubicaltt} has a monoidal structure with unit coinciding with the terminal object.
 An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl \co \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
-As in \cref{exa:cyl-via-int}, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
+Then, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
 Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras.
 In detail, they are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
 \end{example}
@@ -350,16 +347,16 @@ following pushout diagram:
   \interval \otimes B
 \rlap{.}}
 \end{gather*}
-Note that, since $\cal{I}$ is assumed to be closed under Leibniz products with the endpoint inclusions, we have $\cal{I}_\otimes
-\subseteq \cal{I}$. We then define an \emph{$\cal{I}$-fibration} to be a map with the right lifting property with respect to $\cal{I}_\otimes$
-and we write $\Fib{\cal{I}}$ for the class of  $\cal{I}$-fibrations, 
+Since $\cal{I}$ is  closed under Leibniz products with the endpoint inclusions, we have that $\cal{I}_\otimes
+\subseteq \cal{I}$. We define an \emph{$\cal{I}$-fibration} to be a map with the right lifting property with respect to $\cal{I}_\otimes$
+and write~$\Fib{\cal{I}}$ for the class of  $\cal{I}$-fibrations, 
 \[
   \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
 \]
-We now illustrate the notion of a (trivial) $\cal{I}$-fibration in simplicial sets and cubical sets.
+We  illustrate the notion of a (trivial) $\cal{I}$-fibration in simplicial sets and cubical sets.
 
 \begin{example}[Fibrations in simplicial sets]
-In the category $\SSet$ of simplicial sets, we consider $\cal{I}$ to consist of all monomorphisms. Then, a (trivial) $\cal{I}$-fibration
+In the category $\SSet$ of simplicial sets, we consider~$\cal{I}$ to consist of all monomorphisms. Then, a (trivial) $\cal{I}$-fibration
 is the same thing as a (trivial) Kan fibration in the usual sense. 
 Indeed, an $\cal{I}$- fibration $p \co X \to Y$ is a map for which there exist diagonal fillers for diagrams of the form
 \[
@@ -397,7 +394,7 @@ Note that  $\cal{I}'$ satisfies the properties~(i) to~(iv) of \cref{uniform-fib-
 \end{example}
 
 \begin{remark} \label{cisinski-remark}
-We briefly relate the notion of an $\cal{I}$-fibration with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
+We also relate the notion of an $\cal{I}$-fibration introduced here with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
 For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be given by
 \[
   m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)] \, .
