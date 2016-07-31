@@ -441,12 +441,10 @@ Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a
 \end{equation}
 A map $f \co X \to Y$ is called a \emph{left} (or \emph{0-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
 Dually, a map $f \co X \to Y$ is called a \emph{right} (or \emph{1-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-If the functorial cylinder has contractions, the notion of a (\emph{left/0-oriented} or \emph{right/1-oriented}) \emph{strong deformation retract} is obtained by requiring also that the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-)
-\to \Id_\catE$ is the contraction of the functorial cylinder.
-The following generalization of strong deformation retracts is very important in our development.
+The following notion is very important in our development.
 
 \begin{definition} \label{def:strhe}
-A (left or right) homotopy equivalence as above is said to be \emph{strong} if the diagram
+A map $f \co X \to Y$ is called a \emph{strong} right  homotopy equivalence if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$ such that the diagram
 \[
 \xymatrix{
   \interval \otimes X
@@ -462,27 +460,12 @@ A (left or right) homotopy equivalence as above is said to be \emph{strong} if t
   Y
 }
 \]
-commutes, and \emph{co-strong} if the diagram
-\[
-\xymatrix{
-  \interval \otimes Y
-  \ar[r]^{\interval \otimes g}
-  \ar[d]_{\psi}
-&
-  \interval \otimes X
-  \ar[d]^{\phi}
-\\
-  Y
-  \ar[r]_{g}
-&
-  X
-}
-\]
 commutes.
 \end{definition}
 
-The notion of homotopy equivalence is symmetric and admits an evident duality, and a homotopy equivalence is strong if and only if its dual is co-strong.
-Fixing $k \in \braces{0, 1}$, we write $\cal{S}_k$ for the class of maps $f$ in $\cal{E}$ that admit data $(g, \phi, \psi)$ as above making $f$ into a strong $k$-oriented homotopy equivalence.
+Examples of strong homotopy equivalences are given by   strong deformation retracts, i.e. homotopy equivalences for which the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-) \to \Id_\catE$ is the contraction of the functorial cylinder. For $k \in \braces{0, 1}$, we write $\cal{S}_k$ for the class of strong $k$-oriented homotopy equivalences.
+
+\medskip
 
 Our first goal is to give an alternative characterization of strong left or right homotopy equivalences.
 For this, we need some definitions.
@@ -547,7 +530,7 @@ for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{lemma}[Strong homotopy equivalences as sections] \label{strong-h-equiv-as-section-non-alg}
-For an arrow $f \in \cal{E}^\to$, we have $f \in \cal{S}_k$ if and only if there is a retraction $\theta$ of the map $\thetak \hatotimes f$, as below:
+For an arrow $f \in \cal{E}^\to$, we have $f \in \cal{S}_k$ if and only if there is a retraction $\rho$ of the map $\thetak \hatotimes f$, as below:
 \[
 \xymatrix@C+2em{
   f
@@ -671,45 +654,7 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors, in this case $\delta^0 \hatotimes (-)$ and $\delta^1 \hatotimes (-)$, preserve retracts and sections are closed under retracts.
 \end{remark}
 
-We now fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-If the functorial cylinder is induced by tensoring with an interval object in a monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensoring from the right with arbitrary maps since functors preserve section-retraction pairs.
-We have an analogue of this also in the general setting, which we will examine next.
 
-\begin{lemma} \label{leibniz-lift}
-Let $u \co \bracks{\cal{D}, \cal{E}}^\to$ be a natural transformation.
-If $\eval(u, -) \co \cal{D} \to \cal{E}^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) \co \cal{D}^\to \to \catE^\to$.
-\end{lemma}
-
-\begin{proof}
-This is a formal argument in the theory of Leibniz constructions~\cite{riehl-verity:reedy}.
-In order to make this argument more readable, we will use infix notation for several important bifunctors.
-Let first $[\catE, \catE]'$ denote the pushout preserving endofunctors on $\catE$.
-By assumption, we have that~$\thetak$ is a map in $[\catE, \catE]'^{\to}$.
-We write $(-) {\cc} (-)  \co [\catE, \catE]' \times [\cal{D}, \catE] \to [\cal{D}, \catE]$ for functor composition as well as~$(-) \otimes_\catE (-) \co [\catE, \catE]' \times \catE \to \catE$ and $(-) \otimes_{\cal{D}} (-) \co [\cal{D}, \catE] \times \cal{D} \to \catE$ for functor application (previously denoted $\eval$).
-Of course, we have an isomorphism
-\begin{equation} \label{leibniz-lift:0}
-  (U \cc F) \otimes_{\cal{D}} X = U \otimes_\catE (F \otimes_{\cal{D}} X)
-\end{equation}
-natural $U \in [\catE, \catE]'$, $F \in [\cal{D}, \catE]$, and $X \in \cal{D}$.
-
-Recall that $\catE$ has pushouts so that we have the Leibniz construction available and pushouts in the relevant functor categories are computed pointwise.
-From~\eqref{leibniz-lift:0}, it follows that we have an isomorphism
-\begin{equation} \label{leibniz-lift:1}
-  (\thetak \cchat u) \otimes_{\cal{D}} X = \thetak \hatotimes_\catE (u \otimes_{\cal{D}} X)
-\end{equation}
-natural in $X \in \cal{D}^\to$.
-Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\otimes_\catE \co [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
-\begin{equation} \label{leibniz-lift:2}
-  (\thetak \cchat u) \hatotimes_{\cal{D}} f = \thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} f)
-\end{equation}
-natural in $f \in \cal{D}^\to$.
-
-The assumption of $u \otimes_{\cal{D}} (-) \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction of~$\thetak \hatotimes_\catE (u \otimes_{\cal{D}} (-))$.
-By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \otimes_{\cal{D}} (-) = \thetak \cchat u$.
-The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction of the map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
-By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatotimes_{\cal{D}} (-)$.
-But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
-\end{proof}
 
 Let $\cal{I}$ be a class of maps in $\cal{E}$.
 We write $\cal{S}_k(\cal{I})$ for the subclass of $\cal{I}$ consisting of strong $k$-oriented homotopy equivalences.
@@ -2609,70 +2554,8 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors, in this case $\delta^0 \hatotimes (-)$ and $\delta^1 \hatotimes (-)$, preserve retracts and sections are closed under retracts.
 \end{remark}
 
-We now fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-If the functorial cylinder is induced by tensoring with an interval object in a monoidal category, then \cref{strong-h-equiv-as-section} shows that strong left or right homotopy equivalences are closed under Leibniz tensoring from the right with arbitrary maps since functors preserve section-retraction pairs.
-We have an analogue of this also in the general setting, which we will examine next.
 
-\begin{lemma} \label{leibniz-lift}
-Let $u \co \bracks{\cal{D}, \cal{E}}^\to$ be a natural transformation.
-If $\eval(u, -) \co \cal{D} \to \cal{E}^\to$ lifts through $\cal{S}_k \to \catE^\to$, then so does $\hateval(u, -) \co \cal{D}^\to \to \catE^\to$.
-\end{lemma}
-
-\begin{proof}
-This is a formal argument in the theory of Leibniz constructions~\cite{riehl-verity:reedy}.
-In order to make this argument more readable, we will use infix notation for several important bifunctors.
-Let first $[\catE, \catE]'$ denote the pushout preserving endofunctors on $\catE$.
-By assumption, we have that~$\thetak$ is a map in $[\catE, \catE]'^{\to}$.
-We write $(-) {\cc} (-)  \co [\catE, \catE]' \times [\cal{D}, \catE] \to [\cal{D}, \catE]$ for functor composition as well as~$(-) \otimes_\catE (-) \co [\catE, \catE]' \times \catE \to \catE$ and $(-) \otimes_{\cal{D}} (-) \co [\cal{D}, \catE] \times \cal{D} \to \catE$ for functor application (previously denoted $\eval$).
-Of course, we have an isomorphism
-\begin{equation} \label{leibniz-lift:0}
-  (U \cc F) \otimes_{\cal{D}} X = U \otimes_\catE (F \otimes_{\cal{D}} X)
-\end{equation}
-natural $U \in [\catE, \catE]'$, $F \in [\cal{D}, \catE]$, and $X \in \cal{D}$.
-
-Recall that $\catE$ has pushouts so that we have the Leibniz construction available and pushouts in the relevant functor categories are computed pointwise.
-From~\eqref{leibniz-lift:0}, it follows that we have an isomorphism
-\begin{equation} \label{leibniz-lift:1}
-  (\thetak \cchat u) \otimes_{\cal{D}} X = \thetak \hatotimes_\catE (u \otimes_{\cal{D}} X)
-\end{equation}
-natural in $X \in \cal{D}^\to$.
-Since $\otimes_{\cal{D}} \co [\cal{D}, \catE] \times \cal{D} \to \catE$ and $\otimes_\catE \co [\catE, \catE]' \times \catE \to \catE$ preserve pushouts in their first and second argument, respectively, it also follows that we have an isomorphism
-\begin{equation} \label{leibniz-lift:2}
-  (\thetak \cchat u) \hatotimes_{\cal{D}} f = \thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} f)
-\end{equation}
-natural in $f \in \cal{D}^\to$.
-
-The assumption of $u \otimes_{\cal{D}} (-) \co \cal{D} \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to having a retraction of~$\thetak \hatotimes_\catE (u \otimes_{\cal{D}} (-))$.
-By~\eqref{leibniz-lift:1}, this map is isomorphic to~$(\thetak \cchat u) \otimes_{\cal{D}} (-) = \thetak \cchat u$.
-The goal of $u \hatotimes_{\cal{D}} (-) \co \cal{D}^\to \to \catE^\to$ lifting through $\cal{S}_k \to \catE^\to$ is equivalent to a retraction of the map~$\thetak \hatotimes_\catE (u \hatotimes_{\cal{D}} (-))$.
-By~\eqref{leibniz-lift:2}, this map is isomorphic to $(\thetak \cchat u) \hatotimes_{\cal{D}} (-)$.
-But functors, in this case~$m \mapsto m \hatotimes_{\cal{D}} (-)$, preserve section-retraction pairs.
-\end{proof}
-
-Let $u \co \cal{I} \to \catE^\to$ be a functor.
-For $k \in \braces{0, 1}$, we define $\cal{S}_k(u) \co \cal{S}_k(\cal{I}) \to \catE^\to$, the category of strong $k$-oriented homotopy equivalences relative to $\cal{I}$, by the following strict pullback of categories:
-\begin{equation} \label{rel-strong-h-equiv-def}
-\begin{gathered}
-\xymatrix{
-  \cal{S}_k(\cal{I})
-  \ar[r]
-  \ar[d]
-  \pullback{dr}
-&
-  \cal{I}
-  \ar[d]^{u}
-\\
-  \cal{S}_k
-  \ar[r]
-&
-  \catE^\to
-}
-\end{gathered}
-\end{equation}
-This means that an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with data $(g, \phi, \psi)$ making~$u_i$ into a strong $k$-oriented homotopy equivalence.
-
-For the remainder of this section, we fix $k \in \braces{0, 1}$ and identify the category $\cal{S}_k$ with the isomorphic category defined in \cref{strong-h-equiv-as-section}.
-Under this identification, an object of $\cal{S}_k(\cal{I})$ consists of an object $i \in \cal{I}$ together with a retraction of $\thetak \hatotimes u_i$.
+For the remainder of this section, we fix $k \in \braces{0, 1}$.
 We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
 
 \begin{lemma} \label{lem:from-strong-hequiv}
