@@ -117,7 +117,11 @@ For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and co
 
 \begin{definition} \hfill  \label{def:connections}
 \begin{enumerate}[(i)]
-\item A \emph{functorial cylinder} $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ preserving finite colimits equipped with natural transformations $\lcyl \otimes (-), \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$ called the \emph{left} and \emph{right endpoint inclusions}, respectively.
+\item A \emph{functorial cylinder} in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ preserving finite colimits equipped with natural transformations 
+\[
+\lcyl \otimes (-) \, ,  \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)
+\] 
+called the \emph{left} and \emph{right endpoint inclusions}, respectively.
 \item We say the functorial cylinder as above has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
 \[
 \xymatrix@C+2em{
@@ -530,7 +534,8 @@ for $k \in \braces{0, 1}$.
 We use these maps to provide the following characterization of strong homotopy equivalences.
 
 \begin{lemma}[Strong homotopy equivalences as sections] \label{strong-h-equiv-as-section-non-alg}
-For an arrow $f \in \cal{E}^\to$, we have $f \in \cal{S}_k$ if and only if there is a retraction $\rho$ of the map $\thetak \hatotimes f$, as below:
+A map $f \co X \to Y$ is a string $k$-oriented equivalence 
+if and only if there is a retraction $\rho$ of the map $\thetak \hatotimes f  \co f \to \kcyl \hatotimes f$, as below:
 \[
 \xymatrix@C+2em{
   f
@@ -656,8 +661,8 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 
 
 
-Let $\cal{I}$ be a class of maps in $\cal{E}$.
-We write $\cal{S}_k(\cal{I})$ for the subclass of $\cal{I}$ consisting of strong $k$-oriented homotopy equivalences.
+Let $\cal{I}$ be a class of maps in $\cal{E}$ and define $\cal{S}_k(\cal{I}) \defeq \cal{I} \cap \cal{S}_k$, \ie 
+the class of maps in $\cal{I}$ that are strong $k$-oriented homotopy equivalences.
 We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
 
 \begin{lemma} \label{lem:from-strong-hequiv}
