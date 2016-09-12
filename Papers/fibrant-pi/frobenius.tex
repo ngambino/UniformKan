@@ -112,17 +112,11 @@ This material is based on research sponsored by the Air Force Research Laborator
 
 \section{Preliminaries}
 
-Let us begin by fixing some notation.
-For a category $\catE$, we write $\cal{E}^\to$ for the category of arrows and commutative squares in $\cal{E}$, and $\cal{E}^\to_{\cart}$ for the subcategory of $\cal{E}^\to$ with pullback squares as maps. For our purposes, it will be convenient to work with a modified version of the standard definition of a functorial cylinder~\cite{kamps-porter:homotopy}, obtained by requiring also preservation of finite colimits.
-
-\begin{definition} \hfill  \label{def:connections}
-\begin{enumerate}[(i)]
-\item A \emph{functorial cylinder} in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ preserving finite colimits equipped with natural transformations 
+Fix a  locally presentable category $\catE$. Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$  equipped with natural transformations 
 \[
-\lcyl \otimes (-) \, ,  \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)
+\lcyl \otimes (-) \co   \Id_\catE \to \interval \otimes (-) \, , \quad \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \, , 
 \] 
-called the \emph{left} and \emph{right endpoint inclusions}, respectively.
-\item We say the functorial cylinder as above has \emph{contractions} if there is a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$, making the following diagram commute:
+called the left and right \emph{endpoint inclusions}, respectively. Such a functorial cylinder is said to have \emph{contractions} if $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ have a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$ making the following diagrams commute:
 \[
 \xymatrix@C+2em{
   \Id_\catE
@@ -139,7 +133,7 @@ called the \emph{left} and \emph{right endpoint inclusions}, respectively.
   \Id_\catE
 \rlap{.}}
 \]
-\item A functorial cylinder $(\interval \otimes (-), \lcyl \otimes (-), \rcyl \otimes (-))$ with contractions $\ccyl \otimes (-)$ has \emph{connections} if, for $k \in \braces{0, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the diagrams
+Further, a functorial cylinder with contractions as above has \emph{connections} if, for $k \in \braces{0, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the diagrams
 \begin{equation} \label{connections:0}
 \begin{gathered}
 \xymatrix@C+3em{
@@ -183,154 +177,55 @@ and
 }
 \end{gathered}
 \end{equation}
-commute.
-\end{enumerate}
-\end{definition}
+commute. We adopt the convention of associating the tensor product notation to the right.
 
-When working with a functorial cylinder, we adopt the convention of associating the tensor product notation to the right in order to avoid excessive bracketing.
-The notation $\interval \otimes (-)$ adopted here is deliberately suggestive of the fact that a functorial cylinder is 
-often defined using a monoidal structure and an interval object, as in the examples below,
-so it is convenient to make some remarks about them in general.
-% \begin{example} \label{exa:cyl-via-int} \label{exa:connections-for-interval}
-Let $(\catE, \otimes, \top)$ be a monoidal category.
-An \emph{interval object} $(\interval, \lcyl, \rcyl)$ in $\calE$ is an object~$\interval \in \catE$ equipped with maps $\lcyl, \rcyl \co \top \to \interval$ called the \emph{left} and \emph{right endpoint inclusions}, respectively, such that $I \otimes (-)$ preserves finite colimits.
-It has \emph{contractions} if there is a common retraction $\ccyl \co \interval \to \top$ of $\lcyl$ and $\rcyl$, making the following diagram commute:
-\[
-\xymatrix@C+1em{
-  \top
-  \ar[r]^-{\lcyl}
-  \ar@{=}[dr]
-&
-  \interval
-  \ar[d]^(0.4){\ccyl}
-&
-  \top
-  \ar[l]_-{\rcyl}
-  \ar@{=}[dl]
-\\&
-  \top
-\rlap{.}}
-\]
-If the unit $\top$ of the monoidal structure is also terminal, an interval object canonically has contractions.
-Tensoring with an interval object (with contractions) evidently induces a functorial cylinder (with contractions).
-An interval object $(\interval, \lcyl, \rcyl)$ with contractions $\ccyl$ has \emph{connections} if, for $k \in \braces{0, 1}$, there is a map $c^k \co \interval \otimes \interval \to \interval$ such the following diagrams commute:
-\begin{align} \label{connections-for-interval:0}
-\begin{aligned}
-\xymatrix@C+1em{
-  \interval
-  \ar[r]^-{\kcyl \otimes \interval}
-  \ar[d]_{\ccyl}
-&
-  \interval \otimes \interval
-  \ar[d]^{c^k}
-&
-  \interval
-  \ar[l]_-{\interval \otimes \kcyl}
-  \ar[d]^{\ccyl}
-\\
-  \top
-  \ar[r]_{\kcyl}
-&
-  \interval
-&
-  \top
-  \ar[l]^{\kcyl}
-\rlap{,}}
-\end{aligned}
-&&
-\begin{aligned}
-\xymatrix@C+2em{
-  \interval
-  \ar[r]^-{\kcylinv \otimes \interval}
-  \ar@{=}[dr]
-&
-  \interval \otimes \interval
-  \ar[d]^(0.4){c^k}
-&
-  \interval
-  \ar[l]_-{\interval \otimes \kcylinv}
-  \ar@{=}[dl]
-\\&
-  \interval
-\rlap{.}}
-\end{aligned}
-\end{align}
-The maps $c^0$ and $c^1$ can be seen as analogous to the minimum and maximum operations for the real line interval, or as conjunction and disjunction in a bounded distributive lattice. Tensoring with an interval object with connections induces a functorial cylinder with connections.
-% \end{example}
+Our main examples functorial cylinders with  contractions and connections, to be discussed below, arise from monoidal categories $(\catE, \otimes, \top)$ 
+equipped with interval object, \ie an object~$\interval \in \catE$ equipped with maps~$\lcyl, \rcyl \co \top \to \interval$, called the left 
+and right \emph{endpoint inclusions}, respectively. In such a situation, a functorial cylinder is given by tensoring with $\interval$. 
+It is then immediate to isolate sufficient structure on the interval object that guarantees the presence of contractions and connections on the associated functorial cylinder: 
+contractions can be given by a map $\ccyl \co \interval \to \top$, connections by maps for $k \in \braces{0, 1}$, $c^k \co \interval \otimes \interval \to \interval$,
+all satisfying suitable axioms. Note that if the unit $\top$ of the monoidal structure is a terminal object, then an interval object  has contractions in a canonical way.
 
 
-\begin{example}[Functorial cylinder in simplicial sets] \label{exa:cyl-in-sset}
-We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves $\Psh(\Delta)$ over the simplex category $\Delta$.
+
+
+
+\begin{example}[Simplicial sets] \label{exa:cyl-in-sset}
+We write $\SSet$ for the category of simplicial sets, defined as the category of presheaves over the simplex category $\Delta$.
 The category $\SSet$ has a cartesian closed structure.
-An interval object with contractions is given by $\Delta^1$ with endpoint inclusions $\lcyl = h_0^1 \co \braces{0} \to \Delta^1$ and $\rcyl = h_1^1 \co \braces{1} \to \Delta^1$.
-Note that these are special cases of the horn inclusions $h_k^n \co \Lambda_k^n \to \Delta^n$.
-Then, taking the Cartesian product with $\Delta^1$ provides a functorial cylinder with contractions.
-This interval object has uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$ with $k \in \braces{0, 1}$ given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
-For this, note that~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotonous with respect to their orderings.
+An interval object is given by $\Delta^1$ with endpoint inclusions~$\kcyl  \co \braces{k} \to \Delta^1$, given 
+by special cases of horn inclusions, $\kcyl = h^1_n$, for $k = 0, 1$. We have contractions, since the monoidal structure is cartesian,
+and uniquely determined connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$, with $k \in \braces{0, 1}$, given on points by 
+$c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
+For this, note that~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and that $\min$ and $\max$ are monotone.
 \end{example}
 
-\begin{example}[Functorial cylinder in cubical sets] \label{exa:cyl-in-cuset}
-Categories of cubical sets are defined as presheaves $\CSet = \Psh(\Box)$ over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
-The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms $\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+\begin{example}[Cubical sets] \label{exa:cyl-in-cuset}
+Categories of cubical sets are defined as presheaves over a cube category $\Box$ that encodes the specific variant of cubical sets under consideration.
+The specific category $\Box$ considered in~\cite{cohen-et-al:cubicaltt} has objects $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
 Thus, the corresponding category $\CSet$ of cubical sets has symmetries, diagonals, connections, and involutions.
-The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category $(\CSet, \otimes, \top)$.
-Note that the presence of symmetries precludes $\Box$ from being a Reedy category.%
-\footnote{
+The category $\Box$ has a symmetric monoidal structure, which makes cubical sets into a symmetric monoidal closed category.\footnote{The presence of symmetries precludes $\Box$ from being a Reedy category.
 Something far less trivial is true in the joint presence of symmetries, diagonals, and connections: the morphism $\Box^{\braces{a, b}} \to \Box^{\braces{x, y}}$ that sends $x$ to $a \wedge b$ and $y$ to $a \vee b$ is neither an isomorphism nor does it factor through $\Box^1$; hence, the cube category in this case is not even a generalized Reedy category in the sense of~\cite{berger-moerdijk:generalized-reedy}.
 }
-
-We stress that the only feature of the cube category $\Box$ relevant for the main results on the  Frobenius condition are connections and symmetries.
+We stress that the only feature of the cube category $\Box$ relevant for the main results  are connections and symmetries.
 Thus, our results apply equally to many other variations of cubical sets, excluding however those considered in~\cite{coquand-cubical-sets,huber-thesis}, which do not have connections.
 
-The category of cubical sets $\CSet$ as studied in \cite{cohen-et-al:cubicaltt} has a monoidal structure with unit coinciding with the terminal object.
-An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\lcyl = \braces{0} \to \Box^1$ and $\rcyl \co \braces{1} \to \Box^1$ (formally given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick false and true, respectively).
-Then, tensoring with $\Box^1$ provides a functorial cylinder with contractions.
-Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras.
-In detail, they are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
+The category of cubical sets $\CSet$ as studied in \cite{cohen-et-al:cubicaltt} has a monoidal structure in which the unit is a terminal object.
+An interval object with contractions is given by $\Box^1$ with endpoint inclusions $\kcyl \co \braces{k} \to \Box^1$  given by the maps from a singleton set to the free de Morgan algebra 
+on an empty set that pick the bottom element for $k = 0$ and the top element for $k =1$.
+Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for $k \in \braces{0, 1}$ are induced by the conjunction and disjunction operations of de Morgan algebras:
+they are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
 \end{example}
 
 
-\subsection*{Fibrations} We assume that $\catE$ is equipped with a functorial cylinder $ \interval\otimes (-) \co \catE \to \catE$
-having a right adjoint and such that the naturality squares of $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ are pullbacks. % \footnote{The latter assumption allows us to transport statements about uniform trivial fibrations to uniform fibrations via \cref{prod-exp-general}.} In this setting, the analogy with the theory developed by Cisinski in~\cite{cisinski-asterisque}, it is natural to consider $\cal{I}$ to be a category of monomorphisms. 
-We isolate the appropriate assumptions on our class of generating cofibrations in the next definition.
 
 
-
-\begin{definition} \label{uniform-fib-presheaf-cat}
-A class of monomorphisms $\cal{I}$ in $\catE$  is said to be \emph{suitable} if the following conditions hold.
-\begin{enumerate}[(i)]
-\item $\cal{I}$ is closed under pullbacks, \ie for every pullback square
+Let us now assume that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that the functor $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, which we write~$\exp(I, -) \co \catE \to \catE$.  As a consequence, $\interval\otimes (-) \co \catE \to \catE$ preserves colimits. 
+In order to introduce the notion of a suitable weak factorisation system in~\cref{uniform-fib-presheaf-cat} below, we need to introduce some notation.  For a map $i \co A \to B$ in $\catE$, we define 
 \[
-\xymatrix{
-C \ar[d]_j \ar[r] & A \ar[d]^i \\
-D \ar[r] & B }
-\]
-if $i \in \cal{I}$ then $j \in \cal{I}$. 
-\item $\cal{I}$ is closed under Leibniz product with the endopoint inclusions, \ie for every $i \in \cal{I}$ we have 
- $\lcyl \hatotimes i \in \cal{I}$ and $\rcyl \hatotimes i \in \cal{I}$.
-\item For every $X \in \cal{E}$, the unique map $\bot_X \co 0_{\cal{E}} \to X$ is in $\cal{I}$.
-\item The functor $I \otimes (-)$ preserves pullbacks for squares of the form $i \to j$ with $i, j \in \cal{I}$. \notec{WHERE IS THIS USED?}
-\end{enumerate}
-\end{definition}
-
-
-
-
-
-If one takes $\cal{I}$ to consist of all monomorphisms, the conditions above are inherited from~$\Set$.
-This choice of $\cal{M}$ is particularly natural for presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}, where the right lifting property with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms (see also~\cref{sec:non-alg}).
-
-\medskip
-
-Let us fix a suitable class of monomorphisms $\cal{I}$, which we think of as the counterpart of a set of generating cofibrations.
-In analogy with the work of Cisinski~\cite{cisinski-asterisque}, we define a \emph{trivial $\cal{I}$-fibration} to be a map with the 
-right lifting property with respect to $\cal{I}$, and write $\TrivFib{\cal{I}}$ for the class of  trivial $\cal{I}$-fibrations, 
-\[
-  \TrivFib{\cal{I}} \defeq \liftr{\cal{I}} \rlap{.}
-\]
-We now want to combine $\cal{I}$ and the cylinder to define the generating trivial cofibrations. We define $\cal{I}_\otimes$ to consist
-of all the maps of the form $\kcyl \hatotimes i$, where $k \in \{ 0, 1 \}$ and  $i \in \cal{I}$. Explicitly, these maps are obtained via the
-following pushout diagram:
+\kcyl \hatotimes i \co (\interval \otimes A) +_A B \to \interval \otimes B
+\] 
+to be given by the following pushout diagram:
 \begin{gather*}
 \xymatrix@C=1.2cm{
   A
@@ -351,18 +246,59 @@ following pushout diagram:
   \interval \otimes B
 \rlap{.}}
 \end{gather*}
-Since $\cal{I}$ is  closed under Leibniz products with the endpoint inclusions, we have that $\cal{I}_\otimes
-\subseteq \cal{I}$. We define an \emph{$\cal{I}$-fibration} to be a map with the right lifting property with respect to $\cal{I}_\otimes$
-and write~$\Fib{\cal{I}}$ for the class of  $\cal{I}$-fibrations, 
-\[
-  \Fib{\cal{I}} \defeq \liftr{(\cal{I}_\otimes)} \rlap{.}
-\]
-We  illustrate the notion of a (trivial) $\cal{I}$-fibration in simplicial sets and cubical sets.
+We call $\kcyl \hatotimes i$ the \emph{Leibniz product} of $\kcyl$ and $i$.
 
-\begin{example}[Fibrations in simplicial sets]
-In the category $\SSet$ of simplicial sets, we consider~$\cal{I}$ to consist of all monomorphisms. Then, a (trivial) $\cal{I}$-fibration
-is the same thing as a (trivial) Kan fibration in the usual sense. 
-Indeed, an $\cal{I}$- fibration $p \co X \to Y$ is a map for which there exist diagonal fillers for diagrams of the form
+
+\begin{definition} \label{uniform-fib-presheaf-cat} We say that a weak factorisation system $(L, R)$ on $\catE$ is \emph{suitable} if the following conditions hold:
+\begin{enumerate}[(i)]
+\item $(L, R)$  is cofibrantly generated,
+\item the maps in $L$ are monomorphisms, 
+\item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $L$,
+\item $L$ is closed under pullbacks, \ie for every pullback square
+\[
+\xymatrix{
+B \ar[d]_j \ar[r]^q & A \ar[d]^i \\
+Y \ar[r]_p & X }
+\]
+if $i \in L$ then $j \in L$, 
+\item $L$ is closed under Leibniz product with the endpoint inclusions, \ie for every $i \in L$ we have 
+ $\kcyl \hatotimes i \in L$.
+\end{enumerate}
+\end{definition}
+
+When working with a suitable weak factorisation system, we refer to maps in $\cal{L}$ as \emph{cofibrations} and to maps in $\cal{R}$ as \emph{trivial fibrations} in order to help the intuition.
+Indeed, a wide class of examples of suitable weak factorisation systems arises from Cisinski model structures~\cite{cisinski-asterisque}, \ie cofibrantly generated Quillen model structures on presheaf categories in which the cofibrations are the monomorphisms. In particular, for presheaf categories over an elegant Reedy category~\cite{bergner-rezk-elegant}, such a weak factorisation
+system is cofibrantly generated by the boundary inclusions. In particular, the right lifting property with respect to boundary inclusions implies the right lifting property with respect to all monomorphisms (see also~\cref{sec:non-alg}). We are now concerned with the issue of defining a new weak factorisation system that can be thought of as consisting of trivial cofibrations and fibrations. For this, we begin by defining the class of maps that serve the purpose of testing whether a certain map is a fibration, imitating the development in simplicial sets. Such a class is given by what we call the
+\emph{cylinder inclusions}, 
+\[
+\mathsf{Cyl}  \defeq \{ \kcyl \hatotimes i \ | \ k \in \{ 0, 1 \} \, ,  i \in L \}
+\]
+We then define $R_\otimes$ to be the class of maps with the right lifting property with respect to all cylinder inclusions, \ie 
+\[
+R_\otimes \defeq \mathsf{Cyl}^\pitchfork
+\]
+
+
+\begin{proposition} \label{thm:wfstimes} There exists a weak factorisation system $(L_\otimes, R_\otimes)$ such that $R_\otimes$ are exactly the maps with the right lifting property with respect to
+the cylinder inclusions.
+\end{proposition}
+
+\begin{proof} Let $I$ be a generating set of maps for $(L, R)$ and define $(L_\otimes, R_\otimes)$ to be the weak factorisation system cofibrantly generated by the set 
+\[
+J \defeq \{ \delta^k \hatotimes i \ | \ i \in I \}
+\]
+It remains to check that $R_\otimes$ is exactly the set of the maps with the right lifting property with respect to the cylinder inclusions.
+\end{proof}
+
+We refer to the maps in $L_\otimes$ and $R_\otimes$ as \emph{trivial cofibrations} and \emph{fibrations}, respectively. 
+Note that, since $L$ is  closed under Leibniz products with the endpoint inclusions, we have that $L_\otimes
+\subseteq L$, which could be rephrased as saying that every trivial cofibration is a cofibration. 
+We  illustrate these notions in simplicial sets and cubical sets.
+
+\begin{example}[Kan fibrations]
+In $\SSet$, we let~$(\cal{L}, \cal{R})$ to be the weak factorisation system of monomorphisms and trivial Kan fibrations. Then, an $\cal{L}$-fibration
+is the same thing as a Kan fibration in the usual sense. 
+Indeed, an $\cal{L}$-fibration $p \co X \to Y$ is a map for which there exist diagonal fillers for diagrams of the form
 \[
 \xymatrix{
   (\Delta^1 \times A) \cup (\braces{k} \times B)
@@ -379,22 +315,21 @@ Indeed, an $\cal{I}$- fibration $p \co X \to Y$ is a map for which there exist d
 \rlap{,}}
 \]
 where the map on the left is the Leibniz product of the horn inclusion $h_k^1 \co \braces{k} \to \Delta^1$ mentioned in \cref{exa:cyl-in-sset} with a monomorphism $i \co A \to B$.
-Note that higher-dimensional horns are not involved explicitly here.
-However, they are included indirectly since they are retracts of the Leibniz product of a one-dimensional horn inclusion with themselves~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
+Even if higher-dimensional horns are not involved explicitly, they are included indirectly since they are retracts of the Leibniz product of a one-dimensional horn inclusion with themselves~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
 \end{example}
 
-\begin{example}[Fibrations in cubical sets]
-Also in the category $\CSet$ of cubical sets, we consider~$\cal{I}$ to consist of all monomorphisms.
-A  (trivial) $\cal{I}$-fibration in $\CSet$ will be called a \emph{(trivial) Kan fibration}.
+\begin{example}[Coquand fibrations]
+Also in the category $\CSet$ of cubical sets, we consider~$\cal{L}$ to consist of all monomorphisms.
+A  (trivial) $\cal{L}$-fibration in $\CSet$ will be called a \emph{(trivial) Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$ for $n \in \mathbb{N}$ denote the boundary inclusion for~$\Box^n$, given as the $n$-fold Leibniz tensor of $[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.%
 \footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
 Then~$\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ equal the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
 Since our cube category has symmetries, a Kan fibration in $\CSet$ is has the left lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.%
-\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
+%\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
-The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering the  $\cal{I}'$-fibrations where~$\cal{I}'$ is the full subcategory of $\cal{I}$ spanned by (decidable) monomorphisms classified by their face lattice~$\mathbb{F}$, \ie those arising as a base change of $\braces{\top} \to \mathbb{F}$, excluding for example diagonals in cubes.
-Since the presence of symmetries, diagonals, and connections precludes the cube category being Reedy, this may turn out to be a natural restriction.
-Note that  $\cal{I}'$ satisfies the properties~(i) to~(iv) of \cref{uniform-fib-presheaf-cat} and is thus covered by our development.
+The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering the  $\cal{L}'$-fibrations where~$\cal{L}'$ is the full subcategory of $\cal{L}$ spanned by (decidable) monomorphisms classified by their face lattice~$\mathbb{F}$, \ie those arising as a pullback of $\braces{\top} \to \mathbb{F}$, excluding for example diagonals in cubes.
+Since the presence of symmetries, diagonals, and connections precludes the cube category from being Reedy, this may turn out to be a natural restriction.
+Note that  $\cal{L}'$ satisfies the properties of a suitable weak factorisation system and is thus covered by our development.
 \end{example}
 
 \begin{remark} \label{cisinski-remark}
@@ -419,8 +354,27 @@ By \cref{relating-strong-hequiv-and-uniform-fib}, it then follows that every uni
 
 
 
-\section{The Frobenius property for fibrations}
+\section{The Frobenius property}
 
+
+Let us begin by recalling a definition.
+
+\begin{definition} We say that a weak factorisation system $(\cal{L}, \cal{R})$ has the \emph{Frobenius property} if pullback of $\cal{L}$-maps along $\cal{R}$-maps are again $\cal{L}$-maps, \ie in every pullback diagram of the form
+\[
+\xymatrix{
+ Y \ar[d]_j \ar[r]^q & X \ar[d]^i \\ 
+B \ar[r]_p & A }
+\]
+where $p \in \cal{R}$, if $i  \in \cal{L}$ then $j \in \cal{L}$.
+\end{definition} 
+
+One of the reasons for the interest in the Frobenius conditition is that it is closely related to the right properness of model structures. Recall that the right properness of a model 
+structure~$(\cal{W}, \cal{F}, \cal{C})$ means that the pullback of a weak equivalence along a fibration is again a fibration. It is easy  to see that, when the cofibrations are the monomorphisms, the right properness of the model structure is equivalent to the Frobenius property of the weak factorisation system~$(\cal{W} \cap \cal{C}, \cal{F}$), \ie that the pullback of a trivial cofibrations along a fibration is again a trivial cofibration. Our aim in this section is to show that the weak factorisation system $(\cal{L}_\otimes, \cal{R}_\otimes)$ of  \cref{thm:wfstimes} satisfies the Frobenius property. 
+The strategy of the proof is as follows. We will begin by defining a class of maps, called \emph{strong homotopy equivalences}. Then, the proof will consist of three main steps. 
+First, we will give a characterization of strong homotopy equivalences as retracts of certain canonical maps. Secondly, we show that the maps in $\cal{L}$ which are strong homotopy
+equivalences are retracts of maps in $\cal{L}_\otimes$ and that every map in $\cal{L}_\otimes$ is both in $\cal{L}$ and a strong homotopy equivalence. This implies that a map is
+a $\cal{L}$-fibration if and only if it has the right lifting property with respect to $\cal{S} \cap \cal{L}$. The third and final step of the proof will consist in showing that the pullback
+of a $(\cal{S} \cap \cal{L})$-map along a fibration is again an $(\cal{S} \cap \cal{L})$-map, which can be seen to imply the Frobenius condition for $(\cal{L}_\otimes, \cal{R}_\otimes)$.
 
 
 Let $f, g \co X \to Y$ be maps in $\catE$.
@@ -443,12 +397,15 @@ Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a
 \rlap{.}}
 \end{gathered}
 \end{equation}
-A map $f \co X \to Y$ is called a \emph{left} (or \emph{0-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $ and $\psi \co f \cc g \sim \id_Y$.
-Dually, a map $f \co X \to Y$ is called a \emph{right} (or \emph{1-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$.
-The following notion is very important in our development.
+We say that a map $f \co X \to Y$ is called a \emph{left} (or {\emph{$0$-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $, $\psi \co f \cc g \sim \id_Y$.
+Dually, we have a \emph{right} (or {\emph{ $1$-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies  $\phi \co \id_X \sim g \cc f$, $\psi \co \id_Y \sim f \cc g$.  The notion of a strong
+homotopy equivalence, defined below, is obtained by requiring an additional condition on the homotopies $\phi$ and $\psi$. 
+
+
 
 \begin{definition} \label{def:strhe}
-A map $f \co X \to Y$ is called a \emph{strong} right  homotopy equivalence if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$ and $\psi \co \id_Y \sim f \cc g$ such that the diagram
+A map $f \co X \to Y$ is called a \emph{strong $k$-oriented homotopy equivalence} if there is a map $g$ and homotopies $\phi$ and $\psi$ making $f$ into a
+$k$-oriented homotopy equivalence such that the following diagram commutes:
 \[
 \xymatrix{
   \interval \otimes X
@@ -461,100 +418,46 @@ A map $f \co X \to Y$ is called a \emph{strong} right  homotopy equivalence if t
   X
   \ar[r]_{f}
 &
-  Y
+  Y \, . 
 }
 \]
-commutes.
 \end{definition}
 
-Examples of strong homotopy equivalences are given by   strong deformation retracts, i.e. homotopy equivalences for which the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-) \to \Id_\catE$ is the contraction of the functorial cylinder. For $k \in \braces{0, 1}$, we write $\cal{S}_k$ for the class of strong $k$-oriented homotopy equivalences.
+Examples of strong $k$-oriented homotopy equivalences are given by strong deformation retracts, i.e. homotopy equivalences for which the homotopy~$\phi$ is trivial, \ie $\phi = \varepsilon_X$, where $\varepsilon \co I \otimes (-) \to \Id_\catE$ is the contraction of the functorial cylinder. For $k \in \braces{0, 1}$, we write $\mathsf{SHeq}_k$ for the class of strong $k$-oriented homotopy equivalences.
 
 \medskip
 
-Our first goal is to give an alternative characterization of strong left or right homotopy equivalences.
-For this, we need some definitions.
-Let $0_\catE \co \catE \to \catE$ be the functor with constant value the initial object $0 \in \catE$, and let $\bot \co 0_\catE \rightarrow \Id_\catE$ be the natural transformation with components given by the unique maps $\bot_X \co 0 \to X$.
-Observe that for every $f \co X \to Y$, we have an isomorphism
-\begin{equation} \label{equ:bot-hatotimes-f}
-\hateval(\bot, f) \iso f
-\end{equation}
-where $\hateval$ is defined as in~\eqref{definition-of-hateval}.
-We have a commutative square of functors and natural transformations
-\begin{equation} \label{the-trivial-square}
-\begin{gathered}
-\xymatrix@C+2em{
-  0_\catE
-  \ar[r]^{\bot}
-  \ar[d]_{\bot}
-&
-  \id_\catE
-  \ar[d]^{\rcyl \otimes (-)}
-\\
-  \id_\catE
-  \ar[r]_{\lcyl \otimes (-)}
-&
-  \interval \otimes (-)
-\rlap{.}}
-\end{gathered}
-\end{equation}
-This diagram determines two maps in $[\catE, \catE]^\to$:
-\begin{equation} \label{equ:thetas}
-\begin{aligned}
-  \thetal \otimes (-) &\co \bot \rightarrow \lcyl \otimes (-)
-\, ,&
-  \thetar \otimes (-) &\co \bot \rightarrow \rcyl \otimes (-)
-\rlap{,}
-\end{aligned}
-\end{equation}
-which are defined by letting $\thetal \otimes (-) \defeq (\bot, \rcyl \otimes (-))$ and $\thetar \otimes (-) \defeq (\bot, \lcyl \otimes (-))$.
-By functoriality of the Leibniz construction and the isomorphisms in~\eqref{equ:bot-hatotimes-f}, the maps in~\eqref{equ:thetas} give us two maps
-\begin{equation*}
-\begin{aligned}
-  \thetal \hatotimes f &\co f \to \lcyl \hatotimes f
-\, ,&
-  \thetar \hatotimes f &\co f \to \rcyl \hatotimes f
-\end{aligned}
-\end{equation*}
-in $\catE^\to$ for $f \co X \to Y$, which consist of squares of the form
+Our first step is to give an alternative characterization of strong $k$-oriented homotopy equivalences.
+For this, observe that we have a commutative diagram 
 \[
-\xymatrix@C+3em{
+\xymatrix@C+2em{
   X
-  \ar[r]^-{\inl \cc (\kcylinv \otimes X)}
+  \ar[r]^-{\kcylinv \otimes X}
   \ar[d]_{f}
 &
-  (\interval \otimes X) +_X Y \ar[d]^{\kcyl \hatotimes f}
-\\
+ \interval \otimes X 
+ \ar[r]^-{\iota_1} 
+ &
+  (\interval \otimes X) +_X Y \ar[d]^{\kcyl \hatotimes f} 
+  \\
   Y
-  \ar[r]_-{\kcylinv \otimes Y}
+  \ar[rr]_-{\kcylinv \otimes Y}
+  & 
 &
   \interval \otimes Y
 }
 \]
-for $k \in \braces{0, 1}$.
-We use these maps to provide the following characterization of strong homotopy equivalences.
+for $k \in \braces{0, 1}$. This diagram gives us an arrow $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in the category of arrows in $\catE$, which we now use
+to provide the following characterization of strong homotopy equivalences as retractions. 
 
 \begin{lemma}[Strong homotopy equivalences as sections] \label{strong-h-equiv-as-section-non-alg}
-A map $f \co X \to Y$ is a string $k$-oriented equivalence 
-if and only if there is a retraction $\rho$ of the map $\thetak \hatotimes f  \co f \to \kcyl \hatotimes f$, as below:
+A map $f \co X \to Y$ is a strong $k$-oriented equivalence 
+if and only if  the map $\thetak \hatotimes f  \co f \to \kcyl \hatotimes f$ has a retraction, \ie there are
+dotted arrows as follows:
 \[
-\xymatrix@C+2em{
-  f
-  \ar[r]^-{\thetak \hatotimes f}
-  \ar@{=}[dr]
-&
-  \kcyl \hatotimes f \ar[d]^{\rho}
-\\&
-  f
-\rlap{,}}
-\]
-\end{lemma}
-
-\begin{proof}
-To say that $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ has a retraction $\rho$ means to have dotted arrows as follows:
-\[
-\xymatrix@C+3em{
+\xymatrix@C+4em{
   X
-  \ar[r]^-{\inl \cc (\kcylinv \otimes X)}
+  \ar[r]^-{\iota_1 \cc (\kcylinv \otimes X)}
   \ar[d]_f
 &
   (\interval \otimes X) +_X Y
@@ -573,7 +476,10 @@ To say that $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ has a retraction
   Y
 \rlap{,}}
 \]
-where the two horizontal composites should be identities.
+such that the two horizontal composites are identities.
+\end{lemma}
+
+\begin{proof}
 First, by a standard diagram-chasing argument, giving the square on the right is equivalent to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
 \begin{align} \label{equ:first-three}
 \begin{gathered}
@@ -652,188 +558,156 @@ Second, requiring that the two horizontal composites are identities means that t
 \end{gathered}
 \end{align}
 commute.
-With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint $k$ for $\phi$ and $\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide endpoints $1-k$ for $\phi$ and $\psi$, respectively.
+With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint~$k$ for~$\phi$ and~$\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide endpoints~$1-k$ for~$\phi$ and~$\psi$, respectively.
 \end{proof}
 
 \begin{remark}
-\cref{strong-h-equiv-as-section} implies that strong left or right homotopy equivalences are closed under retracts since functors, in this case $\delta^0 \hatotimes (-)$ and $\delta^1 \hatotimes (-)$, preserve retracts and sections are closed under retracts.
+\cref{strong-h-equiv-as-section} implies that strong $k$-oriented homotopy equivalences are closed under retracts since functors, in this case $\delta^k \hatotimes (-)$, preserve retracts and sections are closed under retracts.
 \end{remark}
 
 
+For our second step, we focus on the class $\cal{S} \cap \cal{L}$, \ie the class of maps in $\cal{L}$ that are strong $k$-oriented homotopy equivalences.
+We begin by relating them with the maps in $\cal{L}_\otimes$, as defined in~\eqref{thm:wfstimes}.
 
-Let $\cal{I}$ be a class of maps in $\cal{E}$ and define $\cal{S}_k(\cal{I}) \defeq \cal{I} \cap \cal{S}_k$, \ie 
-the class of maps in $\cal{I}$ that are strong $k$-oriented homotopy equivalences.
-We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
-
-\begin{lemma} \label{lem:from-strong-hequiv}
-Every $f \co A \to B$ that is in $\cal{I}$ , then $f$ is a retract of a map in $\cal{I}_\otimes$.
+\begin{lemma}  \label{thm:main-sheretract}\hfill 
+\begin{enumerate}[$(i)$] 
+\item \label{lem:from-strong-hequiv}
+ $S \cap L \subseteq  \overline{L_\otimes}$.
+\item \label{lem:to-strong-hequiv}
+$L_\otimes \subseteq S \cap L$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-By \cref{strong-h-equiv-as-section-non-alg}.
+Part (i) follows by \cref{strong-h-equiv-as-section-non-alg}. For part (ii), since $L$ is closed under Leibniz tensor with~$\kcyl$, we have $L_\otimes \subseteq L$.
+Then, observe that for every $f \co X \to Y$, the map $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence. Hence, 
+every map in $L_\otimes$ is a (left or right) strong homotopy equivalence.
 \end{proof}
 
 
-\begin{corollary} \label{effective-connections-leibniz}
-For every $f \in \catE^\to$, the map $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence,  
-for $k \in \braces{0, 1}$.\qed
-\end{corollary}
 
-\begin{lemma} \label{lem:to-strong-hequiv}
-
-Then we have $\cal{I}_\otimes \subseteq \cal{S}_k(\cal{I})$.
-\end{lemma}
-
-\begin{proof}
-Since $\cal{I}$ is closed under Leibniz tensor with $\lcyl$ and $\rcyl$, we have $\cal{I}_\otimes \subseteq \cal{I}$.
-By~\cref{effective-connections-leibniz}, every map in $\cal{I}_\otimes$ is a (left or right) strong homotopy equivalence.
-\end{proof}
 
 \begin{proposition} \label{thm:twodir}
-A map is a fibration if and only if it has the right lifting property with respect to  $\cal{S}_k(\cal{I})$.
-Hence, the sets of maps $\cal{I}_\otimes$ and   $\cal{S}_k(\cal{I})$ generate the same weak factorization system.
+A map is a fibration if and only if it has the right lifting property with respect to  $L \cap S$.
+Hence, the saturation of $L_\otimes$ and $L \cap S$ coincide.
 \end{proposition}
 
 \begin{proof}
-Combine \cref{lem:from-strong-hequiv,lem:to-strong-hequiv}.
+Combine parts (i) and (ii) of \cref{thm:main-sheretract}.
 \end{proof}
 
 
+\begin{theorem} The weak factorisation system $(L_\otimes, R_\otimes)$ has the Frobenius property. 
+\end{theorem}
 
-Given $k \in \braces{0, 1}$, we call a map in $\cal{E}$ a \emph{$k$-Hurewitz fibration} if it has the right lifting property with respect to $\kcyl \otimes X$ for all $X \in \cal{E}$.
-
-
-\begin{lemma} Any fibration is in particular a $k$-Hurewitz fibration for $k \in \braces{0, 1}$ 
-\end{lemma}
-
-\begin{proof} The claim follows since $\bot_X \co 0 \to X$ is in $\cal{I}$ for all $X \in \cal{E}$.
-\end{proof}
-
-\begin{proposition}
-Let $k \in \braces{0, 1}$.
-The class $\cal{S}_k$ is stable under pullback along $(1-k)$-Hurewicz fibrations.
-\end{proposition}
-
-\begin{proof}
-Let $p \co X \to Y$ be a $(1-k)$-Hurewicz fibration and $f \co B \to Y$ be a $k$-strong homotopy equivalence.
-This means we have a retraction $\rho$ of $\thetak \hatotimes f$ as follows:
-\begin{align*}
-\xymatrix@C+1em{
-  f
-  \ar[r]^-{\thetak \hatotimes f}
-  \ar@{=}[dr]
-&
-  \kcyl \hatotimes f \ar[d]^{\rho}
-\\&
-  f
-\rlap{.}}
-\end{align*}
-We construct the pullback $\sigma \co \bar{f} \to f$ of $f$ along $p$:
-\begin{equation} \label{strong-h-equiv-uniform-base-change:0}
+\begin{proof} We wish to show that, in a pullback diagram of the form
+\begin{equation}
+\label{non-alg-strong-h-equiv-uniform-base-change:0}
 \begin{gathered}
 \xymatrix{
-  A
-  \ar[r]
-  \ar[d]_{\bar{f}}
-  \pullback{dr}
-&
-  B
-  \ar[d]^{f}
-\\
-  X
-  \ar[r]_{p}
-&
-  Y
-\rlap{.}}
+ Y \ar[d]_j \ar[r]^q & X \ar[d]^i \\ 
+B \ar[r]_p & A }
 \end{gathered}
 \end{equation}
-We want to make $\bar{f}$ into a strong $k$-oriented homotopy equivalence.
-This means to find a retraction $\bar{\rho}$ of $\thetak \hatotimes \bar{f}$ as follows:
-\[
+where $p \in R_\otimes$, if $i  \in L_\otimes$ then $j \in L_\otimes$. For this, it suffices to show that
+if $i \in L \cap S_k$, then $j \in L \cap S_k$. In fact, since $L$ is assumed to be closed under pullback, we need to show
+only that $j \in S_k$.
+This means that $\thetak \hatotimes i \co i \to \kcyl \hatotimes i$ has a retraction $\rho$, as follows:
+\begin{align*}
 \xymatrix@C+1em{
-  \bar{f}
-  \ar[r]^-{\thetak \hatotimes \bar{f}}
+  i 
+  \ar[r]^-{\thetak \hatotimes i}
   \ar@{=}[dr]
 &
-  \kcyl \hatotimes \bar{f}
-  \ar@{.>}[d]^{\bar{\rho}}
+  \kcyl \hatotimes i \ar[d]^{\rho}
 \\&
-  \bar{f}
+  i
+\rlap{.}}
+\end{align*}
+We want to show that $j$ is a strong $k$-oriented homotopy equivalence.
+This means to show that $\thetak \hatotimes j \co j \to \kcyl \hatotimes j$ has a retraction, as follows:
+\[
+\xymatrix@C+1em{
+  j
+  \ar[r]^-{\thetak \hatotimes j}
+  \ar@{=}[dr]
+&
+  \kcyl \hatotimes j
+  \ar@{.>}[d]^{\tau}
+\\&
+  j
 \rlap{.}}
 \]
-We will define the retraction $\bar{\rho}$ such that the below diagram commutes and its two horizontal composites are identities:
+We will define the retraction $\tau$ such that the below diagram, where $\sigma \co j \to i$ is 
+the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0}, 
+commutes and its two horizontal composites are identities:
 \[
 \xymatrix@C+2em{
-  \bar{f}
-  \ar[r]^-{\thetak \hatotimes \bar{f}}
+j 
+  \ar[r]^-{\thetak \hatotimes j}
   \ar[d]_{\sigma}
 &
-  \kcyl \hatotimes \bar{f}
-  \ar@{.>}[r]^-{\bar{\rho}}
+  \kcyl \hatotimes j 
+  \ar@{.>}[r]^-{\tau}
   \ar[d]_{\kcyl \hatotimes \sigma}
 &
-  \bar{f}
+ j 
   \ar[d]^{\sigma}
 \\
-  f
-  \ar[r]_-{\thetak \hatotimes f}
+  i
+  \ar[r]_-{\thetak \hatotimes i}
 &
-  \kcyl \hatotimes f
+  \kcyl \hatotimes i
   \ar[r]_-{\rho}
 &
-  f
+  i
 \rlap{.}}
 \]
 Since the pullback square $\sigma$ is a Cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains, again omitting horizontal composite identities:
 \[
 \xymatrix@C+2em{
-  X
-  \ar[r]^-{\kcylinv \otimes X}
+  B
+  \ar[r]^-{\kcylinv \otimes B}
   \ar[d]_{p}
 &
-  \interval \otimes X
-  \ar@{.>}[r]^-{\cod(\bar{\rho})}
+  \interval \otimes B
+  \ar@{.>}[r]^-{\cod(\tau)}
   \ar[d]^{\interval \otimes p}
 &
-  X
+  B
   \ar[d]^{p}
 \\
-  Y
-  \ar[r]_-{\kcylinv \otimes Y}
+  A
+  \ar[r]_-{\kcylinv \otimes A}
 &
-  \interval \otimes Y
+  \interval \otimes A
   \ar[r]_-{\cod(\rho)}
 &
-  Y
+  A
 \rlap{.}}
 \]
 To find the dotted arrow is to construct a diagonal filler in the following square:
 \[
 \xymatrix@C+2em{
-  X
+  B
   \ar@{=}[rr]
-  \ar[d]_{\kcylinv \otimes X}
+  \ar[d]_{\kcylinv \otimes B}
 &&
-  X
+  B
   \ar[d]^{p}
 \\
-  \interval \otimes X
+  \interval \otimes B
   \ar[r]_-{I \otimes p}
-  \ar@{.>}[urr]^(0.4){\cod(\bar{\rho})}
+  \ar@{.>}[urr]^(0.4){\cod(\tau)}
 &
-  \interval \otimes Y
+  \interval \otimes A
   \ar[r]_-{\cod(\rho)}
 &
-  Y
+  A
 \rlap{.}}
 \]
-But we have such a filler since $p$ was assumed a $(1-k)$-Hurewicz fibration.
+But we have such a filler since $\kcylinv \otimes B \in L_\otimes$ and $p \in R_\otimes$. 
 \end{proof}
-
-\begin{theorem}
-Trivial cofibrations are stable under pullback along fibrations.
-\end{theorem}
-
 
 
 \begin{remark}[Right properness of the model structure for Kan complexes] \label{rem:rightpropernessnew}
@@ -2475,7 +2349,7 @@ To say that $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ has a retraction
 \]
 where the two horizontal composites should be identities.
 First, by a standard diagram-chasing argument, giving the square on the right is equivalent to giving maps $\phi \co \interval \otimes X \to X$, $g \co Y \to X$, $\psi \co \interval \otimes Y \to Y$ such that the following diagrams commute:
-\begin{align} \label{equ:first-three}
+\begin{align} % \label{equ:first-three}
 \begin{gathered}
 \xymatrix{
   X
@@ -2524,7 +2398,7 @@ First, by a standard diagram-chasing argument, giving the square on the right is
 \end{gathered}
 \end{align}
 Second, requiring that the two horizontal composites are identities means that the diagrams
-\begin{align} \label{equ:second-two}
+\begin{align} % \label{equ:second-two}
 \begin{gathered}
 \xymatrix@C+2em{
   X
@@ -2552,7 +2426,7 @@ Second, requiring that the two horizontal composites are identities means that t
 \end{gathered}
 \end{align}
 commute.
-With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint $k$ for $\phi$ and $\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide endpoints $1-k$ for $\phi$ and $\psi$, respectively.
+With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint~$k$ for~$\phi$ and~$\psi$, and strength, respectively; while the equations in~\eqref{equ:second-two} provide endpoints~$1-k$ for~$\phi$ and~$\psi$, respectively.
 \end{proof}
 
 \begin{remark}
