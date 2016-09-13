@@ -17,3 +17,6 @@ _region_.tex
 _region_.prv
 auto
 prv_*
+
+# OS X custom directory attributes
+.DS_Store
