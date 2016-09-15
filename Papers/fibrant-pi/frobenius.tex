@@ -452,8 +452,7 @@ $k$-oriented homotopy equivalence such that the following diagram commutes:
 For $k \in \braces{0, 1}$, we write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let $S \defeq S_0 \cup S_1$.
 Elements of $S$ will be called \emph{strong homotopy equivalences}. 
 
-\begin{remark} 
-\item The components of the endpoint 
+\begin{remark}  The components of the endpoint 
 inclusion $\kcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$
 are strong $k$-oriented homotopy equivalences. In fact, they are 
 strong $k$-oriented deformation retracts, \ie strong $k$-oriented homotopy equivalences for which 
@@ -468,7 +467,6 @@ The axiom for strength follows from the right part of~\eqref{connections:0}.
 
 
 
-\medskip
 
 Our first step is to give an alternative characterization of strong $k$-oriented homotopy equivalences.
 For this, observe that we have a commutative diagram 
@@ -755,7 +753,7 @@ When applied to the category of simplicial sets, \cref{thm:non-alg-frobenius} gi
 
 % \subsection*{Orthogonal maps}
 We are interested in algebraic generalizations of the weak orthogonality properties that are used in the definition of a weak factorization system.
-For this, we do not consider a mere class of arrows in a category $\catE$ and defining its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
+For this, we do not consider a mere class of arrows in a category $\catE$ and define its left or right orthogonal class, but rather a category~$\cal{I}$, to be thought of as an indexing category, and a functor~$u \co \cal{I} \to \catE^\to$.
 Such a functor assigns a morphism $u_i \co A_i \to B_i$ of $\catE$ to each object~$i \in \cal{I}$ (we use this notation systematically below).
 Let us begin by recalling the following definition from~\cite{garner:small-object-argument}.
 
@@ -832,14 +830,7 @@ As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, analogously to
 
 The rest of this section is devoted to establishing some general facts regarding categories of right maps that will be useful in the remainder of the paper.
 Most of these facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting.
-They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, omitting the most straightforward proofs.
-
-
-
-
-%\subsection*{Natural transformations}
-
-We begin with a simple observation.
+They are probably known to experts, but we could not find them in the literature and hence we include them for completeness, omitting the most straightforward proofs. We begin with a simple observation.
 
 \begin{proposition} \label{thm:orth-nat}
 Consider a natural transformation between categories over $\catE^\to$ as below,
@@ -2117,7 +2108,6 @@ A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of map
 \rlap{.}}
 \end{align*}
 There is an obvious forgetful functor $\cal{S}_k \to \catE^\to$ projecting to the first component.
-
 Our first goal is to give an alternative characterization of strong left or right homotopy equivalences.
 
 
@@ -2162,34 +2152,13 @@ straightforward.
 
 
 
-For the remainder of this section, we fix $k \in \braces{0, 1}$.
 We are now going to relate strong homotopy equivalences relative to $\cal{I}$ with the components of $\cal{I}_\otimes$ as defined in~\eqref{equ:u-tensor}.
 
-\begin{lemma} \label{lem:from-strong-hequiv}
-There is a functor
-\[
-\xymatrix@!C@C-2em{
-  \cal{S}_k(\cal{I})
-  \ar[dr]_{\cal{S}_k(u)}
-  \ar[rr]^{L_k}
-&&
-  \overline{\cal{I}}
-  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
-\\&
-  \catE^\to
-\rlap{.}}
-\]
-\end{lemma}
 
-\begin{proof}
-We only describe the action of the functor $L_k$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
-Recall that $\rho$ is a retraction of $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
-Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
-Observe that this definition makes the diagram for $L_k$ commute.
-\end{proof}
 
-\begin{proposition} \label{thm:onedir}
-There is a functor
+\begin{proposition} \label{thm:strong-hequiv} \hfill 
+\begin{enumerate}[(i)]
+\item   \label{thm:onedir} There is a functor
 \[
 \xymatrix@!C@C-2.5em{
 \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})
@@ -2202,37 +2171,7 @@ There is a functor
   \catE^\to \, .
 }
 \]
-\end{proposition}
-
-\begin{proof}
-Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:from-strong-hequiv} and compose with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
-Note that the retract closure of \cref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
-\end{proof}
-
-
-\begin{lemma} \label{lem:to-strong-hequiv}
-Then there is a functor
-\[
-\xymatrix@!C@C-2em{
-  \cal{I}
-  \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{M_k}
-&&
-  \cal{S}_k(\cal{I})
-  \ar[dl]^{\cal{S}_k(u)}
-\\&
-   \catE^\to
-\rlap{.}}
-\]
-\end{lemma}
-
-\begin{proof}
-Recall from~\eqref{rel-strong-h-equiv-def} that $S_k(\cal{I})$ was defined as the product of $\cal{I}$ and $\cal{S}_k$ in $\CAT_{/\cal{E}^\to}$.
-The map to the first factor is the assumed lift~\eqref{to-strong-hequiv:0}.
-The map to the second factor is given by effective connections in the form of \cref{effective-connections-leibniz}.
-\end{proof}
-
-\begin{proposition} \label{thm:twodir}
-There is a functor
+\item  \label{thm:twodir} There is a functor
 \[
 \xymatrix@!C@C-2.5em{
     \cal{I}_\otimes
@@ -2245,14 +2184,56 @@ There is a functor
   \catE^\to
 }
 \]
+\end{enumerate}
 \end{proposition}
 
-\begin{proof}
-Combine the cases $k = 0$ and $k = 1$ of~\cref{lem:to-strong-hequiv}.
+\begin{proof} For (i), let $k \in \braces{0 \, , 1 }$. We show that there is a functor
+\begin{equation}
+\label{lem:from-strong-hequiv}
+\begin{gathered}
+\xymatrix@!C@C-2em{
+  \cal{S}_k(\cal{I})
+  \ar[dr]_{\cal{S}_k(u)}
+  \ar[rr]^{L_k}
+&&
+  \overline{\cal{I}}
+  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
+\\&
+  \catE^\to
+\rlap{.}}
+\end{gathered}
+\end{equation}
+We only describe the action of the functor $L_k$ on an object $(i, \rho)$, leaving the evident definition of the action on arrows to the reader.
+Recall that $\rho$ is a retraction of $\thetak \hatotimes u_i \co u_i \to \kcyl \hatotimes u_i$, exhibiting $u_i$ as a retract of $\kcyl \hatotimes u_i$.
+Thus, we may define $L_k(i, \rho) \defeq (i, u_i, \thetak \hatotimes u_i, \rho)$.
+Observe that this definition makes the diagram for $L_k$ commute. The claim in (i) now follows by combining 
+the cases $k = 0$ and $k = 1$ and composing with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
+Note that the retract closure in~\eqref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
+
+
+For (ii), we first show that there is a functor
+\[
+\xymatrix@!C@C-2em{
+  \cal{I}
+  \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{M_k}
+&&
+  \cal{S}_k(\cal{I})
+  \ar[dl]^{\cal{S}_k(u)}
+\\&
+   \catE^\to
+\rlap{.}}
+\]
+For this, recall from~\eqref{rel-strong-h-equiv-def} that $S_k(\cal{I})$ was defined as the product of $\cal{I}$ and $\cal{S}_k$ in $\CAT_{/\cal{E}^\to}$.
+The map to the first factor is given by the assumption that $\cal{I}$ is closed under Leibniz product with the endpoint inclusions, which is
+part of the hypotheses of a suitable algebraic weak factorisation system.
+The map to the second factor is given by \cref{effective-connections-leibniz}.
+The claim in (ii) follows by combining the cases $k = 0$ and $k = 1$.
 \end{proof}
 
+
+
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
-By~\cref{lem:from-strong-hequiv,lem:to-strong-hequiv}, we also have a pair of functors
+We also have a pair of functors
 \[
 \xymatrix@!C@C-2.5em{
   \liftr{(\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}))}
@@ -2271,55 +2252,284 @@ These are not, in general, inverses to each other in either way.
 \end{remark}
 
 We are now ready to show that the algebraic weak factorization system in which the right maps are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
-For this, we use our characterisation of the functorial Frobenius property in algebraically-free algebraic weak factorization systems, in~\cref{thm:frobenius-comparison}.
+For this, we use our characterisation of the functorial Frobenius property in algebraically-free algebraic weak factorization systems
+stated in \cref{thm:frobenius-comparison}.
 
-As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}.
+As a preliminary step, we show that, under more general assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$, in the sense of \cref{def:uniFrobcond}. We begin by establishing that, under mild assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way).
 
 
-We begin by establishing that, under mild assumptions, uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to to the category $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of strong homotopy equivalences relative to $\cal{I}$ (viewed as a category over $\cal{E}^\to$ in the evident way).
+
+
+
+Let $k \in \braces{0, 1}$ and abbreviate $\liftr{(\kcylinv \otimes \id_{\cal{E}})} \co \cal{E} \to \cal{E}^\to$ by $v \co \cal{J} \to \cal{E}^\to$.
+Strong $k$-oriented homotopy equivalences are uniformly stable under base change along maps in $\cal{J}$.
+
+
 
 
 
 \begin{lemma} \label{technical}
-Let $k \in \braces{0, 1}$.
-Right $(\delta^{1-k} \hatotimes u')$-maps satisfy the uniform Frobenius condition with respect to strong $k$-oriented homotopy equivalences.
+Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0 + \cal{S}_1$.
 \end{lemma}
 
-\begin{proof}
-See~\cref{app:tecp}.
+
+
+
+\begin{proof} Let $k \in \braces{0, 1}$. First, we show that right $(\delta^{1-k} \hatotimes u')$-maps satisfy the uniform Frobenius condition with respect to strong $k$-oriented homotopy equivalences. For this,
+recall that $u' \co \cal{I}' \to \cal{E}^\to$ is the functor with domain $\cal{E}$ that sends $X$ to $\bot_X$.
+We use the characterization of uniform Frobenius given by \cref{uniform-frob-even-nicer}.
+The required lift is provided by a lift $Q'$ in 
+\begin{equation} \label{strong-h-equiv-uniform-base-change:goal}
+\begin{gathered}
+\xymatrix@C+2em{
+  \cal{S}_k \times_{\cal{E}} \cal{J}
+  \ar@{.>}[r]^{Q'}
+  \ar[d]
+&
+  \cal{S}_k
+  \ar[d]
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P'}
+&
+  \cal{E}^\to
+\rlap{.}}
+\end{gathered}
+\end{equation}
+where $P' \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ be the pullback functor, sending a cospan $(g, h)$ to $h^* g$, 
+after postcomposing it with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
+Note that $\delta^{1-k} \hatotimes \bot_X = \delta^{1-k} \otimes \id_X$ for $X \in \cal{E}$.
+
+So it remains to show how to obtain the lift in in \eqref{strong-h-equiv-uniform-base-change:goal}. Its action on objects is described
+in the proof of~\cref{thm:non-alg-frobenius-she}. For the lift of the action on morphisms, suppose we are given a map $j \to j'$ in $\cal{J}$ forming a square
+\[
+\xymatrix{
+  X
+  \ar[r]^{v_j}
+  \ar[d]_{s}
+&
+  Y
+  \ar[d]^{t}
+\\
+  X'
+  \ar[r]_{v_{j'}}
+&
+  Y'
+}
+\]
+and a map $(g, \rho) \to (g', \rho')$ in $\cal{S}_k$ with $\tau \co g \to g'$ forming a square
+\[
+\xymatrix{
+  B
+  \ar[r]
+  \ar[d]_{g}
+&
+  B'
+  \ar[d]^{g'}
+\\
+  Y
+  \ar[r]_-{t}
+&
+  Y'
+}
+\]
+such that $\tau$ commutes with the retractions $\rho$ and $\rho'$ as follows:
+\[
+\xymatrix{
+  \kcyl \hatotimes g
+  \ar[r]^-{\rho}
+  \ar[d]_{\kcyl \hatotimes \tau}
+&
+  g
+  \ar[d]^{\tau}
+\\
+  \kcyl \hatotimes g'
+  \ar[r]_-{\rho'}
+&
+  g'
+\rlap{.}}
+\]
+Let $(\bar{g}, \bar{\rho})$ and $(\bar{g}', \bar{\rho}')$ denote the respective action of $Q$ on the objects $(g, \rho, j)$ and $(g', \rho', j')$ as constructed in the first part of the proof.
+Recall that this includes pullback squares $\sigma \co \bar{g} \to g$ and $\sigma' \co \bar{g}' \to g'$ with bottom side $v_j \co X \to Y$ and $v_{j'} \co X' \to Y'$, respectively, as in~\eqref{strong-h-equiv-uniform-base-change:0}.
+The square $\tau \co g \to g'$ pulls back to a square $\bar{\tau} \co \bar{g} \to \bar{g'}$ with bottom side $v_{j'}$.
+We want to show that $\bar{\tau}$ in addition forms a morphism of strong $k$-oriented homotopy equivalences from $(\bar{g}, \bar{\rho})$ to $(\bar{g}', \bar{\rho}')$.
+For this, we have to verify commutativity of the following diagram:
+\[
+\xymatrix{
+  \kcyl \hatotimes \bar{g}'
+  \ar[r]^-{\bar{\rho}}
+  \ar[d]_{\kcyl \hatotimes \bar{\tau}}
+&
+  \bar{g}
+  \ar[d]^{\bar{\tau}}
+\\
+  \kcyl \hatotimes \bar{g}'
+  \ar[r]_-{\bar{\rho}'}
+&
+  \bar{g}'
+\rlap{.}}
+\]
+Recall the construction of $\bar{\rho}$ and $\bar{\rho}'$, omitting horizontal composite identities for readability:
+\[
+\xymatrix@!C{
+  \bar{g}
+  \ar[rr]^-{\thetak \hatotimes \bar{g}}
+  \ar[dd]_{\sigma}
+  \ar[dr]^{\bar{\tau}}
+&&
+  \kcyl \hatotimes \bar{g}
+  \ar@{.>}[rr]^-{\bar{\rho}}
+  \ar[dd]^(0.3){\kcyl \hatotimes \sigma}|!{[dl];[dr]}{\hole}
+  \ar[dr]^{\kcyl \hatotimes \bar{\tau}}
+&&
+  \bar{g}
+  \ar[dd]^(0.3){\sigma}|!{[dl];[dr]}{\hole}
+  \ar[dr]^{\bar{\tau}}
+\\&
+  \bar{g}'
+  \ar[rr]^-(0.3){\thetak \hatotimes \bar{g}'}
+  \ar[dd]_(0.3){\sigma'}
+&&
+  \kcyl \hatotimes \bar{g}'
+  \ar@{.>}[rr]^-(0.3){\bar{\rho}'}
+  \ar[dd]^(0.3){\kcyl \hatotimes \sigma'}
+&&
+  \bar{g}'
+  \ar[dd]^{\sigma'}
+\\
+  g
+  \ar[rr]^-(0.25){\thetak \hatotimes g}|!{[ur];[dr]}{\hole}
+  \ar[dr]^{\tau}
+&&
+  \kcyl \hatotimes g
+  \ar[rr]^-(0.3){\rho}|!{[ur];[dr]}{\hole}
+  \ar[dr]^{\kcyl \hatotimes \tau}
+&&
+  g
+  \ar[dr]^{\tau}
+\\&
+  g'
+  \ar[rr]^-{\thetak \hatotimes g'}
+&&
+  \kcyl \hatotimes g
+  \ar[rr]^-{\rho'}
+&&
+  g
+\rlap{.}}
+\]
+Our goal is to show that the top right square commutes.
+Since that square commutes after composing it with the pullback square $\sigma'$, it suffices to show that the square commutes when projected to codomains, again omitting horizontal composite identities:
+\[
+\xymatrix@C+2em{
+  X
+  \ar[rr]^-{\kcylinv \otimes X}
+  \ar[dd]_{v_j}
+  \ar[dr]^{s}
+&&
+  \interval \otimes X
+  \ar@{.>}[rr]^-{\cod(\bar{\rho})}
+  \ar[dd]^(0.35){\interval \otimes v_j}|!{[dl];[dr]}{\hole}
+  \ar[dr]^{\interval \otimes s}
+&&
+  X
+  \ar[dd]^(0.35){v_j}|!{[dl];[dr]}{\hole}
+  \ar[dr]^{s}
+\\&
+  X'
+  \ar[rr]^-(0.3){\kcylinv \otimes X'}
+  \ar[dd]^(0.3){v_{j'}}
+&&
+  \interval \otimes X'
+  \ar@{.>}[rr]^-(0.3){\cod(\bar{\rho}')}
+  \ar[dd]^(0.3){\interval \otimes v_{j'}}
+&&
+  X'
+  \ar[dd]^{v_{j'}}
+\\
+  Y
+  \ar[rr]^-(0.25){\kcylinv \otimes Y}|!{[ur];[dr]}{\hole}
+  \ar[dr]^{t}
+&&
+  \interval \otimes Y
+  \ar[rr]^-(0.3){\cod(\rho)}|!{[ur];[dr]}{\hole}
+  \ar[dr]^{\interval \otimes t}
+&&
+  Y
+  \ar[dr]^{t}
+\\&
+  Y'
+  \ar[rr]^-{\kcylinv \otimes Y'}
+&&
+  \interval \otimes Y'
+  \ar[rr]^-{\cod(\rho')}
+&&
+  Y'
+\rlap{.}}
+\]
+But this follows from coherence of lifts in the following morphism of lifting problems:
+\[
+\xymatrix@C+1em{
+  X
+  \ar@{=}[rrrr]
+  \ar[dd]_{\kcylinv \otimes X}
+  \ar[dr]^{s}
+&&&&
+  X
+  \ar[dd]_(0.3){v_j}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
+  \ar[dr]^{s}
+\\&
+  X'
+  \ar@{=}[rrrr]
+  \ar[dd]^(0.66){\kcylinv \otimes X'}
+&&&&
+  X'
+  \ar[dd]^{v_{j'}}
+\\
+  \interval \otimes X
+  \ar[rr]^(0.7){I \otimes v_j}|!{[ur];[dr]}{\hole}
+  \ar@{.>}[uurrrr]^(0.67){\cod(\bar{\rho})}|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
+  \ar[dr]_{I \otimes s}
+&&
+  \interval \otimes Y
+  \ar[rr]_(0.7){\cod(\rho)}|!{[dl];[urrr]}{\hole}
+  \ar[dr]^(0.7){\interval \otimes t}|!{[dl];[urrr]}{\hole}
+&&
+  Y
+  \ar[dr]^{t}
+\\&
+  \interval \otimes X'
+  \ar[rr]_{I \otimes v_{j'}}
+  \ar@{.>}[uurrrr]^(0.67){\cod(\bar{\rho}')}
+&&
+  \interval \otimes Y'
+  \ar[rr]_{\cod(\rho')}
+&&
+  Y'
+\rlap{.}}
+\]
+Here, the left and right faces form morphisms in $\kcylinv \otimes \id_\catE$ and $\liftr{(\kcylinv \otimes \id_\catE)}$, respectively, making the lifts cohere as needed.
+
+
+By combining the cases $k = 0$ and $k = 1$, we obtain that uniform $\cal{I}'$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0 + \cal{S}_1$. The claim now follows by functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $H$ the functor $\Fib{\cal{I}} \to \Fib{\cal{I}'}$ obtained in the evident way fromhypothesis (iii) in the definition of a suitable algebraic weak factorisation
+system.
 \end{proof}
 
 
 
-\begin{proposition} We have the following:
-\begin{enumerate}[(i)]
-\item
-Uniform $\cal{I}'$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0 + \cal{S}_1$.
-\item
-Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0 + \cal{S}_1$.
-\item
-Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$.
-\item
-Uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{I}_\otimes$.
-\end{enumerate}
-\end{proposition}
 
-\begin{proof}
-We begin by proving (i) and then show that the other claims hold by a linear sequence of implications.
-We start by noting that (i) is just the combination of the cases $k = 0$ and $k = 1$ of \cref{technical}.
-For the step from (i) to (ii), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $H$ the functor $\Fib{\cal{I}} \to \Fib{\cal{I}'}$ obtained in the evident way from assumption~(1).
-For the step from (ii) to (iii), recall with the definition~\eqref{rel-strong-h-equiv-def} of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
-Using \cref{uniform-frobenius-product-u}, we may combine the uniform Frobenius conditions for uniform $\cal{I}$-fibrations with respect to $\cal{S}_0 + \cal{S}_1$, provided by (ii), and with respect to $\cal{I}$, provided by assumption (3).
-For the step from (iii) to (iv), apply functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the functor $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I}) \to \liftl{(\liftr{\cal{I}_\otimes})}$ of \cref{thm:onedir} and $G$ the functor $\cal{I}_\otimes \to \cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ of \cref{thm:twodir}.
-Note that the latter one uses assumption~(2).
-\end{proof}
-
-Let us summarize the main conclusion of the result above as a theorem, for reference.
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
 $\Fib{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}_{\otimes}$.
-\qed
 \end{theorem}
+
+
+\begin{proof} First, we show that uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$. Recall with the definition of strong homotopy equivalences relative to $\cal{I}$ that $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$ is the strict pullback of $\cal{S}_0 + \cal{S}_1 \to \cal{E}$ and $\cal{I} \to \cal{E}$.
+Using \cref{uniform-frobenius-product-u}, we may combine the uniform Frobenius conditions for uniform $\cal{I}$-fibrations with respect to $\cal{S}_0 + \cal{S}_1$, provided by \cref{technical}, and with respect to $\cal{I}$, provided by assumption (3).
+
+The fact that uniform $\cal{I}$-fibrations satisfy the uniform Frobenius condition with respect to $\cal{S}_0(\cal{I}) + \cal{S}_1(\cal{I})$
+implies the desired claim, by applying functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with $F$ the functor in part~(\ref{thm:onedir}) of~\cref{thm:strong-hequiv} and $G$ the functor in part~(\ref{thm:twodir}) of ~\cref{thm:strong-hequiv}. 
+\end{proof}
+
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley condition for uniform~$\cal{I}$-fibrations.
 First, pushforward lifts to slices of the category of uniform $\cal{I}$-fibrations.
@@ -2367,35 +2577,30 @@ If $(s, t) \co p \to q$ forms a pullback square, then $\psi'$ is a natural isomo
 
 
 \begin{proof}
-For (i), the claim follows from~\cref{uniform-fibrations-uniform-frobenius}. For (ii), the claim follows from \cref{uniform-fibrations-uniform-frobenius} and \cref{lift-pushforward-BC} (see also \cref{beck-chevalley-iso})
+For (i), the claim follows from~\cref{uniform-fibrations-uniform-frobenius}. For (ii), the claim follows from \cref{lift-pushforward-BC}.
+and \cref{uniform-fibrations-uniform-frobenius}.
 \end{proof}
 
 
 
 
 \begin{theorem} \label{frobenius-uniform-presheaf}
-Let $\catE$ be a locally presentable, locally cartesian closed category equipped with a functorial cylinder $I \otimes (-) \co \catE \to \catE$ with 
-contractions and connections.
-Let $(\LL, \RR)$ be a suitable category of monomorphisms in $\catE$.
-Then the algebraic weak factorization system whose right maps are the uniform $\LL$-fibrations satisfies the functorial Frobenius property.
+Let $\catE$ be a presheaf category equipped with a functorial cylinder $I \otimes (-) \co \catE \to \catE$ with 
+contractions and connections. Let $\cal{M}$ be a category of monomorphisms.
+Then uniform $\cal{M}$-fibrations are the right maps of an algebraic weak factorization system that satisfies the functorial Frobenius property.
 \end{theorem}
 
 \begin{proof}
-By \cref{thm:frobenius-comparison}, it will suffice to establish the uniform Frobenius property of uniform $\cal{M}$-fibrations with respect to $\cal{M}$.
-For this, we will apply \cref{uniform-fibrations-uniform-frobenius} with $\cal{I} \defeq \cal{M}$.
-Assumption (1) is guaranteed by condition (iii) of \cref{uniform-fib-presheaf-cat}.
-By~\cref{rem-lift-suitable}, $\cal{M}$ is closed under Leibniz product with endpoint inclusions, thus assumption (2) is satisfied.
-For assumption (3), we need to show that $\liftr{\cal{M}}$ satisfies the uniform Frobenius condition with respect to $\cal{M}$.
-In fact, we show something stronger, namely that $\catE^\to$ itself satisfies the uniform Frobenius condition with respect to $\cal{M}$.
-This follows using the criterion of \cref{uniform-frob-even-nicer} since pulling back preserves objects of $\cal{M}$ by condition~(i) of \cref{uniform-fib-presheaf-cat} and morphisms between them since those are just pullback squares.
-Thus, assumption (3) is satisfied.
+This follows from~\cref{thm:frobenius-comparison} and~\cref{uniform-fibrations-uniform-frobenius}, recalling that $\cal{M}$ gives rise to a suitable algebraic weak factorisation
+system.
 \end{proof}
 
 In particular, in the setting of~\cref{frobenius-uniform-presheaf}, for a uniform $\cal{M}$-fibration $p \co X \to Y$, pushforward along $p$ lifts to a functor $p_* \co \Fib{\cal{M}}_{/X} \to \Fib{\cal{M}}_{/Y}$, 
 and so the pushforward of a uniform $\cal{M}$-fibration along a uniform $\cal{M}$-fibration is again a uniform $\cal{M}$-fibration.
 
 \begin{example}[The uniform Frobenius condition for uniform Kan fibrations in simplicial sets]
-Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
+Noting that the assumptions of \cref{frobenius-uniform-presheaf} are fulfilled in simplicial sets with $\cal{M}$ the category of all
+monomorphisms and pullback squares, we obtain that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$.
 We consider this a constructive counterpart of the result that the pushforward along a Kan fibration preserves Kan fibrations (a fact that is equivalent to right properness for the model structure, see also \cite[Lemma 4.3.1]{voevodsky-simplicial-model}), which cannot be proved constructively~\cite{coquand-non-constructivity-kan}.
 
 Since exponentiation is a special case of pushforward, this result shows also that the exponential of two uniform Kan complexes (defined in the evident way) is again a uniform Kan complex.
@@ -2838,259 +3043,9 @@ By the standard counterpart of \cref{prod-exp-general}, it follows that $\hatexp
 The claim then follows by \cref{prod-exp-general}.
 \end{proof}
 
-\appendix
 
-\section{A technical proof}
-\label{app:tecp}
 
-We give the proof of \cref{technical} that was omitted in \cref{sec:frocuf}.
-Recall that $u' \co \cal{I}' \to \cal{E}^\to$ is the functor with domain $\cal{E}$ that sends $X$ to $\bot_X$.
 
-\begin{replemma}{technical}
-Let $k \in \braces{0, 1}$.
-Right $(\delta^{1-k} \hatotimes u')$-maps have the uniform Frobenius condition with respect to strong $k$-oriented homotopy equivalences.
-\end{replemma}
-
-\begin{proof}
-We use the characterization of uniform Frobenius given by \cref{uniform-frob-even-nicer}.
-The required lift is provided by the lift $Q'$ in \cref{strong-h-equiv-uniform-base-change} below after postcomposing it with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
-Note that $\delta^{1-k} \hatotimes \bot_X = \delta^{1-k} \otimes \id_X$ for $X \in \cal{E}$.
-\end{proof}
-
-Let $P' \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ be the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
-
-\begin{lemma} \label{strong-h-equiv-uniform-base-change}
-Let $k \in \braces{0, 1}$ and abbreviate $\liftr{(\kcylinv \otimes \id_{\cal{E}})} \co \cal{E} \to \cal{E}^\to$ by $v \co \cal{J} \to \cal{E}^\to$.
-Strong $k$-oriented homotopy equivalences are uniformly stable under base change along maps in $\cal{J}$.
-More precisely, the pullback functor $P'$ lifts to $Q'$ as depicted below:
-\begin{equation} \label{strong-h-equiv-uniform-base-change:goal}
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{S}_k \times_{\cal{E}} \cal{J}
-  \ar@{.>}[r]^{Q'}
-  \ar[d]
-&
-  \cal{S}_k
-  \ar[d]
-\\
-  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P'}
-&
-  \cal{E}^\to
-\rlap{.}}
-\end{gathered}
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-For the lift of the action on morphisms in \eqref{strong-h-equiv-uniform-base-change:goal}, suppose we are given a map $j \to j'$ in $\cal{J}$ forming a square
-\[
-\xymatrix{
-  X
-  \ar[r]^{v_j}
-  \ar[d]_{s}
-&
-  Y
-  \ar[d]^{t}
-\\
-  X'
-  \ar[r]_{v_{j'}}
-&
-  Y'
-}
-\]
-and a map $(g, \rho) \to (g', \rho')$ in $\cal{S}_k$ with $\tau \co g \to g'$ forming a square
-\[
-\xymatrix{
-  B
-  \ar[r]
-  \ar[d]_{g}
-&
-  B'
-  \ar[d]^{g'}
-\\
-  Y
-  \ar[r]_-{t}
-&
-  Y'
-}
-\]
-such that $\tau$ commutes with the retractions $\rho$ and $\rho'$ as follows:
-\[
-\xymatrix{
-  \kcyl \hatotimes g
-  \ar[r]^-{\rho}
-  \ar[d]_{\kcyl \hatotimes \tau}
-&
-  g
-  \ar[d]^{\tau}
-\\
-  \kcyl \hatotimes g'
-  \ar[r]_-{\rho'}
-&
-  g'
-\rlap{.}}
-\]
-Let $(\bar{g}, \bar{\rho})$ and $(\bar{g}', \bar{\rho}')$ denote the respective action of $Q$ on the objects $(g, \rho, j)$ and $(g', \rho', j')$ as constructed in the first part of the proof.
-Recall that this includes pullback squares $\sigma \co \bar{g} \to g$ and $\sigma' \co \bar{g}' \to g'$ with bottom side $v_j \co X \to Y$ and $v_{j'} \co X' \to Y'$, respectively, as in~\eqref{strong-h-equiv-uniform-base-change:0}.
-The square $\tau \co g \to g'$ pulls back to a square $\bar{\tau} \co \bar{g} \to \bar{g'}$ with bottom side $v_{j'}$.
-We want to show that $\bar{\tau}$ in addition forms a morphism of strong $k$-oriented homotopy equivalences from $(\bar{g}, \bar{\rho})$ to $(\bar{g}', \bar{\rho}')$.
-For this, we have to verify commutativity of the following diagram:
-\[
-\xymatrix{
-  \kcyl \hatotimes \bar{g}'
-  \ar[r]^-{\bar{\rho}}
-  \ar[d]_{\kcyl \hatotimes \bar{\tau}}
-&
-  \bar{g}
-  \ar[d]^{\bar{\tau}}
-\\
-  \kcyl \hatotimes \bar{g}'
-  \ar[r]_-{\bar{\rho}'}
-&
-  \bar{g}'
-\rlap{.}}
-\]
-Recall the construction of $\bar{\rho}$ and $\bar{\rho}'$, omitting horizontal composite identities for readability:
-\[
-\xymatrix@!C{
-  \bar{g}
-  \ar[rr]^-{\thetak \hatotimes \bar{g}}
-  \ar[dd]_{\sigma}
-  \ar[dr]^{\bar{\tau}}
-&&
-  \kcyl \hatotimes \bar{g}
-  \ar@{.>}[rr]^-{\bar{\rho}}
-  \ar[dd]^(0.3){\kcyl \hatotimes \sigma}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\kcyl \hatotimes \bar{\tau}}
-&&
-  \bar{g}
-  \ar[dd]^(0.3){\sigma}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\bar{\tau}}
-\\&
-  \bar{g}'
-  \ar[rr]^-(0.3){\thetak \hatotimes \bar{g}'}
-  \ar[dd]_(0.3){\sigma'}
-&&
-  \kcyl \hatotimes \bar{g}'
-  \ar@{.>}[rr]^-(0.3){\bar{\rho}'}
-  \ar[dd]^(0.3){\kcyl \hatotimes \sigma'}
-&&
-  \bar{g}'
-  \ar[dd]^{\sigma'}
-\\
-  g
-  \ar[rr]^-(0.25){\thetak \hatotimes g}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{\tau}
-&&
-  \kcyl \hatotimes g
-  \ar[rr]^-(0.3){\rho}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{\kcyl \hatotimes \tau}
-&&
-  g
-  \ar[dr]^{\tau}
-\\&
-  g'
-  \ar[rr]^-{\thetak \hatotimes g'}
-&&
-  \kcyl \hatotimes g
-  \ar[rr]^-{\rho'}
-&&
-  g
-\rlap{.}}
-\]
-Our goal is to show that the top right square commutes.
-Since that square commutes after composing it with the pullback square $\sigma'$, it suffices to show that the square commutes when projected to codomains, again omitting horizontal composite identities:
-\[
-\xymatrix@C+2em{
-  X
-  \ar[rr]^-{\kcylinv \otimes X}
-  \ar[dd]_{v_j}
-  \ar[dr]^{s}
-&&
-  \interval \otimes X
-  \ar@{.>}[rr]^-{\cod(\bar{\rho})}
-  \ar[dd]^(0.35){\interval \otimes v_j}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{\interval \otimes s}
-&&
-  X
-  \ar[dd]^(0.35){v_j}|!{[dl];[dr]}{\hole}
-  \ar[dr]^{s}
-\\&
-  X'
-  \ar[rr]^-(0.3){\kcylinv \otimes X'}
-  \ar[dd]^(0.3){v_{j'}}
-&&
-  \interval \otimes X'
-  \ar@{.>}[rr]^-(0.3){\cod(\bar{\rho}')}
-  \ar[dd]^(0.3){\interval \otimes v_{j'}}
-&&
-  X'
-  \ar[dd]^{v_{j'}}
-\\
-  Y
-  \ar[rr]^-(0.25){\kcylinv \otimes Y}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{t}
-&&
-  \interval \otimes Y
-  \ar[rr]^-(0.3){\cod(\rho)}|!{[ur];[dr]}{\hole}
-  \ar[dr]^{\interval \otimes t}
-&&
-  Y
-  \ar[dr]^{t}
-\\&
-  Y'
-  \ar[rr]^-{\kcylinv \otimes Y'}
-&&
-  \interval \otimes Y'
-  \ar[rr]^-{\cod(\rho')}
-&&
-  Y'
-\rlap{.}}
-\]
-But this follows from coherence of lifts in the following morphism of lifting problems:
-\[
-\xymatrix@C+1em{
-  X
-  \ar@{=}[rrrr]
-  \ar[dd]_{\kcylinv \otimes X}
-  \ar[dr]^{s}
-&&&&
-  X
-  \ar[dd]_(0.3){v_j}|!{[dlll];[dr]}{\hole}|!{[dddlll];[dr]}{\hole}
-  \ar[dr]^{s}
-\\&
-  X'
-  \ar@{=}[rrrr]
-  \ar[dd]^(0.66){\kcylinv \otimes X'}
-&&&&
-  X'
-  \ar[dd]^{v_{j'}}
-\\
-  \interval \otimes X
-  \ar[rr]^(0.7){I \otimes v_j}|!{[ur];[dr]}{\hole}
-  \ar@{.>}[uurrrr]^(0.67){\cod(\bar{\rho})}|!{[ur];[dr]}{\hole}|!{[ur];[urrrrr]}{\hole} % bug: doesn't work?
-  \ar[dr]_{I \otimes s}
-&&
-  \interval \otimes Y
-  \ar[rr]_(0.7){\cod(\rho)}|!{[dl];[urrr]}{\hole}
-  \ar[dr]^(0.7){\interval \otimes t}|!{[dl];[urrr]}{\hole}
-&&
-  Y
-  \ar[dr]^{t}
-\\&
-  \interval \otimes X'
-  \ar[rr]_{I \otimes v_{j'}}
-  \ar@{.>}[uurrrr]^(0.67){\cod(\bar{\rho}')}
-&&
-  \interval \otimes Y'
-  \ar[rr]_{\cod(\rho')}
-&&
-  Y'
-\rlap{.}}
-\]
-Here, the left and right faces form morphisms in $\kcylinv \otimes \id_\catE$ and $\liftr{(\kcylinv \otimes \id_\catE)}$, respectively, making the lifts cohere as needed.
-\end{proof}
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
