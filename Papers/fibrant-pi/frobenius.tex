@@ -1518,125 +1518,165 @@ We leave this question to further investigation.
 
 
 
-\section{The functorial Frobenius condition}
+\section{The uniform Frobenius condition}
 \label{sec:frobc}
 
-\begin{definition}[Functorial Frobenius condition] \label{functorial-frobenius}
-An algebraic weak factorization system is called \emph{functorially Frobenius} if $\pcoalg{\LL}$ is stable under pullback along $\palg{\RR}$ in the sense of a lift $Q'$ as follows:
+We now state the analogue for a algebraic weak factorisation systems of the the Frobenius condition for a weak factorisation system.
+This condition, called the functorial Frobenius condition, was stated for cloven weak factorisation systems in~\cite{garner:topological-simplicial},
+but applies without change to algebraic weak factorisation systems. For a category $\cal{E}$, we write $\cal{E}^\to \times_\cal{E} \cal{E}^\to$
+for the pullback of $\cod \co \cal{E}^\to \to \cal{E}$ with itself. This is the category of cospans in
+$\cal{E}$, \ie pairs of arrows with common codomain. Pullback gives a functor
+\[
+P \co  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to
+\]
+sending a cospan $(g, h)$ to $h^*(g)$.
+
+\begin{definition} \label{functorial-frobenius}
+An algebraic weak factorization system $(\LL, \RR)$ satisfies the \emph{functorial Frobenius condition} if pullback along $\palg{\RR}$
+preserves $\pcoalg{\LL}$, in the sense of a lift $\tilde{P}$ of $P$, as follows:
 \[
 \xymatrix@C+2em{
   \pcoalg{\LL} \times_{\cal{E}} \palg{\RR}
-  \ar@{.>}[r]^{Q'}
+  \ar@{.>}[r]^{\tilde{P}}
   \ar[d]
 &
   \pcoalg{\LL}
   \ar[d]
 \\
   \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P'}
+  \ar[r]_{P}
 &
   \cal{E}^\to
 \rlap{.}}
 \]
-Here $P'$ denotes the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
 \end{definition}
 
-The aim of this section is to obtain a necessary and sufficient condition for an algebraically-free algebraic weak factorization system~\cite{garner:small-object-argument} to satisfy the functorial Frobenius condition~\cite{garner:topological-simplicial}, expressed purely in terms of its generating category.
-We will use this characterization in~\cref{sec:frocuf} to prove that algebraic weak factorization systems with uniform fibrations as right maps have the functorial Frobenius property.
+In this section we obtain an analogue of~\cref{thm:frobenius-equivalence} for algebraic weak factorisation systems, \ie 
+a necessary and sufficient condition for a cofibrantly generated awfs  to satisfy the functorial Frobenius condition, expressed 
+purely in terms of a generating category. In the next section, we apply this characterization  to prove that the algebraic weak 
+factorization system~$(\mathsf{TrivCof}, \mathsf{Fib})$ of~\cref{thm:sset-cset-nwfs} has the functorial Frobenius property. 
+In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition,
+which we introduce in~\cref{uniform-frob-nice} below. 
 
-We begin by introducing the Frobenius condition for a map $f \co X \to Y$ with respect to a functor $u \co \cal{I} \to \catE^\to$ for a category $\cal{E}$ will pullbacks, and a corresponding Beck-Chevalley condition for squares.
-We combination of these conditions is what we call the uniform Frobenius condition, which we then relate to the functorial Frobenius condition and use to obtain the required characterisation.
-
-
-For this section, we fix a functor $u \co \cal{I} \to \catE^\to$.
-
-\begin{definition}[Frobenius condition] \label{thm:frobenius-def}
-We say that a map $f \co X \to Y$ \emph{satisfies the Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if pullback along $f$ lifts to a functor
-\[
-\xymatrix@C=1.5cm{
-  \cal{I}_{/Y}
-  \ar[r]^{f^*}
-  \ar[d]_{u_{/Y}}
-&
-  \liftl{(\liftr{\cal{I}})}_{/X}
-  \ar[d]^{\liftl{(\liftr{u})}_{/X}}
-\\
-  \catE_{/Y}^\to \ar[r]_{f^*}
-&
-  \catE_{/X}^\to
-\rlap{.}}
-\]
-\end{definition}
-
-\begin{remark} \label{frobenius-no-coherence}
-Note that the Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
-Explicitly, it requires that $f^* u_i \co f^* X_i \to f^* Y_i$ is provided with the structure of a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ as below,
+For this, we  introduce some notation. Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}^{\to}$ for the category of pairs~$(X, i)$,
+where $X \in \cal{E}$ and $u_i \co A_i \to B_i$ is a map in $\cal{E}_{/X}$. We write $s \co \cal{I}_{/\cal{E}}^{\to} \to \cal{E}$ for the first projection. Then, for $v \co \cal{J} \to \cal{E}^\to$, we can form a pullback
 \[
 \xymatrix{
-  X_i
-  \ar[dr]
-  \ar[rr]^{u_i}
-&&
-  Y_i
-  \ar[dl]
-\\&
-   Y
-\rlap{,}}
-\]
-such that morphisms in $\cal{I}_{/Y}$ induce morphisms of left $\liftr{\cal{I}}$-maps.
-\end{remark}
-
-\begin{remark}
-Recall that the Frobenius condition for a weak factorization system states that pullback along a right map preserves left maps~\cite{garner:types-omega-groupoids,gambino-garner:idtypewfs}.
-Given a weak factorization system $(\cal{L}, \cal{R})$ on a category $\catE$, we have that it satisfies the Frobenius condition in this sense if and only if every right map satisfies the Frobenius condition with respect to the inclusion $\cal{L} \hookrightarrow \catE^\to$ in the sense of~\cref{thm:frobenius-def}.
-\end{remark}
-
-\begin{proposition} \label{lift-pushforward}
-For a map $f \co X \to Y$ admitting pushforward,
+ \cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J} \ar[r] \ar[d] & 
+ \cal{J} \ar[d]^v \\
+  \cal{I}_{/\cal{E}} \ar[r]_s &
+  \cal{E}^\to}
+  \]
+When $u$ is the identity on $\cal{E}^\to$ and $v$ is the codomain functor $\cod \co \cal{E}^\to \to \cal{E}$, we obtain
 \[
-\xymatrix@C+1em{
-  \catE_{/Y}
-  \ar@<5pt>[r]^{f^*}
-  \ar@{}[r]|{\bot}
+\xymatrix{
+ \cal{E}_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to \ar[r] \ar[d] & 
+ \cal{E} \ar[d]^{\cod} \\
+  \cal{E}^\to_{/\cal{E}} \ar[r]_s &
+  \cal{E}^\to}
+  \]
+Pullback gives a functor $Q \co  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to \to \cal{E}_{/\cal{E}}^\to$
+sending $(f, h)$ to $h^*(f)$. 
+
+
+
+\begin{definition} \label{uniform-frob-nice}
+We say that  $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if
+pullback along $\cal{J}$-maps sends $\cal{I}$-maps to ${}^\pitchfork(\cal{I}^\pitchfork)$-maps, \ie the functor $Q$ admits a lift $\tilde{Q}$ as below:
+\begin{equation} \label{uniform-frob-nice:lift}
+\begin{gathered}
+\xymatrix@C+2em{
+  \cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}
+  \ar@{.>}[r]^{\tilde{Q}}
+  \ar[d]_{u_{/\cal{E}} \times_{\cal{E}} v}
 &
-  \catE_{/X}
-  \ar@<5pt>[l]^{f_*}
-\rlap{,}}
-\]
-the following are equivalent:
-\begin{enumerate}[(i)]
-\item $f$ satisfies the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$,
-\item pushforward along $f$ lifts to a functor
-\[
-\xymatrix@C=1.5cm{
-  {\liftr{\cal{I}}}_{/X}
-  \ar[r]^{f_*}
-  \ar[d]_{u_{/X}}
-&
-  {\liftr{\cal{I}}}_{/Y}
-  \ar[d]^{{\liftr{u}}_{/Y}}
+  \liftl{(\liftr{\cal{I}})}_{/\cal{E}}
+  \ar[d]^{\liftl{(\liftr{u})}_{/\cal{E}}}
 \\
-  \catE_{/X}^\to
-  \ar[r]_{f_*}
+  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{Q}
 &
-  \catE_{/Y}^\to
+  \cal{E}_{/\cal{E}}^\to
 \rlap{.}}
-\]
+\end{gathered}
+\end{equation}
+\end{definition}
 
+As the next proposition shows, the uniform Frobenius condition of \cref{uniform-frob-nice} can be simplified under some assumptions.
+
+\begin{proposition}
+\label{uniform-frob-even-nicer}
+Let $v \co \cal{J} \to \cal{E}^\to$ be a functor such that
+\begin{equation} \label{uniform-frob:comprehension}
+\begin{gathered}
+\xymatrix@C-1em{
+  \cal{J}
+  \ar[rr]^{v}
+  \ar[dr]_{\cod_{\cal{E}} \cc v}
+&&
+  \cal{E}^\to
+  \ar[dl]^{\cod_{\cal{E}}}
+\\&
+  \cal{E}
+}
+\end{gathered}
+\end{equation}
+is a morphism of Grothendieck fibrations. Then the following are equivalent:
+\begin{enumerate}[(i)] 
+\item  $v \co \cal{J} \to \cal{E}^\to$ satisfies the  uniform Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$,
+\item there is a lift $\tilde{P}$ as below:
+\begin{equation} \label{uniform-frob-even-nicer:lift}
+\begin{gathered}
+\xymatrix@C+2em{
+  \cal{I} \times_{\cal{E}} \cal{J}
+  \ar@{.>}[r]^{\tilde{P}}
+  \ar[d]_{u \times_{\cal{E}} v}
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]^{\liftl{(\liftr{u})}}
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P}
+&
+  \cal{E}^\to
+\rlap{.}}
+\end{gathered}
+\end{equation}
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
+We will show that giving lifts $\tilde{Q}$ and $\tilde{P}$ as in~\eqref{uniform-frob-nice:lift} and \eqref{uniform-frob-even-nicer:lift}, respectively,
+is equivalent.
+The situation \eqref{uniform-frob-nice:lift} a priori represents a more general scenario: we are pulling back an arrow $u_i \co A \to B$ with $i \in \cal{I}$ over an object $Y$ along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
+In contrast, in \eqref{uniform-frob-even-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
+It follows that any lift $\tilde{Q}$ induces a lift $\tilde{P}$.
+However, under the stated assumption, the lift $\tilde{Q}$ can be reconstructed from the lift $\tilde{P}$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $\tilde{Q}(i, j) \defeq \tilde{P}(i, j')$.
+Furthermore, this choice of $\tilde{Q}$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \end{proof}
 
-\subsection*{The Beck-Chevalley condition}
+We can now restate the functorial Frobenius condition of~\cref{functorial-frobenius} equivalently in terms of
+the uniform Frobenius condition of~\cref{uniform-frob-nice}. For this, we apply \cref{uniform-frob-even-nicer}
+when $\cal{J}$ is a category of $\RR$-algebras of an algebraic weak factorization system $(\LL, \RR)$. 
 
-In order to introduce the Beck-Chevalley condition, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $f \co X \to Y$ in~$\catE$, left composition~$f_! \co \calE/X \to \calE/Y$ lifts to a functor between slices of~$u$.
+\begin{proposition}
+Let $(\mathsf{L}, \mathsf{R})$ be an algebraic weak factorization system on $\cal{E}$. Then the following are
+equivalent:
+\begin{enumerate}[(i)] 
+\item $(\LL, \RR)$ satisfies the functorial Frobenius condition,
+\item $\mathsf{R}$-$\mathsf{alg}$ satisfies the uniform Frobenius condition with respect to $\mathsf{L}$-$\mathsf{coalg}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof} The claim follows combining \cref{uniform-frob-even-nicer} and the fact that, $\pcoalg{\LL}$ is a category of left maps,
+there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL}$ and $\liftl{(\liftr{(\pcoalg{\LL})})}$
+\end{proof}
 
 
-\begin{remark} \label{exa:composition-pullback-lift}
-If $\cal{E}$ has pullbacks, for an arrow $f \co X \to Y$, we have an adjunction
+The reformulation of the functorial Frobenius condition as a uniform Frobenius condition is that the latter admits an 
+equivalent rephrasing in terms of pushforward, rather than pullback, functors, which will be essential to our characterization of algebraically-free
+algebraic weak factorisation systems satisfying the functorial Frobenius condition. As a first step towards the pushforward formulation,
+we decompose the uniform Frobenius condition into an object part and a morphism part. For this, recall that, for an arrow $f \co X \to Y$, we have an adjunction
 \[
 \xymatrix{
   \catE_{/X}
@@ -1680,131 +1720,36 @@ By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE
   \catE_{/X}^\to
 \rlap{.}}
 \]
-\end{remark}
 
 
-\begin{definition}[Beck-Chevalley condition] \label{def:beck-chevalley}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$.
-We say that a commutative square
-\begin{equation} \label{def:beck-chevalley:0}
-\begin{gathered}
-\xymatrix{
-  X
-  \ar[r]^{f}
-  \ar[d]_{s}
-&
-  Y
-  \ar[d]^{t}
-\\
-  U
-  \ar[r]_{g}
-&
-  V
-}
-\end{gathered}
-\end{equation}
-satisfies the \emph{Beck-Chevalley condition} with respect to $u$ if the canonical natural transformation
-\[
-\xymatrix{
-  \catE^\to_{/Y}
-  \ar[d]_{t_!}
-  \ar[r]^{f^*}
-  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi$}}
-&
-  \catE^\to_{/X}
-  \ar[d]^{s_!}
-\\
-  \catE^\to_{/V}
-  \ar[r]_{g^*}
-&
-  \catE^\to_{/U}
-}
-\]
-lifts to a natural transformation
+
+
+
+
+\begin{proposition}  \label{def:uniFrobcond}
+ Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$. Then $v$ satisfies the
+uniform Frobenius property with respect to $u$ if and only if the following hold:
+\begin{enumerate}[(i)]
+\item for every  $j \in \cal{J}$, pullback along $v_j \co C_j \to D_j$ lifts to a functor
 \[
 \xymatrix@C+3em{
   \cal{I}_{/Y}
-  \ar[r]^{f^*}
-  \ar[d]_{t_!}
-  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi'$}}
+  \ar[r]^-{\widetilde{v_j^*}}
+  \ar[d]_-{u_{/D_j}}
 &
-  \liftl{(\liftr{\cal{I}})}_{/X}
-  \ar[d]^{s_!}
+  \liftl{(\liftr{\cal{I}})}_{/C_j}
+  \ar[d]^-{\liftl{(\liftr{u})}_{/C_j}}
 \\
-  \cal{I}_{/V}
-  \ar[r]_{g^*}
+  \catE_{/D_j}^\to \ar[r]_-{v_j^*}
 &
-  \liftl{(\liftr{\cal{I}})}_{/U}
+  \catE_{/C_j}^\to
 \rlap{.}}
 \]
-\end{definition}
-
-\begin{remark} \label{beck-chevalley-no-coherence}
-In contrast to the Frobenius condition, the Beck-Chevalley condition is just a property, not additional structure.
-Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{I}}$-maps.
-\end{remark}
-
-\begin{remark} \label{beck-chevalley-iso}
-If the given commutative square is a pullback, then the canonical natural transformation $\phi \co s_! f^* \to g^* t_!$ is an isomorphism (by the usual Beck-Chevalley condition), and so is~$\phi'$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
-\end{remark}
-
-In analogy with \cref{lift-pushforward}, we provide a characterization of the Beck-Chevalley condition of \cref{def:beck-chevalley} in terms of pushforward functors.
-In order to state this, recall from \cref{exa:composition-pullback-lift} that for a functor $u \co \cal{I} \to \catE^\to$ and a map $s \co X \to U$, the pullback functor $s^* \co \catE^\to_{/U} \to \catE^\to_{/X}$ lifts to a functor $s^* \co {\liftr{\cal{I}}}_{/U} \to {\liftr{\cal{I}}}_{/X}$.
-
-\begin{proposition} \label{lift-pushforward-BC}
-Let $f \co X \to Y$ and $g \co U \to V$ be maps that satisfy the Frobenius condition with respect to $u \co \cal{I} \to \cal{E}^\to$ and admit pushforward.
-A commuting square as in~\eqref{def:beck-chevalley:0} satisfies the Beck-Chevalley condition with respect to $u$ if and only if the canonical natural transformation
-\[
-\xymatrix@C+2em{
-  \catE^\to_{/U}
-  \ar[r]^{g_*}
-  \ar[d]_{s^*}
-  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\psi$}}
-&
-  \catE^\to_{/V}
-  \ar[d]^{t^*}
-\\
-  \catE^\to_{/X}
-  \ar[r]_{f_*}
-&
-  \catE^\to_{/Y}
-}
-\]
-lifts to a natural transformation
-\[
-\xymatrix@C+2em{
-  {\liftr{\cal{I}}}_{/U}
-  \ar[r]^{g_*}
-  \ar[d]_{s^*}
-  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\psi'$}}
-&
-  {\liftr{\cal{I}}}_{/V}
-  \ar[d]^{t^*}
-\\
-  {\liftr{\cal{I}}}_{/X}
-  \ar[r]_{f_*}
-&
-  {\liftr{\cal{I}}}_{/Y}
-\rlap{.}}
-\]
-\end{proposition}
-
-\begin{proof}
-Apply \cref{lift-of-mates} to the adjunctions $g^* t_! \dashv t^* g_*$ and $s_! f^* \dashv s^* t_!$.
-\end{proof}
-
-\subsection*{The uniform Frobenius condition}
-
-We conclude this section by introducing a combination of the Frobenius and Beck-Chevalley conditions, which we call the uniform Frobenius condition, and showing how it relates to the functorial Frobenius condition of~\cite{garner:topological-simplicial}.
-We then use the uniform Frobenius condition to give a characterization of the functorial Frobenius condition for algebraically-free algebraic weak factorization systems.
-
-\begin{definition}[Uniform Frobenius condition] \label{def:uniFrobcond}
-We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform Frobenius condition} with respect to $u \co \cal{I} \to \cal{E}^\to$ if:
-\begin{enumerate}[(i)]
-\item for every object $j \in \cal{J}$, the morphism $v_j \co C_j \to D_j$ satisfies the Frobenius condition with respect to $u$,
-\item for every morphism $\tau \co j \to j'$ in $\cal{J}$, the square $v_\tau$:
-\[
-\xymatrix{
+\item for every $\tau \co j \to k$ in $\cal{J}$, the square $v_\tau \co v_j \to v_k$ in 
+\begin{equation} 
+\label{def:beck-chevalley:0}
+\begin{gathered}
+\xymatrix@C+3em{
   C_j
   \ar[r]^{v_j}
   \ar[d]_{s}
@@ -1812,56 +1757,209 @@ We say that a functor $v \co \cal{J} \to \catE^\to$ satisfies the \emph{uniform 
   D_j
   \ar[d]^{t}
 \\
-  C_{j'}
-  \ar[r]_-{v_{j'}}
+  C_{k}
+  \ar[r]_-{v_{k}}
 &
-  D_{j'}
+  D_{k}
 \rlap{,}}
-\]
-satisfies the Beck-Chevalley condition with respect to $u$.
-\end{enumerate}
-\end{definition}
-
-In order relate the uniform Frobenius condition introduced above with the functorial Frobenius condition~\cite{garner:topological-simplicial}, it is convenient to assemble all the ingredients of the uniform Frobenius condition into a single global functor, as we do in~\cref{uniform-frob-nice}, which seems the most natural way to phrase the condition.
-Given a functor $w \co \cal{K} \to \cal{E}^\to$, we write $\cal{K}_{/\cal{E}}^{\to}$ for the category of pairs $(k, X)$, with $k \in \cal{K}$ and $X \in \cal{E}$ such that $w_k$ is over $X$, \ie the result of the opposite Grothendieck construction applied to the functor sending $X \in \cal{E}$ to the slice category $\cal{K}_{/X}^{\to}$.
-
-\begin{proposition}
-\label{uniform-frob-nice}
-The uniform Frobenius condition of a functor $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift $Q$ as below:
-\begin{equation} \label{uniform-frob-nice:lift}
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}
-  \ar@{.>}[r]^{Q}
-  \ar[d]_{u_{/\cal{E}} \times_{\cal{E}} v}
-&
-  \liftl{(\liftr{\cal{I}})}_{/\cal{E}}
-  \ar[d]^{\liftl{(\liftr{u})}_{/\cal{E}}}
-\\
-  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P}
-&
-  \cal{E}_{/\cal{E}}^\to
-\rlap{.}}
 \end{gathered}
 \end{equation}
-Here, the pullbacks are with respect to the slicing part of the left factor and the codomain part of the right factor, and $P$ denotes base change of arrows over objects, sending $(f, h)$ to $h^*(f)$.
+is such that the canonical natural transformation
+\[
+\xymatrix@C+3em{
+  \catE^\to_{/D_j}
+  \ar[d]_{t_!}
+  \ar[r]^{v_j^*}
+  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\phi$}}
+&
+  \catE^\to_{/C_j}
+  \ar[d]^{s_!}
+\\
+  \catE^\to_{/D_k}
+  \ar[r]_{v_k^*}
+&
+  \catE^\to_{/C_k}
+}
+\]
+lifts to a natural transformation
+\[
+\xymatrix@C+3em{
+  \cal{I}_{/D_j}
+  \ar[r]^{\widetilde{v_j^*}}
+  \ar[d]_{t_!}
+  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\tilde{\phi}$}}
+&
+  \liftl{(\liftr{\cal{I}})}_{/C_j}
+  \ar[d]^{s_!}
+\\
+  \cal{I}_{/D_k}
+  \ar[r]_{\widetilde{v_k^*}}
+&
+  \liftl{(\liftr{\cal{I}})}_{/C_k}
+\rlap{.}}
+\]
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Since the functor $\liftl{(\liftr{u})}$ is faithful, a lift $Q$ consists just of a lift of the action of $P$ on objects that is coherent with respect to the action of $P$ on morphisms (in the sense that the action of $P$ on morphisms lifts to a necessarily unique action of $Q$ on morphisms).
-Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $Q$ separates into two parts:
-\begin{enumerate}[(i)]
+Since the functor $\liftl{(\liftr{u})}$ is faithful, a lift $\widetilde{v_j^*}$ consists just of a lift of the action of $v_j^*$ on objects that is coherent with respect to the action of $v_j^*$ on morphisms, in the sense that the action of $v_j^*$ on morphisms determines uniquely the action of its
+lift on morphisms.
+Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $\tilde{v^*}$ separates into two parts:
+\begin{enumerate}[(1)] 
 \item coherence in morphisms in $\cal{I}_{/D_j}$ for fixed $v_j \co C_j \to D_j$ with $j \in \cal{J}$,
 \item coherence in morphisms in $\cal{J}$.
 \end{enumerate}
-The action of $Q$ on objects together with coherence (i) constitutes the Frobenius part of the uniform Frobenius condition.
-Coherence (ii) constitutes the Beck-Chevalley part of the uniform Frobenius condition.
+The action of $\tilde{v^*}$ on objects together with coherence (1) constitutes part (i). Coherence (2) constitutes the  part (ii).
 \end{proof}
 
-For future reference, in the following two propositions we make explicit some categorical properties of the uniform Frobenius condition evident in the phrasing given by \cref{uniform-frob-nice}.
 
-\begin{proposition}[Functoriality of uniform Frobenius condition] \label{uniform-frobenius-functorial}
+The statement of~\cref{def:uniFrobcond} makes it clear that the uniform Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
+Explicitly, it requires that $v_j^*(u_i) \co v_j^* X_i \to v_j^* Y_i$ is equipped with the structure of a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ as below,
+\[
+\xymatrix{
+  X_i
+  \ar[dr]
+  \ar[rr]^{u_i}
+&&
+  Y_i
+  \ar[dl]
+\\&
+   D_j
+\rlap{,}}
+\]
+such that morphisms in $\cal{I}_{/D_j}$ induce morphisms of left $\liftr{\cal{I}}$-maps. However, at the level of squares, 
+ the  condition in part (ii) of \cref{def:uniFrobcond} is just a property, not additional structure.
+Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{I}}$-maps.
+Also note that if the commutative square~\eqref{def:beck-chevalley:0} is a pullback, then the canonical natural transformation~$\phi$ is an isomorphism by the usual Beck-Chevalley condition, and so is~$\tilde{\phi}$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
+\cref{def:uniFrobcond} has an immediate dual, expressed in terms of pushforward rather than pullback, which we state next.
+
+
+\begin{proposition} \label{lift-pushforward} \label{lift-pushforward-BC}
+ Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$. Then $v$ satisfies the
+uniform Frobenius property with respect to $u$ if and only if the following hold:
+\begin{enumerate}[(i)] 
+\item for every  $j \in \cal{J}$, pushforward along $v_j \co C_j \to D_j$ lifts to a functor
+\[
+\xymatrix@C=1.5cm{
+  {\liftr{\cal{I}}}_{/X}
+  \ar[r]^{(v_j)_*}
+  \ar[d]_{u_{/C_j}}
+&
+  {\liftr{\cal{I}}}_{/D_j}
+  \ar[d]^{{\liftr{u}}_{/D_j}}
+\\
+  \catE_{/C_j}^\to
+  \ar[r]_{(v_j)_*}
+&
+  \catE_{/D_j}^\to
+\rlap{.}}
+\]
+\item for every $\tau \co j \to k$, the square $v_\tau \co v_j \to v_k$, as in~\eqref{def:beck-chevalley:0}, is such that the canonical natural transformation
+\[
+\xymatrix@C+2em{
+  \catE^\to_{/C_k}
+  \ar[r]^{(v_k)_*}
+  \ar[d]_{s^*}
+  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\psi$}}
+&
+  \catE^\to_{/D_k}
+  \ar[d]^{t^*}
+\\
+  \catE^\to_{/C_j}
+  \ar[r]_{(v_j)_*}
+&
+  \catE^\to_{/D_j}
+}
+\]
+lifts to a natural transformation
+\[
+\xymatrix@C+2em{
+  {\liftr{\cal{I}}}_{/C_k}
+  \ar[r]^{(v_k)_*}
+  \ar[d]_{s^*}
+  \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\psi'$}}
+&
+  {\liftr{\cal{I}}}_{/D_k}
+  \ar[d]^{t^*}
+\\
+  {\liftr{\cal{I}}}_{/C_j}
+  \ar[r]_{(v_j)_*}
+&
+  {\liftr{\cal{I}}}_{/D_j}
+\rlap{.}}
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof} For (i), apply \cref{lift-of-adjunction} to the adjunction $p^* \dashv p_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor. For (ii), apply \cref{lift-of-mates} to  
+${v_k}^* t_! \dashv t^* (v_k)_*$ and $s_! v_j^* \dashv s^* t_!$. [THERE IS A TYPO HERE]
+\end{proof}
+
+
+
+
+We can now give the desired characterization of the functorial Frobenius condition for algebraically-free algebraic weak factorization systems.
+
+
+
+
+\begin{theorem} \label{thm:frobenius-comparison}
+Let $(\LL, \RR)$ be a algebraic weak factorisation system cofibrantly generated by a category $\cal{I}$ of arrows. Then the following
+are equivalent:
+\begin{enumerate}[(i)] 
+\item  $(\LL, \RR)$ satisfies the functorial Frobenius condition,
+\item $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof} First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
+Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$, and hence also between $\liftl{(\liftr{\cal{I}})}$ and $\pcoalg{\LL}$.
+With this, the functorial Frobenius condition for $(\LL, \RR)$ takes the form of a lift
+\begin{equation} 
+\label{frobenius-comparison:0}
+\begin{gathered}
+\xymatrix@C+2em{
+  \liftl{(\liftr{\cal{I}})} \times_{\cal{E}} \liftr{\cal{I}}
+  \ar@{.>}[r]
+  \ar[d]
+&
+  \liftl{(\liftr{\cal{I}})}
+  \ar[d]
+\\
+  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
+  \ar[r]_{P'}
+&
+  \cal{E}^\to
+}
+\end{gathered}
+\end{equation}
+emulating the form of uniform Frobenius of \cref{uniform-frob-even-nicer}, with a subtle difference: we are pulling back a map coming from $\liftl{(\liftr{\cal{I}})}$ instead of $\cal{I}$. We now need to show that a lift as in~\eqref{frobenius-comparison:0} is equivalent to the uniform Frobenius condition. 
+
+In one direction, given a lift as in~\eqref{frobenius-comparison:0}, since we have a map from $\cal{I}$ to $\liftl{(\liftr{\cal{I}})}$, we have that functorial Frobenius implies uniform Frobenius.
+
+For the other direction, one first shows that \eqref{frobenius-comparison:0} implies a relativized version of itself, with arrows as in~\eqref{uniform-frob-nice:lift} (with $\liftl{(\liftr{\cal{I}})}$ instead of $\cal{I}$ on the left). We then use an analogue of \cref{lift-pushforward} to write it separately as two components, first lifts of pushforward
+\[
+\xymatrix@C=1.5cm{
+  {\liftr{\cal{I}}}_{/X}
+  \ar[r]^{f_*}
+  \ar[d]_{u_{/X}}
+&
+  \liftr{(\liftl{({\liftr{\cal{I}}})})}_{/Y}
+  \ar[d]^{{\liftr{u}}_{/Y}}
+\\
+  \catE_{/X}^\to
+  \ar[r]_{f_*}
+&
+  \catE_{/Y}^\to
+}
+\]
+along any fixed right $\cal{I}$-map $f \co X \to Y$, and second lifts of the canonical map $t^* g_* p \to f_* s^* p$ to a right $\liftl{(\liftr{\cal{I}})}$-map for $(s, t) \co f \to g$ a map between right $\cal{I}$-maps and $p$ a right $\cal{I}$-map.
+These are provided by the uniform Frobenius condition in the form of part~(ii) of both \cref{lift-pushforward} after postcomposing the lifts in there with the unit  $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ of the adjunction~\eqref{garner-adjunction}.
+\end{proof}
+
+We conclude the section with some auxiliary results on the functorial Frobenius condition, which make explicit some categorical properties of the uniform Frobenius condition and will be used in \cref{sec:frocuf}.
+
+\begin{proposition} \label{uniform-frobenius-functorial}
 Consider categories $u_t \co \cal{I} \to \cal{E}^\to$ and $v_t \co \cal{J} \to \cal{E}^\to$ for $t \in \braces{1, 2}$ related as follows:
 \begin{align*}
 \xymatrix@!C@C-3em{
@@ -1901,7 +1999,7 @@ If $v_1$ satisfies the uniform Frobenius condition with respect to $u_1$, then $
 \end{proposition}
 
 \begin{proof}
-We work with the characterization of the uniform Frobenius condition given by \cref{uniform-frob-nice}.
+We work with the formulation in \cref{uniform-frob-nice}.
 In the below diagram, the premise corresponds to a functor $Q_1$ making the inner square commute while the conclusion corresponds to a functor $Q_2$ making the lower trapezoid commute:
 \[
 \xymatrix{
@@ -1931,7 +2029,6 @@ In the below diagram, the premise corresponds to a functor $Q_1$ making the inne
 We may construct $Q_2$ from~$Q_1$ by pasting the inner square with the left triangle, given by $G$ and~$H$, and the right triangle, given by $F$ and the multiplication of the monad $\liftl{(\liftr{(-)})}$.
 \end{proof}
 
-In the context of standard weak factorization systems, \cref{uniform-frobenius-functorial} implies that, for classes of maps $\cal{I}_t$ and $\cal{J}_t$, for $t \in \braces{1, 2}$ with $\cal{I}_1 \subseteq \liftl{(\liftr{I_2})}$, $\cal{I}_2 \subseteq \cal{I}_1$ and $\cal{J}_2 \subseteq \cal{J}_1$, if pullback along maps in $\cal{J}_1$ preserves maps in $\cal{I}_1$, then pullback along maps in $\cal{J}_2$ preserves maps in $\cal{I}_2$.
 
 \begin{remark}
 In some applications, we need functoriality of the uniform Frobenius condition of $\cal{J}$ with respect to $\cal{I}$ in one of the parameters.
@@ -1940,7 +2037,7 @@ If only functoriality in $\cal{J}$ is desired, the maps $F$ and $G$ will default
 \end{remark}
 
 \begin{proposition} \label{uniform-frobenius-product-u}
-If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the strict pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
+If $v \co \cal{J} \to \cal{E}^\to$ satisfies the uniform Frobenius condition with respect to functors $u_1 \co \cal{I}_1 \to \cal{E}^\to$ and $u_2 \co \cal{I}_2 \to \cal{E}^\to$, then also with respect to the pullback $\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2 \to \cal{E}^\to$ of $u_1$ and $u_2$.
 \end{proposition}
 
 \begin{proof}
@@ -1951,132 +2048,14 @@ Use the universal property of products in the category $\CAT_{/\cal{E}^\to}$ wit
 over $\cal{E}^\to$ given by the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
-\begin{remark} \label{uniform-frobenius-limit-u}
-The previous proposition holds true analogously for arbitrary limits in the category $\CAT_{/\cal{E}^\to}$, not just binary products.
-\end{remark}
-
-\begin{proof}
-For relating the Frobenius conditions of $\cal{J}$ with respect to $\cal{I}$ and $\liftl{(\liftr{\cal{I}})}$, we note that there are maps over $\cal{E}^\to$ back and forth between $\liftr{\cal{I}}$ and $\liftr{(\liftl{(\liftr{\cal{I}})})}$ given by the unit and counit of the the adjunction \eqref{garner-adjunction}.
-\end{proof}
 
 
-
-The characterization of \cref{uniform-frob-nice} can be simplified even further under additional assumptions.
-
-\begin{proposition}
-\label{uniform-frob-even-nicer}
-Let $v \co \cal{J} \to \cal{E}^\to$ be a functor such that
-\begin{equation} \label{uniform-frob:comprehension}
-\begin{gathered}
-\xymatrix@C-1em{
-  \cal{J}
-  \ar[rr]^{v}
-  \ar[dr]_{\cod_{\cal{E}} \cc v}
-&&
-  \cal{E}^\to
-  \ar[dl]^{\cod_{\cal{E}}}
-\\&
-  \cal{E}
-}
-\end{gathered}
-\end{equation}
-is a morphism of Grothendieck fibrations.
-Then the uniform Frobenius condition of $v \co \cal{J} \to \cal{E}^\to$ with respect to $u \co \cal{I} \to \cal{E}^\to$ is equivalent to a lift $Q'$ as below:
-\begin{equation} \label{uniform-frob-even-nicer:lift}
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{I} \times_{\cal{E}} \cal{J}
-  \ar@{.>}[r]^{Q'}
-  \ar[d]_{u \times_{\cal{E}} v}
-&
-  \liftl{(\liftr{\cal{I}})}
-  \ar[d]^{\liftl{(\liftr{u})}}
-\\
-  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P'}
-&
-  \cal{E}^\to
-\rlap{.}}
-\end{gathered}
-\end{equation}
-Here $P'$ denotes the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
-\end{proposition}
-
-\begin{proof}
-We will show that the structure of the respective lifts $Q$ and $Q'$ in \eqref{uniform-frob-nice:lift} and \eqref{uniform-frob-even-nicer:lift} is the same.
-The situation \eqref{uniform-frob-nice:lift} a priori represents a more general scenario: we are pulling back an arrow $u_i \co A \to B$ with $i \in \cal{I}$ over an object $Y$ along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
-In contrast, in \eqref{uniform-frob-even-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
-It follows that any lift $Q$ induces a lift $Q'$.
-However, under the assumption that \eqref{uniform-frob:comprehension} forms a morphism of Grothendieck fibrations, the lift $Q$ can be reconstructed from the lift $Q'$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $Q(i, j) \defeq Q'(i, j')$.
-Furthermore, this choice of $Q$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $\liftl{(\liftr{u})}$ reflects isomorphisms.
-\end{proof}
-
-\cref{uniform-frob-even-nicer} applies if $\cal{J}$ is a category of right maps as in \cref{strong-h-equiv-uniform-base-change} or the category of algebras in an algebraic weak factorization system. We will now compare the uniform Frobenius condition with the functorial Frobenius condition of~\cite{garner:topological-simplicial}.
-
-
-\begin{theorem} \label{thm:frobenius-comparison}
-Let $(\mathsf{L}, \mathsf{R})$ be an algebraic weak factorization system on a category $\cal{E}$.
-\begin{enumerate}[(i)]
-\item
-The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\mathsf{R}$-$\mathsf{alg}$ satisfies the uniform Frobenius condition with respect to $\mathsf{L}$-$\mathsf{coalg}$.
-\item
-Assume that $\cal{E}$ is locally Cartesian closed and that $(\LL, \RR)$ is cofibrantly generated by a category $\cal{I}$ of arrows.
-The functorial Frobenius condition for $(\LL, \RR)$ holds if and only if $\liftr{\cal{I}}$ satisfies the uniform Frobenius condition with respect to $\cal{I}$.
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-Part~(i) follows from \cref{uniform-frob-even-nicer}: there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL}$ and $\liftl{(\liftr{(\pcoalg{\LL})})}$ since $\pcoalg{\LL}$ is a category of left maps.
-
-Part~(ii) is more complicated.
-First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
-Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$, and hence also between $\liftl{(\liftr{\cal{I}})}$ and $\pcoalg{\LL}$.
-With this, the functorial Frobenius condition for $(\LL, \RR)$ takes the form of a lift
-\begin{equation} \label{frobenius-comparison:0}
-\begin{gathered}
-\xymatrix@C+2em{
-  \liftl{(\liftr{\cal{I}})} \times_{\cal{E}} \liftr{\cal{I}}
-  \ar@{.>}[r]
-  \ar[d]
-&
-  \liftl{(\liftr{\cal{I}})}
-  \ar[d]
-\\
-  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P'}
-&
-  \cal{E}^\to
-}
-\end{gathered}
-\end{equation}
-emulating the form of uniform Frobenius of \cref{uniform-frob-even-nicer}, with a subtle difference: we are pulling back a map coming from $\liftl{(\liftr{\cal{I}})}$ instead of $\cal{I}$.
-Since we have a map from the latter to the former, functorial Frobenius implies uniform Frobenius.
-
-For the other direction, we first generalize the goal \eqref{frobenius-comparison:0} to relativized arrows as in~\eqref{uniform-frob-nice:lift} (with $\liftl{(\liftr{\cal{I}})}$ instead of $\cal{I}$ on the left) and then use analogues of \cref{uniform-frob-nice}, \cref{lift-pushforward,lift-pushforward} to write it separately as two components, first lifts of pushforward
-\[
-\xymatrix@C=1.5cm{
-  {\liftr{\cal{I}}}_{/X}
-  \ar[r]^{f_*}
-  \ar[d]_{u_{/X}}
-&
-  \liftr{(\liftl{({\liftr{\cal{I}}})})}_{/Y}
-  \ar[d]^{{\liftr{u}}_{/Y}}
-\\
-  \catE_{/X}^\to
-  \ar[r]_{f_*}
-&
-  \catE_{/Y}^\to
-}
-\]
-along any fixed right $\cal{I}$-map $f \co X \to Y$, and second lifts of the canonical map $t^* g_* p \to f_* s^* p$ to a right $\liftl{(\liftr{\cal{I}})}$-map for $(s, t) \co f \to g$ a map between right $\cal{I}$-maps and $p$ a right $\cal{I}$-map.
-These are provided by the uniform Frobenius condition in the form of part~(ii) of both \cref{lift-pushforward,lift-pushforward-BC} after postcomposing the lifts in there with the map $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ provided by the unit of the adjunction~\eqref{garner-adjunction}.
-\end{proof}
 
 \newpage
 
 
 \section{The functorial Frobenius property for uniform fibrations}
-
+\label{sec:frocuf}
 
 
 \subsection*{Homotopy equivalences}
