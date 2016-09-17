@@ -1924,12 +1924,27 @@ lifts as follows:
 \end{enumerate}
 \end{definition}
 
+The main difference between the notion of a suitable weak factorisation system~(\cref{thm:suitable-wfs}) and that of a suitable algebraic
+weak factorisation system (\cref{thm:suitable-awfs}) is that the conditions in the former express the closure of the class of left maps under certain functions, while the conditions in the latter express the closure of the category of left maps under certain functors. The next result not only provides us with a wide class of examples of suitable algebraic weak factorisation systems, but also shows that there are situations in which object-wise assertions can be strengthened to functoriality properties. 
 
+\begin{proposition}  \label{rem-lift-suitable} \label{thm:sset-cset-suitable}
+ Let $\cal{E}$ be a presheaf category and $\cal{M}$ be a subcategory of $\cal{E}^\to_\cart$. Assume the following:
+\begin{enumerate}[(i)] 
+\item $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pullback squares,
+\item the natural transformations $\kcyl \co \id_\cal{E} \to \interval \otimes (-)$, for $k \in \braces{ 0, 1}$, are cartesian,
+\item the maps in $\cal{M}$ are monomorphisms.
+\item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $\cal{M}$, 
+ \item $\cal{M}$ is closed under pullbacks, 
+\item $\cal{M}$ is closed under Leibniz product with the endpoint inclusions.
+\end{enumerate} 
+Then there exists a suitable algebraic weak factorisation system $(\CC, \TF)$ on $\cal{E}$ that is algebraically free on $\cal{M}$, \ie 
+such that $\TrivFib = \liftr{\cal{M}}$.
+\end{proposition}
 
-\begin{remark} \label{thm:sset-cset-suitable}
-Let $\cal{M}$ be a full category of $\cal{E}^\to_\cart$ spanned by monomorphisms and write~$u \co \cal{M} \hookrightarrow \catE^\to$ to denote the inclusion. Let $\cal{N}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. 
-Since $\cal{N}$ is small, it generates an algebraic weak factorisation system $(\LL, \RR)$ with $\pAlg{\RR} =  \liftr{\cal{N}}$ by Garner's small object argument~\cite{garner:small-object-argument}. Furthermore, we have $\pAlg{\RR} =  \liftr{\cal{M}}$ since $\liftr{\cal{M}} = \liftr{\cal{N}}$
-This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$ is a full subcategory of $\cal{E}^\to_\cart$. Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of $\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams which are the form
+\begin{proof} Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. 
+Since $\cal{I}$ is small, Garner's small object argument~\cite{garner:small-object-argument} it generates a
+cofibrantly generated algebraic weak factorisation system $(\CC, \TF)$ with $\TrivCof =  \liftr{\cal{I}}$. Furthermore, we have~$\liftr{\cal{M}} = \liftr{\cal{I}}$.
+This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$ is a full subcategory of~$\cal{E}^\to_\cart$. Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of $\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams which are the form
 \[
 \xymatrix{
   A
@@ -1946,28 +1961,34 @@ This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$
 \rlap{,}}
 \]
 where $\yon(x)$ the Yoneda embedding of some $x \in \catC$.
-The reduction to this type of diagrams relies essentially on the good behaviour of the right orthogonality functor with respect to colimits as described in~\cref{awfs-on-arrows-into-representables}, which is not available in the setting of standard weak factorisation systems. 
-\end{remark} 
+
+It remains to check that $(\CC, \TF)$ satisfies conditions (ii)-(iv) in~\cref{thm:suitable-awfs}.
+These follow by the assumptions (iii)-(v) on $\cal{M}$ via  standard diagram-chasing argument, which we omit. For condition~(iv), the
+crucial property being used in that proof is that elements of $\cal{M}$, being monomorphisms in a topos,
+are adhesive maps~\cite{garner-lack:adhesive}. 
+\end{proof} 
 
 
-\begin{remark} \label{rem:constructive-small-object}
-\cref{thm:sset-cset-suitable} applies to both $\SSet$ and $\CSet$.
-In these cases, we explain why the result can be proved constructively, \ie without using the law of excluded middle or the axiom of choice.
-First, observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
-For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{N} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
-An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\mathsf{L}_1, \mathsf{R}_1)$ on $u \co \cal{N} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
-The fact that the category of $\mathsf{R}_1$-algebras is the category of uniform trivial $\cal{M}$-fibrations follows from part~(i) of \cref{small-gen-triv-kan}. For this argument, the assumption of working with decidable monomorphisms in a constructive setting is used to obtain the smallness of $\cal{N}$ and $\cal{N}_\otimes$ without relying on the Power Set axiom.
-We believe that this restriction is important also to treat constructively further aspects of the theory, such as universes~\cite{cohen-et-al:cubicaltt}.
-\end{remark} 
+Let us point out that the  reduction to the lifting problems against maps in $\cal{M}$ to those with a representable codomain in
+the proof of \cref{rem-lift-suitable} exploits the good behaviour of the right orthogonality functor with respect to colimits as described in~\cref{awfs-on-arrows-into-representables}, which is not available in the setting of standard weak factorisation systems. 
 
-
-\begin{remark}  \label{rem-lift-suitable} 
-The main difference between the notion of a suitable weak factorisation system~(\cref{thm:suitable-wfs}) and that of a suitable algebraic
-weak factorisation system (\cref{thm:suitable-awfs}) is that the conditions in the former express the closure of the class of left maps under certain functions, while the conditions in the latter express the closure of the category of left maps under certain functors. However,
-there are situations in which object-wise assertions can be strengthened to functoriality properties. For example, 
-since pushouts in presheaf categories are stable under base change, conditions~(iv) and~(v) allow us to strengthen the objectwise assertion of condition~(iii) to a lift of the Leibniz product functor.%
-\footnote{Abstracting from the setting of a presheaf category, the core property used here is adhesiveness~\cite{garner-lack:adhesive} of the elements of $\cal{M}$.}
+\begin{remark} SOMETHING ON THE PARTIAL MAP CLASSIFIER.
 \end{remark}
+
+
+\begin{example} \label{rem:constructive-small-object} Obviously, \cref{thm:sset-cset-suitable} applies to both $\SSet$ and $\CSet$.
+In particular, letting~$\cal{M}$ be the category of all monomorphisms and pullback squares, one obtains an algebraic weak factorisation
+system whose right maps are \emph{uniform trivial Kan fibrations}. 
+In these examples, \cref{thm:sset-cset-suitable} can be proved constructively, \ie without using the law of excluded middle or the axiom of choice, provided that 
+one adds the assumption that elements of $\cal{M}$ are \emph{decidable} monomorphisms.
+In order to see why this is the case, first observe that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
+For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
+An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. For this argument, the assumption of working with decidable monomorphisms in a constructive setting is used to obtain the smallness of $\cal{I}$  without relying on the Power Set axiom.
+We believe that this restriction is important also to treat constructively further aspects of the theory, such as the existence
+of universes~\cite{cohen-et-al:cubicaltt}.
+\end{example} 
+
+
 
 
  
