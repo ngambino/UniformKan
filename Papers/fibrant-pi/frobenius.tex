@@ -1928,21 +1928,21 @@ The main difference between the notion of a suitable weak factorisation system~(
 weak factorisation system (\cref{thm:suitable-awfs}) is that the conditions in the former express the closure of the class of left maps under certain functions, while the conditions in the latter express the closure of the category of left maps under certain functors. The next result not only provides us with a wide class of examples of suitable algebraic weak factorisation systems, but also shows that there are situations in which object-wise assertions can be strengthened to functoriality properties. 
 
 \begin{proposition}  \label{rem-lift-suitable} \label{thm:sset-cset-suitable}
- Let $\cal{E}$ be a presheaf category and $\cal{M}$ be a subcategory of $\cal{E}^\to_\cart$. Assume the following:
+Let $\cal{E}$ be a presheaf category and $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$. Assume the following:
 \begin{enumerate}[(i)] 
 \item $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pullback squares,
-\item the natural transformations $\kcyl \co \id_\cal{E} \to \interval \otimes (-)$, for $k \in \braces{ 0, 1}$, are cartesian,
-\item the maps in $\cal{M}$ are monomorphisms.
+\item the natural transformations $\kcyl \otimes (-) \co \id_\cal{E} \to \interval \otimes (-)$, for $k \in \braces{ 0, 1}$, are cartesian,
+\item the elements of $\cal{M}$ are monomorphisms,
 \item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $\cal{M}$, 
- \item $\cal{M}$ is closed under pullbacks, 
-\item $\cal{M}$ is closed under Leibniz product with the endpoint inclusions.
+\item the elements of $\cal{M}$ are closed under pullbacks,
+\item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions.
 \end{enumerate} 
-Then there exists a suitable algebraic weak factorisation system $(\CC, \TF)$ on $\cal{E}$ that is algebraically free on $\cal{M}$, \ie 
-such that $\TrivFib = \liftr{\cal{M}}$.
+Then there exists a suitable algebraic weak factorisation system $(\CC, \TF)$ on $\cal{E}$ that is algebraically free on $\cal{M}$, \ie such that $\TrivFib = \liftr{\cal{M}}$.
 \end{proposition}
 
-\begin{proof} Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. 
-Since $\cal{I}$ is small, Garner's small object argument~\cite{garner:small-object-argument} it generates a
+\begin{proof}
+Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. 
+Since $\cal{I}$ is small, by Garner's small object argument~\cite{garner:small-object-argument} it generates a
 cofibrantly generated algebraic weak factorisation system $(\CC, \TF)$ with $\TrivCof =  \liftr{\cal{I}}$. Furthermore, we have~$\liftr{\cal{M}} = \liftr{\cal{I}}$.
 This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$ is a full subcategory of~$\cal{E}^\to_\cart$. Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of $\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams which are the form
 \[
@@ -1962,19 +1962,160 @@ This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$
 \]
 where $\yon(x)$ the Yoneda embedding of some $x \in \catC$.
 
-It remains to check that $(\CC, \TF)$ satisfies conditions (ii)-(iv) in~\cref{thm:suitable-awfs}.
-These follow by the assumptions (iii)-(v) on $\cal{M}$ via  standard diagram-chasing argument, which we omit. For condition~(iv), the
-crucial property being used in that proof is that elements of $\cal{M}$, being monomorphisms in a topos,
-are adhesive maps~\cite{garner-lack:adhesive}. 
-\end{proof} 
+It remains to check that $(\CC, \TF)$ satisfies conditions~(ii)-(iv) in~\cref{thm:suitable-awfs}.
+These follow from the corresponding object-wise assumptions~(iv)-(vi) via standard diagram-chasing arguments, which we omit.
+For condition~(iv), the crucial property being used in that proof is that elements of $\cal{M}$, being monomorphisms in a topos, are adhesive maps~\cite{garner-lack:adhesive}. 
+\end{proof}
 
+\begin{remark} \label{identities-in-M}
+In the context of \cref{rem-lift-suitable}, we have that $\id_X \in \cal{M}$ for all $X \in \cal{E}$.
+This follows by inspection of the following diagram:
+\[
+\xymatrix{
+  X
+  \ar[r]
+  \ar[d]_{\id_X}
+  \pullback{dr}
+&
+  \Id \otimes X
+  \ar[d]^{\delta^0 \hatotimes \bot_X}
+\\
+  \Id \otimes X
+  \ar[r]^{\delta^0 \hatotimes \bot_X}
+&
+  I \otimes X
+\rlap{.}}
+\]
+By conditions~(iv) and~(vi), the right map is in $\cal{M}$.
+By condition~(iii), the square is a pullback.
+With condition~(v), the left map $\id_X$ is then in $\cal{M}$.
+\end{remark}
 
 Let us point out that the  reduction to the lifting problems against maps in $\cal{M}$ to those with a representable codomain in
 the proof of \cref{rem-lift-suitable} exploits the good behaviour of the right orthogonality functor with respect to colimits as described in~\cref{awfs-on-arrows-into-representables}, which is not available in the setting of standard weak factorisation systems. 
 
-\begin{remark} SOMETHING ON THE PARTIAL MAP CLASSIFIER.
+\begin{remark} \label{partial-map-classifier}
+Let $\cal{E}$ be a presheaf category on a category $\cat{C}$ and $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ such that the elements of $\cal{M}$ are closed under pullback along maps from representables.
+Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. 
+Then there exists a subobject
+\begin{equation} \label{partial-map-classifier:0}
+\begin{gathered}
+\xymatrix{
+  1
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  1
+  \ar[d]
+\\
+  K
+  \ar[r]
+&
+  \Omega
+}
+\end{gathered}
+\end{equation}
+of the subobject classifier that classifies $\cal{I}$.
+Concretely, define $K(A)$ for $A \in \cat{C}$ as the set of subobjects of $y A$ that are elements of $\cal{M}$.
+There is an evident inclusion $K \to \Omega$ giving rise to the pullback square~\eqref{partial-map-classifier:0} since identities are contained in $\cal{M}$ as per \cref{identities-in-M}.
+Any element $X \to Y$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $Y \to K$, sending an element of $y A \to Y$ for $A \in \cat{C}$ to the subobject of $y A$ given by the base change of $X \to Y$ along $y A \to Y$.
+Conversely, any base change of $1 \to K$ along an element $\sigma \co y A \to K$ results in the subobject of $y A$ selected by $\sigma$, an element of $\cal{I}$.
+
+Fix $Y \in \cal{E}$ and let us work in the slice category $\cal{E}_{/Y}$.
+Let $t \co Y \to K \times Y$ denote the classifier for $\cal{N}_{/Y}$.
+Let $\pi \co K \times Y \to Y$ denote the map to the terminal object.
+The \emph{partial object classifier} $P_Y$ relative to $Y$ associated to $\cal{N}$ is the polynomial endofunctor on $\cal{E}_{/Y}$. given by the data
+\[
+\xymatrix{
+  Y
+&
+  Y
+  \ar[l]_-{\id_K}
+  \ar[r]^-{t}
+&
+  K \times Y
+  \ar[r]^-{\pi}
+&
+  Y
+}
+\]
+as $P_Y = \pi_! \cc t_*$.
+Note that we have $t^* t_* = \Id$ since $t$ is monic, giving rise to a pullback square
+\begin{equation} \label{partial-map-classifier:1}
+\begin{gathered}
+\xymatrix{
+  X
+  \ar[r]^-{\eta_X}
+  \ar[d]
+  \pullback{dr}
+&
+  P_Y X
+  \ar[d]
+\\
+  Y
+  \ar[r]^-{t}
+&
+  K \times Y
+}
+\end{gathered}
+\end{equation}
+for every $X \in \cal{E}_{/Y}$.
+
+Recall from \cref{rem-lift-suitable} that we have $\liftr{\cal{M}} = \liftr{\cal{I}}$.
+Let $u$ denote the inclusion of $\cal{I}$ into $\cal{E}^\to$.
+Following the first step of Garner's algebraic small object argument, a lift of a map $f \co X \to Y$ to an element of $\liftr{I}$ is given by a diagonal filler in the canonical square $(\Lan_u u)(f) \to f$.
+Developing the left Kan extension, we have
+\begin{align*}
+(\Lan_u u)(f)
+&=
+\colim_{i \in \cal{I}, u_i \to f} u_i
+\\&=
+\colim_{\sigma : y C \to K \times Y,\ \cal{E}_{/Y}(t^* \sigma, X)} \sigma^* t
+\\&=
+\colim_{\sigma : y C \to P_Y(X)} \sigma^* \eta_X
+\\&=
+\eta_X
+.
+\end{align*}
+Here, the penultimate step uses the pullback square~\eqref{partial-map-classifier:1} and the ultimate step uses the Yoneda lemma and preservation of colimits by pullbacks.
+Thus, a right $\cal{M}$-map structure on $f$ is given by a diagonal filler
+\begin{equation*}
+\begin{gathered}
+\xymatrix{
+  X
+  \ar@{=}[r]
+  \ar[d]_{\eta_X}
+&
+  X
+  \ar[d]^{f}
+\\
+  P_Y X
+  \ar[r]
+  \ar@{.>}[ur]
+&
+  Y
+\rlap{,}}
+\end{gathered}
+\end{equation*}
+\ie a retraction of $\eta_X$ in $\cal{E}_{/Y}$.
+
+Note that the $\cal{N}$-classifier $1 \to K$ is not itself guaranteed to be in $\cal{M}$.
+In fact, this assertion is equivalent to the statement that $M \to \cal{E}^\to_{\cart}$ lifts colimits.
+If this holds, then also $\eta$ has components in $\cal{M}$ by~\eqref{partial-map-classifier:1}.
+It follows that the underlying class of arrows of $\liftr{\cal{M}}$ coincides with the class of arrows having the non-algebraic right lifting property with respect to $\cal{M}$.
 \end{remark}
 
+\begin{remark} \label{elegant-reedy}
+Let $\cal{E}$ be a presheaf category on an elegant Reedy category $\cat{C}$.
+A map in $\cal{E}$ is called a \emph{trivial fibration} if it has the right lifting property with respect to boundary inclusions.
+We may write by every monomorphism in $\SSet$ by skeletal decomposition as an $\omega$-composition of cobase changes of coproducts of boundary inclusions of simplices (this is a non-constructive argument).
+This shows that trivial Kan fibrations are precisely the maps having the right lifting property with respect to monomorphisms.
+
+Let $\cal{M}$ be the full subcategory of $\cal{E}^\to_\cart$ spanned by all monomorphisms.
+Since $\cal{E}$ is a topos, the inclusion $\cal{M} \to \cal{E}^\to_\cart$ lifts colimits.
+Using the last paragraph of \cref{partial-map-classifier}, it thus follows that every trivial fibration is a uniform trivial fibration.
+\end{remark}
 
 \begin{example} \label{rem:constructive-small-object} Obviously, \cref{thm:sset-cset-suitable} applies to both $\SSet$ and $\CSet$.
 In particular, letting~$\cal{M}$ be the category of all monomorphisms and pullback squares, one obtains an algebraic weak factorisation
@@ -1985,13 +2126,8 @@ In order to see why this is the case, first observe that in these examples every
 For part~(i), by the assumption that subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. For this argument, the assumption of working with decidable monomorphisms in a constructive setting is used to obtain the smallness of $\cal{I}$  without relying on the Power Set axiom.
 We believe that this restriction is important also to treat constructively further aspects of the theory, such as the existence
-of universes~\cite{cohen-et-al:cubicaltt}.
-\end{example} 
-
-
-
-
- 
+of fibrant universes~\cite{cohen-et-al:cubicaltt}.
+\end{example}
 
 Let us now fix a suitable algebraic weak factorisation system $(\CC, \TF)$. 
 We need some notation. For $u \co \cal{I} \to \catE^\to$ and $k \in \braces{0, 1}$, we define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
