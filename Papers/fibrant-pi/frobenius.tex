@@ -39,54 +39,57 @@ sets.
 
 \section*{Introduction}
 
-This paper studies the Frobenius condition for weak factorization systems, which asserts that pullback along a right map preserves left maps,
-and its counterpart for algebraic weak factorization systems. One reason for the interest in the Frobenius condition is that it is closely related to the right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak equivalences.
+This paper studies the Frobenius condition for weak factorization systems, which asserts that pullback along a right map preserves left maps. One reason for the interest in the Frobenius condition is that it is closely related to the right properness condition for a Quillen model structure, which asserts that pullback along a fibration preserves weak equivalences.
 Indeed, for a Quillen model structure in which the cofibrations are the monomorphisms, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the weak factorization system of trivial cofibrations and fibrations.
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts  to the preservation of Kan fibrations by pushforward along Kan fibrations, a result that plays an important role in the definition of the simplicial model of univalent foundations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}.
 
-Our first goal is to introduce a general notion of a fibration which subsumes that of a Kan fibration in simplicial and cubical sets,  and obtain a general method for constructing weak factorization systems in which the right maps are fibrations and that satisfy the Frobenius condition. For this, we work in the setting of a category $\cal{E}$  equipped with a functorial cylinder, satisfying appropriate assumptions. In this context, building on ideas of Cisinski~\cite{cisinski-asterisque}, given a weak factorization  system~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations and satisfying suitable hypotheses, we  define a fibration to be a map
+Our first goal is to introduce a general notion of a fibration which subsumes that of a Kan fibration in simplicial and cubical sets,  and obtain a general method for constructing weak factorization systems that have  fibrations as the right maps and that satisfy the Frobenius condition. For this, we work in the setting of a category $\cal{E}$  equipped with a functorial cylinder, satisfying appropriate assumptions. In this context, building on ideas of Cisinski~\cite{cisinski-asterisque}, for a weak factorization  system~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations and satisfying suitable hypotheses, we  define a fibration to be a map
 with the right lifting property with respect to a class of maps, called cylinder inclusions, obtained by Leibniz product, in the sense of~\cite{riehl-verity:reedy}, between the endpoint inclusions of
-the functorial cylinder and maps in $\Cof$. We then show that there exists a weak factorization system that has fibrations are the right maps (\cref{thm:wfstimes}) and satisfies the Frobenius condition
+the functorial cylinder and maps in $\Cof$. We then show that there exists a weak factorization system that has fibrations as right maps (\cref{thm:wfstimes}) and satisfies the Frobenius condition
 (\cref{thm:non-alg-frobenius}).  
 
-When applied to the weak factorization system of monomorphisms and trivial Kan fibrations in the category of simplicial sets~\cite{quillen-homotopical}, our fibrations
-are exactly Kan fibrations and so we obtain  a proof that the weak factorization system of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, thereby giving us a
- proof of the right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization (used in~\cite{hovey-model-categories}) 
+When applied in the category of simplicial sets, with $(\Cof, \TrivFib)$ the weak factorization system of monomorphisms and trivial Kan fibrations~\cite{quillen-homotopical}, fibrations
+in our sense are exactly Kan fibrations and therefore we obtain a proof that the weak factorization system of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, thereby 
+giving a proof of right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization (used in~\cite{hovey-model-categories}) 
  and minimal fibrations (used in~\cite{joyal-tierney:simplicial-homotopy-theory}).
 
 
-Our second goal is to obtain analogous results for algebraic weak factorization systems~\cite{garner:small-object-argument,grandis-tholen-nwfs}. In algebraic weak factorization systems, the left and right maps do not just satisfy a lifting property, but are equipped with a suitably natural family of solutions for lifting problems. For example, in presheaf
-category it is natural to define a uniform trivial cofibration to be a right map with respect to the category of monomorphisms and pullback squares, \ie a map equipped 
+Our second goal is to obtain analogous results for algebraic weak factorization systems~\cite{garner:small-object-argument,grandis-tholen-nwfs}. In algebraic weak factorization systems, the 
+left (right) right maps do not just satisfy a lifting property, but are equipped with a suitably natural family of solutions for lifting problems. The technical ingredient underpinning this idea is to
+express algebraic orthogonality not just with respect to a class of maps in a fixed category $\cal{E}$, but with respect to a category equipped with a functor (often an inclusion or a forgetful functor) 
+into $\cal{E}^\to$, the arrow category of $\cal{E}$. For example, when~$\cal{E}$ is a presheaf category it is natural to define a uniform trivial cofibration to be a right map with respect to the category of monomorphisms and  pullback squares, considered with the evident inclusion into $\cal{E}^\to$. Unfolding the relevant definitions, a uniform trivial cofibration is a map equipped 
 with diagonal fillers for lifting problems against monomorphisms, which satisfy  a naturality condition with respect to pullback squares between monomomorphism. 
 The presence of this structure remedies some unsatisfactory aspects of weak factorization systems (such as the failure of orthogonality classes to be closed under all colimits), which
-has proved useful for applications (see~\cite{batanin-cisinski-weber,garner:globular-operator-awfs,garner-homomorphisms} or~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs} for examples). In this context, the Frobenius condition has a natural counterpart, called the functorial Frobenius condition, which requires that the pullback along right maps not only preserves left maps but also preserves morphisms between them~\cite{garner:topological-simplicial}.  
+has proved useful for applications (see~\cite{batanin-cisinski-weber,garner:globular-operator-awfs,garner-homomorphisms} or~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs} for examples). The Frobenius condition has a natural counterpart in this context, called the functorial Frobenius condition~\cite{garner:topological-simplicial}, which requires that the pullback along right maps not only preserves left maps but also preserves morphisms between them.  
 
 
 
 
 
-Starting from an algebraic weak factorization systems $(\CC, \TF)$, whose left and right maps are to be thought of as uniform cofibrations and uniform trivial fibrations and satisfying appropriate assumptions, we define uniform fibrations by algebraic orthogonality with respect to a category having cylinder inclusions as objects. We then show that there exists an algebraic weak factorization system $(\TC, \FF)$ that has uniform fibrations as right maps (\cref{thm:sset-cset-nwfs}) and satisfies the functorial Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). 
-Therefore, pushforward along a uniform  fibration preserves uniform  fibrations (\cref{uniform-fibrations-frobenius-pushforward}). 
+Starting from an algebraic weak factorization systems $(\CC, \TF)$, whose left and right maps are to be thought of as uniform cofibrations and uniform trivial fibrations and satisfying appropriate assumptions, we define uniform fibrations by algebraic orthogonality with respect to a category having cylinder inclusions as objects. We then show that there exists an algebraic weak factorization system $(\TC, \FF)$ that has uniform fibrations as right maps (\cref{thm:sset-cset-nwfs}) and that satisfies the functorial Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}). 
+Therefore, pushforward along a uniform  fibration preserves uniform  fibrations (\cref{uniform-fibrations-frobenius-pushforward}). An important technical step in this development is
+the characterization of when an algebraically-free algebraic weak factorization system has the functorial Frobenius property (\cref{thm:frobenius-comparison}), which is somehow more
+elaborate than its counterpart for ordinary weak factorisation systems and is of independent interest. 
 
-In order to apply these results to simplicial sets and cubical sets, we construct an algebraic weak factorization systems $(\CC, \TF)$ from a category of monomorphisms and 
-pullback squares (\cref{rem-lift-suitable}), required to satisfy some mild assumptions. By our earlier development, we then obtain the notion of a uniform Kan fibration and the 
-existence of an algebraic weak factorization system that has uniform Kan fibration as right maps and that satisfies the functorial Frobenius property, 
+In order to apply our algebraic results in simplicial sets and cubical sets, we show that, given a category of monomorphisms and 
+pullback squares  satisfying some mild assumptions, it is possible to construct an algebraic weak factorization system $(\CC, \TF)$ satisfying the conditions
+necessary to apply our results (\cref{rem-lift-suitable}). Instanciating our definitions, we then obtain the notion of a uniform Kan fibration which
+subsumes the one introduced in~\cite{cohen-et-al:cubicaltt} and establish  the existence of an algebraic weak factorization system that has uniform Kan fibration as right maps and that satisfies the functorial Frobenius property, 
 so that pushforward along a uniform Kan fibration preserves uniform  Kan fibrations. 
 
 
 
-Since the proof of these results for simplicial sets and cubical sets is constructive, \ie avoids the use of the law of excluded middle and the axiom of choice, we solve the open problem of obtaining a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which is unprovable constructively without modifications~\cite{coquand-non-constructivity-kan}.  This open
-problem was motivated by the idea of proving that the extension of Martin-L\"of type theory with Voevodsky's univalence axiom is consistent relatively to Martin-L\"of type theory by developing
+Since the proof of these results for simplicial sets and cubical sets is constructive, \ie avoids the use of the law of excluded middle and the axiom of choice, we solve the open problem of obtaining a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which is unprovable constructively without modifications~\cite{coquand-non-constructivity-kan}.  This problem was motivated by the idea of proving that the extension of Martin-L\"of type theory with Voevodsky's univalence axiom is consistent relatively to Martin-L\"of type theory by developing
 the simplicial model of univalent foundations working in a constructive metatheory. The independence result in~\cite{coquand-non-constructivity-kan} has been taken as an indication that this
-is not possible and led to increased interest in cubical sets. But our results show that, as far as the result on pushforward along Kan fibrations is concerned, the fundamental distinction is 
-the one between non-algebraic and algebraic notions, rather than that between the simplicial and cubical settings. Indeed, our results apply also in the category of cubical sets with connections,
-giving a proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations which avoids entirely complex calculations with cubical sets, unlike the
+is not possible and led to increased interest in cubical sets. Our results show that the key obstacle to a constructive treatment of the result on pushforward along Kan fibrations is the 
+non-algebraic approach, rather than the simplicial setting. Furthermore, since our results apply also in the category of cubical sets with connections,
+we give a proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations which avoids entirely complex calculations with cubical sets, unlike the
 existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}. Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
-We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer (\cref{thm:part-map-character}), suggested to us by Thierry Coquand. 
+We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer (\cref{thm:part-map-character}), as suggested to us by Thierry Coquand. 
 We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration  (\cref{unif-vs-non-unif})
-In particular, we obtain that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it it is a (trivial) fibration.
+In particular, we prove that, in a presheaf category over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it it is a (trivial) fibration.
 
 
 \subsection*{Remark}
