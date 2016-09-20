@@ -118,12 +118,12 @@ This material is based on research sponsored by the Air Force Research Laborator
 \label{sec:fib-and-frob}
 
 
-Throughout the paper, we work with a category $\cal{E}$ that we assume to be locally presentable and locally cartesian closed. In particular,
+Throughout the paper, we work with a category $\cal{E}$ is assumed to be locally presentable and locally cartesian closed. In particular,
 $\catE$ is complete and cocomplete and pullback preserves all limits and colimits, since it has both a left 
 adjoint and  a right adjoint. For an arrow $f \co X \to Y$, we write $f^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ for the pullback along $f$, 
 $f_{!} \co \cal{E}_{/X} \to \cal{E}_{/Y}$ for its left adjoint, which is given by composition with $f$, and $f_* \co \cal{E}_{/X} \to \cal{E}_{/Y}$
-for its right adjoint, which we call \emph{pushforward} along $f$. We will write $\cal{E}^\to$ for the category of arrows of $\cal{E}$
-and $\cal{E}^\to_{\mathrm{cart}}$ for the wide subcategory of~$\cal{E}^\to$ with cartesian squares as maps. 
+for its right adjoint, which we call \emph{pushforward} along $f$. We write $\cal{E}^\to$ for the category of arrows of $\cal{E}$
+and $\cal{E}^\to_{\mathrm{cart}}$ for the subcategory of~$\cal{E}^\to$ of arrows and cartesian squares. 
 
 Our definitions and results are illustrated  in two running examples. The first the is the category~$\SSet$ of simplicial sets, defined as the category of 
 presheaves over the simplex category~$\Delta$. The second is the category $\CSet$ of cubical sets of~\cite{cohen-et-al:cubicaltt}. This is defined as the category of presheaves over 
@@ -211,12 +211,12 @@ case, note also that $\interval\otimes (-) \co \catE \to \catE$ preserves colimi
 
 
 Our main examples of functorial cylinders with  contractions and connections, discussed below, arise from a monoidal
-structure on $\catE$, written $(\catE, \otimes, \top)$ and the presence of an \emph{interval object}, \ie an object~$\interval \in \catE$ 
+structure, written $(\catE, \otimes, \top)$, and the presence of an \emph{interval object}, \ie an object~$\interval \in \catE$ 
 equipped with maps~$\lcyl, \rcyl \co \top \to \interval$, called the left 
 and right \emph{endpoint inclusions}, respectively. In such a situation, a functorial cylinder is given by tensoring with $\interval$. 
-It is then immediate to isolate sufficient structure on the interval object that guarantees the presence of contractions and connections on the associated functorial cylinder: 
-contractions can be given by a map $\ccyl \co \interval \to \top$, connections by maps for $k \in \braces{0, 1}$, $c^k \co \interval \otimes \interval \to \interval$,
-all satisfying suitable axioms. Note that if the unit $\top$ of the monoidal structure is a terminal object, then an interval object  has contractions in a canonical way.
+It is  immediate to isolate sufficient structure on the interval object that guarantees the presence of contractions and connections on the associated functorial cylinder: 
+contractions are given by a map $\ccyl \co \interval \to \top$, connections by maps $c^k \co \interval \otimes \interval \to \interval$, for $k \in \braces{0, 1}$, 
+all satisfying suitable axioms. Note that if the unit $\top$ of the monoidal structure is a terminal object, then we have contractions in a canonical way.
 
 
 
@@ -242,46 +242,50 @@ Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for
 
 
 
-
-
+For the remainder of this section and the next one, we work with ordinary weak factorisation systems~\cite{bousfield-wfs}. We use standard notation and terminology when working with them. For example, for a class $I$ of maps in $\cal{E}$, we write $\liftr{I}$ for the class of maps having the right lifting property with respect to all maps in $I$. We then have inclusions
+\begin{equation}
+\label{equ:inclus-orthog}
+I \subseteq \liftl{(\liftr{I})} \, , \quad 
+I \subseteq \liftr{(\liftl{I})} \rlap{.}
+\end{equation}
 Let us recall that the definition of the Frobenius property.
   
   \begin{definition} We say that a weak factorisation system $(L, R)$ has the \emph{Frobenius property} if the pullback of an $L$-map along  an $R$-map is again an $L$-map. 
   \end{definition} 
   
-  As mentioned in the introduction, a model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are the monomorphisms,
-is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, 
-if and only if the weak factorisation system~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property. In particular, the right properness of the model structure on $\SSet$ for Kan complexes is equivalent to the Frobenius property
-for the weak factorisation system of trivial cofibrations and Kan fibrations, which asserts 
-that the pullback of a trivial cofibration along a Kan fibration
-is again a trivial cofibration. 
+  As mentioned in the introduction, a model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are the monomorphisms (such as the model structure for Kan complexes
+  on $\SSet$) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, 
+if and only if the weak factorisation system~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property. 
 
-The next proposition is a straightforward observation, which follows by standard
-properties of the interaction between lifting properties and adjoint functors. We include it since it is useful
-in the proof of~\cref{thm:non-alg-frobenius}.
+We say that a weak factorisation system $(L, R)$ is \emph{free} on a class of maps $I$ (not necesssarily a set) if $R = \liftr{I}$. If this is the case, then $L = \liftl{(\liftr{I})}$.  
+Of course, a weak factorisation system could be free on many different classes of maps.  By Quillen's 
+small object argument, every set $I$ determines a weak factorisation system $(L, R)$ free on $I$. These are what we call \emph{cofibrantly generated weak factorisation systems}. 
+The next proposition is a straightforward observation, which follows by standard properties of the interaction between lifting properties and adjoint functors. We include it since it is useful
+in the proof of~\cref{thm:non-alg-frobenius} and provides the non-algebraic counterpart of \cref{thm:frobenius-comparison}, which is the main result of \cref{sec:frobc}. 
 
 
 
 \begin{proposition} 
 \label{thm:frobenius-equivalence}
-Let $(L, R)$ be a weak factorisation system and $I \subseteq L$ be a class of maps such that~$I^\pitchfork = R$. Then the following are equivalent:
+Let $(L, R)$ be a weak factorisation system that is free on a class of maps $I$. Then the following are equivalent:
 \begin{enumerate}[(i)] 
 \item $(L,R)$ has the Frobenius property. 
 \item For every $p \co Y \to X$, the pushforward $p^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ preserves $R$-maps.
 \item The pullback of an $I$-map along 
-an $R$-map is an $L$-map.
+an $R$-map is an $L$-map. \qed
 \end{enumerate}
 \end{proposition} 
 
 
 
 \section{Fibrations} 
+\label{sec:fib}
 
 Let us now assume that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that 
 $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint. 
-The notion of a fibration that we introduced and study below will be relative not only to $\cal{E}$ and its functorial cylinder,
+The notion of a fibration that we introduced and study in this section and the next is relative not only to $\cal{E}$ and its functorial cylinder,
 but also to a weak factorisation system on $\cal{E}$ satisfying some assumptions that we encapsulate in the notion of a \emph{suitable
-weak factorisation system}, introduced in \cref{thm:suitable-wfs} below. In order to state that definition, we introduce some notation.  
+weak factorisation system}, introduced in \cref{thm:suitable-wfs} below. In order to state that definition, we need some notation.  
 For $k \in \{ 0, 1\}$ and a map $i \co A \to B$ in $\catE$, we define the \emph{Leibniz product} of~$\kcyl \otimes (-)$ and~$i$ to be the map 
 \[
 \kcyl \hatotimes i \co (\interval \otimes A) +_A B \to \interval \otimes B
@@ -311,19 +315,20 @@ We shall use Leibniz products with endpoint inclusions throughout the paper. In 
 $(\Cof, \TrivFib)$ to denote a suitable weak factorisation system, and refer to maps in $\Cof$ as \emph{cofibrations} and maps in 
 $\TrivFib$ as \emph{trivial fibrations}, since this helps to convey some of the basic intuition motivating our development. 
 
+\newcommand{\Cyl}{\mathsf{Cyl}}
 
 \begin{definition} \label{thm:suitable-wfs} A weak factorisation system $(\Cof, \TrivFib)$ is said to be \emph{suitable} if the following hold:
 \begin{enumerate}[(i)]
  \item $(\Cof, \TrivFib)$  is cofibrantly generated,
-\item Every object is cofibrant, \ie for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is a cofibration, 
- \item Cofibrations are closed under pullbacks, \ie for every pullback square
+\item every object is cofibrant, \ie for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is a cofibration, 
+ \item cofibrations are closed under pullbacks, \ie for every pullback square
 \[
 \xymatrix{
 B \ar[d]_j \ar[r]^q & A \ar[d]^i \\
 Y \ar[r]_p & X }
 \]
 if $i \in \Cof$ then $j \in \Cof$, 
-\item Cofibrations are closed under Leibniz product with the endpoint inclusions, \ie for every $i \in \Cof$ we 
+\item cofibrations are closed under Leibniz product with the endpoint inclusions, \ie for every $i \in \Cof$ we 
 have~$\kcyl \hatotimes i \in \Cof$.
 \end{enumerate}
 \end{definition}
@@ -338,7 +343,7 @@ Let us now fix a suitable weak factorisation system $(\Cof,\TrivFib)$ in $\catE$
 We wish to define a new weak factorisation system, to be thought of as consisting of trivial cofibrations and fibrations. For this, we begin by defining the class of maps, called \emph{cylinder inclusions}, that determines the notion of a fibration. This class is defined by letting
 \begin{equation}
 \label{equ:cylinc}
-\Cof_\otimes \defeq \{ \kcyl \hatotimes i \ | \ k \in \{ 0, 1 \} \, , \; i \in \Cof \}
+\Cyl \defeq \{ \kcyl \hatotimes i \ | \ k \in \{ 0, 1 \} \, , \; i \in \Cof \}
 \end{equation}
 
 \begin{definition} \label{non-alg-fib} A \emph{fibration} is a map with the right lifting property with respect to all cylinder inclusions.
@@ -347,7 +352,7 @@ We wish to define a new weak factorisation system, to be thought of as consistin
 
 We then define a of \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
 We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that 
-$\Fib = \liftr{(\Cof_\otimes)}$ and $\TrivCof = \liftl{(\Fib)}$.  We illustrate these notions in our running examples.
+$\Fib = \liftr{\Cyl}$ and $\TrivCof = \liftl{\Fib}$.  We illustrate these notions in our running examples.
 
 \begin{example}[Simplicial sets] \label{thm:fib-is-kan}
 In $\SSet$, let~$(\Cof, \TrivFib)$  be the weak factorisation system of monomorphisms and trivial Kan fibrations, which is cofibrantly generated
@@ -378,13 +383,13 @@ Note that  $L'$ is the left class of a suitable weak factorisation system and is
 \end{proposition}
 
 \begin{proof} Let $I$ be a generating set for the suitable weak factorisation system $(\Cof, \TrivFib)$.
-We  define $I_\otimes \defeq \{ \delta^k \hatotimes i \ | \ i \in I \}$. By the small object argument, 
-there is a weak factorisation system $(L, R)$ cofibrantly generated by $I_\otimes$, where
-$L$ is the saturation of $I_\otimes$ (\ie its closure under isomorphisms, composition, retracts, pushouts and transfinite composition) 
-and $R = \liftr{(I_\otimes)}$. 
+We  define $J \defeq \{ \delta^k \hatotimes i \ | \ i \in I \}$. By the small object argument, 
+there is a weak factorisation system $(L, R)$ cofibrantly generated by $J$, where
+$L$ is the saturation of $J$ (\ie its closure under isomorphisms, composition, retracts, pushouts and transfinite composition) 
+and $R = \liftr{J}$. 
 We claim that $R$ is precisely the class of
-fibrations, \ie that $\liftr{I_\otimes} = \liftr{(\Cof_\otimes)}$. For this, it suffices to observe that, since~$\Cof$ is the saturation of~$I$, the class
-$\Cof_\otimes$ and the set~$I_\otimes$ have the same saturation (since the Leibniz product $\kcyl \hatotimes (-)$ preserves all the operations involved in saturation), and therefore they have the same right orthogonal class.
+fibrations, \ie that $\liftr{J} = \liftr{\Cyl}$. For this, it suffices to observe that, since~$\Cof$ is the saturation of~$I$, the class
+$\Cyl$ and the set~$J$ have the same saturation (since the Leibniz product $\kcyl \hatotimes (-)$ preserves all the operations involved in saturation), and therefore they have the same right orthogonal class.
 \end{proof}
 
 Note that, since $\Cof$ is  closed under Leibniz products with the endpoint inclusions, we have that~$\TrivCof \subseteq \Cof$, \ie
@@ -397,13 +402,15 @@ For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-
 \]
 A \emph{naive Cisinski fibration} would be defined as a map with the right lifting property with respect to the class
 \[
-L_\otimes' \defeq \{ (m \hatotimes (-))^n ( \kcyl \hatotimes i ) \ | \ n \in \mathbb{N} \, , \;  i \in L \} 
+\Cyl' \defeq \{ (m \hatotimes (-))^n ( \kcyl \hatotimes i ) \ | \ n \in \mathbb{N} \, , \;  i \in \Cof \} 
 \]
-Informally, one could think of this set as the closure of $J$ under Leibniz product with $m$. 
+Informally, one could think of this set as the closure of $\Cyl$ under Leibniz product with $m$. 
 
-Our reasons for working with~$L_\otimes$ instead of this class are twofold. First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and the class $L$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every fibration also has canonically the structure of a  naive Cisinski fibration.
-This is the case in our main examples, where $L$ consists of all monomorphisms, the map $[\lcyl, \rcyl]$ is a monomorphism, and Leibniz product preserves monomorphisms. For our second point, we use some notions introduced in~\cref{sec:frobprop}.
-If we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle~$n$ arguments), and that $L$ is closed under Leibniz product with $[\lcyl, \rcyl]$ (for example, this is the case if $[\lcyl, \rcyl]$ is a monomorphism and the maps in~$L$ are the monomorphisms in a presheaf category), then the maps in $L_\otimes$ can still be shown to be strong homotopy equivalences. This gives rise to an inclusion $L_\otimes' \to L_\otimes \cap S$  (where $S$ is the class of strong homotopy equivalences that we define in \cref{sec:frobprop}). By \cref{thm:main-sheretract}, it then follows that every naive Cisinski fibration is a fibration.
+Our reasons for working with~$\Cyl$ instead of this class are twofold. First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and~$\Cof$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every fibration also has canonically the structure of a  naive Cisinski fibration.
+This is the case in our main examples, where $\Cof$ consists of all monomorphisms, the map $[\lcyl, \rcyl]$ is a monomorphism, and Leibniz product preserves monomorphisms. 
+
+For our second point, we use some notions and results in~\cref{sec:frobprop}.
+If we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle~$n$ arguments), and that $\Cof$ is closed under Leibniz product with $[\lcyl, \rcyl]$ (for example, this is the case if $[\lcyl, \rcyl]$ is a monomorphism and the maps in~$\Cof$ are the monomorphisms in a presheaf category), then the maps in $\Cyl$ can still be shown to be strong homotopy equivalences. This gives rise to an inclusion $\Cof' \to \Cof \cap S$  (where $S$ is the class of strong homotopy equivalences that we define in \cref{sec:frobprop}). By \cref{thm:main-sheretract}, it then follows that every naive Cisinski fibration is a fibration.
 \end{remark}
 
 
@@ -412,9 +419,8 @@ If we assume generalized connections (in the sense of $(1+n+1)$-ary operations t
 
 
 Our aim in this section is to show that
-the weak factorisation system $(\TrivCof, \Fib)$ of  \cref{thm:wfstimes} satisfies the Frobenius property. By the above and~\cref{thm:fib-is-kan}, the application of this result in $\SSet$ gives a new proof of the right properness of the model structure for Kan complexes. 
-Our proof of the Frobenius property uses the notion of a \emph{strong homotopy equivalence}, which we introduce in~\cref{def:strhe}, and consists of three main steps. First, in~\cref{strong-h-equiv-as-section-non-alg}, we give a characterization of strong homotopy equivalences as cetain retracts. Secondly, in~\cref{thm:main-sheretract}, we show that the maps in $\Cof$ which are strong homotopy
-equivalences are retracts of maps in $\Cof_\otimes$ and that every map in $\Cof_\otimes$ is both in $\Cof$ and a strong homotopy equivalence. This implies that a map is
+the weak factorisation system $(\TrivCof, \Fib)$ of  \cref{thm:wfstimes} satisfies the Frobenius property. Our proof of the Frobenius property uses the notion of a \emph{strong homotopy equivalence}, which we introduce in~\cref{def:strhe}, and consists of three main steps. First, in \cref{strong-h-equiv-as-section-non-alg},  we give a characterization of strong homotopy equivalences as cetain retracts. Secondly, in~\cref{thm:main-sheretract}, we show that the maps in $\Cof$ which are strong homotopy
+equivalences are retracts of maps in $\Cyl$ and that every map in $\Cyl$ is both in $\Cof$ and a strong homotopy equivalence. This implies that a map is
 a fibration if and only if it has the right lifting property with respect to the strong homotopy equivalences in $\Cof$. The third and final step of the proof, in~\cref{thm:non-alg-frobenius-she},  consists in showing that the pullback
 of a strong homotopy equivalence along a fibration is again an strong homotopy equivalence, which easily implies 
 the Frobenius condition for $(\TrivCof, \Fib)$.
@@ -466,10 +472,11 @@ $k$-oriented homotopy equivalence such that the following diagram commutes:
 \]
 \end{definition}
 
-For $k \in \braces{0, 1}$, we write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let $S \defeq S_0 \cup S_1$.
-Elements of $S$ will be called \emph{strong homotopy equivalences}. 
+For $k \in \braces{0, 1}$, we write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let~$S \defeq S_0 \cup S_1$.
+Elements of $S$ are called \emph{strong homotopy equivalences}. 
 
-\begin{remark}  The components of the endpoint 
+\begin{remark}  \label{thm:endpoint-are-she}
+The components of the endpoint 
 inclusion $\kcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)$
 are strong $k$-oriented homotopy equivalences. In fact, they are 
 strong $k$-oriented deformation retracts, \ie strong $k$-oriented homotopy equivalences for which 
@@ -631,38 +638,38 @@ a section (since
 sections are closed under retracts), and so $g$ is a strong $k$-oriented homotopy equivalence. 
 
 
-\begin{remark} \label{thm:kcylf-is-she}
-For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence. GIVE PROOF.
-\end{remark} 
+\begin{lemma} \label{thm:kcylf-is-she}
+For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence. 
+\end{lemma} 
+
+\begin{proof} This is a  diagram-chasing argument, similar to the one in \cref{thm:endpoint-are-she}, which we omit for brevity.
+\end{proof} 
 
 For our second step, we return to consider a suitable weak factorisation system $(\Cof, \TrivFib)$ and the induced weak factorisation system
-$(\TrivCof, \Fib)$. we focus on the class $\Cof \cap S$, \ie the class of cofibrations that are strong homotopy equivalences. We begin by relating them to the cylinder inclusions, as defined in~\eqref{equ:cylinc}.
+$(\TrivCof, \Fib)$ of  \cref{thm:wfstimes}. We focus on the class $\Cof \cap S$, \ie the class of cofibrations that are strong homotopy equivalences. We begin by relating them to the cylinder inclusions, as defined in~\eqref{equ:cylinc}.
 
 \begin{lemma}  \label{thm:main-sheretract} \hfill 
 \begin{enumerate}[(i)] 
 \item $\Cof \cap S \subseteq \TrivCof$,
-\item $\Cof_\otimes \subseteq \Cof \cap S$. 
+\item $\Cyl \subseteq \Cof \cap S$. 
 \end{enumerate}
 \end{lemma}
 
-\begin{proof} For part (i), let $f \in  \Cof \cap S$. Since $f \in S$, \cref{strong-h-equiv-as-section-non-alg} implies that $f$ is a retract of~$\kcyl \hatotimes f$, for some $k \in \braces{0 \, , 1 }$. But since $f \in \Cof$, we have $\kcyl \hatotimes f \in \Cof_\otimes$. But $\Cof_\otimes \subseteq \TrivCof$ and $\TrivCof$ is closed under retracts. For part~(ii), recall 
-that, since cofibrations are closed under Leibniz product with~$\kcyl$ (condition (iv) in \cref{thm:suitable-wfs}), we have~$\Cof_\otimes  \subseteq \Cof$.
+\begin{proof} For part (i), let $f \in  \Cof \cap S$. Since $f \in S$, \cref{strong-h-equiv-as-section-non-alg} implies that $f$ is a retract of~$\kcyl \hatotimes f$, for some $k \in \braces{0 \, , 1 }$. But since $f \in \Cof$, we have $\kcyl \hatotimes f \in \Cyl$. But $\Cyl \subseteq \TrivCof$ and $\TrivCof$ is closed under retracts. For part~(ii), recall 
+that, since cofibrations are closed under Leibniz product with~$\kcyl$ (condition (iv) in \cref{thm:suitable-wfs}), we have~$\Cyl  \subseteq \Cof$.
 Then, observe that the assumption that the functorial cylinder has connections implies that, 
 for every $f \co X \to Y$, the map $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence, as observed 
 in~\cref{thm:kcylf-is-she}.
 \end{proof}
 
+\begin{remark} \label{fib-and-she}
+Note that, by \cref{thm:main-sheretract}, we have $\Fib = \liftr{(\Cof \cap S)}$, \ie a map is a fibration if and only if it has the right lifting property with respect to the cofibrations that are strong homotopy equivalences. The next lemma is the third main step of the proof of the Frobenius property for~$(\TrivCof, \Fib)$. 
+\end{remark} 
 
-Note that, by \cref{thm:main-sheretract}, we have $\Fib = \liftr{(\Cof \cap S)}$, \ie a map is a fibration if and only if it has the right lifting property with respect to the cofibrations that are strong homotopy equivalences. Indeed, 
-\[
-  \Fib =  \liftr{\TrivCof}  \subseteq \liftr{(\Cof \cap S)} \, , \quad
-  \liftr{(\Cof \cap S)}  \subseteq \liftr{(\Cof_\otimes)} = \Fib \rlap{.} 
-\]
-The next lemma is the third main step of the proof of the Frobenius property for $(\TrivCof, \Fib)$. 
 
 \begin{lemma} 
 \label{thm:non-alg-frobenius-she}
-The pullback of a strong $k$-oriented homotopy equivalence along a fibration is again a strong $k$-oriented 
+For $k \in \braces{0 \, , 1}$, the pullback of a strong $k$-oriented homotopy equivalence along a fibration is again a strong $k$-oriented 
 homotopy equivalence.
 \end{lemma} 
 
@@ -747,7 +754,7 @@ But now $\kcyl \otimes X \iso
 \kcyl \hatotimes \bot_X$, where $\bot_X \co 0 \to X$ is the unique map from the initial object of $\catE$ into $X$, which is 
 a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(ii) of \cref{thm:suitable-wfs}). The required
 filler then exists since $\kcyl \otimes X$
-is isomorphic to a map in $\Cof_\otimes$ and~$p \in \Fib = \liftr{(\Cof_\otimes)}$.
+is isomorphic to a map in $\Cyl$ and~$p \in \Fib = \liftr{(\Cyl)}$.
 \end{proof} 
 
 
@@ -770,8 +777,9 @@ the closure of $\TrivCof$ under retracts.
 \end{proof}
 
 
-
+\begin{remark} 
 When applied to the category of simplicial sets, \cref{thm:non-alg-frobenius} gives a new proof of the right properness of the Quillen model structure for Kan complexes. This proof avoids both the use of topological realization, which is used in~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} to deduce the desired result from the right properness of the model structure on topological spaces in which the fibrations are the Serre fibrations. It also avoids the use of the theory of minimal fibrations, which is used in~\cite[Theorem~1.7.1]{joyal-tierney-notes} to establish the result working purely combinatorially.
+\end{remark} 
 
 
 
@@ -838,8 +846,7 @@ where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u
 \end{enumerate}
 \end{definition}
 
-For  $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms, and 
-$\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ for the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor of categories over $\catE^\to$,
+For  $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms. We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor of categories over $\catE^\to$,
 \[
   \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to} \rlap{.}
 \]
@@ -861,11 +868,17 @@ Even if objects of $\CAT_{/\catE^\to}$ are pairs of the form $(\cal{I}, u)$, whe
 \cal{I} \to \catE^\to$ is a functor, in the following we shall often refer to them simply by their domains. A similar convention applies
 to maps in $\CAT_{/\catE^\to}$. For example, we write the components of the unit and counit simply as 
 \[
-\eta_\cal{I} \co \cal{I} \to \liftl{(\liftr{\cal{I})}} \, \qquad 
+\eta_\cal{I} \co \cal{I} \to \liftl{(\liftr{\cal{I}})} \, , \quad 
 \varepsilon_\cal{I} \co \cal{I} \to \liftr{(\liftl{\cal{I}})} \rlap{.}
 \]
-
-
+These are the algebraic counterparts of the inclusions in~\eqref{equ:inclus-orthog}. In the following, we will see that some familiar equalities between
+two classes of maps are replaced by functors back and forth between two categories over $\cal{E}^\to$. Given $u \co \cal{I} \to \cal{E}^\to$ and
+$v \co \cal{J} \to \cal{E}^\to$, we write 
+\begin{equation}
+\label{equ:logical-equivalence}
+\cal{I} \leftrightarrow \cal{J} 
+\end{equation}
+to mean that there are functors $F \co \cal{I} \to \cal{J}$ and $G \co \cal{J} \to \cal{I}$ over $\cal{E}^\to$. 
 
 
 
@@ -930,19 +943,19 @@ A map $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ in $\o
 \rlap{.}}
 \]
 The functor $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ is then defined on objects by letting $\overline{u}(i, e, \sigma, \tau) \defeq e$, and on maps by letting $\overline{u}(f, \kappa) \defeq \kappa$.
-The operation of retract closure gives a monad in an evident way. 
+The operation of retract closure gives a monad in an evident way. The next proposition uses the notation introduced in~\eqref{equ:logical-equivalence}.
 
 \begin{proposition} \label{retract-closure}
-The orthogonality functors send the components of the unit and multiplication of the retract closure monad to natural isomorphisms, and so for every $u \co \cal{I} \to \catE^\to$, we have canonical isomorphisms of categories
+For every $u \co \cal{I} \to \catE^\to$, we have pairs of  functors as follows
 \[
 \begin{aligned}
-  \liftr{(\overline{\cal{I}})} &\iso \liftr{\cal{I}}
+  \liftr{(\overline{\cal{I}})} &\leftrightarrow \liftr{\cal{I}}
 \, ,&
-  \liftr{(\overline{\overline{\cal{I}}})} &\iso \liftr{\overline{\cal{I}}}
+  \liftr{(\overline{\overline{\cal{I}}})} &\leftrightarrow \liftr{\overline{\cal{I}}}
 \, ,&
-  \liftl{(\overline{\cal{I}})} &\iso \liftl{\cal{I}}
+  \liftl{(\overline{\cal{I}})} &\leftrightarrow \liftl{\cal{I}}
 \, ,&
- \liftl{(\overline{\overline{\cal{I}}})} &\iso \liftl{\overline{\cal{I}}}
+ \liftl{(\overline{\overline{\cal{I}}})} &\leftrightarrow \liftl{\overline{\cal{I}}}
 \end{aligned}
 \]
 over $\catE^\to$.
@@ -951,7 +964,7 @@ over $\catE^\to$.
 
 
 
-Given a functor $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define a slice category $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
+Given $u \co \cal{I} \to \catE^\to$ and $X \in \catE$, we define the \emph{slice category} $\cal{I}_{/X}$ and functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ as follows.
 The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in \cal{I}$ and a commutative triangle of the form
 \[
 \xymatrix@C-1em{
@@ -1492,7 +1505,7 @@ equivalent:
 \end{proposition}
 
 \begin{proof} The claim follows combining \cref{uniform-frob-even-nicer} and the fact that, $\pcoalg{\LL}$ is a category of left maps,
-there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL}$ and $\liftl{(\liftr{(\pcoalg{\LL})})}$
+there is a pair of functors $\pcoalg{\LL} \leftrightarrow \liftl{(\liftr{(\pcoalg{\LL})})}$ over $\cal{E}$.
 \end{proof}
 
 
@@ -1947,7 +1960,7 @@ weak factorisation system (\cref{thm:suitable-awfs}) is that the conditions in t
 \begin{example} \label{unif-triv-fib-sset}
 The categories $\SSet$ and $\CSet$ admit suitable algebraic weak factorisation systems $(\CC, \TF)$ that are algebraically-free on the
 categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$. The right maps of these algebraic weak factorisation systems may
-be seen as a natural algebraic counterpart of trivial Kan fibrations and so they will be called \emph{uniform trivial Kan fibrations}. See \cref{rem-lift-suitable} and 
+be seen as a natural algebraic counterpart of trivial Kan fibrations and so we call them \emph{uniform trivial Kan fibrations}. See \cref{rem-lift-suitable} and 
 \cref{justify-sset-cset-examples} for details. 
 \end{example} 
 
@@ -1977,20 +1990,20 @@ Now let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$ and define $u_\otimes \co \ca
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Applying these definitions to $u \co \Cof \co \cal{E}^\to$, we obtain a functor $u_\otimes \co \Cof_\otimes \to \cal{E}^\to$.
+In the special case of $u \co \Cof \to \cal{E}^\to$, we write $c \co \co \Cyl \to \cal{E}^\to$ for $u_\otimes \co \Cof_\otimes \to \cal{E}^\to$.
 The image of this functor are maps of the form $\kcyl \hatotimes i$, where $k \in \braces{ 0 \, , 1}$ and $i$ is a uniform
-cofibration.
+cofibration. These are the analogues of the cylinder inclusions defined in~\cref{sec:fib}.
 
 
 \begin{definition} \label{def:I-fibration} \hfill 
 \begin{enumerate}[(i)]
-\item A \emph{uniform fibration} is a right $\Cof_\otimes$-map.
-\item A \emph{morphism of uniform fibrations} is a morphism of right $\Cof_\otimes$-maps.
+\item A \emph{uniform fibration} is a right $\Cyl$-map.
+\item A \emph{morphism of uniform fibrations} is a morphism of right $\Cyl$-maps.
 \end{enumerate}
 \end{definition}
 
 
-We write $\Fib$ for the category of uniform fibrations and their morphisms, which is given by~$\Fib  \defeq \liftr{(\Cof_\otimes)}$. We now characterize uniform fibrations in terms of right $\Cof$-maps. For this, we use use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$. We obtain a functor $\hatexp(\bar{\delta}^k, -)$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$. These form an adjunction as follows:
+We write $\Fib$ for the category of uniform fibrations and their morphisms, which is given by~$\Fib  \defeq \liftr{\Cyl}$. We now characterize uniform fibrations in terms of right $\Cof$-maps. For this, we use use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$. We obtain a functor $\hatexp(\bar{\delta}^k, -)$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0, 1}$. These form an adjunction as follows:
 \[
 \xymatrix@C+4em{
   \catE^\to
@@ -2032,14 +2045,14 @@ that uniform fibrations can be defined equivalently by right uniform orthogonali
 \begin{theorem} \label{thm:sset-cset-nwfs} The category $\cal{E}$ admits an algebraic weak factorization systems $(\TC, \FF)$ such that  the category of $\mathsf{F}$-maps is the category of uniform fibrations, \ie $\palg{\mathsf{F}} = \Fib$.
 \end{theorem}
 
-\begin{proof} Let $\cal{I}$ be a small generating category for $(\CC, \TF)$, which since 
+\begin{proof} Let $\cal{I}$ be a small generating category for $(\CC, \TF)$, which exists since 
 $(\CC, \TF)$ is suitable (condition~(i) of \cref{thm:suitable-awfs}), and consider $\cal{I}_\otimes$ and $u_\otimes$, defined as in~\eqref{equ:u-tensor}.
 By \cref{prod-exp-general}, there is an isomorphism $\Fib  = \liftr{(\cal{I}_\otimes)}$. The claim now follows 
 from the smallness of  $\cal{I}_\otimes$, via Garner's small object argument.
 \end{proof}
 
 
-We let $\TrivCof \defeq \pcoalg{\TC}$ and refer to its elements as (uniform) \emph{trivial cofibrations}. 
+We let $\TrivCof \defeq \pcoalg{\TC}$ and refer to its elements as \emph{uniform trivial cofibrations}. 
 
 
 
@@ -2170,9 +2183,19 @@ In detail,
 straightforward. 
 \end{proof}
 
-\begin{remark} \label{thm:kcylf-is-she-alg}
-For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence. GIVE PROOF.
-\end{remark} 
+The next lemma is the analogue of \cref{thm:kcylf-is-she}. 
+
+\begin{lemma} \label{thm:kcylf-is-she-alg} For $k \in \braces{ 0 \, , 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\to \to \cal{E}^\to$ factors via $\cal{S}_k$,
+as follows,
+\[
+\xymatrix@C+3em{
+ & \cal{S}_k \ar[d] \\ 
+\cal{E}^\to \ar[r]_-{\kcyl \hatotimes (-)}  \ar[ur]^-{\widetilde{\kcyl \hatotimes (-)}\, } & \cal{E}^\to }
+\]
+\end{lemma} 
+
+\begin{proof} A lengthy diagram-chasing argument, which we omit.
+\end{proof} 
 
 
 We need some notation. Let $u \co \cal{I} \to \cal{E}^\to$. For $k \in \braces{0,1}$, we define $\cal{I}(\cal{S}_k)$ via the pullback
@@ -2216,7 +2239,7 @@ The next lemma is the analogue of~\cref{thm:main-sheretract}. Define
 \item  \label{thm:twodir} There is a functor
 \[
 \xymatrix@!C@C-2.5em{
-    \Cof_\otimes
+    \Cyl
   \ar[dr]
   \ar[rr]^G
 &&
@@ -2273,22 +2296,9 @@ The claim in (ii) then follows by combining the cases $k = 0$ and $k = 1$.
 
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
-We also have a pair of functors
-\[
-\xymatrix@!C@C-2.5em{
-  \liftr{\Cof(\cal{S})}
-  \ar[dr]
-  \ar@<4pt>[rr]^{\liftr{(N_0 + N_1)}}
-&&
-   \Fib
-  \ar[dl]
-  \ar@<4pt>[ll]^{\liftr{(M_0 + M_1)}}
-\\&
-  \catE^\to
-}
-\]
-relating uniform fibrations with right maps with respect to $\LL$-maps equipped with the structure of 
-a strong homotopy equivalences. These are not, in general, inverses to each other in either way.
+We also have a pair of functors $\liftr{\Cof(\cal{S})} \leftrightarrow \Fib$ relating uniform fibrations with right $\Cof(\cal{S})$-maps. This means that a map can be equipped with the
+structure of a uniform fibration if and only if it can be equipped with the structure of a right $\Cof(\cal{S})$-map. This is the analogue of the equality between sets in \cref{fib-and-she}.
+However, these functors do not form an equivalence, in general.
 \end{remark}
 
 We are now ready to show that the algebraic weak factorization system in which the right maps are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
@@ -2619,7 +2629,7 @@ In fact, as usual, only the base needs to be assumed uniform Kan. This can be se
 Let $p \co Y \to X$ be a uniform Kan fibration and $i \co A \to B$ be a monomorphism.
 Recall that~$\cal{M}(\cal{S}_k)$ is closed under Leibniz product with~$i$, for $k \in \braces{0, 1}$ (it is true separately for $\cal{M}$ and $\cal{S}_k$).
 By \cref{lift-of-leibniz-adjunction}, we have that~$\hatexp(i, p)$ is again a uniform Kan fibration.
-The above statement is then the special case~$X \defeq 1$ and $A \defeq 0$.
+The above statement is then the special case~$X \defeq 1$ and~$A \defeq 0$.
 \end{example} 
 
 
@@ -2694,7 +2704,7 @@ We begin by observing that \cref{rem-lift-suitable} can be proved constructively
 In order to see why this is the case, first note that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
 Since subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free algebraic weak factorization system $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps. 
-Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, noting that also the values of $u_\otimes \co \Cof_\otimes \co \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. Finally, the general proof of
+Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, noting that also the values of $u_\otimes \co \Cyl \co \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout. Finally, the general proof of
 \cref{uniform-fibrations-uniform-frobenius} and  \cref{uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for  $(\TC, \FF)$ and its pushforward analogue, are constructive. 
 
 We have therefore obtained a constructive proof that the pushforward of a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$ and $\CSet$. For $\SSet$,  this
