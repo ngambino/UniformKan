@@ -1469,7 +1469,7 @@ Then the following are equivalent:
 \begin{proof}
 Recall that $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ is a category of left maps.
 The equivalence of~(i) and~(ii) is given by \cref{generalized-uniform-frob-nicer}, noting that $\pcoalg{\LL} \to \cal{E}^\to$ reflects isomorphism.
-The equivalence of~(ii) and~(iii) is given by \cref{generalized-uniform-frob-functorial}, noting that $\pcoalg{\LL} \leftrightarrow \liftl{(\liftr{\pcoalg{\LL}})}$ over $\cal{E}^\to$ using the adjunction~\eqref(garner-adjunction}.
+The equivalence of~(ii) and~(iii) is given by \cref{generalized-uniform-frob-functorial}, noting that $\pcoalg{\LL} \leftrightarrow \liftl{(\liftr{\pcoalg{\LL}})}$ over $\cal{E}^\to$ using the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
 The benefit of the reformulation of the functorial Frobenius condition as a uniform Frobenius condition is that the latter admits an equivalent rephrasing in terms of pushforward, rather than pullback, functors.
@@ -1676,10 +1676,10 @@ Then the following are equivalent:
 \end{theorem}
 
 \begin{proof}
-First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$.
-%
+Since $(\LL, \RR)$ is a algebraically free on $\cal{I}$, we have $\pcoalg(\LL) = \liftl{\pAlg(\RR)} = \liftl{(\liftr{\cal{I}})}$.
+
 First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
-Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$, and hence also between $\liftl{(\liftr{\cal{I}})}$ and $\pcoalg{\LL}$.
+Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$.
 
 Because $(\LL, \RR)$ is algebraically free on $\cal{I}$, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equivalently as the existence of a lift
 \begin{equation} \label{frobenius-comparison:0}
@@ -2365,22 +2365,9 @@ The claim now follows by \cref{uniform-frobenius-functorial}.
 The awfs $(\mathsf{C_t}, \mathsf{F})$ satisfies the functorial Frobenius condition.
 \end{theorem}
 
-(Cof, Cof, E)
----
-(Cof, Cof, Fib)
-
-(S, S, Fib)
-(Cof, Cof, Fib)
----
-(Cof x S, Cof x S, Fib)
-
-Cyl -> Cof x S
-
-Cof x S -> TrivCof
-
 \begin{proof}
 First, we show that $(\Cof \times_{\cal{E}} \cal{S}_k, \Cof \times_{\cal{E}} \cal{S}_k, \Fib)$ satisfies the generalized uniform Frobenius condition.
-This follows from \cref{uniform-frobenius-product-u} since $(\Cof, \CofFib, \Cof)$ satisfies the uniform Frobenius condition by 
+This follows from \cref{uniform-frobenius-product-u} since $(\Cof, \Fib)$ satisfies the uniform Frobenius condition by \notec{I am working on this}
 
 Recall that~$\Cof(\cal{S}_k)$ is the pullback of $u \co \Cof \to \cal{E}$ and~$p \co \cal{S}_k  \to \cal{E}$.
 Using , we deduce the required claim from \cref{technical} and hypothesis>(iii) in the definition of a suitable awfs (\cref{thm:suitable-awfs}).
