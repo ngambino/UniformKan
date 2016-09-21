@@ -2408,10 +2408,10 @@ Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfyi
 \item the elements of $\cal{M}$ are monomorphisms,
 \item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $\cal{M}$,
 \item the elements of $\cal{M}$ are closed under pullbacks,
-\item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions.
+\item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions,
+\item the category $\cal{M}$ has colimits and the inclusion $\cal{M} \to \cal{E}^\to_\mathrm{cart}$ preserves them.
 \end{enumerate}
-
-The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M5) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
+The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M4) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
 
 \begin{proposition} \label{rem-lift-suitable}
 There exists a suitable awfs $(\CC, \TF)$ on $\cal{E}$ that is algebraically free on $\cal{M}$, \ie such that $\TrivFib = \liftr{\cal{M}}$.
@@ -2498,39 +2498,57 @@ By condition~(C2), the square is a pullback.
 With condition~(M3), the left map $\id_X$ is then in $\cal{M}$.
 \end{proof}
 
-Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain.
+Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. Below,
+as usual, we write $\Omega$ for the subobject classifier of the topos $\cal{E}$ and $\top \co 1 \to \Omega$ for its `true'
+morphism. 
 
 \begin{lemma} \label{partial-map-classifier}
-There exists a subobject
+There exists a subobject $K \rightarrowtail \Omega$ and a factorization
+\[
+\xymatrix{
+1 \ar[rr]^\top \ar[dr] &   & \Omega \\
+ & K  \ar@{>->}[ur] &  }
+\]
+with $1 \to K$ in $\cal{M}$, 
+such that the map $1 \to K$ classifies maps in~$\cal{M}$, in the sense that for every map 
+$i \co A \to B$ in $\cal{M}$ there exists a unique pullback 
+\[
+\xymatrix{
+A \ar[r] \ar[d]_i  \ar[d]  \drpullback & 1 \ar[d] \\
+B \ar[r] & K \rlap{.}}
+\]
+\end{lemma}
+
+\begin{proof}
+For $c \in \cat{C}$, define $K(c)$ to be the set of subobjects of~$y(c)$ that are elements of~$\cal{M}$. The factorisation 
+of $\top \co 1 \to \Omega$ follows since identities are contained in $\cal{M}$ by \cref{identities-in-M}. 
+
+Any element $i \co A \to B$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $B \to K$, sending an element of $y(c) \to B$, for $c \in \cat{C}$, to the subobject of $y(c)$ given by the base change of $i  \co A  \to B$ along $y(c) \to B$.
+Conversely, any base change of $1 \to K$ along an element $\sigma \co y(c) \to K$ results in the subobject of $y(c)$ corresponding to $\sigma$ under the Yoneda lemma, which is an element of $\cal{M}$. Finally, the assertion that $1 \to K$
+is in $\cal{M}$ is equivalent to (M5).
+\end{proof}
+
+The axioms for the class $\cal{M}$ in (M1)-(M5) can then be rewritten in equivalent form as properties of the classifier $K$, 
+see~\cite{PittsAM:aximct} for details. Observe that the factorization of $\top \co 1 \to \Omega$ via $K$ gives us a pullback diagram
 \begin{equation} \label{partial-map-classifier:0}
 \begin{gathered}
 \xymatrix{
   1
-  \ar[r]
+  \ar@{=}[r]
   \ar[d]
-  \pullback{dr}
 &
   1
-  \ar[d]
+  \ar[d]^{\top}
 \\
   K
   \ar@{>->}[r]
 &
-  \Omega
-}
-\end{gathered}
-\end{equation}
-of the subobject classifier that classifies $\cal{I}$.
-\end{lemma}
+  \Omega \rlap{,}
+  }
+  \end{gathered}
+    \end{equation}
 
-\begin{proof}
-Concretely, define $K(A)$, for $A \in \cat{C}$, as the set of subobjects of~$y A$ that are elements of~$\cal{M}$.
-There is an evident inclusion $K \to \Omega$ giving rise to the pullback square~\eqref{partial-map-classifier:0} since identities are contained in $\cal{M}$ by \cref{identities-in-M}.
-Any element $X \to Y$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $Y \to K$, sending an element of $y A \to Y$ for $A \in \cat{C}$ to the subobject of $y A$ given by the base change of $X \to Y$ along $y A \to Y$.
-Conversely, any base change of $1 \to K$ along an element $\sigma \co y A \to K$ results in the subobject of $y A$ selected by $\sigma$, an element of $\cal{I}$.
-\end{proof}
-
-Fix $Y \in \cal{E}$ and let us work in the slice category $\cal{E}_{/Y}$.
+Let us now fix $Y \in \cal{E}$ and  work in the slice category $\cal{E}_{/Y}$.
 Let $t \co Y \to K \times Y$ denote the classifier for $\cal{I}_{/Y}$.
 Let $\pi \co K \times Y \to Y$ denote the map to the terminal object.
 The \emph{$\cal{I}$-partial map classifier} $P_Y$ relative to $Y$ associated to~$\cal{I}$ is the polynomial endofunctor on~$\cal{E}_{/Y}$ given by the data
@@ -2623,19 +2641,17 @@ the maps in $\cal{M}$.
 \end{theorem}
 
 \begin{proof}
-For part (i), we first prove that that the $\cal{I}$-classifier $1 \to K$ is in $\cal{M}$.
-This assertion is equivalent to the statement that $\cal{M} \to \cal{E}^\to_{\cart}$ lifts colimits.
-This is the case since $\cal{E}$ is a topos.
-Since $1 \to K$ is in $\cal{M}$ then also $\eta$ has components in $\cal{M}$ by~\eqref{partial-map-classifier:1}.
+For part (i), since $1 \to K$ is in $\cal{M}$, as proved in \cref{partial-map-classifier}, 
+then also $\eta$ has components in $\cal{M}$ by~\eqref{partial-map-classifier:1}.
 Part (ii) follows from part (i) and \cref{prod-exp-general}.
 \end{proof}
 
-\begin{remark} \label{elegant-reedy}
-If $\cal{E}$ be the category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}.
-In this context, it is natural to say that a map in $\cal{E}$ is called a \emph{trivial Kan fibration} if it has the right lifting property with respect to boundary inclusions.
-Since, by skeletal decomposition, we may write every monomorphism in $\cal{E}$ as an $\omega$-composition of cobase changes of coproducts of boundary inclusions of simplices (this is a non-constructive argument), trivial Kan fibrations are precisely the maps having the right lifting property with respect to all monomorphisms.
-If we now let $\cal{M}$ be the full subcategory of $\cal{E}^\to_\cart$ spanned by all monomorphisms, \cref{unif-vs-non-unif} implies that every trivial fibration is a uniform trivial fibration.
-\end{remark}
+\begin{example} \label{elegant-reedy}
+\cref{unif-vs-non-unif} applies to $\SSet$ and $\CSet$, giving us that a map can be equipped with the structure of
+a (trivial) Kan fibration if and only if it is a (trivial) Kan fibration in the usual sense. Of course, \cref{unif-vs-non-unif}
+applies also when $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant},
+in which case every monomorphism in $\cal{E}$ as an $\omega$-composition of cobase changes of coproducts of boundary inclusions of simplices, and so a map is a trivial Kan fibration if and only if it has the right lifting property with respect to boundary inclusions.
+\end{example}
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
