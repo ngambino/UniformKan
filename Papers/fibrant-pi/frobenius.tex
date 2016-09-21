@@ -2498,7 +2498,7 @@ By condition~(C2), the square is a pullback.
 With condition~(M3), the left map $\id_X$ is then in $\cal{M}$.
 \end{proof}
 
-Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain. Below,
+Below,
 as usual, we write $\Omega$ for the subobject classifier of the topos $\cal{E}$ and $\top \co 1 \to \Omega$ for its `true'
 morphism. 
 
@@ -2509,9 +2509,8 @@ There exists a subobject $K \rightarrowtail \Omega$ and a factorization
 1 \ar[rr]^\top \ar[dr] &   & \Omega \\
  & K  \ar@{>->}[ur] &  }
 \]
-with $1 \to K$ in $\cal{M}$, 
-such that the map $1 \to K$ classifies maps in~$\cal{M}$, in the sense that for every map 
-$i \co A \to B$ in $\cal{M}$ there exists a unique pullback 
+such that the map $1 \to K$ classifies maps in~$\cal{M}$, in the sense that a map 
+$i \co A \to B$  is in $\cal{M}$ if and only if there exists a pullback 
 \[
 \xymatrix{
 A \ar[r] \ar[d]_i  \ar[d]  \drpullback & 1 \ar[d] \\
@@ -2521,11 +2520,13 @@ B \ar[r] & K \rlap{.}}
 
 \begin{proof}
 For $c \in \cat{C}$, define $K(c)$ to be the set of subobjects of~$y(c)$ that are elements of~$\cal{M}$. The factorisation 
-of $\top \co 1 \to \Omega$ follows since identities are contained in $\cal{M}$ by \cref{identities-in-M}. 
+of $\top \co 1 \to \Omega$ through $K$ follows since identities are contained in $\cal{M}$ by \cref{identities-in-M}. 
 
-Any element $i \co A \to B$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $B \to K$, sending an element of $y(c) \to B$, for $c \in \cat{C}$, to the subobject of $y(c)$ given by the base change of $i  \co A  \to B$ along $y(c) \to B$.
-Conversely, any base change of $1 \to K$ along an element $\sigma \co y(c) \to K$ results in the subobject of $y(c)$ corresponding to $\sigma$ under the Yoneda lemma, which is an element of $\cal{M}$. Finally, the assertion that $1 \to K$
-is in $\cal{M}$ is equivalent to (M5).
+Any element $i \co A \to B$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $B \to K$, sending an element
+ $b \co y(c) \to B$, for $c \in \cat{C}$, to the subobject of $y(c)$ given by the base change of~$i  \co A  \to B$ along $b$,
+ which is in $K(c)$ since $i$ is in $\cal{M}$. 
+For the converse, it suffices to show that~$1 \to K$
+is in $\cal{M}$, but this is equivalent to (M5).
 \end{proof}
 
 The axioms for the class $\cal{M}$ in (M1)-(M5) can then be rewritten in equivalent form as properties of the classifier $K$, 
@@ -2612,7 +2613,8 @@ Giving the structure of a uniform trivial fibration on a map $f \co X \to Y$ is 
 \end{theorem}
 
 \begin{proof}
-Recall from \cref{rem-lift-suitable} that we have $\liftr{\cal{M}} = \liftr{\cal{I}}$.
+Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain
+and recall from the proof of \cref{rem-lift-suitable} that we have $\liftr{\cal{M}} = \liftr{\cal{I}}$.
 Let $u \co \cal{I} \to \cal{E}^\to$ denote the inclusion.
 Following the first step of Garner's algebraic small object argument, a lift of a map $f \co X \to Y$ to an element of $\liftr{I}$ is given by a diagonal filler in the canonical square $(\Lan_u u)(f) \to f$.
 Developing the left Kan extension, we have
@@ -2649,8 +2651,10 @@ Part (ii) follows from part (i) and \cref{prod-exp-general}.
 \begin{example} \label{elegant-reedy}
 \cref{unif-vs-non-unif} applies to $\SSet$ and $\CSet$, giving us that a map can be equipped with the structure of
 a (trivial) Kan fibration if and only if it is a (trivial) Kan fibration in the usual sense. Of course, \cref{unif-vs-non-unif}
-applies also when $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant},
-in which case every monomorphism in $\cal{E}$ as an $\omega$-composition of cobase changes of coproducts of boundary inclusions of simplices, and so a map is a trivial Kan fibration if and only if it has the right lifting property with respect to boundary inclusions.
+applies also when $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}.
+In this case, if a map has the right lifting property with respect to boundary inclusions then it is a trivial fibration, since
+every monomorphism is an $\omega$-composition of cobase changes of coproducts of boundary inclusions of simplices.
+By  \cref{unif-vs-non-unif}, such a map is then a uniform Kan fibration.
 \end{example}
 
 \bibliographystyle{plain}
