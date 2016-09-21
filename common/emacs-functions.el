@@ -33,6 +33,11 @@
 
 					; "\\([^]\n.]|[^\\]\\]\\)\n\\([^\n\\]|\\\\[^[]\\)"
 
+(defun remove-triple-linebreak () ""
+  (interactive)
+  (beginning-of-buffer)
+  (replace-regexp "\n\n\n" "\n\n"))
+
 (fset 'latex-replace-inside-math
       `(lambda (regexp to-string &optional delimited start end backward)
      "Like `query-replace-regexp' but only replaces inside of LaTeX-math environments."
