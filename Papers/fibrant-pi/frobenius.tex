@@ -34,8 +34,6 @@ sets.
 
 \maketitle
 
-% \newpage
-
 \section*{Introduction}
 
 This paper studies the Frobenius condition for weak factorization systems (wfs's), which asserts that pullback along a right map preserves left maps.
@@ -97,8 +95,6 @@ We end the paper in \cref{sec:fib-psh} studying uniform (trivial) fibrations in 
 
 We are grateful to Steve Awodey, Thierry Coquand, Richard Garner, Simon Huber, Andrew Pitts, Emily Riehl and Andrew Swan for helpful discussions and comments on earlier versions of the paper; to Fosco Loregian for pointing us to a useful reference; and to Marco Larrea Schiavon for pointing out an erroneous statement of \cref{retract-closure} in an earlier version of this paper.
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation, and by an EPSRC grant (EP/M01729X/1).
-
-% \newpage
 
 \section{Background}
 \label{sec:fib-and-frob}
@@ -731,8 +727,6 @@ This proof avoids both the use of topological realization, which is used in~\cit
 It also avoids the use of the theory of minimal fibrations, which is used in~\cite[Theorem~1.7.1]{joyal-tierney-notes} to establish the result working purely combinatorially.
 \end{remark}
 
-% \newpage
-
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
@@ -1264,8 +1258,6 @@ Then $\liftr{\cal{I}} = \liftr{\cal{J}}$.
 The result follows by combining part~(i) of \cref{kan-extension-closure} and \cref{left-kan-extension-of-representables}.
 \end{proof}
 
-% \newpage
-
 \section{The functorial Frobenius condition}
 \label{sec:frobc}
 
@@ -1355,32 +1347,32 @@ We say that $(\cal{I}, \cal{I}', \cal{J})$ satisfies the \emph{generalized unifo
 
 \begin{definition} \label{uniform-frob-nice}
 Let $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \catE^\to$ be categories of arrows.
-We say that $(\cal{I}, \cal{J})$ satisfies the \emph{uniform Frobenius condition} if $(\cal{I}, \liftl{(\liftr{cal{I}})}, \cal{J})$ satisfies the generalized uniform Frobenius condition.
+We say that $(\cal{I}, \cal{J})$ satisfies the \emph{uniform Frobenius condition} if $(\cal{I}, \liftl{(\liftr{\cal{I}})}, \cal{J})$ satisfies the generalized uniform Frobenius condition.
 \end{definition}
 
 Let us note the fact that the generalized uniform Frobenius condition is functorial in its parameters.
 
 \begin{proposition} \label{generalized-uniform-frob-functorial}
-Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $u'_t \co \cal{I} \to \cal{E}^\to$, $v_t \co \cal{J} \to \cal{E}^\to$, for $t \in \braces{1, 2}$, related as follows:
+Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $u'_t \co \cal{I}' \to \cal{E}^\to$, $v_t \co \cal{J} \to \cal{E}^\to$ of arrows, for $t \in \braces{1, 2}$, related as follows:
 \begin{align*}
 \xymatrix@!C@C-1.5em{
-  \cal{I}_1
-  \ar[rr]^{F}
-  \ar[dr]_{u_1}
-&&
   \cal{I}_2
-  \ar[dl]^{\liftl{(\liftr{u_2})}}
+  \ar[rr]^{F}
+  \ar[dr]_{u_2}
+&&
+  \cal{I}_1
+  \ar[dl]^{u_1}
 \\&
   \catE^\to
 \rlap{,}}
 &&
 \xymatrix@C-1.5em{
-  \cal{I}'_2
-  \ar[rr]^-{F'}
-  \ar[dr]_{u_2}
-&&
   \cal{I}'_1
-  \ar[dl]^{u_1}
+  \ar[rr]^-{F'}
+  \ar[dr]_{u'_1}
+&&
+  \cal{I}'_2
+  \ar[dl]^{u'_2}
 \\&
   \catE^\to
 \rlap{,}}
@@ -1510,8 +1502,8 @@ By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE
 \]
 
 \begin{proposition} \label{def:uniFrobcond}
-Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
-Then $(u,v)$ satisfies the uniform Frobenius property if and only if the following hold:
+Let $u \co \cal{I} \to \catE^\to$, $u' \co \cal{I}' \to \cal{E}^\to$, $v \co \cal{J} \to \catE^\to$.
+Then $(\cal{I}, \liftl{(\liftr{\cal{I}'})}, \cal{J})$ satisfies the generalized uniform Frobenius property if and only if the following hold:
 \begin{enumerate}[(i)]
 \item for every $j \in \cal{J}$, pullback along $v_j \co C_j \to D_j$ lifts to a functor
 \[
@@ -1520,8 +1512,8 @@ Then $(u,v)$ satisfies the uniform Frobenius property if and only if the followi
   \ar[r]^-{\widetilde{v_j^*}}
   \ar[d]_-{u_{/D_j}}
 &
-  \liftl{(\liftr{\cal{I}})}_{/C_j}
-  \ar[d]^-{\liftl{(\liftr{u})}_{/C_j}}
+  \liftl{(\liftr{\cal{I}'})}_{/C_j}
+  \ar[d]^-{\liftl{(\liftr{u'})}_{/C_j}}
 \\
   \catE_{/D_j}^\to \ar[r]_-{v_j^*}
 &
@@ -1571,20 +1563,20 @@ lifts to a natural transformation
   \ar[d]_{t_!}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\tilde{\phi}$}}
 &
-  \liftl{(\liftr{\cal{I}})}_{/C_j}
+  \liftl{(\liftr{\cal{I}'})}_{/C_j}
   \ar[d]^{s_!}
 \\
   \cal{I}_{/D_k}
   \ar[r]_{\widetilde{v_k^*}}
 &
-  \liftl{(\liftr{\cal{I}})}_{/C_k}
+  \liftl{(\liftr{\cal{I}'})}_{/C_k}
 \rlap{.}}
 \]
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Since the functor $\liftl{(\liftr{u})}$ is faithful, a lift $\widetilde{v_j^*}$ consists just of a lift of the action of $v_j^*$ on objects that is coherent with respect to the action of $v_j^*$ on morphisms, in the sense that the action of $v_j^*$ on morphisms determines uniquely the action of its lift on morphisms.
+Since the functor $\liftl{(\liftr{u'})}$ is faithful, a lift $\widetilde{v_j^*}$ consists just of a lift of the action of $v_j^*$ on objects that is coherent with respect to the action of $v_j^*$ on morphisms, in the sense that the action of $v_j^*$ on morphisms determines uniquely the action of its lift on morphisms.
 Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $\tilde{v^*}$ separates into two parts:
 \begin{enumerate}[(1)]
 \item coherence in morphisms in $\cal{I}_{/D_j}$ for fixed $v_j \co C_j \to D_j$ with $j \in \cal{J}$,
@@ -1595,23 +1587,22 @@ Coherence (2) constitutes the part (ii).
 \end{proof}
 
 The statement of~\cref{def:uniFrobcond} makes it clear that the uniform Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
-Explicitly, it requires that $v_j^*(u_i) \co v_j^* X_i \to v_j^* Y_i$ is equipped with the structure of a left $\liftr{\cal{I}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ over $D_j$, such that morphisms in $\cal{I}_{/D_j}$ induce morphisms of left $\liftr{\cal{I}}$-maps.
+Explicitly, it requires that $v_j^*(u_i) \co v_j^* X_i \to v_j^* Y_i$ is equipped with the structure of a left $\liftr{\cal{I'}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ over $D_j$, such that morphisms in $\cal{I}_{/D_j}$ induce morphisms of left $\liftr{\cal{I'}}$-maps.
 However, at the level of squares, the condition in part (ii) of \cref{def:uniFrobcond} is just a property, not additional structure.
-Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{I}}$-maps.
+Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{I'}}$-maps.
 Also note that if the commutative square~\eqref{def:beck-chevalley:0} is a pullback, then the canonical natural transformation~$\phi$ is an isomorphism by the usual Beck-Chevalley condition, and so is~$\tilde{\phi}$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
 \cref{def:uniFrobcond} has an immediate dual, expressed in terms of pushforward rather than pullback, which we state next.
 
-% TODO: fix double label
-\begin{proposition} \label{lift-pushforward} \label{lift-pushforward-BC}
-Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
-Then $(u, v)$ satisfies the uniform Frobenius property if and only if the following hold:
+\begin{proposition} \label{lift-pushforward}
+Let $u \co \cal{I} \to \catE^\to$, $u' \co \cal{I}' \to \cal{E}^\to$, $v \co \cal{J} \to \catE^\to$.
+Then $(\cal{I}, \liftl{(\liftr{\cal{I}'})}, \cal{J})$ satisfies the generalized Frobenius property if and only if the following hold:
 \begin{enumerate}[(i)]
 \item for every $j \in \cal{J}$, pushforward along $v_j \co C_j \to D_j$ lifts to a functor
 \[
 \xymatrix@C=1.5cm{
-  {\liftr{\cal{I}}}_{/X}
+  {\liftr{\cal{I}'}}_{/C_j}
   \ar[r]^{(v_j)_*}
-  \ar[d]_{u_{/C_j}}
+  \ar[d]_{\liftr{u'}_{/C_j}}
 &
   {\liftr{\cal{I}}}_{/D_j}
   \ar[d]^{{\liftr{u}}_{/D_j}}
@@ -1642,7 +1633,7 @@ Then $(u, v)$ satisfies the uniform Frobenius property if and only if the follow
 lifts to a natural transformation
 \[
 \xymatrix@C+2em{
-  {\liftr{\cal{I}}}_{/C_k}
+  {\liftr{\cal{I}'}}_{/C_k}
   \ar[r]^{(v_k)_*}
   \ar[d]_{s^*}
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\tilde{\psi}$}}
@@ -1650,18 +1641,33 @@ lifts to a natural transformation
   {\liftr{\cal{I}}}_{/D_k}
   \ar[d]^{t^*}
 \\
-  {\liftr{\cal{I}}}_{/C_j}
+  {\liftr{\cal{I}'}}_{/C_j}
   \ar[r]_{(v_j)_*}
 &
-  {\liftr{\cal{I}}}_{/D_j}
+  {\liftr{\cal{I}'}}_{/D_j}
 \rlap{.}}
 \]
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/X}$ and $v = {\liftr{u}}_{/Y}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
+For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{u'}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
 For (ii), apply \cref{lift-of-mates} to the adjunctions $v_j^* s_! \dashv (v_j)_* s^*$ and $v_k^* t_! \dashv (v_k)_* t^*$ recalling that $\phi$ and $\psi$ are mates.
+\end{proof}
+
+\begin{proposition} \label{double-pitchfork-in-generalized-uniform-frob}
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
+Then the following are equivalent:
+\begin{enumerate}[(i)]
+\item $(\cal{I}, \cal{J})$ satisfies the uniform Frobenius condition.
+\item $(\liftl{(\liftr{I})}, \liftl{(\liftr{I})}, \cal{J})$ satisfies the generalized uniform Frobenius condition.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Using \cref{generalized-uniform-frob-functorial} and the unit $\cal{I} \to \liftl{(\liftr{\cal{I}})}$ of the adjunction~\eqref{garner-adjunction}, we see that statement~(ii) implies statement~(i).
+For the converse direction, we use the characterizations of statements~(i) and~(ii) provided by \cref{lift-pushforward}.
+The lift of pushforward for~(i) can be composed with the unit $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ of the adjunction~\eqref{garner-adjunction} to induce a lift of pushforward for~(ii).
 \end{proof}
 
 We now give the desired characterization of the functorial Frobenius condition for an algebraically-free awfs.
@@ -1677,11 +1683,10 @@ Then the following are equivalent:
 
 \begin{proof}
 Since $(\LL, \RR)$ is a algebraically free on $\cal{I}$, we have $\pcoalg(\LL) = \liftl{\pAlg(\RR)} = \liftl{(\liftr{\cal{I}})}$.
+Observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
+Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\pAlg{\RR} = \liftr{\cal{I}}$ and $\palg{\RR}$.
 
-First observe that there are functors over $\cal{E}^\to$ back and forth between $\pcoalg{\LL} = \liftl{(\liftr{\cal{I}})}$ and $\overline{\pCoalg{\LL}}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
-Applying $\liftr{(-)}$ and using \cref{retract-closure}, it follows that there are maps in $\CAT_{/\cal{E}^\to}$ back and forth between $\liftr{\cal{I}}$ and $\palg{\RR}$.
-
-Because $(\LL, \RR)$ is algebraically free on $\cal{I}$, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equivalently as the existence of a lift
+With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equivalently as the existence of a lift
 \begin{equation} \label{frobenius-comparison:0}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -1699,61 +1704,20 @@ Because $(\LL, \RR)$ is algebraically free on $\cal{I}$, the functorial Frobeniu
 \rlap{.}}
 \end{gathered}
 \end{equation}
-By \cref{uniform-frob-even-nicer}, the uniform Frobenius condition for $(\cal{I}, \liftr{\cal{I}})$, instead, requires a lift
-\begin{equation} \label{equ:spellout}
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{I} \times_{\cal{E}} \liftr{\cal{I}}
-  \ar@{.>}[r]^{\tilde{P}}
-  \ar[d]
-&
-  \liftl{(\liftr{\cal{I}})}
-  \ar[d]
-\\
-  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to
-  \ar[r]_{P}
-&
-  \cal{E}^\to
-\rlap{.}}
-\end{gathered}
-\end{equation}
-So we need to show that a lift as in~\eqref{frobenius-comparison:0} is equivalent to one as in~\eqref{equ:spellout}.
-Note the subtle difference between the two diagrams: we are concerned with pullbacks along maps coming from~$\liftl{(\liftr{\cal{I}})}$ in~\eqref{frobenius-comparison:0} and coming from $\cal{I}$ in~\eqref{equ:spellout}.
-
-In one direction, given a lift as in~\eqref{frobenius-comparison:0}, composition with the unit map from $\cal{I}$ to $\liftl{(\liftr{\cal{I}})}$ gives a lift as in~\eqref{equ:spellout}.
-In the other direction, one first shows that \eqref{frobenius-comparison:0} implies a relativized version of itself, with arrows as in~\eqref{uniform-frob-nice:lift} and with $\liftl{(\liftr{\cal{I}})}$ instead of $\cal{I}$ on the left.
-We then use an analogue of \cref{lift-pushforward} to write it separately as two components, first lifts of pushforward
-\[
-\xymatrix@C=1.5cm{
-  {\liftr{\cal{I}}}_{/X}
-  \ar[r]^{f_*}
-  \ar[d]_{u_{/X}}
-&
-  \liftr{(\liftl{({\liftr{\cal{I}}})})}_{/Y}
-  \ar[d]^{{\liftr{u}}_{/Y}}
-\\
-  \catE_{/X}^\to
-  \ar[r]_{f_*}
-&
-  \catE_{/Y}^\to
-}
-\]
-along any fixed right $\cal{I}$-map $f \co X \to Y$, and second lifts of the canonical map $t^* g_* p \to f_* s^* p$ to a right $\liftl{(\liftr{\cal{I}})}$-map for $(s, t) \co f \to g$ a map between right $\cal{I}$-maps and $p$ a right $\cal{I}$-map.
-These are provided by the uniform Frobenius condition in the form of part~(ii) of \cref{lift-pushforward} after postcomposing the lifts in there with the unit $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ of the adjunction~\eqref{garner-adjunction}.
+Using \cref{generalized-uniform-frob-nicer}, this corresponds to the generalized uniform Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftl{(\liftr{\cal{I}})}, \cal{J})$.
+This is equivalent to the uniform Frobenius condition for $(\cal{I}, \liftr{\cal{I}})$ by \cref{double-pitchfork-in-generalized-uniform-frob}.
 \end{proof}
 
-We conclude the section with a result which will be used in \cref{sec:frocuf}.
+We conclude the section with a result needed in \cref{sec:frocuf}.
 
-\begin{proposition} \label{generalized-uniform-frobenius-product-u}
+\begin{proposition} \label{generalized-uniform-frob-product-u}
 Let $u_1 \co \cal{I}_1 \to \cal{E}^\to$, $u_2 \co \cal{I}_2 \to \cal{E}^\to$ and $v \co \cal{J} \to \cal{E}^\to$.
-If $(\cal{I}_1, \cal{I}_1, \cal{J})$ and $(\cal{I}_2, \cal{I}_2, \cal{J})$ satisfy the generalized uniform Frobenius property, then so does $(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J})$.
+If $(\cal{I}_1, \cal{I}_1, \cal{J})$ and $(\cal{I}_2, \cal{I}_2, \cal{J})$ satisfy the generalized uniform Frobenius property, then so do $(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J})$ and $(\cal{I}_1 +_{\cal{E}^\to} \cal{I}_2, \cal{I}_1 +_{\cal{E}^\to} \cal{I}_2, \cal{J})$.
 \end{proposition}
 
 \begin{proof}
-This follows easily from \cref{generalized-uniform-frob-functorial} using the universal property of products in the category $\CAT_{/\cal{E}^\to}$.
+This follows easily from \cref{generalized-uniform-frob-functorial} using the universal property of products and coproducts in the category $\CAT_{/\cal{E}^\to}$.
 \end{proof}
-
-% \newpage
 
 \section{Uniform fibrations}
 \label{sec:unif}
@@ -2045,11 +2009,11 @@ Define
 \item \label{thm:onedir} There is a functor
 \[
 \xymatrix@!C@C-2.5em{
-  \Cof \times_{\cal{E}^\to} \cal{S}
+  \Cyl
   \ar[dr]
-  \ar@<4pt>[rr]^F
+  \ar[rr]^F
 &&
-  \TrivCof
+  \Cof \times_{\cal{E}^\to} \cal{S}
   \ar[dl]
 \\&
   \catE^\to
@@ -2058,11 +2022,11 @@ Define
 \item \label{thm:twodir} There is a functor
 \[
 \xymatrix@!C@C-2.5em{
-  \Cyl
-  \ar[dr]
-  \ar[rr]^G
-&&
   \Cof \times_{\cal{E}^\to} \cal{S}
+  \ar[dr]
+  \ar@<4pt>[rr]^{F'}
+&&
+  \TrivCof
   \ar[dl]
 \\&
   \catE^\to
@@ -2072,7 +2036,22 @@ Define
 \end{proposition}
 
 \begin{proof}
-For (i), we first fix $k \in \braces{0 \, , 1 }$ and show that there is a functor
+For (i), we first show that there is a functor
+\[
+\xymatrix@!C@C-2em{
+  \Cof
+  \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{N_k}
+&&
+  \Cof \times_{\cal{E}^\to} \cal{S}_k
+  \ar[dl]^{\angles{u, p_k}}
+\\&
+   \catE^\to
+\rlap{.}}
+\]
+The map to the first factor is the identity; the map to the second factor is given by the assumption that $\Cof$ is closed under Leibniz product with the endpoint inclusions, which is part of the hypotheses of a suitable awfs.
+The claim in (i) then follows by combining the cases $k = 0$ and $k = 1$.
+
+For (ii), we first fix $k \in \braces{0 \, , 1 }$ and show that there is a functor
 \begin{equation} \label{lem:from-strong-hequiv}
 \begin{gathered}
 \xymatrix@!C@C-2em{
@@ -2091,23 +2070,8 @@ We only describe the action of the functor $M_k$ on an object $(f, \rho)$, leavi
 Recall that $\rho$ is a retraction of $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$, exhibiting~$f$ as a retract of~$\kcyl \hatotimes f$.
 Thus, we may define $M_k(f, \rho) \defeq (f, f, \thetak \hatotimes f, \rho)$.
 Observe that this definition makes the diagram for $M_k$ commute.
-The claim in (i) now follows by combining the cases $k = 0$ and $k = 1$ and composing with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
+The claim in (ii) now follows by combining the cases $k = 0$ and $k = 1$ and composing with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
 Note that the retract closure in~\eqref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
-
-For (ii), we first show that there is a functor
-\[
-\xymatrix@!C@C-2em{
-  \Cof
-  \ar[dr]_{\kcyl \hatotimes u} \ar[rr]^{N_k}
-&&
-  \Cof \times_{\cal{E}^\to} \cal{S}_k
-  \ar[dl]^{\angles{u, p_k}}
-\\&
-   \catE^\to
-\rlap{.}}
-\]
-The map to the first factor is the identity; the map to the second factor is given by the assumption that $\Cof$ is closed under Leibniz product with the endpoint inclusions, which is part of the hypotheses of a suitable awfs.
-The claim in (ii) then follows by combining the cases $k = 0$ and $k = 1$.
 \end{proof}
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
@@ -2145,7 +2109,7 @@ The core of the argument is to obtain, for $k \in \braces{0, 1}$, a lift $\tilde
 \end{gathered}
 \end{equation}
 where $P \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ be the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
-Indeed, composing $\tilde{P}$ and a component of the unit of the monad $\liftl{(\liftr{(-)})}$ will allow us to apply \cref{uniform-frob-even-nicer} and establish the required uniform Frobenius property.
+The goal then follows from \cref{generalized-uniform-frob-nicer} upon combining the cases $k = 0$ and $k = 1$ using \cref{generalized-uniform-frob-product-u}.
 
 So it remains to show how to obtain the lift in in \eqref{strong-h-equiv-uniform-base-change:goal}.
 Its action on objects is described in the proof of~\cref{thm:non-alg-frobenius-she}.
@@ -2356,9 +2320,6 @@ But this follows from coherence of lifts in the following morphism of lifting pr
 \rlap{.}}
 \]
 Here, the left and right faces form morphisms in $\TrivCof$ and $\Fib$, respectively, making the lifts cohere as needed.
-
-By combining the cases $k = 0$ and $k = 1$, we obtain that $\cal{S}_0 + \cal{S}_1$ and uniform fibrations satisfy the uniform Frobenius condition.
-The claim now follows by \cref{uniform-frobenius-functorial}.
 \end{proof}
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
@@ -2366,20 +2327,17 @@ The awfs $(\mathsf{C_t}, \mathsf{F})$ satisfies the functorial Frobenius conditi
 \end{theorem}
 
 \begin{proof}
-First, we show that $(\Cof \times_{\cal{E}} \cal{S}_k, \Cof \times_{\cal{E}} \cal{S}_k, \Fib)$ satisfies the generalized uniform Frobenius condition.
-This follows from \cref{uniform-frobenius-product-u} since $(\Cof, \Fib)$ satisfies the uniform Frobenius condition by \notec{I am working on this}
+First, we show that $(\Cof \times_{\cal{E}} \cal{S}, \Cof \times_{\cal{E}} \cal{S}, \Fib)$ satisfies the generalized uniform Frobenius condition.
+This follows from \cref{generalized-uniform-frob-product-u} since $(\Cof, \Cof, \Fib)$ satisfies the generalized uniform Frobenius condition by hypothesis~(iii) in the definition of a suitable awfs (\cref{thm:suitable-awfs}) and $(\cal{S}, \cal{S}, \Fib)$ satisfies the generalized Frobenius condition by \cref{technical}.
 
-Recall that~$\Cof(\cal{S}_k)$ is the pullback of $u \co \Cof \to \cal{E}$ and~$p \co \cal{S}_k  \to \cal{E}$.
-Using , we deduce the required claim from \cref{technical} and hypothesis>(iii) in the definition of a suitable awfs (\cref{thm:suitable-awfs}).
-
-The fact that uniform fibrations and strong homotopy equivalences relative to $\Cof$ satisfy the uniform Frobenius condition implies the desired claim, by applying functoriality of uniform Frobenius in the form of \cref{uniform-frobenius-functorial} with~$F$ the functor in part~(\ref{thm:onedir}) of~\cref{thm:strong-hequiv} and~$G$ the functor in part~(\ref{thm:twodir}) of~\cref{thm:strong-hequiv}.
+The generalized uniform Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}_k, \Cof \times_{\cal{E}} \cal{S}_k, \Fib)$ then implies the uniform Frobenius condition for $(\Cyl, \liftr{\Cyl})$ using functoriality of generalized uniform Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ the functor $F$ in part~\eqref{thm:onedir} of~\cref{thm:strong-hequiv} and $F'$ the map $F'$ in part~\eqref{thm:twodir} of~\cref{thm:strong-hequiv}.
+This implies the functorial Frobenius condition by \cref{thm:frobenius-comparison}
 \end{proof}
 
 As special cases, we obtain the pushforward versions of the Frobenius and Beck-Chevalley condition for uniform fibrations.
 First, pushforward lifts to slices of the category of uniform $\cal{I}$-fibrations.
 
-% TODO: Fix double label
-\begin{corollary} \label{uniform-fibrations-frobenius-pushforward} \label{uniform-fibrations-BC-pushforward}
+\begin{corollary} \label{uniform-fibrations-frobenius-pushforward}
 \hfill
 \begin{enumerate}[(i)]
 \item For every uniform fibration
@@ -2421,9 +2379,7 @@ If $(s, t) \co p \to q$ forms a pullback square, then $\psi'$ is a natural isomo
 \end{corollary}
 
 \begin{proof}
-For (i), the claim follows from~\cref{uniform-fibrations-uniform-frobenius}.
-For (ii), the claim follows from \cref{lift-pushforward-BC}.
-and \cref{uniform-fibrations-uniform-frobenius}.
+The claim follows from \cref{uniform-fibrations-uniform-frobenius} using \cref{thm:frobenius-comparison} and \cref{lift-pushforward}.
 \end{proof}
 
 \begin{example}
