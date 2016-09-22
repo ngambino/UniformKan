@@ -1307,7 +1307,8 @@ By Garner's small object argument~\cite{garner:small-object-argument}, every $u 
 We call such an awfs \emph{cofibrantly generated}.
 
 We now state the analogue for an awfs of the Frobenius condition for a wfs.
-This condition, called the functorial Frobenius condition, was stated for cloven a wfs in~\cite{garner:topological-simplicial}, which is slightly a more general notion than an awfs.
+This condition, called the functorial Frobenius condition, was stated for a cloven wfs in~\cite{garner:topological-simplicial}, which is slightly a more general notion than 
+that of an awfs. Let us fix some notation.
 For a category $\cal{E}$, we write $\cal{E}^\to \times_\cal{E} \cal{E}^\to$ for the pullback of $\cod \co \cal{E}^\to \to \cal{E}$ with itself.
 This is the category of cospans in $\cal{E}$, \ie pairs of arrows with common codomain.
 Pullback gives a functor $P \co  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ sending a cospan $(g, h)$ to $h^*(g)$.
@@ -1333,7 +1334,7 @@ An awfs $(\LL, \RR)$ satisfies the \emph{functorial Frobenius condition} if pull
 
 In this section we obtain an analogue of~\cref{thm:frobenius-equivalence} for awfs's, \ie a necessary and sufficient condition for an algebraically-free awfs to satisfy the functorial Frobenius condition.
 In the next section, we apply this characterization to prove a functorial Frobenius property for the awfs having uniform fibrations as right maps. 
-In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{uniform-frob-nice} below.
+In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below.
 
 For this, we introduce some notation.
 Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects given by an object $X \in \cal{E}$ and a map $u_i \co A_i \to B_i$ in $\cal{E}_{/X}$.
@@ -1397,8 +1398,7 @@ We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized unifor
 \end{definition}
 
 
-
-Let us note the fact that the generalized uniform Frobenius condition is functorial in its parameters.
+The next proposition shows in what sense the generalized uniform Frobenius condition is functorial in its parameters.
 
 \begin{proposition} \label{generalized-uniform-frob-functorial}
 Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $v_t \co \cal{I}' \to \cal{E}^\to$, $w \co \cal{J} \to \cal{E}^\to$ of arrows, for $t \in \braces{1, 2}$, related as follows:
@@ -1436,11 +1436,11 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $v_t \co \cal{I}' \to \ca
   \catE^\to
 \rlap{.}}
 \end{align*}
-If $(\cal{I}_1, \cal{J}_1, \cal{K}_1)$ satisfies the uniform Frobenius condition, then so does $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$.
+If $(\cal{I}_1, \cal{J}_1, \cal{K}_1)$ satisfies the generalized uniform Frobenius condition, then so does $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$.
 \qed
 \end{proposition}
 
-As the next proposition shows, the generalized uniform Frobenius condition can be simplified under some assumptions.
+Next, we show that the generalized uniform Frobenius condition can be simplified under some assumptions.
 
 \begin{proposition} \label{generalized-uniform-frob-nicer}
 Let $u \co \cal{I} \to \cal{E}^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \cal{K} \to \cal{E}^\to$ be categories of arrows such that
@@ -1492,19 +1492,16 @@ However, under the stated assumption, the lift $\tilde{Q}$ can be reconstructed 
 %If $\cal{K}$ is a category of arrows, this choice of $\tilde{Q}$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $w$ reflects isomorphisms.
 \end{proof}
 
-\begin{definition} \label{uniform-frob-nice}
-Let $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \catE^\to$ be categories of arrows.
-We say that $(\cal{I}, \cal{J})$ satisfies the \emph{uniform Frobenius condition} if $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized uniform Frobenius condition.
-\end{definition}
 
-We can now restate the functorial Frobenius condition of~\cref{functorial-frobenius} equivalently in terms of the generalized uniform Frobenius condition of~\cref{uniform-frob-nice}.
+
+We can now restate the functorial Frobenius condition of~\cref{functorial-frobenius} equivalently in terms of the generalized uniform Frobenius condition of~\cref{generalized-uniform-frob}.
 
 \begin{proposition}
 Let $(\mathsf{L}, \mathsf{R})$ be an awfs on $\cal{E}$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item $(\LL, \RR)$ satisfies the functorial Frobenius condition,
-\item $(\pcoalg{\LL}, \palg{\RR})$ satisfies the uniform Frobenius condition.
+\item $(\pcoalg{\LL}, \palg{\RR}, \liftl{(\liftr{\pcoalg{\LL}})})$ satisfies the generalized uniform Frobenius condition.
 \end{enumerate}
 \end{proposition}
 
@@ -1711,8 +1708,8 @@ For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
-\item $(\cal{I}, \cal{J})$ satisfies the uniform Frobenius condition.
-\item $(\liftl{(\liftr{I})}, \cal{J}, \liftl{(\liftr{I})})$ satisfies the generalized uniform Frobenius condition.
+\item $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized uniform Frobenius condition.
+\item $(\liftl{(\liftr{\cal{I}})}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized uniform Frobenius condition.
 \end{enumerate}
 \end{proposition}
 
@@ -1722,14 +1719,14 @@ For the converse direction, we use the characterizations of statements~(i) and~(
 The lift of pushforward for~(i) can be composed with the counit $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ of the adjunction~\eqref{garner-adjunction} to induce a lift of pushforward for~(ii).
 \end{proof}
 
-We now give the desired characterization of the functorial Frobenius condition for an algebra{-}ically-free awfs.
+We can finally give the desired characterization of the functorial Frobenius condition for an algebra{-}ically-free awfs.
 
 \begin{theorem} \label{thm:frobenius-comparison}
 Let $(\LL, \RR)$ be an awfs algebraically-free on $u \co \cal{I} \to \cal{E}^\to$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item $(\LL, \RR)$ satisfies the functorial Frobenius condition,
-\item $(\cal{I}, \liftr{\cal{I}})$ satisfies the uniform Frobenius condition.
+\item $(\cal{I}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$ satisfies the uniform Frobenius condition.
 \end{enumerate}
 \end{theorem}
 
@@ -1758,7 +1755,7 @@ With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equ
 \end{gathered}
 \end{equation}
 Using \cref{generalized-uniform-frob-nicer}, this corresponds to the generalized uniform Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
-This is equivalent to the uniform Frobenius condition for $(\cal{I}, \liftr{\cal{I}})$ by \cref{double-pitchfork-in-generalized-uniform-frob}.
+By \cref{double-pitchfork-in-generalized-uniform-frob}, this is equivalent to the generalized uniform Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$.
 \end{proof}
 
 We conclude the section with a result needed in \cref{sec:alg-frob}.
@@ -2481,7 +2478,8 @@ The desired claim is then the special case~$A = 1$ and~$B = 0$.
 
 The aim of this final section is to study in more detail the notion of a uniform fibration in the case when $\cal{E}$ is a presheaf category.
 Let us begin by fixing the setting in which we shall we be working.
-First, we assume that~$\cal{E}$ is a presheaf category and that the functorial cylinder~$\interval \otimes (-) \co \cal{E} \to \cal{E}$ satisfies not only our standing assumptions of having contractions and connections and of possessing a right adjoint (see \cref{sec:bac}), but also the following two conditions:
+First, let $\mathbb{C}$ be a small category and fix $\cal{E} \defeq \Psh(\mathbb{C})$. We write $\yon \co \mathbb{C} \to \cal{E}$ for the Yoneda embedding. 
+We assume that the functorial cylinder~$\interval \otimes (-) \co \cal{E} \to \cal{E}$ satisfies not only our standing assumptions of having contractions and connections and of possessing a right adjoint (see \cref{sec:bac}), but also the following two conditions:
 \begin{enumerate}[({C}1)]
 \item $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pullback squares,
 \item the natural transformations $\kcyl \otimes (-) \co \id_\cal{E} \to \interval \otimes (-)$, for $k \in \braces{ 0, 1}$, are cartesian.
@@ -2606,12 +2604,12 @@ B \ar[r] & K \rlap{.}}
 \end{lemma}
 
 \begin{proof}
-For $c \in \cat{C}$, define $K(c)$ to be the set of subobjects of~$y(c)$ that are elements of~$\cal{M}$. The factorisation 
+For $x \in \cat{C}$, define $K(x)$ to be the set of subobjects of~$\yon(x)$ that are elements of~$\cal{M}$. The factorisation 
 of $\top \co 1 \to \Omega$ through $K$ follows since identities are contained in $\cal{M}$ by \cref{identities-in-M}. 
 
 Any element $i \co A \to B$ of $\cal{M}$ arises as base change of $1 \to K$ along a unique map $B \to K$, sending an element
- $b \co y(c) \to B$, for $c \in \cat{C}$, to the subobject of $y(c)$ given by the base change of~$i  \co A  \to B$ along $b$,
- which is in $K(c)$ since $i$ is in $\cal{M}$. 
+ $b \co \yon(x) \to B$, for $x \in \cat{C}$, to the subobject of $\yon(x)$ given by the base change of~$i  \co A  \to B$ along $b$,
+ which is in $K(x)$ since $i$ is in $\cal{M}$. 
 For the converse, it suffices to show that~$1 \to K$
 is in $\cal{M}$, but this is equivalent to (M5).
 \end{proof}
