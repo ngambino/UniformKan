@@ -67,19 +67,21 @@ In order to apply our algebraic results in simplicial sets and cubical sets, we 
 Instantiating our definitions, we obtain the notion of a uniform Kan fibration which subsumes the one introduced in~\cite{cohen-et-al:cubicaltt}. 
 We then establish the existence of an awfs that has uniform Kan fibration as right maps and that satisfies the functorial Frobenius property, so that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 
-Since the proof of these results for simplicial sets and cubical sets is constructive, \ie avoids the use of the law of excluded middle and the axiom of choice, we solve the open problem of obtaining a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which is unprovable constructively without modifying the notion of a Kan fibration~\cite{coquand-non-constructivity-kan}.
-This problem was motivated by the question of whether the simplicial model of the extension of Martin-L\"of type theory~\cite{nordstrom-petersson-smith:ml} with Voevodsky's univalence axiom~\cite{voevodsky:univalence} can be developed constructively. For this, one needs to show that pushforward along Kan fibrations preserves Kan 
-fibrations in order to interpret correctly the rules for $\Pi$-types~\cite[Lemma 2.3.1]{voevodsky-simplicial-model}. 
-The independence result in~\cite{coquand-non-constructivity-kan} has been taken as an indication that a constructive development of the simplicial model is not possible and led to 
-increased interest in models based on cubical sets~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.
-Our results show that the key obstacle to a constructive treatment of the result on pushforward along Kan fibrations is not the simplicial setting, but 
-non-algebraic nature of the definition of Kan fibration.
+Since the proof of these results for simplicial sets and cubical sets is constructive, \ie avoids the use of the law of excluded middle and the axiom of choice, we solve the open problem of obtaining a constructive version of the result asserting that, in simplicial sets, pushforward along Kan fibrations preserves of Kan fibrations. This problem was motivated by the question of whether the simplicial model of univalent foundations in~\cite{voevodsky-simplicial-model} can be developed constructively.  As shown in~\cite{coquand-non-constructivity-kan}, this is not possible since the result on pushforward along Kan fibrations,
+which is essential to interpret the rules for $\Pi$-types, cannot proved constructively. This independence result has led the research 
+community to shift its focus on models based on cubical sets and uniform Kan 
+fibrations~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed,
+in that setting it is possible to prove constructively that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, leading
+to the definition of a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}. As our results show, the key aspect that makes 
+it possible to obtain such a result is the idea of working with the algebraic notion of a uniform fibration, 
+rather than that of focusing on cubical sets.
 
-Furthermore, since our results apply also in the category of cubical sets of~\cite{cohen-et-al:cubicaltt,huber-thesis}, we give a proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations which avoids entirely complex calculations with cubical sets, unlike the existing ones.
+Furthermore, since our results apply also to cubical sets, we give a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis},.
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
 We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer (\cref{thm:part-map-character}), as suggested to us by Thierry Coquand and Andr\'e Joyal.
-We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration (\cref{unif-vs-non-unif}) In particular, we prove that, in a presheaf category, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it is a (trivial) fibration.
+We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration (\cref{unif-vs-non-unif}) In particular, we prove that, in a presheaf category, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it is a (trivial) fibration. As we observe in~\cref{why-uniform}, however,
+the algebraic notion of a fibration is essential for our results in~\cref{sec:alg-fib} to hold constructively. 
 
 \subsection*{Remark}
 In the hope of making the paper more concise, we confine comments on constructivity issues to certain remarks and footnotes.
@@ -2739,7 +2741,7 @@ Part (ii) follows from part (i) and \cref{prod-exp-general}.
 \cref{unif-vs-non-unif} applies to $\SSet$ and $\CSet$, showing that a map can be equipped with the structure of a (trivial) Kan fibration if and only if it is a (trivial) Kan fibration in the usual sense. 
 \end{example}
 
-\begin{remark} 
+\begin{remark} \label{why-uniform}
 Since \cref{unif-vs-non-unif} is proved constructively, it is natural to wonder whether it is possible to develop constructively our theory in
 the non-algebraic setting, at least for $\SSet$ or~$\CSet$. The key obstacle to this is that, while the special case of the algebraic 
 result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object},
