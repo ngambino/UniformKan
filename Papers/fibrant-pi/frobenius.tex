@@ -16,7 +16,7 @@
 We develop further the theory of weak factorization systems and algebraic weak factorization systems.
 In particular, we give a method for constructing (algebraic) weak factorization systems whose right maps can be thought of as (uniform) fibrations and that satisfy the (functorial) Frobenius condition.
 As  applications, we obtain a new proof that the Quillen model structure for Kan complexes is right proper, avoiding
-entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of univalent type theories, proving a constructive version 
+entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of homotopical models of type theories, proving a constructive version 
 of the preservation of  Kan fibrations by pushforward along Kan fibrations.  Our results also subsume and extend work by Coquand and others on cubical sets.
 \end{abstract}
 
@@ -38,7 +38,7 @@ This paper studies the Frobenius condition for weak factorization systems (wfs's
 One reason for the interest in this condition is that it is closely related to the right properness of a Quillen model structure, which requires that pullback along a fibration preserves weak equivalences.
 Indeed, for a Quillen model structure in which the cofibrations are the monomorphisms, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the wfs of trivial cofibrations and fibrations.
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
-In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in the simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
+In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
 Our development begins by introducing a general notion of fibration, which subsumes that of a Kan fibration in simplicial and cubical sets, building on ideas in~\cite{cisinski-asterisque}.
 We then construct wfs's that have fibrations as the right maps we show show that satisfy the Frobenius condition.
@@ -1814,7 +1814,7 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 The main difference between the notion of a suitable wfs~(\cref{thm:suitable-wfs}) and that of a suitable awfs (\cref{thm:suitable-awfs}) is that the conditions in the former express closure of the class of left maps under the action of certain functions, while the conditions in the latter express closure of the category of left maps under the action of certain functors.
 
 \begin{example} \label{unif-triv-fib-sset}
-As we will see in~\cref{rem-lift-suitable}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
+As we will see in~\cref{sec:fib-psh}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
 The right maps of these awfs's are a natural algebraic counterpart of trivial Kan fibrations and so we call them \emph{uniform trivial Kan fibrations}.
 Similarly, we will see that the category $\CSet$ also admits a suitable awfs $(\CC', \TF')$ algebraically-free on the category $\cal{M}'$ of monomorphisms classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt} and pullback squares (see \cref{nonalgebraic-cof}).
 \end{example}
@@ -2021,7 +2021,7 @@ The morphism part is straightforward.
 \end{proof}
 
 \begin{remark} \label{theta}
-As suggested by our notation, the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ are really given as the action on objects of a functor $\thetak \hatotimes (-)$ as follows.
+As suggested by our notation, the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ are really given as the action on objects of a functor $\thetak \hatotimes (-) \co \Id \to \delta^k \hatotimes (-)$ as follows.
 Let $\theta^k \co \bot_{\Id} \to \delta^k \otimes (-)$ denote the arrow in $[\cal{E}, \cal{E}^\to] = [\cal{E}, \cal{E}]^\to$ given by the following square:
 \[
 \xymatrix@C+1em{
@@ -2560,7 +2560,7 @@ Let us point out that the reduction to the lifting problems against maps in $\ca
 
 \begin{example} \label{justify-sset-cset-examples}
 Since assumptions (C1)-(C2) and (M1)-(M5) are fulfilled in both $\SSet$ and~$\CSet$, with $\cal{M}$ the category of all monomorphisms and pullback squares (with (M5) a consequence of the existence of a subobject classifier), \cref{rem-lift-suitable} establishes the existence of the awfs $(\TC, \FF)$ of \cref{unif-fib-sset}.
-The assumptions are also satisfied if instead in $\CSet$ we choose for $\cal{M}$ the category of $\cal{M}'$ of \cref{unif-triv-fib-sset} (with elements classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt}), establishing the existence of the awfs $(\TC', \FF')$.
+The assumptions are also satisfied if instead in $\CSet$ we choose for $\cal{M}$ the category of $\cal{M}'$ of \cref{unif-triv-fib-sset} (with elements classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt}), establishing the existence of the awfs $(\TC', \FF')$ of \cref{unif-fib-sset}.
 \end{example}
 
 \begin{remark} \label{rem:constructive-small-object}
