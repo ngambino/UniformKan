@@ -349,7 +349,7 @@ given by the Leibniz product of an endpoint inclusion $h_k^1 \co \braces{k} \to 
 Note that this also induces lifts against any higher dimensional horn $h_i^n$ since $h_i^n$ arises as a retract of the Leibniz product $\kcyl \hatotimes h_i^n$.
 \end{example}
 
-\begin{example} 
+\begin{example}  \label{nonalgebraic-cof}
 In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$L$ consists of all monomorphisms.
 A fibration in $\CSet$ will be called a \emph{Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion for~$\Box^n$, which is given by the $n$-fold Leibniz tensor of~$[\lcyl, \rcyl] \co \braces{0, 1} \to \Box^1$.
@@ -1358,7 +1358,7 @@ Pullback gives a functor $Q \co  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}
 
 \begin{definition} \label{generalized-uniform-frob}
 Let $u \co \cal{I} \to \cal{E}^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \cal{K} \to \catE^\to$ be categories of arrows.
-We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized uniform Frobenius condition} if pullback along $\cal{J}$-maps sends $\cal{I}$-maps to $\cal{K}$-maps, \ie the functor $Q$ admits a lift $\tilde{Q}$ as below:
+We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized functorial Frobenius condition} if pullback along $\cal{J}$-maps sends $\cal{I}$-maps to $\cal{K}$-maps, \ie the functor $Q$ admits a lift $\tilde{Q}$ as below:
 \begin{equation} \label{generalized-uniform-frob:lift}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -1379,7 +1379,7 @@ We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized unifor
 \end{definition}
 
 
-The next proposition shows in what sense the generalized uniform Frobenius condition is functorial in its parameters.
+The next proposition shows in what sense the generalized functorial Frobenius condition is functorial in its parameters.
 
 \begin{proposition} \label{generalized-uniform-frob-functorial}
 Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $v_t \co \cal{I}' \to \cal{E}^\to$, $w \co \cal{J} \to \cal{E}^\to$ of arrows, for $t \in \braces{1, 2}$, related as follows:
@@ -1417,11 +1417,11 @@ Consider categories $u_t \co \cal{I} \to \cal{E}^\to$, $v_t \co \cal{I}' \to \ca
   \catE^\to
 \rlap{.}}
 \end{align*}
-If $(\cal{I}_1, \cal{J}_1, \cal{K}_1)$ satisfies the generalized uniform Frobenius condition, then so does $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$.
+If $(\cal{I}_1, \cal{J}_1, \cal{K}_1)$ satisfies the generalized functorial Frobenius condition, then so does $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$.
 \qed
 \end{proposition}
 
-Next, we show that the generalized uniform Frobenius condition can be simplified under some assumptions.
+Next, we show that the generalized functorial Frobenius condition can be simplified under some assumptions.
 
 \begin{proposition} \label{generalized-uniform-frob-nicer}
 Let $u \co \cal{I} \to \cal{E}^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \cal{K} \to \cal{E}^\to$ be categories of arrows such that
@@ -1442,7 +1442,7 @@ Let $u \co \cal{I} \to \cal{E}^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \ca
 is a morphism of Grothendieck fibrations.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
-\item the triple $(\cal{I}, \cal{J}, \cal{K})$ satisfies the generalized uniform Frobenius condition,
+\item the triple $(\cal{I}, \cal{J}, \cal{K})$ satisfies the generalized functorial Frobenius condition,
 \item there is a lift $\tilde{P}$ as below:
 \begin{equation} \label{generalized-uniform-frob-nicer:lift}
 \begin{gathered}
@@ -1473,22 +1473,20 @@ However, under the stated assumption, the lift $\tilde{Q}$ can be reconstructed 
 %If $\cal{K}$ is a category of arrows, this choice of $\tilde{Q}$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $w$ reflects isomorphisms.
 \end{proof}
 
-
-
-We can now restate the functorial Frobenius condition of~\cref{functorial-frobenius} equivalently in terms of the generalized uniform Frobenius condition of~\cref{generalized-uniform-frob}.
+We can now restate the functorial Frobenius condition of~\cref{functorial-frobenius} equivalently in terms of the generalized functorial Frobenius condition of~\cref{generalized-uniform-frob}.
 
 \begin{proposition}
 Let $(\mathsf{L}, \mathsf{R})$ be an awfs on $\cal{E}$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item $(\LL, \RR)$ satisfies the functorial Frobenius condition,
-\item $(\pcoalg{\LL}, \palg{\RR}, \liftl{(\liftr{\pcoalg{\LL}})})$ satisfies the generalized uniform Frobenius condition.
+\item $(\pcoalg{\LL}, \palg{\RR}, \liftl{(\liftr{\pcoalg{\LL}})})$ satisfies the generalized functorial Frobenius condition.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 Recall that $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ is a category of left maps. 
-We observe that both (i) and (ii) are equivalent to $(\pcoalg{\LL}, \palg{\RR}, \pcoalg{\LL})$ satisfying the generalized uniform Frobenius condition. For the equivalence with (i), use \cref{generalized-uniform-frob-nicer}. For the equivalence with (ii), use \cref{generalized-uniform-frob-functorial}, noting that 
+We observe that both (i) and (ii) are equivalent to $(\pcoalg{\LL}, \palg{\RR}, \pcoalg{\LL})$ satisfying the generalized functorial Frobenius condition. For the equivalence with (i), use \cref{generalized-uniform-frob-nicer}. For the equivalence with (ii), use \cref{generalized-uniform-frob-functorial}, noting that 
 $\pcoalg{\LL} \leftrightarrow \liftl{(\liftr{\pcoalg{\LL}})}$ over $\cal{E}^\to$, using the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
@@ -1531,7 +1529,7 @@ By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE
 
 \begin{proposition} \label{def:uniFrobcond}
 Let $u \co \cal{I} \to \catE^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \cal{K} \to \catE^\to$.
-Then $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$ satisfies the generalized uniform Frobenius property if and only if the following hold:
+Then $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$ satisfies the generalized functorial Frobenius property if and only if the following hold:
 \begin{enumerate}[(i)]
 \item for every $j \in \cal{J}$, pullback along $v_j \co C_j \to D_j$ lifts to a functor
 \[
@@ -1604,7 +1602,7 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof}
-We consider the lift $\widetilde{Q}$ of $Q$ in the generalized uniform Frobenius condition~\eqref{generalized-uniform-frob:lift} for $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$.
+We consider the lift $\widetilde{Q}$ of $Q$ in the generalized functorial Frobenius condition~\eqref{generalized-uniform-frob:lift} for $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$.
 Since the functor $\liftl{(\liftr{w})} \co \liftl{(\liftr{\cal{W}})} \to \cal{E}^\to$ is faithful, the lift $\widetilde{Q}$ consists just of a lift of the action of $Q$ on objects that is coherent with respect to the action of $Q$ on morphisms, in the sense that the action of $Q$ on morphisms determines uniquely the action of $\widetilde{Q}$ on morphisms.
 Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $\widetilde{Q}$ separates into two parts:
 \begin{enumerate}[(1)]
@@ -1615,7 +1613,7 @@ The action of $\widetilde{Q}$ on objects together with coherence~(1) constitutes
 Coherence~(2) constitutes part~(ii).
 \end{proof}
 
-The statement of~\cref{def:uniFrobcond} makes it clear that the generalized uniform Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
+The statement of~\cref{def:uniFrobcond} makes it clear that the generalized functorial Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
 Explicitly, part~(i) requires that $v_j^*(u_i) \co v_j^* X_i \to v_j^* Y_i$ is equipped with the structure of a left $\liftr{\cal{K}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ over $D_j$ such that morphisms in $\cal{I}_{/D_j}$ induce morphisms of left $\liftr{\cal{K}}$-maps.
 However, at the level of squares, the condition in part (ii) of \cref{def:uniFrobcond} is just a property, not additional structure.
 Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{K}}$-maps.
@@ -1689,8 +1687,8 @@ For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
-\item $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized uniform Frobenius condition.
-\item $(\liftl{(\liftr{\cal{I}})}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized uniform Frobenius condition.
+\item $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized functorial Frobenius condition.
+\item $(\liftl{(\liftr{\cal{I}})}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized functorial Frobenius condition.
 \end{enumerate}
 \end{proposition}
 
@@ -1707,7 +1705,7 @@ Let $(\LL, \RR)$ be an awfs algebraically-free on $u \co \cal{I} \to \cal{E}^\to
 Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item $(\LL, \RR)$ satisfies the functorial Frobenius condition,
-\item $(\cal{I}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})}) = (\cal{I}, \pAlg{\RR}, \pcoalg{\LL})$ satisfies the generalized uniform Frobenius condition.
+\item $(\cal{I}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})}) = (\cal{I}, \pAlg{\RR}, \pcoalg{\LL})$ satisfies the generalized functorial Frobenius condition.
 \end{enumerate}
 \end{theorem}
 
@@ -1734,15 +1732,15 @@ With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equ
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Using \cref{generalized-uniform-frob-nicer}, this corresponds to the generalized uniform Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
-By \cref{double-pitchfork-in-generalized-uniform-frob}, this is equivalent to the generalized uniform Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$.
+Using \cref{generalized-uniform-frob-nicer}, this corresponds to the generalized functorial Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
+By \cref{double-pitchfork-in-generalized-uniform-frob}, this is equivalent to the generalized functorial Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$.
 \end{proof}
 
 We conclude the section with a result needed in \cref{sec:alg-frob}.
 
 \begin{proposition} \label{generalized-uniform-frob-product-u}
 Let $u_k \co \cal{I}_k \to \cal{E}^\to$, $w_k \co \cal{K}_k \to \cal{E}^\to$ for $k \in \braces{1, 2}$ and $v \co \cal{J} \to \cal{E}^\to$.
-If $(\cal{I}_1, \cal{J}, \cal{K}_1,)$ and $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$ satisfy the generalized uniform Frobenius property, then so do 
+If $(\cal{I}_1, \cal{J}, \cal{K}_1,)$ and $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$ satisfy the generalized functorial Frobenius property, then so do 
 \[
  (\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 \times_{\cal{E}^\to} \cal{K}_2) \, , \quad (\cal{I}_1 +_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 +_{\cal{E}^\to} \cal{K}_2) 
  \rlap{.}
@@ -1815,9 +1813,10 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 
 The main difference between the notion of a suitable wfs~(\cref{thm:suitable-wfs}) and that of a suitable awfs (\cref{thm:suitable-awfs}) is that the conditions in the former express closure of the class of left maps under the action of certain functions, while the conditions in the latter express closure of the category of left maps under the action of certain functors.
 
-\begin{example} \label{unif-triv-fib-sset} As we will see in~\cref{rem-lift-suitable},
-the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
-The right maps of these awfs's are  a natural algebraic counterpart of trivial Kan fibrations and so we call them \emph{uniform trivial Kan fibrations}.
+\begin{example} \label{unif-triv-fib-sset}
+As we will see in~\cref{rem-lift-suitable}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
+The right maps of these awfs's are a natural algebraic counterpart of trivial Kan fibrations and so we call them \emph{uniform trivial Kan fibrations}.
+Similarly, we will see that the category $\CSet$ also admits a suitable awfs $(\CC', \TF')$ algebraically-free on the category $\cal{M}'$ of monomorphisms classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt} and pullback squares (see \cref{nonalgebraic-cof}).
 \end{example}
 
 Let us now fix a suitable awfs $(\CC, \TF)$.
@@ -1906,9 +1905,8 @@ We let $\TrivCof \defeq \pcoalg{\TC}$ and refer to its elements as \emph{uniform
 
 \begin{example} \label{unif-fib-sset}
 If we start from the awfs's $(\CC, \TF)$ in~$\SSet$ and~$\CSet$ of \cref{unif-triv-fib-sset} and apply~\cref{thm:sset-cset-nwfs}, we obtain awfs's $(\TC, \FF)$ whose right maps are algebraic counterparts of Kan fibrations, and hence will be called \emph{uniform Kan fibrations}.
-In the case of $\CSet$, these are exactly the uniform Kan fibrations considered in~\cite{cohen-et-al:cubicaltt}.
-\notec{No, they not --- our categories of generating cofibrations are different. I actually think that Coquand's category is more interesting. Perhaps we should default to theirs instead of all monos for cubical sets, so that it is more results how our setting relates to their setting?}
-Thus, as a special case of~\cref{thm:sset-cset-nwfs}, we recover the existence in $\CSet$ of an awfs with uniform Kan fibrations as the right maps~\cite{cohen-et-al:cubicaltt,swan-awfs}.
+If instead in the case of $\CSet$, we start with the awfs $(\CC', \TF')$ of \cref{unif-triv-fib-sset}, we obtain an awfs $(\TC', \FF')$ whose right maps are exactly the uniform Kan fibrations considered in~\cite{cohen-et-al:cubicaltt}.
+An application to a different version of cubical sets (not using connections) gives the awfs developed in~\cite{swan-awfs}.
 \end{example}
 
 \section{The functorial Frobenius property for uniform fibrations}
@@ -2024,7 +2022,7 @@ The morphism part is straightforward.
 
 \begin{remark} \label{theta}
 As suggested by our notation, the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ are really given as the action on objects of a functor $\thetak \hatotimes (-)$ as follows.
-Let $\theta^k \co \bot_{\Id} \to \delta_k \otimes (-)$ denote the arrow in $[\cal{E}, \cal{E}^\to] = [\cal{E}, \cal{E}]^\to$ given by the following square:
+Let $\theta^k \co \bot_{\Id} \to \delta^k \otimes (-)$ denote the arrow in $[\cal{E}, \cal{E}^\to] = [\cal{E}, \cal{E}]^\to$ given by the following square:
 \[
 \xymatrix@C+1em{
   0
@@ -2046,7 +2044,7 @@ The desired functor is now precisely given by $\theta^k \hatotimes (-) \co \cal{
 
 \begin{remark} \label{thm:endpoint-are-she-functorially}
 Recall from \cref{thm:endpoint-are-she} that the components of the endpoint inclusion $\kcyl \otimes (-)$ are a strong $k$-oriented homotopy equivalences.
-In fact, this is the action on objects of a lift of $\kcyl \otimes (-)$ to $\cal{S}_k$:
+In fact, this is the action on objects of a factoring of $\kcyl \otimes (-)$ via $\cal{S}_k$:
 \[
 \xymatrix@C+3em{
 &
@@ -2085,11 +2083,27 @@ For $k \in \braces{ 0 \, , 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\t
 We use the description of $\cal{S}_k$ provided by \cref{strong-h-equiv-as-section}.
 We use the notation of \cref{theta}, allowing us to write just $\delta^k$ for the natural transformation $\delta^k \otimes (-)$.
 Let $(-) \mathbin{\hat{\cc}} (-)$ denote the Leibniz construction of endofunctor composition $(-) \cc (-)$ on $[\cal{E}, \cal{E}]$.
+We assume some familiarity with the workings of the Leibniz construction as explained in~\cite{riehl-verity:reedy}.
 
-We will use that associativity of functor composition lifts to associativity of the corresponding Leibniz constructions if the involved functors preserve pushouts.
-Starting with \cref{thm:endpoint-are-she-functorially}, a lift of $\delta^k$ to $\cal{S}_k$ is given by a retraction of $\theta^k \hatotimes (\delta^k \otimes (-)) = \theta^k \mathbin{\hat{\cc}} \delta^k$.
-Our goal, a lift $\delta^k \hatotimes (-)$ to $\cal{S}_k$, our goal, is given by a retraction of $\theta^k \hatotimes (\delta^k \hatotimes (-)) = (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes (-)$.
-But functors, in this case $m \mapsto m \hatotimes (-)$, preserve section-retraction pairs.
+Recall from \cref{thm:endpoint-are-she-functorially} that $\delta^k$ lifts through $\cal{S}_k \to \cal{E}^\to$, \ie that
+\[
+  \theta^k \hatotimes (\delta^k \otimes X) \co \delta^k \otimes X \to \delta^k \hatotimes (\delta^k \otimes X)
+\]
+admits a retraction functorially in $X \in \cal{E}$.
+This amounts to a retraction of
+\[
+  \theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k
+.\]
+Our goal, a lift of $\delta^k \hatotimes (-)$ through $\cal{S}_k \to \cal{E}^\to$, can be rephrased as
+\[
+  \theta^k \hatotimes (\delta^k \hatotimes f) \co \delta^k \hatotimes f \to \delta^k \hatotimes (\delta^k \hatotimes f)
+\]
+admitting a retraction functorially in $f \in \cal{E}^\to$.
+By associativity of functor composition, implying associativity of the corresponding Leibniz constructions if the involved functors preserve pushouts, this is the same map as
+\[
+  (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \co (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \to \delta^k \hatotimes f
+.\]
+But functors, in this case $m \mapsto m \hatotimes f$, preserve section-retraction pairs.
 \end{proof}
 
 The next lemma is the analogue of~\cref{thm:main-sheretract}.
@@ -2174,10 +2188,10 @@ However, these functors do not in general form an equivalence.
 
 We are now ready to show that the awfs in which the right maps are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
 For this, we use our characterisation of the functorial Frobenius property in algebraically-free awfs's stated in \cref{thm:frobenius-comparison}.
-As a step, we show that that strong homotopy equivalences and uniform fibrations satisfy the generalized uniform Frobenius condition, \ie the algebraic analogue of \cref{thm:non-alg-frobenius-she}.
+As a step, we show that that strong homotopy equivalences and uniform fibrations satisfy the generalized functorial Frobenius condition, \ie the algebraic analogue of \cref{thm:non-alg-frobenius-she}.
 
 \begin{lemma} \label{technical}
-The triple $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized uniform Frobenius condition.
+The triple $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized functorial Frobenius condition.
 \end{lemma}
 
 \begin{proof}
@@ -2418,11 +2432,11 @@ The awfs $(\mathsf{C_t}, \mathsf{F})$ satisfies the functorial Frobenius conditi
 \end{theorem}
 
 \begin{proof}
-First, we show that $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ satisfies the generalized uniform Frobenius condition.
-This follows from \cref{generalized-uniform-frob-product-u} since $(\Cof, \Fib, \Cof)$ satisfies the generalized uniform Frobenius condition by hypothesis~(S3) in the definition of a suitable awfs (\cref{thm:suitable-awfs}) and $(\cal{S}, \cal{S}, \Fib)$ satisfies the generalized Frobenius condition by \cref{technical}.
+First, we show that $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ satisfies the generalized functorial Frobenius condition.
+This follows from \cref{generalized-uniform-frob-product-u} since $(\Cof, \Fib, \Cof)$ satisfies the generalized functorial Frobenius condition by hypothesis~(S3) in the definition of a suitable awfs (\cref{thm:suitable-awfs}) and $(\cal{S}, \cal{S}, \Fib)$ satisfies the generalized Frobenius condition by \cref{technical}.
 
 Let the awfs $(\mathsf{C_t}, \mathsf{F})$ be algebraically free on $\cal{I}_\otimes$ as in the proof of \cref{thm:sset-cset-nwfs}.
-The generalized uniform Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}_k, \Fib, \Cof \times_{\cal{E}} \cal{S}_k)$ implies the generalized uniform Frobenius condition for $(\cal{I}_\otimes, \Fib, \TrivCof)$ using functoriality of generalized uniform Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ essentially the functor in part~\eqref{thm:onedir} of~\cref{thm:strong-hequiv} and $H$ the functor in part~\eqref{thm:twodir} of~\cref{thm:strong-hequiv}.
+The generalized functorial Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}_k, \Fib, \Cof \times_{\cal{E}} \cal{S}_k)$ implies the generalized functorial Frobenius condition for $(\cal{I}_\otimes, \Fib, \TrivCof)$ using functoriality of generalized functorial Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ essentially the functor in part~\eqref{thm:onedir} of~\cref{thm:strong-hequiv} and $H$ the functor in part~\eqref{thm:twodir} of~\cref{thm:strong-hequiv}.
 This implies the functorial Frobenius condition by \cref{thm:frobenius-comparison}.
 \end{proof}
 
@@ -2503,7 +2517,7 @@ Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfyi
 \item the elements of $\cal{M}$ are closed under pullbacks,
 \item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions,
 \item the category $\cal{M}$ has colimits and the inclusion $\cal{M} \to \cal{E}^\to_\mathrm{cart}$ preserves them.%
-\footnote{This assumption not used in the instantiation of our general results to this setting, but only for the separate \cref{partial-map-classifier,unif-vs-non-unif}.z}
+\footnote{This assumption not used in the instantiation of our general results to this setting, but only for the separate \cref{partial-map-classifier,unif-vs-non-unif}.}
 \end{enumerate}
 The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M4) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
 
@@ -2545,9 +2559,8 @@ Let us point out that the reduction to the lifting problems against maps in $\ca
 \end{remark}
 
 \begin{example} \label{justify-sset-cset-examples}
-Since assumptions (C1)-(C2) and (M1)-(M5) are fulfilled in both $\SSet$ and~$\CSet$, with $\cal{M}$ the category of all monomorphisms and pullback squares (with (M5) a consequence
-of the existence of a subobject classifier), \cref{rem-lift-suitable} establishes the existence of the awfs of \cref{unif-triv-fib-sset}.
-\notec{Different setting!}
+Since assumptions (C1)-(C2) and (M1)-(M5) are fulfilled in both $\SSet$ and~$\CSet$, with $\cal{M}$ the category of all monomorphisms and pullback squares (with (M5) a consequence of the existence of a subobject classifier), \cref{rem-lift-suitable} establishes the existence of the awfs $(\TC, \FF)$ of \cref{unif-fib-sset}.
+The assumptions are also satisfied if instead in $\CSet$ we choose for $\cal{M}$ the category of $\cal{M}'$ of \cref{unif-triv-fib-sset} (with elements classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt}), establishing the existence of the awfs $(\TC', \FF')$.
 \end{example}
 
 \begin{remark} \label{rem:constructive-small-object}
@@ -2750,14 +2763,10 @@ Part (ii) follows from part (i) and \cref{prod-exp-general}.
 \end{example}
 
 \begin{remark} \label{why-uniform}
-Since \cref{unif-vs-non-unif} is proved constructively, it is natural to wonder whether it is possible to develop constructively our theory in
-the non-algebraic setting, at least for $\SSet$ or~$\CSet$. The key obstacle to this is that, while the special case of the algebraic 
-result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object},
-its non-algebraic counterpart does not seem to provable constructively, even in the case when $\cal{M}$ consists of all monomorphisms
-(\cf \cref{thm:generation-presheaf-cisinski} and \cref{rem:colimit-decomp}). And such a result is essential for the development, since it provides
-the suitable (algebraic) wfs's on which the definition of a uniform Kan fibration and the proof of the functorial Frobenius property are based.
+Since \cref{unif-vs-non-unif} is proved constructively, it is natural to wonder whether it is possible to develop constructively our theory in the non-algebraic setting, at least for $\SSet$ or~$\CSet$.
+The key obstacle to this is that, while the special case of the algebraic result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object}, its non-algebraic counterpart does not seem to provable be constructively, even in the case when $\cal{M}$ consists of all monomorphisms (\cf \cref{thm:generation-presheaf-cisinski} and \cref{rem:colimit-decomp}).
+And such a result is essential for the development since it provides the suitable (algebraic) wfs on which the definition of the functorial Frobenius property is based.
 \end{remark} 
-
 
 \bibliographystyle{plain}
 \bibliography{../../common/uniform-kan-bibliography}
