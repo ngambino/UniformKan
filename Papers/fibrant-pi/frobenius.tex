@@ -259,7 +259,7 @@ Then the following are equivalent:
 Let us now assume that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
 The notion of a fibration that we introduce and study in this section and the next is relative not only to $\cal{E}$ and its functorial cylinder, but also to a wfs on $\cal{E}$ satisfying some assumptions that we encapsulate in the notion of a \emph{suitable wfs}, given in \cref{thm:suitable-wfs} below.
 In order to state that definition, we need some notation.
-For $k \in \{ 0, 1\}$ and a map $i \co A \to B$ in $\catE$, we define the \emph{Leibniz product} of the endpoint inclusion~$\kcyl \otimes (-)$ and~$i$ to be the map
+For $k \in \{ 0, 1\}$ and a map $i \co A \to B$ in $\catE$, we define the \emph{Leibniz product}~\cite{riehl-verity:reedy} of the endpoint inclusion~$\kcyl \otimes (-)$ and~$i$ to be the map
 \[
 \kcyl \hatotimes i \co (\interval \otimes A) +_A B \to \interval \otimes B
 \]
@@ -458,7 +458,7 @@ $k$-oriented homotopy equivalence such that the following diagram commutes:
 \]
 \end{definition}
 
-we write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let~$S \defeq S_0 \cup S_1$.
+We write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let~$S \defeq S_0 \cup S_1$.
 Elements of $S$ are called \emph{strong homotopy equivalences}.
 
 \begin{remark} \label{thm:endpoint-are-she}
@@ -824,7 +824,6 @@ Recall from~\cite{garner:small-object-argument} that the function mapping $u \co
 \[
   \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to} \rlap{.}
 \]
-The action of this functor on maps, which we will use in~\cref{thm:orth-nat} below, is evident.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
@@ -859,25 +858,6 @@ The rest of this section is devoted to establishing some facts regarding categor
 Most of these facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting.
 They are probably known to experts, but we include them since they are used in the remainder of the paper and  we could not find them in the literature.
 We omit most proofs, which are straightforward.
-
-\begin{proposition} \label{thm:orth-nat}
-Consider a natural transformation between categories over $\catE^\to$ as below,
-\[
-\xymatrix{
-  \cal{I}
-  \rrtwocell_G^F{\sigma}
- \ar[dr]_{u}
-&&
-  \cal{J}
-  \ar[dl]^{v}
-\\&
-  \catE^\to
-\rlap{,}}
-\]
-satisfying in particular the condition that $v \sigma = \id_u$.
-Then $\liftr{F} = \liftr{G}$ and $\liftl{F} = \liftl{G}$. \qed
-\end{proposition}
-
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
 An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
@@ -1999,7 +1979,7 @@ A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of map
 \rlap{.}}
 \end{align*}
 There is an obvious first projection functor $p_k \co \cal{S}_k \to \catE^\to$.
-\cref{strong-h-equiv-as-section} below extends the  equivalence of \cref{strong-h-equiv-as-section-non-alg} to an isomorphism of categories.
+\cref{strong-h-equiv-as-section} below extends the equivalence of \cref{strong-h-equiv-as-section-non-alg} to an isomorphism of categories.
 In its statement, we refer to the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in~\eqref{equ:thetak}.
 
 \begin{lemma} \label{strong-h-equiv-as-section}
@@ -2042,6 +2022,46 @@ The object part of the correspondence is essentially \cref{strong-h-equiv-as-sec
 The morphism part is straightforward.
 \end{proof}
 
+\begin{remark} \label{theta}
+As suggested by our notation, the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ are really given as the action on objects of a functor $\thetak \hatotimes (-)$ as follows.
+Let $\theta^k \co \bot_{\Id} \to \delta_k \otimes (-)$ denote the arrow in $[\cal{E}, \cal{E}^\to] = [\cal{E}, \cal{E}]^\to$ given by the following square:
+\[
+\xymatrix@C+1em{
+  0
+  \ar[r]^{\bot_{\Id}}
+  \ar[d]_{\bot_{\Id}}
+&
+  \Id
+  \ar[d]^{\delta^k \otimes (-)}
+\\
+  \Id
+  \ar[r]_{\delta^{1-k} \otimes (-)}
+&
+  I
+\rlap{.}}
+\]
+Writing $(-) \otimes (-) \co [\cal{E}, \cal{E}] \times \cal{E} \to \cal{E}$ as an infix shorthand for functor application, the Leibniz construction~\cite{riehl-verity:reedy} induces a bifunctor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$ on the level of arrows.
+The desired functor is now precisely given by $\theta^k \hatotimes (-) \co \cal{E}^\to \to (\cal{E}^\to)^\to$.
+\end{remark}
+
+\begin{remark} \label{thm:endpoint-are-she-functorially}
+Recall from \cref{thm:endpoint-are-she} that the components of the endpoint inclusion $\kcyl \otimes (-)$ are a strong $k$-oriented homotopy equivalences.
+In fact, this is the action on objects of a lift of $\kcyl \otimes (-)$ to $\cal{S}_k$:
+\[
+\xymatrix@C+3em{
+&
+  \cal{S}_k
+  \ar[d]
+\\
+  \cal{E}
+  \ar[r]_{\kcyl \otimes (-)}
+  \ar[ur]^{\widetilde{\kcyl \otimes (-)}}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+\end{remark}
+
 The next lemma is the analogue of \cref{thm:kcylf-is-she}.
 
 \begin{lemma} \label{thm:kcylf-is-she-alg}
@@ -2062,26 +2082,14 @@ For $k \in \braces{ 0 \, , 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\t
 \end{lemma}
 
 \begin{proof}
-A lengthy diagram-chasing argument, which we omit.%
-\footnote{Let us note also the possibility of a structural proof, part of a previous version of this paper and easily illustrated as follows in case the functorial cylinder comes from an interval object in a monoidal category.
-Using reasoning as in \cref{thm:kcylf-is-she}, we have that $\delta^k$ is a strong $k$-oriented homotopy equivalences.
-From the description of \cref{strong-h-equiv-as-section-non-alg}, strong $k$-oriented homotopy equivalences can be described as maps $f$ together with a retraction of $\theta^k \hatotimes f$ where $\theta^k \co \bot_1 \to \delta^k$ is the map in $\cal{E}^\to$ given by the square
-\[
-\xymatrix{
-  0
-  \ar[r]
-  \ar[d]
-&
-  \top
-  \ar[d]^{\delta^k}
-\\
-  \top
-  \ar[r]^{\delta^{1-k}}
-&
-  I
-\rlap{.}}
-\]
-The conclusion now follows from closure of retracts under functors, in this case pushout product with a map on the right, and associativity of pushout product.}
+We use the description of $\cal{S}_k$ provided by \cref{strong-h-equiv-as-section}.
+We use the notation of \cref{theta}, allowing us to write just $\delta^k$ for the natural transformation $\delta^k \otimes (-)$.
+Let $(-) \mathbin{\hat{\cc}} (-)$ denote the Leibniz construction of endofunctor composition $(-) \cc (-)$ on $[\cal{E}, \cal{E}]$.
+
+We will use that associativity of functor composition lifts to associativity of the corresponding Leibniz constructions if the involved functors preserve pushouts.
+Starting with \cref{thm:endpoint-are-she-functorially}, a lift of $\delta^k$ to $\cal{S}_k$ is given by a retraction of $\theta^k \hatotimes (\delta^k \otimes (-)) = \theta^k \mathbin{\hat{\cc}} \delta^k$.
+Our goal, a lift $\delta^k \hatotimes (-)$ to $\cal{S}_k$, our goal, is given by a retraction of $\theta^k \hatotimes (\delta^k \hatotimes (-)) = (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes (-)$.
+But functors, in this case $m \mapsto m \hatotimes (-)$, preserve section-retraction pairs.
 \end{proof}
 
 The next lemma is the analogue of~\cref{thm:main-sheretract}.
