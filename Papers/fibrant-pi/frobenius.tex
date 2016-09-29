@@ -8,16 +8,15 @@
 \newcommand{\LL}{\mathsf{L}}
 \newcommand{\RR}{\mathsf{R}}
 
-\title{The Frobenius condition, right properness \linebreak and uniform fibrations}
+\title{The Frobenius condition, right properness, \linebreak and uniform fibrations}
 
 \begin{document}
 
 \begin{abstract}
 We develop further the theory of weak factorization systems and algebraic weak factorization systems.
 In particular, we give a method for constructing (algebraic) weak factorization systems whose right maps can be thought of as (uniform) fibrations and that satisfy the (functorial) Frobenius condition.
-As  applications, we obtain a new proof that the Quillen model structure for Kan complexes is right proper, avoiding
-entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of homotopical models of type theories, proving a constructive version
-of the preservation of  Kan fibrations by pushforward along Kan fibrations.  Our results also subsume and extend work by Coquand and others on cubical sets.
+As applications, we obtain a new proof that the Quillen model structure for Kan complexes is right proper, avoiding entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of homotopical models of type theories, proving a constructive version of the preservation of Kan fibrations by pushforward along Kan fibrations.
+Our results also subsume and extend work by Coquand and others on cubical sets.
 \end{abstract}
 
 \author{Nicola Gambino}
@@ -610,7 +609,7 @@ For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homoto
 \end{lemma}
 
 \begin{proof}
-This is a diagram-chasing argument, similar to the one in \cref{thm:endpoint-are-she}, which we omit for brevity.
+This is a diagram-chasing argument, similar to the one in \cref{thm:endpoint-are-she}, which we omit for brevity (but see \cref{thm:kcylf-is-she-alg} for a structural proof).
 \end{proof}
 
 For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}.
@@ -751,8 +750,6 @@ When applied to the category of simplicial sets (see \cref{thm:fib-is-kan}), \cr
 This proof avoids the use of topological realization, which is used in~\cite[Theorem~13.1.13]{hirschhorn-model-localizations} to deduce the desired result from the right properness of the model structure on topological spaces in which the fibrations are the Serre fibrations.
 It also avoids the use of the theory of minimal fibrations, which is used in~\cite[Theorem~1.7.1]{joyal-tierney-notes} to establish the result working purely combinatorially.
 \end{example}
-
-
 
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
@@ -1371,7 +1368,6 @@ We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized functo
 \end{gathered}
 \end{equation}
 \end{definition}
-
 
 The next proposition shows in what sense the generalized functorial Frobenius condition is functorial in its parameters.
 
@@ -2494,8 +2490,6 @@ Recall that~$\cal{M} \times_{\cal{E}^\to} \cal{S}_k$ is closed under Leibniz pro
 By \cref{lift-of-leibniz-adjunction}, we have that~$\hatexp(i, p)$ is again a uniform Kan fibration.
 The desired claim is then the special case~$A = 1$ and~$B = 0$.
 \end{example}
-
-
 
 \section{Uniform fibrations in presheaf categories}
 \label{sec:fib-psh}
