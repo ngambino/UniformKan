@@ -45,7 +45,7 @@ for C in ${COMMONS[@]}; do
   sed -i 's/\\ProvidesPackage{'"$C"'}//' "$C.tex"
   sed -i 's/\\usepackage{'"$C"'}/\\input{'"$C"'}/' "$LATEX_MAIN.tex"
 done
-sed -i 's/,draft]{amsart}/]{amsart}/' "$LATEX_MAIN_TEX"
+sed -i 's/,draft]{amsart}/]{amsart}/' "$LATEX_MAIN.tex"
 sed -i 's/\\bibliography{[^}]*}/\\bibliography{}/' "$LATEX_MAIN.tex"
 # remove holes in arrow since arxiv uses an outdated version of xy which causes fragments of arrows to disappear
 sed -i 's/|\(!{\[[urdl]\+\];\[[urdl]\+\]}\|(.\+)\){\\hole}\( % bug: doesn'\''t work?\)\?//g' "$LATEX_MAIN.tex"
