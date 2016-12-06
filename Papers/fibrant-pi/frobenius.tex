@@ -655,7 +655,7 @@ We wish to show that $j \in  S_k$.
 Since $i \in S_k$, $\thetak \hatotimes i \co i \to \kcyl \hatotimes i$ has a retraction $\rho \co \kcyl \hatotimes i \to i$.
 We show that $\thetak \hatotimes j \co j \to \kcyl \hatotimes j$ has a retraction $\tau \co  \kcyl \hatotimes j \to j$.
 We define the retraction $\tau$ so that the diagram below commutes.
-Here, $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composited should be identities:
+Here, $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities:
 \[
 \xymatrix@C+2em{
 j
@@ -721,8 +721,8 @@ To find the dotted arrow is to construct a diagonal filler in the following squa
   X
 \rlap{.}}
 \]
-But now $\kcyl \otimes X \iso \kcyl \hatotimes \bot_X$, where $\bot_X \co 0 \to X$ is the unique map from the initial object of $\catE$ into $X$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
-The required filler then exists since $\kcyl \otimes X$ is isomorphic to a map in $\Cyl$ and~$p \in \Fib = \liftr{\Cyl}$.
+But now $\kcylinv \otimes Y \iso \kcyl \hatotimes \bot_Y$, where $\bot_Y \co 0 \to Y$ is the unique map from the initial object of $\catE$ into $Y$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
+The required filler then exists since $\kcylinv \otimes Y$ is isomorphic to a map in $\Cyl$ and~$p \in \Fib = \liftr{\Cyl}$.
 \end{proof}
 
 \begin{theorem} \label{thm:non-alg-frobenius}
@@ -738,7 +738,7 @@ By~\cref{thm:frobenius-equivalence}, it suffices to show that, for a pullback of
 Y \ar[r]_p & X \rlap{,}}
 \end{gathered}
 \end{equation*}
-where $i  \in \TrivCof$ and $p \in \Fib$, we have $j \in \TrivCof$.
+where $i \in \Cyl$ and $p \in \Fib$, we have $j \in \TrivCof$.
 By part (ii) of~\cref{thm:main-sheretract}, $i \in \Cof \cap S$.
 By the closure of $\Cof$ under pullbacks (condition~(S3) of \cref{thm:suitable-wfs}) and~\cref{thm:non-alg-frobenius-she}, it follows that~$j \in \Cof \cap S$.
 But $\Cof \cap S \subseteq \TrivCof$ by part~(i) of~\cref{thm:main-sheretract} and the closure of $\TrivCof$ under retracts.
