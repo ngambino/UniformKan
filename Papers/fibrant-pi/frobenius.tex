@@ -119,8 +119,10 @@ Thus, our results apply equally to many other variations of cubical sets, exclud
 
 Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} in $\calE$ is an endofunctor $\interval \otimes (-) \co \catE \to \catE$ equipped with natural transformations
 \[
-\lcyl \otimes (-) \co   \Id_\catE \to \interval \otimes (-) \, , \quad \rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-) \, ,
-\]
+\lcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)
+\, , \quad
+\rcyl \otimes (-) \co \Id_\catE \to \interval \otimes (-)
+\, ,\]
 called the left and right \emph{endpoint inclusions}, respectively.
 Such a functorial cylinder is said to have \emph{contractions} if $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ have a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$, making the following diagrams commute:
 \[
@@ -215,9 +217,10 @@ For the remainder of this section and the next one, we work with ordinary wfs's~
 For example, for a class $I$ of maps in $\cal{E}$, we write $\liftr{I}$ for the class of maps having the right lifting property with respect to all maps in $I$.
 As is well-known, we have inclusions
 \begin{equation} \label{equ:inclus-orthog}
-I \subseteq \liftl{(\liftr{I})} \, , \quad
-I \subseteq \liftr{(\liftl{I})} \rlap{.}
-\end{equation}
+I \subseteq \liftl{(\liftr{I})}
+\, , \quad
+I \subseteq \liftr{(\liftl{I})}
+\, .\end{equation}
 Let us recall the definition of the Frobenius property.
 
 \begin{definition}
@@ -762,7 +765,8 @@ Let us recall the following definition from~\cite{garner:small-object-argument}.
 \begin{definition} \label{def:right-map}
 Let $u \co \cal{I} \to \catE^\to$.
 \begin{enumerate}[(i)]
-\item A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a function~$\phi$ that assigns to each $i \in \cal{I}$ and commuting square
+\item
+A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a function~$\phi$ that assigns to each $i \in \cal{I}$ and commuting square
 \[
 \xymatrix@C=2cm{
   A_i
@@ -803,9 +807,10 @@ a diagonal filler $\phi(i,s, t) \co B_i \to X$, satisfying the following natural
 \]
 where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u$, we have that
 \[
-  \phi(j, s, t) \cc b = \phi(i, s \cc a, t \cc b) \, .
-\]
-\item A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the choices of diagonal fillers, which we omit.
+\phi(j, s, t) \cc b = \phi(i, s \cc a, t \cc b)
+\, .\]
+\item
+A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is a square $\alpha \co f \to f'$ in~$\catE$ satisfying an evident compatibility condition with respect to the choices of diagonal fillers.
 \end{enumerate}
 \end{definition}
 
@@ -813,8 +818,8 @@ For $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category o
 We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$.
 Recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor of categories over $\catE^\to$,
 \[
-  \liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to} \rlap{.}
-\]
+\liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to}
+.\]
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality functors form an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
@@ -823,9 +828,9 @@ As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonal
   \ar@<5pt>[r]^-{\liftl{\brarghole}}
   \ar@{}[r]|-{\bot}
 &
-  \CAT_{/\catE^\to}^{\op} \rlap{.}
+  \CAT_{/\catE^\to}^{\op}
   \ar@<5pt>[l]^-{\liftr{\brarghole}}
-}
+\rlap{.}}
 \end{gathered}
 \end{equation}
 Even if objects of $\CAT_{/\catE^\to}$ are pairs of the form $(\cal{I}, u)$, where $\cal{I}$ is a category $u \co
@@ -833,9 +838,10 @@ Even if objects of $\CAT_{/\catE^\to}$ are pairs of the form $(\cal{I}, u)$, whe
 A similar convention applies to maps in $\CAT_{/\catE^\to}$.
 For example, we write the components of the unit and counit simply as
 \[
-\eta_\cal{I} \co \cal{I} \to \liftl{(\liftr{\cal{I}})} \, , \quad
-\varepsilon_\cal{I} \co \cal{I} \to \liftr{(\liftl{\cal{I}})} \rlap{.}
-\]
+\eta_\cal{I} \co \cal{I} \to \liftl{(\liftr{\cal{I}})}
+\, , \quad
+\varepsilon_\cal{I} \co \cal{I} \to \liftr{(\liftl{\cal{I}})}
+\, .\]
 These are the algebraic counterparts of the inclusions in~\eqref{equ:inclus-orthog}.
 In the following, we will see that some familiar equalities between two classes of maps are replaced by functors back and forth between two categories over $\cal{E}^\to$, for which we now introduce some notation.
 Given $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \cal{E}^\to$, we write
@@ -1268,8 +1274,10 @@ Recall from~\cite{garner:small-object-argument,grandis-tholen-nwfs} that an \emp
 We write $\pCoalg{\LL}$ and $\pAlg{\RR}$ for the categories of (co)monad algebras and $\pcoalg{\LL}$ and $\palg{\RR}$ for the categories of (co)pointed endofunctor (co)algebras over $\LL$ and $\RR$, respectively.
 These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill
 \[
-\pcoalg{\LL} = \liftl{\pAlg{\RR}} \, , \quad \palg{\RR} = \liftr{\pCoalg{\LL}} \, .
-\]
+\pcoalg{\LL} = \liftl{\pAlg{\RR}}
+\, , \quad
+\palg{\RR} = \liftr{\pCoalg{\LL}}
+\, .\]
 The awfs $(\LL, \RR)$ has an underlying ordinary wfs, in which the left (right) class consists of the maps that admit the structure making them into an element of $\pcoalg{\LL}$ (of $\palg{\RR}$, respectively).
 Recall also that an awfs
 $(\LL, \RR)$ is said to be \emph{algebraically-free} on $u \co \cal{I} \to \cal{E}^\to$ if $\pAlg{\RR} = \liftr{\cal{I}}$.
@@ -1733,7 +1741,9 @@ We conclude the section with a result needed in \cref{sec:alg-frob}.
 Let $u_k \co \cal{I}_k \to \cal{E}^\to$, $w_k \co \cal{K}_k \to \cal{E}^\to$ for $k \in \braces{1\,, 2}$ and $v \co \cal{J} \to \cal{E}^\to$.
 If $(\cal{I}_1, \cal{J}, \cal{K}_1,)$ and $(\cal{I}_2, \cal{J}_2, \cal{K}_2)$ satisfy the generalized functorial Frobenius property, then so do
 \[
-(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 \times_{\cal{E}^\to} \cal{K}_2) \, , \quad (\cal{I}_1 +_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 +_{\cal{E}^\to} \cal{K}_2)
+(\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 \times_{\cal{E}^\to} \cal{K}_2)
+\, , \quad
+(\cal{I}_1 +_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 +_{\cal{E}^\to} \cal{K}_2)
 \, .\]
 \end{proposition}
 
@@ -1751,8 +1761,10 @@ This section is devoted to introducing the notion of a uniform fibration, which 
 For this, we first introduce suitable awfs's, in complete analogy with the way we defined suitable wfs's in~\cref{thm:suitable-wfs}.
 When introducing and discussing a suitable awfs, we use the notation $(\CC, \TF)$ and let
 \[
-  \Cof \defeq \pcoalg{\CC} \, , \quad \TrivFib \defeq \palg{\TF}
-  \]
+\Cof \defeq \pcoalg{\CC}
+\, , \quad
+\TrivFib \defeq \palg{\TF}
+\, .\]
 We then refer to objects in $\Cof$ as \emph{uniform cofibrations} and objects in $\TrivFib$ as \emph{uniform trivial fibrations}.
 Again, we hope that this helps to convey some of the basic intuition motivating our development.
 
