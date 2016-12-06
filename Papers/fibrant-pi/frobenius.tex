@@ -2144,7 +2144,7 @@ Define $\cal{S} \defeq  \cal{S}_0 + \cal{S}_1$.
 \end{proposition}
 
 \begin{proof}
-For (i), we first show that there is a functor
+For~(i), we first show that there is a functor
 \[
 \xymatrix@!C@C-2em{
   \Cof
@@ -2156,10 +2156,11 @@ For (i), we first show that there is a functor
    \catE^\to
 \rlap{.}}
 \]
-The map to the first factor is the identity; the map to the second factor is given by the assumption that $\Cof$ is closed under Leibniz product with the endpoint inclusions, which is part of the hypotheses of a suitable awfs.
-The claim in (i) then follows by using the map $\pCoalg{\LL} \to \Cof$ and combining the cases~$k = 0$ and~$k = 1$.
+The map to the first factor is given by the assumption that $\Cof$ is closed under Leibniz product with the endpoint inclusions, which is part of the hypotheses of a suitable awfs.
+The map to the second factor is given by \cref{thm:kcylf-is-she-alg}.
+The claim in~(i) then follows by combining the cases~$k = 0$ and~$k = 1$.
 
-For (ii), we first fix $k \in \braces{0\,, 1}$ and show that there is a functor
+For~(ii), we first fix $k \in \braces{0\,, 1}$ and show that there is a functor
 \begin{equation} \label{lem:from-strong-hequiv}
 \begin{gathered}
 \xymatrix@!C@C-2em{
@@ -2178,8 +2179,8 @@ We only describe the action of the functor $N_k$ on an object $(f, \rho)$, leavi
 Recall that $\rho$ is a retraction of $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$, exhibiting~$f$ as a retract of~$\kcyl \hatotimes f$.
 Thus, we may define $N_k(f, \rho) \defeq (f, f, \thetak \hatotimes f, \rho)$.
 Observe that this definition makes the diagram for $N_k$ commute.
-The claim in (ii) now follows by combining the cases $k = 0$ and $k = 1$ and composing with a component of the unit of the monad $\liftl{(\liftr{(-)})}$.
-Note that the retract closure in~\eqref{lem:from-strong-hequiv} vanishes because of \cref{retract-closure}.
+We then combine the cases $k = 0$ and $k = 1$ to get a functor $\Cof \times_{\cal{E}^\to} \cal{S}_k \to \overline{\Cyl}$ over $\cal{E}^\to$.
+The claim in~(ii) then follows by composing with $\overline{\Cyl} \to \overline{\TrivCof} \to \TrivCof$, using \cref{retract-closure} to eliminate the retract closure (recall that $\TrivCof$ is a category of left maps).
 \end{proof}
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
