@@ -35,7 +35,7 @@ Our results also subsume and extend work by Coquand and others on cubical sets.
 
 This paper studies the Frobenius condition for weak factorization systems (wfs's), which asserts that pullback along a right map preserves left maps~\cite{garner:topological-simplicial,gambino-garner:idtypewfs}.
 One reason for the interest in this condition is that it is closely related to the right properness of a Quillen model structure, which requires that pullback along a fibration preserves weak equivalences.
-Indeed, for a Quillen model structure in which the cofibrations are the monomorphisms, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the wfs of trivial cofibrations and fibrations.
+Indeed, for a Quillen model structure in which the cofibrations are stable under pullback, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the wfs of trivial cofibrations and fibrations.
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
@@ -226,7 +226,7 @@ We say that a wfs $(L, R)$ has the \emph{Frobenius property} if the pullback of 
 \end{definition}
 
 See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius condition~\cite{lawvere-equality}.
-As mentioned in the introduction, a Quillen model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are the monomorphisms (such as the Quillen model structure for Kan complexes~\cite{quillen-homotopical}) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, if and only if the wfs~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property.
+As mentioned in the introduction, a Quillen model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are stable under pullback (such as the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, where the cofibrations are the monomorphisms) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, if and only if the wfs~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property.
 
 We say that a wfs $(L, R)$ is \emph{free} on a class of maps $I$ (not necesssarily a set) if $R = \liftr{I}$.
 If this is the case, then $L = \liftl{(\liftr{I})}$.
