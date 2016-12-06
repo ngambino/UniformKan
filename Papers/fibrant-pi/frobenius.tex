@@ -2192,7 +2192,7 @@ However, these functors do not in general form an equivalence.
 
 We are now ready to show that the awfs in which the right maps are the uniform fibrations (constructed in~\cref{thm:sset-cset-nwfs}) satisfies the functorial Frobenius property.
 For this, we use our characterisation of the functorial Frobenius property in algebraically-free awfs's stated in \cref{thm:frobenius-comparison}.
-As a step, we show that that strong homotopy equivalences and uniform fibrations satisfy the generalized functorial Frobenius condition, \ie the algebraic analogue of \cref{thm:non-alg-frobenius-she}.
+As the main step, we show that that strong homotopy equivalences and uniform fibrations satisfy the generalized functorial Frobenius condition, \ie the algebraic analogue of \cref{thm:non-alg-frobenius-she}.
 
 \begin{lemma} \label{technical}
 The triple $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized functorial Frobenius condition.
@@ -2217,12 +2217,12 @@ The core of the argument is to obtain, for $k \in \braces{0\,, 1}$, a lift $\til
 \rlap{.}}
 \end{gathered}
 \end{equation}
-where $P \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ be the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
+where $P \co \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ is the pullback functor, sending a cospan $(g, h)$ to $h^* g$.
 The goal then follows from \cref{generalized-uniform-frob-nicer} upon combining the cases $k = 0$ and $k = 1$ using \cref{generalized-uniform-frob-product-u}.
 
-So it remains to show how to obtain the lift in in \eqref{strong-h-equiv-uniform-base-change:goal}.
+So it remains to show how to obtain the lift in \eqref{strong-h-equiv-uniform-base-change:goal}.
 Its action on objects is described in the proof of~\cref{thm:non-alg-frobenius-she}.
-For the lift of the action on morphisms, suppose we are given a map $j \to j'$ in $\Fib$ forming a square
+For the lift of the action on morphisms, suppose we are given a map $j \to j'$ in $\Fib$, inducing a square
 \[
 \xymatrix{
   X
@@ -2236,9 +2236,9 @@ For the lift of the action on morphisms, suppose we are given a map $j \to j'$ i
   \ar[r]_{v_{j'}}
 &
   Y'
-}
+\rlap{,}}
 \]
-and a map $(g, \rho) \to (g', \rho')$ in $\cal{S}_k$ with $\tau \co g \to g'$ forming a square
+and a map $\tau \co (g, \rho) \to (g', \rho')$ in $\cal{S}_k$, with $\tau$ forming a square
 \[
 \xymatrix{
   B
@@ -2252,7 +2252,7 @@ and a map $(g, \rho) \to (g', \rho')$ in $\cal{S}_k$ with $\tau \co g \to g'$ fo
   \ar[r]_-{t}
 &
   Y'
-}
+\rlap{,}}
 \]
 such that $\tau$ commutes with the retractions $\rho$ and $\rho'$ as follows:
 \[
@@ -2270,7 +2270,7 @@ such that $\tau$ commutes with the retractions $\rho$ and $\rho'$ as follows:
   g'
 \rlap{.}}
 \]
-Let $(\bar{g}, \bar{\rho})$ and $(\bar{g}', \bar{\rho}')$ denote the respective action of $P$ on the objects $(g, \rho, j)$ and $(g', \rho', j')$ as constructed in the first part of the proof.
+Let $(\bar{g}, \bar{\rho})$ and $(\bar{g}', \bar{\rho}')$ denote the respective action of $\tilde{P}$ on the objects $(g, \rho, j)$ and $(g', \rho', j')$ as constructed in \cref{thm:non-alg-frobenius-she}.
 Recall that this includes pullback squares $\sigma \co \bar{g} \to g$ and $\sigma' \co \bar{g}' \to g'$ with bottom side $v_j \co X \to Y$ and $v_{j'} \co X' \to Y'$, respectively, as in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0}.
 The square $\tau \co g \to g'$ pulls back to a square $\bar{\tau} \co \bar{g} \to \bar{g'}$ with bottom side $v_{j'}$.
 We want to show that $\bar{\tau}$ in addition forms a morphism of strong $k$-oriented homotopy equivalences from $(\bar{g}, \bar{\rho})$ to $(\bar{g}', \bar{\rho}')$.
