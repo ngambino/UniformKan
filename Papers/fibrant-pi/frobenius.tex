@@ -1326,15 +1326,15 @@ Then, for $v \co \cal{J} \to \cal{E}^\to$, we can form a pullback
   \pullback{dr}
 &
   \cal{J}
-  \ar[d]^v
+  \ar[d]^{\cod \cc v}
 \\
   \cal{I}_{/\cal{E}}
   \ar[r]_s
 &
-  \cal{E}^\to
+  \cal{E}
 \rlap{.}}
 \]
-When $u$ is the identity on $\cal{E}^\to$ and $v$ is the codomain functor $\cod \co \cal{E}^\to \to \cal{E}$, we obtain
+When $u$ and $v$ are the identity on $\cal{E}^\to$, we obtain
 \[
 \xymatrix{
   \cal{E}_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
@@ -1342,13 +1342,13 @@ When $u$ is the identity on $\cal{E}^\to$ and $v$ is the codomain functor $\cod 
   \ar[d]
   \pullback{dr}
 &
-  \cal{E}
+  \cal{E}^\to
   \ar[d]^{\cod}
 \\
   \cal{E}^\to_{/\cal{E}}
   \ar[r]_s
 &
-  \cal{E}^\to
+  \cal{E}
 \rlap{.}}
 \]
 Pullback gives a functor $Q \co  \cal{E}^\to_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to \to \cal{E}_{/\cal{E}}^\to$ sending $(f, h)$ to $h^*(f)$.
