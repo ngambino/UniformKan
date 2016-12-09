@@ -39,14 +39,10 @@ Indeed, for a Quillen model structure in which the cofibrations are stable under
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
-Our development begins by introducing a general notion of fibration, which subsumes that of a Kan fibration in simplicial and cubical sets, building on ideas in~\cite{cisinski-asterisque}.
-We then construct wfs's that have fibrations as the right maps and show that they satisfy the Frobenius condition.
-For this, we work in the setting of a category $\cal{E}$ equipped with a functorial cylinder, satisfying appropriate assumptions.
-For a suitable wfs~$(\Cof, \TrivFib)$ in $\cal{E}$, to be thought of as consisting of cofibrations and trivial fibrations, we define a fibration to be a map with the right lifting property with respect to the maps, called here open cylinder inclusions, obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and maps in $\Cof$.
-We then show that there exists a wfs that has fibrations as right maps~(\cref{thm:wfstimes}) and satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}).
-
+For our development, we work in the setting of a category $\cal{E}$ equipped with a suitable wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions. 
+Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here open cylinder inclusions, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and maps in $\Cof$.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}). 
 When applied in the category of simplicial sets, with the wfs of monomorphisms and trivial Kan fibrations~\cite{quillen-homotopical} as $(\Cof, \TrivFib)$, fibrations in our sense are exactly Kan fibrations.
-Therefore, our results yield a proof that the wfs of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, and so give a proof of right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization, used in~\cite{hovey-model-categories}, and minimal fibrations, used in~\cite{joyal-tierney:simplicial-homotopy-theory}.
+Therefore, our results yield a proof that the wfs of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, and so give a new proof of right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization, used in~\cite{hovey-model-categories}, and minimal fibrations, used in~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
 We then obtain analogous results for algebraic weak factorization systems (awfs's)~\cite{garner:small-object-argument,grandis-tholen-nwfs}.
 In an awfs, the left and right right maps do not just satisfy a lifting property, but are equipped with a natural family of solutions for lifting problems.
@@ -65,14 +61,12 @@ In order to apply our algebraic results in simplicial sets and cubical sets, we 
 Instantiating our definitions, we obtain the notion of a uniform Kan fibration which subsumes the one introduced in~\cite{cohen-et-al:cubicaltt}.
 We then establish the existence of an awfs that has uniform Kan fibrations as right maps and that satisfies the functorial Frobenius property, so that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 
-Since the proof of these results for simplicial sets and cubical sets is constructive, \ie avoids the use of the law of excluded middle and the axiom of choice, we solve the open problem of obtaining a constructive version of the result asserting that, in simplicial sets, pushforward along Kan fibrations preserves of Kan fibrations.
-This problem was motivated by the question of whether Voevodsky's simplicial model of univalent foundations in~\cite{voevodsky-simplicial-model} can be developed constructively.
-As shown in~\cite{coquand-non-constructivity-kan}, this is not possible since the result on pushforward along Kan fibrations (which is essential to interpret the rules for $\Pi$-types) cannot proved constructively.
-This independence result has led the research community to shift its focus on models based on cubical sets and uniform Kan fibrations~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}.
-Indeed, in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
-As our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets.
 
-Furthermore, since our results apply also to cubical sets, we give a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}.
+These results contribute to the ongoing investigations on whether Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} admits a constructive version, \ie one that can be defined without the law of excluded middle and the axiom of choice. In order to do this, it is necessary to overcome the problem that the interpretation of
+$\Pi$-types in the simplicial model relies on the preservation of Kan fibrations by pushforward along Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, which cannot be proved constructively~\cite[Section~6]{coquand-non-constructivity-kan}. Here, we solve this problem by working with the notion of a uniform Kan fibration, that is classically equivalent to the usual one, but allows us to prove constructively the preservation of uniform Kan fibrations by pushforward along uniform Kan fibrations. Indeed, the proof of our results in  the case of simplicial sets, as well as cubical sets, are constructive. 
+
+Furthermore, our results also shed some light on the cubical set models of type theory that have been 
+investigated extensively in recent years~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed, the independence results obtained in~\cite{coquand-non-constructivity-kan} mentioned above have led the research community to shift its focus on models based on cubical sets and uniform Kan fibrations, since in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. But, as our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets. Since our results apply to cubical sets, we give also a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}.
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
 We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer (\cref{thm:part-map-character}), as suggested to us by Thierry Coquand and Andr\'e Joyal.
@@ -111,7 +105,10 @@ Examples of such categories abound; in particular, our assumptions are satisfied
 Our definitions and results are illustrated in two running examples.
 The first is the category~$\SSet$ of simplicial sets, defined as the category of presheaves over the simplex category~$\Delta$.
 The second is the category $\CSet$ of cubical sets of~\cite{cohen-et-al:cubicaltt}.
-This is defined as the category of presheaves over the category $\Box$ with objects of the form $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on $A$.
+This is defined as the category of presheaves over the category $\Box$ with objects of the form $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on 
+$A$. Here, a de Morgan algebra is defined to be a bounded distributive lattice $(X, \land, \lor, \top, \bot)$ further equipped with a unary operation $\neg \co X \to X$ satisfying $\neg \neg x = x$, for all $x \in X$, and de Morgan's laws: $\neg (x \land y) = \neg x \lor \neg y$, $\neg (x \lor y) = \neg x \land \neg y$, for all $x, y \in X$. 
+
+
 Thus,~$\CSet$ is the category of cubical sets with symmetries, diagonals, connections, and involutions.
 Note that the presence of symmetries precludes $\Box$ from being a Reedy category.
 We stress that the only feature of the category $\Box$ relevant for the main results are connections and symmetries.
@@ -214,12 +211,12 @@ Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for
 \end{example}
 
 For the remainder of this section and the next one, we work with ordinary wfs's~\cite{bousfield-wfs} and use standard notation and terminology.
-For example, for a class $I$ of maps in $\cal{E}$, we write $\liftr{I}$ for the class of maps having the right lifting property with respect to all maps in $I$.
+For example, for a class $J$ of maps in $\cal{E}$, we write $\liftr{J}$ for the class of maps having the right lifting property with respect to all maps in $J$.
 As is well-known, we have inclusions
 \begin{equation} \label{equ:inclus-orthog}
-I \subseteq \liftl{(\liftr{I})}
+J \subseteq \liftl{(\liftr{J})}
 \, , \quad
-I \subseteq \liftr{(\liftl{I})}
+J \subseteq \liftr{(\liftl{J})}
 \, .\end{equation}
 Let us recall the definition of the Frobenius property.
 
@@ -230,15 +227,15 @@ We say that a wfs $(L, R)$ has the \emph{Frobenius property} if the pullback of 
 See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius condition~\cite{lawvere-equality}.
 As mentioned in the introduction, a Quillen model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are stable under pullback (such as the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, where the cofibrations are the monomorphisms) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, if and only if the wfs~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property.
 
-We say that a wfs $(L, R)$ is \emph{free} on a class of maps $I$ (not necesssarily a set) if $R = \liftr{I}$.
-If this is the case, then $L = \liftl{(\liftr{I})}$.
+We say that a wfs $(L, R)$ is \emph{free} on a class of maps $J$ (not necesssarily a set) if $R = \liftr{J}$.
+If this is the case, then $L = \liftl{(\liftr{J})}$.
 Of course, a wfs could be free on many different classes of maps.
-By Quillen's small object argument~\cite{quillen-homotopical}, every set $I$ determines a wfs $(L, R)$ free on $I$.
+By Quillen's small object argument~\cite{quillen-homotopical}, every set $J$ determines a wfs $(L, R)$ free on $J$.
 These are what we call \emph{cofibrantly generated wfs's}.
 The next proposition is used in the proof of~\cref{thm:non-alg-frobenius} and provides the non-algebraic counterpart of \cref{thm:frobenius-comparison}, which is the main result of \cref{sec:frobc}.
 
 \begin{proposition} \label{thm:frobenius-equivalence}
-Let $(L, R)$ be a wfs that is free on a class of maps $I$.
+Let $(L, R)$ be a wfs that is free on a class of maps $J$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
 \item $(L,R)$ has the Frobenius property.
@@ -254,7 +251,7 @@ Then the following are equivalent:
 \section{Fibrations}
 \label{sec:fib}
 
-Let us now assume \notec{Reviewer suggests: replace ``now'' by ``for the remainder of this section''. But it is not just this section, it is all remaining sections except \cref{sec:ortf} and \cref{sec:frobc}.} that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
+Let us now assume that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
 The notion of a fibration that we introduce and study in this section and the next is relative not only to $\cal{E}$ and its functorial cylinder, but also to a wfs on $\cal{E}$ satisfying some assumptions that we encapsulate in the notion of a \emph{suitable wfs}, given in \cref{thm:suitable-wfs} below.
 In order to state that definition, we need some notation.
 For $k \in \braces{0, 1}$ and a map $i \co A \to B$ in $\catE$, we define the \emph{Leibniz product}~\cite{riehl-verity:reedy} of the endpoint inclusion~$\kcyl \otimes (-)$ and~$i$ to be the map
@@ -398,6 +395,7 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 \section{The Frobenius property for fibrations}
 \label{sec:frob}
 
+We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$. 
 Our aim in this section is to show that the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} satisfies the Frobenius property.
 Our proof of the Frobenius property consists of three main steps.
 First, we introduce the notion of a \emph{strong homotopy equivalence} (\cref{def:strhe}) and give a characterization of strong homotopy equivalences as certain retracts (\cref{strong-h-equiv-as-section-non-alg}).
@@ -756,7 +754,9 @@ It also avoids the use of the theory of minimal fibrations, which is used in~\ci
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
-This section starts the second part of the paper, in which we are interested in generalizations for awfs's of the results obtained earlier.
+This section starts the second part of the paper, in which we are interested in generalizations for 
+algebraic weak factorization systems (awf's)~\cite{garner:small-object-argument,grandis-tholen-nwfs}
+of the results obtained earlier.
 In this section and the next we will need to review and establish some facts about the algebraic setting that are useful for our development.
 Importantly, in the algebraic setting we do not consider just classes of arrows in $\catE$, but rather categories~$\cal{I}$, to be thought of as indexing categories, and functors~$u \co \cal{I} \to \catE^\to$.
 In the following, we write $u_i \co A_i \to B_i$ for the effect of such a functor on~$i \in \cal{I}$.
@@ -815,12 +815,10 @@ A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is 
 \end{definition}
 
 For $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
-We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$.
-Recall from~\cite{garner:small-object-argument} that the function mapping $u \co \cal{I} \to \catE^\to$ to its right orthogonal $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ defines the action on objects of a functor of categories over $\catE^\to$,
-\[
-\liftr{\brarghole} \co \CAT_{/\catE^\to}^{\op} \to \CAT_{/\catE^\to}
-.\]
-As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality functors form an adjunction
+We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Analogously, we can define the category $\liftl{\cal{I}}$  of left $\cal{I}$-maps and their morphisms 
+and the forgetful functor $\liftl{u} \co \liftl{\cal{I}} \to \cal{E}^\to$, which we call the \emph{left orthogonal} of $u$. 
+As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality operations
+extend to functors forming an adjunction
 \begin{equation} \label{garner-adjunction}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -1106,6 +1104,7 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$:
 \]
 \item liftings $G' \co \cal{J} \to \liftr{\cal{I}}$ of $\widehat{G}(h, \arghole) \co \cal{F}^\to \to \catE^\to$ making the following diagram commute:
 \[
+\begin{gathered}
 \xymatrix@C+2em{
   \cal{J}
   \ar[d]_{v}
@@ -1117,21 +1116,17 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$:
   \cal{F}^\to
   \ar[r]_-{\widehat{G}(h, \arghole)}
 &
-  \catE^\to
+  \catE^\to  
 \rlap{.}}
+\end{gathered}
 \]
-\qed
+ \qed
 \end{enumerate}
 \end{proposition}
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
-\begin{remark} \label{pitchfork-leibniz-most-general-example}
-We will apply~\cref{lift-of-leibniz-adjunction} in \cref{sec:alg-fib} as follows.
-We will have categories~$\cal{E}$ and $\cal{F}$, and take $\cal{K}$ to be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$, with morphisms from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ given by natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates.
-We can then take $F \co \cal{K} \times \catE \to \cal{F}$ and~$G \co \cal{K}^{\op} \times \cal{F} \to \catE$ to be the application of left and right adjoint, respectively.
-% Note that we have fully faithful forgetful functors $\cal{K} \to [\catE, \cal{F}]$ and $\cal{K} \to [\cal{F}, \catE]^{\op}$.
-\end{remark}
+
 
 Next, we establish some facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors.
 
@@ -1221,7 +1216,7 @@ Then the inclusion $\cal{J} \to \catE^\to$ is the left Kan extension of $\cal{I}
 \begin{proof}
 Since $\catE^\to$ is cocomplete, we can verify the claim using the colimit formula for left Kan extensions.
 All of the following will be functorial in an object $j \co A \to B$ of $\cal{J}$.
-We consider the diagram in $\catE^\to$ indexed by pullback squares of the form
+We consider the diagram $d \co S \to \catE^\to$, where $S$ is the set of pullback squares of the form
 \[
 \xymatrix@C=1.2cm{
   A'
@@ -1238,7 +1233,7 @@ We consider the diagram in $\catE^\to$ indexed by pullback squares of the form
   B
 }
 \]
-with $i \co A' \to \yon(x)$ in $\cal{I}$ and valued $i$.
+with $i \co A' \to \yon(x)$ in $\cal{I}$, and the function $d$ maps such a square to $i \in \cal{E}^\to$.
 Our goal is to show that its colimit is $j$.
 Using the assumption that $\cal{J}$ is closed under base change to representables, the given diagram can be described equivalently as the the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
 The claim can then be restated as $\colim_{b \co \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b \co \yon(x) \to B} \yon(x) \iso B$.
@@ -1315,7 +1310,13 @@ In the next section, we apply this characterization to prove a functorial Froben
 In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below.
 
 For this, we introduce some notation.
-Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects given by an object $X \in \cal{E}$ and a map $u_i \co A_i \to B_i$ in $\cal{E}_{/X}$.
+Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects given by 
+tuples $(X, i, a, b)$, where $X \in \cal{E}$, $i \in \cal{I}$, $a \co A_i \to X$, $b \co B_i \to X$, such that the following diagram commutes:
+\[
+\xymatrix{
+A_i \ar[dr]_a \ar[rr]^{u_i} & & B_i \ar[dl]^{b} \\
+ & X \rlap{.} & }
+\]
 We write $s \co \cal{I}_{/\cal{E}} \to \cal{E}$ for the first projection.
 Then, for $v \co \cal{J} \to \cal{E}^\to$, we can form a pullback
 \[
@@ -1611,11 +1612,7 @@ The action of $\widetilde{Q}$ on objects together with coherence~(1) constitutes
 Coherence~(2) constitutes part~(ii).
 \end{proof}
 
-The statement of~\cref{def:uniFrobcond} makes it clear that the generalized functorial Frobenius condition requires the specification of additional structure, rather than the mere satisfaction of a property.
-Explicitly, part~(i) requires that $v_j^*(u_i) \co v_j^* X_i \to v_j^* Y_i$ is equipped with the structure of a left $\liftr{\cal{K}}$-map for $i \in \cal{I}$ and $u_i \co X_i \to Y_i$ over $D_j$ such that morphisms in $\cal{I}_{/D_j}$ induce morphisms of left $\liftr{\cal{K}}$-maps.
-However, at the level of squares, the condition in part (ii) of \cref{def:uniFrobcond} is just a property, not additional structure.
-Explicitly, it requires the components of the natural transformation $\phi$ to be morphisms of left $\liftr{\cal{K}}$-maps.
-Also note that if the commutative square~\eqref{def:beck-chevalley:0} is a pullback, then the canonical natural transformation~$\phi$ is an isomorphism by the usual Beck-Chevalley condition, and so is~$\tilde{\phi}$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
+Note that if the commutative square~\eqref{def:beck-chevalley:0} is a pullback, then the canonical natural transformation~$\phi$ is an isomorphism by the usual Beck-Chevalley condition, and so is~$\tilde{\phi}$ since $\liftl{(\liftr{u})}$ reflects isomorphisms.
 
 \cref{def:uniFrobcond} has an immediate dual, expressed in terms of pushforward rather than pullback, which we state next.
 
@@ -2661,7 +2658,8 @@ Any element $i \co A \to B$ of $\cal{M}$ arises as base change of $1 \to K$ alon
 For the converse, it suffices to show that~$1 \to K$ is in $\cal{M}$, but this is equivalent to (M5).
 \end{proof}
 
-The axioms for the class $\cal{M}$ in (M1)-(M5) can then be rewritten in equivalent form as properties of the classifier $K$, see~\cite{PittsAM:aximct} for details.
+The axioms for the class $\cal{M}$ in (M1)-(M5) can then be rewritten in equivalent form as properties of the classifier $K$, see~\cite{PittsAM:aximct} for details (see also~\cite{HylandM:firssd,RosoliniG:phd} for related ideas in synthetic domain
+theory). 
 Observe that the factorization of $\top \co 1 \to \Omega$ via $K$ gives us a pullback diagram
 \begin{equation} \label{partial-map-classifier:0}
 \begin{gathered}
