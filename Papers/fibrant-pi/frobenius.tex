@@ -326,6 +326,42 @@ This class is defined by letting
 A \emph{fibration} is a map with the right lifting property with respect to all open cylinder inclusions.
 \end{definition}
 
+We wish to give an equivalent characterization of fibrations. 
+For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
+For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} of
+$\exp(\bar{\kcyl}, -)$ and $f$ to be the map
+\[
+\hatexp(\kcyl, f) \co X^\interval \to Y^\interval \times_{Y} X 
+\]
+determined uniquely by the the following pullback diagram:
+\[
+\xymatrix{
+X^\interval \ar@/^2pc/[drr]^-{\exp(\bar{\kcyl}, X)}  \ar@/_2pc/[ddr]_{\exp(\interval, f)} \ar[dr]^-{\hatexp(\bar{\kcyl}, f)} &  & \\
+  &   Y^\interval \times_{Y} X    \ar[d] \ar[r]  & X \ar[d]^f \\ 
+  & Y^\interval \ar[r]_{\exp(\bar{\kcyl}, Y)} & Y \rlap{.} }
+  \]
+This gives a functor, fitting in an adjunction with the Leibniz product, as follows:
+\begin{equation}
+\label{equ:leibniz-prod-exp}
+\xymatrix@C+4em{
+  \catE^\to
+  \ar@<1ex>[r]^{\kcyl \hatotimes (-)}
+  \ar@{}[r]|{\bot}
+&
+  \catE^\to
+  \ar@<1ex>[l]^{\hatexp(\bar{\delta}^k, -)}
+\rlap{.}}
+\end{equation} 
+The desired characterization, stated in the next proposition, now follows from standard adjointness arguments.
+
+
+\begin{proposition} \label{thm:char-fib-nonalg} For a map $p \co X \to Y$ in $\cal{E}$, the following are equivalent:
+\begin{enumerate}[(i)]
+\item $p$ is a fibration,
+\item $\hatexp(\bar{\lcyl}, p)$ and $\hatexp(\bar{\rcyl}, p)$ are trivial fibrations.
+\end{enumerate}
+\end{proposition} 
+
 We then define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
 We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that $\Fib = \liftr{\Cyl}$ and $\TrivCof = \liftl{\Fib}$.
 We illustrate these notions in our running examples.
@@ -1858,21 +1894,11 @@ We use comonad algebras for $\LL$ instead of uniform cofibrations here in order 
 \end{definition}
 
 We write $\Fib$ for the category of uniform fibrations and their morphisms, which is given by~$\Fib  \defeq \liftr{\Cyl}$.
-We now characterize uniform fibrations in terms of right $\Cof$-maps.
-For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
-We obtain a functor $\hatexp(\bar{\delta}^k, -)$, defined in terms of a pullback, dual to $\kcyl \hatotimes (-)$, which was defined in terms of a pushout, for~$k \in \braces{0\,, 1}$.
-These form an adjunction as follows:
-\[
-\xymatrix@C+4em{
-  \catE^\to
-  \ar@<1ex>[r]^{\kcyl \hatotimes (-)}
-  \ar@{}[r]|{\bot}
-&
-  \catE^\to
-  \ar@<1ex>[l]^{\hatexp(\bar{\delta}^k, -)}
-\rlap{.}}
-\]
-The desired characterization of uniform fibration, stated in the next proposition, now follows from the general results in \cref{sec:ortf}.
+We now characterize uniform fibrations in terms of right $\Cof$-maps, analogously to how we characterized fibrations
+in~\cref{thm:char-fib-nonalg}. The desired characterization of uniform fibration, stated in the next proposition, uses
+the adjunction in~\eqref{equ:leibniz-prod-exp} and follows from the general results in \cref{sec:ortf}.
+
+
 
 \begin{proposition} \label{prod-exp-general}
 For a map $p \co X \to Y$ in $\catE$, the following are equivalent:
