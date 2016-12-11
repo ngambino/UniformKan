@@ -2106,7 +2106,7 @@ For $k \in \braces{0\,, 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\to \
 
 \begin{proof} We give a proof using the formalism of Leibniz constructions, as explained in~\cite{riehl-verity:reedy}.
 For this, we use the description of $\cal{S}_k$ provided by \cref{strong-h-equiv-as-section} and the notation of \cref{theta}, 
-thus writing just $\delta^k$ for the natural transformation $\delta^k \otimes (-)$.
+thus writing simply $\delta^k$ for the natural transformation $\delta^k \otimes (-)$.
 We apply the Leibniz construction to the endofunctor composition functor
 $(-) \cc (-) \co [\cal{E}, \cal{E}] \times [\cal{E}, \cal{E}] \to [\cal{E}, \cal{E}]$, so as to obtain a functor
 \[
@@ -2123,22 +2123,22 @@ This amounts to saying that the map of natural transformations
   \theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k 
 \]
 exhibits $\delta^k$ as a retract of $\delta^k \mathbin{\hat{\cc}} \delta^k$ in $[\cal{E},\cal{E}]^\to$. 
-Our goal is to show that $\delta^k \hatotimes (-)$ factors $\cal{S}_k \to \cal{E}^\to$. For this, we need to show
+Our goal is to show that $\delta^k \hatotimes (-)$ can be factored via $\cal{S}_k \to \cal{E}^\to$. For this, we need to show
 that the arrow 
 \[
   \theta^k \hatotimes (\delta^k \hatotimes f) \co \delta^k \hatotimes f \to \delta^k \hatotimes (\delta^k \hatotimes f)
 \]
 exhibits $\delta^k \hatotimes f$ as a retract of $\delta^k \hatotimes (\delta^k \hatotimes f)$, functorially in $f \in \cal{E}^\to$. 
-But associativity of functor composition implies associativity of the corresponding Leibniz construction, since the involved functors preserve pushouts, and therefore we can restate our goal as asserting that the map \notec{Check change below}
+But associativity of functor composition implies associativity of the corresponding Leibniz construction (since the involved functors preserve pushouts), and therefore we can restate our goal as asserting that the map \notec{Check change below}
 \[
   (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
    \co
   \delta^k \hatotimes f
    \to  
-    (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \rlap{.}
-\]
-exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$. 
-But functors, in this case $\alpha \mapsto \alpha \hatotimes f$, preserve section-retraction pairs.
+    (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
+    \]
+exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$, functorially in $f \in \cal{E}^\to$.  But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$, 
+mapping $(\alpha, f)$ to $\alpha \hatotimes f$, preserve section-retraction pairs.
 \end{proof}
 
 The next lemma is the analogue of~\cref{thm:main-sheretract}.
