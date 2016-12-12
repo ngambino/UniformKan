@@ -2206,34 +2206,34 @@ thus writing simply $\delta^k$ for the natural transformation $\delta^k \otimes 
 We apply the Leibniz construction to the endofunctor composition functor
 $(-) \cc (-) \co [\cal{E}, \cal{E}] \times [\cal{E}, \cal{E}] \to [\cal{E}, \cal{E}]$, so as to obtain a functor
 \[
-(-) \mathbin{\hat{\cc}} (-) \co [\cal{E}, \cal{E}]^\to \times [\cal{E}, \cal{E}]^\to \to [\cal{E}, \cal{E}]^\to \rlap{.}
-\]
+(-) \mathbin{\hat{\cc}} (-) \co [\cal{E}, \cal{E}]^\to \times [\cal{E}, \cal{E}]^\to \to [\cal{E}, \cal{E}]^\to
+.\]
+
 Recall from \cref{thm:endpoint-are-she-functorially} that $\delta^k \co \cal{E} \to \cal{E}^\to$ factors via $\cal{S}_k \to \cal{E}^\to$, \ie that
 the arrow 
 \[
-  \theta^k \hatotimes (\delta^k \otimes X) \co \delta^k \otimes X \to \delta^k \hatotimes (\delta^k \otimes X)
+\theta^k \hatotimes (\delta^k \otimes X) \co \delta^k \otimes X \to \delta^k \hatotimes (\delta^k \otimes X)
 \]
 exhibits $\delta^k \otimes X$ as a retract of $\delta^k \hatotimes (\delta^k \otimes X)$, functorially in $X \in \cal{E}$.
 This amounts to saying that the map of natural transformations
 \[
-  \theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k 
+\theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k 
 \]
-exhibits $\delta^k$ as a retract of $\delta^k \mathbin{\hat{\cc}} \delta^k$ in $[\cal{E},\cal{E}]^\to$. 
-Our goal is to show that $\delta^k \hatotimes (-)$ can be factored via $\cal{S}_k \to \cal{E}^\to$. For this, we need to show
+exhibits $\delta^k$ as a retract of $\delta^k \mathbin{\hat{\cc}} \delta^k$ in $[\cal{E}, \cal{E}]^\to$. 
+
+Our goal is to show that $\delta^k \hatotimes (-) \co \cal{E}^\to \to \cal{E}^\to$ can be factored via $\cal{S}_k \to \cal{E}^\to$.
+For this, we need to show
 that the arrow 
 \[
-  \theta^k \hatotimes (\delta^k \hatotimes f) \co \delta^k \hatotimes f \to \delta^k \hatotimes (\delta^k \hatotimes f)
+\theta^k \hatotimes (\delta^k \hatotimes f) \co \delta^k \hatotimes f \to \delta^k \hatotimes (\delta^k \hatotimes f)
 \]
 exhibits $\delta^k \hatotimes f$ as a retract of $\delta^k \hatotimes (\delta^k \hatotimes f)$, functorially in $f \in \cal{E}^\to$. 
-But associativity of functor composition implies associativity of the corresponding Leibniz construction (since the involved functors preserve pushouts), and therefore we can restate our goal as asserting that the map \notec{Check change below}
+But associativity of functor composition implies associativity of the corresponding Leibniz construction (since the involved functors preserve pushouts), and therefore we can restate our goal as asserting that the map
 \[
-  (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
-   \co
-  \delta^k \hatotimes f
-   \to  
-    (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
-    \]
-exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$, functorially in $f \in \cal{E}^\to$.  But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$, 
+(\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \co \delta^k \hatotimes f \to (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
+\]
+exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$, functorially in $f \in \cal{E}^\to$.
+But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$, 
 mapping $(\alpha, f)$ to $\alpha \hatotimes f$, preserve section-retraction pairs.
 \end{proof}
 
