@@ -7,6 +7,7 @@
 
 \newcommand{\LL}{\mathsf{L}}
 \newcommand{\RR}{\mathsf{R}}
+\newcommand{\MM}{\mathsf{M}}
 
 \title{The Frobenius condition, right properness, \linebreak and uniform fibrations}
 
@@ -39,8 +40,8 @@ Indeed, for a Quillen model structure in which the cofibrations are stable under
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
-For our development, we work in the setting of a category $\cal{E}$ equipped with a suitable wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions. 
-Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here open cylinder inclusions, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and maps in $\Cof$.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}). 
+For our development, we work in the setting of a category $\cal{E}$ equipped with a suitable wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions.
+Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here open cylinder inclusions, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and maps in $\Cof$.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}).
 When applied in the category of simplicial sets, with the wfs of monomorphisms and trivial Kan fibrations~\cite{quillen-homotopical} as $(\Cof, \TrivFib)$, fibrations in our sense are exactly Kan fibrations.
 Therefore, our results yield a proof that the wfs of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, and so give a new proof of right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization, used in~\cite{hovey-model-categories}, and minimal fibrations, used in~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
@@ -63,9 +64,9 @@ We then establish the existence of an awfs that has uniform Kan fibrations as ri
 
 
 These results contribute to the ongoing investigations on whether Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} admits a constructive version, \ie one that can be defined without the law of excluded middle and the axiom of choice. In order to do this, it is necessary to overcome the problem that the interpretation of
-$\Pi$-types in the simplicial model relies on the preservation of Kan fibrations by pushforward along Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, which cannot be proved constructively~\cite[Section~6]{coquand-non-constructivity-kan}. Here, we solve this problem by working with the notion of a uniform Kan fibration, that is classically equivalent to the usual one, but allows us to prove constructively the preservation of uniform Kan fibrations by pushforward along uniform Kan fibrations. Indeed, the proof of our results in  the case of simplicial sets, as well as cubical sets, are constructive. 
+$\Pi$-types in the simplicial model relies on the preservation of Kan fibrations by pushforward along Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, which cannot be proved constructively~\cite[Section~6]{coquand-non-constructivity-kan}. Here, we solve this problem by working with the notion of a uniform Kan fibration, that is classically equivalent to the usual one, but allows us to prove constructively the preservation of uniform Kan fibrations by pushforward along uniform Kan fibrations. Indeed, the proof of our results in  the case of simplicial sets, as well as cubical sets, are constructive.
 
-Furthermore, our results also shed some light on the cubical set models of type theory that have been 
+Furthermore, our results also shed some light on the cubical set models of type theory that have been
 investigated extensively in recent years~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed, the independence results obtained in~\cite{coquand-non-constructivity-kan} mentioned above have led the research community to shift its focus on models based on cubical sets and uniform Kan fibrations, since in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. But, as our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets. Since our results apply to cubical sets, we give also a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}.
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
@@ -105,8 +106,8 @@ Examples of such categories abound; in particular, our assumptions are satisfied
 Our definitions and results are illustrated in two running examples.
 The first is the category~$\SSet$ of simplicial sets, defined as the category of presheaves over the simplex category~$\Delta$.
 The second is the category $\CSet$ of cubical sets of~\cite{cohen-et-al:cubicaltt}.
-This is defined as the category of presheaves over the category $\Box$ with objects of the form $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on 
-$A$. Here, a de Morgan algebra is defined to be a bounded distributive lattice $(X, \land, \lor, \top, \bot)$ further equipped with a unary operation $\neg \co X \to X$ satisfying $\neg \neg x = x$, for all $x \in X$, and de Morgan's laws: $\neg (x \land y) = \neg x \lor \neg y$, $\neg (x \lor y) = \neg x \land \neg y$, for all $x, y \in X$. 
+This is defined as the category of presheaves over the category $\Box$ with objects of the form $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on
+$A$. Here, a de Morgan algebra is defined to be a bounded distributive lattice $(X, \land, \lor, \top, \bot)$ further equipped with a unary operation $\neg \co X \to X$ satisfying $\neg \neg x = x$, for all $x \in X$, and de Morgan's laws: $\neg (x \land y) = \neg x \lor \neg y$, $\neg (x \lor y) = \neg x \land \neg y$, for all $x, y \in X$.
 
 
 Thus,~$\CSet$ is the category of cubical sets with symmetries, diagonals, connections, and involutions.
@@ -326,18 +327,18 @@ This class is defined by letting
 A \emph{fibration} is a map with the right lifting property with respect to all open cylinder inclusions.
 \end{definition}
 
-We wish to give an equivalent characterization of fibrations. 
+We wish to give an equivalent characterization of fibrations.
 For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
 For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} of
 $\exp(\bar{\kcyl}, -)$ and $f$ to be the map
 \[
-\hatexp(\kcyl, f) \co X^\interval \to Y^\interval \times_{Y} X 
+\hatexp(\kcyl, f) \co X^\interval \to Y^\interval \times_{Y} X
 \]
 determined uniquely by the the following pullback diagram:
 \[
 \xymatrix{
 X^\interval \ar@/^2pc/[drr]^-{\exp(\bar{\kcyl}, X)}  \ar@/_2pc/[ddr]_{\exp(\interval, f)} \ar[dr]^-{\hatexp(\bar{\kcyl}, f)} &  & \\
-  &   Y^\interval \times_{Y} X    \ar[d] \ar[r]  & X \ar[d]^f \\ 
+  &   Y^\interval \times_{Y} X    \ar[d] \ar[r]  & X \ar[d]^f \\
   & Y^\interval \ar[r]_{\exp(\bar{\kcyl}, Y)} & Y \rlap{.} }
   \]
 This gives a functor, fitting in an adjunction with the Leibniz product, as follows:
@@ -351,7 +352,7 @@ This gives a functor, fitting in an adjunction with the Leibniz product, as foll
   \catE^\to
   \ar@<1ex>[l]^{\hatexp(\bar{\delta}^k, -)}
 \rlap{.}}
-\end{equation} 
+\end{equation}
 The desired characterization, stated in the next proposition, now follows from standard adjointness arguments.
 
 
@@ -360,7 +361,7 @@ The desired characterization, stated in the next proposition, now follows from s
 \item $p$ is a fibration,
 \item $\hatexp(\bar{\lcyl}, p)$ and $\hatexp(\bar{\rcyl}, p)$ are trivial fibrations.
 \end{enumerate}
-\end{proposition} 
+\end{proposition}
 
 We then define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
 We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that $\Fib = \liftr{\Cyl}$ and $\TrivCof = \liftl{\Fib}$.
@@ -436,7 +437,7 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 \section{The Frobenius property for fibrations}
 \label{sec:frob}
 
-We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$. 
+We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$.
 Our aim in this section is to show that the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} satisfies the Frobenius property.
 Our proof of the Frobenius property consists of three main steps.
 First, we introduce the notion of a \emph{strong homotopy equivalence} (\cref{def:strhe}) and give a characterization of strong homotopy equivalences as certain retracts (\cref{strong-h-equiv-as-section-non-alg}).
@@ -526,7 +527,7 @@ For this, observe that we have a commutative diagram \notec{We should explain wh
 }
 \end{gathered}
 \end{equation}
-for $k \in \braces{0\,, 1}$. 
+for $k \in \braces{0\,, 1}$.
 This diagram gives us (functorially in $f$) an arrow~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in the category of maps in~$\catE$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
 
 \begin{lemma} \label{strong-h-equiv-as-section-non-alg}
@@ -639,8 +640,8 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 \end{proof}
 
 
-As observed in~\cref{thm:endpoint-are-she}, $\kcyl \otimes X \co X \to \interval \otimes X$ is a strong $k$-oriented homotopy equivalence for all $X \in \cal{E}$. 
-Therefore, by~\cref{strong-h-equiv-as-section-non-alg}, $\thetak \hatotimes (\kcyl \otimes X)  \co \kcyl \otimes X \to \kcyl \hatotimes (\kcyl \otimes X)$ exhibits $\kcyl \otimes X$ as a retract of 
+As observed in~\cref{thm:endpoint-are-she}, $\kcyl \otimes X \co X \to \interval \otimes X$ is a strong $k$-oriented homotopy equivalence for all $X \in \cal{E}$.
+Therefore, by~\cref{strong-h-equiv-as-section-non-alg}, $\thetak \hatotimes (\kcyl \otimes X)  \co \kcyl \otimes X \to \kcyl \hatotimes (\kcyl \otimes X)$ exhibits $\kcyl \otimes X$ as a retract of
 $\kcyl \hatotimes (\kcyl \otimes X)$. We spell out the retraction, since we will make use of it in the proof of~\cref{thm:kcylf-is-she} below:
 \begin{equation}
 \label{equ:kcyl-as-retract}
@@ -652,7 +653,7 @@ $\kcyl \hatotimes (\kcyl \otimes X)$. We spell out the retraction, since we will
 &
   (\interval \otimes X) +_X (\interval \otimes X)
   \ar[d]^{\kcyl \hatotimes (\kcyl \otimes X)}
-  \ar[r]^-{[\varepsilon_X, \varepsilon_X]} 
+  \ar[r]^-{[\varepsilon_X, \varepsilon_X]}
 &
   X
   \ar[d]^{\kcyl \otimes X}
@@ -661,14 +662,14 @@ $\kcyl \hatotimes (\kcyl \otimes X)$. We spell out the retraction, since we will
   \ar[r]_-{\kcylinv \otimes (\interval \otimes X)}
 &
   \interval \otimes (\interval \otimes X)
-  \ar[r]_{c_X} 
+  \ar[r]_{c_X}
 &
   \interval \otimes X
 \rlap{,}}
 \end{gathered}
 \end{equation}
 where $[\varepsilon_X, \varepsilon_X]$ indicates the copair of two copies of the contraction $\varepsilon_X \co \interval \otimes X \to X$. The commutativity of the right-hand side diagram
-and the fact that the horizontal composites are identities follow easily from the axioms for contractions and connections. 
+and the fact that the horizontal composites are identities follow easily from the axioms for contractions and connections.
 
 
 Note that strong $k$-oriented homotopy equivalences have better closure properties than strong $k$-oriented deformation retracts.
@@ -682,19 +683,19 @@ But then $\thetak \hatotimes g$ is also a section (since sections are closed und
 For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
-\begin{proof} This is a  diagram-chasing argument, but we present it in outline since this gives an unfolding of the abstract proof of ~\cref{thm:kcylf-is-she-alg},  
-which establishes the corresponding fact in the algebraic setting. By \cref{strong-h-equiv-as-section-non-alg} it suffices to show that  the diagram 
+\begin{proof} This is a  diagram-chasing argument, but we present it in outline since this gives an unfolding of the abstract proof of ~\cref{thm:kcylf-is-she-alg},
+which establishes the corresponding fact in the algebraic setting. By \cref{strong-h-equiv-as-section-non-alg} it suffices to show that  the diagram
  \begin{equation*}
- \begin{gathered} 
+ \begin{gathered}
 \xymatrix@C+8em{
-  (\interval \otimes X) +_X Y 
+  (\interval \otimes X) +_X Y
   \ar[r]^-{\iota_1 \cc (\kcylinv \otimes  (( \interval \otimes X) +_X Y) }
-  \ar[d]_{\kcyl \hatotimes f} 
+  \ar[d]_{\kcyl \hatotimes f}
 &
  \big( (\interval \otimes X) +_X Y \big) +_{ (\interval \otimes X) +_X Y} (\interval \otimes Y)
   \ar[d]^{\kcyl \hatotimes (\kcyl \hatotimes f)}
 \\
-  \interval \otimes Y 
+  \interval \otimes Y
   \ar[r]_-{\kcylinv \otimes (\interval \otimes Y)}
 &
   \interval \otimes (\interval \otimes Y)}
@@ -703,44 +704,44 @@ which establishes the corresponding fact in the algebraic setting. By \cref{stro
 exhibits $\kcyl \hatotimes f$ as a retract of $\kcyl \hatotimes (\kcyl \hatotimes f)$ in $\cal{E}^\to$. The key step in the proof is to replace this problem with an equivalent one. For this,
 we need to construct some auxiliary maps. First, we define
 \[
-\sigma_f  \co 
- 	(\interval \otimes X) +_X Y 
+\sigma_f  \co
+ 	(\interval \otimes X) +_X Y
 	\to
-	(\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y) 
+	(\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y)
 \]
- by letting $\sigma_f \defeq (\kcyl \otimes (\interval \otimes X)) +_X (\kcyl \otimes Y)$. Secondly, we have a pushout diagram 
+ by letting $\sigma_f \defeq (\kcyl \otimes (\interval \otimes X)) +_X (\kcyl \otimes Y)$. Secondly, we have a pushout diagram
 \[
 \xymatrix{
 X \ar[r]^f \ar[d]_{\kcyl  \otimes X} & Y \ar[r]^{\kcyl \otimes Y}  & \interval \otimes Y  \ar[dd]^{\iota_2} \ar@/^2pc/[dddr]^{\kcyl \otimes (\interval \otimes Y)} &  \\
-\interval \otimes X \ar[d]_{\kcyl \otimes (\interval \otimes X)} & & \\ 
+\interval \otimes X \ar[d]_{\kcyl \otimes (\interval \otimes X)} & & \\
 \interval \otimes (\interval \otimes X) \ar[rr]_-{\iota_1} \ar@/_2pc/[drrr]_{\interval \otimes (\interval \otimes f)} & & (\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y) \ar[dr]^{\tau_f} &  \\
  & & & I \otimes (I \otimes Y) }
  \]
-Using the maps $\sigma_f$ and $\tau_f$, we then have a further pushout diagram 
+Using the maps $\sigma_f$ and $\tau_f$, we then have a further pushout diagram
 \[
 \xymatrix{
  (\interval \otimes X) +_X Y  \ar[r]^{\kcyl \hatotimes f} \ar[d]_{\sigma_f}  & \interval \otimes Y \ar[d]^{\iota_2}  \ar@/^2pc/[ddr]^{\kcyl \otimes (\interval \otimes Y)} & \\
  (\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y)  \ar[r]^-{\iota_1} \ar@/_1pc/[drr]_{\tau_f} & Z \ar[dr]^-(.4){ (\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f}  & \\
   & & \interval \otimes (\interval \otimes Y) \rlap{,}}
   \]
- where the notation $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ is intented to suggest the analogy with the proof of~\cref{thm:kcylf-is-she-alg}. 
+ where the notation $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ is intented to suggest the analogy with the proof of~\cref{thm:kcylf-is-she-alg}.
  Since the functor $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pushouts (since it preserves all colimits being a left adjoint), it is possible to
- show that our goal is equivalent to showing that the diagram 
+ show that our goal is equivalent to showing that the diagram
  \[
 \xymatrix@C+10em{
-  (\interval \otimes X) +_X Y 
+  (\interval \otimes X) +_X Y
   \ar[r]^-{\iota_1 \cc (   (\kcylinv \otimes (\interval \otimes X)) +_X (\kcylinv \otimes Y)   )}
-  \ar[d]_{\kcyl \hatotimes f} 
+  \ar[d]_{\kcyl \hatotimes f}
 &
-Z 
+Z
   \ar[d]^{(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f } \\
-  \interval \otimes Y 
+  \interval \otimes Y
   \ar[r]_-{\kcylinv \otimes (\interval \otimes Y)}
 &
   \interval \otimes (\interval \otimes Y)}
   \]
 exhibits $\kcyl \hatotimes f$ as a retract of $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ in $\cal{E}^\to$.  But this can be proved easily following the same ideas used
-to construct the retraction in~\eqref{equ:kcyl-as-retract}. 
+to construct the retraction in~\eqref{equ:kcyl-as-retract}.
 \end{proof}
 
 For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}.
@@ -885,7 +886,7 @@ It also avoids the use of the theory of minimal fibrations, which is used in~\ci
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
-This section starts the second part of the paper, in which we are interested in generalizations for 
+This section starts the second part of the paper, in which we are interested in generalizations for
 algebraic weak factorization systems (awf's)~\cite{garner:small-object-argument,grandis-tholen-nwfs}
 of the results obtained earlier.
 In this section and the next we will need to review and establish some facts about the algebraic setting that are useful for our development.
@@ -946,8 +947,8 @@ A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is 
 \end{definition}
 
 For $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
-We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Analogously, we can define the category $\liftl{\cal{I}}$  of left $\cal{I}$-maps and their morphisms 
-and the forgetful functor $\liftl{u} \co \liftl{\cal{I}} \to \cal{E}^\to$, which we call the \emph{left orthogonal} of $u$. 
+We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Analogously, we can define the category $\liftl{\cal{I}}$  of left $\cal{I}$-maps and their morphisms
+and the forgetful functor $\liftl{u} \co \liftl{\cal{I}} \to \cal{E}^\to$, which we call the \emph{left orthogonal} of $u$.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality operations
 extend to functors forming an adjunction
 \begin{equation} \label{garner-adjunction}
@@ -1247,7 +1248,7 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$:
   \cal{F}^\to
   \ar[r]_-{\widehat{G}(h, \arghole)}
 &
-  \catE^\to  
+  \catE^\to
 \rlap{.}}
 \end{gathered}
 \]
@@ -1396,7 +1397,97 @@ The result follows by combining part~(i) of \cref{kan-extension-closure} and \cr
 \section{The functorial Frobenius condition}
 \label{sec:frobc}
 
-Recall from~\cite{garner:small-object-argument,grandis-tholen-nwfs} that an \emph{algebraic weak factorization} system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations~$f = \RR f \cc \LL f$ functorially in~$f \in \cal{E}^\to$ and an extension of the evident structure of (co)pointed endofunctors of $\LL$ and $\RR$ to that of a (co)monad, such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law.
+Recall from~\cite{garner:small-object-argument,grandis-tholen-nwfs} that an \emph{algebraic weak factorization} system~$(\LL, \RR)$ on a category $\cal{E}$ consist of a pair of functors $\LL, \RR \co \cal{E}^\to \to \cal{E}^\to$ providing factorizations
+\[
+\xymatrix{
+  X
+  \ar[rr]^{f}
+  \ar[dr]_{L f}
+&&
+  Y
+\\&
+  \MM f
+  \ar[ur]_{R f}
+}
+\]
+functorially in~$f \in \cal{E}^\to$ and respective extensions of the (co)pointed endofunctor $\LL \to \Id$ and $\Id \to \RR$ given by
+\begin{align*}
+\xymatrix{
+  X
+  \ar@{=}[r]
+  \ar[d]_{\LL f}
+&
+  X
+  \ar[d]^{f}
+\\
+  \MM f
+  \ar[r]_{\RR f}
+&
+  Y
+\rlap{,}}
+&&
+\xymatrix{
+  X
+  \ar[r]^{\LL f}
+  \ar[d]_{f}
+&
+  \MM f
+  \ar[d]^{\RR f}
+\\
+  Y
+  \ar@{=}[r]
+&
+  Y
+}
+\end{align*}
+for $f \co X \to Y$ to a (co)monad with (co)unit $\LL \to \LL \LL$ and $\RR \RR \to \RR$ of the form
+\begin{align*}
+\xymatrix{
+  X
+  \ar@{=}[r]
+  \ar[d]_{\LL f}
+&
+  X
+  \ar[d]^{\LL \LL f}
+\\
+  \MM f
+  \ar[r]_{\Delta_f}
+&
+  \MM \LL f
+\rlap{,}}
+&&
+\xymatrix{
+  \MM \RR f
+  \ar[r]^{\mu_f}
+  \ar[d]_{\RR \RR f}
+&
+  \MM f
+  \ar[d]^{\RR f}
+\\
+  Y
+  \ar@{=}[r]
+&
+  Y
+}
+\end{align*}
+for $f \co X \to Y$ such that the natural transformation $\LL \RR \to \RR \LL$ given by the square
+\[
+\xymatrix{
+  \MM \LL f
+  \ar[r]^{\Delta_f}
+  \ar[d]_{\LL \RR f}
+&
+  \MM
+  \ar[d]^{\RR \LL f}
+\\
+  \MM f
+  \ar[r]_{\mu_f}
+&
+  \MM \RR f
+}
+\]
+for $f \co X \to Y$ is a distributive law.
+
 We write $\pCoalg{\LL}$ and $\pcoalg{\LL}$ for the category of monad algebras and of pointed endofunctor algebras, respectively, over $\LL$. Similarly, we write $\pAlg{\RR}$ and $\palg{\RR}$  for the categories of comonad algebras and copointed endofunctor algebras, respectively, over $\RR$. These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill
 \[
 \pcoalg{\LL} = \liftl{\pAlg{\RR}}
@@ -1441,7 +1532,7 @@ In the next section, we apply this characterization to prove a functorial Froben
 In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below.
 
 For this, we introduce some notation.
-Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects given by 
+Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects given by
 tuples $(X, i, a, b)$, where $X \in \cal{E}$, $i \in \cal{I}$, $a \co A_i \to X$, $b \co B_i \to X$, such that the following diagram commutes:
 \[
 \xymatrix{
@@ -2201,7 +2292,7 @@ For $k \in \braces{0\,, 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\to \
 \end{lemma}
 
 \begin{proof} We give a proof using the formalism of Leibniz constructions, as explained in~\cite{riehl-verity:reedy}.
-For this, we use the description of $\cal{S}_k$ provided by \cref{strong-h-equiv-as-section} and the notation of \cref{theta}, 
+For this, we use the description of $\cal{S}_k$ provided by \cref{strong-h-equiv-as-section} and the notation of \cref{theta},
 thus writing simply $\delta^k$ for the natural transformation $\delta^k \otimes (-)$.
 We apply the Leibniz construction to the endofunctor composition functor
 $(-) \cc (-) \co [\cal{E}, \cal{E}] \times [\cal{E}, \cal{E}] \to [\cal{E}, \cal{E}]$, so as to obtain a functor
@@ -2210,30 +2301,30 @@ $(-) \cc (-) \co [\cal{E}, \cal{E}] \times [\cal{E}, \cal{E}] \to [\cal{E}, \cal
 .\]
 
 Recall from \cref{thm:endpoint-are-she-functorially} that $\delta^k \co \cal{E} \to \cal{E}^\to$ factors via $\cal{S}_k \to \cal{E}^\to$, \ie that
-the arrow 
+the arrow
 \[
 \theta^k \hatotimes (\delta^k \otimes X) \co \delta^k \otimes X \to \delta^k \hatotimes (\delta^k \otimes X)
 \]
 exhibits $\delta^k \otimes X$ as a retract of $\delta^k \hatotimes (\delta^k \otimes X)$, functorially in $X \in \cal{E}$.
 This amounts to saying that the map of natural transformations
 \[
-\theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k 
+\theta^k \mathbin{\hat{\cc}} \delta^k \co \delta^k \to \delta^k \mathbin{\hat{\cc}} \delta^k
 \]
-exhibits $\delta^k$ as a retract of $\delta^k \mathbin{\hat{\cc}} \delta^k$ in $[\cal{E}, \cal{E}]^\to$. 
+exhibits $\delta^k$ as a retract of $\delta^k \mathbin{\hat{\cc}} \delta^k$ in $[\cal{E}, \cal{E}]^\to$.
 
 Our goal is to show that $\delta^k \hatotimes (-) \co \cal{E}^\to \to \cal{E}^\to$ can be factored via $\cal{S}_k \to \cal{E}^\to$.
 For this, we need to show
-that the arrow 
+that the arrow
 \[
 \theta^k \hatotimes (\delta^k \hatotimes f) \co \delta^k \hatotimes f \to \delta^k \hatotimes (\delta^k \hatotimes f)
 \]
-exhibits $\delta^k \hatotimes f$ as a retract of $\delta^k \hatotimes (\delta^k \hatotimes f)$, functorially in $f \in \cal{E}^\to$. 
+exhibits $\delta^k \hatotimes f$ as a retract of $\delta^k \hatotimes (\delta^k \hatotimes f)$, functorially in $f \in \cal{E}^\to$.
 But associativity of functor composition implies associativity of the corresponding Leibniz construction (since the involved functors preserve pushouts), and therefore we can restate our goal as asserting that the map
 \[
-(\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \co \delta^k \hatotimes f \to (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f 
+(\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \co \delta^k \hatotimes f \to (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f
 \]
 exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$, functorially in $f \in \cal{E}^\to$.
-But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$, 
+But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$,
 mapping $(\alpha, f)$ to $\alpha \hatotimes f$, preserve section-retraction pairs.
 \end{proof}
 
@@ -2790,7 +2881,7 @@ For the converse, it suffices to show that~$1 \to K$ is in $\cal{M}$, but this i
 \end{proof}
 
 The axioms for the class $\cal{M}$ in (M1)-(M5) can then be rewritten in equivalent form as properties of the classifier $K$, see~\cite{PittsAM:aximct} for details and~\cite{HylandM:firssd,RosoliniG:phd} for related ideas in synthetic domain
-theory. 
+theory.
 Observe that the factorization of $\top \co 1 \to \Omega$ via $K$ gives us a pullback diagram
 \begin{equation} \label{partial-map-classifier:0}
 \begin{gathered}
