@@ -413,9 +413,14 @@ For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-
 m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)]
 \, .\]
 A \emph{naive Cisinski fibration} would be defined as a map with the right lifting property with respect to the class
-\[
-\Cyl' \defeq \braces{(m \hatotimes (-))^n (\kcyl \hatotimes i) \mid n \in \mathbb{N} \, , \;  i \in \Cof}
-\, .\]
+\begin{align*}
+\Cyl'
+&\defeq
+\braces{(m \hatotimes (-))^n (\kcyl \hatotimes i) \mid n \in \mathbb{N} \, , \; k \in \braces{0\,,1} \, , \;  i \in \Cof}
+\\
+&=_{\phantom{\operatorname{def}}}
+\braces{m \hatotimes \ldots \hatotimes m \hatotimes \kcyl \hatotimes i \mid k \in \braces{0\,,1} \, , \;  i \in \Cof}
+\end{align*}
 Informally, one could think of this set as the closure of $\Cyl$ under Leibniz product with $m$.
 
 Our reasons for working with~$\Cyl$ instead of this class are twofold.
