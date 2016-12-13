@@ -1732,7 +1732,7 @@ Given a functor $u \co \cal{I} \to \catE^\to$, it is immediate to check that the
   \calE_{/Y}^\to
 \rlap{.}}
 \]
-By \cref{lift-of-adjunction}, the pullback functor $f^* \co \catE_{/Y} \to \catE_{/X}$ then lifts to slices of the right orthogonality categories,
+Composing with the unit $\cal{I}_{/Y} \to \liftl{(\liftr{(\cal{I}_{/Y})})}$ of the adjunction \eqref{garner-adjunction}, applying \cref{lift-of-adjunction}, and using \cref{pitchfork-slicing} to commute orthogonality functors with slicing, the pullback functor $f^* \co \catE_{/Y} \to \catE_{/X}$ then lifts to slices of the right orthogonality categories,
 \[
 \xymatrix@C=1.5cm{
   \liftr{\cal{I}}_{/Y}
@@ -1897,7 +1897,7 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof}
-For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and the left orthogonality functor.
+For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
 For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_* s^*$ and $v_k^* t_! \dashv t^* (v_k)_*$ recalling that $\phi$ and $\psi$ are mates.
 \end{proof}
 
