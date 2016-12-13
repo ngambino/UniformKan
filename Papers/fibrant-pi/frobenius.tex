@@ -886,9 +886,7 @@ It also avoids the use of the theory of minimal fibrations, which is used in~\ci
 \section{Categories of orthogonal maps}
 \label{sec:ortf}
 
-This section starts the second part of the paper, in which we are interested in generalizations for
-algebraic weak factorization systems (awf's)~\cite{garner:small-object-argument,grandis-tholen-nwfs}
-of the results obtained earlier.
+This section starts the second part of the paper, in which we are interested in generalizations for algebraic weak factorization systems (awf's)~\cite{garner:small-object-argument,grandis-tholen-nwfs} of the results obtained earlier.
 In this section and the next we will need to review and establish some facts about the algebraic setting that are useful for our development.
 Importantly, in the algebraic setting we do not consider just classes of arrows in $\catE$, but rather categories~$\cal{I}$, to be thought of as indexing categories, and functors~$u \co \cal{I} \to \catE^\to$.
 In the following, we write $u_i \co A_i \to B_i$ for the effect of such a functor on~$i \in \cal{I}$.
@@ -1115,6 +1113,9 @@ The retract closure commutes with slicing and coslicing, in the sense that for e
 \qed
 \end{proposition}
 
+The following two propositions are instances of Proposition~21 of \cite{bourke-garner-I} with double categories of squares specialized to categories of arrows.
+The first proposition also appears in the form of the pullback square~(6.3) in \cite{riehl-monoidal-ams}.
+
 \begin{proposition} \label{lift-of-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
 For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following are equivalent:
@@ -1156,7 +1157,7 @@ For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following ar
 \end{proposition}
 
 \begin{proposition} \label{lift-of-mates}
-Let u $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
 Let $F_1 \dashv G_1$ and $F_2 \dashv G_2$ be adjunctions between $\cal{E}$ and $\cal{F}$ satisfying the equivalent conditions of \cref{lift-of-adjunction}.
 Let $m \co F_1 \to F_2$ and $n \co G_2 \to G_1$ be natural transformations forming mates.
 Then the following are equivalent:
