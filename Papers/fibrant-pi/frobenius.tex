@@ -40,8 +40,10 @@ Indeed, for a Quillen model structure in which the cofibrations are stable under
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
-For our development, we work in the setting of a category $\cal{E}$ equipped with a suitable wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions.
-Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here open cylinder inclusions, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and maps in $\Cof$.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}).
+For our development, we work in the setting of a category $\cal{E}$ equipped with an appropriate cofibrantly
+generated wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions.
+Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here generating trivial cofibrations, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and generating 
+cofibrations.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}).
 When applied in the category of simplicial sets, with the wfs of monomorphisms and trivial Kan fibrations~\cite{quillen-homotopical} as $(\Cof, \TrivFib)$, fibrations in our sense are exactly Kan fibrations.
 Therefore, our results yield a proof that the wfs of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, and so give a new proof of right properness of the Quillen model structure for Kan complexes which avoids entirely topological realization, used in~\cite{hovey-model-categories}, and minimal fibrations, used in~\cite{joyal-tierney:simplicial-homotopy-theory}.
 
@@ -53,7 +55,8 @@ Unfolding the relevant definitions, a uniform trivial cofibration is a map equip
 The presence of this algebraic structure remedies some unsatisfactory aspects of wfs's (such as the failure of orthogonality classes to be closed under all colimits), something that has proved to be useful for applications (see~\cite{batanin-cisinski-weber,garner:globular-operator-awfs,garner-homomorphisms} or~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs} for examples).
 The Frobenius condition has a natural counterpart in this context, called the functorial Frobenius condition~\cite{garner:topological-simplicial}, which requires that the pullback along right maps not only preserves left maps but also preserves morphisms between them.
 
-Starting from a suitable awfs $(\CC, \TF)$, whose left and right maps are to be thought of as uniform cofibrations and uniform trivial fibrations, we define uniform fibrations by algebraic orthogonality with respect to a category having open cylinder inclusions as objects.
+Starting from a suitable awfs $(\CC, \TF)$, whose left and right maps are to be thought of as uniform cofibrations and uniform trivial fibrations, we define uniform fibrations by algebraic orthogonality with respect to a category having 
+generating trivial cofibrations as objects.
 We then show that there exists an awfs $(\TC, \FF)$ that has uniform fibrations as right maps (\cref{thm:sset-cset-nwfs}) and that satisfies the functorial Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}).
 Therefore, pushforward along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
 An important technical step in this development is the characterization of when an algebraically-free awfs (in the sense of~\cite{garner:small-object-argument}) has the functorial Frobenius property (\cref{thm:frobenius-comparison}), which is somehow more elaborate than its counterpart for ordinary wfs's and is of independent interest.
@@ -70,7 +73,8 @@ Furthermore, our results also shed some light on the cubical set models of type 
 investigated extensively in recent years~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed, the independence results obtained in~\cite{coquand-non-constructivity-kan} mentioned above have led the research community to shift its focus on models based on cubical sets and uniform Kan fibrations, since in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. But, as our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets. Since our results apply to cubical sets, we give also a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}.
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
-We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer (\cref{thm:part-map-character}), as suggested to us by Thierry Coquand and Andr\'e Joyal.
+We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer 
+(\cref{thm:part-map-classifier}), as suggested to us by Thierry Coquand and Andr\'e Joyal.
 We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration (\cref{unif-vs-non-unif}) In particular, we prove that, in a presheaf category, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it is a (trivial) fibration.
 As we observe in~\cref{why-uniform}, however, the algebraic notion of a fibration is essential for our results in~\cref{sec:alg-fib} to hold constructively.
 
@@ -222,26 +226,29 @@ As is well-known, we have inclusions
 Let us recall the definition of the Frobenius property.
 
 \begin{definition}
-We say that a wfs $(L, R)$ has the \emph{Frobenius property} if the pullback of an $L$-map along an $R$-map is again an $L$-map.
+We say that a wfs $(\cal{L}, \cal{R})$ has the \emph{Frobenius property} if the pullback of an $\cal{L}$-map along an 
+$\cal{R}$-map is again an $\cal{L}$-map.
 \end{definition}
 
 See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius condition~\cite{lawvere-equality}.
 As mentioned in the introduction, a Quillen model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are stable under pullback (such as the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, where the cofibrations are the monomorphisms) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, if and only if the wfs~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property.
 
-We say that a wfs $(L, R)$ is \emph{free} on a class of maps $\cal{I}$ (not necesssarily a set) if $R = \liftr{\cal{I}}$.
-If this is the case, then $L = \liftl{(\liftr{\cal{I}})}$.
+We say that a wfs $(\cal{L}, \cal{R})$ is \emph{free} on a class of maps $\cal{I}$ (not necesssarily a set) if 
+$\cal{R} = \liftr{\cal{I}}$.
+If this is the case, then $\cal{L} = \liftl{(\liftr{\cal{I}})}$.
 Of course, a wfs could be free on many different classes of maps.
-By Quillen's small object argument~\cite{quillen-homotopical}, every set $\cal{I}$ determines a wfs $(L, R)$ free on $\cal{I}$.
+By Quillen's small object argument~\cite{quillen-homotopical}, every set $\cal{I}$ determines a wfs $(\cal{L}, 
+\cal{R})$ free on $\cal{I}$.
 These are what we call \emph{cofibrantly generated wfs's}.
 The next proposition is used in the proof of~\cref{thm:non-alg-frobenius} and provides the non-algebraic counterpart of \cref{thm:frobenius-comparison}, which is the main result of \cref{sec:frobc}.
 
 \begin{proposition} \label{thm:frobenius-equivalence}
-Let $(L, R)$ be a wfs that is free on a class of maps $\cal{I}$.
+Let $(\cal{L}, \cal{R})$ be a wfs that is free on a class of maps $\cal{I}$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
-\item $(L,R)$ has the Frobenius property.
-\item For every $p \co Y \to X$, pushforward $p^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ preserves $R$-maps.
-\item The pullback of an $I$-map along an $R$-map is an $L$-map.
+\item $(\cal{L}, \cal{R})$  has the Frobenius property.
+\item For every $p \co Y \to X$, pushforward $p^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ preserves $\cal{R}$-maps.
+\item The pullback of an $\cal{I}$-map along an $\cal{R}$-map is an $\cal{L}$-map.
 \end{enumerate}
 \end{proposition}
 
@@ -314,20 +321,104 @@ By a result of Cisinski~\cite[Proposition~1.2.27]{cisinski-asterisque}, every pr
 When $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}, a map has the right lifting property with respect to monomorphisms if and only if it has it with respect to boundary inclusions (latching object inclusions for representables).
 \end{example}
 
-Let us now fix a suitable wfs $(\Cof,\TrivFib)$ in $\catE$.
+Let us now fix a suitable wfs $(\Cof,\TrivFib)$ and let $\cal{I}$ be a set of maps that cofibrantly generates it, which exists by assumption (S1). We refer to  elements of $\cal{I}$ as \emph{generating cofibrations}. 
 We wish to define a new wfs, to be thought of as consisting of trivial cofibrations and fibrations.
-For this, we begin by defining the class of maps, called \emph{open cylinder inclusions}, that determines the notion of a fibration.
-This class is defined by letting
+For this, we begin by defining the set of maps that determines the notion of a fibration.
+This set is defined by letting
 \begin{equation} \label{equ:cylinc}
-\Cyl \defeq \braces{\kcyl \hatotimes i \mid k \in \braces{0\,, 1} \, , \; i \in \Cof}
+\cal{I}_\otimes \defeq \braces{\kcyl \hatotimes i \mid k \in \braces{0\,, 1} \, , \; i \in \cal{I} }
 \, .\end{equation}
+We refer to elements of $\cal{I}_\otimes$ as \emph{generating trivial cofibrations}.
 
 \begin{definition} \label{thm:fib}
-A \emph{fibration} is a map with the right lifting property with respect to all open cylinder inclusions.
+A \emph{fibration} is a map with the right lifting property with respect to all generating trivial cofibrations.
 \end{definition}
 
-We wish to give an equivalent characterization of fibrations.
-For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
+We now define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
+We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that 
+\[
+\Fib = \liftr{(\cal{I}_\otimes)} \, , \quad \TrivCof = \liftl{\Fib} \, .
+\]
+The next proposition is immediate. 
+
+\begin{proposition} \label{thm:wfstimes}
+$(\TrivCof, \Fib)$ is a wfs in $\cal{E}$.
+\end{proposition}
+
+\begin{proof} By the small object argument, with $\cal{I}_\otimes$ as the generating set. 
+\end{proof} 
+
+Note that, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
+We now illustrate our notion of a fibration in our running examples.
+
+\begin{example} \label{thm:fib-is-kan}
+In $\SSet$, let~$(\Cof, \TrivFib)$ be the wfs of monomorphisms and trivial Kan fibrations, which is cofibrantly generated by the set of boundary inclusions 
+\[
+\cal{I} = \{  i^n \co \partial \Delta^n \to \Delta^n \ \mid \ n \in \mathbb{N} \} \rlap{.}
+\]
+Then, a fibration in our sense is a map with the right lifting property with respect to all maps of the form
+\[
+h_k^1 \hatotimes i^n \co (\Delta^1 \times \partial \Delta^n ) \cup (\braces{k} \times \Delta^n ) \to \Delta^1 \times \Delta^n 
+\, ,\]
+given by the Leibniz product of an endpoint inclusion $h_k^1 \co \braces{k} \to \Delta^1$ with a 
+boundary inclusion $i^n \co \partial \Delta^n \to \Delta^n$.
+This is shown equivalent to the usual notion of Kan fibration in~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
+\end{example}
+
+\begin{example} \label{nonalgebraic-cof}
+In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$\Cof$ consists of all monomorphisms, which is
+suitable by~\cite[Proposition~1.2.27]{cisinski-asterisque} (\cf~\cref{thm:generation-presheaf-cisinski}). 
+A fibration in $\CSet$ will be called a \emph{Kan fibration}.
+To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion for~$\Box^n$, which is given by the $n$-fold Leibniz tensor of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$.
+%\footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
+Then 
+\[
+\lcyl \hatotimes i^n \co \sqcup_1^{1+n} \to \Box^{1+n} \, , \quad  \rcyl \hatotimes i^n \co \sqcap_1^{1+n} \to \Box^{1+n}
+\]
+are the inclusions. 
+Since the cube category has symmetries, a Kan fibration in $\CSet$ has the right lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.
+%\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
+The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering fibrations as defined by weak right 
+orthogonality with respect to \notec{To be fixed} the subset $\cal{I}' \subseteq \cal{I}$  spanned by monomorphisms\footnote{Or decidable monomorphisms, if working constructively.} classified by their face lattice~$\Phi$, \ie those arising as a pullback 
+of~$\braces{\top} \to \Phi$, excluding for example diagonals in cubes.
+%Since the presence of symmetries, diagonals, and connections precludes the cube category from being Reedy, this may turn out to be a %natural restriction.
+Note that $\cal{I}'$ is the left class of a suitable wfs and is thus covered by our development.
+\end{example}
+
+
+\begin{remark} \label{cisinski-remark}
+We relate the notion of a fibration introduced here with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
+For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be the natural transformation
+given by
+\[
+m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)]
+\, .\]
+A \emph{naive Cisinski fibration} would be defined as a map with the right lifting property with respect to the class
+\begin{align*}
+\cal{I}_\otimes'
+&\defeq
+\braces{(m \hatotimes (-))^n (\kcyl \hatotimes i) \mid n \in \mathbb{N} \, , \; k \in \braces{0\,,1} \, , \;  i \in \cal{I} }
+\\
+&=_{\phantom{\operatorname{def}}}
+\braces{m \hatotimes \ldots \hatotimes m \hatotimes \kcyl \hatotimes i \mid k \in \braces{0\,,1} \, , \;  i \in \cal{I} } \rlap{.}
+\end{align*}
+Informally, one could think of this set as the closure of $\cal{I}_\otimes$ under Leibniz product with $m$.
+
+Our reasons for working with~$\cal{I}_\otimes$ instead of this class are twofold.
+First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and~$\Cof$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every fibration is a naive Cisinski fibration.
+This is the case in our main examples, where $\Cof$ consists of all monomorphisms, the map $[\lcyl, \rcyl]$ is a monomorphism, and Leibniz product preserves monomorphisms.
+
+For our second point, we use some notions and results in~\cref{sec:frob}.
+If we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle~$n$ arguments), and that $\Cof$ is closed under Leibniz product with $[\lcyl, \rcyl]$ (for example, this is the case if $[\lcyl, \rcyl]$ is a monomorphism and the maps in~$\Cof$ are the monomorphisms in a presheaf category), then the maps in $\cal{I}'_\otimes$ can still be shown to be strong homotopy equivalences.
+This gives rise to an inclusion $\Cof' \to \Cof \cap S$ (where $S$ is the class of strong homotopy equivalences that we define in \cref{sec:frob}).
+By \cref{thm:main-sheretract}, it then follows that every fibration is a naive Cisinski fibration.
+\end{remark}
+
+
+
+
+We now wish to give an equivalent characterization of fibrations, which does not refer to the generating
+cofibrations. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
 For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} of
 $\exp(\bar{\kcyl}, -)$ and $f$ to be the map
 \[
@@ -352,101 +443,44 @@ This gives a functor, fitting in an adjunction with the Leibniz product, as foll
   \ar@<1ex>[l]^{\hatexp(\bar{\delta}^k, -)}
 \rlap{.}}
 \end{equation}
-The desired characterization, stated in the next proposition, now follows from standard adjointness arguments.
+The desired characterization of fibrations, stated in the next proposition, now follows from standard adjointness arguments.
 
 
 \begin{proposition} \label{thm:char-fib-nonalg} For a map $p \co X \to Y$ in $\cal{E}$, the following are equivalent:
 \begin{enumerate}[(i)]
 \item $p$ is a fibration,
 \item $\hatexp(\bar{\lcyl}, p)$ and $\hatexp(\bar{\rcyl}, p)$ are trivial fibrations.
-\end{enumerate}
+\end{enumerate} \qed
 \end{proposition}
 
-We then define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
-We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that $\Fib = \liftr{\Cyl}$ and $\TrivCof = \liftl{\Fib}$.
-We illustrate these notions in our running examples.
+Note that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
+$\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. The next corollary will be useful to establish the Frobenius property for $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
 
-\begin{example} \label{thm:fib-is-kan}
-In $\SSet$, let~$(\Cof, \TrivFib)$ be the wfs of monomorphisms and trivial Kan fibrations, which is cofibrantly generated by the boundary inclusions.
-Then, a fibration in our sense is a map with the right lifting property with respect to all maps of the form
-\[
-h_k^1 \hatotimes i \co (\Delta^1 \times A) \cup (\braces{k} \times B) \to \Delta^1 \times B
-\, ,\]
-given by the Leibniz product of an endpoint inclusion $h_k^1 \co \braces{k} \to \Delta^1$ with a monomorphism $i \co A \to B$.
-This is shown equivalent to the usual notion of Kan fibration in~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
-\end{example}
+\begin{corollary} 
+\label{thm:kcyl-of-cof-is-trivcof-non-alg} Let $f \co X \to Y$ in $\cal{E}$. 
+If $f \in \Cof$, then $\kcyl \hatotimes f \in \TrivCof$, for $k \in \{0 \, , 1 \}$.
+\end{corollary}
 
-\begin{example} \label{nonalgebraic-cof}
-In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$L$ consists of all monomorphisms.
-A fibration in $\CSet$ will be called a \emph{Kan fibration}.
-To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion for~$\Box^n$, which is given by the $n$-fold Leibniz tensor of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$.
-%\footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
-Then $\lcyl \hatotimes i^n$ and $\rcyl \hatotimes i^n$ are the inclusions $\sqcup_1^{1+n} \to \Box^{1+n}$ and $\sqcap_1^{1+n} \to \Box^{1+n}$, respectively.
-Since the cube category has symmetries, a Kan fibration in $\CSet$ has the left lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.
-%\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
-The fibrant cubical types defined in~\cite{cohen-et-al:cubicaltt} arise by considering the $L'$-fibrations where~$L'$ is the subclass of $L$ spanned by monomorphisms\footnote{Or decidable monomorphisms, if working constructively.} classified by their face lattice~$\Phi$, \ie those arising as a pullback of $\braces{\top} \to \Phi$, excluding for example diagonals in cubes.
-%Since the presence of symmetries, diagonals, and connections precludes the cube category from being Reedy, this may turn out to be a %natural restriction.
-Note that $L'$ is the left class of a suitable wfs and is thus covered by our development.
-\end{example}
-
-\begin{proposition} \label{thm:wfstimes}
-$(\TrivCof, \Fib)$ is a wfs in $\cal{E}$.
-\end{proposition}
-
-\begin{proof}
-Let $\cal{I}$ be a generating set for the suitable wfs $(\Cof, \TrivFib)$.
-We define
-\[
-\cal{J} \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \cal{I} \,  }
-\, .\]
-By the small object argument, there is a wfs $(L, R)$ cofibrantly generated by $\cal{I}$, where $L$ is the saturation of $\cal{J}$ (\ie its closure under identities, composition, retracts, pushouts and transfinite composition) and $R = \liftr{\cal{J}}$.
-We claim that $R$ is the class of fibrations, \ie that $\liftr{\cal{J}} = \liftr{\Cyl}$. We have
+\begin{proof} Assume $f \in \Cof$ and let $k \in \{0 \, 1 \}$. In order to show that $\kcyl \hatotimes f \in \TrivCof$, it suffices to show that  $\kcyl \hatotimes f \in \liftl{( \liftr{\TrivCof})}$, \ie $\kcyl \hatotimes f \in \liftl{\Fib}$. But we have that 
 \begin{alignat*}{2} 
-p \in  \liftr{\cal{J}} 
-& \Leftrightarrow  (\forall k \in \{ 0 \, , 1 \})(\forall  u \in \cal{I}) \;  \kcyl \hatotimes u \pitchfork p  & \quad & \text{(by definition of $\cal{J}$)} \\
- & \Leftrightarrow (\forall k \in \{ 0 \, , 1 \})(\forall  u \in \cal{I}) \; u \pitchfork \hatexp(\bar{\kcyl}, p) & \quad & \text{(by adjointness)}   \\
- & \Leftrightarrow (\forall k \in \{ 0 \, , 1 \}) \; \hatexp(\bar{\kcyl}, p) \in \TrivFib  & \quad & \text{(since $\liftr{\cal{I}}= \TrivFib$)}  \\
- & \Leftrightarrow p \in \Fib \, , & \quad & \text{(by~\cref{thm:char-fib-nonalg}),}
- \end{alignat*}
- as required.
+\kcyl \hatotimes f \in  \liftl{\Fib} 
+& \Leftrightarrow (\forall p \in \Fib) \, \kcyl \hatotimes f  \pitchfork p & \\ 
+& \Leftrightarrow (\forall p \in \Fib) \, f  \pitchfork \hatexp(\bar{\kcyl}, p) & 
+\end{alignat*}
+But we know that if $p \in \Fib$, then $ \hatexp(\bar{\kcyl}, p) \in \TrivFib$ by~\cref{thm:char-fib-nonalg}. 
 \end{proof} 
 
-Note that, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\TrivCof \subseteq \Cof$, \ie that every trivial cofibration is a cofibration.
-\begin{remark} \label{cisinski-remark}
-We also relate the notion of a fibration introduced here with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
-For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be given by
-\[
-m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)]
-\, .\]
-A \emph{naive Cisinski fibration} would be defined as a map with the right lifting property with respect to the class
-\begin{align*}
-\Cyl'
-&\defeq
-\braces{(m \hatotimes (-))^n (\kcyl \hatotimes i) \mid n \in \mathbb{N} \, , \; k \in \braces{0\,,1} \, , \;  i \in \Cof}
-\\
-&=_{\phantom{\operatorname{def}}}
-\braces{m \hatotimes \ldots \hatotimes m \hatotimes \kcyl \hatotimes i \mid k \in \braces{0\,,1} \, , \;  i \in \Cof}
-\end{align*}
-Informally, one could think of this set as the closure of $\Cyl$ under Leibniz product with $m$.
 
-Our reasons for working with~$\Cyl$ instead of this class are twofold.
-First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and~$\Cof$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every fibration is a naive Cisinski fibration.
-This is the case in our main examples, where $\Cof$ consists of all monomorphisms, the map $[\lcyl, \rcyl]$ is a monomorphism, and Leibniz product preserves monomorphisms.
-
-For our second point, we use some notions and results in~\cref{sec:frob}.
-If we assume generalized connections (in the sense of $(1+n+1)$-ary operations that behave as connections for fixed middle~$n$ arguments), and that $\Cof$ is closed under Leibniz product with $[\lcyl, \rcyl]$ (for example, this is the case if $[\lcyl, \rcyl]$ is a monomorphism and the maps in~$\Cof$ are the monomorphisms in a presheaf category), then the maps in $\Cyl$ can still be shown to be strong homotopy equivalences.
-This gives rise to an inclusion $\Cof' \to \Cof \cap S$ (where $S$ is the class of strong homotopy equivalences that we define in \cref{sec:frob}).
-By \cref{thm:main-sheretract}, it then follows that every fibration is a naive Cisinski fibration.
-\end{remark}
 
 \section{The Frobenius property for fibrations}
 \label{sec:frob}
 
-We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$.
+We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$, with generating set~$\cal{I}$.
+
 Our aim in this section is to show that the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} satisfies the Frobenius property.
 Our proof of the Frobenius property consists of three main steps.
 First, we introduce the notion of a \emph{strong homotopy equivalence} (\cref{def:strhe}) and give a characterization of strong homotopy equivalences as certain retracts (\cref{strong-h-equiv-as-section-non-alg}).
-Secondly, we show that the maps in $\Cof$ which are strong homotopy equivalences are retracts of maps in $\Cyl$, and that every map in $\Cyl$ is both in $\Cof$ and a strong homotopy
+Secondly, we show that the maps in $\cal{I}$ which are strong homotopy equivalences are retracts of maps in $\cal{I}_\otimes$, and that every map in $\cal{I}_\otimes$ is both in $\cal{I}$ and a strong homotopy
 equivalence (\cref{thm:main-sheretract}).
 Thirdly, we show that the pullback of a strong homotopy equivalence along a fibration is again an strong homotopy equivalence (\cref{thm:non-alg-frobenius-she}).
 With these facts in place, the Frobenius condition for $(\TrivCof, \Fib)$ in \cref{thm:non-alg-frobenius} follows easily.
@@ -473,12 +507,12 @@ Recall that a \emph{homotopy from $f$ to $g$}, denoted $\phi \co f \sim g$, is a
 \rlap{.}}
 \end{gathered}
 \end{equation}
-We say that a map $f \co X \to Y$ is called a \emph{left} (or {\emph{$0$-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $, $\psi \co f \cc g \sim \id_Y$.
+We say that a map $f \co X \to Y$  in $\catE$ is called a \emph{left} (or {\emph{$0$-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co g \cc f \sim \id_X $, $\psi \co f \cc g \sim \id_Y$.
 Dually, we have a \emph{right} (or {\emph{ $1$-oriented}) \emph{homotopy equivalence} if there exist $g \co Y \to X$ and homotopies $\phi \co \id_X \sim g \cc f$, $\psi \co \id_Y \sim f \cc g$.
 The notion of a strong homotopy equivalence, defined below, is obtained by requiring an additional condition on the homotopies $\phi$ and $\psi$.
 
 \begin{definition} \label{def:strhe}
-For $k \in \braces{0\,, 1}$, a map $f \co X \to Y$ is called a \emph{strong $k$-oriented homotopy equivalence} if there is a map $g$ and homotopies $\phi$ and $\psi$ making $f$ into a $k$-oriented homotopy equivalence such that the following diagram commutes:
+For $k \in \braces{0\,, 1}$, a map $f \co X \to Y$  in $\catE$ is called a \emph{strong $k$-oriented homotopy equivalence} if there is a map $g$ and homotopies $\phi$ and $\psi$ making $f$ into a $k$-oriented homotopy equivalence such that the following diagram commutes:
 \[
 \xymatrix{
   \interval \otimes X
@@ -685,7 +719,7 @@ Since~$f$ is a strong homotopy equivalence, $\thetak \hatotimes f$ is a section.
 But then $\thetak \hatotimes g$ is also a section (since sections are closed under retracts), and so $g$ is a strong $k$-oriented homotopy equivalence.
 
 \begin{lemma} \label{thm:kcylf-is-she}
-For every $f$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence.
+For every $f$ in $\cal{E}$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
 \begin{proof} This is a  diagram-chasing argument, but we present it in outline since this gives an unfolding of the abstract proof of ~\cref{thm:kcylf-is-she-alg},
@@ -749,28 +783,29 @@ exhibits $\kcyl \hatotimes f$ as a retract of $(\kcyl \mathbin{\hat{\cc}} \kcyl)
 to construct the retraction in~\eqref{equ:kcyl-as-retract}.
 \end{proof}
 
-For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}.
+For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ with generating set $\cal{I}$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}, with generating set $\cal{I}_\otimes$ defined in~\eqref{equ:cylinc}. 
 We focus on the class $\Cof \cap S$, \ie the class of cofibrations that are strong homotopy equivalences.
-We begin by relating them to the open cylinder inclusions defined in~\eqref{equ:cylinc}.
+The next lemma relates them to the generating trivial cofibrations defined in~\eqref{equ:cylinc} and the trivial
+cofibrations. 
 
-\begin{lemma} \label{thm:main-sheretract} \leavevmode
+\begin{lemma} \label{thm:main-sheretract}  We have
 \begin{enumerate}[(i)]
-\item $\Cyl \subseteq \Cof \cap S$.
-\item $\Cof \cap S \subseteq \TrivCof$,
+\item $\cal{I}_\otimes \subseteq \Cof \cap S$,
+\item $\Cof \cap S \subseteq \TrivCof$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-For part~(i), we have~$\Cyl \subseteq \Cof$ since the cofibrations are closed under Leibniz product with~$\kcyl$ (condition (S4) in \cref{thm:suitable-wfs}).
-Since functorial cylinder has connections, the map $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence for every $f \co X \to Y$, as observed in~\cref{thm:kcylf-is-she}.
+For part~(i), we have that $\cal{I}_\otimes \subseteq \Cof$ since $\cal{I} \subseteq \Cof$ and $\Cof$ is closed under Leibniz product with~$\kcyl$ (condition (S4) in \cref{thm:suitable-wfs}). We also have $\cal{I}_\otimes \subseteq S$
+since  $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence for every $f \co X \to Y$, by~\cref{thm:kcylf-is-she}. 
 For part~(ii), let $f \in \Cof \cap S$.
 Since $f \in S$, \cref{strong-h-equiv-as-section-non-alg} implies that $f$ is a retract of~$\kcyl \hatotimes f$ for some $k \in \braces{0\,, 1}$.
-Because $f \in \Cof$, we have $\kcyl \hatotimes f \in \Cyl$.
-But $\Cyl \subseteq \TrivCof$ and $\TrivCof$ is closed under retracts.
+Because $f \in \Cof$, we have $\kcyl \hatotimes f \in \TrivCof$ by \cref{thm:kcyl-of-cof-is-trivcof-non-alg}. 
+The claim follows since $\TrivCof$ is closed under retracts.
 \end{proof}
 
 \begin{remark} \label{fib-and-she}
-By \cref{thm:main-sheretract}, we have $\Fib = \liftr{(\Cof \cap S)}$, \ie a map is a fibration if and only if it has the right lifting property with respect to the cofibrations that are strong homotopy equivalences.
+By \cref{thm:main-sheretract}, we have that $\Fib = \liftr{(\Cof \cap S)}$, \ie a map is a fibration if and only if it has the right lifting property with respect to the cofibrations that are strong homotopy equivalences.
 \end{remark}
 
 The next lemma is the third main step of the proof of the Frobenius property for~$(\TrivCof, \Fib)$.
@@ -859,8 +894,8 @@ To find the dotted arrow is to construct a diagonal filler in the following squa
   X
 \rlap{.}}
 \]
-But now $\kcylinv \otimes Y \iso \kcyl \hatotimes \bot_Y$, where $\bot_Y \co 0 \to Y$ is the unique map from the initial object of $\catE$ into $Y$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
-The required filler then exists since $\kcylinv \otimes Y$ is isomorphic to a map in $\Cyl$ and~$p \in \Fib = \liftr{\Cyl}$.
+But now $\kcylinv \otimes Y \iso \kcylinv \hatotimes \bot_Y$, where $\bot_Y \co 0 \to Y$ is the unique map from the initial object of~$\catE$ into~$Y$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}). By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that $\kcylinv \hatotimes \bot_Y \in \TrivCof$ and
+so we have a diagonal filler since~$p \in \Fib$.
 \end{proof}
 
 \begin{theorem} \label{thm:non-alg-frobenius}
@@ -2960,6 +2995,8 @@ Note that we have $t^* t_* = \Id$ since $t$ is monic, giving rise to a pullback 
 \end{gathered}
 \end{equation}
 for every $X \in \cal{E}_{/Y}$.
+
+
 
 \begin{theorem} \label{thm:part-map-classifier}
 Giving the structure of a uniform trivial fibration on a map $f \co X \to Y$ is equivalent to giving a diagonal filler for the diagram
