@@ -1360,7 +1360,7 @@ is an isomorphism.
 \end{proposition}
 
 \begin{proof}
-This follows from Lemma~24 orf \cite{bourke-garner-I}.
+This follows from~\cite[Lemma~24]{bourke-garner-I}.
 \end{proof}
 
 Finally, we prove two results in the special case that $\catE$ is a presheaf category, say $\cal{E} = \Psh(\mathbb{C})$, for $\mathbb{C}$ a small category.
@@ -1449,7 +1449,7 @@ Recall from~\cite{garner:small-object-argument,grandis-tholen-nwfs} that an \emp
   \ar[ur]_{R f}
 }
 \]
-functorially in~$f \in \cal{E}^\to$ and respective extensions of the (co)pointed endofunctor $\LL \to \Id$ and $\Id \to \RR$ given by
+functorially in~$f \in \cal{E}^\to$ and respective extensions of the pointed endofunctor $\LL \to \Id$ and the copointed endofunctor $\Id \to \RR$ given by
 \begin{align*}
 \xymatrix{
   X
@@ -1542,7 +1542,7 @@ We now state the analogue for an awfs of the Frobenius condition for a wfs.
 This condition, called the functorial Frobenius condition, was stated for a cloven wfs in~\cite{garner:topological-simplicial}, which is a slightly more general notion than
 that of an awfs.
 Let us fix some notation.
-For a category $\cal{E}$, we write $\cal{E}^\to \times_\cal{E} \cal{E}^\to$ for the pullback of $\cod \co \cal{E}^\to \to \cal{E}$ with itself.
+For a category $\cal{E}$, we write~$\cal{E}^\to \times_\cal{E} \cal{E}^\to$ for the pullback of $\cod \co \cal{E}^\to \to \cal{E}$ with itself.
 This is the category of cospans in $\cal{E}$, \ie pairs of arrows with common codomain.
 Pullback gives a functor $P \co  \cal{E}^\to \times_{\cal{E}} \cal{E}^\to \to \cal{E}^\to$ sending a cospan $(g, h)$ to $h^*(g)$.
 
@@ -2027,7 +2027,7 @@ When introducing and discussing a suitable awfs, we use the notation $(\CC, \TF)
 We then refer to objects in $\Cof$ as \emph{uniform cofibrations} and objects in $\TrivFib$ as \emph{uniform trivial fibrations}.
 Again, we hope that this helps to convey some of the basic intuition motivating our development.
 The dichotomy of copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
-We will only consider cofibrantly generated awfs $(L, R)$, for which there are always functors back and forth between $\pAlg{R}$ and $\palg{R}$.
+We will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
 
 \begin{definition} \label{thm:suitable-awfs}
 An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions hold.
@@ -2120,25 +2120,23 @@ We refer to the elements of $\cal{I}_\otimes$ as \emph{generating uniform trivia
 \end{definition}
 
 We write $\Fib$ for the category of uniform fibrations and their morphisms.
-We further write $\TrivCof$ for the category of uniform trivial cofibrations, defined as left $\Fib$-maps.
-In formulae, this means:
+We write~$\TrivCof$ for the category of uniform trivial cofibrations, defined as left $\Fib$-maps, \ie 
 \[
 \begin{aligned}
-\Fib = \liftr{(\cal{I}_\otimes)}
-,&&
-\TrivCof = \liftl{\Fib}
+\Fib \defeq \liftr{(\cal{I}_\otimes)} \, , 
+&&
+\TrivCof \defeq \liftl{\Fib}
 .\end{aligned}
 \]
-
 The next statement is immediate.
 
 \begin{theorem} \label{thm:sset-cset-nwfs}
-The category $\cal{E}$ admits a cofibrantly generated awfs $(\TC, \FF)$ such that:
+The category $\cal{E}$ admits a cofibrantly generated awfs $(\TC, \FF)$ such that
 \[
 \begin{aligned}
-\TrivCof \defeq \pcoalg{\TC}
-,&&
-\Fib \defeq \pAlg{\FF}
+\TrivCof =  \pcoalg{\TC} \, ,
+&&
+\Fib = \pAlg{\FF}
 .\end{aligned}
 \]
 \end{theorem}
@@ -2147,7 +2145,7 @@ The category $\cal{E}$ admits a cofibrantly generated awfs $(\TC, \FF)$ such tha
 By Garner's small object argument~\cite{garner:small-object-argument} (see also~\cite[Proposition~16]{bourke-garner-I}), applied to the generating small category of arrows $\cal{I}_\otimes$.  
 \end{proof}
 
-Note again that since $(\TC, \FF)$ is cofibrantly generated, there are functors over $\cal{E}^\to$ back and forth between $\palg(\FF)$ and $\pAlg(\FF)$.
+Note again that since $(\TC, \FF)$ is cofibrantly generated, there are functors over $\cal{E}^\to$ back and forth between $\palg{\FF}$ and $\pAlg{\FF}$.
 
 \begin{example} \label{unif-fib-sset}
 If we start from the awfs's $(\CC, \TF)$ in~$\SSet$ and~$\CSet$ of \cref{unif-triv-fib-sset} and apply~\cref{thm:sset-cset-nwfs}, we obtain awfs's $(\TC, \FF)$ whose monad algebras are algebraic counterparts of Kan fibrations, and hence will be called \emph{uniform Kan fibrations}.
@@ -2156,7 +2154,7 @@ An application to a different version of cubical sets (not using connections) gi
 \end{example}
 
 We now give an equivalent characterization of uniform fibrations, which does not refer to generating uniform cofibrations.
-This shows that the categories $\Fib$ and $\TrivCof$ are in fact independent of the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$.
+This shows that the categories $\Fib$ and $\TrivCof$ are independent of the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$.
 
 \begin{proposition} \label{prod-exp-general}
 For a map $p \co X \to Y$ in $\catE$, the following are equivalent:
@@ -2190,6 +2188,7 @@ This is an instance of \cref{lift-of-leibniz-adjunction}, using the adjunction~\
 \end{proof}
 
 The next corollary will be useful to establish the functorial Frobenius property for $(\TC, \FF)$ in \cref{sec:alg-frob}.
+It is the algebraic counterpart of~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}.
 
 \begin{corollary} \label{kcyl-of-cof-is-trivcof}
 Leibniz product with endpoint inclusions maps uniform cofibrations to uniform trivial cofibrations, in the sense that the Leibniz product functor lifts as follows for $k \in \braces{0\,,1}$:
@@ -2211,7 +2210,7 @@ Leibniz product with endpoint inclusions maps uniform cofibrations to uniform tr
 \end{corollary}
 
 \begin{proof}
-Recall that $\Cof = \liftl{\TrivFib}$ and $\TrivCof = \liftl{Fib}$.
+Recall that $\Cof = \liftl{\TrivFib}$ and $\TrivCof = \liftl{\Fib}$.
 Using the adjunction~\eqref{equ:leibniz-prod-exp} and \cref{lift-of-leibniz-adjunction}, the goal follows from a lift of $\hatexp(\bar{\delta}^k, -)$ to a functor $\Fib \to \TrivFib$.
 But this is given by \cref{prod-exp-general}.
 \end{proof}
