@@ -419,8 +419,8 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 
 We now wish to give an equivalent characterization of fibrations, which does not refer to the generating
 cofibrations. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
-For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} of
-$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
+For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} 
+of~$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
 \[
 \hatexp(\kcyl, f) \co X^\interval \to Y^\interval \times_{Y} X
 \]
@@ -449,8 +449,8 @@ The desired characterization of fibrations, stated in the next proposition, now 
 \begin{proposition} \label{thm:char-fib-nonalg} For a map $p \co X \to Y$ in $\cal{E}$, the following are equivalent:
 \begin{enumerate}[(i)]
 \item $p$ is a fibration,
-\item $\hatexp(\bar{\lcyl}, p)$ and $\hatexp(\bar{\rcyl}, p)$ are trivial fibrations.
-\end{enumerate} \qed
+\item $\hatexp(\bar{\lcyl}, p)$ and $\hatexp(\bar{\rcyl}, p)$ are trivial fibrations. \qed
+\end{enumerate} 
 \end{proposition}
 
 Note that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
@@ -545,7 +545,7 @@ The case $k = 1$ is similar.
 \end{remark}
 
 Let us give an alternative characterization of strong $k$-oriented homotopy equivalences.
-For this, observe that we have a commutative diagram \notec{We should explain why this commutes. (Because the square $0, \Id, \Id, I \otimes (-)$ commutes and \eqref{equ:thetak} is induced by that. See \cref{theta} where this is done properly.)}
+For this, observe that, for $k \in \braces{0\,, 1}$, we have a commutative diagram \notec{We should explain why this commutes. (Because the square $0, \Id, \Id, I \otimes (-)$ commutes and \eqref{equ:thetak} is induced by that. See \cref{theta} where this is done properly.)}
 \begin{equation} \label{equ:thetak}
 \begin{gathered}
 \xymatrix@C+2em{
@@ -562,11 +562,10 @@ For this, observe that we have a commutative diagram \notec{We should explain wh
   \ar[rr]_-{\kcylinv \otimes Y}
   &
 &
-  \interval \otimes Y
+  \interval \otimes Y \rlap{.} 
 }
 \end{gathered}
 \end{equation}
-for $k \in \braces{0\,, 1}$.
 This diagram gives us (functorially in $f$) an arrow~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in the category of maps in~$\catE$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
 
 \begin{lemma} \label{strong-h-equiv-as-section-non-alg}
@@ -796,9 +795,9 @@ cofibrations.
 \end{lemma}
 
 \begin{proof}
-For part~(i), we have that $\cal{I}_\otimes \subseteq \Cof$ since $\cal{I} \subseteq \Cof$ and $\Cof$ is closed under Leibniz product with~$\kcyl$ (condition (S4) in \cref{thm:suitable-wfs}). We also have $\cal{I}_\otimes \subseteq S$
+For part~(i), we have that $\cal{I}_\otimes \subseteq \Cof$ since $\cal{I} \subseteq \Cof$ and $\Cof$ is closed under Leibniz product with~$\kcyl \otimes (-)$ (condition (S4) in \cref{thm:suitable-wfs}). We also have $\cal{I}_\otimes \subseteq S$
 since  $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence for every $f \co X \to Y$, by~\cref{thm:kcylf-is-she}. 
-For part~(ii), let $f \in \Cof \cap S$.
+For part~(ii), let~$f \in \Cof \cap S$.
 Since $f \in S$, \cref{strong-h-equiv-as-section-non-alg} implies that $f$ is a retract of~$\kcyl \hatotimes f$ for some $k \in \braces{0\,, 1}$.
 Because $f \in \Cof$, we have $\kcyl \hatotimes f \in \TrivCof$ by \cref{thm:kcyl-of-cof-is-trivcof-non-alg}. 
 The claim follows since $\TrivCof$ is closed under retracts.
@@ -814,16 +813,14 @@ The next lemma is the third main step of the proof of the Frobenius property for
 For $k \in \braces{0\,, 1}$, the pullback of a strong $k$-oriented homotopy equivalence along a fibration is again a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
-\begin{proof}
-Consider a pullback diagram
+\begin{proof} Let  $i  \in S_k$, $p \in \Fib$, and consider a pullback diagram
 \begin{equation} \label{non-alg-strong-h-equiv-uniform-base-change:0}
 \begin{gathered}
 \xymatrix{
  B \ar[d]_j \ar[r]^q & A \ar[d]^i \\
-Y \ar[r]_p & X \rlap{,}}
+Y \ar[r]_p & X \rlap{.}}
 \end{gathered}
 \end{equation}
-where $i  \in S_k$ and $p \in \Fib$.
 We wish to show that $j \in  S_k$.
 Since $i \in S_k$, $\thetak \hatotimes i \co i \to \kcyl \hatotimes i$ has a retraction $\rho \co \kcyl \hatotimes i \to i$.
 We show that $\thetak \hatotimes j \co j \to \kcyl \hatotimes j$ has a retraction $\tau \co  \kcyl \hatotimes j \to j$.
