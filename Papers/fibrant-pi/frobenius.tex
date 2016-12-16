@@ -420,16 +420,16 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 We now wish to give an equivalent characterization of fibrations, which does not refer to the generating
 cofibrations. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
 For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} of
-$\exp(\bar{\kcyl}, -)$ and $f$ to be the map
+$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
 \[
 \hatexp(\kcyl, f) \co X^\interval \to Y^\interval \times_{Y} X
 \]
 determined uniquely by the the following pullback diagram:
 \[
 \xymatrix{
-X^\interval \ar@/^2pc/[drr]^-{\exp(\bar{\kcyl}, X)}  \ar@/_2pc/[ddr]_{\exp(\interval, f)} \ar[dr]^-{\hatexp(\bar{\kcyl}, f)} &  & \\
+X^\interval \ar@/^2pc/[drr]^-{\exp(\bar{\delta}^k, X)}  \ar@/_2pc/[ddr]_{\exp(\interval, f)} \ar[dr]^-{\hatexp(\bar{\delta}^k, f)} &  & \\
   &   Y^\interval \times_{Y} X    \ar[d] \ar[r]  & X \ar[d]^f \\
-  & Y^\interval \ar[r]_{\exp(\bar{\kcyl}, Y)} & Y \rlap{.} }
+  & Y^\interval \ar[r]_{\exp(\bar{\delta}^k, Y)} & Y \rlap{.} }
   \]
 This gives a functor, fitting in an adjunction with the Leibniz product, as follows:
 \begin{equation}
@@ -465,9 +465,9 @@ If $f \in \Cof$, then $\kcyl \hatotimes f \in \TrivCof$, for $k \in \{0 \, , 1 \
 \begin{alignat*}{2} 
 \kcyl \hatotimes f \in  \liftl{\Fib} 
 & \Leftrightarrow (\forall p \in \Fib) \, \kcyl \hatotimes f  \pitchfork p & \\ 
-& \Leftrightarrow (\forall p \in \Fib) \, f  \pitchfork \hatexp(\bar{\kcyl}, p) & 
+& \Leftrightarrow (\forall p \in \Fib) \, f  \pitchfork \hatexp(\bar{\delta}^k, p) & 
 \end{alignat*}
-But we know that if $p \in \Fib$, then $ \hatexp(\bar{\kcyl}, p) \in \TrivFib$ by~\cref{thm:char-fib-nonalg}. 
+But we know that if $p \in \Fib$, then $ \hatexp(\bar{\delta}^k, p) \in \TrivFib$ by~\cref{thm:char-fib-nonalg}. 
 \end{proof} 
 
 
