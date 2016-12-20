@@ -59,29 +59,31 @@ Starting from a suitable awfs $(\CC, \TF)$, whose left and right maps are to be 
 generating trivial cofibrations as objects.
 We then show that there exists an awfs $(\TC, \FF)$ that has uniform fibrations as right maps (\cref{thm:sset-cset-nwfs}) and that satisfies the functorial Frobenius condition (\cref{uniform-fibrations-uniform-frobenius}).
 Therefore, pushforward along a uniform fibration preserves uniform fibrations (\cref{uniform-fibrations-frobenius-pushforward}).
-An important technical step in this development is the characterization of when an algebraically-free awfs (in the sense of~\cite{garner:small-object-argument}) has the functorial Frobenius property (\cref{thm:frobenius-comparison}), which is somehow more elaborate than its counterpart for ordinary wfs's and is of independent interest.
+An important technical step in this development is the characterization of when an algebraically-free awfs (in the sense of~\cite{garner:small-object-argument}) has the functorial Frobenius property (\cref{thm:frobenius-comparison}), which is somehow more elaborate than its counterpart for ordinary wfs's.
 
 In order to apply our algebraic results in simplicial sets and cubical sets, we show that, given a category of monomorphisms and pullback squares satisfying some mild assumptions, it is possible to construct an awfs $(\CC, \TF)$ satisfying the conditions necessary to apply our results (\cref{rem-lift-suitable}).
 Instantiating our definitions, we obtain the notion of a uniform Kan fibration which subsumes the one introduced in~\cite{cohen-et-al:cubicaltt}.
 We then establish the existence of an awfs that has uniform Kan fibrations as right maps and that satisfies the functorial Frobenius property, so that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 
 
-These results contribute to the ongoing investigations on whether Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} admits a constructive version, \ie one that can be defined without the law of excluded middle and the axiom of choice. In order to do this, it is necessary to overcome the problem that the interpretation of
-$\Pi$-types in the simplicial model relies on the preservation of Kan fibrations by pushforward along Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, which cannot be proved constructively~\cite[Section~6]{coquand-non-constructivity-kan}. Here, we solve this problem by working with the notion of a uniform Kan fibration, that is classically equivalent to the usual one, but allows us to prove constructively the preservation of uniform Kan fibrations by pushforward along uniform Kan fibrations. Indeed, the proof of our results in  the case of simplicial sets, as well as cubical sets, are constructive.
+These results contribute to the ongoing investigations on whether Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model} admits a constructive version, \ie one that can be defined without the law of excluded middle or the axiom of choice. In order to do this, it is necessary to overcome the problem that the 
+the preservation of Kan fibrations by pushforward along Kan fibrations~\cite[Lemma~2.3.1]{voevodsky-simplicial-model}, 
+which is necessary for the interpretation of
+$\Pi$-types in the simplicial model, cannot be proved constructively~\cite[Section~6]{coquand-non-constructivity-kan}. Here, we solve this problem by working with the notion of a uniform Kan fibration, which is classically equivalent to the usual one, but allows us to prove constructively the preservation of uniform Kan fibrations by pushforward along uniform Kan fibrations. Indeed, the proof of our results in  the case of simplicial sets, as well as cubical sets, are constructive.
 
 Furthermore, our results also shed some light on the cubical set models of type theory that have been
-investigated extensively in recent years~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed, the independence results obtained in~\cite{coquand-non-constructivity-kan} mentioned above have led the research community to shift its focus on models based on cubical sets and uniform Kan fibrations, since in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. But, as our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets. Since our results apply to cubical sets, we give also a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely complex calculations with cubical sets, unlike the existing ones~\cite{cohen-et-al:cubicaltt,huber-thesis}.
+investigated extensively in recent years~\cite{awodey-cubical,coquand-cubical-sets,cohen-et-al:cubicaltt,pitts-cubical-nominal,swan-awfs}. Indeed, the independence results obtained in~\cite{coquand-non-constructivity-kan} mentioned above have led the research community to shift the focus on models based on cubical sets and uniform Kan fibrations, since in that setting it is possible to develop a constructive model of univalent foundations~\cite{cohen-et-al:cubicaltt}, showing in particular that pushforward along a uniform Kan fibration preserves uniform Kan fibrations. But, as our results show, the key aspect that makes it possible to obtain that result on pushforward is the idea of using the algebraic notion of a uniform Kan fibration, rather than working with cubical sets. Since our results apply to cubical sets, we give also a new proof of the fact that pushforward along a uniform Kan fibration preserves uniform Kan fibrations, avoiding entirely the complex calculations with cubical sets of~\cite{cohen-et-al:cubicaltt,huber-thesis}.
 Indeed, one of the initial motivations for this work was to explore whether the theory of uniform fibrations in cubical sets could be developed at a greater level of generality, so as to make it applicable also to simplicial sets.
 
 We also provide a characterization of uniform trivial fibrations in terms of the partial map classifer 
 (\cref{thm:part-map-classifier}), as suggested to us by Thierry Coquand and Andr\'e Joyal.
-We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration (\cref{unif-vs-non-unif}) In particular, we prove that, in a presheaf category, a map can be equipped with the structure of a uniform (trivial) fibration if and only if it is a (trivial) fibration.
-As we observe in~\cref{why-uniform}, however, the algebraic notion of a fibration is essential for our results in~\cref{sec:alg-fib} to hold constructively.
+We then use this characterization to show in what sense the notion of a uniform (trivial) fibration subsumes the standard notion of a (trivial) fibration (\cref{unif-vs-non-unif}) In particular, we prove that a map in a presheaf category can be equipped with the structure of a uniform (trivial) fibration if and only if it is a (trivial) fibration.
+As we observe in~\cref{why-uniform}, however, the algebraic notion of a uniform fibration is essential for our results in~\cref{sec:alg-fib} to hold constructively.
 
 \subsection*{Remark}
 In the hope of making the paper more concise, we confine comments on constructivity issues to certain remarks and footnotes.
 However, let us point out here for the interested readers that our development does not rely on the law of the excluded middle or the axiom of choice, apart from~\cref{thm:wfstimes}, \cref{thm:sset-cset-nwfs} and \cref{rem-lift-suitable}.
-For~\cref{thm:sset-cset-nwfs} and \cref{rem-lift-suitable}, we argue that the result holds constructively for simplicial sets and cubical sets separately, in~\cref{rem:constructive-small-object}.%
+For~\cref{thm:sset-cset-nwfs} and \cref{rem-lift-suitable}, we argue that the result holds constructively for simplicial sets and cubical sets  in~\cref{rem:constructive-small-object}.%
 
 \subsection*{Organization of the paper} \cref{sec:bac} introduces the setting in which we work throughout the paper.
 The core of the paper is then organized in two parts: the first part (\cref{sec:fib,sec:frob}) studies wfs's; the second part (\cref{sec:ortf,sec:frobc,sec:alg-fib,sec:alg-frob}) studies awfs's.
@@ -91,9 +93,9 @@ The rest of the second part then proceeds in parallel with the first part.
 \cref{sec:alg-fib} (parallel to \cref{sec:fib}) introduces uniform fibrations and establishes the existence of the associated awfs, while~\cref{sec:alg-frob} (parallel to \cref{sec:frob}) proves the Frobenius property for uniform fibrations.
 We end the paper in \cref{sec:fib-psh} studying uniform (trivial) fibrations in presheaf categories and relating (trivial) fibrations and uniform (trivial) fibrations.
 
-\subsection*{Acknowledgements}
-
-We are grateful to Steve Awodey, Thierry Coquand, Richard Garner, Simon Huber, Andr\'e Joyal, Andrew Pitts, Emily Riehl, and Andrew Swan for helpful discussions and comments on earlier versions of the paper, to Marco Larrea Schiavon for pointing out an erroneous statement of \cref{retract-closure} in an earlier version of this paper, and to Fosco Loregian for pointing us to a useful reference.
+\subsection*{Acknowledgements} We are grateful to the referee for the careful reading of the manuscript and the
+helpful suggestions. 
+We thank Steve Awodey, Thierry Coquand, Richard Garner, Simon Huber, Andr\'e Joyal, Andrew Pitts, Emily Riehl, and Andrew Swan for helpful discussions and comments on earlier versions of the paper, to Marco Larrea Schiavon for pointing out an erroneous statement of \cref{retract-closure} in an earlier version of this paper, and to Fosco Loregian for pointing us to a useful reference.
 This material is based on research sponsored by the Air Force Research Laboratory, under agreement number FA8655-13-1-3038, by a grant from the John Templeton Foundation, and by an EPSRC grant (EP/M01729X/1).
 
 \section{Background}
