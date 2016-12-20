@@ -1026,12 +1026,13 @@ Given $u \co \cal{I} \to \cal{E}^\to$ and $v \co \cal{J} \to \cal{E}^\to$, we wr
 \begin{equation} \label{equ:logical-equivalence}
 \cal{I} \leftrightarrow \cal{J}
 \end{equation}
-to mean that there are functors $F \co \cal{I} \to \cal{J}$ and $G \co \cal{J} \to \cal{I}$ over $\cal{E}^\to$.
+to mean that there are functors $F \co \cal{I} \to \cal{J}$ and $G \co \cal{J} \to \cal{I}$ over $\cal{E}^\to$, not
+necessarily forming an isomorphism or even an equivalence. 
 
 The rest of this section is devoted to establishing some facts regarding categories of orthogonal maps, describing the interplay between orthogonality functors and retract closure, slicing, adjunctions, Leibniz adjunctions, and Kan extensions.
-Most of these facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting.
-They are probably known to experts, but we include them since they are used in the remainder of the paper and we could not find them in the literature.
-We omit most proofs, which are straightforward.
+Most of these facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting, and in some cases follow from results in~\cite{bourke-garner-I}.
+They are probably known to experts, but we include them since they are used in the remainder of the paper and we could not find them explicitly in the literature.
+We omit most proofs, which are straightforward. \notec{Check the previous sentence}
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
 An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
@@ -1074,7 +1075,8 @@ The operation of retract closure gives a monad in an evident way.
 The next proposition uses the notation introduced in~\eqref{equ:logical-equivalence}.
 
 \begin{proposition} \label{retract-closure}
-For every $u \co \cal{I} \to \catE^\to$, we have pairs of functors as follows
+For every $u \co \cal{I} \to \catE^\to$, we have pairs of functors as follows \notec{Add bracketing to expressions below to
+help readers to parse them}
 \[
 \begin{aligned}
   \liftr{(\overline{\cal{I}})} &\leftrightarrow \liftr{\cal{I}}
@@ -1143,7 +1145,7 @@ $\liftl{(\cal{I}_{/X})} = (\liftl{\cal{I}})_{/X}$.
 \begin{proof}
 First note that the composite $\cod_{\cal{E}_{/X}} \cc u_{/X}$ is also a Grothendieck fibration.
 When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, an application of base change and naturality of diagonal fillers shows that it is sufficient to consider lifting problems with the bottom arrow an identity.
-But for such lifting problems the order of slicing makes no difference.
+But for such lifting problems the order of slicing \notec{Do you mean the order of slicing and taking orthogonality?} makes no difference.
 \end{proof}
 
 \begin{corollary} \label{pitchfork-slicing-monad} \leavevmode
@@ -1163,12 +1165,13 @@ The retract closure commutes with slicing and coslicing, in the sense that for e
 \qed
 \end{proposition}
 
-The following two propositions are instances of Proposition~21 of \cite{bourke-garner-I} with double categories of squares specialized to categories of arrows.
-The first proposition also appears in the form of the pullback square~(6.3) in \cite{riehl-monoidal-ams}.
+
+\cref{lift-of-adjunction,lift-of-mates} below are instances of \cite[Proposition~21]{bourke-garner-I} with double categories of squares specialized to categories of arrows.
+\cref{lift-of-adjunction} appears also in the form of the pullback square~(6.3) in \cite{riehl-monoidal-ams}.
 
 \begin{proposition} \label{lift-of-adjunction}
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \cal{F}^\to$.
-For an adjunction $F \dashv G$ between $\cal{E}$ and $\cal{F}$, the following are equivalent, naturally in $\cal{I}$ and $\cal{J}$:
+For an adjunction $F \dashv G$ between $\cal{E}$ and~$\cal{F}$, the following are equivalent, naturally in $\cal{I}$ and $\cal{J}$:
 \begin{enumerate}[(i)]
 \item the functor $F \co \catE^\to \to \cal{F}^\to$ lifts to a functor $\widetilde{F} \co \cal{I} \to \liftl{\cal{J}}$ making the following diagram commute:
 \[
@@ -1250,7 +1253,7 @@ The natural transformation $n$ lifts as follows:
 \end{enumerate}
 \end{proposition}
 
-We generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy} (we do not have a need for the corresponding generalization of \cref{lift-of-mates}).
+We generalize \cref{lift-of-adjunction} to Leibniz adjunctions~\cite{riehl-verity:reedy}.
 Let us fix bifunctors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K}^{\op} \times \cal{F} \to \catE$ related pointwise, for $k \in \cal{K}$, by an adjunction:
 \[
 \xymatrix@C+1em{
@@ -1264,7 +1267,7 @@ Let us fix bifunctors $F \co \cal{K} \times \catE \to \cal{F}$ and $G \co \cal{K
 \]
 Let $ \widehat{F} \co \cal{K}^\to \times \catE^\to \to \cal{F}^\to$ and $ \widehat{G} \co (\cal{K}^{\op})^\to \times \cal{F}^\to \to \catE^\to$ denote the Leibniz constructions for~$F$ and~$G^{\op}$, using pullback instead of pushout for~$\widehat{G}$.
 Here and below we assume that the categories under consideration have sufficient structure to carry out the relevant Leibniz constructions.
-The following proposition can be seen as a generalization of Theorem~6.5 in \cite{riehl-monoidal-ams}, capturing the formal essence of the argument.
+The following proposition can be seen as a generalization of \cite[Theorem~6.5]{riehl-monoidal-ams}.
 
 \begin{proposition} \label{lift-of-leibniz-adjunction}
 Let $u \co \cal{I} \to \catE^\to$, $v \co \cal{J} \to \cal{F}^\to$ be functors.
@@ -1310,7 +1313,7 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$, naturally in
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
-Next, we establish some facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors.
+Next, we establish some facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. \notec{Referee says next proposition is Lemma 24 in [7]}
 
 \begin{proposition} \label{kan-extension-closure}
 Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
@@ -1376,7 +1379,7 @@ is an isomorphism.
 This follows from~\cite[Lemma~24]{bourke-garner-I}.
 \end{proof}
 
-Finally, we prove two results in the special case that $\catE$ is a presheaf category, say $\cal{E} = \Psh(\mathbb{C})$, for $\mathbb{C}$ a small category.
+We conclude this section by  proving two results in the special case that $\catE$ is a presheaf category, say $\cal{E} = \Psh(\mathbb{C})$, for $\mathbb{C}$ a small category.
 We write $\yon \co \mathbb{C} \to \cal{E}$ for the Yoneda embedding.
 Recall from \cref{sec:bac} that we write $\catE_{\cart}^\to$ for the category of arrows and pullback squares in~$\cal{E}$.
 
