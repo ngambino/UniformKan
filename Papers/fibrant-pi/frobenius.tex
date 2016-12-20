@@ -485,13 +485,14 @@ But we know that if $p \in \Fib$, then $ \hatexp(\bar{\delta}^k, p) \in \TrivFib
 \section{The Frobenius property for fibrations}
 \label{sec:frob}
 
-We continue to work with the locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$, with generating set~$\cal{I}$.
+We continue to work with our fixed locally presentable and locally cartesian closed category $\catE$, equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and such that~$\interval\otimes (-) \co \catE \to \catE$ has a right adjoint, and a fixed suitable wfs $(\Cof, \TrivFib)$ in $\calE$, with generating set~$\cal{I}$.
 
 Our aim in this section is to show that the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} satisfies the Frobenius property.
 Our proof of the Frobenius property consists of three main steps.
 First, we introduce the notion of a \emph{strong homotopy equivalence} (\cref{def:strhe}) and give a characterization of strong homotopy equivalences as certain retracts (\cref{strong-h-equiv-as-section-non-alg}).
-Secondly, we show that the maps in $\cal{I}$ which are strong homotopy equivalences are retracts of maps in $\cal{I}_\otimes$, and that every map in $\cal{I}_\otimes$ is both in $\cal{I}$ and a strong homotopy
-equivalence (\cref{thm:main-sheretract}).
+Secondly, we show that every generating trivial cofibration is both a cofibration and a strong homotopy
+equivalence and that the cofibrations which  are strong homotopy equivalences are 
+trivial cofibrations (\cref{thm:main-sheretract}).
 Thirdly, we show that the pullback of a strong homotopy equivalence along a fibration is again an strong homotopy equivalence (\cref{thm:non-alg-frobenius-she}).
 With these facts in place, the Frobenius condition for $(\TrivCof, \Fib)$ in \cref{thm:non-alg-frobenius} follows easily.
 
@@ -577,7 +578,8 @@ For this, observe that, for $k \in \braces{0\,, 1}$, we have the diagram
 \end{gathered}
 \end{equation}
 which commutes by the naturality of $\kcylinv \otimes (-)$, since $(\kcyl \hatotimes f) \cc \iota_1 = \interval \otimes f$.
-This diagram gives us (functorially in $f$) an arrow~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in the category of maps in~$\catE$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
+This diagram gives us (functorially in $f$) a map~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in the category of 
+arrows in~$\catE$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
 
 \begin{lemma} \label{strong-h-equiv-as-section-non-alg}
 A map $f \co X \to Y$ is a strong $k$-oriented homotopy equivalence if and only if the map $\thetak \hatotimes f  \co f \to \kcyl \hatotimes f$ exhibits $f$ as a retract of $\kcyl \hatotimes f$, \ie there are dotted arrows as follows:
@@ -691,7 +693,7 @@ With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{e
 
 As observed in~\cref{thm:endpoint-are-she}, $\kcyl \otimes X \co X \to \interval \otimes X$ is a strong $k$-oriented homotopy equivalence for all $X \in \cal{E}$.
 Therefore, by~\cref{strong-h-equiv-as-section-non-alg}, $\thetak \hatotimes (\kcyl \otimes X)  \co \kcyl \otimes X \to \kcyl \hatotimes (\kcyl \otimes X)$ exhibits $\kcyl \otimes X$ as a retract of
-$\kcyl \hatotimes (\kcyl \otimes X)$. We spell out the retraction, since we will make use of it in the proof of~\cref{thm:kcylf-is-she} below:
+$\kcyl \hatotimes (\kcyl \otimes X)$. We spell out the retraction, since we will refer to it in the proof of~\cref{thm:kcylf-is-she} below:
 \begin{equation}
 \label{equ:kcyl-as-retract}
 \begin{gathered}
@@ -723,7 +725,7 @@ and the fact that the horizontal composites are identities follow easily from th
 
 Note that strong $k$-oriented homotopy equivalences have better closure properties than strong $k$-oriented deformation retracts.
 For example, \cref{strong-h-equiv-as-section} implies that strong $k$-oriented homotopy equivalences are closed under retracts.
-Indeed, let $f$ be a strong homotopy equivalence and $g$ be a retract of $f$.
+Indeed, let $f$ be a strong homotopy equivalence and~$g$ be a retract of~$f$.
 Then, $\thetak \hatotimes g$ is a retract of $\thetak \hatotimes f$, since $\thetak \hatotimes (-) \co \catE^\to \to \catE^\to$ is a functor and functors preserve retracts.
 Since~$f$ is a strong homotopy equivalence, $\thetak \hatotimes f$ is a section.
 But then $\thetak \hatotimes g$ is also a section (since sections are closed under retracts), and so $g$ is a strong $k$-oriented homotopy equivalence.
@@ -732,7 +734,7 @@ But then $\thetak \hatotimes g$ is also a section (since sections are closed und
 For every map $f$ in $\cal{E}$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
-\begin{proof} This is a  diagram-chasing argument, but we present it in outline since this gives an unfolding of the abstract proof of ~\cref{thm:kcylf-is-she-alg},
+\begin{proof} This is a just diagram-chasing argument, but we outline it since this gives an unfolding of the abstract proof of~\cref{thm:kcylf-is-she-alg},
 which establishes the corresponding fact in the algebraic setting. By \cref{strong-h-equiv-as-section-non-alg} it suffices to show that  the diagram
  \begin{equation*}
  \begin{gathered}
@@ -758,7 +760,7 @@ we need to construct some auxiliary maps. First, we define
 	\to
 	(\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y)
 \]
- by letting $\sigma_f \defeq (\kcyl \otimes (\interval \otimes X)) +_X (\kcyl \otimes Y)$. Secondly, we have a pushout diagram
+ by letting $\sigma_f \defeq (\kcyl \otimes (\interval \otimes X)) +_X (\kcyl \otimes Y)$. Secondly, we consider the pushout diagram
 \[
 \xymatrix{
 X \ar[r]^f \ar[d]_{\kcyl  \otimes X} & Y \ar[r]^{\kcyl \otimes Y}  & \interval \otimes Y  \ar[dd]^{\iota_2} \ar@/^2pc/[dddr]^{\kcyl \otimes (\interval \otimes Y)} &  \\
@@ -774,7 +776,8 @@ Using the maps $\sigma_f$ and $\tau_f$, we then have a further pushout diagram
   & & \interval \otimes (\interval \otimes Y) \rlap{,}}
   \]
  where the notation $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ is intented to suggest the analogy with the proof of~\cref{thm:kcylf-is-she-alg}.
- Since the functor $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pushouts (since it preserves all colimits being a left adjoint), it is possible to
+ Since the functor $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pushouts (since, being a left adjoint, 
+ it preserves all colimits), it is possible to
  show that our goal is equivalent to showing that the diagram
  \[
 \xymatrix@C+10em{
@@ -821,7 +824,7 @@ By \cref{thm:main-sheretract}, we have that $\Fib = \liftr{(\Cof \cap S)}$, \ie 
 The next lemma is the third main step of the proof of the Frobenius property for~$(\TrivCof, \Fib)$.
 
 \begin{lemma} \label{thm:non-alg-frobenius-she}
-For $k \in \braces{0\,, 1}$, the pullback of a strong $k$-oriented homotopy equivalence along a fibration is again a strong $k$-oriented homotopy equivalence.
+For $k \in \braces{0\,, 1}$, the pullback of a strong $k$-oriented homotopy equivalence along a fibration is  a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
 \begin{proof} Let  $i  \in S_k$, $p \in \Fib$, and consider a pullback diagram
@@ -835,8 +838,7 @@ Y \ar[r]_p & X \rlap{.}}
 We wish to show that $j \in  S_k$.
 Since $i \in S_k$, $\thetak \hatotimes i \co i \to \kcyl \hatotimes i$ has a retraction $\rho \co \kcyl \hatotimes i \to i$.
 We show that $\thetak \hatotimes j \co j \to \kcyl \hatotimes j$ has a retraction $\tau \co  \kcyl \hatotimes j \to j$.
-We define the retraction $\tau$ so that the diagram below commutes.
-Here, $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities:
+We define  $\tau$ so that the diagram 
 \[
 \xymatrix@C+2em{
 j
@@ -859,7 +861,7 @@ j
   i
 \rlap{.}}
 \]
-Since the pullback square $\sigma$ is a cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains, again omitting horizontal composite identities:
+in $\cal{E}^\to$ commutes, where $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities.  Since the pullback square $\sigma$ is a cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains, again omitting horizontal composites:
 \[
 \xymatrix@C+2em{
   Y
@@ -902,7 +904,7 @@ To find the dotted arrow is to construct a diagonal filler in the following squa
   X
 \rlap{.}}
 \]
-But now $\kcylinv \otimes Y \iso \kcylinv \hatotimes \bot_Y$, where $\bot_Y \co 0 \to Y$ is the unique map from the initial object of~$\catE$ into~$Y$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}). By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that $\kcylinv \hatotimes \bot_Y \in \TrivCof$ and
+But now $\kcylinv \otimes Y \iso \kcylinv \hatotimes \bot_Y$ \notec{Check indices}, where $\bot_Y \co 0 \to Y$ is the unique map from the initial object of~$\catE$ into~$Y$, which is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}). By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that $\kcylinv \hatotimes \bot_Y \in \TrivCof$ and
 so we have a diagonal filler since~$p \in \Fib$.
 \end{proof}
 
@@ -919,10 +921,10 @@ By~\cref{thm:frobenius-equivalence}, it suffices to show that, for a pullback of
 Y \ar[r]_p & X \rlap{,}}
 \end{gathered}
 \end{equation*}
-where $i \in \Cyl$ and $p \in \Fib$, we have $j \in \TrivCof$.
-By part (ii) of~\cref{thm:main-sheretract}, $i \in \Cof \cap S$.
+where $i \in \cal{I}_\otimes$ and $p \in \Fib$, we have $j \in \TrivCof$.
+By part (i) of~\cref{thm:main-sheretract}, $i \in \Cof \cap S$.
 By the closure of $\Cof$ under pullbacks (condition~(S3) of \cref{thm:suitable-wfs}) and~\cref{thm:non-alg-frobenius-she}, it follows that~$j \in \Cof \cap S$.
-But $\Cof \cap S \subseteq \TrivCof$ by part~(i) of~\cref{thm:main-sheretract} and the closure of $\TrivCof$ under retracts.
+But $\Cof \cap S \subseteq \TrivCof$ by part~(ii) of~\cref{thm:main-sheretract}.
 \end{proof}
 
 \begin{example}
