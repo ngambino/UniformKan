@@ -2321,7 +2321,7 @@ A morphism $m \co (f, g, \phi, \psi) \to (f', g', \phi', \psi')$ consists of map
 \rlap{.}}
 \end{align*}
 There is an obvious first projection functor $p_k \co \cal{S}_k \to \catE^\to$.
-\cref{strong-h-equiv-as-section} below extends the equivalence of \cref{strong-h-equiv-as-section-non-alg} to an isomorphism of categories.
+\cref{strong-h-equiv-as-section} below extends the logical equivalence of \cref{strong-h-equiv-as-section-non-alg} to an isomorphism of categories.
 In its statement, we refer to the maps~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in~\eqref{equ:thetak}.
 
 \begin{lemma} \label{strong-h-equiv-as-section}
@@ -2383,7 +2383,7 @@ Let $\theta^k \co \bot_{\Id} \to \delta^k \otimes (-)$ denote the arrow in $[\ca
 \rlap{.}}
 \]
 Writing $(-) \otimes (-) \co [\cal{E}, \cal{E}] \times \cal{E} \to \cal{E}$ as an infix shorthand for functor application, the Leibniz construction~\cite{riehl-verity:reedy} induces a bifunctor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$ on the level of arrows.
-The desired natural transformation is now precisely given by $\theta^k \hatotimes (-)$.
+Then the desired natural transformation is precisely $\theta^k \hatotimes (-)$.
 \end{remark}
 
 \begin{remark} \label{thm:endpoint-are-she-functorially}
@@ -2407,7 +2407,7 @@ In fact, this is the action on objects of a factorization of $\kcyl \otimes (-)$
 The next lemma is the analogue of \cref{thm:kcylf-is-she}.
 
 \begin{lemma} \label{thm:kcylf-is-she-alg}
-For $k \in \braces{0\,, 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\to \to \cal{E}^\to$ factors via $\cal{S}_k$, as follows,
+For $k \in \braces{0\,, 1}$, the functor $\kcyl \hatotimes (-) \co \cal{E}^\to \to \cal{E}^\to$ factors via $\cal{S}_k$ as follows:
 \[
 \xymatrix@C+3em{
 &
@@ -2791,7 +2791,9 @@ The awfs $(\mathsf{C_t}, \mathsf{F})$ satisfies the functorial Frobenius conditi
 First, we show that $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ satisfies the generalized functorial Frobenius condition.
 This follows from \cref{generalized-uniform-frob-product-u} since $(\Cof, \Fib, \Cof)$ satisfies the generalized functorial Frobenius condition by condition~(S3) in the definition of \cref{thm:suitable-awfs} and \cref{generalized-uniform-frob-nicer}; while $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized Frobenius condition by \cref{technical}.
 
-The generalized functorial Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ implies the generalized functorial Frobenius condition for $(\cal{I}_\otimes, \Fib, \TrivCof)$ using functoriality of generalized functorial Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ and $H$ the functors of~\eqref{thm:onedir}.
+The generalized functorial Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ implies the generalized functorial Frobenius condition for $(\cal{I}_\otimes, \Fib, \TrivCof)$ using functoriality of generalized functorial Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ the functor
+in~\eqref{thm:onedir} of~\cref{thm:strong-hequiv}, $G$ the identity, and $H$ the functor
+in~\eqref{thm:twodir} of~\cref{thm:strong-hequiv}.  \notec{Check this numbering}
 This implies the functorial Frobenius condition by \cref{thm:frobenius-comparison}.
 \end{proof}
 
@@ -2844,7 +2846,7 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} using \cref{t
 
 \begin{example}
 The application of \cref{uniform-fibrations-frobenius-pushforward} in $\SSet$ and $\CSet$ shows that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
-Since exponentiation is a special case of pushforward, this result shows also that if $X$ is a uniform Kan complexes (defined in the evident way) then $Y^X$ is again a uniform Kan complex,
+Since exponentiation is a special case of pushforward, this result shows also that if $X$ is a uniform Kan complex (defined in the evident way) then $Y^X$ is again a uniform Kan complex,
 for every $Y$.
 In fact, as usual, for this easier result only the base needs to be assumed uniform Kan.
 This can be seen as follows.
@@ -2873,7 +2875,7 @@ Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfyi
 \item the elements of $\cal{M}$ are closed under pullbacks,
 \item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions,
 \item the category $\cal{M}$ has colimits and the inclusion $\cal{M} \to \cal{E}^\to_\mathrm{cart}$ preserves them.%
-\footnote{This assumption not used in the instantiation of our general results to this setting, but only for the separate \cref{partial-map-classifier,unif-vs-non-unif}.}
+\footnote{This assumption not used to instantiate our general results, but only for~\cref{partial-map-classifier,unif-vs-non-unif}.}
 \end{enumerate}
 The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M4) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
 
@@ -2926,7 +2928,7 @@ We begin by observing that \cref{rem-lift-suitable} can be proved constructively
 In order to see why this is the case, first note that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
 Since subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free awfs $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
-Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, observing that also the values of $u_\otimes \co \Cyl \to \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout.
+Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, observing that also the values of $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout.
 Finally, the general proof of \cref{uniform-fibrations-uniform-frobenius} and \cref{uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for $(\TC, \FF)$ and its pushforward analogue, are constructive.
 
 We have therefore obtained a constructive proof that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$ and $\CSet$.
@@ -2936,12 +2938,14 @@ Finally, let us point out that if one adds the assumption that elements of $\cal
 %We believe that this restriction is important also to treat constructively further aspects of the theory, such as the existence of fibrant universes~\cite{cohen-et-al:cubicaltt}.
 \end{remark}
 
-The rest of this section is devoted to giving a characterization of uniform trivial fibrations in terms of the partial map classifier, a result suggested to us by Thierry Coquand and Andr\'e Joyal.
+The rest of this section is devoted to giving a characterization of uniform trivial fibrations in terms of the partial map classifier, a result suggested to us by Thierry Coquand and Andr\'e Joyal. \notec{Referee says this is also done in
+Section 4.4 of [7]}
 We then use this characterization to relate non-algebraic and algebraic notions of (trivial) fibration.
 
 \begin{remark}
 A related, but different approach to generating an awfs $(\CC, \TF)$ from a class of monomorphisms is taken in \cite{bourke-garner-I}.
-Recall from \cref{rem-lift-suitable} that $(\CC, \TF)$ is cofibrantly generated by the full category $\cal{M}$ of $\cal{E}^\cart$.
+Recall from \cref{rem-lift-suitable} that $(\CC, \TF)$ is cofibrantly generated by  the full subcategory of 
+$\cal{E}^\cart$ spanned by monomorphisms, written $\cal{M}$ below.
 Instead, as done in \cite{bourke-garner-I}, one may assume that the chosen monomorphisms are closed under composition and view $\cal{M}$ as a double category.
 This then cofibrantly generates an awfs $(\CC', \TF')$ in a double categorical sense.
 The monad $\TF'$ in the slice over $Y \in \cal{E}$ is given by the $\cal{M}$-partial map classifier $P_Y$ relative to $Y$.
@@ -2976,7 +2980,7 @@ The claim follows by inspection of the following diagram:
 \]
 By conditions~(M2) and~(M4), the right map is in $\cal{M}$.
 By condition~(C2), the square is a pullback.
-With condition~(M3), the left map $\id_X$ is then in $\cal{M}$.
+By condition~(M3), the left map $\id_X$ is then in $\cal{M}$.
 \end{proof}
 
 Below, as usual, we write $\Omega$ for the subobject classifier of the topos $\cal{E}$ and $\top \co 1 \to \Omega$ for its `true' morphism.
@@ -3049,7 +3053,10 @@ Observe that the factorization of $\top \co 1 \to \Omega$ via $K$ gives us a pul
 Let us now fix $Y \in \cal{E}$ and work in the slice category $\cal{E}_{/Y}$.
 Let $t \co Y \to K \times Y$ denote the classifier for $\cal{I}_{/Y}$.
 Let $\pi \co K \times Y \to Y$ denote the map to the terminal object.
-The \emph{$\cal{M}$-partial map classifier} $P_Y$ relative to $Y$ associated to~$\cal{M}$ is the polynomial endofunctor, in the sense of~\cite{gambino-kock}, on~$\cal{E}_{/Y}$ given by the data
+The \emph{$\cal{M}$-partial map classifier} $P_Y$ relative to $Y$  is 
+defined by letting $P_Y \defeq \pi_! \cc t_*$~\cite[A2.4]{johnstone:elephant}. Note that this
+is the polynomial endofunctor, in the sense of~\cite{gambino-kock}, on~$\cal{E}_{/Y}$ 
+associated to the diagram
 \[
 \xymatrix{
   Y
@@ -3064,8 +3071,7 @@ The \emph{$\cal{M}$-partial map classifier} $P_Y$ relative to $Y$ associated to~
   Y
 }
 \]
-as $P_Y = \pi_! \cc t_*$~\cite[A2.4]{johnstone:elephant}.
-Note that we have $t^* t_* = \Id$ since $t$ is monic, giving rise to a pullback square
+Observe that we have $t^* t_* = \Id$ since $t$ is monic, giving rise to a pullback square
 \begin{equation} \label{partial-map-classifier:1}
 \begin{gathered}
 \xymatrix{
@@ -3116,7 +3122,7 @@ Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a repres
 and recall from the proof of \cref{rem-lift-suitable} that we have $\liftr{\cal{M}} = \liftr{\cal{I}}$.
 Let $u \co \cal{I} \to \cal{E}^\to$ denote the inclusion.
 Following the first step of Garner's algebraic small object argument, a lift of a map $f \co X \to Y$ to an element of $\liftr{\cal{I}}$ is given by a diagonal filler in the canonical square $(\Lan_u u)(f) \to f$.
-Developing the left Kan extension, we have
+Unfolding the left Kan extension, we have
 \begin{align*}
 (\Lan_u u)(f)
 &=
@@ -3136,8 +3142,8 @@ Here, the penultimate step uses the pullback square~\eqref{partial-map-classifie
 \begin{enumerate}[(i)]
 \item A map can be equipped with the structure of a uniform trivial fibration if and only if it is a trivial fibration, \ie it has
 the right lifting property with respect to the maps in $\cal{M}$.
-\item A map can be equipped with the structure of a uniform trivial fibration if and only if it is a fibration, \ie it has the right
-lifting property with respect to the open cylinder inclusions.
+\item A map can be equipped with the structure of a uniform  fibration if and only if it is a fibration, \ie it has the right
+lifting property with respect to the generating trivial cofibrations. \notec{Check statement and proof}
 \end{enumerate}
 \end{theorem}
 
@@ -3153,7 +3159,7 @@ Part (ii) follows from part (i) and \cref{prod-exp-general}.
 \begin{remark} \label{why-uniform}
 Since \cref{unif-vs-non-unif} is proved constructively, it is natural to wonder whether it is possible to develop constructively our theory in the non-algebraic setting, at least for $\SSet$ or~$\CSet$.
 The key obstacle to this is that, while the special case of the algebraic result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object}, its non-algebraic counterpart does not seem to provable be constructively, even in the case when $\cal{M}$ consists of all monomorphisms (\cf \cref{thm:generation-presheaf-cisinski} and \cref{rem:colimit-decomp}).
-And such a result is essential for the development since it provides the suitable (algebraic) wfs on which the definition of the functorial Frobenius property is based.
+And such a result is essential for the development since it provides the suitable (algebraic) wfs on which the definition of uniform fibrations is based.
 \end{remark}
 
 \bibliographystyle{plain}
