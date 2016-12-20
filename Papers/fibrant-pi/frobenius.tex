@@ -110,10 +110,10 @@ We write $\cal{E}^\to$ for the category of arrows of $\cal{E}$ and $\cal{E}^\to_
 
 Examples of such categories abound; in particular, our assumptions are satisfied not just by presheaf categories, but by arbitrary Grothendieck toposes.
 Our definitions and results are illustrated in two running examples.
-The first is the category~$\SSet$ of simplicial sets, defined as the category of presheaves over the simplex category~$\Delta$.
+The first is the category~$\SSet$ of simplicial sets, defined as usual to be the category of presheaves over the simplex category~$\Delta$~\cite{goerss-jardine}.
 The second is the category $\CSet$ of cubical sets of~\cite{cohen-et-al:cubicaltt}.
 This is defined as the category of presheaves over the category $\Box$ with objects of the form $\Box^A$ with $|A| \in \mathbb{N}$ and morphisms~$\Box^A \to \Box^B$ given by functions from $B$ to the free de Morgan algebra on
-$A$. Here, a de Morgan algebra is defined to be a bounded distributive lattice $(X, \land, \lor, \top, \bot)$ further equipped with a unary operation $\neg \co X \to X$ satisfying $\neg \neg x = x$, for all $x \in X$, and de Morgan's laws: $\neg (x \land y) = \neg x \lor \neg y$, $\neg (x \lor y) = \neg x \land \neg y$, for all $x, y \in X$.
+$A$. Here, a de Morgan algebra is defined to be a bounded distributive lattice $(X, \land, \lor, \top, \bot)$ further equipped with a unary operation $\neg (-) \co X \to X$ satisfying $\neg \neg x = x$, for all $x \in X$, and de Morgan's laws: $\neg (x \land y) = \neg x \lor \neg y$, $\neg (x \lor y) = \neg x \land \neg y$, for all $x, y \in X$.
 
 
 Thus,~$\CSet$ is the category of cubical sets with symmetries, diagonals, connections, and involutions.
@@ -145,7 +145,7 @@ Such a functorial cylinder is said to have \emph{contractions} if $\lcyl \otimes
   \Id_\catE
 \rlap{.}}
 \]
-Further, a functorial cylinder with contractions as above has \emph{connections} if, for $k \in \braces{0\,, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the diagrams
+Further, a functorial cylinder with contractions as above has \emph{connections} if, for $k \in \braces{0\,, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the following diagrams commute:
 \begin{equation} \label{connections:0}
 \begin{gathered}
 \xymatrix@C+3em{
@@ -165,12 +165,12 @@ Further, a functorial cylinder with contractions as above has \emph{connections}
 &
   \interval \otimes (-)
 &
-  \Id_\catE
+  \Id_\catE \, , 
   \ar[l]^{\kcyl \otimes (-)}
 }
 \end{gathered}
 \end{equation}
-and
+
 \begin{equation} \label{connections:1}
 \begin{gathered}
 \xymatrix@C+3em{
@@ -185,11 +185,11 @@ and
   \ar[l]_-{\interval \otimes \kcylinv \otimes (-)}
   \ar@{=}[dl]
 \\&
-  \interval \otimes (-)
+  \interval \otimes (-) \, .
 }
 \end{gathered}
 \end{equation}
-commute.
+
 We adopt the convention of associating the tensor product notation to the right.
 If the functor $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint
 $\exp(I, -) \co \catE \to \catE$, then we obtain a \emph{functorial cocylinder}
@@ -199,25 +199,27 @@ $\exp(I, -) \co \catE \to \catE$, then we obtain a \emph{functorial cocylinder}
 \ie a functorial cylinder in the opposite category $\catE^{\op}$~\cite{kamps-porter:homotopy}.
 Contractions and (effective) connection carry over as well.
 In this case, note also that $\interval\otimes (-) \co \catE \to \catE$ preserves colimits.
+Sometimes, we write $X^\interval$ for $\exp(I, X)$. 
 
 Our main examples of functorial cylinders with contractions and connections, discussed below, arise from a monoidal structure, written $(\catE, \otimes, \top)$, and the presence of an \emph{interval object}, \ie an object~$\interval \in \catE$ equipped with maps~$\lcyl, \rcyl \co \top \to \interval$, called the left and right \emph{endpoint inclusions}, respectively.
 In such a situation, a functorial cylinder is given by tensoring with $\interval$.
-It is immediate to isolate structures on the interval object that guarantee the presence of contractions and connections on the associated functorial cylinder: contractions are induced by a map $\ccyl \co \interval \to \top$ and connections by maps $c^k \co \interval \otimes \interval \to \interval$, for $k \in \braces{0\,, 1}$, provided that suitable axioms hold.
+It is immediate to isolate what structure on the interval object guarantees the presence of contractions and connections on the associated functorial cylinder: contractions are induced by a map $\ccyl \co \interval \to \top$ and connections by maps $c^k \co \interval \otimes \interval \to \interval$, for $k \in \braces{0\,, 1}$, provided that suitable axioms hold.
 Note that if the unit $\top$ of the monoidal structure is a terminal object, then we have contractions in a canonical way.
 
 \begin{example} \label{exa:cyl-in-sset}
 In $\SSet$, considered as a monoidal category with respect to its cartesian structure, an interval object is given by $\Delta^1$ with endpoint inclusions~$\kcyl  \co \braces{k} \to \Delta^1$ given by special cases of horn inclusions, $\kcyl = h^1_k$, for $k \in \braces{0\,, 1}$.
-We have contractions since the monoidal structure is cartesian and connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$, with $k \in \braces{0\,, 1}$, given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$ uniquely determined since~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and $\min$ and $\max$ are monotone.
+We have contractions since the monoidal structure is cartesian and connections $c^k \co \Delta^1 \times \Delta^1 \to \Delta^1$, with $k \in \braces{0\,, 1}$, given on points by $c^0(x, y) = \min(x, y)$ and $c^1(x, y) = \max(x, y)$.
+These are  determined uniquely since~$\Delta^1$ and~$\Delta^1 \times \Delta^1$ are nerves of posets and $\min$ and $\max$ are monotone.
 \end{example}
 
 \begin{example} \label{exa:cyl-in-cuset}
 The category $\Box$ has finite products, which makes cubical sets into a symmetric monoidal closed category.
 In $\CSet$, an interval object with contractions is given by $\Box^1$ with endpoint inclusions $\kcyl \co \braces{k} \to \Box^1$ given by the maps from a singleton set to the free de Morgan algebra on an empty set that pick the bottom element for $k = 0$ and the top element for $k =1$.
 We have contractions since the unit of the monoidal structure is a terminal object.
-Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for $k \in \braces{0\,, 1}$ are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x\,, y}$ that pick $x \wedge y$ and $x \vee y$, respectively).
+Connection operations $c^k \co \Box^1 \otimes \Box^1 \iso \Box^2 \to \Box^1$ for $k \in \braces{0\,, 1}$ are given by the maps from a singleton set to the free de Morgan algebra on a two-element set $\braces{x\,, y}$ that pick $x \wedge y$ and $x \vee y$, respectively.
 \end{example}
 
-For the remainder of this section and the next one, we work with ordinary wfs's~\cite{bousfield-wfs} and use standard notation and terminology.
+For the remainder of this section and the next one, we work with ordinary weak factorization systems (wfs's)~\cite{bousfield-wfs} and use standard notation and terminology.
 For example, for a class $\cal{I}$ of maps in $\cal{E}$, we write $\liftr{\cal{I}}$ for the class of maps having the right lifting property with respect to all maps in $\cal{I}$.
 As is well-known, we have inclusions
 \begin{equation} \label{equ:inclus-orthog}
@@ -225,14 +227,15 @@ As is well-known, we have inclusions
 \, , \quad
 \cal{I} \subseteq \liftr{(\liftl{\cal{I}})}
 \, .\end{equation}
-Let us recall the definition of the Frobenius property.
+Let us recall the definition of the Frobenius property for a wfs. 
 
 \begin{definition}
-We say that a wfs $(\cal{L}, \cal{R})$ has the \emph{Frobenius property} if the pullback of an $\cal{L}$-map along an 
+We say that a wfs $(\cal{L}, \cal{R})$ in $\cal{E}$ has the \emph{Frobenius property} if the pullback of an $\cal{L}$-map along an 
 $\cal{R}$-map is again an $\cal{L}$-map.
 \end{definition}
 
-See~\cite{clementino:frobenius} for an explanation of the connection with Lawvere's Frobenius condition~\cite{lawvere-equality}.
+See~\cite{clementino:frobenius} for an explanation of the connection between the Frobenius property for a wfs and 
+Lawvere's Frobenius condition~\cite{lawvere-equality}.
 As mentioned in the introduction, a Quillen model structure~$(\mathsf{Weq}, \Fib, \Cof)$ in which the cofibrations are stable under pullback (such as the Quillen model structure for Kan complexes~\cite{quillen-homotopical}, where the cofibrations are the monomorphisms) is right proper, \ie the pullback of a weak equivalence along a fibration is again a weak equivalence, if and only if the wfs~$(\TrivCof, \Fib)$ of trivial cofibrations and fibrations has the Frobenius property.
 
 We say that a wfs $(\cal{L}, \cal{R})$ is \emph{free} on a class of maps $\cal{I}$ (not necesssarily a set) if 
@@ -260,7 +263,8 @@ Then the following are equivalent:
 \section{Fibrations}
 \label{sec:fib}
 
-Let us now assume that $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
+From here until the end of~\cref{sec:frob} we assume that our fixed category $\catE$ is equipped with a functorial cylinder $\interval\otimes (-) \co \catE \to \catE$ with contractions and connections, and that $\interval\otimes (-) \co \catE \to \catE$ has a right adjoint.
+
 The notion of a fibration that we introduce and study in this section and the next is relative not only to $\cal{E}$ and its functorial cylinder, but also to a wfs on $\cal{E}$ satisfying some assumptions that we encapsulate in the notion of a \emph{suitable wfs}, given in \cref{thm:suitable-wfs} below.
 In order to state that definition, we need some notation.
 For $k \in \braces{0, 1}$ and a map $i \co A \to B$ in $\catE$, we define the \emph{Leibniz product}~\cite{riehl-verity:reedy} of the endpoint inclusion~$\kcyl \otimes (-)$ and~$i$ to be the map
@@ -289,7 +293,7 @@ determined uniquely by the following pushout diagram:
 \rlap{.}}
 \end{gather*}
 We shall use Leibniz products with endpoint inclusions throughout the paper.
-In the next definition and onwards, we write $(\Cof, \TrivFib)$ to denote a suitable wfs, and refer to maps in $\Cof$ as \emph{cofibrations} and maps in $\TrivFib$ as \emph{trivial fibrations}; this helps to convey some of the basic intuition motivating our development.
+In the next definition and afterwards, we write $(\Cof, \TrivFib)$ to denote a suitable wfs, and refer to maps in $\Cof$ as \emph{cofibrations} and maps in $\TrivFib$ as \emph{trivial fibrations}, since this helps us to convey some of the basic intuition motivating our development.
 
 \begin{definition} \label{thm:suitable-wfs}
 A wfs $(\Cof, \TrivFib)$ is said to be \emph{suitable} if the following hold:
@@ -321,7 +325,8 @@ if $i \in \Cof$ then $j \in \Cof$,
 \begin{example} \label{thm:generation-presheaf-cisinski}
 Assume that $\cal{E}$ is a presheaf category.
 By a result of Cisinski~\cite[Proposition~1.2.27]{cisinski-asterisque}, $\cal{E}$ admits a cofibrantly generated wfs whose cofibrations are the mononomorphisms.%
-\footnote{When $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}, we can be more specific: the boundary inclusions (latching object inclusions for representables) form a set of generators.}
+\footnote{If $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}, it
+is possible to be more specific: the boundary inclusions (\ie the latching object inclusions for representables) form a set of generating cofibrations.}
 This wfs then satisfies conditions~(S1) to~(S3) of \cref{thm:suitable-wfs}.
 For it to be suitable, \ie to also satisfy condition~(S4), it suffices if the endpoint inclusions $\delta^0$ and $\delta^1$ are cartesian natural transformations.
 This will be the case if the functorial cylinder is induced by cartesian product with an interval object as in our main examples.
@@ -340,7 +345,7 @@ We refer to elements of $\cal{I}_\otimes$ as \emph{generating trivial cofibratio
 A \emph{fibration} is a map with the right lifting property with respect to all generating trivial cofibrations.
 \end{definition}
 
-We now define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
+We then define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
 We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that 
 \[
 \Fib = \liftr{(\cal{I}_\otimes)} \, , \quad \TrivCof = \liftl{\Fib} \, .
@@ -351,7 +356,7 @@ The next proposition is immediate.
 $(\TrivCof, \Fib)$ is a wfs in $\cal{E}$.
 \end{proposition}
 
-\begin{proof} By the small object argument, with $\cal{I}_\otimes$ as the generating set. 
+\begin{proof} By Quillen's small object argument, with $\cal{I}_\otimes$ as the generating set. 
 \end{proof} 
 
 Note that, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
@@ -367,22 +372,21 @@ Then, a fibration in our sense is a map with the right lifting property with res
 h_k^1 \hatotimes i^n \co (\Delta^1 \times \partial \Delta^n ) \cup (\braces{k} \times \Delta^n ) \to \Delta^1 \times \Delta^n 
 \, ,\]
 given by the Leibniz product of an endpoint inclusion $h_k^1 \co \braces{k} \to \Delta^1$ with a 
-boundary inclusion $i^n \co \partial \Delta^n \to \Delta^n$.
+boundary inclusion~$i^n \co \partial \Delta^n \to \Delta^n$.
 This is shown equivalent to the usual notion of Kan fibration in~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
 \end{example}
 
 \begin{example} \label{nonalgebraic-cof}
 In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$\Cof$ consists of all monomorphisms, which is suitable by~\cref{thm:generation-presheaf-cisinski}.
 A fibration in $\CSet$ will be called a \emph{Kan fibration}.
-To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion for of the $n$-cube $\Box^n$, which is given by the $n$-fold Leibniz product of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$.
-%\footnote{Note that for our choice of cube category, which is not Reedy, this will not be a maximal non-trivial subobject.}
-Then
+To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion for of the $n$-cube $\Box^n$ \notec{Do these form a generating set for cofibrations?}, which is given by the $n$-fold Leibniz product of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$. 
+Then the maps
 \[
-\lcyl \hatotimes i^n \co \sqcup_1^{1+n} \to \Box^{1+n} \, , \quad  \rcyl \hatotimes i^n \co \sqcap_1^{1+n} \to \Box^{1+n}
+\lcyl \hatotimes i^n \co \sqcup_1^{1+n} \to \Box^{1+n} \, , \quad  \rcyl \hatotimes i^n \co \sqcap_1^{1+n} \to \Box^{1+n} \, ,
 \]
-are generating trivial cofibrations.
+for $n \in \mathbb{N}$, form a set of generating trivial cofibrations.
 Since the cube category has symmetries, a Kan fibration in $\CSet$ has the right lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.
-However, not all generating trivial cofibrations will be of this form.
+However, not all generating trivial cofibrations will be of this form. \notec{It is unclear what the last sentence wants to suggest.} 
 %\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
 
 %Non-algebraically, the setting of~\cite{cohen-et-al:cubicaltt} arises by considering trivial fibrations as defined by weak right orthogonality with respect to the monomorphisms\footnote{Or decidable monomorphisms, if working constructively.} classified by their face lattice~$\Phi$, \ie those arising as a pullback of~$\braces{\top} \to \Phi$, excluding for example diagonals in cubes.
@@ -392,13 +396,14 @@ However, not all generating trivial cofibrations will be of this form.
 
 
 \begin{remark} \label{cisinski-remark}
-We relate the notion of a fibration introduced here with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}.
-For this, let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be the natural transformation
-given by
+We relate the notion of a fibration introduced here with the notion of a naive fibration introduced by Cisinski~\cite{cisinski-asterisque}. So let $(\Cof, \TrivFib)$ be a wfs as in~\cref{thm:generation-presheaf-cisinski}
+and let  $\cal{I}$ be a generating set of cofibrations.
+Let $m \otimes (-)  \co \Id_\catE + \Id_\catE \to \interval \otimes (-)$ be the natural transformation
+with components 
 \[
-m \otimes (-) \defeq [\lcyl \otimes (-), \rcyl \otimes (-)]
-\, .\]
-Recall the chosen set of generators $\cal{I}$ of $(\Cof, \TrivFib)$, defining our fibrations via right orthogonality to $\cal{I}_\otimes$.
+ [\lcyl \otimes X, \rcyl \otimes X] \co X +  X \to \interval \otimes X 
+\, , \]
+for $X \in \cal{E}$. Recall that 
 A \emph{naive Cisinski fibration} would be defined as a map with the right lifting property with respect to the class
 \begin{align*}
 \cal{I}_\otimes'
@@ -408,7 +413,7 @@ A \emph{naive Cisinski fibration} would be defined as a map with the right lifti
 &=_{\phantom{\operatorname{def}}}
 \braces{m \hatotimes \ldots \hatotimes m \hatotimes \kcyl \hatotimes i \mid k \in \braces{0\,,1} \, , \;  i \in \cal{I} }
 \end{align*}
-Informally, one could think of this set as the closure of $\cal{I}_\otimes$ under Leibniz product with $m$.
+Informally, one could think of this set as the closure of the set of generating trivial cofibrations~$\cal{I}_\otimes$ under Leibniz product with $m$.
 
 Our reasons for working with~$\cal{I}_\otimes$ instead of this class are twofold.
 First, if the functorial cylinder is induced by tensoring with an interval object in a symmetric monoidal category and~$\Cof$ is closed under Leibniz product with the boundary inclusion $[\lcyl, \rcyl] \co 1 + 1 \to \interval$, then by permuting the Leibniz product one sees that every fibration is a naive Cisinski fibration.
@@ -424,7 +429,7 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 
 
 We now wish to give an equivalent characterization of fibrations, which does not refer to the generating
-cofibrations. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
+cofibrations $\cal{I}$. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
 For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} 
 of~$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
 \[
@@ -437,8 +442,7 @@ X^\interval \ar@/^2pc/[drr]^-{\exp(\bar{\delta}^k, X)}  \ar@/_2pc/[ddr]_{\exp(\i
   &   Y^\interval \times_{Y} X    \ar[d] \ar[r]  & X \ar[d]^f \\
   & Y^\interval \ar[r]_{\exp(\bar{\delta}^k, Y)} & Y \rlap{.} }
   \]
-This gives a functor, fitting in an adjunction with the Leibniz product, as follows:
-\begin{equation}
+This definition can be extended so as to determine a functor, right adjoint to the Leibniz product functor:\begin{equation}
 \label{equ:leibniz-prod-exp}
 \xymatrix@C+4em{
   \catE^\to
@@ -460,7 +464,7 @@ The desired characterization of fibrations, stated in the next proposition, now 
 \end{proposition}
 
 Note that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
-$\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. The next corollary will be useful to establish the Frobenius property for $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
+$\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. The next corollary, with which we conclude this section, will be useful to establish the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
 
 \begin{corollary} 
 \label{thm:kcyl-of-cof-is-trivcof-non-alg} Let $f \co X \to Y$ in $\cal{E}$. 
