@@ -2860,7 +2860,7 @@ We write $\yon \co \mathbb{C} \to \cal{E}$ for the Yoneda embedding.
 We assume that the functorial cylinder~$\interval \otimes (-) \co \cal{E} \to \cal{E}$ satisfies not only our standing assumptions of having contractions and connections and of possessing a right adjoint (see \cref{sec:bac}), but also the following two conditions:
 \begin{enumerate}[({C}1)]
 \item $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pullback squares,
-\item the natural transformations $\kcyl \otimes (-) \co \id_\cal{E} \to \interval \otimes (-)$, for $k \in \braces{0\,, 1}$, are cartesian.
+\item the natural transformations $\kcyl \otimes (-) \co \Id_{\cal{E}} \to \interval \otimes (-)$, for $k \in \braces{0\,, 1}$, are cartesian.
 \end{enumerate}
 Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfying the following assumptions:
 \begin{enumerate}[({M}1)]
@@ -2869,7 +2869,7 @@ Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfyi
 \item the elements of $\cal{M}$ are closed under pullbacks,
 \item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions,
 \item the category $\cal{M}$ has colimits and the inclusion $\cal{M} \to \cal{E}^\to_\mathrm{cart}$ preserves them.%
-\footnote{This assumption not used to instantiate our general results, but only for~\cref{partial-map-classifier,unif-vs-non-unif}.}
+\footnote{This assumption is not used to instantiate our general results, but only for~\cref{partial-map-classifier,unif-vs-non-unif}.}
 \end{enumerate}
 The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M4) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
 
@@ -2896,9 +2896,9 @@ Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of filler
   \ar[r]
 &
   Y
-\rlap{,}}
+}
 \]
-where $\yon(x)$ the Yoneda embedding of some $x \in \catC$.
+for $x \in \catC$.
 
 It remains to check that $(\CC, \TF)$ satisfies conditions~(S2)-(S4) in~\cref{thm:suitable-awfs}.
 These follow from the corresponding object-wise assumptions~(M2)-(M4) via standard diagram-chasing arguments, which we omit.
@@ -2912,18 +2912,18 @@ Let us point out that the reduction to the lifting problems against maps in $\ca
 
 \begin{example} \label{justify-sset-cset-examples}
 Since assumptions (C1)-(C2) and (M1)-(M5) are fulfilled in both $\SSet$ and~$\CSet$, with $\cal{M}$ the category of all monomorphisms and pullback squares (with (M5) a consequence of the existence of a subobject classifier), \cref{rem-lift-suitable} establishes the existence of the awfs $(\TC, \FF)$ of \cref{unif-fib-sset}.
-The assumptions are also satisfied if instead in $\CSet$ we choose for $\cal{M}$ the category of $\cal{M}'$ of \cref{unif-triv-fib-sset} (with elements classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt}), establishing the existence of the awfs $(\TC', \FF')$ of \cref{unif-fib-sset}.
+The assumptions are also satisfied if instead in $\CSet$ we choose for $\cal{M}$ the category $\cal{M}'$ of \cref{unif-triv-fib-sset} (with elements classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt}), establishing the existence of the awfs $(\TC', \FF')$ of \cref{unif-fib-sset}.
 \end{example}
 
 \begin{remark} \label{rem:constructive-small-object}
-We discuss how, in the case of $\SSet$ and~$\CSet$, the existence of the awfs's $(\CC, \TF)$, having uniform trivial Kan fibrations as monad algebras, and $(\TC, \FF)$, having uniform Kan fibrations as monad algebras, and the Frobenius property for $(\TC, \FF)$ can can be proved constructively, \ie without using the law of excluded middle or the axiom of choice.
+We discuss how, in the case of $\SSet$ and~$\CSet$, the existence of the awfs's $(\CC, \TF)$, having uniform trivial Kan fibrations as monad algebras, and $(\TC, \FF)$, having uniform Kan fibrations as monad algebras, and the Frobenius property for $(\TC, \FF)$ can be proved constructively, \ie without using the law of excluded middle or the axiom of choice.
 
 We begin by observing that \cref{rem-lift-suitable} can be proved constructively in $\SSet$ and $\CSet$.
 In order to see why this is the case, first note that in these examples every subobject of a representable is finitely presentable and that the functorial cylinder $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves finitely presentable objects.
 Since subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free awfs $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
 Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, observing that also the values of $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout.
-Finally, the general proof of \cref{uniform-fibrations-uniform-frobenius} and \cref{uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for $(\TC, \FF)$ and its pushforward analogue, are constructive.
+Finally, the general proofs of \cref{uniform-fibrations-uniform-frobenius} and \cref{uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for $(\TC, \FF)$ and its pushforward analogue, are constructive.
 
 We have therefore obtained a constructive proof that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$ and $\CSet$.
 For $\SSet$, this result is a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which cannot be proved constructively without changes to the definition of Kan fibration~\cite{coquand-non-constructivity-kan}.
@@ -2939,13 +2939,13 @@ We then use this characterization to relate non-algebraic and algebraic notions 
 \begin{remark}
 A related, but different approach to generating an awfs $(\CC, \TF)$ from a class of monomorphisms is taken in \cite{bourke-garner-I}.
 Recall from \cref{rem-lift-suitable} that $(\CC, \TF)$ is cofibrantly generated by  the full subcategory of 
-$\cal{E}^\cart$ spanned by monomorphisms, written $\cal{M}$ below.
+$\cal{E}^\to_\cart$ spanned by monomorphisms, written $\cal{M}$ below.
 Instead, as done in \cite{bourke-garner-I}, one may assume that the chosen monomorphisms are closed under composition and view $\cal{M}$ as a double category.
 This then cofibrantly generates an awfs $(\CC', \TF')$ in a double categorical sense.
-The monad $\TF'$ in the slice over $Y \in \cal{E}$ is given by the $\cal{M}$-partial map classifier $P_Y$ relative to $Y$.
+The monad $\TF'$ in the slice over $Y \in \cal{E}$ is given by the $\cal{M}$-partial map classifier $P_Y$ in the slice over $Y$ defined before \cref{thm:part-map-classifier} below.
 For us instead, as implies by \cref{thm:part-map-classifier}, the monad $\TF$ in the slice over $Y \in \cal{E}$ is freely generated by $P_Y$ seen as a pointed endofunctor.
-It follows that the awfs $(\CC, \TF)$ and $(\CC', \TF')$ are different, but related by an isomorphism $\pAlg{\TF} \cong \palg{\TF'}$.
-Since the functors $\delta^k \hatotimes (-)$ for $k \in \braces{0\,,1}$ do not lift to endofunctors on the double category of squares in $\cal{E}$, it is not clear how to construct a double categorical version of the generating uniform trivial cofibrations $\cal{I}_\otimes$ to generate an awfs $(\TC', \FF')$.
+It follows that the awfs's $(\CC, \TF)$ and $(\CC', \TF')$ are different, but related by an isomorphism $\pAlg{\TF} \cong \palg{\TF'}$.
+Since $\delta^k \hatotimes (-)$ for $k \in \braces{0\,,1}$ do not lift to endofunctors on the double category of squares in $\cal{E}$, it is not clear how to construct a double categorical version of the generating uniform trivial cofibrations $\cal{I}_\otimes$ to generate a corresponding awfs $(\TC', \FF')$.
 \end{remark}
 
 We begin with a simple lemma.
@@ -2959,7 +2959,7 @@ The claim follows by inspection of the following diagram:
 \[
 \xymatrix@C+3em{
   X
-  \ar[r]
+  \ar[r]^{\id_X}
   \ar[d]_{\id_X}
   \pullback{dr}
 &
@@ -3122,9 +3122,9 @@ Unfolding the left Kan extension, we have
 &=
 \colim_{i \in \cal{I}, u_i \to f} u_i
 \\&=
-\colim_{\sigma : y C \to K \times Y,\ \cal{E}_{/Y}(t^* \sigma, X)} \sigma^* t
+\colim_{\sigma : \yon C \to K \times Y,\ \cal{E}_{/Y}(t^* \sigma, X)} \sigma^* t
 \\&=
-\colim_{\sigma : y C \to P_Y(X)} \sigma^* \eta_X
+\colim_{\sigma : \yon C \to P_Y(X)} \sigma^* \eta_X
 \\&=
 \eta_X
 .
