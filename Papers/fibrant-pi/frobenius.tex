@@ -2286,7 +2286,7 @@ An application to a different version of cubical sets (not using connections) gi
 \end{example}
 
 We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the categories $\Fib$ and $\TrivCof$ are independent of the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$. We need some preliminary remarks.
-\notec{TO BE ADDED.}
+\notec{TO BE ADDED}
 
 
 \begin{proposition} \label{prod-exp-general}
@@ -2328,7 +2328,7 @@ More precisely, the category $\Fib$ is isomorphic to the category $\cal{D}_0 \ti
 \begin{proof}
 Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{(\cal{I}_\otimes)}$.
 Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-The statement then follows from \cref{pitchfork-leibniz-most-general-example}.
+The statement then follows from \cref{pitchfork-leibniz-most-general-example}.  \notec{TO BE FIXED}
 \end{proof}
 
 The next corollary will be useful to establish the functorial Frobenius property for $(\TC, \FF)$ in \cref{sec:alg-frob}.
@@ -2355,7 +2355,8 @@ Leibniz product with endpoint inclusions maps uniform cofibrations to uniform tr
 
 \begin{proof}
 Recall that $\Cof = \liftl{\TrivFib}$ and $\TrivCof = \liftl{\Fib}$.
-Using the adjunction~\eqref{equ:leibniz-prod-exp} \notec{(actually, not directly to this adjunction, but rather the underlying adjunction in the unhatted form it comes from using the remark in the section on orthogonal categories that was deleted)} and \cref{lift-of-leibniz-adjunction}, the goal follows from the map $\Fib \to \cal{D}_k$ of \cref{prod-exp-general}.
+Using  \cref{pitchfork-leibniz-most-general-example}, the goal follows from \cref{prod-exp-general}, which gives
+a map $\Fib \to \cal{D}_k$.  \notec{TO BE FIXED}
 \end{proof}
 
 \section{The functorial Frobenius property for uniform fibrations}
