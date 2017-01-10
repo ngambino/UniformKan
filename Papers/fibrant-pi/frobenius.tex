@@ -1330,6 +1330,13 @@ For a functor $u \co \cal{I} \to \cal{E}^\to$ and a map $h \co X \to Y$ in $\cal
 In \cref{lift-of-leibniz-adjunction}, rewrite the first diagram using the adjunction~\eqref{garner-adjunction} and compare it to the second diagram, using naturality in $v$.
 \end{proof}
 
+\begin{remark} \label{pitchfork-leibniz-most-general-example}
+We will apply~\cref{lift-of-leibniz-adjunction,lift-of-leibniz-adjunction-pullback-form} in \cref{sec:alg-fib} as follows.
+We will have categories~$\cal{E}$ and $\cal{F}$, and take $\cal{K}$ to be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$, with morphisms from $U_1 \dashv V_1$ to $U_2 \dashv V_2$ given by natural transformations $u \co U_1 \to U_2$ and $v \co V_2 \to V_1$ forming mates.
+We can then take $F \co \cal{K} \times \catE \to \cal{F}$ and~$G \co \cal{K}^{\op} \times \cal{F} \to \catE$ to be the application of left and right adjoint, respectively.
+% Note that we have fully faithful forgetful functors $\cal{K} \to [\catE, \cal{F}]$ and $\cal{K} \to [\cal{F}, \catE]^{\op}$.
+\end{remark}
+
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
 Next, we establish some facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors. \notec{Referee says next proposition is Lemma 24 in [7]}
@@ -2249,7 +2256,7 @@ More precisely, the category $\Fib$ is isomorphic to the category $\cal{D}_0 \ti
 \begin{proof}
 Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{(\cal{I}_\otimes)}$.
 Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form} applied to the ``most general adjunction'' \notec{Here, we need the remark in the section on orthogonal categories that was deleted} and the category of arrows $\cal{I}$ for $k \in \braces{0\,,1}$.
+The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form} applied to the adjunction~\eqref{equ:leibniz-prod-exp} \notec{(actually, not directly to this adjunction, but rather the underlying adjunction in the unhatted form it comes from using the remark in the section on orthogonal categories that was deleted)} and the category of arrows $\cal{I}$ for $k \in \braces{0\,,1}$.
 \end{proof}
 
 The next corollary will be useful to establish the functorial Frobenius property for $(\TC, \FF)$ in \cref{sec:alg-frob}.
@@ -2276,8 +2283,7 @@ Leibniz product with endpoint inclusions maps uniform cofibrations to uniform tr
 
 \begin{proof}
 Recall that $\Cof = \liftl{\TrivFib}$ and $\TrivCof = \liftl{\Fib}$.
-Using the adjunction~\eqref{equ:leibniz-prod-exp} and \cref{lift-of-leibniz-adjunction}, the goal follows from a lift of $\hatexp(\bar{\delta}^k, -)$ to a functor $\Fib \to \TrivFib$.
-But this is given by \cref{prod-exp-general} \notec{This seems to require a functorial statement of that fact}
+Using the adjunction~\eqref{equ:leibniz-prod-exp} \notec{(actually, not directly to this adjunction, but rather the underlying adjunction in the unhatted form it comes from using the remark in the section on orthogonal categories that was deleted)} and \cref{lift-of-leibniz-adjunction}, the goal follows from the map $\Fib \to \cal{D}_k$ of \cref{prod-exp-general}.
 \end{proof}
 
 \section{The functorial Frobenius property for uniform fibrations}
