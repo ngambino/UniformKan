@@ -380,16 +380,20 @@ This is shown equivalent to the usual notion of Kan fibration in~\cite[Chap.~IV,
 \begin{example} \label{nonalgebraic-cof}
 In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$\Cof$ consists of all monomorphisms, which is suitable by~\cref{thm:generation-presheaf-cisinski}.
 A fibration in $\CSet$ will be called a \emph{Kan fibration}.
-To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion of the $n$-cube $\Box^n$ \notec{Do these form a generating set for cofibrations? No.}, which is given by the $n$-fold Leibniz product of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$. 
+To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion of the $n$-cube $\Box^n$, which is given by the $n$-fold Leibniz product of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$.
+The Leibniz product in $\CSet$ can be seen to preserve monomorphisms, hence $i^n$ will be a cofibration.
+Note that the boundary inclusions $i^n$ will not form a generating set of cofibrations.%
+\footnote{
+For example, the inclusion $\Box^1 \to \Box^2$ given by the diagonal does not lie in the saturation of the boundary inclusions.}
 Then the maps
 \[
 \lcyl \hatotimes i^n \co \sqcup_1^{1+n} \to \Box^{1+n} \, , \quad  \rcyl \hatotimes i^n \co \sqcap_1^{1+n} \to \Box^{1+n} \, ,
 \]
-for $n \in \mathbb{N}$, form a set of generating trivial cofibrations. \notec{No, they do not suffice to generate all trivial cofibrations.}
+for $n \in \mathbb{N}$, are trivial cofibrations.
 Since the cube category has symmetries, a Kan fibration in $\CSet$ has the right lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.
-However, not all generating trivial cofibrations will be of this form. \notec{It is unclear what the last sentence wants to suggest.} 
+However, these will not form a generating set of trivial cofibrations.
 %\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
-
+%
 %Non-algebraically, the setting of~\cite{cohen-et-al:cubicaltt} arises by considering trivial fibrations as defined by weak right orthogonality with respect to the monomorphisms\footnote{Or decidable monomorphisms, if working constructively.} classified by their face lattice~$\Phi$, \ie those arising as a pullback of~$\braces{\top} \to \Phi$, excluding for example diagonals in cubes.
 %Since the presence of symmetries, diagonals, and connections precludes the cube category from being Reedy, this may turn out to be a %natural restriction.
 %Note that $\cal{I}'$ is the left class of a suitable wfs and is thus covered by our development. \notec{Wrong}
