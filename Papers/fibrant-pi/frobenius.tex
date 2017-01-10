@@ -2191,24 +2191,7 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 
 The main difference between the notion of a suitable wfs~(\cref{thm:suitable-wfs}) and that of a suitable awfs (\cref{thm:suitable-awfs}) is that the conditions in the former express closure of the class of left maps under the action of certain functions, while the conditions in the latter express closure of the category of left maps under the action of certain functors.
 
-By \cref{generalized-uniform-frob-nicer}, condition~(S3) is equivalent to the generalized functorial Frobenius condition for $(\Cof, \cal{E}^\to, \Cof)$.
-By definition, this means that the pullback functor $Q$ defined in \cref{sec:frobc} lifts as follows:
-\[
-\xymatrix@C+3em{
-  \Cof_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
-  \ar@{.>}[r]^{\widetilde{Q}}
-  \ar[d]_{u_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to}
-&
-  \Cof_{/\cal{E}}
-  \ar[d]^{u_{/\cal{E}}}
-\\
-  \catE^\to_{/\cal{E}} \times_{\cal{E}} \calE^\to
-  \ar[r]_{Q}
-&
-  \catE^\to_{\cal{E}}
-\rlap{.}}
-\]
-This will be exploited in the proof of \cref{uniform-fibrations-uniform-frobenius}.
+Note that by \cref{generalized-uniform-frob-nicer}, condition~(S3) is equivalent to the generalized functorial Frobenius condition for $(\Cof, \cal{E}^\to, \Cof)$.
 
 \begin{example} \label{unif-triv-fib-sset}
 As we will see in~\cref{sec:fib-psh}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
@@ -2896,7 +2879,7 @@ The awfs $(\mathsf{C_t}, \mathsf{F})$ satisfies the functorial Frobenius conditi
 
 \begin{proof}
 First, we show that $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ satisfies the generalized functorial Frobenius condition.
-This follows from \cref{generalized-uniform-frob-product-u} since $(\Cof, \Fib, \Cof)$ satisfies the generalized functorial Frobenius condition by condition~(S3) in the definition of \cref{thm:suitable-awfs} and \cref{generalized-uniform-frob-nicer}; while $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized Frobenius condition by \cref{technical}.
+This follows from \cref{generalized-uniform-frob-product-u}: by condition~(S3) in the definition of \cref{thm:suitable-awfs} and \cref{generalized-uniform-frob-nicer}, $(\Cof, \cal{E}^\to, \Cof)$ satisfies the generalized functorial Frobenius condition, hence also $(\Cof, \Fib, \Cof)$ by \cref{generalized-uniform-frob-functorial}; while $(\cal{S}, \Fib, \cal{S})$ satisfies the generalized Frobenius condition by \cref{technical}.
 
 The generalized functorial Frobenius condition for $(\Cof \times_{\cal{E}} \cal{S}, \Fib, \Cof \times_{\cal{E}} \cal{S})$ implies the generalized functorial Frobenius condition for $(\cal{I}_\otimes, \Fib, \TrivCof)$ using functoriality of generalized functorial Frobenius in the form of \cref{generalized-uniform-frob-functorial} with $F$ the functor
 in~\eqref{thm:onedir} of~\cref{thm:strong-hequiv}, $G$ the identity, and $H$ the functor
