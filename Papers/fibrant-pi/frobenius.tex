@@ -1302,9 +1302,33 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$, naturally in
 \rlap{.}}
 \end{gathered}
 \]
- \qed
+\qed
 \end{enumerate}
 \end{proposition}
+
+\begin{corollary} \label{lift-of-leibniz-adjunction-pullback-form}
+For a functor $u \co \cal{I} \to \cal{E}^\to$ and a map $h \co X \to Y$ in $\cal{K}$, we have a pullback of categories as follows:
+\[
+\xymatrix{
+  \liftr{\cal{I}}
+  \ar[r]
+  \ar[d]_{\liftr{(\widehat{F}(h, \arghole) \cc u)}}
+  \pullback{dr}
+&
+  \liftr{\cal{I}}
+  \ar[d]^{\liftr{u}}
+\\
+  \cal{F}^\to
+  \ar[r]_-{\widehat{G}(h, \arghole)}
+&
+  \cal{E}^\to
+\rlap{.}}
+\]
+\end{corollary}
+
+\begin{proof}
+In \cref{lift-of-leibniz-adjunction}, rewrite the first diagram using the adjunction~\eqref{garner-adjunction} and compare it to the second diagram, using naturality in $v$.
+\end{proof}
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
@@ -2183,40 +2207,49 @@ If instead in the case of $\CSet$, we start with the awfs $(\CC', \TF')$ of \cre
 An application to a different version of cubical sets (not using connections) gives the awfs considered in~\cite{swan-awfs}.
 \end{example}
 
-We now give an equivalent characterization of uniform fibrations, which does not refer to generating uniform cofibrations.
-This shows that the categories $\Fib$ and $\TrivCof$ are independent of the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$. \notec{Does it?}
+We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, an an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations.
+This shows that the categories $\Fib$ and $\TrivCof$ are independent of the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$.
 
 \begin{proposition} \label{prod-exp-general}
-For a map $p \co X \to Y$ in $\catE$, the following are equivalent: \notec{Should this be an equivalence of categories?}
-\begin{enumerate}[(i)]
-\item uniform fibration structures on $p$,
-\item uniform trivial fibration structures on $\hatexp(\bar{\delta}^0, p)$ and $\hatexp(\bar{\delta}^1, p)$.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{\cal{I}_\otimes}$.
-Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-Separately for $k \in \braces{ 0, 1}$, it remains by adjointness to construct a pullback of categories as follows:
-\[
-\xymatrix@C+3em{
-  \liftr{\cal{I}}
-  \ar[d]_{\liftr{(\delta^k \hatotimes u)}}
+Uniform fibration structures on $p \in \cal{E}^\to$ are isomorphic to uniform trivial fibration structures on $\hatexp(\bar{\delta}^0, p)$ and $\hatexp(\bar{\delta}^1, p)$, naturally in $p$.
+More precisely, the category $\Fib$ is isomorphic to the category $\cal{D}_0 \times_{\cal{E}^\to} \cal{D}_1$ where $\cal{D}_0$ and $\cal{D}_1$ are categories of arrows defined via pullbacks as follows:
+\begin{align*}
+\xymatrix@C+1em{
+  \cal{D}_0
   \ar[r]
+  \ar[d]
   \pullback{dr}
 &
-  \liftr{\cal{I}}
-  \ar[d]^{\liftr{u}}
+  \TrivFib
+  \ar[d]
 \\
   \cal{E}^\to
-  \ar[r]_{\hatexp(\bar{\delta}^k, -)}
+  \ar[r]_-{\hatexp(\bar{\delta}^0, p)}
 &
   \cal{E}^\to
 \rlap{,}}
-\]
-for .  
-This is an instance of \cref{lift-of-leibniz-adjunction}, using the adjunction~\eqref{equ:leibniz-prod-exp}.
-\notec{Expand this, possibly including corollary in previous versions that is now omitted}
+&&
+\xymatrix@C+1em{
+  \cal{D}_1
+  \ar[r]
+  \ar[d]
+  \pullback{dr}
+&
+  \TrivFib
+  \ar[d]
+\\
+  \cal{E}^\to
+  \ar[r]_-{\hatexp(\bar{\delta}^1, p)}
+&
+  \cal{E}^\to
+\rlap{.}}
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{(\cal{I}_\otimes)}$.
+Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
+The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form} applied to the ``most general adjunction'' \notec{Here, we need the remark in the section on orthogonal categories that was deleted} and the category of arrows $\cal{I}$ for $k \in \braces{0\,,1}$.
 \end{proof}
 
 The next corollary will be useful to establish the functorial Frobenius property for $(\TC, \FF)$ in \cref{sec:alg-frob}.
