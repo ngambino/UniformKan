@@ -129,7 +129,8 @@ Recall from~\cite{kamps-porter:homotopy} that a \emph{functorial cylinder} in $\
 \, ,\]
 called the left and right \emph{endpoint inclusions}, respectively.
 Such a functorial cylinder is said to have \emph{contractions} if $\lcyl \otimes (-)$ and $\rcyl \otimes (-)$ have a common retraction $\ccyl \otimes (-) \co \interval \otimes (-) \to \Id_\catE$, making the following diagrams commute:
-\[
+\begin{equation} \label{contractions}
+\begin{gathered}
 \xymatrix@C+2em{
   \Id_\catE
   \ar[r]^-{\lcyl \otimes (-)}
@@ -144,7 +145,8 @@ Such a functorial cylinder is said to have \emph{contractions} if $\lcyl \otimes
 \\&
   \Id_\catE
 \rlap{.}}
-\]
+\end{gathered}
+\end{equation}
 Further, a functorial cylinder with contractions as above has \emph{connections} if, for $k \in \braces{0\,, 1}$, there is a natural transformations $c^k \otimes (-) \co \interval \otimes \interval \otimes (-) \to \interval \otimes (-)$ such that the following diagrams commute:
 \begin{equation} \label{connections:0}
 \begin{gathered}
@@ -741,69 +743,43 @@ Since~$f$ is a strong homotopy equivalence, $\thetak \hatotimes f$ is a section.
 But then $\thetak \hatotimes g$ is also a section (since sections are closed under retracts), and so $g$ is a strong $k$-oriented homotopy equivalence.
 
 \begin{lemma} \label{thm:kcylf-is-she}
-For every map $f$ in $\cal{E}$, we have that $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence.
+For every map $h \co X \to Y$ in $\cal{E}$, we have that $\kcyl \hatotimes h$ is a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
-\begin{proof} This is a diagram-chasing argument, which we present (in outline) it since this gives an unfolding of the abstract proof of~\cref{thm:kcylf-is-she-alg},
-which establishes the corresponding fact in the algebraic setting. By \cref{strong-h-equiv-as-section-non-alg} it suffices to show that the diagram
- \begin{equation*}
- \begin{gathered}
-\xymatrix@C+8em{
-  (\interval \otimes X) +_X Y
-  \ar[r]^-{\iota_1 \cc (\kcylinv \otimes  (( \interval \otimes X) +_X Y) }
-  \ar[d]_{\kcyl \hatotimes f}
-&
- \big( (\interval \otimes X) +_X Y \big) +_{ (\interval \otimes X) +_X Y} (\interval \otimes Y)
-  \ar[d]^{\kcyl \hatotimes (\kcyl \hatotimes f)}
-\\
-  \interval \otimes Y
-  \ar[r]_-{\kcylinv \otimes (\interval \otimes Y)}
-&
-  \interval \otimes (\interval \otimes Y)}
-\end{gathered}
-\end{equation*}
-exhibits $\kcyl \hatotimes f$ as a retract of $\kcyl \hatotimes (\kcyl \hatotimes f)$ in $\cal{E}^\to$. The key step in the proof is to replace this problem with an equivalent one. For this,
-we need to construct some auxiliary maps. First, we define
+\begin{proof}
+This follows from the more general \cref{thm:kcylf-is-she-alg}, which is proven abstractly.
+To help with intuition, we sketch an explicit unfolding of the case $k = 0$.
+
+Let us abbreviate $f \defeq \delta^0 \hatotimes h \co (I \otimes X) +_X Y \to I \otimes Y$.
+We define $g$ as the composite
 \[
-\sigma_f  \co
- 	(\interval \otimes X) +_X Y
-	\to
-	(\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y)
+\xymatrix{
+  I \otimes Y
+  \ar[r]^-{\epsilon \otimes Y}
+&
+  Y
+  \ar[r]^-{\iota_2}
+&
+  (I \otimes X) +_X Y
+\rlap{.}}
 \]
- by letting $\sigma_f \defeq (\kcyl \otimes (\interval \otimes X)) +_X (\kcyl \otimes Y)$. Secondly, we consider the pushout diagram
+It remains to define homotopies $\phi \co g \cc f \sim \id_X$ and $\psi \co f \cc g \sim \id_Y$ such that $f \cc \phi = \psi \cc (I \otimes f)$.
+
+The homotopy $\psi \co I \otimes I \otimes Y \to I \otimes Y$ is defined as the connection $\psi \defeq c^0 \otimes Y$.
+The signature of the homotopy $\phi$ can be equivalently stated as
 \[
-\xymatrix{
-X \ar[r]^f \ar[d]_{\kcyl  \otimes X} & Y \ar[r]^{\kcyl \otimes Y}  & \interval \otimes Y  \ar[dd]^{\iota_2} \ar@/^2pc/[dddr]^{\kcyl \otimes (\interval \otimes Y)} &  \\
-\interval \otimes X \ar[d]_{\kcyl \otimes (\interval \otimes X)} & & \\
-\interval \otimes (\interval \otimes X) \ar[rr]_-{\iota_1} \ar@/_2pc/[drrr]_{\interval \otimes (\interval \otimes f)} & & (\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y) \ar[dr]^{\tau_f} &  \\
- & & & I \otimes (I \otimes Y) }
- \]
-Using the maps $\sigma_f$ and $\tau_f$, we then have a further pushout diagram
-\[
-\xymatrix{
- (\interval \otimes X) +_X Y  \ar[r]^{\kcyl \hatotimes f} \ar[d]_{\sigma_f}  & \interval \otimes Y \ar[d]^{\iota_2}  \ar@/^2pc/[ddr]^{\kcyl \otimes (\interval \otimes Y)} & \\
- (\interval \otimes (\interval \otimes X)) +_X (\interval \otimes Y)  \ar[r]^-{\iota_1} \ar@/_1pc/[drr]_{\tau_f} & Z \ar[dr]^-(.4){ (\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f}  & \\
-  & & \interval \otimes (\interval \otimes Y) \rlap{,}}
-  \]
- where the notation $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ is intented to suggest the analogy with the proof of~\cref{thm:kcylf-is-she-alg}.
- Since the functor $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pushouts (since, being a left adjoint, 
- it preserves all colimits), it is possible to
- show that our goal is equivalent to showing that the diagram
- \[
-\xymatrix@C+10em{
-  (\interval \otimes X) +_X Y
-  \ar[r]^-{\iota_1 \cc (   (\kcylinv \otimes (\interval \otimes X)) +_X (\kcylinv \otimes Y)   )}
-  \ar[d]_{\kcyl \hatotimes f}
-&
-Z
-  \ar[d]^{(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f } \\
-  \interval \otimes Y
-  \ar[r]_-{\kcylinv \otimes (\interval \otimes Y)}
-&
-  \interval \otimes (\interval \otimes Y)}
-  \]
-exhibits $\kcyl \hatotimes f$ as a retract of $(\kcyl \mathbin{\hat{\cc}} \kcyl) \hatotimes f$ in $\cal{E}^\to$.  But this can be proved easily following the same ideas used
-to construct the retraction in~\eqref{equ:kcyl-as-retract}.
+\phi \co (I \otimes I \otimes X) +_{I \otimes X} I \otimes Y \to (I \otimes X) +_X Y
+\]
+since $I \otimes -$ preserves pushouts.
+We then define $\phi = (c^0 \otimes X) +_{\epsilon \otimes X} (\epsilon \otimes Y)$.
+
+A standard diagram-chasing argument using~\eqref{contractions}, \eqref{connections:0}, \eqref{connections:1} verifies that $\phi$ and $\psi$ have the correct endpoints and that the $0$-oriented homotopy equivalence $(f, g, \phi, \psi)$ is strong using diagrams.
+%
+%right endpoint of $\psi$: contractions:2.1
+%right endpoint of $\phi$: contractions:2.1 and contractions
+%
+%left endpoint of $\psi$: contractions:1.1
+%left endpoint of $\phi$: contractions:1.1 and contractions
 \end{proof}
 
 For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ with generating set $\cal{I}$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}, with generating set $\cal{I}_\otimes$ defined in~\eqref{equ:cylinc}. 
