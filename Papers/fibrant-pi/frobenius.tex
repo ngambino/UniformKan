@@ -358,8 +358,7 @@ We refer to elements of $\cal{I}_\otimes$ as \emph{generating trivial cofibratio
 A \emph{fibration} is a map with the right lifting property with respect to all generating trivial cofibrations.
 \end{definition}
  
- 
-Before illustrating our notion of a fibration in our running examples,  we show the notion of a fibration is actually independent of the choice of the set of generating cofibrations. For this, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
+Before illustrating the notion of a fibration in our running examples, we establish that it is actually independent of the choice of the set of generating cofibrations and that fibrations are the right class of a wfs. For the first goal, we use the cocylinder structure on the right adjoint $\exp(\interval, -)$ to $\interval \otimes (-)$.
 For $k \in \{ 0 \, , 1 \}$ and a map $f \co X \to Y$ in $\calE$, we define the \emph{Leibniz exponential} 
 of~$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
 \[
@@ -397,7 +396,19 @@ The desired characterization of fibrations, stated in the next proposition, now 
 \end{proposition}
 
 
-We now illustrate our notion of a fibration in our running examples.
+
+We now define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
+We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that 
+$\Fib = \liftr{(\cal{I}_\otimes)}$ and $\TrivCof = \liftl{\Fib}$. The next proposition is immediate. 
+
+\begin{proposition} \label{thm:wfstimes}
+$(\TrivCof, \Fib)$ is a wfs in $\cal{E}$.
+\end{proposition}
+
+\begin{proof} By Quillen's small object argument, with $\cal{I}_\otimes$ as the generating set. 
+\end{proof} 
+
+
 
 
 \begin{example} \label{thm:fib-is-kan}
@@ -412,6 +423,8 @@ h_k^1 \hatotimes i^n \co (\Delta^1 \times \partial \Delta^n ) \cup (\braces{k} \
 given by the Leibniz product of an endpoint inclusion $h_k^1 \co \braces{k} \to \Delta^1$ with a 
 boundary inclusion~$i^n \co \partial \Delta^n \to \Delta^n$.
 This is shown equivalent to the usual notion of Kan fibration in~\cite[Chap.~IV, Sec.~2]{gabriel-zisman:calculus-of-fractions}.
+Thus, the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} is the wfs of trivial cofibrations and Kan fibrations associated to the 
+Quillen model structure for Kan complexes~\cite{quillen-homotopical}.
 \end{example}
 
 \begin{example} \label{nonalgebraic-cof}
@@ -468,26 +481,11 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 \end{remark}
 
 
-
-
-We now define a \emph{trivial cofibration} to be a map with the left lifting property with respect to all fibrations.
-We write $\Fib$ for the class of fibrations and $\TrivCof$ for the class of trivial cofibrations, so that 
-\[
-\Fib = \liftr{(\cal{I}_\otimes)} \, , \quad \TrivCof = \liftl{\Fib} \, .
-\]
-The next proposition is immediate. 
-
-\begin{proposition} \label{thm:wfstimes}
-$(\TrivCof, \Fib)$ is a wfs in $\cal{E}$.
-\end{proposition}
-
-\begin{proof} By Quillen's small object argument, with $\cal{I}_\otimes$ as the generating set. 
-\end{proof} 
-
-Note that, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
-Observe also that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
-$\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. The next corollary, with which we conclude this section, will be used to prove~\cref{thm:main-sheretract} and \cref{thm:non-alg-frobenius-she}, which are two of the key
-steps in establishing the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
+We conclude this section with some observations on the wfs's $(\Cof, \TrivFib)$ and $(\TrivCof, \Fib)$. 
+First, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
+Secondly, observe  that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
+$\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. Finally, we establish a corollary
+of~\cref{thm:char-fib-nonalg} which will be used to prove~\cref{thm:main-sheretract} and \cref{thm:non-alg-frobenius-she}, which are two of the key steps in establishing the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
 
 \begin{corollary} 
 \label{thm:kcyl-of-cof-is-trivcof-non-alg} Let $f \co X \to Y$ in $\cal{E}$. 
