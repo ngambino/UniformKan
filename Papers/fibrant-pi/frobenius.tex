@@ -1563,11 +1563,10 @@ An awfs $(\LL, \RR)$ in $\cal{E}$ satisfies the \emph{functorial Frobenius condi
 \]
 \end{definition}
 
-In this section we obtain an analogue of~\cref{thm:frobenius-equivalence} for awfs's, \ie a necessary and sufficient condition for an algebraically-free awfs to satisfy the functorial Frobenius condition.
+In this section we obtain an analogue of~\cref{thm:frobenius-equivalence} for awfs's, \ie a necessary and sufficient condition for an algebraically-free awfs to satisfy the functorial Frobenius condition (\cref{thm:frobenius-comparison}).
 We will apply this characterization in the next section in order to prove a functorial Frobenius property for the awfs having uniform fibrations as right maps.
-In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below.
 
-For this, we introduce some notation.
+In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below. For this, we introduce some notation.
 Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects consisting of 
 tuples $(X, i, a, b)$, where $X \in \cal{E}$, $i \in \cal{I}$, $a \co A_i \to X$, $b \co B_i \to X$, such that the following diagram commutes:
 \[
@@ -1677,7 +1676,7 @@ If $(\cal{I}_1, \cal{J}_1, \cal{K}_1)$ satisfies the generalized functorial Frob
 \qed
 \end{proposition}
 
-Next, we show how, under some assumptions,  the generalized functorial Frobenius condition can be simplified.
+Next, we show how the generalized functorial Frobenius condition can be simplified under some mild assumptions.
 
 \begin{proposition} \label{generalized-uniform-frob-nicer}
 Let $u \co \cal{I} \to \cal{E}^\to$, $v \co \cal{J} \to \cal{E}^\to$, $w \co \cal{K} \to \cal{E}^\to$ be categories of arrows such that
@@ -1722,10 +1721,17 @@ Then the following are equivalent:
 
 \begin{proof}
 We will show that giving lifts $\tilde{Q}$ and $\tilde{P}$ as in~\eqref{generalized-uniform-frob:lift} and \eqref{generalized-uniform-frob-nicer:lift}, respectively, is equivalent.
-The situation \eqref{generalized-uniform-frob:lift} a priori represents a more general scenario: we are pulling back an arrow $u_i \co A \to B$ with $i \in \cal{I}$ over an object $Y$ along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
+The situation \eqref{generalized-uniform-frob:lift} a priori represents a more general scenario: we are pulling back an arrow over an object $Y$, 
+\[
+\xymatrix{
+A \ar[rr]^{u_i} \ar[dr]  & & B \ar[dl] \\
+ & Y \rlap{,} }
+ \]
+with $i \in \cal{I}$,  along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
 In contrast, in \eqref{generalized-uniform-frob-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
 It follows that any lift $\tilde{Q}$ induces a lift $\tilde{P}$.
 However, under the stated assumption that \eqref{uniform-frob:comprehension} is a morphism of Grothendieck fibrations, the lift $\tilde{Q}$ can be reconstructed from the lift $\tilde{P}$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $\tilde{Q}(i, j) \defeq \tilde{P}(i, j')$.
+\notec{Say where is the hypothesis of morphism of Grothendieck fibrations used?}
 %If $\cal{K}$ is a category of arrows, this choice of $\tilde{Q}$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $w$ reflects isomorphisms.
 \end{proof}
 
@@ -1861,8 +1867,9 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof}
-We consider the lift $\widetilde{Q}$ of $Q$ in the generalized functorial Frobenius condition~\eqref{generalized-uniform-frob:lift} for $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$.
-Since the functor $\liftl{(\liftr{w})} \co \liftl{(\liftr{\cal{K}})} \to \cal{E}^\to$ is faithful, the lift $\widetilde{Q}$ consists just of a lift of the action of $Q$ on objects that is coherent (in an evident sense) with respect to the action of $Q$ on morphisms, in the sense that the action of $Q$ on morphisms determines uniquely the action of $\widetilde{Q}$ on morphisms.
+We consider the lift $\widetilde{Q}$ of $Q$ in the generalized functorial Frobenius condition~\eqref{generalized-uniform-frob:lift} 
+for~$(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$.
+Since the functor $\liftl{(\liftr{w})} \co \liftl{(\liftr{\cal{K}})} \to \cal{E}^\to$ is faithful, the lift~$\widetilde{Q}$ consists just of a lift of the action of $Q$ on objects that is coherent (in an evident sense) with respect to the action of~$Q$ on morphisms, in the sense that the action of $Q$ on morphisms determines uniquely the action of~$\widetilde{Q}$ on morphisms.
 Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $\widetilde{Q}$ separates into two parts:
 \begin{enumerate}[(1)]
 \item coherence in morphisms in $\cal{I}_{/D_j}$ for fixed $v_j \co C_j \to D_j$ with $j \in \cal{J}$,
@@ -1934,7 +1941,7 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof} 
-For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
+For (i), apply \cref{lift-of-adjunction} \notec{Referee comment not yet addressed} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
 For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_* s^*$ and $v_k^* t_! \dashv t^* (v_k)_*$ recalling that $\phi$ and $\psi$ are mates.
 \end{proof}
 
@@ -1965,7 +1972,7 @@ Then the following are equivalent:
 \end{theorem}
 
 \begin{proof}
-Using \cref{retract-closure} and the adjunction~\eqref{garner-adjunction}, we have $\overline{\liftr{\cal{I}}} \leftrightarrow \liftr{\cal{I}}$, hence $\pAlg{\RR} \leftrightarrow \overline{\pAlg{\RR}}$.
+Using \cref{retract-closure} and the adjunction~\eqref{garner-adjunction} \notec{Why also the adjunction?}, we have $\overline{\liftr{\cal{I}}} \leftrightarrow \liftr{\cal{I}}$, hence $\pAlg{\RR} \leftrightarrow \overline{\pAlg{\RR}}$.
 Note that $\overline{\pAlg{\RR}} \leftrightarrow \palg{\RR}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
 It follows that $\pAlg{\RR} \leftrightarrow \palg{\RR}$.
 
@@ -1987,7 +1994,7 @@ With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equ
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Using \cref{generalized-uniform-frob-nicer}, this corresponds to the generalized functorial Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
+Using \cref{generalized-uniform-frob-nicer}, this amounts to the generalized functorial Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
 By \cref{double-pitchfork-in-generalized-uniform-frob}, this is equivalent to the generalized functorial Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$.
 \end{proof}
 
@@ -2013,20 +2020,21 @@ In \cref{sec:alg-fib} and \cref{sec:alg-frob}, we develop the algebraic counterp
 \section{Uniform fibrations}
 \label{sec:alg-fib}
 
-This section is devoted to introducing the notion of a uniform fibration, which is the algebraic counterpart of the notion of a fibration introduced in~\cref{thm:fib}.
+This section is devoted to introducing the notion of a uniform fibration, which is the algebraic counterpart of the notion of a fibration introduced in~\cref{thm:fib} and establishing some basic results about it.
 For this, we first introduce suitable awfs's, in complete analogy with the way we defined suitable wfs's in~\cref{thm:suitable-wfs}.
 We will use the notation $(\CC, \TF)$ to denote a suitable awfs, and let
-\[
+\begin{equation}
+\label{equ:Mapmap}
 \begin{aligned}
 \Cof \defeq \pcoalg{\CC}
 ,&&
 \TrivFib \defeq \pAlg{\TF} \rlap{.} 
 \end{aligned}
-\]
+\end{equation}
 We then refer to objects in $\Cof$ as \emph{uniform cofibrations} and objects in $\TrivFib$ as \emph{uniform trivial fibrations}.
-Again, we hope that this helps to convey some of the basic intuition motivating our development.
-The dichotomy of copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
-We will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
+Again, we hope that this helps to convey some of the basic intuition motivating our development. In~\eqref{equ:Mapmap}, 
+The dichotomy between copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
+However, we will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
 
 \begin{definition} \label{thm:suitable-awfs}
 An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions hold.
@@ -2075,7 +2083,7 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 
 The main difference between the notion of a suitable wfs~(\cref{thm:suitable-wfs}) and that of a suitable awfs (\cref{thm:suitable-awfs}) is that the conditions in the former express closure of the class of left maps under the action of certain functions, while the conditions in the latter express closure of the category of left maps under the action of certain functors.
 
-Note that by \cref{generalized-uniform-frob-nicer}, condition~(S3) is equivalent to the generalized functorial Frobenius condition for $(\Cof, \cal{E}^\to, \Cof)$.
+Note that, by \cref{generalized-uniform-frob-nicer}, condition~(S3) is equivalent to the generalized functorial Frobenius condition for $(\Cof, \cal{E}^\to, \Cof)$.
 
 \begin{example} \label{unif-triv-fib-sset}
 As we will see in~\cref{sec:fib-psh}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
@@ -2086,7 +2094,7 @@ Similarly, we will see that the category $\CSet$ also admits a suitable awfs $(\
 
 Let us now fix a suitable awfs $(\CC, \TF)$ cofibrantly generated by a small category of maps $u \co \cal{I} \to \cal{E}^\to$.
 We refer to the objects of $\cal{I}$ as \emph{generating uniform cofibrations}.
-For $k \in \braces{0\,, 1}$, we can then define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
+For $k \in \braces{0\,, 1}$, we  define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
 \[
 (\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i  \ \, , 
 \]
@@ -2145,11 +2153,11 @@ The category $\cal{E}$ admits a cofibrantly generated awfs $(\TC, \FF)$ such tha
 By Garner's small object argument~\cite{garner:small-object-argument} (see also~\cite[Proposition~16]{bourke-garner-I}), applied to the generating small category of arrows $\cal{I}_\otimes$.  
 \end{proof}
 
-Note again that since $(\TC, \FF)$ is cofibrantly generated, there are functors over $\cal{E}^\to$ back and forth between $\palg{\FF}$ and $\pAlg{\FF}$.
+Note again that there are functors over $\cal{E}^\to$ back and forth between $\palg{\FF}$ and $\pAlg{\FF}$ since $(\TC, \FF)$ is cofibrantly generated.
 
 \begin{example} \label{unif-fib-sset}
 If we start from the awfs's $(\CC, \TF)$ in~$\SSet$ and~$\CSet$ of \cref{unif-triv-fib-sset} and apply~\cref{thm:sset-cset-nwfs}, we obtain awfs's $(\TC, \FF)$ whose monad algebras are algebraic counterparts of Kan fibrations, and hence will be called \emph{uniform Kan fibrations}.
-If instead in the case of $\CSet$, we start with the awfs $(\CC', \TF')$ of \cref{unif-triv-fib-sset}, we obtain an awfs $(\TC', \FF')$ whose right maps are exactly the uniform Kan fibrations considered in~\cite{cohen-et-al:cubicaltt}.
+In the case of $\CSet$, instead, if we start with the awfs $(\CC', \TF')$ of \cref{unif-triv-fib-sset}, we obtain an awfs $(\TC', \FF')$ whose right maps are exactly the uniform Kan fibrations considered in~\cite{cohen-et-al:cubicaltt}.
 An application to a different version of cubical sets (not using connections) gives the awfs considered in~\cite{swan-awfs}.
 \end{example}
 
