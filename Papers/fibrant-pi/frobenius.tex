@@ -442,11 +442,6 @@ Then the maps
 for $n \in \mathbb{N}$, are trivial cofibrations.
 Since the cube category has symmetries, a Kan fibration in $\CSet$ has the right lifting property also with respect to open box inclusions, which are counterparts in cubical sets of the horn inclusions in simplicial sets.
 However, these will not form a generating set of trivial cofibrations.
-%\footnote{Without symmetries, one should consider two-sided Leibniz tensors such as $i^a \hatotimes \lcyl \hatotimes i^b \co \sqcup_a^{a+1+b} \to \Box^{a+1+b}$.}
-%
-%Non-algebraically, the setting of~\cite{cohen-et-al:cubicaltt} arises by considering trivial fibrations as defined by weak right orthogonality with respect to the monomorphisms\footnote{Or decidable monomorphisms, if working constructively.} classified by their face lattice~$\Phi$, \ie those arising as a pullback of~$\braces{\top} \to \Phi$, excluding for example diagonals in cubes.
-%Since the presence of symmetries, diagonals, and connections precludes the cube category from being Reedy, this may turn out to be a %natural restriction.
-%Note that $\cal{I}'$ is the left class of a suitable wfs and is thus covered by our development. \notec{Wrong}
 \end{example}
 
 
@@ -1272,6 +1267,9 @@ Then the following are equivalent for $h \co X \to Y$ in $\cal{K}$, naturally in
 \newcommand{\Adj}{\operatorname{Adj}}
 \newcommand{\catF}{\cal{F}}
 
+
+
+
 \begin{corollary} \label{lift-of-leibniz-adjunction-pullback-form}
 For a functor $u \co \cal{I} \to \cal{E}^\to$ and a map $h \co X \to Y$ in $\cal{K}$, there is a pullback of categories of the form
 \[
@@ -1308,8 +1306,8 @@ But the former are in natural bijective correspondence with diagrams as in item~
 The next remark spells out a special case of~\cref{lift-of-leibniz-adjunction} and \cref{lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib}.
 
 
-\begin{remark} \label{pitchfork-leibniz-most-general-example}
-Fix categories $\catE$ and $\catF$ and let $\Adj(\catE, \catF)$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$ and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
+\begin{example} \label{pitchfork-leibniz-most-general-example}
+ Fix categories $\catE$ and $\catF$ and let $\Adj(\catE, \catF)$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$ and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
 functors
 \[
 \eval_L \co \Adj(\catE, \catF) \times \catE \to \catF \, , \quad
@@ -1367,12 +1365,12 @@ And, by \cref{lift-of-leibniz-adjunction-pullback-form}, there is a pullback
   \cal{E}^\to
 \rlap{.}}
 \]
-\end{remark} 
+\end{example} 
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
 Next, we record some facts about the interaction between orthogonality functors and Kan extensions along fully faithful functors.
-These follow \notec{`Follow from' or `are'? (cf referee comment)} from~\cite[Lemma~24]{bourke-garner-I}.
+These follow immediately from~\cite[Lemma~24]{bourke-garner-I}.
 
 \begin{proposition} \label{kan-extension-closure}
 Let $F \co \cal{I} \to \cal{J}$ be a fully faithful functor.
@@ -1728,8 +1726,7 @@ A \ar[rr]^{u_i} \ar[dr]  & & B \ar[dl] \\
 with $i \in \cal{I}$,  along a map $v_j \co X \to Y$ with $j \in \cal{J}$.
 In contrast, in \eqref{generalized-uniform-frob-nicer:lift} we restrict to the case that the map $B \to Y$ is the identity.
 It follows that any lift $\tilde{Q}$ induces a lift $\tilde{P}$.
-However, under the stated assumption that \eqref{uniform-frob:comprehension} is a morphism of Grothendieck fibrations, the lift $\tilde{Q}$ can be reconstructed from the lift $\tilde{P}$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co B \to D$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $\tilde{Q}(i, j) \defeq \tilde{P}(i, j')$.
-\notec{Say where is the hypothesis of morphism of Grothendieck fibrations used?}
+However, under the stated assumption that \eqref{uniform-frob:comprehension} is a morphism of Grothendieck fibrations, the lift $\tilde{Q}$ can be reconstructed from the lift $\tilde{P}$ by first pulling back $v_j$ along $B \to Y$ to a map $v_{j'} \co D \to B$ with $j' \to j$ a map in $\cal{J}$ in the above situation and then setting $\tilde{Q}(i, j) \defeq \tilde{P}(i, j')$.
 %If $\cal{K}$ is a category of arrows, this choice of $\tilde{Q}$ is forced upon us (up to isomorphism) by functoriality of $Q$ and the fact that $w$ reflects isomorphisms.
 \end{proof}
 
@@ -1939,7 +1936,7 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof} 
-For (i), apply \cref{lift-of-adjunction} \notec{Referee comment not yet addressed} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
+For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
 For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_* s^*$ and $v_k^* t_! \dashv t^* (v_k)_*$ recalling that $\phi$ and $\psi$ are mates.
 \end{proof}
 
@@ -1970,7 +1967,7 @@ Then the following are equivalent:
 \end{theorem}
 
 \begin{proof}
-Using \cref{retract-closure} and the adjunction~\eqref{garner-adjunction} \notec{Why also the adjunction?}, we have $\overline{\liftr{\cal{I}}} \leftrightarrow \liftr{\cal{I}}$, hence $\pAlg{\RR} \leftrightarrow \overline{\pAlg{\RR}}$.
+Using \cref{retract-closure} and the adjunction~\eqref{garner-adjunction}, we have $\overline{\liftr{\cal{I}}} \leftrightarrow \liftr{\cal{I}}$, hence $\pAlg{\RR} \leftrightarrow \overline{\pAlg{\RR}}$.
 Note that $\overline{\pAlg{\RR}} \leftrightarrow \palg{\RR}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
 It follows that $\pAlg{\RR} \leftrightarrow \palg{\RR}$.
 
@@ -2125,10 +2122,15 @@ We refer to the objects of $\cal{I}_\otimes$ as \emph{generating uniform trivial
 \end{enumerate}
 \end{definition}
 
-We write $\Fib$ for the category of uniform fibrations and their morphisms.
+We write $\Fib$ for the category of uniform fibrations and their morphisms. We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the category $\Fib$ is independent from the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$. 
+
+We begin by illustrating how the adjunction in~\eqref{equ:leibniz-prod-exp}  fits into the setting of \cref{pitchfork-leibniz-most-general-example}.
+For this, recall that we have the adjunction in~\eqref{equ:cyl-exp-adj} and write $\bar{\delta}^k \co \exp(I, -) \to \Id$ for the mate of $\delta^k \co \Id \to I \otimes (-)$, for $k \in \braces{0 \, , 1 }$, so that $\alpha \defeq (\delta^k, \bar{\delta}^k)$ is a map of adjunctions
+from $\Id \dashv \Id$ to $I \otimes \dashv \exp(I, -)$. Inspecting~\eqref{delta-otimes-definition}, we see that the left adjoint 
+$\delta^k \hatotimes (-)$ in~\eqref{equ:leibniz-prod-exp} arises by applying the Leibniz construction to $\hateval_L(\alpha, -)$.
+Similarly, inspecting~\eqref{hatexp-delta-definition}, we see that $\hatexp(\bar{\delta}^k, -)$ arises by applying the the dual Leibniz construction to $\hateval_R(\alpha, -)$.  As described in \cref{pitchfork-leibniz-most-general-example}, this allows us to apply \cref{lift-of-leibniz-adjunction,lift-of-leibniz-adjunction-pullback-form} in this situation.
 
 
-We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the category $\Fib$ is independent from the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$.
 
 \begin{proposition} \label{prod-exp-general}
 Uniform fibration structures on $p \in \cal{E}^\to$ are isomorphic to uniform trivial fibration structures on 
@@ -2167,17 +2169,10 @@ More precisely, the category $\Fib$ is isomorphic over $\cal{E}^\to$ to the prod
 \end{align*}
 \end{proposition}
 
-\begin{proof} \notec{To be adapted}
-We begin by illustrating how the adjunction~\eqref{equ:leibniz-prod-exp} between the functors $\delta^k \hatotimes (-)$ and $\hatexp(\bar{\delta}^k, -)$ for $k \in \braces{0\,,1}$ fits into the framework of \cref{pitchfork-leibniz-most-general-example}.
-Recall the right adjoint $\exp(I, -)$ of $I \otimes -$ and let $\bar{\delta}^k \co \exp(I, -) \to \Id$ denote the mate of $\delta^k \co \Id \to I \otimes (-)$.
-Then $\alpha \defeq (\delta^k, \bar{\delta}^k)$ forms a morphisms in $\Adj(\cal{E}^\to, \cal{E}^\to)$ from $\Id \dashv \Id$ to $I \otimes \dashv \exp(I, -)$.
-Inspecting~\eqref{delta-otimes-definition}, we see that $\delta^k \hatotimes (-)$ arises as the Leibniz construction $\hateval_L(\alpha, -)$.
-Similarly inspecting~\eqref{hatexp-delta-definition}, we see that $\hatexp(\bar{\delta}^k, -)$ arises as the dual Leibniz construction $\hateval_R(\alpha, -)$.
-As outlined in \cref{pitchfork-leibniz-most-general-example}, this allows us to apply \cref{lift-of-leibniz-adjunction,lift-of-leibniz-adjunction-pullback-form} in this situation.
-
+\begin{proof} 
 Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{(\cal{I}_\otimes)}$.
 Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form} above.
+The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form}.
 \end{proof}
 
 
