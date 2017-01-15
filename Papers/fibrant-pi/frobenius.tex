@@ -1303,18 +1303,20 @@ are in natural bijective correspondence with diagrams as in item~(ii) of~\cref{l
 But the former are in natural bijective correspondence with diagrams as in item~(i) of~\cref{lift-of-leibniz-adjunction} by the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
-The next remark spells out a special case of~\cref{lift-of-leibniz-adjunction} and \cref{lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib}.
-
-
-\begin{example} \label{pitchfork-leibniz-most-general-example}
- Fix categories $\catE$ and $\catF$ and let $\Adj(\catE, \catF)$ be the category of adjunctions $U \dashv V$ with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$ and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
+The next results spell out a special case of~\cref{lift-of-leibniz-adjunction} and \cref{lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib,sec:alg-frob}. Fix categories $\catE$ and $\catF$, and let $\Adj(\catE, \catF)$ be the category of adjunctions~$U \dashv V$ (with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$) and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
 functors
 \[
 \eval_L \co \Adj(\catE, \catF) \times \catE \to \catF \, , \quad
 \eval_R \co \Adj(\catE, \catF)^{\op} \times \catF \to \catE
 \]
-defined by evaluation of the left and right adjoint, respectively. By ~\cref{lift-of-leibniz-adjunction}, for a map
-of adjunctions $\alpha \co (U, V) \to (U',V')$, there is an equivalence between the liftings below:
+defined by evaluation of the left and right adjoint, respectively. 
+
+
+\begin{proposition} \label{pitchfork-leibniz-most-general-example}
+Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$ be functors. 
+For a map of adjunctions $\alpha \co (U, V) \to (U',V')$, the following are equivalent:
+\begin{enumerate}[(i)]  
+\item liftings of $\hateval_L(\alpha)$ making the following diagram commute:
 \[
 \begin{gathered}
 \xymatrix@C=1.5cm{
@@ -1331,7 +1333,9 @@ of adjunctions $\alpha \co (U, V) \to (U',V')$, there is an equivalence between 
   \cal{F}^\to
 \rlap{,}} 
 \end{gathered}
- \qquad
+\]
+\item liftings of $\hateval_R(\alpha)$ making the following diagram commute:
+\[ 
 \begin{gathered}
 \xymatrix@C+2em{
   \cal{J}
@@ -1348,7 +1352,12 @@ of adjunctions $\alpha \co (U, V) \to (U',V')$, there is an equivalence between 
 \rlap{.}}
 \end{gathered}
 \]
-And, by \cref{lift-of-leibniz-adjunction-pullback-form}, there is a pullback 
+\end{enumerate}
+\end{proposition} 
+
+\begin{corollary} \label{cor-to-most-gen-example}
+For a functor $u \co \cal{I} \to \catE^\to$ and a map of adjunctions $\alpha \co (U, V) \to (U',V')$, 
+there is a pullback of categories of the form
 \[
 \xymatrix@C=1.5cm{
   \liftr{\cal{I}}
@@ -1365,7 +1374,16 @@ And, by \cref{lift-of-leibniz-adjunction-pullback-form}, there is a pullback
   \cal{E}^\to
 \rlap{.}}
 \]
-\end{example} 
+\end{corollary}
+
+\begin{remark} \label{pitchfork-leibniz-most-general-applied} 
+Recall the adjunction between the cylinder and cocylinder functors in~\eqref{equ:cyl-exp-adj} and write $\bar{\delta}^k \co \exp(I, -) \to \Id$ for the mate of $\delta^k \co \Id \to I \otimes (-)$, for $k \in \braces{0 \, , 1 }$, so that $\alpha \defeq (\delta^k, \bar{\delta}^k)$ is a map of adjunctions
+from $\Id \dashv \Id$ to $I \otimes (-) \dashv \exp(I, -)$. Inspecting~\eqref{delta-otimes-definition}, we see that the left adjoint 
+$\delta^k \hatotimes (-)$ in~\eqref{equ:leibniz-prod-exp} is $\hateval_L(\alpha, -)$.
+Similarly, inspecting~\eqref{hatexp-delta-definition}, we see that the right adjoint~$\hatexp(\bar{\delta}^k, -)$ in~\eqref{equ:leibniz-prod-exp} is  $\hateval_R(\alpha, -)$. 
+This shows that the adjunction in~\eqref{equ:leibniz-prod-exp} fits into the setting of 
+\cref{pitchfork-leibniz-most-general-example} and \cref{cor-to-most-gen-example}.
+\end{remark}
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
 
@@ -1989,8 +2007,8 @@ With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equ
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Using \cref{generalized-uniform-frob-nicer}, this amounts to the generalized functorial Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$.
-By \cref{double-pitchfork-in-generalized-uniform-frob}, this is equivalent to the generalized functorial Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$.
+This amounts to the generalized functorial Frobenius condition for $(\liftl{(\liftr{\cal{I}})}, \liftr{\cal{I}}, \liftl{(\liftr{\cal{I}})})$
+by \cref{generalized-uniform-frob-nicer}, which is  equivalent to the generalized functorial Frobenius condition for $(\cal{I}, \liftr{\cal{I}}, \liftl{ (  \liftr{\cal{I}} ) }   )$ by \cref{double-pitchfork-in-generalized-uniform-frob}.
 \end{proof}
 
 We conclude the section with a result needed in \cref{sec:alg-frob}.
@@ -2124,12 +2142,6 @@ We refer to the objects of $\cal{I}_\otimes$ as \emph{generating uniform trivial
 
 We write $\Fib$ for the category of uniform fibrations and their morphisms. We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the category $\Fib$ is independent from the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$. 
 
-We begin by illustrating how the adjunction in~\eqref{equ:leibniz-prod-exp}  fits into the setting of \cref{pitchfork-leibniz-most-general-example}.
-For this, recall that we have the adjunction in~\eqref{equ:cyl-exp-adj} and write $\bar{\delta}^k \co \exp(I, -) \to \Id$ for the mate of $\delta^k \co \Id \to I \otimes (-)$, for $k \in \braces{0 \, , 1 }$, so that $\alpha \defeq (\delta^k, \bar{\delta}^k)$ is a map of adjunctions
-from $\Id \dashv \Id$ to $I \otimes \dashv \exp(I, -)$. Inspecting~\eqref{delta-otimes-definition}, we see that the left adjoint 
-$\delta^k \hatotimes (-)$ in~\eqref{equ:leibniz-prod-exp} arises by applying the Leibniz construction to $\hateval_L(\alpha, -)$.
-Similarly, inspecting~\eqref{hatexp-delta-definition}, we see that $\hatexp(\bar{\delta}^k, -)$ arises by applying the the dual Leibniz construction to $\hateval_R(\alpha, -)$.  As described in \cref{pitchfork-leibniz-most-general-example}, this allows us to apply \cref{lift-of-leibniz-adjunction,lift-of-leibniz-adjunction-pullback-form} in this situation.
-
 
 
 \begin{proposition} \label{prod-exp-general}
@@ -2172,7 +2184,7 @@ More precisely, the category $\Fib$ is isomorphic over $\cal{E}^\to$ to the prod
 \begin{proof} 
 Recall that $\TrivFib = \liftr{\cal{I}}$ and $\Fib = \liftr{(\cal{I}_\otimes)}$.
 Note that the right orthogonality functor is contravariant and part of the adjunction~\eqref{garner-adjunction}, hence sends coproducts to products of categories over $\catE^\to$.
-The statement then follows from \cref{lift-of-leibniz-adjunction-pullback-form}.
+The statement then follows from \cref{cor-to-most-gen-example} via~\cref{pitchfork-leibniz-most-general-applied}. 
 \end{proof}
 
 
@@ -2257,12 +2269,14 @@ In the following diagram, the first lift is given by the map $\Fib \to \cal{D}_k
   \cal{E}^\to
 \rlap{.}}
 \]
-The goal now follows from the outer square by applying \cref{lift-of-leibniz-adjunction} as instantiated in 
-the proof of~\cref{prod-exp-general}. 
+The goal now follows from the outer square by applying \cref{pitchfork-leibniz-most-general-example} as 
+in~\cref{pitchfork-leibniz-most-general-applied}. 
 \end{proof}
 
 \section{The functorial Frobenius property for uniform fibrations}
 \label{sec:alg-frob}
+
+
 
 We now continue to consider the fixed suitable awfs $(\CC, \TF)$ with generating small category $\cal{I}$ and the induced awfs $(\TC, \FF)$, in which the monad algebras for $\FF$ are exactly the uniform fibrations.
 Our aim in this section is to show that $(\TC, \FF)$ satisfies the functorial Frobenius property.
@@ -2391,7 +2405,7 @@ Let $\theta^k \co \bot_{\Id} \to \delta^k \otimes (-)$ denote the arrow in $[\ca
 \rlap{.}}
 \]
 Recalling that we write $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$ for
-the functor obtained by applying the Leibniz construction to the evaluation functor, the desired natural transformation 
+the functor obtained by applying the Leibniz construction to the evaluation functor (\cf \cref{pitchfork-leibniz-most-general-applied}), the desired natural transformation 
 is precisely $\theta^k \hatotimes (-)$.
 \end{remark}
 
