@@ -16,7 +16,8 @@
 \begin{abstract}
 We develop further the theory of weak factorization systems and algebraic weak factorization systems.
 In particular, we give a method for constructing (algebraic) weak factorization systems whose right maps can be thought of as (uniform) fibrations and that satisfy the (functorial) Frobenius condition.
-As applications, we obtain a new proof that the Quillen model structure for Kan complexes is right proper, avoiding entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of homotopical models of type theories, proving a constructive version of the preservation of Kan fibrations by pushforward along Kan fibrations.
+As applications, we obtain a new proof that the Quillen model structure for Kan complexes is right proper, avoiding entirely the use of topological realization and minimal fibrations, and we solve an open problem in the study of Voevodsky's simplicial
+model of type theory, proving a constructive version of the preservation of Kan fibrations by pushforward along Kan fibrations.
 Our results also subsume and extend work by Coquand and others on cubical sets.
 \end{abstract}
 
@@ -338,7 +339,7 @@ if $i \in \Cof$ then $j \in \Cof$,
 Let $\cal{E}$ be a presheaf category.
 By a result of Cisinski~\cite[Proposition~1.2.27]{cisinski-asterisque}, $\cal{E}$ admits a cofibrantly generated wfs whose cofibrations are the mononomorphisms.%
 \footnote{If $\cal{E}$ is a category of presheaves over an elegant Reedy category~\cite{bergner-rezk-elegant}, it
-is possible to be more specific: the boundary inclusions (\ie the inclusions of latching objects for representables)
+is possible to be more specific: the boundary inclusions (\ie the latching objects inclusions for representables)
 form a set of generating cofibrations.}
 This wfs then satisfies conditions~(S1) to~(S3) of \cref{thm:suitable-wfs}.
 For it to be suitable, \ie to also satisfy condition~(S4), it suffices that the endpoint inclusions $\delta^0$ and $\delta^1$ are cartesian natural transformations.
@@ -432,10 +433,9 @@ In $\CSet$, let $(\Cof, \TrivFib)$ be the wfs in which~$\Cof$ consists of all mo
 A fibration in $\CSet$ will be called a \emph{Kan fibration}.
 To illustrate the relationship with the standard Kan filling condition for cubes, let $i^n \co \partial \Box^n \to \Box^n$, for $n \in \mathbb{N}$, denote the boundary inclusion of the $n$-cube $\Box^n$, which is given by the $n$-fold Leibniz product of~$[\lcyl, \rcyl] \co \braces{0\,, 1} \to \Box^1$.
 The Leibniz product in $\CSet$ can be seen to preserve monomorphisms, hence $i^n$ will be a cofibration.
-Note that the boundary inclusions $i^n$ will not form a generating set of cofibrations.%
-\footnote{
-For example, the inclusion $\Box^1 \to \Box^2$ given by the diagonal does not lie in the saturation of the boundary inclusions.}
-Then the maps
+Note however that the boundary inclusions $i^n$ will not form a generating set of cofibrations: 
+for example, the inclusion $\Box^1 \to \Box^2$ given by the diagonal does not lie in the saturation of the boundary inclusions.
+The maps
 \[
 \lcyl \hatotimes i^n \co \sqcup_1^{1+n} \to \Box^{1+n} \, , \quad  \rcyl \hatotimes i^n \co \sqcap_1^{1+n} \to \Box^{1+n} \, ,
 \]
@@ -719,7 +719,7 @@ For every map $h \co X \to Y$ in $\cal{E}$, we have that $\kcyl \hatotimes h$ is
 \end{lemma}
 
 \begin{proof} 
-This is a diagram-chasing argument, which we outline in the case $k = 0$ (but see \cref{thm:kcylf-is-she-alg} for a structural proof).
+This is a diagram-chasing argument, which we outline in the case $k = 0$.
 Let us abbreviate $f \defeq \delta^0 \hatotimes h \co (I \otimes X) +_X Y \to I \otimes Y$.
 We define $g$ as the composite
 \[
@@ -742,16 +742,12 @@ The signature of the homotopy $\phi$ can be equivalently stated as
 since $I \otimes (-)$ preserves pushouts.
 We then define $\phi = (c^0 \otimes X) +_{\epsilon \otimes X} (\epsilon \otimes Y)$.
 Standard reasoning,  using diagrams~\eqref{contractions}, \eqref{connections:0}, \eqref{connections:1} and naturality, verifies that $\phi$ and $\psi$ have the correct endpoints and that the $0$-oriented homotopy equivalence $(f, g, \phi, \psi)$ is strong.
-%
-%right endpoint of $\psi$: contractions:2.1
-%right endpoint of $\phi$: contractions:2.1 and contractions
-%
-%left endpoint of $\psi$: contractions:1.1
-%left endpoint of $\phi$: contractions:1.1 and contractions
 \end{proof}
 
 \cref{thm:kcylf-is-she} follows also from the more general \cref{thm:kcylf-is-she-alg}, for which we provide a more conceptual
-proof. For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ with generating set $\cal{I}$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}, with generating set $\cal{I}_\otimes$ defined in~\eqref{equ:cylinc}. 
+proof. 
+
+For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ with generating set $\cal{I}$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}, with generating set $\cal{I}_\otimes$ defined in~\eqref{equ:cylinc}. 
 We focus on the class $\Cof \cap S$, \ie the class of cofibrations that are strong homotopy equivalences.
 The next lemma relates them to the generating trivial cofibrations and to the the trivial
 cofibrations. 
@@ -1652,7 +1648,7 @@ We say that $(\cal{I}, \cal{J}, \cal{K})$ satisfies the \emph{generalized functo
 The next proposition shows in what sense the generalized functorial Frobenius condition is functorial in its parameters.
 
 \begin{proposition} \label{generalized-uniform-frob-functorial}
-Consider functors $u_t \co \cal{I}_t \to \cal{E}^\to$, $v_t \co \cal{J}_t \to \cal{E}^\to$, $w \co \cal{K}_t \to \cal{E}^\to$, for $t \in \braces{1\,, 2}$, related as follows:
+Consider functors $u_t \co \cal{I}_t \to \cal{E}^\to$, $v_t \co \cal{J}_t \to \cal{E}^\to$, $w_t \co \cal{K}_t \to \cal{E}^\to$, for $t \in \braces{1\,, 2}$, related as follows:
 \begin{align*}
 \xymatrix@!C@C-1.5em{
   \cal{I}_2
@@ -1955,7 +1951,8 @@ lifts to a natural transformation
 \end{proposition}
 
 \begin{proof} 
-For (i), apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
+For (i), note that we can view the bottom map in part (i) of~\cref{def:uniFrobcond} as a lift of~$v_j^* \co \catE_{/D_j} \to \catE_{/C_j}$ to arrow categories, so we can 
+apply \cref{lift-of-adjunction} to the adjunction $v_j^* \dashv (v_j)_*$ with $u = u_{/D_j}$ and $v = {\liftr{w}}_{/C_j}$, using \cref{pitchfork-slicing-grothendieck} to permute slicing and orthogonality functors.
 For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_* s^*$ and $v_k^* t_! \dashv t^* (v_k)_*$ recalling that $\phi$ and $\psi$ are mates.
 \end{proof}
 
@@ -2065,10 +2062,10 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 \xymatrix@C+3em{
   \Cof \times_{\cal{E}} \cal{E}^\to
   \ar@{.>}[r]^{\widetilde{P}}
-  \ar[d]_{u \times_{\cal{E}} \cal{E}^\to}
+  \ar[d]
 &
   \Cof 
-  \ar[d]^{u}
+  \ar[d]
 \\
   \catE^\to \times_{\cal{E}} \calE^\to
   \ar[r]_{P}
@@ -2081,10 +2078,10 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 \xymatrix@C+3em{
   \Cof
   \ar@{.>}[r]^{\widetilde{\kcyl \hatotimes (-)}}
-  \ar[d]_{u}
+  \ar[d]
 &
  \Cof
-  \ar[d]^{u}
+  \ar[d]
 \\
   \catE^\to
   \ar[r]_{\kcyl \hatotimes (-)}
@@ -2141,7 +2138,8 @@ We refer to the objects of $\cal{I}_\otimes$ as \emph{generating uniform trivial
 \end{enumerate}
 \end{definition}
 
-We write $\Fib$ for the category of uniform fibrations and their morphisms. We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the category $\Fib$ is independent from the choice of the cofibrant generator $\cal{I}$ of $(\CC, \TF)$. 
+We write $\Fib$ for the category of uniform fibrations and their morphisms. We now give the algebraic analogue of \cref{thm:char-fib-nonalg}, \ie an equivalent characterization of uniform fibrations which does not refer to generating uniform cofibrations. This will show that the category $\Fib$ is independent from the choice of the functor $u \co \cal{I} \to \catE^\to$ cofibrantly
+generating $(\CC, \TF)$, and instead depends only on the awfs $(\CC, \TF)$.
 
 
 
@@ -2535,7 +2533,7 @@ The map to the first factor is given by the embedding $\cal{I} \to \Cof$ and the
 The map to the second factor is given by \cref{thm:kcylf-is-she-alg}.
 The claim in~(i) then follows by combining the cases~$k = 0$ and~$k = 1$.
 
-For~(ii), we fix again $k \in \braces{0\,, 1}$ and show that there is a functor
+For~(ii), let us write $c \co \Cof \to \catE^\to$ for the forgetful functor. We fix again $k \in \braces{0\,, 1}$ and show that there is a functor
 \begin{equation} \label{lem:from-strong-hequiv}
 \begin{gathered}
 \xymatrix@!C@C-2em{
@@ -2544,7 +2542,7 @@ For~(ii), we fix again $k \in \braces{0\,, 1}$ and show that there is a functor
   \ar[rr]^{N_k}
 &&
   \overline{\Cof}
-  \ar[dl]^-{\overline{\kcyl \hatotimes u}}
+  \ar[dl]^-{\overline{\kcyl \hatotimes c}}
 \\&
   \catE^\to
 \rlap{.}}
@@ -2554,7 +2552,7 @@ We only describe the action of the functor $N_k$ on an object $(f, \rho)$, leavi
 Recall that $\rho$ is a retraction of $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$, exhibiting~$f$ as a retract of~$\kcyl \hatotimes f$.
 Thus, we may define $N_k(f, \rho) \defeq (f, f, \thetak \hatotimes f, \rho)$.
 Observe that this definition makes the diagram for $N_k$ commute.
-We then pass from $\overline{\kcyl \hatotimes u} \co \overline{\Cof} \to \cal{E}^\to$ to $\overline{\TrivCof}$ using \cref{kcyl-of-cof-is-trivcof}.
+We then pass from $\overline{\kcyl \hatotimes c} \co \overline{\Cof} \to \cal{E}^\to$ to $\overline{\TrivCof}$ using \cref{kcyl-of-cof-is-trivcof}.
 Upon combining the cases $k = 0$ and $k = 1$, this gives a functor $\Cof \times_{\cal{E}^\to} \cal{S} \to \overline{\TrivCof}$ over $\cal{E}^\to$.
 The claim in~(ii) then follows by \cref{retract-closure}, noting that $\TrivCof$ is a category of left maps.
 \end{proof}
@@ -2904,15 +2902,15 @@ Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfyi
 The next result not only provides us with a wide class of examples of suitable awfs's, but also shows that there are situations in which object-wise assertions, as in (M2)-(M4) above, can be strengthened to functoriality properties, as required to obtain a suitable weak awfs (\cref{thm:suitable-awfs}).
 
 \begin{theorem} \label{rem-lift-suitable}
-There exists a suitable awfs $(\CC, \TF)$ on $\cal{E}$ that is algebraically-free on $\cal{M}$, \ie such that $\pAlg{\TF} = \liftr{\cal{M}}$.
+There exists a suitable awfs $(\CC, \TF)$ on $\cal{E}$ that is algebraically-free on $\cal{M}$, \ie such that $\TrivFib = \liftr{\cal{M}}$.
 \end{theorem}
 
 \begin{proof}
 Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain.
-Since $\cal{I}$ is small, by Garner's small object argument~\cite{garner:small-object-argument} it generates a cofibrantly generated awfs $(\CC, \TF)$ with~$\pAlg{\TF} = \liftr{\cal{I}}$.
+Since $\cal{I}$ is small, by Garner's small object argument~\cite{garner:small-object-argument} it generates a cofibrantly generated awfs $(\CC, \TF)$ with~$\TrivFib = \pAlg{\TF} = \liftr{\cal{I}}$.
 Furthermore, we have~$\liftr{\cal{M}} = \liftr{\cal{I}}$.
 This follows from \cref{awfs-on-arrows-into-representables} using that $\cal{M}$ is a full subcategory of~$\cal{E}^\to_\cart$.
-Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of $\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams which are the form
+Indeed, for a map $f \co X \to Y$ in $\catE$, to give a natural choice of fillers for all diagrams with an arbitrary element of~$\cal{M}$ on the left is the same as to give a natural choice of fillers for only those diagrams which are the form
 \[
 \xymatrix{
   A
