@@ -43,7 +43,7 @@ In the category of simplicial sets, this amounts to the preservation of Kan fibr
 
 For our development, we work in the setting of a category $\cal{E}$ equipped with an appropriate cofibrantly
 generated wfs~$(\Cof, \TrivFib)$, to be thought of as consisting of cofibrations and trivial fibrations, and a functorial cylinder satisfying appropriate assumptions.
-Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a a map with the right lifting property with respect to a class of maps called here generating trivial cofibrations, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and generating 
+Building on ideas in~\cite{cisinski-asterisque}, we then construct a new wfs $(\TrivCof, \Fib)$, to be thought of as consisting of  trivial cofibrations and fibrations~(\cref{thm:wfstimes}). Here, a fibration is defined a map with the right lifting property with respect to a class of maps called here generating trivial cofibrations, which are obtained as (a generalized form of) pushout product between the endpoint inclusions of the functorial cylinder and generating 
 cofibrations.  We then prove that the wfs $(\TrivCof, \Fib)$ satisfies the Frobenius condition~(\cref{thm:non-alg-frobenius}).
 When applied in the category of simplicial sets, with the wfs of monomorphisms and trivial Kan fibrations~\cite{quillen-homotopical} as $(\Cof, \TrivFib)$, fibrations in our sense are exactly Kan fibrations.
 Therefore, our results yield a proof that the wfs of trivial cofibrations and Kan fibrations satisfies the Frobenius condition, and so give a new proof of right properness of the Quillen model structure for Kan complexes.
@@ -365,7 +365,7 @@ of~$\exp(\bar{\delta}^k, -)$ and $f$ to be the map
 \[
 \hatexp(\bar{\delta}^k, f) \co X^\interval \to Y^\interval \times_{Y} X
 \]
-determined uniquely by the the following pullback diagram:
+determined uniquely by the following pullback diagram:
 \begin{equation} \label{hatexp-delta-definition}
 \begin{gathered}
 \xymatrix{
@@ -478,7 +478,7 @@ By \cref{thm:main-sheretract}, it then follows that every fibration is a naive C
 
 We conclude this section with some observations on the wfs's $(\Cof, \TrivFib)$ and $(\TrivCof, \Fib)$. 
 First, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
-Secondly, observe  that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
+Second, observe  that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
 $\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. Finally, we establish a corollary
 of~\cref{thm:char-fib-nonalg} which will be used to prove~\cref{thm:main-sheretract} and \cref{thm:non-alg-frobenius-she}, which are two of the key steps in establishing the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
 
@@ -506,10 +506,10 @@ We continue to work with our fixed locally presentable and locally cartesian clo
 Our aim in this section is to show that the wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes} satisfies the Frobenius property.
 Our proof of the Frobenius property consists of three main steps.
 First, we introduce the notion of a \emph{strong homotopy equivalence} (\cref{def:strhe}) and give a characterization of strong homotopy equivalences as certain retracts (\cref{strong-h-equiv-as-section-non-alg}).
-Secondly, we show that every generating trivial cofibration is both a cofibration and a strong homotopy
+Second, we show that every generating trivial cofibration is both a cofibration and a strong homotopy
 equivalence and that the cofibrations which  are strong homotopy equivalences are 
 trivial cofibrations (\cref{thm:main-sheretract}).
-Thirdly, we show that the pullback of a strong homotopy equivalence along a fibration is again an strong homotopy equivalence (\cref{thm:non-alg-frobenius-she}).
+Third, we show that the pullback of a strong homotopy equivalence along a fibration is again a strong homotopy equivalence (\cref{thm:non-alg-frobenius-she}).
 With these facts in place, the Frobenius condition for $(\TrivCof, \Fib)$ follows easily (\cref{thm:non-alg-frobenius}).
 
 We begin by introducing strong homotopy equivalences.
@@ -540,7 +540,8 @@ The notion of a strong homotopy equivalence, defined below, is obtained by requi
 
 \begin{definition} \label{def:strhe}
 For $k \in \braces{0\,, 1}$, a map $f \co X \to Y$  in $\catE$ is called a \emph{strong $k$-oriented homotopy equivalence} if there is a map $g$ and homotopies $\phi$ and $\psi$ making $f$ into a $k$-oriented homotopy equivalence such that the following diagram commutes:
-\[
+\begin{equation} \label{strength}
+\begin{gathered}
 \xymatrix{
   \interval \otimes X
   \ar[r]^{\interval \otimes f}
@@ -552,9 +553,11 @@ For $k \in \braces{0\,, 1}$, a map $f \co X \to Y$  in $\catE$ is called a \emph
   X
   \ar[r]_{f}
 &
-  Y \, .
-}
-\]
+  Y
+\rlap{,}}
+\end{gathered}
+\end{equation}
+
 \end{definition}
 
 We write $S_k$ for the class of strong $k$-oriented homotopy equivalences and let~$S \defeq S_0 \cup S_1$.
@@ -566,7 +569,7 @@ In fact, they are strong $k$-oriented deformation retracts, \ie strong $k$-orien
 To show this, one exploits crucially the assumption that the functorial cylinder has connections.
 For $k = 0$, the retraction is given by~$\varepsilon \otimes X \co \interval \otimes X \to X$ and the homotopy $\psi \co (\lcyl \otimes X) \circ (\varepsilon \otimes X)  \sim
 1_{\interval \otimes X}$ is given by the connection~$c^0 \otimes X$.
-The axioms for the left and right endpoint of $\psi$ follow from the left sides of~\eqref{connections:0} and~\eqref{connections:1}, respectively.
+The correctness of the left and right endpoints of $\psi$ follow from the left sides of~\eqref{connections:0} and~\eqref{connections:1}, respectively.
 The axiom for strength follows from the right part of~\eqref{connections:0}.
 The case $k = 1$ is similar.
 \end{remark}
@@ -593,8 +596,8 @@ For this, observe that, for $k \in \braces{0\,, 1}$, we have the diagram
 }
 \end{gathered}
 \end{equation}
-which commutes by the naturality of $\kcylinv \otimes (-)$, since $(\kcyl \hatotimes f) \cc \iota_1 = \interval \otimes f$.
-This diagram gives us (functorially in $f$) a map~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in~$\catE^\to$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
+which commutes by the naturality of $\kcylinv \otimes (-)$ since $(\kcyl \hatotimes f) \cc \iota_1 = \interval \otimes f$.
+This diagram gives us (naturally in $f$) a map~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in~$\catE^\to$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
 
 \begin{lemma} \label{strong-h-equiv-as-section-non-alg}
 A map $f \co X \to Y$ is a strong $k$-oriented homotopy equivalence if and only if the map $\thetak \hatotimes f  \co f \to \kcyl \hatotimes f$ exhibits $f$ as a retract of $\kcyl \hatotimes f$, \ie there are dotted arrows as follows:
@@ -702,15 +705,15 @@ Second, requiring that the two horizontal composites are identities means that t
 \end{gathered}
 \end{align}
 commute.
-With reference to the diagram in~\eqref{equ:homotopy}, the equations in~\eqref{equ:first-three} provide endpoint~$k$ for~$\phi$ and~$\psi$, and strength, respectively, while the equations in~\eqref{equ:second-two} provide endpoints~$1-k$ for~$\phi$ and~$\psi$, respectively.
+With reference to the diagrams~\eqref{equ:homotopy} and~\eqref{strength}, the equations in~\eqref{equ:first-three} provide endpoint~$k$ for~$\phi$ and~$\psi$ as well as strength, respectively, while the equations in~\eqref{equ:second-two} provide endpoints~$1-k$ for~$\phi$ and~$\psi$, respectively.
 \end{proof}
 
 
 
 Note that strong $k$-oriented homotopy equivalences have better closure properties than strong $k$-oriented deformation retracts.
-For example, \cref{strong-h-equiv-as-section} implies that strong $k$-oriented homotopy equivalences are closed under retracts.
+For example, \cref{strong-h-equiv-as-section-non-alg} implies that strong $k$-oriented homotopy equivalences are closed under retracts.
 Indeed, let $f$ be a strong homotopy equivalence and~$g$ be a retract of~$f$.
-Then, $\thetak \hatotimes g$ is a retract of $\thetak \hatotimes f$, since $\thetak \hatotimes (-) \co \catE^\to \to \catE^\to$ is a functor and functors preserve retracts.
+Then $\thetak \hatotimes g$ is a retract of $\thetak \hatotimes f$ since $\thetak \hatotimes (-) \co \catE^\to \to (\catE^\to)^\to$ is a functor and functors preserve retracts.
 Since~$f$ is a strong homotopy equivalence, $\thetak \hatotimes f$ is a section.
 But then $\thetak \hatotimes g$ is also a section (since sections are closed under retracts), and so $g$ is a strong $k$-oriented homotopy equivalence.
 
@@ -749,7 +752,7 @@ proof.
 
 For our second step, we return to consider a suitable wfs $(\Cof, \TrivFib)$ with generating set $\cal{I}$ and the induced wfs $(\TrivCof, \Fib)$ of \cref{thm:wfstimes}, with generating set $\cal{I}_\otimes$ defined in~\eqref{equ:cylinc}. 
 We focus on the class $\Cof \cap S$, \ie the class of cofibrations that are strong homotopy equivalences.
-The next lemma relates them to the generating trivial cofibrations and to the the trivial
+The next lemma relates them to the generating trivial cofibrations and to the trivial
 cofibrations. 
 
 
@@ -1491,7 +1494,7 @@ We consider the diagram $d \co S \to \catE^\to$, where $S$ is the set of pullbac
 \]
 with $i \co A' \to \yon(x)$ in $\cal{I}$, and the function $d$ maps such a square to $i \in \cal{E}^\to$.
 Our goal is to show that its colimit is $j$.
-Using the assumption that $\cal{J}$ is closed under base change to representables, the given diagram can be described equivalently as the the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
+Using the assumption that $\cal{J}$ is closed under base change to representables, the given diagram can be described equivalently as the diagram indexed by maps $b \co \yon(x) \to B$ and valued $b^*(j)$.
 The claim can then be restated as $\colim_{b \co \yon(x) \to B} b^*(j) \iso j$, which holds since pullback commutes with colimits in presheaf categories, and $\colim_{b \co \yon(x) \to B} \yon(x) \iso B$.
 \end{proof}
 
@@ -2890,7 +2893,7 @@ We assume that the functorial cylinder~$\interval \otimes (-) \co \cal{E} \to \c
 \item $\interval \otimes (-) \co \cal{E} \to \cal{E}$ preserves pullback squares,
 \item the natural transformations $\kcyl \otimes (-) \co \Id_{\cal{E}} \to \interval \otimes (-)$, for $k \in \braces{0\,, 1}$, are cartesian.
 \end{enumerate}
-Secondly, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfying the following assumptions:
+Second, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfying the following assumptions:
 \begin{enumerate}[({M}1)]
 \item the elements of $\cal{M}$ are monomorphisms,
 \item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $\cal{M}$,
