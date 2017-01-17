@@ -916,7 +916,7 @@ It also avoids the use of the theory of minimal fibrations, which is used in~\ci
 
 This section starts the second part of the paper, in which we are interested in generalizations of the results obtained earlier
 to algebraic weak factorization systems (awf's)~\cite{garner:small-object-argument,grandis-tholen-nwfs}.
-In this section and the next we will need to review and establish some facts about the algebraic setting that are useful for our development.
+In this section and the next, we will need to review and establish some facts about the algebraic setting that are useful for our development.
 Importantly, in the algebraic setting we do not consider just classes of arrows in $\catE$, but rather categories~$\cal{I}$, to be thought of as indexing categories, and functors~$u \co \cal{I} \to \catE^\to$.
 In the following, we write $u_i \co A_i \to B_i$ for the result of applying such a functor to~$i \in \cal{I}$.
 Let us recall the following definition from~\cite{garner:small-object-argument}.
@@ -927,7 +927,7 @@ Let $u \co \cal{I} \to \catE^\to$.
 \item
 A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X \to Y$ in $\catE$ and a function~$\phi$ that assigns to each $i \in \cal{I}$ and commuting square
 \[
-\xymatrix@C=2cm{
+\xymatrix@C+0.5cm{
   A_i
   \ar[r]^{s}
   \ar[d]_{u_i}
@@ -939,7 +939,7 @@ A \emph{right $\cal{I}$-map} $(f, \phi) \co X \to Y$ consists of a map $f \co X 
   \ar[r]_{t}
 &
   Y
-}
+\rlap{,}}
 \]
 a diagonal filler $\phi(i,s, t) \co B_i \to X$, satisfying the following naturality condition: for every diagram of the form
 \[
@@ -962,7 +962,7 @@ a diagonal filler $\phi(i,s, t) \co B_i \to X$, satisfying the following natural
   \ar[r]_{t}
 &
   Y
-\rlap{,}}
+}
 \]
 where the left square is the image of $\sigma \co i \to j$ in $\cal{I}$ under $u$, we have that
 \[
@@ -975,7 +975,7 @@ A \emph{right $\cal{I}$-map morphism} $\alpha \co (f, \phi) \to (f', \phi')$ is 
 
 For $u \co \cal{I} \to \catE^\to$, we write $\liftr{\cal{I}}$ for the category of right $\cal{I}$-maps and their morphisms.
 We then let $\liftr{u} \co \liftr{\cal{I}} \to \catE^\to$ be the evident forgetful functor, which we call the \emph{right orthogonal} of $u$. Analogously, we can define the category $\liftl{\cal{I}}$  of left $\cal{I}$-maps and their morphisms
-and the forgetful functor $\liftl{u} \co \liftl{\cal{I}} \to \cal{E}^\to$, which we call the \emph{left orthogonal} of $u$.
+as well as the forgetful functor $\liftl{u} \co \liftl{\cal{I}} \to \cal{E}^\to$, which we call the \emph{left orthogonal} of $u$.
 As shown in~\cite[Proposition~3.8]{garner:small-object-argument}, the orthogonality operations
 extend to functors forming an adjunction
 \begin{equation} \label{garner-adjunction}
@@ -990,8 +990,7 @@ extend to functors forming an adjunction
 \rlap{.}}
 \end{gathered}
 \end{equation}
-Even if objects of $\CAT_{/\catE^\to}$ are pairs of the form $(\cal{I}, u)$, where $\cal{I}$ is a category $u \co
-\cal{I} \to \catE^\to$ is a functor, in the following we shall often refer to them by their domains.
+Even if objects of $\CAT_{/\catE^\to}$ are pairs of the form $(\cal{I}, u)$ where $\cal{I}$ is a category $u \co \cal{I} \to \catE^\to$ and is a functor, in the following we shall often refer to them by the domain $\cal{I}$ of $u$.
 A similar convention applies to maps in $\CAT_{/\catE^\to}$.
 For example, we write the components of the unit and counit simply as
 \[
@@ -1011,8 +1010,9 @@ The rest of this section is devoted to establishing some facts regarding categor
 These facts are expected generalizations of well-known statements for classes of weakly orthogonal classes in the standard setting. 
 Some of them follow from results in~\cite{bourke-garner-I}; the others are probably also known to experts, but we include them since they are used in the remainder of the paper and we could not find them in the literature.
 We omit most proofs, which are straightforward. 
+
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
-An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$ $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
+An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$, $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
 \xymatrix{
   e
@@ -1081,7 +1081,7 @@ The category $\cal{I}_{/X}$ has as objects pairs consisting of an object $i \in 
 \]
 The functor $u_{/X} \co \cal{I}_{/X} \to \catE_{/X}^\to$ sends such a pair to $u_i \co A_i \to B_i$, viewed as a morphism in~$\catE_{/X}$.
 There is also a \emph{coslice} category under $X$, described dually, which we denote $u_{\backslash X} \co  \cal{I}_{\backslash X} \to \catE^\to$.
-With these definitions in place, the commutation between slicing and weak orthogonality functors in the algebraic setting can be stated as follows.
+With these definitions in place, the commutation between slicing and orthogonality functors in the algebraic setting can be stated as follows.
 
 \begin{proposition} \label{pitchfork-slicing}
 Let $u \co \cal{I} \to \catE^\to$ and $X \in \cal{E}$.
@@ -1102,7 +1102,7 @@ Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
 \xymatrix@C-1em{
   \cal{I}
   \ar[rr]^{u}
-  \ar[dr]_{\cod_{\cal{E}} \cc u}
+  \ar[dr]_{\cod_{\cal{E}} {}\cc{} u}
 &&
   \cal{E}^\to
   \ar[dl]^{\cod_{\cal{E}}}
@@ -1111,12 +1111,12 @@ Let $u \co \cal{I} \to \cal{E}^\to$ and assume that
 }
 \]
 is a morphism of Grothendieck fibrations.
-Then the left orthogonality functor commutes with slicing on $u$, \ie for $X \in \cal{E}$ we have
+Then the left orthogonality functor commutes with slicing on $\cal{I}$, \ie for $X \in \cal{E}$ we have
 $\liftl{(\cal{I}_{/X})} = (\liftl{\cal{I}})_{/X}$.
 \end{proposition}
 
 \begin{proof}
-First note that the composite $\cod_{\cal{E}_{/X}} \cc u_{/X}$ is also a Grothendieck fibration.
+First note that the composite $\cod_{\cal{E}_{/X}} {}\mathrel{\cc}{} u_{/X}$ is also a Grothendieck fibration.
 When constructing the category of left maps for $\cal{I}$ or $\cal{I}_{/X}$, an application of base change and naturality of diagonal fillers shows that it is sufficient to consider lifting problems with the bottom arrow an identity.
 But this restricted left orthogonality functor evidently commutes with slicing.
 \end{proof}
@@ -1134,7 +1134,7 @@ The second statement follows dually.
 \end{proof}
 
 \begin{proposition}
-The retract closure commutes with slicing and coslicing, in the sense that for every $u \co \cal{I} \to \catE^\to$ we have $\overline{\cal{I}_{/X}} = \overline{\cal{I}}_{/X}$ and $\overline{\cal{I}_{\backslash X}} = \overline{\cal{I}}_{\backslash X}$ as categories over $\catE^\to$.
+The retract closure commutes with slicing and coslicing, in the sense that for every $u \co \cal{I} \to \catE^\to$, we have $\overline{\cal{I}_{/X}} = \overline{\cal{I}}_{/X}$ and $\overline{\cal{I}_{\backslash X}} = \overline{\cal{I}}_{\backslash X}$ as categories over $\catE^\to$.
 \qed
 \end{proposition}
 
@@ -1314,14 +1314,19 @@ For a functor $u \co \cal{I} \to \cal{E}^\to$ and a map $h \co X \to Y$ in $\cal
 \begin{proof}
 By the Yoneda lemma and the universal property of pullbacks, it suffices to show that diagrams of the form
 \[
-\begin{gathered}
-\xymatrix@C+2em{
-  \cal{J} \ar[dr]_v \ar[rr] & & \liftr{\cal{I}}  \ar[dl]^{\liftr{(\widehat{F}(h, \arghole) \cc u)}} \\
-   & \cal{F}^\to  \rlap{.} & }
-\end{gathered}
+\xymatrix{
+  \cal{J}
+  \ar[dr]_v
+  \ar[rr]
+&&
+  \liftr{\cal{I}}
+  \ar[dl]^{\liftr{(\widehat{F}(h, \arghole) \cc u)}}
+\\&
+  \cal{F}^\to
+\rlap{.}}
 \]
 are in natural bijective correspondence with diagrams as in item~(ii) of~\cref{lift-of-leibniz-adjunction}.
-But the former are in natural bijective correspondence with diagrams as in item~(i) of~\cref{lift-of-leibniz-adjunction} by the adjunction~\eqref{garner-adjunction}.
+But by the adjunction~\eqref{garner-adjunction}, the former are in natural bijective correspondence with diagrams as in item~(i) of~\cref{lift-of-leibniz-adjunction}.
 \end{proof}
 
 The next results spell out a special case of~\cref{lift-of-leibniz-adjunction} and \cref{lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib,sec:alg-frob}. Fix categories $\catE$ and $\catF$, and let $\Adj(\catE, \catF)$ be the category of adjunctions~$U \dashv V$ (with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$) and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
@@ -1471,7 +1476,7 @@ is an isomorphism.
 \end{enumerate}
 \end{proposition}
 
-We conclude this section by  proving two results in the special case that $\catE$ is a presheaf category, say $\cal{E} = \Psh(\mathbb{C})$, for $\mathbb{C}$ a small category.
+We conclude this section by  proving two results in the special case that $\catE$ is a presheaf category, say $\cal{E} = \Psh(\mathbb{C})$ for $\mathbb{C}$ a small category.
 We write $\yon \co \mathbb{C} \to \cal{E}$ for the Yoneda embedding.
 Recall from \cref{sec:bac} that we write $\catE_{\cart}^\to$ for the category of arrows and pullback squares in~$\cal{E}$.
 
