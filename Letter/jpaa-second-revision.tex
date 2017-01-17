@@ -7,59 +7,81 @@
 
 \begin{document}
 
-\title{Comments on the second revision} 
+\title[Second revision]{Comments on the second revision of \\ ``The Frobenius condition, right properness, and uniform fibrations'', submitted to JPAA}
 
 \author{Nicola Gambino \and Christian Sattler} 
 
 \maketitle
 
-We have addressed all the comments made by the referee and made some further changes  which, we believe, improve the
-paper. Below, we provide some explanation for the most substantial changes that have been made. 
+We are grateful to the referee for the helpful comments and careful reading of the paper. We have addressed all the comments by the referee in this revised version.  Below, we provide some explanation for the most substantial changes, in order of significance. All the numbering, unless otherwise stated, refer to the current version of the paper.
+
+
+\section*{Theorem 6.5} 
+
+The referee noted a mistake in the proof of Theorem~6.5, where we stated an equality between categories, which are
+instead related only by functors going both ways.  
+
+There are two ways to fix this issue: 
+
+\begin{enumerate} 
+\item One way is to modify the definition of a uniform fibration, using a set of `generating trivial cofibrations', rather than the class of `cylinder inclusions', to define them. The generating trivial cofibrations are obtained by Leibniz product between endpoint inclusions and `generating cofibrations'.  In this way, the uniform fibrations are the algebras for a monad (as we had stated in the previous version) and they generalize Coquand's uniform fibrations in cubical sets. 
+\item  An alternative way is first obtain the awfs $(\mathsf{C_t}, \mathsf{F})$ of Theorem 6.5 (along the lines of the proof of Theorem 6.4 in the previous version of the paper), and then define uniform fibrations as the algebras for the pointed endofunctor $\mathsf{F}$.
+But the resulting notion of a uniform fibration would not match the one in Coquand's work.
+\end{enumerate} 
+
+We decided to adopt the solution in (1), so as to subsume Coquand's work in our treatment. We also felt that it is more natural
+to define uniform fibrations before proving that they are part of an awfs. 
+
+Theorem 6.5, its proof, and the relevant parts of the paper have been modified accordingly, as detailed below:
+
+\begin{itemize} 
+\item Definition 6.3 has been modified. Correspondingly, the class of cylinder inclusions is not used anymore 
+its definition has been removed from the paper. 
+\item We made the functorial aspects of Proposition 6.4 more explicit  (since they are used in the proof of Corollary 6.7). 
+Also, we emphasized the significance of Proposition 6.4 by adding some lines of text before it, explaining how it shows that uniform fibrations are independent from the choice of generating
+cofibrations. 
+\item We modified the proof of Theorem 6.5, which is now immediate. 
+\item We added Corollary 6.7, asserting that the Leibniz product of an endoint inclusion with a cofibration is
+a trivial cofibration (which is used in Proposition 7.5).  In the previous version of the paper, this was immediate from the definition of a trivial cofibration, but now this has to be proved. 
+\item Proposition 7.5, part (i) has been modified so as to refer to the generating trivial cofibrations rather than to the cylinder inclusions. This is used in the proof of the functorial Frobenius condition (Theorem 7.8).
+\item Theorem 8.1 has not been changed, since the notion of uniform trivial fibration and uniform fibration used now
+make the statement correct. 
+\end{itemize} 
+
+The changes above motivated us to provide more complete proofs of auxiliary results in Section~4. More specifically: 
+\begin{itemize}
+\item We added Corollary 4.10, Proposition 4.11, Corollary 4.12 and Remark 4.13, which expand on Remark 4.10 of the previous version 
+and make explicit how it is used (which was unclear in the previous version of the paper, as remarked by the referee). These are used in the proof of 
+Proposition 6.4 and Corollary 6.7. 
+\end{itemize}
+
+
+\section*{Sections 2 and 3} 
+
+In order to mantain the symmetry between the non-algebraic part (Sections 2 and 3) and the algebraic part (Sections 6 and 7) 
+of the paper, we revised  the non-algebraic part of the paper following the changes discussed above.  
+
+
 
 \section*{Proposition 5.6 and Proposition 5.7}
 
 The referee wrote that Proposition 5.6  did not obviously follow from our Proposition 4.7, as stated in the paper, and that the proof needed instead a combination of Proposition 21 in [7] and Proposition 4.3.
-The claim concerns a certain lift of the map $f^* \co \cal{E}_{/Y}^\to \to \cal{E}_{/X}^\to$, given a certain lift of the map $f_! \co \cal{E}_{/X}^\to \to \cal{E}_{/Y}^\to$.
+The claim concerns a lift of the functor
+\[
+f^* \co \cal{E}_{/Y}^\to \to \cal{E}_{/X}^\to \, 
+\] 
+given a lift of the functor $f_! \co \cal{E}_{/X}^\to \to \cal{E}_{/Y}^\to$.
 
-We believe that our application of Proposition 4.7 is sufficient.
-Note that $\cal{E}_{/X}^\to$ and $\cal{E}_{/Y}^\to$ can be viewed as the arrows categories of $\cal{E}_{/X}$ and $\cal{E}_{/Y}$, respectively, and the above maps $f_!$ and $f^*$ coincide with the functors $f_! \co \cal{E}_{/X} \to \cal{E}_{/Y}$ and $f^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ lifted to arrow categories (we have added a clarifying sentence to the paper).
-This is precisely what is required for an application of Proposition 4.7 to get the needed lift.
+We believe that our application of Proposition 4.7 is sufficient and we have expanded the comments before Proposition 5.6 to
+justify the claim. 
+
+In particular, it should be noted that $\cal{E}_{/X}^\to$ and $\cal{E}_{/Y}^\to$ can be viewed as the arrows categories of $\cal{E}_{/X}$ and $\cal{E}_{/Y}$, respectively, and the above functors $f_!$ and $f^*$ coincide with the functors $f_! \co \cal{E}_{/X} \to \cal{E}_{/Y}$ and $f^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ lifted to arrow categories (we have added a clarifying sentence to the paper).
+This is precisely what is required for an application of Proposition 4.7 to get the required lift.
 
 Similarly, the referee wrote that also Proposition 5.7  did not obviously follow from our Proposition 4.7, as stated in the paper.
-This analogous to the previous item, only concerning a lift of the map $(v_j)_* \co \cal{E}_{/C_j}^\to \to \cal{E}_{/D_j}^\to$ to a map $\liftr{\cal{K}}_{/C_j} \to \liftr{\cal{I}}_{D_j}$.
-We believe that our application of Proposition 4.7 is sufficient, for essentially the same reasons as outlined in the preceeding item.
+This analogous to the previous point, and we have also expanded the proof to make the argument clearer. Here, we are only
+concerned with a lift of the functor $(v_j)_* \co \cal{E}_{/C_j}^\to \to \cal{E}_{/D_j}^\to$ to a functor $\liftr{\cal{K}}_{/C_j} \to \liftr{\cal{I}}_{D_j}$. Thus, we believe that our application of Proposition 4.7 is sufficient, for essentially the same reasons as outlined in the preceeding item.
 
-\section*{Sections 6 and 7} 
-
-The referee noted a mistake in the proof of Theorem~6.5 where we 
-confused the category of coalgebras for a comonad with the category of coalgebras for its underlying copointed endofunctor. 
-
-We fixed this mistake by modifying the definition of a uniform fibration (Definition 6.3), which is now given in terms of a set of generating trivial cofibrations, rather than of
-the class of cylinder inclusions. The generating trivial cofibrations, in turn, are obtained by Leibniz product between endpoint inclusions and generating cofibrations. 
-
-In this way, the uniform fibrations are the algebras for a monad and they match Coquand's uniform fibrations in cubical sets. 
-An alternative way of fixing the mistake would have been to first obtain the awfs $(\mathsf{C_t}, \mathsf{F})$ of Theorem 6.4 (along the lines of the proof of Theorem 6.5 in the version of the paper), and then define uniform fibrations as the algebras for the pointed endofunctor $\mathsf{F}$.
-But the resulting notion of a uniform fibration would not match the one in Coquand's work.
-
-
-The statement of Theorem 6.4, its proof and the rest of the paper have been modified accordingly, as detailed below. 
-
-A related notable change is the following. Previously, the property that the Leibniz product of an endoint inclusion with a cofibration is
-a trivial cofibration was immediate from the definition of a trivial cofibration. But now this has to be proved explicitly, and we do
-so in Corollary 6.7. Writing down the proof of Corollary 6.7 required us to make explicit the functorial aspects of Proposition 6.4 
-(previously stated only as a logical equivalence). For this, we make use of Proposition 4.11, Corollary 4.12 and Remark 4.13,
-which expand on the old Remark 4.10, making explicit its use (which was unclear in the previous version of the paper). We
-also added Corollary 4.10 (which implies Corollary 4.12). 
-
-A point related to this is the new version of Proposition 7.5, which now refers to the generating trivial cofibrations instead of the
-open cylinder inclusions.
-
-With this notion of uniform trivial fibration and uniform fibration, there is no change needed in Theorem 8.1. 
-
-\section*{Sections 2 and 3} 
-
-In order to keep the symmetry between the non-algebraic and the algebraic part of the paper,
-we  revised  the non-algebraic part of the paper in a similar way. 
 
 
 
@@ -69,10 +91,22 @@ we  revised  the non-algebraic part of the paper in a similar way.
 
 \section*{Other changes} 
 
+The following changes are in response to comments of the referee: 
 
 \begin{itemize}
-\item
-We simplified the definition of a suitable awfs slightly: condition (S3) has been replaced by an easier condition directly equivalent to it.
+\item We added an outline of the diagrammatic proof of Lemma 3.4. 
+\item We provide more details on the definition of an awfs at the start of Section 5. 
+\item We added Remark 8.5, which explains the difference between our approach and the one used in [7]. 
+\item We added that Proposition 4.7 and 4.8 and Proposition 4.14 follow from results in [7] and gave further references to [35]. 
+\item We deleted the unclear remark on page 21 of the previous version on the algebraic aspects of the generalized Frobenius condition.
+\end{itemize}
+
+
+We also made the following additional change:
+\begin{itemize}
+\item We simplified Definition 6.1 of a suitable awfs slightly, by replacing the old condition (S3) with condition that is
+easier to state and is directly equivalent to it. The comment on the equivalence between the two is remarked after
+the definition (using Proposition 6.4) and recalled within the proof of Theorem 7.8, where (S3) is used.
 \end{itemize}
 
 \end{document}
