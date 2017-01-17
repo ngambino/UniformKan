@@ -37,7 +37,7 @@ Our results also subsume and extend work by Coquand and others on cubical sets.
 
 This paper studies the Frobenius condition for weak factorization systems (wfs's), which asserts that pullback along a right map preserves left maps~\cite{garner:topological-simplicial,gambino-garner:idtypewfs}.
 One reason for the interest in this condition is that it is closely related to the right properness of a Quillen model structure, which requires that pullback along a fibration preserves weak equivalences.
-Indeed, for a Quillen model structure in which the cofibrations are stable under pullback, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the wfs of trivial cofibrations and fibrations.
+Indeed, for a Quillen model structure in which the cofibrations are stable under pullbac, such as the Cisinski model structures~\cite{cisinski-asterisque}, right properness is equivalent to the Frobenius condition for the wfs of trivial cofibrations and fibrations.
 Furthermore, when pushforward along right maps exists, \ie pullback along right maps has a right adjoint, the Frobenius condition is equivalent to the preservation of right maps by pushforward along a right map.
 In the category of simplicial sets, this amounts to the preservation of Kan fibrations by pushforward along Kan fibrations, a fact that plays an important role in Voevodsky's simplicial model of univalent foundations~\cite{voevodsky-simplicial-model}.
 
@@ -313,7 +313,7 @@ A wfs $(\Cof, \TrivFib)$ in $\catE$ is said to be \emph{suitable} if the followi
 \begin{enumerate}[({S}1)]
 \item $(\Cof, \TrivFib)$ is cofibrantly generated,
 \item every object of $\catE$ is cofibrant, \ie for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is a cofibration,
-\item cofibrations are closed under pullbacks, \ie for every pullback square
+\item cofibrations are closed under pullback, \ie for every pullback square
 \[
 \xymatrix{
   B
@@ -764,8 +764,8 @@ cofibrations.
 \end{lemma}
 
 \begin{proof}
-For part~(i), we have that $\cal{I}_\otimes \subseteq \Cof$ since $\cal{I} \subseteq \Cof$ and $\Cof$ is closed under Leibniz product with~$\kcyl \otimes (-)$ (condition (S4) in \cref{thm:suitable-wfs}). We also have $\cal{I}_\otimes \subseteq S$
-since  $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence for every $f \co X \to Y$, by~\cref{thm:kcylf-is-she}. 
+For part~(i), we have that $\cal{I}_\otimes \subseteq \Cof$ since $\cal{I} \subseteq \Cof$ and $\Cof$ is closed under Leibniz product with~$\kcyl$ (condition (S4) in \cref{thm:suitable-wfs}). We also have $\cal{I}_\otimes \subseteq S$
+since  $\kcyl \hatotimes f$ is a strong $k$-oriented homotopy equivalence for every map $f$ by~\cref{thm:kcylf-is-she}. 
 For part~(ii), let~$f \in \Cof \cap S$.
 Since $f \in S$, \cref{strong-h-equiv-as-section-non-alg} implies that $f$ is a retract of~$\kcyl \hatotimes f$ for some $k \in \braces{0\,, 1}$.
 Because $f \in \Cof$, we have $\kcyl \hatotimes f \in \TrivCof$ by \cref{thm:kcyl-of-cof-is-trivcof-non-alg}. 
@@ -788,8 +788,18 @@ For $k \in \braces{0\,, 1}$, the pullback of a strong $k$-oriented homotopy equi
 \begin{equation} \label{non-alg-strong-h-equiv-uniform-base-change:0}
 \begin{gathered}
 \xymatrix{
- B \ar[d]_j \ar[r]^q & A \ar[d]^i \\
-Y \ar[r]_p & X \rlap{.}}
+  B
+  \ar[d]_{j}
+  \ar[r]^{q}
+  \pullback{dr}
+&
+  A \ar[d]^i
+\\
+  Y
+  \ar[r]_p
+&
+  X
+\rlap{.}}
 \end{gathered}
 \end{equation}
 We wish to show that $j \in  S_k$.
@@ -816,7 +826,7 @@ j
   \ar[r]_-{\rho}
 &
   i
-\rlap{.}}
+}
 \]
 in $\cal{E}^\to$ commutes, where $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities.  Since the pullback square $\sigma$ is a cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains. Again omitting horizontal composites, we need a dotted arrow in
 \[
@@ -862,7 +872,7 @@ This is equivalent to finding a diagonal filler in the following square:
 \rlap{.}}
 \]
 But $\kcylinv \otimes Y \iso \kcylinv \hatotimes \bot_Y$, and $\bot_Y \co 0 \to Y$ is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
-By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that~$\kcylinv \hatotimes \bot_Y \in \TrivCof$ and hence a diagonal filler since~$p \in \Fib$.
+By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that~$\kcylinv \hatotimes \bot_Y \in \TrivCof$, and hence have a diagonal filler since~$p \in \Fib$.
 \end{proof}
 
 \begin{theorem} \label{thm:non-alg-frobenius}
@@ -874,13 +884,24 @@ By~\cref{thm:frobenius-equivalence}, it suffices to show that, for a pullback of
 \begin{equation*}
 \begin{gathered}
 \xymatrix{
- B \ar[d]_j \ar[r]^q & A \ar[d]^i \\
-Y \ar[r]_p & X \rlap{,}}
+  B
+  \ar[d]_{j}
+  \ar[r]^{q}
+  \pullback{dr}
+&
+  A
+  \ar[d]^i
+\\
+  Y
+  \ar[r]_{p}
+&
+  X
+\rlap{,}}
 \end{gathered}
 \end{equation*}
 where $i \in \cal{I}_\otimes$ and $p \in \Fib$, we have $j \in \TrivCof$.
 By part (i) of~\cref{thm:main-sheretract}, $i \in \Cof \cap S$.
-By the closure of $\Cof$ under pullbacks (condition~(S3) of \cref{thm:suitable-wfs}) and~\cref{thm:non-alg-frobenius-she}, it follows that~$j \in \Cof \cap S$.
+By the closure of $\Cof$ under pullback (condition~(S3) of \cref{thm:suitable-wfs}) and~\cref{thm:non-alg-frobenius-she}, it follows that~$j \in \Cof \cap S$.
 But $\Cof \cap S \subseteq \TrivCof$ by part~(ii) of~\cref{thm:main-sheretract}.
 \end{proof}
 
@@ -1455,7 +1476,7 @@ We write $\yon \co \mathbb{C} \to \cal{E}$ for the Yoneda embedding.
 Recall from \cref{sec:bac} that we write $\catE_{\cart}^\to$ for the category of arrows and pullback squares in~$\cal{E}$.
 
 \begin{lemma} \label{left-kan-extension-of-representables}
-Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables, \ie closed under pullbacks along morphisms with domain a representable presheaf.
+Let $\cal{J}$ be a full subcategory of $\catE_{\cart}^\to$ closed under base change to representables, \ie closed under pullback along morphisms with domain a representable presheaf.
 Let $\cal{I}$ denote its restriction to arrows into representables,
 \[
 \xymatrix@C-1em{
@@ -2897,7 +2918,7 @@ Second, we let $\cal{M}$ be a full subcategory of $\cal{E}^\to_\cart$ satisfying
 \begin{enumerate}[({M}1)]
 \item the elements of $\cal{M}$ are monomorphisms,
 \item for every $X \in \cal{E}$, the unique map $\bot_X \co 0 \to X$ is in $\cal{M}$,
-\item the elements of $\cal{M}$ are closed under pullbacks,
+\item the elements of $\cal{M}$ are closed under pullback,
 \item the elements of $\cal{M}$ are closed under Leibniz product with the endpoint inclusions,
 \item the category $\cal{M}$ has colimits and the inclusion $\cal{M} \to \cal{E}^\to_\mathrm{cart}$ preserves them.%
 \footnote{This assumption is not used to instantiate our general results, but only for~\cref{partial-map-classifier,unif-vs-non-unif}.}
