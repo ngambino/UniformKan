@@ -2097,8 +2097,8 @@ We will use the notation $(\CC, \TF)$ to denote a suitable awfs and let
 \end{equation}
 We then refer to objects in $\Cof$ as \emph{uniform cofibrations} and objects in $\TrivFib$ as \emph{uniform trivial fibrations}.
 Again, we hope that this helps to convey some of the basic intuition motivating our development. In~\eqref{equ:Mapmap}, 
-the dichotomy between copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
-However, we will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
+the dichotomy between copointed endofunctor coalgebras on one hand and monad algebras on the other is motivated by our technical development: the uniform fibrations introduced in~\cref{def:I-fibration}, which generalize the uniform fibrations in cubical sets in~\cite{cohen-et-al:cubicaltt}, are monad algebras (as shown in \cref{thm:sset-cset-nwfs}) rather than pointed endofunctor algebras. 
+Note however that we will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
 
 \begin{definition} \label{thm:suitable-awfs}
 An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions hold.
@@ -2267,7 +2267,8 @@ The category $\cal{E}$ admits a cofibrantly generated awfs $(\TC, \FF)$ such tha
 By Garner's small object argument~\cite{garner:small-object-argument} (see also~\cite[Proposition~16]{bourke-garner-I}), applied to the generating small category of arrows $\cal{I}_\otimes$.  
 \end{proof}
 
-Note again that there are functors over $\cal{E}^\to$ back and forth between $\palg{\FF}$ and $\pAlg{\FF}$ since $(\TC, \FF)$ is cofibrantly generated.
+Note again that there are functors over $\cal{E}^\to$ back and forth between $\palg{\FF}$ and $\pAlg{\FF}$ since $(\TC, \FF)$ is cofibrantly generated. Let us remark that \cref{prod-exp-general} would not hold as stated above if we had defined uniform (trivial) fibrations as algebras for the pointed endofunctors of the relevant awfs's; instead of an isomorphism we would have only
+functors back and forth over~$\catE^\to$. 
 
 \begin{example} \label{unif-fib-sset}
 If we start from the awfs's $(\CC, \TF)$ in~$\SSet$ and~$\CSet$ of \cref{unif-triv-fib-sset} and apply~\cref{thm:sset-cset-nwfs}, we obtain awfs's $(\TC, \FF)$ whose monad algebras are algebraic counterparts of Kan fibrations, and hence will be called \emph{uniform Kan fibrations}.
