@@ -808,95 +808,97 @@ The next lemma is the third main step of the proof of the Frobenius property for
 For $k \in \braces{0\,, 1}$, the pullback of a strong $k$-oriented homotopy equivalence along a fibration is  a strong $k$-oriented homotopy equivalence.
 \end{lemma}
 
-\begin{proof} Let  $i  \in S_k$, $p \in \Fib$, and consider a pullback diagram
+\begin{proof}
+Let $g \in S_k$, $p \in \Fib$, and consider a pullback diagram
 \begin{equation} \label{non-alg-strong-h-equiv-uniform-base-change:0}
 \begin{gathered}
 \xymatrix{
-  B
-  \ar[d]_{j}
-  \ar[r]^{q}
+  A
+  \ar[d]_{\bar{g}}
+  \ar[r]
   \pullback{dr}
 &
-  A \ar[d]^i
+  B \ar[d]^{g}
 \\
-  Y
+  X
   \ar[r]_p
 &
-  X
+  Y
 \rlap{.}}
 \end{gathered}
 \end{equation}
-We wish to show that $j \in  S_k$.
-Since $i \in S_k$, $\thetak \hatotimes i \co i \to \kcyl \hatotimes i$ has a retraction $\rho \co \kcyl \hatotimes i \to i$.
-We show that $\thetak \hatotimes j \co j \to \kcyl \hatotimes j$ has a retraction $\tau \co  \kcyl \hatotimes j \to j$.
-We define  $\tau$ so that the diagram 
+We wish to show that $\bar{g} \in  S_k$.
+Since $g \in S_k$, $\thetak \hatotimes g \co g \to \kcyl \hatotimes g$ has a retraction $\rho \co \kcyl \hatotimes g \to g$.
+We show that $\thetak \hatotimes \bar{g} \co \bar{g} \to \kcyl \hatotimes \bar{g}$ has a retraction $\bar{\rho} \co  \kcyl \hatotimes \bar{g} \to \bar{g}$.
+We define  $\bar{\rho}$ so that the diagram 
 \[
 \xymatrix@C+2em{
-j
-  \ar[r]^-{\thetak \hatotimes j}
+\bar{g}
+  \ar[r]^-{\thetak \hatotimes \bar{g}}
   \ar[d]_{\sigma}
 &
-  \kcyl \hatotimes j
-  \ar@{.>}[r]^-{\tau}
+  \kcyl \hatotimes \bar{g}
+  \ar@{.>}[r]^-{\bar{\rho}}
   \ar[d]_{\kcyl \hatotimes \sigma}
 &
- j
+ \bar{g}
   \ar[d]^{\sigma}
 \\
-  i
-  \ar[r]_-{\thetak \hatotimes i}
+  g
+  \ar[r]_-{\thetak \hatotimes g}
 &
-  \kcyl \hatotimes i
+  \kcyl \hatotimes g
   \ar[r]_-{\rho}
 &
-  i
+  g
 }
 \]
-in $\cal{E}^\to$ commutes, where $\sigma \co j \to i$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities.  Since the pullback square $\sigma$ is a cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains. Again omitting horizontal composites, we need a dotted arrow in
+in $\cal{E}^\to$ commutes, where $\sigma \co \bar{g} \to g$ is the pullback in~\eqref{non-alg-strong-h-equiv-uniform-base-change:0} and the horizontal composites should be identities.
+Since $\sigma$ is a cartesian arrow with respect to the codomain fibration, it suffices to solve this problem on codomains. Again omitting horizontal composites, we need a dotted arrow in
 \[
 \xymatrix@C+2em{
-  Y
-  \ar[r]^-{\kcylinv \otimes Y}
+  X
+  \ar[r]^-{\kcylinv \otimes X}
   \ar[d]_{p}
 &
-  \interval \otimes Y
-  \ar@{.>}[r]^-{\cod(\tau)}
+  \interval \otimes X
+  \ar@{.>}[r]^-{\cod(\bar{\rho})}
   \ar[d]^{\interval \otimes p}
 &
-  Y
+  X
   \ar[d]^{p}
 \\
-  X
-  \ar[r]_-{\kcylinv \otimes X}
+  Y
+  \ar[r]_-{\kcylinv \otimes Y}
 &
-  \interval \otimes X
+  \interval \otimes Y
   \ar[r]_-{\cod(\rho)}
 &
-  X
+  Y
 \rlap{.}}
 \]
 This is equivalent to finding a diagonal filler in the following square:
 \[
 \xymatrix@C+2em{
-  Y
+  X
   \ar@{=}[rr]
-  \ar[d]_{\kcylinv \otimes Y}
+  \ar[d]_{\kcylinv \otimes X}
 &&
-  Y
+  X
   \ar[d]^{p}
 \\
-  \interval \otimes Y
-  \ar[r]_-{I \otimes p}
-  \ar@{.>}[urr]^(0.4){\cod(\tau)}
-&
   \interval \otimes X
+  \ar[r]_-{I \otimes p}
+  \ar@{.>}[urr]^(0.4){\cod(\bar{\rho})}
+&
+  \interval \otimes Y
   \ar[r]_-{\cod(\rho)}
 &
-  X
+  Y
 \rlap{.}}
 \]
-But $\kcylinv \otimes Y \iso \kcylinv \hatotimes \bot_Y$, and $\bot_Y \co 0 \to Y$ is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
-By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that~$\kcylinv \hatotimes \bot_Y \in \TrivCof$, and hence have a diagonal filler since~$p \in \Fib$.
+But $\kcylinv \otimes X \iso \kcylinv \hatotimes \bot_X$, and $\bot_X \co 0 \to X$ is a cofibration by the assumption that $(\Cof, \TrivFib)$ is suitable (condition~(S2) of \cref{thm:suitable-wfs}).
+By~\cref{thm:kcyl-of-cof-is-trivcof-non-alg}, we have that~$\kcylinv \hatotimes \bot_X \in \TrivCof$, and hence have a diagonal filler since~$p \in \Fib$.
 \end{proof}
 
 \begin{theorem} \label{thm:non-alg-frobenius}
@@ -908,18 +910,18 @@ By~\cref{thm:frobenius-equivalence}, it suffices to show that, for a pullback of
 \begin{equation*}
 \begin{gathered}
 \xymatrix{
-  B
+  A
   \ar[d]_{j}
-  \ar[r]^{q}
+  \ar[r]
   \pullback{dr}
 &
-  A
+  B
   \ar[d]^i
 \\
-  Y
+  X
   \ar[r]_{p}
 &
-  X
+  Y
 \rlap{,}}
 \end{gathered}
 \end{equation*}
