@@ -584,7 +584,7 @@ For this, observe that, for $k \in \braces{0\,, 1}$, we have the diagram
   \ar[d]_{f}
 &
  \interval \otimes X
- \ar[r]^-{\iota_1}
+ \ar[r]^-{\iota_0}
  &
   (\interval \otimes X) +_X Y \ar[d]^{\kcyl \hatotimes f}
   \\
@@ -596,7 +596,7 @@ For this, observe that, for $k \in \braces{0\,, 1}$, we have the diagram
 }
 \end{gathered}
 \end{equation}
-which commutes by the naturality of $\kcylinv \otimes (-)$ since $(\kcyl \hatotimes f) \cc \iota_1 = \interval \otimes f$.
+which commutes by the naturality of $\kcylinv \otimes (-)$ since $(\kcyl \hatotimes f) \cc \iota_0 = \interval \otimes f$.
 This diagram gives us (naturally in $f$) a map~$\thetak \hatotimes f \co f \to \kcyl \hatotimes f$ in~$\catE^\to$, which we use in the next lemma to provide a characterization of strong homotopy equivalences as retractions.
 
 \begin{lemma} \label{strong-h-equiv-as-section-non-alg}
@@ -604,7 +604,7 @@ A map $f \co X \to Y$ is a strong $k$-oriented homotopy equivalence if and only 
 \[
 \xymatrix@C+4em{
   X
-  \ar[r]^-{\iota_1 \cc (\kcylinv \otimes X)}
+  \ar[r]^-{\iota_0 \cc (\kcylinv \otimes X)}
   \ar[d]_f
 &
   (\interval \otimes X) +_X Y
@@ -731,7 +731,7 @@ We define $g$ as the composite
   \ar[r]^-{\epsilon \otimes Y}
 &
   Y
-  \ar[r]^-{\iota_2}
+  \ar[r]^-{\iota_1}
 &
   (I \otimes X) +_X Y
 \rlap{.}}
