@@ -2920,12 +2920,14 @@ The claim follows from \cref{uniform-fibrations-uniform-frobenius} using \cref{t
 The application of \cref{uniform-fibrations-frobenius-pushforward} in $\SSet$ and $\CSet$ shows that pushforward along a uniform Kan fibration preserves uniform Kan fibrations.
 Since exponentiation is a special case of pushforward, this result shows also that if $X$ is a uniform Kan complex (defined in the evident way) then $Y^X$ is again a uniform Kan complex,
 for every $Y$.
-In fact, as usual, for this easier result only the base needs to be assumed uniform Kan.
-This can be seen as follows.
-Let $p \co X \to A$ be a uniform Kan fibration and $i \co B \to Y$ be a monomorphism.
-Recall that~$\cal{M} \times_{\cal{E}^\to} \cal{S}_k$ is closed under Leibniz product with~$i$, for $k \in \braces{0\,, 1}$, since it is true separately for $\cal{M}$ and $\cal{S}_k$.
-By \cref{pitchfork-leibniz-most-general-example} via \cref{pitchfork-leibniz-most-general-applied}, we have that~$\hatexp(i, p)$ is again a uniform Kan fibration.
-The desired claim is then the special case~$A = 1$ and~$B = 0$.
+In fact, for this easier result, only the base needs to be assumed uniform Kan.
+It follows by setting $A \defeq 1$ and $B \defeq 0$ from the general statement that the Leibniz exponential of a uniform Kan fibration $p \co X \to A$ with a cofibration $i \co B \to Y$ gives a uniform Kan fibration $\hatexp(i, p)$.
+
+As is well known, this can be seen as follows.
+Let $k \in \braces{0\,, 1}$.
+By \cref{prod-exp-general}, $\hatexp(\bar{\delta}^k, p)$ is a uniform trivial Kan fibration.
+Since uniform cofibrations are closed under Leibniz product with $i$, by adjointness $\hatexp(i, \hatexp(\bar{\delta}^k, p)) = \hatexp(\bar{\delta}^k, \hatexp(i, p))$ is a uniform trivial Kan fibration.
+Combining the cases $k = 0$ and $k = 1$ and using \cref{prod-exp-general} in the reverse direction, it follows that $\hatexp(i, p)$ is a uniform Kan fibration.
 \end{example}
 
 \section{Uniform fibrations in presheaf categories}
