@@ -13,24 +13,26 @@
 
 \maketitle
 
-We are grateful to the referee for the helpful comments and careful reading of the paper. We have addressed all the comments by the referee in this revised version.  Below, we provide some explanation for the most substantial changes, in order of significance. All the numbering, unless otherwise stated, refer to the current version of the paper.
+We are grateful to the referee for the helpful comments and careful reading of the paper. We have addressed all the comments by the referee.  Below, we provide some explanation for the most substantial changes, in order of significance. All the numbering, unless otherwise stated, refer to the current version of the paper.
 
 
 \section*{Theorem 6.5} 
 
-The referee noted a mistake in the proof of Theorem~6.5, where we stated an equality between categories, which are
+The referee noted an issue in the statement and proof of Theorem~6.5, where we stated an equality between categories, which are
 instead related only by functors going both ways.  
 
 There are two ways to fix this issue: 
 
 \begin{enumerate} 
 \item One way is to modify the definition of a uniform fibration, using a set of `generating trivial cofibrations', rather than the class of `cylinder inclusions', to define them. The generating trivial cofibrations are obtained by Leibniz product between endpoint inclusions and `generating cofibrations'.  In this way, the uniform fibrations are the algebras for a monad (as we had stated in the previous version) and they generalize Coquand's uniform fibrations in cubical sets. 
-\item  An alternative way is first obtain the awfs $(\mathsf{C_t}, \mathsf{F})$ of Theorem 6.5 (along the lines of the proof of Theorem 6.4 in the previous version of the paper), and then define uniform fibrations as the algebras for the pointed endofunctor $\mathsf{F}$.
+\item  An alternative way is to obtain first the awfs $(\mathsf{C_t}, \mathsf{F})$ of Theorem 6.5 (along the lines of the proof of Theorem 6.4 in the previous version of the paper), and then define uniform fibrations as the algebras for the pointed endofunctor $\mathsf{F}$.
 But the resulting notion of a uniform fibration would not match the one in Coquand's work.
 \end{enumerate} 
 
 We decided to adopt the solution in (1), so as to subsume Coquand's work in our treatment. We also felt that it is more natural
-to define uniform fibrations before proving that they are part of an awfs. 
+to define uniform fibrations before proving that they are part of an awfs. Furthermore, in this way the categories in Proposition 6.4
+are related by  an isomorphism of categories rather than just a pair of functors back and forth between them (as commented after 
+Theorem 6.5). 
 
 Theorem 6.5, its proof, and the relevant parts of the paper have been modified accordingly, as detailed below:
 
@@ -38,12 +40,12 @@ Theorem 6.5, its proof, and the relevant parts of the paper have been modified a
 \item Definition 6.3 has been modified. Correspondingly, the class of cylinder inclusions is not used anymore;
 its definition has been removed from the paper. 
 \item We made the functorial aspects of Proposition 6.4 more explicit  (since they are used in the proof of Corollary 6.7). 
-Also, we emphasized the significance of Proposition 6.4 by adding some lines of text before it, explaining how it shows that uniform fibrations are independent from the choice of generating cofibrations. 
+Also, we emphasized the significance of Proposition 6.4 by adding some lines of text before it, explaining how it shows that uniform fibrations are independent from the choice of generating cofibrations.
 \item We modified the proof of Theorem 6.5, which is now immediate. 
 \item We added Corollary 6.7, asserting that the Leibniz product of an endpoint inclusion with a cofibration is
 a trivial cofibration (which is used in Proposition 7.5).  In the previous version of the paper, this was immediate from the definition of a trivial cofibration, but now this has to be proved. 
-\item Proposition 7.5, part (i) has been modified so as to refer to the generating trivial cofibrations rather than to the cylinder inclusions. This is used in the proof of the functorial Frobenius condition (Theorem 7.8).
-\item Theorem 8.1 has not been changed since the notion of uniform trivial fibration and uniform fibration used now
+\item  Part (i)  of Proposition 7.5 has been modified so as to refer to the generating trivial cofibrations rather than to the cylinder inclusions. This is used in the proof of the functorial Frobenius condition (Theorem 7.8).
+\item Theorem 8.1 has not been changed, since the notion of uniform trivial fibration and uniform fibration used now
 make the statement correct. 
 \end{itemize} 
 
