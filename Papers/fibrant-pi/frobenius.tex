@@ -1012,7 +1012,7 @@ Some of them follow from results in~\cite{bourke-garner-I}; the others are proba
 We omit most proofs, which are straightforward. 
 
 Given a functor $u \co \cal{I} \to \calE^\to$, we define its~\emph{retract closure} $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ as follows.
-An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$, $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
+An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \rho)$ consisting of an object $i \in \cal{I}$, an object $e \in \catE^\to$, and maps $\sigma \co e \rightarrow u_i$, $\rho \co u_i \rightarrow e$ in $\catE^\to$ which exhibit $e$ as a retract of $u_i$ in $\catE^\to$, \ie such that
 \[
 \xymatrix{
   e
@@ -1025,7 +1025,7 @@ An object of $\overline{\cal{I}}$ is a tuple~$(i, e, \sigma, \tau)$ consisting o
   e
 \rlap{.}}
 \]
-A map $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ in $\overline{\cal{I}}$ consists of a map $f \co i \to i'$ in $\cal{I}$ and a map $\kappa \co e \rightarrow e'$ in $\catE^\to$ such that the following diagram in $\catE^\to$ commutes:
+A map $(f, \kappa) \co (i, e, \sigma, \rho) \to (i', e', \sigma', \rho')$ in $\overline{\cal{I}}$ consists of a map $f \co i \to i'$ in $\cal{I}$ and a map $\kappa \co e \rightarrow e'$ in $\catE^\to$ such that the following diagram in $\catE^\to$ commutes:
 \[
 \xymatrix{
   e
@@ -1048,7 +1048,7 @@ A map $(f, \kappa) \co (i, e, \sigma, \tau) \to (i', e', \sigma', \tau')$ in $\o
   e'
 \rlap{.}}
 \]
-The functor $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ is then defined on objects by letting $\overline{u}(i, e, \sigma, \tau) \defeq e$, and on maps by letting $\overline{u}(f, \kappa) \defeq \kappa$.
+The functor $\overline{u} \co \overline{\cal{I}} \to \catE^\to$ is then defined on objects by letting $\overline{u}(i, e, \sigma, \rho) \defeq e$, and on maps by letting $\overline{u}(f, \kappa) \defeq \kappa$.
 The operation of retract closure gives a monad in an evident way.
 The next proposition uses the notation introduced in~\eqref{equ:logical-equivalence}.
 
@@ -2504,8 +2504,7 @@ But associativity of functor composition implies associativity of the correspond
 (\theta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f \co \delta^k \hatotimes f \to (\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f
 \]
 exhibits $\delta^k \hatotimes f$ as a retract of $(\delta^k \mathbin{\hat{\cc}} \delta^k) \hatotimes f$, functorially in $f \in \cal{E}^\to$.
-But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$,
-mapping $(\alpha, f)$ to $\alpha \hatotimes f$, preserve section-retraction pairs.
+But functors, in this case the functor $(-) \hatotimes (-) \co [\cal{E}, \cal{E}]^\to \times \cal{E}^\to \to \cal{E}^\to$ mapping $(\alpha, f)$ to $\alpha \hatotimes f$, preserve section-retraction pairs.
 \end{proof}
 
 The next lemma is the analogue of~\cref{thm:main-sheretract}.
@@ -2574,13 +2573,12 @@ For~(ii), let us write $c \co \Cof \to \catE^\to$ for the forgetful functor. We 
 \rlap{.}}
 \end{gathered}
 \end{equation}
-We only describe the action of the functor $N_k$ on an object $(f, \rho)$, leaving the evident definition of the action on arrows to the reader.
-Recall that $\rho$ is a retraction of $\thetak \hatotimes f \co f \to \kcyl \hatotimes f$, exhibiting~$f$ as a retract of~$\kcyl \hatotimes f$.
-Thus, we may define $N_k(f, \rho) \defeq (f, f, \thetak \hatotimes f, \rho)$.
+We only describe the action of the functor $N_k$ on an object $(i, \rho)$ with $i \in \Cof$ and $\rho$ a retraction of $\thetak \hatotimes c_i \co c_i \to \kcyl \hatotimes c_i$, leaving the evident definition of the action on arrows to the reader.
+Since~$\rho$ exhibits~$c_i$ as a retract of~$\kcyl \hatotimes c_i$, we may define $N_k(i, \rho) \defeq (i, c_i, \thetak \hatotimes c_i, \rho)$.
 Observe that this definition makes the diagram for $N_k$ commute.
 We then pass from $\overline{\kcyl \hatotimes c} \co \overline{\Cof} \to \cal{E}^\to$ to $\overline{\TrivCof}$ using \cref{kcyl-of-cof-is-trivcof}.
 Upon combining the cases $k = 0$ and $k = 1$, this gives a functor $\Cof \times_{\cal{E}^\to} \cal{S} \to \overline{\TrivCof}$ over $\cal{E}^\to$.
-The claim in~(ii) then follows by \cref{retract-closure}, noting that $\TrivCof$ is a category of left maps.
+The claim in~(ii) then follows by \cref{retract-closure} and the adjunction~\eqref{garner-adjunction}, noting that $\TrivCof$ is a category of left maps.
 \end{proof}
 
 \begin{remark} \label{relating-strong-hequiv-and-uniform-fib}
