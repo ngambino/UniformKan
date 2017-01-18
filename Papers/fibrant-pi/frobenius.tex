@@ -84,8 +84,8 @@ As we observe in~\cref{why-uniform}, however, the algebraic notion of a uniform 
 
 \subsection*{Remark}
 In order to make the paper more concise, we confine comments on constructivity issues to certain remarks and footnotes.
-However, let us point out here for the interested readers that our development does not rely on the law of the excluded middle or the axiom of choice, apart from~\cref{thm:wfstimes}, \cref{thm:sset-cset-nwfs} and \cref{rem-lift-suitable}.
-For~\cref{thm:sset-cset-nwfs} and \cref{rem-lift-suitable}, we argue that the result holds constructively for simplicial sets and cubical sets  in~\cref{rem:constructive-small-object}.%
+However, let us point out here for the interested readers that our development does not rely on the law of the excluded middle or the axiom of choice, apart from~\cref{thm:wfstimes,thm:sset-cset-nwfs,rem-lift-suitable}.
+For~\cref{thm:sset-cset-nwfs,rem-lift-suitable}, we argue that the result holds constructively for simplicial sets and cubical sets  in~\cref{rem:constructive-small-object}.%
 
 \subsection*{Organization of the paper} \cref{sec:bac} introduces the setting in which we work throughout the paper.
 The core of the paper is then organized in two parts: the first part (\cref{sec:fib,sec:frob}) studies wfs's; the second part (\cref{sec:ortf,sec:frobc,sec:alg-fib,sec:alg-frob}) studies awfs's.
@@ -106,7 +106,7 @@ This material is based on research sponsored by the Air Force Research Laborator
 Throughout the paper, we work with a category $\cal{E}$, assumed to be locally presentable and locally cartesian closed.
 %\footnote{We choose to work in this fixed setting for simplicity of presentation.
 %However, let us note here that the only aspects of local cartesian closure used are pullbacks and the existence of right adjoints to pullback along what we later call fibrations.}
-In particular, $\catE$ is cocomplete and finitely complete and pullback preserves all limits and colimits, since it has both a left adjoint and a right adjoint.
+In particular, $\catE$ is cocomplete as well as finitely complete and pullback preserves all limits and colimits since it has both a left adjoint and a right adjoint.
 For an arrow $f \co X \to Y$, we write $f^* \co \cal{E}_{/Y} \to \cal{E}_{/X}$ for the pullback along $f$, $f_{!} \co \cal{E}_{/X} \to \cal{E}_{/Y}$ for its left adjoint, which is given by composition with $f$, and $f_* \co \cal{E}_{/X} \to \cal{E}_{/Y}$ for its right adjoint, which we call pushforward along $f$.
 We write $\cal{E}^\to$ for the category of arrows of $\cal{E}$ and $\cal{E}^\to_{\mathrm{cart}}$ for the subcategory of~$\cal{E}^\to$ of arrows and cartesian squares.
 Examples of such categories abound; in particular, our assumptions are satisfied not just by presheaf categories, but by arbitrary Grothendieck toposes.
@@ -480,7 +480,7 @@ We conclude this section with some observations on the wfs's $(\Cof, \TrivFib)$ 
 First, since $\Cof$ is closed under Leibniz products with the endpoint inclusions, we have that~$\cal{I}_\otimes \subseteq \Cof$. Therefore, since $\Cof$ is saturated, we have $\TrivCof \subseteq \Cof$, \ie every trivial cofibration is a cofibration.
 Second, observe  that \cref{thm:char-fib-nonalg} implies, by standard orthogonality arguments, that $\Fib = \liftr{(\Cof_\otimes)}$, where 
 $\Cof_\otimes \defeq \braces{\delta^k \hatotimes i \mid  k \in \{ 0 \, , 1 \} \, , \;  i \in \Cof \,  }$. Finally, we establish a corollary
-of~\cref{thm:char-fib-nonalg} which will be used to prove~\cref{thm:main-sheretract} and \cref{thm:non-alg-frobenius-she}, which are two of the key steps in establishing the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
+of~\cref{thm:char-fib-nonalg} which will be used to prove~\cref{thm:main-sheretract,thm:non-alg-frobenius-she}, which are two of the key steps in establishing the Frobenius property for the wfs $(\TrivCof, \Fib)$ in~\cref{sec:frob}. 
 
 \begin{corollary} 
 \label{thm:kcyl-of-cof-is-trivcof-non-alg} Let $f \co X \to Y$ in $\cal{E}$. 
@@ -1329,7 +1329,7 @@ are in natural bijective correspondence with diagrams as in item~(ii) of~\cref{l
 But by the adjunction~\eqref{garner-adjunction}, the former are in natural bijective correspondence with diagrams as in item~(i) of~\cref{lift-of-leibniz-adjunction}.
 \end{proof}
 
-The next results spell out a special case of~\cref{lift-of-leibniz-adjunction} and \cref{lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib,sec:alg-frob}. Fix categories $\catE$ and $\catF$, and let $\Adj(\catE, \catF)$ be the category of adjunctions~$U \dashv V$ (with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$) and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
+The next results spell out a special case of~\cref{lift-of-leibniz-adjunction,lift-of-leibniz-adjunction-pullback-form} which will be used in~\cref{sec:alg-fib,sec:alg-frob}. Fix categories $\catE$ and $\catF$, and let $\Adj(\catE, \catF)$ be the category of adjunctions~$U \dashv V$ (with $U \co \catE \to \cal{F}$ and $V \co \cal{F} \to \catE$) and maps of adjunctions~\cite[Chapter IV,\S 7]{maclane-cawm}. We then have 
 functors
 \[
 \eval_L \co \Adj(\catE, \catF) \times \catE \to \catF \, , \quad
@@ -1407,8 +1407,8 @@ Recall the adjunction between the cylinder and cocylinder functors in~\eqref{equ
 from $\Id \dashv \Id$ to $I \otimes (-) \dashv \exp(I, -)$. Inspecting~\eqref{delta-otimes-definition}, we see that the left adjoint 
 $\delta^k \hatotimes (-)$ in~\eqref{equ:leibniz-prod-exp} is $\hateval_L(\alpha, -)$.
 Similarly, inspecting~\eqref{hatexp-delta-definition}, we see that the right adjoint~$\hatexp(\bar{\delta}^k, -)$ in~\eqref{equ:leibniz-prod-exp} is  $\hateval_R(\alpha, -)$. 
-This shows that the adjunction in~\eqref{equ:leibniz-prod-exp} fits into the setting of 
-\cref{pitchfork-leibniz-most-general-example} and \cref{cor-to-most-gen-example}.
+This shows that the adjunction~\eqref{equ:leibniz-prod-exp} fits into the setting of 
+\cref{pitchfork-leibniz-most-general-example,cor-to-most-gen-example}.
 \end{remark}
 
 % \cref{lift-of-adjunction} is the special case of \cref{lift-of-leibniz-adjunction} where $\cal{K}$ is the terminal category.
@@ -1562,11 +1562,10 @@ Recall that a \emph{functorial factorization} on a category $\cal{E}$ consist of
   \ar[ur]_{\RR f}
 }
 \]
-functorially in~$f \in \cal{E}^\to$. The functors $\LL$ and $\RR$ then admit a canonical copointing and pointing, respectively, given by the natural transformations $\LL \to \Id$ and $\Id \to \RR$. 
-We write $\pcoalg{\LL}$ for the category of copointed endofunctor algebras over $\LL$, and $\palg{\RR}$  for the category of pointed endofunctor algebras over $\RR$.  Both of these categories have evident forgetful functors into $\cal{E}^\to$.
+functorially in~$f \in \cal{E}^\to$. The functors $\LL$ and $\RR$ then admit a canonical copointing and pointing, respectively, given by the natural transformations $(\Id, \RR) \co \LL \to \Id$ and $(\LL, \Id) \co \Id \to \RR$. 
+We write $\pcoalg{\LL}$ for the category of copointed endofunctor algebras over $\LL$ and $\palg{\RR}$  for the category of pointed endofunctor algebras over $\RR$.  Both of these categories have evident forgetful functors into $\cal{E}^\to$.
 
-For an \emph{algebraic weak factorization system} (awfs)~\cite{garner:small-object-argument,grandis-tholen-nwfs}, we 
-require to have also a comultiplication $\LL \to \LL \LL$ and a multiplication $\RR \RR \to \RR$, , giving the structure of a comonad on $\LL$ and of a monad on $\RR$, respectively, and such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law. We write $\pCoalg{\LL}$  for the category of comonad coalgebras over~$\LL$, and $\pAlg{\RR}$   for the category of monad algebras over~$\RR$. These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill
+For an \emph{algebraic weak factorization system} (awfs)~\cite{garner:small-object-argument,grandis-tholen-nwfs}, we require also a comultiplication $\LL \to \LL \LL$ and a multiplication $\RR \RR \to \RR$, giving the structure of a comonad on $\LL$ and of a monad on $\RR$, respectively, such that the canonical natural transformation $\LL \RR \to \RR \LL$ is a distributive law. We write $\pCoalg{\LL}$  for the category of comonad coalgebras over~$\LL$ and $\pAlg{\RR}$   for the category of monad algebras over~$\RR$. These come equipped with forgetful functors into $\cal{E}^\to$ and fulfill
 \[
 \pcoalg{\LL} = \liftl{\pAlg{\RR}}
 \, , \quad
@@ -1574,7 +1573,7 @@ require to have also a comultiplication $\LL \to \LL \LL$ and a multiplication $
 \, .\]
 An awfs $(\LL, \RR)$ has an underlying ordinary wfs, in which the left (right) class consists of the maps that admit the structure making them into an element of $\pcoalg{\LL}$ (of $\palg{\RR}$, respectively).
 Recall also that an awfs $(\LL, \RR)$ is said to be \emph{algebraically-free} on $u \co \cal{I} \to \cal{E}^\to$ if $\pAlg{\RR} \iso \liftr{\cal{I}}$.
-By Garner's small object argument~\cite{garner:small-object-argument}, every $u \co \cal{I} \to \cal{E}^\to$ with $\cal{I}$ small determines an awfs $(\LL, \RR)$ that is algebraically-free on $\cal{I}$.
+By Garner's small object argument~\cite{garner:small-object-argument}, every $u \co \cal{I} \to \cal{E}^\to$ with $\cal{I}$ small and $\cal{E}$ locally-presentable determines an awfs $(\LL, \RR)$ that is algebraically-free on $\cal{I}$.
 We call such an awfs \emph{cofibrantly generated}.
 
 We now state the analogue for an awfs of the Frobenius condition for a wfs.
@@ -1603,12 +1602,11 @@ An awfs $(\LL, \RR)$ in $\cal{E}$ satisfies the \emph{functorial Frobenius condi
 \]
 \end{definition}
 
-In this section we obtain an analogue of~\cref{thm:frobenius-equivalence} for awfs's, \ie a necessary and sufficient condition for an algebraically-free awfs to satisfy the functorial Frobenius condition (\cref{thm:frobenius-comparison}).
+In this section, we obtain an analogue of~\cref{thm:frobenius-equivalence} for awfs's, \ie a necessary and sufficient condition for an algebraically-free awfs to satisfy the functorial Frobenius condition (\cref{thm:frobenius-comparison}).
 We will apply this characterization in the next section in order to prove a functorial Frobenius property for the awfs having uniform fibrations as right maps.
 
-In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition, which we introduce in~\cref{generalized-uniform-frob} below. For this, we introduce some notation.
-Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects consisting of 
-tuples $(X, i, a, b)$, where $X \in \cal{E}$, $i \in \cal{I}$, $a \co A_i \to X$, $b \co B_i \to X$, such that the following diagram commutes:
+In order to prove the desired characterization, it is convenient to work with a variant of the functorial Frobenius condition we introduce in~\cref{generalized-uniform-frob} below. For this, we introduce some notation.
+Given $u \co \cal{I} \to \cal{E}^\to$, we write $\cal{I}_{/\cal{E}}$ for the category with objects consisting of tuples $(X, i, a, b)$ with $X \in \cal{E}$, $i \in \cal{I}$ (giving a map $u_i \co A_i \to B_i$), $a \co A_i \to X$, $b \co B_i \to X$ such that the following diagram commutes:
 \[
 \xymatrix{
 A_i \ar[dr]_a \ar[rr]^{u_i} & & B_i \ar[dl]^{b} \\
@@ -1635,7 +1633,7 @@ Then, for $v \co \cal{J} \to \cal{E}^\to$, we can form a pullback
 When $u$ and $v$ are the identity on $\cal{E}^\to$, we obtain
 \[
 \xymatrix{
-  \cal{E}_{/\cal{E}} \times_{\cal{E}} \cal{E}^\to
+  \cal{E}_{/\cal{E}}^\to \times_{\cal{E}} \cal{E}^\to
   \ar[r]
   \ar[d]
   \pullback{dr}
@@ -1787,9 +1785,9 @@ Then the following are equivalent:
 
 \begin{proof}
 Recall that $\pcoalg{\LL} = \liftl{\pAlg{\RR}}$ is a category of left maps.
-We observe that both (i) and (ii) are equivalent to $(\pcoalg{\LL}, \palg{\RR}, \pcoalg{\LL})$ satisfying the generalized functorial Frobenius condition.
-For the equivalence with (i), use \cref{generalized-uniform-frob-nicer}.
-For the equivalence with (ii), use \cref{generalized-uniform-frob-functorial}, noting that
+We claim that both~(i) and~(ii) are equivalent to $(\pcoalg{\LL}, \palg{\RR}, \pcoalg{\LL})$ satisfying the generalized functorial Frobenius condition.
+For the equivalence with~(i), use \cref{generalized-uniform-frob-nicer}.
+For the equivalence with~(ii), use \cref{generalized-uniform-frob-functorial}, noting that
 $\pcoalg{\LL} \leftrightarrow \liftl{(\liftr{\pcoalg{\LL}})}$ over $\cal{E}^\to$, using the adjunction~\eqref{garner-adjunction}.
 \end{proof}
 
@@ -1814,7 +1812,7 @@ Given a functor $u \co \cal{I} \to \catE^\to$, it is immediate to check that the
 \rlap{.}}
 \]
 Note that we can view the bottom map as a lift of $f_! \co \cal{E}_{/X} \to \cal{E}_{/Y}$ to arrow categories.
-Composing with the unit $\cal{I}_{/Y} \to \liftl{(\liftr{(\cal{I}_{/Y})})}$ of the adjunction in~\eqref{garner-adjunction}, applying \cref{lift-of-adjunction}, and using \cref{pitchfork-slicing} to commute orthogonality functors with slicing, the pullback functor $f^* \co \catE_{/Y} \to \catE_{/X}$ then lifts to slices of the right orthogonality categories,
+Composing with the unit $\cal{I}_{/Y} \to \liftl{(\liftr{(\cal{I}_{/Y})})}$ of the adjunction~\eqref{garner-adjunction}, applying \cref{lift-of-adjunction}, and using \cref{pitchfork-slicing} to commute orthogonality functors with slicing, the pullback functor $f^* \co \catE_{/Y} \to \catE_{/X}$ then lifts to slices of the right orthogonality categories,
 \[
 \xymatrix@C=1.5cm{
   \liftr{\cal{I}}_{/Y}
@@ -1865,7 +1863,7 @@ Then $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$ satisfies the generalized f
   \ar[r]_-{v_{k}}
 &
   D_{k}
-\rlap{,}}
+}
 \end{gathered}
 \end{equation}
 induced by $v_\tau \co v_j \to v_k$ is such that the canonical natural transformation
@@ -1894,7 +1892,7 @@ lifts to a natural transformation
   \ar@{}[dr]|{\textstyle\Downarrow \rlap{$\labelstyle\tilde{\phi}$}}
 &
   \liftl{(\liftr{\cal{K}})}_{/C_j}
-  \ar[d]^{s_!}
+  \ar[d]^{\widetilde{s_!}}
 \\
   \cal{I}_{/D_k}
   \ar[r]_{\widetilde{v_k^*}}
@@ -1908,7 +1906,7 @@ lifts to a natural transformation
 \begin{proof}
 We consider the lift $\widetilde{Q}$ of $Q$ in the generalized functorial Frobenius condition~\eqref{generalized-uniform-frob:lift} 
 for~$(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{K}})})$.
-Since the functor $\liftl{(\liftr{w})} \co \liftl{(\liftr{\cal{K}})} \to \cal{E}^\to$ is faithful, the lift~$\widetilde{Q}$ consists just of a lift of the action of $Q$ on objects that is coherent (in an evident sense) with respect to the action of~$Q$ on morphisms, in the sense that the action of $Q$ on morphisms determines uniquely the action of~$\widetilde{Q}$ on morphisms.
+Since the functor $\liftl{(\liftr{w})} \co \liftl{(\liftr{\cal{K}})} \to \cal{E}^\to$ is faithful, the lift~$\widetilde{Q}$ consists just of a lift of the action of $Q$ on objects that is coherent (in an evident sense) with respect to the action of~$Q$ on morphisms, in the sense that the action of $Q$ on morphisms then determines the action of~$\widetilde{Q}$ on morphisms.
 Coherence in morphisms in $\cal{I}_{/\cal{E}} \times_{\cal{E}} \cal{J}$ of the action on objects of $\widetilde{Q}$ separates into two parts:
 \begin{enumerate}[(1)]
 \item coherence in morphisms in $\cal{I}_{/D_j}$ for fixed $v_j \co C_j \to D_j$ with $j \in \cal{J}$,
@@ -1973,7 +1971,7 @@ lifts to a natural transformation
   {\liftr{\cal{K}}}_{/C_j}
   \ar[r]_{\widetilde{(v_j)_*}}
 &
-  {\liftr{\cal{I}'}}_{/D_j}
+  {\liftr{\cal{I}}}_{/D_j}
 \rlap{.}}
 \]
 \end{enumerate}
@@ -1989,13 +1987,13 @@ For (ii), apply \cref{lift-of-mates} to the adjunctions $s_! v_j^* \dashv (v_j)_
 Let $u \co \cal{I} \to \catE^\to$ and $v \co \cal{J} \to \catE^\to$.
 Then the following are equivalent:
 \begin{enumerate}[(i)]
-\item $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized functorial Frobenius condition.
+\item $(\cal{I}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized functorial Frobenius condition,
 \item $(\liftl{(\liftr{\cal{I}})}, \cal{J}, \liftl{(\liftr{\cal{I}})})$ satisfies the generalized functorial Frobenius condition.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Using \cref{generalized-uniform-frob-functorial} and the unit $\cal{I} \to \liftl{(\liftr{\cal{I}})}$ of the adjunction in~\eqref{garner-adjunction}, we see that statement~(ii) implies statement~(i).
+Using \cref{generalized-uniform-frob-functorial} and the unit $\cal{I} \to \liftl{(\liftr{\cal{I}})}$ of the adjunction~\eqref{garner-adjunction}, we see that statement~(ii) implies statement~(i).
 For the converse direction, we use the characterizations of statements~(i) and~(ii) provided by \cref{lift-pushforward}.
 The lift of pushforward for~(i) can be composed with the counit $\liftr{\cal{I}} \to \liftr{(\liftl{(\liftr{\cal{I}})})}$ of the adjunction~\eqref{garner-adjunction} to induce a lift of pushforward for~(ii).
 \end{proof}
@@ -2013,7 +2011,7 @@ Then the following are equivalent:
 
 \begin{proof}
 Using \cref{retract-closure} and the adjunction~\eqref{garner-adjunction}, we have $\overline{\liftr{\cal{I}}} \leftrightarrow \liftr{\cal{I}}$, hence $\pAlg{\RR} \leftrightarrow \overline{\pAlg{\RR}}$.
-Note that $\overline{\pAlg{\RR}} \leftrightarrow \palg{\RR}$ (this is the case for (co)pointed endofunctor and (co)monad algebras over any (co)monad).
+Note that $\overline{\pAlg{\RR}} \leftrightarrow \palg{\RR}$ (this is the case for pointed endofunctor and monad algebras over any monad).
 It follows that $\pAlg{\RR} \leftrightarrow \palg{\RR}$.
 
 With this, the functorial Frobenius condition for $(\LL, \RR)$ can be stated equivalently as the existence of a lift of the form
@@ -2041,7 +2039,7 @@ by \cref{generalized-uniform-frob-nicer}, which is  equivalent to the generalize
 We conclude the section with a result needed in \cref{sec:alg-frob}.
 
 \begin{proposition} \label{generalized-uniform-frob-product-u}
-Let $u_k \co \cal{I}_k \to \cal{E}^\to$, $w_k \co \cal{K}_k \to \cal{E}^\to$ for $k \in \braces{1\,, 2}$ and $v \co \cal{J} \to \cal{E}^\to$.
+Let $u_t \co \cal{I}_t \to \cal{E}^\to$, $w_t \co \cal{K}_t \to \cal{E}^\to$ for $t \in \braces{1\,, 2}$ and $v \co \cal{J} \to \cal{E}^\to$.
 If $(\cal{I}_1, \cal{J}, \cal{K}_1,)$ and $(\cal{I}_2, \cal{J}, \cal{K}_2)$ satisfy the generalized functorial Frobenius property, then so do
 \[
 (\cal{I}_1 \times_{\cal{E}^\to} \cal{I}_2, \cal{J}, \cal{K}_1 \times_{\cal{E}^\to} \cal{K}_2)
@@ -2055,14 +2053,14 @@ This follows easily from \cref{generalized-uniform-frob-functorial} using the un
 \end{proof}
 
 This concludes our work on orthogonality functors and the functorial Frobenius condition in general.
-In \cref{sec:alg-fib} and \cref{sec:alg-frob}, we develop the algebraic counterpart of the material in \cref{sec:fib} and \cref{sec:frob}.
+In \cref{sec:alg-fib,sec:alg-frob}, we develop the algebraic counterpart of the material in \cref{sec:fib,sec:frob}.
 
 \section{Uniform fibrations}
 \label{sec:alg-fib}
 
-This section is devoted to introducing the notion of a uniform fibration, which is the algebraic counterpart of the notion of a fibration introduced in~\cref{thm:fib} and establishing some basic results about it.
+This section is devoted to introducing the notion of a uniform fibration, which is the algebraic counterpart of the notion of a fibration introduced in~\cref{thm:fib}, and establishing some basic results about it.
 For this, we first introduce suitable awfs's, in complete analogy with the way we defined suitable wfs's in~\cref{thm:suitable-wfs}.
-We will use the notation $(\CC, \TF)$ to denote a suitable awfs, and let
+We will use the notation $(\CC, \TF)$ to denote a suitable awfs and let
 \begin{equation}
 \label{equ:Mapmap}
 \begin{aligned}
@@ -2073,7 +2071,7 @@ We will use the notation $(\CC, \TF)$ to denote a suitable awfs, and let
 \end{equation}
 We then refer to objects in $\Cof$ as \emph{uniform cofibrations} and objects in $\TrivFib$ as \emph{uniform trivial fibrations}.
 Again, we hope that this helps to convey some of the basic intuition motivating our development. In~\eqref{equ:Mapmap}, 
-The dichotomy between copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
+the dichotomy between copointed endofunctor coalgebras on one hand and monad algebras (in contrast to pointed endofunctor algebras) on the other is motivated by our technical development.
 However, we will only consider cofibrantly generated awfs $(\LL, \RR)$, for which there are always functors back and forth between $\pAlg{\RR}$ and $\palg{\RR}$.
 
 \begin{definition} \label{thm:suitable-awfs}
@@ -2083,7 +2081,7 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
 \item The functor $\bot \co \cal{E} \to \cal{E}^\to$ mapping $X \in \cal{E}$ to $\bot_X \co 0_{\cal{E}} \to X$ factors through $\Cof$, as in the diagram
 \[
 \xymatrix@C+3em{
-\catE \ar[r]^{\tilde{\bot}} \ar@/_1pc/[dr]_{\bot} & \Cof \ar[d] \\
+\catE \ar[r]^{\widetilde{\bot}} \ar@/_1pc/[dr]_{\bot} & \Cof \ar[d] \\
   & \catE^\to \rlap{.} }
 \]
 \item $\Cof$ is closed under pullback, in the sense that the pullback functor $P$ of \cref{sec:frobc} lifts as follows:
@@ -2102,7 +2100,7 @@ An awfs $(\CC, \TF)$ is said to be \emph{suitable} if the following conditions h
   \catE^\to
 \rlap{.}}
 \]
-\item $\Cof$ is closed under Leibniz product with endpoint inclusions, in the sense that the Leibniz product functor lifts as follows:
+\item $\Cof$ is closed under Leibniz product with endpoint inclusions, in the sense that the Leibniz product functor lifts as follows for $k \in \braces{0\,,1}$:
 \[
 \xymatrix@C+3em{
   \Cof
@@ -2129,14 +2127,13 @@ Note that, by \cref{generalized-uniform-frob-nicer}, condition~(S3) is equivalen
 As we will see in~\cref{sec:fib-psh}, the categories $\SSet$ and $\CSet$ admit suitable awfs's $(\CC, \TF)$ that are algebraically-free on the categories $\cal{M}$ of all monomorphisms and pullback squares, \ie such that $\TrivFib = \liftr{\cal{M}}$.
 The right maps of these awfs's are a natural algebraic counterpart of trivial Kan fibrations and so we call them \emph{uniform trivial Kan fibrations}.
 Similarly, we will see in~\cref{justify-sset-cset-examples} that the category $\CSet$ also admits a suitable awfs $(\CC', \TF')$ algebraically-free on the category $\cal{M}'$ of monomorphisms classified by the face lattice $\Phi$ of~\cite{cohen-et-al:cubicaltt} and pullback squares (see \cref{nonalgebraic-cof}).
-
 \end{example}
 
 Let us now fix a suitable awfs $(\CC, \TF)$ cofibrantly generated by a small category of maps $u \co \cal{I} \to \cal{E}^\to$.
 We refer to the objects of $\cal{I}$ as \emph{generating uniform cofibrations}.
 For $k \in \braces{0\,, 1}$, we  define a functor $\kcyl \hatotimes u \co \cal{I} \to \catE^\to$ by letting
 \[
-(\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i  \ \, , 
+(\kcyl \hatotimes u)_i \defeq \kcyl \hatotimes u_i \, , 
 \]
 where $\kcyl \hatotimes u_i$ is the Leibniz product of $\kcyl$ and $u_i \co A_i \to B_i$, as in~\eqref{equ:leib-prod}.
 Now let $\cal{I}_\otimes \defeq \cal{I} + \cal{I}$ and define $u_\otimes \co \cal{I}_\otimes \to \catE^\to$ via the coproduct diagram
@@ -2831,7 +2828,7 @@ But this follows from coherence of lifts in the following morphism of lifting pr
   Y'
 \rlap{.}}
 \]
-Here, the left and right faces form morphisms in $\TrivCof$ (using condition~(S2) of \cref{thm:suitable-awfs} and \cref{kcyl-of-cof-is-trivcof}) and $\Fib$, respectively, making the lifts cohere as needed.
+Here, the left and right faces form morphisms in $\TrivCof$ (using condition~(S2) of \cref{thm:suitable-awfs,kcyl-of-cof-is-trivcof}) and $\Fib$, respectively, making the lifts cohere as needed.
 \end{proof}
 
 \begin{theorem} \label{uniform-fibrations-uniform-frobenius}
@@ -2892,7 +2889,7 @@ If $(s, t) \co p \to q$ forms a pullback square, then $\widetilde{\psi}$ is a na
 \end{corollary}
 
 \begin{proof}
-The claim follows from \cref{uniform-fibrations-uniform-frobenius} using \cref{thm:frobenius-comparison} and \cref{lift-pushforward}.
+The claim follows from \cref{uniform-fibrations-uniform-frobenius} using \cref{thm:frobenius-comparison,lift-pushforward}.
 \end{proof}
 
 \begin{example}
@@ -2980,7 +2977,7 @@ In order to see why this is the case, first note that in these examples every su
 Since subobjects of representables are finitely presentable, the values of the inclusion $u \co \cal{I} \to \cal{E}^\to$ are finitely presentable objects of $\cal{E}^\to$.
 An inspection of the proof of \cite[Theorem~4.4]{garner:small-object-argument} shows that this suffices to construct the algebraically-free awfs $(\CC, \TF)$ on $u \co \cal{I} \to \cal{E}^\to$, and in fact the sequence constructing the appropriate free monad converges after $\omega$ steps.
 Next, note that also \cref{thm:sset-cset-nwfs} can be proved constructively for $\SSet$ and $\CSet$, via a reasoning that is analogous to the one above, observing that also the values of $u_\otimes \co \cal{I}_\otimes \to \cal{E}^\to$ are finitely presentable by the assumption of the functorial cylinder and the fact that finitely presentable objects are closed under pushout.
-Finally, the general proofs of \cref{uniform-fibrations-uniform-frobenius} and \cref{uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for $(\TC, \FF)$ and its pushforward analogue, are constructive.
+Finally, the general proofs of \cref{uniform-fibrations-uniform-frobenius,uniform-fibrations-frobenius-pushforward}, establishing the functorial Frobenius condition for $(\TC, \FF)$ and its pushforward analogue, are constructive.
 
 We have therefore obtained a constructive proof that pushforward along a uniform Kan fibration preserves uniform Kan fibrations in $\SSet$ and $\CSet$.
 For $\SSet$, this result is a constructive counterpart of the fact that pushforward along a Kan fibration preserves Kan fibrations, which cannot be proved constructively without changes to the definition of Kan fibration~\cite{coquand-non-constructivity-kan}.
@@ -3172,7 +3169,7 @@ Giving the structure of a uniform trivial fibration on a map $f \co X \to Y$ is 
 Let $\cal{I}$ be the full subcategory of $\cal{M}$ spanned by maps with a representable presheaf as codomain
 and recall from the proof of \cref{rem-lift-suitable} that we have $\liftr{\cal{M}} = \liftr{\cal{I}}$.
 Let $u \co \cal{I} \to \cal{E}^\to$ denote the inclusion.
-Following the first step of Garner's algebraic small object argument, a lift of a map $f \co X \to Y$ to an element of $\liftr{\cal{I}}$ is given by a diagonal filler in the canonical square $(\Lan_u u)(f) \to f$.
+Following the first step of Garner's small object argument, a lift of a map $f \co X \to Y$ to an element of $\liftr{\cal{I}}$ is given by a diagonal filler in the canonical square $(\Lan_u u)(f) \to f$.
 Unfolding the left Kan extension, we have
 \begin{align*}
 (\Lan_u u)(f)
@@ -3209,7 +3206,7 @@ Part (ii) follows from part (i) and \cref{prod-exp-general}.
 
 \begin{remark} \label{why-uniform}
 Since \cref{unif-vs-non-unif} is proved constructively, it is natural to wonder whether it is possible to develop constructively our theory in the non-algebraic setting, at least for $\SSet$ or~$\CSet$.
-The key obstacle to this is that, while the special case of the algebraic result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object}, its non-algebraic counterpart does not seem to provable be constructively, even in the case when $\cal{M}$ consists of all monomorphisms (\cf \cref{thm:generation-presheaf-cisinski} and \cref{rem:colimit-decomp}).
+The key obstacle to this is that, while the special case of the algebraic result in \cref{rem-lift-suitable} admits a constructive proof in $\SSet$ and $\CSet$, as we explained in~\cref{rem:constructive-small-object}, its non-algebraic counterpart does not seem to provable be constructively, even in the case when $\cal{M}$ consists of all monomorphisms (\cf \cref{thm:generation-presheaf-cisinski,rem:colimit-decomp}).
 And such a result is essential for the development since it provides the suitable  wfs on which the definition of a fibrations is based.
 \end{remark}
 
